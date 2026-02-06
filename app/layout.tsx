@@ -24,11 +24,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="min-h-screen bg-white text-gray-900">
+        <header className="border-b">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+            <a href="/" className="text-lg font-semibold tracking-tight">
+              IDHub
+            </a>
+
+            <nav className="flex gap-6 text-sm font-medium text-gray-700">
+              <a href="/blog" className="hover:text-gray-900">Blog</a>
+              <a href="/cases" className="hover:text-gray-900">Cases</a>
+              <a href="/mechid" className="hover:text-gray-900">MechID</a>
+              <a href="/about" className="hover:text-gray-900">About</a>
+            </nav>
+          </div>
+        </header>
+
+        <div className="mx-auto max-w-5xl px-6">
+          {children}
+        </div>
       </body>
+
     </html>
   );
 }
