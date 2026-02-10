@@ -35,6 +35,7 @@ export default function RootLayout({
               <a href="/blog" className="hover:text-gray-900">Blog</a>
               <a href="/cases" className="hover:text-gray-900">Cases</a>
               <a href="/mechid" className="hover:text-gray-900">MechID</a>
+              <a href="/tools/immunoid" className="hover:text-gray-900">ImmunoID</a>
               <a href="/about" className="hover:text-gray-900">About</a>
             </nav>
           </div>
