@@ -1,0 +1,145 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever, urinary symptoms, and a heart murmur
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    An 81-year-old man from Mississippi with alcohol use disorder, hypertension,
+    and benign prostatic hyperplasia presents with fever and malaise.
+    He reports mild urinary urgency and generalized malaise for the past 10 days.
+    He denies focal pain, cough, abdominal symptoms, or neurologic complaints.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Three months ago, he traveled to Arizona, staying near a farm.He lives with a dog 
+    and recently adopted two kittens from a local pet store and has had multiple skin 
+    excoriations. He also underwent a molar extraction 1 month ago. He denies any known 
+    allergies to antibiotics.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Physical examination is notable for temperature of 38.9°C, heart rate 118 bpm, respiratory rate of 20 bpm. 
+    On auscultation there is a II/VI systolic murmur in cardiac apex radiating to the axilla
+    Labs are notable for leukocytosis (15.4 × 10⁹/L) and elevated CRP (138 mg/L). Blood cultures are reported to be growing an organism
+    (Gram stain is shown below). On culture, the organism is catalase negative and produces alpha-hemolytic colonies on blood agar.
+    A transthoracic echocardiogram demonstrates a small mitral valve vegetation.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl rounded-lg border border-gray-600 bg-black p-0.5">
+    <Image
+    src="/cases/case-1/aerococcus.png"
+    alt="Gram stain showing Gram-positive cocci in clusters"
+    width={600}
+    height={100}
+    className="rounded-lg mx-auto"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Obtained from: "https://www.cureus.com/articles/88577-aerococcus-urinae-infective-endocarditis#!/"
+  </figcaption>
+</figure>
+
+
+
+<CaseQuestion
+  pollId="case-aerococcus-q1"
+  title="Question"
+  prompt="Based on the most likely causative organism, which antibiotic regimen would you recommend?"
+  options={[
+    {
+      id: "A",
+      label: "Oral rifampin plus doxycycline",
+      feedback:
+        "Incorrect. Rifampin and doxycycline are not standard therapy for Aerococcus urinae. Oral therapy is inadequate for bloodstream infection or endocarditis.",
+    },
+    {
+      id: "B",
+      label: "Intravenous vancomycin monotherapy",
+      feedback:
+        "Incorrect. Although vancomycin has Gram-positive activity, Aerococcus urinae is typically highly susceptible to penicillin. Vancomycin is generally reserved for patients with severe beta-lactam allergy.",
+    },
+    {
+      id: "C",
+      label: "Intravenous ceftriaxone",
+      feedback:
+        "Incorrect. While ceftriaxone may have activity against some streptococci, data supporting its use for Aerococcus urinae endocarditis are limited. Penicillin-based therapy is preferred.",
+    },
+    {
+      id: "D",
+      label: "High-dose intravenous penicillin plus a 7–14 day course of gentamicin",
+      correct: true,
+      feedback:
+        "Correct. Aerococcus urinae is typically highly susceptible to penicillin. In cases of endocarditis, adding gentamicin for 1–2 weeks provides synergistic bactericidal activity.",
+    },
+    {
+      id: "E",
+      label: "Hydroxychloroquine plus doxycycline",
+      feedback:
+        "Incorrect. This regimen is used for chronic Q fever endocarditis caused by Coxiella burnetii and has no activity against Aerococcus urinae.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Aerococcus urinae is a Gram-positive, catalase-negative coccus that was first
+    described in the 1990s as a causative organism of urinary tract infections (1).
+    Although the organism is considered to be of low pathogenicity and may not always need to
+    be treated, there are descriptions of severe, sometimes fatal infections,
+    such as endocarditis, often in the presence of urinary tract infections or
+    symptoms typical of this infection. 
+  </p>
+    
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Isolates of A. urinae may easily be mistaken for
+    staphylococci on Gram stain, because they appear as Gram-positive cocci
+    arranged in tetrads or clusters. Colonies on blood agar may be mistaken for
+    streptococci, because these show alpha hemolysis and are catalase negative,
+    resembling viridans streptococci and some enterococci. Primary identification
+    is based upon Gram stain of alpha-hemolytic colonies that are catalase
+    negative. Aerococcus species appear as Gram-positive cocci in clusters, which
+    differentiates them from streptococci and enterococci. 
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">  
+    Differentiation between A. urinae and Aerococcus viridans can be done by testing for pyrrolidinyl
+    aminopeptidase (PYR), which is positive only for A. viridans, and leucine
+    aminopeptidase (LAP), which is positive only for A. urinae. Automated systems
+    such as Vitek are reliable for phenotypic identification, and 16S rRNA PCR may
+    be used for genotypic confirmation. In some cases, blood cultures remain
+    negative, in which case 16S rRNA PCR performed directly on blood culture may
+    reveal A. urinae (PMID: 20660216).
+  </p>
+</div>
+
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+(1) Rasmussen M. *Aerococcus urinae: an increasingly acknowledged human pathogen.* Clinical Microbiology 
+and Infection. **PMID: 20660216**
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

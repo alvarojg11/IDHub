@@ -18,9 +18,23 @@ export default async function BlogPage() {
   return (
     <main className="py-16">
       <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
-      <p className="mt-4 text-gray-700">
-        Posts from Substack (shown here for convenience).
+      <p className="mt-4 text-gray-700 mb-6 text-justify">
+        This blog grew out of a simple realization: we all carry ideas, doubts, 
+        and clinical questions that rarely make it to paper. Here, I try to slow 
+        down and write through the nuances of infectious diseases—diagnostics, 
+        antimicrobials, and the everyday clinical decisions shaped by evidence, 
+        experience, and interpretation rather than certainty.
+        Posts from Substack (ID)as & Op(ID)nions.
       </p>
+
+      <a
+        href="https://alvaroayala1.substack.com/"
+        target="_blank"
+        rel="noreferrer"
+        className="inline-block rounded-md border px-4 py-2 text-sm font-medium hover:bg-gray-50"
+        >
+          Subscribe on Substack
+      </a>
 
       <ul className="mt-10 space-y-6">
         {items.map((item, idx) => (

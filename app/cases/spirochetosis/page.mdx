@@ -1,0 +1,257 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Bloody Diarrhea without a Clear Cause
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 36-year-old man with relapsing-remitting multiple sclerosis and psoriasis presents with
+    intermittent constipation alternating with diarrhea and rectal bleeding for 10 days.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two months prior to presentation, he was treated with a 14-day course of
+    amoxicillin–clavulanate for presumed bacterial sinusitis. He denies sick contacts,
+    consumption of undercooked food, or known inflammatory bowel disease.
+  </p>  
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was born in Guatemala and currently lives in the United States. He reports recent travel
+    to Puerto Rico within the past three months. He is sexually active with both men and women
+    and takes daily HIV pre-exposure prophylaxis with tenofovir alafenamide/emtricitabine (TAF/FTC).
+    He has no history of HIV infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On presentation, he is afebrile with a heart rate of 102 beats per minute and a blood pressure
+    of 124/67 mm Hg. Rectal examination does not reveal gross blood. Stool testing for common
+    bacterial pathogens, <em>Clostridioides difficile</em> toxin/antigen, and fecal inflammatory
+    markers is unrevealing. HIV testing is negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Because symptoms persist, a colonoscopy is performed. The colonic mucosa appears grossly
+    normal throughout. Random biopsies are obtained to evaluate for microscopic colitis.
+    Histopathology reveals a basophilic “blue fringe” along the surface epithelium on hematoxylin
+    and eosin staining, and a Warthin–Starry silver stain highlights spirochetes lining the
+    colonic surface.
+  </p>
+</div>
+
+<figure className="my-12">
+  <a
+    href="https://www.sciencedirect.com/science/article/pii/S2949918625001536"
+    target="_blank"
+    rel="noreferrer"
+    className="block"
+  >
+    <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      {/* H&E stain */}
+      <div className="rounded-lg border border-gray-300 bg-white p-1">
+        <Image
+          src="/cases/spirochetosis/spirochetosis.jpg"
+          alt="H&E stain showing basophilic fringe of spirochetes along the colonic epithelium"
+          width={600}
+          height={400}
+          className="rounded-lg mx-auto"
+        />
+      </div>
+
+      {/* Warthin–Starry stain */}
+      <div className="rounded-lg border border-gray-300 bg-white p-1">
+        <Image
+          src="/cases/spirochetosis/spirochetosis_w.jpg"
+          alt="Silver stain highlighting spirochetes lining the colonic surface"
+          width={300}
+          height={100}
+          className="rounded-lg mx-auto"
+        />
+      </div>
+
+    </div>
+  </a>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    H&E stain (left) demonstrates a basophilic “blue fringe” of spirochetes along the colonic epithelium.
+    Silver stain (right) highlights spirochetes lining the mucosal surface.{" "}
+    <a
+      href="https://www.sciencedirect.com/science/article/pii/S2949918625001536"
+      target="_blank"
+      rel="noreferrer"
+      className="underline hover:text-gray-800"
+    >
+      Source: https://www.sciencedirect.com/science/article/pii/S2949918625001536
+    </a>
+  </figcaption>
+</figure>
+
+
+<CaseQuestion
+  pollId="case-intestinal-spirochetosis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Microscopic colitis",
+      feedback:
+        "Incorrect. Microscopic colitis typically shows lymphocytic or collagenous changes on biopsy, not a surface fringe of organisms highlighted by silver stain.",
+    },
+    {
+      id: "B",
+      label: "CMV colitis",
+      feedback:
+        "Incorrect. CMV colitis usually occurs in advanced immunosuppression and shows large cells with viral inclusions on biopsy, often with ulceration endoscopically.",
+    },
+    {
+      id: "C",
+      label: "Intestinal spirochetosis (Brachyspira spp.)",
+      correct: true,
+      feedback:
+        "Correct. Intestinal spirochetosis is caused by Brachyspira species colonizing the colonic epithelium, producing a characteristic surface “blue fringe” on H&E and positive silver stain (e.g., Warthin–Starry).",
+    },
+    {
+      id: "D",
+      label: "Giardiasis",
+      feedback:
+        "Incorrect. Giardia is typically detected on stool antigen/PCR or small bowel biopsy and causes malabsorptive diarrhea; it does not produce a colonic epithelial fringe on biopsy.",
+    },
+    {
+      id: "E",
+      label: "Amoebic colitis (Entamoeba histolytica)",
+      feedback:
+        "Incorrect. Amoebic colitis typically presents with dysentery and flask-shaped ulcers; biopsy may show trophozoites, not a superficial band of spirochetes.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Intestinal spirochetosis is defined by colonization of the colonic epithelium by
+    <em>Brachyspira</em> species (classically <em>B. aalborgi</em> and <em>B. pilosicoli</em>).
+    Patients may be asymptomatic or present with nonspecific gastrointestinal symptoms such as
+    diarrhea, abdominal pain, bloating, and occasionally rectal bleeding. It is described more
+    frequently in immunocompromised individuals, but it can also occur in immunocompetent patients.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The key diagnostic challenge is that colonoscopy often looks normal or shows only subtle,
+    nonspecific mucosal changes. Diagnosis relies on biopsy: the organisms form a dense band on
+    the epithelial surface, creating the classic basophilic “blue fringe” on H&E. Silver stains
+    (e.g., Warthin–Starry) or immunostaining for spirochetes highlight the organisms and confirm
+    the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is most commonly metronidazole, with macrolides as alternatives. Symptomatic response
+    can be excellent, but relapse has been reported—sometimes months after treatment—so clinical
+    follow-up is important, and repeat evaluation may be needed if symptoms recur.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-intestinal-spirochetosis-q2"
+  title="Question 2"
+  prompt="Which treatment is most commonly recommended for symptomatic intestinal spirochetosis?"
+  options={[
+    {
+      id: "A",
+      label: "Oral budesonide",
+      feedback:
+        "Incorrect. Budesonide is used for inflammatory conditions such as microscopic colitis. It would not treat Brachyspira colonization and could delay appropriate therapy.",
+    },
+    {
+      id: "B",
+      label: "Valganciclovir",
+      feedback:
+        "Incorrect. Valganciclovir is used for CMV disease and has no activity against Brachyspira.",
+    },
+    {
+      id: "C",
+      label: "Metronidazole",
+      correct: true,
+      feedback:
+        "Correct. Metronidazole is the most commonly recommended therapy for symptomatic intestinal spirochetosis. Macrolides are acceptable alternatives, and relapse can occur—so follow-up is important if symptoms recur.",
+    },
+    {
+      id: "D",
+      label: "Oral vancomycin",
+      feedback:
+        "Incorrect. Oral vancomycin is used for C. difficile infection and does not reliably treat intestinal spirochetosis.",
+    },
+    {
+      id: "E",
+      label: "Clarithromycin",
+      feedback:
+        "Incorrect. Macrolides such as clarithromycin can be effective alternatives, but metronidazole remains the most commonly recommended first-line therapy.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Intestinal spirochetosis is often an incidental histologic diagnosis; symptoms, when present,
+      can mimic IBS.
+    </li>
+    <li>
+      Colonoscopy may be grossly normal—biopsy is required, and pathologists must consider special stains.
+    </li>
+    <li>
+      Classic pathology: basophilic “blue fringe” on H&E; organisms highlighted by Warthin–Starry or spirochete immunostain.
+    </li>
+    <li>
+      Metronidazole is commonly effective, but relapse can occur; symptom recurrence should prompt reassessment.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Bipneet Singh, Jack Visser, Sakshi Bai, Jahnavi Ethakota, Palak Grover, Gurleen Kaur, Syed-Mohammed Jafri,
+    Intestinal spirochetosis,
+    Medical Reports,
+    Volume 13,
+    2025,
+    100308,
+    ISSN 2949-9186,
+    https://doi.org/10.1016/j.hmedic.2025.100308.
+    (https://www.sciencedirect.com/science/article/pii/S2949918625001536)
+   </p> 
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

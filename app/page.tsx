@@ -6,7 +6,7 @@ export default function Home() {
           IDHub
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-gray-700">
-          An educational hub for infectious diseases, combining clinical cases,
+          An educational hub for Infectious Diseases, combining clinical cases,
           concise explanations, and interactive tools for everyday practice.
         </p>
       </header>
@@ -18,8 +18,9 @@ export default function Home() {
         >
           <h2 className="text-xl font-semibold text-gray-900">Blog</h2>
           <p className="mt-2 text-gray-600">
-            Short, practical posts on diagnostics, antimicrobial therapy, and
-            clinical reasoning in infectious diseases.
+            Reflections on diagnostics, antimicrobial therapy, and clinical 
+            reasoning in infectious diseases, shaped by training, bedside conversations, and 
+            the recognition that even strong evidence leaves room for nuance.
           </p>
         </a>
 
@@ -29,8 +30,9 @@ export default function Home() {
         >
           <h2 className="text-xl font-semibold text-gray-900">Cases</h2>
           <p className="mt-2 text-gray-600">
-            Case-based learning designed to mirror real-world ID decision making,
-            from first labs to final management.
+            Clinical cases for ongoing learning in infectious diseases, using 
+            problem solving to revisit syndromes, pathogens, and treatment 
+            decisions.
           </p>
         </a>
 

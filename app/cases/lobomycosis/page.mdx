@@ -1,0 +1,170 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Amazon Adventure
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 39-year-old man returned from a 9-month sabbatical traveling along the Amazon River
+    in Colombia near the borders of Peru and Brazil. During his stay, he participated in
+    indigenous ceremonies, sustained minor lacerations while cutting trees, and was scratched
+    by monkeys. He reports multiple insect bites (mosquitoes and possibly sand flies), and a
+    single episode of unprotected sexual activity. He also observed wildlife including pink
+    dolphins, monkeys, and birds.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two months after returning, he presents with a slowly enlarging, firm, keloid-like lesion
+    on his lower leg. There is no pain, systemic symptoms, lymphadenopathy, or mucosal
+    involvement.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A skin biopsy is performed. Grocott methenamine silver (GMS) staining reveals oval yeast-like
+    structures with birefringent membranes, arranged both isolated and in chains resembling
+    “Rosario beads.”
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl rounded-lg border border-gray-600 bg-black p-0.5">
+    <Image
+    src="/cases/lobomycosis/lacazia.png"
+    alt="Rosario Beads"
+    width={600}
+    height={100}
+    className="rounded-lg mx-auto"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Obtained from: "https://www.dovepress.com/lobomycosis-epidemiology-clinical-presentation-and-management-options-peer-reviewed-fulltext-article-TCRM"
+  </figcaption>
+</figure>
+
+
+<CaseQuestion
+  pollId="case-lobomycosis-q1"
+  title="Question"
+  prompt="Which of the following is the most likely causative organism?"
+  options={[
+    {
+      id: "A",
+      label: "Paracoccidioides brasiliensis",
+      feedback:
+        "Incorrect. Paracoccidioidomycosis is typically acquired via inhalation and often presents with pulmonary disease and mucocutaneous involvement. Histology classically shows multiple budding yeast in a “pilot wheel” pattern, not chain-like “Rosario beads.”",
+    },
+    {
+      id: "B",
+      label: "Lacazia loboi",
+      correct: true,
+      feedback:
+        "Correct. The combination of Amazon exposure, traumatic inoculation, a painless keloid-like lesion, and yeast-like organisms arranged in chains resembling “Rosario beads” is classic for lobomycosis caused by Lacazia loboi.",
+    },
+    {
+      id: "C",
+      label: "Leishmania (Viannia) braziliensis",
+      feedback:
+        "Incorrect. Cutaneous leishmaniasis typically causes ulcerative lesions with raised borders. Histology shows intracellular amastigotes within macrophages—not extracellular yeast forms or chain-like structures.",
+    },
+    {
+      id: "D",
+      label: "Sporothrix schenckii",
+      feedback:
+        "Incorrect. Sporotrichosis usually presents with nodular lymphangitis (“sporotrichoid spread”) and histology may show cigar-shaped yeasts. The “Rosario beads” pattern is not typical.",
+    },
+    {
+      id: "E",
+      label: "Mycobacterium leprae",
+      feedback:
+        "Incorrect. Hansen disease classically causes neuropathy, anesthetic skin lesions, and may show acid-fast bacilli on Fite stain. This presentation and the GMS findings do not fit.",
+    },
+    {
+      id: "F",
+      label: "Cryptococcus neoformans",
+      feedback:
+        "Incorrect. Cryptococcus is usually an opportunistic infection; cutaneous lesions are often part of disseminated disease. Histology shows round yeast with a thick capsule, not bead-like chains.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Lobomycosis (also called Lobo’s disease or keloidal blastomycosis) is a chronic fungal
+    infection of the skin and subcutaneous tissue most commonly described in the Amazon
+    regions of Colombia, Brazil, and Peru, and in dolphins. Infection typically follows
+    traumatic inoculation, and lesions are characteristically slow-growing, firm, painless,
+    and keloid-like.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The causative organism is <em>Lacazia loboi</em> (a name proposed to replace older designations).
+    The organism has not been isolated in culture, but sequencing data place it close to
+    <em>Paracoccidioides</em>. Histopathology is the key diagnostic feature: thick-walled yeast-like
+    cells that appear isolated or in chains connected by narrow bridges, producing the
+    characteristic “Rosario beads” appearance on silver stains such as GMS.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is primarily wide surgical excision when feasible; relapse can occur and
+    reinoculation has been described when instruments are contaminated. There is no reliably
+    effective medical therapy, although itraconazole may have partial activity and is sometimes
+    used as adjunctive therapy to reduce recurrence risk.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Painless, keloid-like lesions after Amazon exposure and skin trauma should prompt
+      consideration of lobomycosis.
+    </li>
+    <li>
+      The “Rosario beads” pattern on GMS (chains of thick-walled yeast-like cells) is a key
+      histopathologic clue.
+    </li>
+    <li>
+      <em>Lacazia loboi</em> has not been cultured; diagnosis is typically histopathologic.
+    </li>
+    <li>
+      Preferred management is surgical excision; medical therapy is inconsistently effective.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    (1) Review of lobomycosis / <em>Lacazia loboi</em>. **PMID: 25328400**
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

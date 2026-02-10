@@ -18,10 +18,7 @@ export default function MechIDPage() {
         >
           Launch MechID
         </a>
-        <p className="mt-3 text-sm text-gray-500">
-          Tip: later we can host this at <span className="font-mono">app.idhub…</span> and
-          optionally embed it here.
-        </p>
+
       </div>
     </main>
   );

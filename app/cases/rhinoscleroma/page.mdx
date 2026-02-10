@@ -1,0 +1,221 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Nose Lesion that Wouldn’t Heal
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 42-year-old man presents with several years of progressive nasal obstruction,
+    nasal discharge, and intermittent epistaxis. Over the past 6 months, he has
+    noticed worsening facial swelling and distortion of the nasal bridge, associated
+    with a muffled voice and difficulty breathing through his nose. He denies fever,
+    weight loss, night sweats, or cough.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was born and raised in rural Thailand and immigrated to the United States
+    approximately 10 years ago. He reports living in crowded housing during childhood
+    and early adulthood and has limited access to medical care. Most recently he has vacationed
+    in South America (Peru and Brazil) about 6 months prior. He denies tobacco or
+    illicit drug use. He denies any history of autoimmune disease or immunosuppression.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Physical examination reveals firm, nodular thickening of the nasal mucosa with
+    partial obstruction of both nares. The nasal bridge appears broadened and
+    indurated. There is no cervical lymphadenopathy. Oral examination shows extension
+    of nodular tissue into the nasopharynx. Lung and cardiac examinations are normal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Computed tomography of the face demonstrates soft tissue masses involving the
+    nasal cavity and nasopharynx with focal erosion of adjacent bone, without abscess
+    formation. A biopsy of the nasal lesion is performed and shown below. Histopathology reveals
+    granulomatous inflammation with numerous foamy macrophages containing intracellular
+    Gram-negative bacilli (Mikulicz cells).
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    {/* Gram stain */}
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/krhino/krhinogram.png"
+        alt="Gram-negative bacilli within the cytoplasm of Mikulicz cells"
+        width={600}
+        height={400}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+
+    {/* Special stain (e.g., GMS or H&E) */}
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/krhino/krhinosteiner.png"
+        alt="Steiner staining highlights the bacilli within the cytoplasm of the Mikulicz cells"
+        width={600}
+        height={400}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Left: Gram stain showing intracellular Gram-negative bacilli within Mikulicz cells.
+    Right: Steiner staining highlights the bacilli within the cytoplasm of the Mikulicz cells.
+  </figcaption>
+</figure>
+
+
+<CaseQuestion
+  pollId="case-rhinoscleroma-q1"
+  title="Question"
+  prompt="Which of the following is the most likely causative organism?"
+  options={[
+    {
+      id: "A",
+      label: "Mycobacterium tuberculosis",
+      feedback:
+        "Incorrect. Tuberculosis may involve the upper airway but typically presents with systemic symptoms and caseating granulomas. Acid-fast bacilli would be expected on staining rather than intracellular Gram-negative organisms within foamy macrophages.",
+    },
+    {
+      id: "B",
+      label: "Paracoccidioides brasiliensis",
+      feedback:
+        "Incorrect. Paracoccidioidomycosis is usually acquired via inhalation and often presents with pulmonary disease and mucocutaneous lesions. Histopathology shows multiple budding yeast in a characteristic “pilot wheel”.",
+    },
+    {
+      id: "C",
+      label: "Leishmania (Viannia) braziliensis",
+      feedback:
+        "Incorrect. Leishmaniasis typically causes ulcerative cutaneous or mucocutaneous lesions. Histopathology shows intracellular amastigotes within macrophages.",
+    },
+    {
+      id: "D",
+      label: "Talaromyces (Penicillium) marneffei",
+      feedback:
+        "Incorrect. Talaromycosis occurs primarily in immunocompromised patients and causes disseminated disease with systemic symptoms. Histology demonstrates intracellular yeast with transverse septation.",
+    },
+    {
+      id: "E",
+      label: "Klebsiella pneumoniae subspecies rhinoscleromatis",
+      correct: true,
+      feedback:
+        "Correct. Rhinoscleroma is caused by Klebsiella pneumoniae subspecies rhinoscleromatis, a human-restricted pathogen endemic to Central and South America, Africa, and Asia, characterized by chronic granulomatous disease of the upper respiratory tract and Mikulicz cells on biopsy.",
+    },
+    {
+      id: "F",
+      label: "Granulomatosis with polyangiitis",
+      feedback:
+        "Incorrect. GPA can cause destructive nasal lesions, but biopsy would show necrotizing granulomatous inflammation and vasculitis rather than intracellular Gram-negative bacteria.",
+    },
+    {
+      id: "G",
+      label: "Histoplasma capsulatum",
+      feedback:
+        "Incorrect. Histoplasmosis is acquired via inhalation and may disseminate, but histology shows small intracellular yeast without foamy macrophages or Mikulicz cells.",
+    },
+  ]}
+/>
+
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Rhinoscleroma is a chronic granulomatous infection of the upper respiratory tract
+    caused by <em>Klebsiella pneumoniae</em> subspecies <em>rhinoscleromatis</em>. Unlike
+    other members of the <em>Klebsiella</em> genus, this organism is restricted to
+    human hosts and is transmitted through close contact, with disease occurring
+    predominantly in impoverished regions of Central and South America, Africa, and
+    Asia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The disease follows a progressive clinical course, often evolving from an
+    atrophic phase to a granulomatous stage and eventually a fibrotic stage, leading
+    to disfigurement and airway compromise. Because early symptoms are nonspecific,
+    diagnosis is frequently delayed until advanced disease is present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Histopathology is central to diagnosis and classically demonstrates granulomatous
+    inflammation with foamy macrophages—known as Mikulicz cells—containing intracellular
+    Gram-negative bacilli. Although the organism can be cultured on standard laboratory
+    media, biopsy is often required for definitive diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The exact pathogenesis in which Klebsiella spp result in Mikulicz cell formation and 
+    eventual rhinoscleroma is unclear. Klebsiella rhinoscleromatis, like K pneumoniae, 
+    is characterized by a mucopolysaccharide capsule that contributes to inhibition of phagocytosis, 
+    thus facilitating intracellular survival. It has been postulated that cellular immunity is 
+    impaired with a decreased CD4 to CD8 ratio but with humoral immunity remains intact.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management requires prolonged antibiotic therapy, often for several months.
+    Traditional regimens have included streptomycin or tetracycline, while more recent
+    evidence supports the use of trimethoprim-sulfamethoxazole or fluoroquinolones.
+    Surgical débridement may be necessary in advanced cases, though relapse is common.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Rhinoscleroma is a chronic granulomatous infection of the upper respiratory tract
+      caused by <em>K. pneumoniae</em> subspecies <em>rhinoscleromatis</em>.
+    </li>
+    <li>
+      Disease occurs predominantly in endemic regions and among individuals with
+      limited socioeconomic resources.
+    </li>
+    <li>
+      Mikulicz cells—foamy macrophages containing intracellular Gram-negative bacilli—
+      are a key diagnostic clue.
+    </li>
+    <li>
+      Treatment requires prolonged antibiotic therapy, and relapses are common despite
+      appropriate management.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Lenis A, Ruff T, Diaz JA, et al. <em>Rhinoscleroma</em>. South Med J. 1988;81:1580–1582.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
