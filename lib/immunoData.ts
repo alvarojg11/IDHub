@@ -15,7 +15,9 @@ export type RiskTag =
   | "Listeria"
   | "Strongyloides"
   | "Cryptococcus"
-  | "Encapsulated bacteria";
+  | "Encapsulated bacteria"
+  | "EBV/PTLD"
+  | "Fungal (Candida)";
 
 export type ImmunoDrug = {
   id: string; // keep this flexible
@@ -281,7 +283,7 @@ export const DRUGS: ImmunoDrug[] = [
     "Costimulation blocker",
     "CTLA-4 fusion protein → blocks CD80/86–CD28 costimulation → reduced T-cell activation.",
     6,
-    [risk("EBV/PTLD risk (context)", 2, "Context-dependent; ensure appropriate screening/monitoring per protocol.") as any],
+    [risk("EBV/PTLD", 2, "Context-dependent; ensure appropriate screening/monitoring per protocol.") as any],
     ["Risk profile varies by transplant setting and concomitant agents."]
   ) as any,
 
