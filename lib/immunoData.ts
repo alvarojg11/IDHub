@@ -17,7 +17,8 @@ export type RiskTag =
   | "Cryptococcus"
   | "Encapsulated bacteria"
   | "EBV/PTLD"
-  | "Fungal (Candida)";
+  | "Fungal (Candida)"
+  | "JC Virus (PML)";
 
   type RiskEntry = {
   tag: RiskTag;
@@ -108,6 +109,85 @@ const antimetaboliteChemo = (id: string, name: string): ImmunoDrug => ({
   ],
   baseScore: 7,
 });
+
+const vinca = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Cytotoxic chemotherapy (vinca alkaloid)",
+  mechanism:
+    "Microtubule inhibition → mitotic arrest; infection risk primarily via regimen-associated myelosuppression (often combination-dependent).",
+  commonRisks: [
+    risk("Neutropenia-related infections", 2),
+    risk("Bacterial (general)", 2),
+    risk("C. difficile", 1),
+  ],
+  baseScore: 6,
+  notes: ["Standalone vincristine can be less myelosuppressive; risk is higher in multi-agent regimens (e.g., ALL induction)."],
+});
+
+const anthracycline = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Cytotoxic chemotherapy (anthracycline)",
+  mechanism:
+    "Topoisomerase II inhibition + free radical damage → cytotoxicity; infection risk driven by neutropenia/mucositis (regimen-dependent).",
+  commonRisks: [
+    risk("Neutropenia-related infections", 3),
+    risk("Bacterial (general)", 2),
+    risk("Invasive mold (Aspergillus)", 1),
+    risk("C. difficile", 1),
+  ],
+  baseScore: 7,
+});
+
+const purineAnalog = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Antimetabolite (purine analog)",
+  mechanism:
+    "Purine analog → profound lymphocyte suppression (T-cell effects can be prominent) ± marrow suppression; opportunistic risk can be significant.",
+  commonRisks: [
+    risk("PJP", 3),
+    risk("VZV/HSV", 3),
+    risk("CMV", 2),
+    risk("Bacterial (general)", 2),
+    risk("Neutropenia-related infections", 2),
+    risk("Invasive mold (Aspergillus)", 1),
+  ],
+  baseScore: 8,
+  notes: ["Consider PJP/HSV prophylaxis per regimen and local practice; risk increases with steroids/other agents."],
+});
+
+const btkInhibitor = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Targeted therapy (BTK inhibitor)",
+  mechanism:
+    "BTK inhibition impairs B-cell receptor signaling and innate immune functions; infection risk varies with prior therapies and disease setting.",
+  commonRisks: [
+    risk("Bacterial (general)", 2),
+    risk("VZV/HSV", 2),
+    risk("PJP", 1),
+    risk("Invasive mold (Aspergillus)", 2, "Invasive fungal infections (incl. Aspergillus) have been reported, especially with additional immunosuppression."),
+  ],
+  baseScore: 5,
+  notes: ["Risk is highly context-dependent (CLL lines, steroids, neutropenia, prior anti-CD20, etc.)."],
+});
+
+const complementC5 = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Complement inhibitor (C5)",
+  mechanism:
+    "Terminal complement blockade → impaired membrane attack complex → susceptibility to Neisseria and other encapsulated organisms.",
+  commonRisks: [
+    risk("Encapsulated bacteria", 3, "Highest concern is Neisseria (meningococcal disease) and other encapsulated pathogens."),
+    risk("Bacterial (general)", 2),
+  ],
+  baseScore: 6,
+  notes: ["Ensure vaccination + prophylaxis protocols as per product/center guidance (meningococcal coverage is key)."],
+});
+
 
 const transplantAgent = (
   id: string,
@@ -382,6 +462,12 @@ export const DRUGS: ImmunoDrug[] = [
   alkylator("cisplatin", "Cisplatin", "Platinum"),
   alkylator("oxaliplatin", "Oxaliplatin", "Platinum"),
 
+  // --- Cytotoxic chemo classes (ALL/AML regimens) ---
+  vinca("vincristine", "Vincristine"),
+  anthracycline("doxorubicin", "Doxorubicin"),
+  anthracycline("daunorubicin", "Daunorubicin"),
+  anthracycline("idarubicin", "Idarubicin"),
+
   // ---------------------------
   // Antimetabolites (includes oncology + classic immunomodulators)
   // ---------------------------
@@ -573,8 +659,9 @@ export const DRUGS: ImmunoDrug[] = [
     "Biologic (anti-integrin)",
     "Blocks α4 integrin → alters leukocyte trafficking across blood–brain barrier and other tissues.",
     5,
-    [risk("VZV/HSV", 1), risk("Bacterial (general)", 1)],
-    ["Risk profile is highly context-specific (neurology protocols)."]
+    [risk("JC Virus (PML)", 3, "Associated with progressive multifocal leukoencephalopathy (PML); risk modified by JCV serostatus, duration, and prior immunosuppression."),
+    risk("VZV/HSV", 1), risk("Bacterial (general)", 1)],
+    ["Risk profile is highly context-specific (neurology-MS protocols)."]
   ),
   biologic(
     "tofacitinib",
@@ -814,4 +901,121 @@ biologic(
   1,
   [risk("Bacterial (general)", 1)]
 ),
+
+// --- Anti-CD52 / deeper cellular immunosuppression ---
+biologic(
+  "alemtuzumab",
+  "Alemtuzumab (Campath)",
+  "Monoclonal antibody (anti-CD52)",
+  "Profound, prolonged lymphocyte depletion (T and B cells).",
+  9,
+  [
+    risk("CMV", 3, "Reactivation risk can be substantial; monitoring/prophylaxis often used."),
+    risk("PJP", 3),
+    risk("VZV/HSV", 3),
+    risk("Bacterial (general)", 2),
+    risk("Invasive mold (Aspergillus)", 2),
+  ],
+  ["High OI risk; prophylaxis/monitoring is typically protocolized in heme/onc."]
+),
+
+// --- PI3K inhibitors (CLL) ---
+biologic(
+  "idelalisib",
+  "Idelalisib (Zydelig)",
+  "Targeted therapy (PI3Kδ inhibitor)",
+  "Impairs B-cell signaling and immune function; infection risk includes opportunistic pathogens.",
+  7,
+  [risk("PJP", 3), risk("CMV", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2)],
+  ["Often used with PJP prophylaxis and CMV monitoring in some protocols."]
+),
+biologic(
+  "duvelisib",
+  "Duvelisib (Copiktra)",
+  "Targeted therapy (PI3Kδ/γ inhibitor)",
+  "Immune modulation with increased risk of opportunistic infections (regimen/context dependent).",
+  7,
+  [risk("PJP", 3), risk("CMV", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2)],
+),
+
+// --- BCL-2 inhibitor (CLL/AML combos) ---
+biologic(
+  "venetoclax",
+  "Venetoclax (Venclexta)",
+  "Targeted therapy (BCL-2 inhibitor)",
+  "Promotes apoptosis in malignant cells; infection risk is mainly via neutropenia (often in combination regimens).",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1), risk("PJP", 1)],
+  ["Risk increases with combinations (e.g., hypomethylating agents)."]
+),
+
+// --- Fludarabine (classic lymphotoxic purine analog) ---
+purineAnalog("fludarabine", "Fludarabine"),
+
+// --- Ofatumumab (anti-CD20; similar to ritux/obinutuzumab but include for completeness) ---
+biologic(
+  "ofatumumab",
+  "Ofatumumab (Arzerra)",
+  "Monoclonal antibody (anti-CD20)",
+  "B-cell depletion → impaired humoral immunity and vaccine responses.",
+  6,
+  [risk("HBV reactivation", 3), risk("Encapsulated bacteria", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2), risk("PJP", 2)],
+),
+
+// --- AML targeted agents commonly encountered ---
+biologic(
+  "azacitidine",
+  "Azacitidine (Onureg)",
+  "Hypomethylating agent",
+  "Epigenetic therapy; infection risk commonly driven by cytopenias in MDS/AML settings.",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1)],
+),
+biologic(
+  "decitabine",
+  "Decitabine",
+  "Hypomethylating agent",
+  "Epigenetic therapy; infection risk commonly driven by cytopenias (context dependent).",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1)],
+),
+
+antimetaboliteChemo("nelarabine", "Nelarabine (Arranon)"),
+antimetaboliteChemo("clofarabine", "Clofarabine (Clolar)"),
+
+biologic(
+  "pegaspargase",
+  "Pegaspargase (Oncaspar)",
+  "Enzyme therapy (asparaginase)",
+  "Depletes asparagine; infection risk is largely regimen-driven (ALL induction) via neutropenia and steroid co-therapy.",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("C. difficile", 1)],
+  ["OI risk usually reflects steroids + multi-agent chemo rather than asparaginase alone."]
+),
+biologic(
+  "calaspargase",
+  "Calaspargase pegol (Asparlas)",
+  "Enzyme therapy (asparaginase)",
+  "Asparaginase formulation; infection risk mostly regimen-driven (ALL induction).",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("C. difficile", 1)]
+),
+biologic(
+  "erwinia_asparaginase",
+  "Asparaginase Erwinia chrysanthemi (Erwinaze)",
+  "Enzyme therapy (asparaginase)",
+  "Asparaginase formulation; infection risk mostly regimen-driven (ALL induction).",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "rylaze",
+  "Asparaginase Erwinia chrysanthemi (recombinant) (Rylaze)",
+  "Enzyme therapy (asparaginase)",
+  "Recombinant Erwinia asparaginase; infection risk mostly regimen-driven.",
+  6,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2)]
+),
+
+
 ];

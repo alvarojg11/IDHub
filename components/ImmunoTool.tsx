@@ -47,15 +47,18 @@ type Family =
   | "Cell therapies"
   | "Bispecifics / T-cell engagers"
   | "ADCs"
+  | "Oncology targeted small molecules"
   | "Oncology targeted mAbs (low immunosuppression)"
   | "Cytokines / immune stimulants"
   | "Other";
+
 
 const FAMILY_ORDER: Family[] = [
   "Steroids",
   "Transplant immunosuppression",
   "Rheum/IBD biologics & JAK",
   "Conventional chemo",
+  "Oncology targeted small molecules",
   "Checkpoint inhibitors",
   "Cell therapies",
   "Bispecifics / T-cell engagers",
@@ -64,6 +67,7 @@ const FAMILY_ORDER: Family[] = [
   "Cytokines / immune stimulants",
   "Other",
 ];
+
 
 function familyFor(drugClass: string): Family {
   const c = drugClass.toLowerCase();
@@ -84,15 +88,36 @@ function familyFor(drugClass: string): Family {
     return "Cell therapies";
 
   // Bispecific / TCE
-  if (c.includes("bispecific")) return "Bispecifics / T-cell engagers";
-  if (c.includes("t-cell engager")) return "Bispecifics / T-cell engagers";
+  if (c.includes("bispecific") || c.includes("t-cell engager"))
+    return "Bispecifics / T-cell engagers";
 
   // ADCs
   if (c.includes("antibody–drug conjugate") || c.includes("antibody-drug conjugate") || c.includes("adc"))
     return "ADCs";
 
-  // Conventional chemo
-  if (c.includes("alkylating") || c.includes("antimetabolite")) return "Conventional chemo";
+  // Conventional chemo (expand to include your new chemo class labels)
+  if (
+    c.includes("alkylating") ||
+    c.includes("antimetabolite") ||
+    c.includes("cytotoxic chemotherapy") ||  // anthracycline, vinca, etc
+    c.includes("anthracycline") ||
+    c.includes("vinca")
+  ) {
+    return "Conventional chemo";
+  }
+
+  // Targeted small molecules / targeted non-mAb therapies (BTK, PI3K, BCL2, etc)
+  if (
+    c.includes("targeted therapy") ||           // e.g., "Targeted therapy (BTK inhibitor)"
+    c.includes("btk inhibitor") ||
+    c.includes("pi3k") ||
+    c.includes("bcl-2") ||
+    c.includes("tyrosine kinase") ||
+    c.includes("tk inhibitor") ||
+    c.includes("complement inhibitor")          // eculizumab C5 block (not a mAb “pathway” bucket)
+  ) {
+    return "Oncology targeted small molecules";
+  }
 
   // Rheum/IBD biologics & JAK (broad, includes many immunomodulators)
   if (c.includes("tnf blocker") || c.includes("jak inhibitor")) return "Rheum/IBD biologics & JAK";
@@ -102,22 +127,20 @@ function familyFor(drugClass: string): Family {
   if (c.includes("immune-stimulating") || c.includes("cytokine")) return "Cytokines / immune stimulants";
 
   // Oncology targeted mAbs that are typically not “immunosuppressive”
-  // (VEGF/EGFR/HER2 etc often end up in generic “Monoclonal antibody … pathway” classes)
   if (
     c.includes("vegf") ||
     c.includes("angiogenesis") ||
     c.includes("egfr") ||
     c.includes("her2") ||
-    c.includes("targeted") ||
     c.includes("monoclonal antibody") ||
     c.includes("fusion protein")
   ) {
-    // Many of these are not dominant immunosuppressants; keep them together.
     return "Oncology targeted mAbs (low immunosuppression)";
   }
 
   return "Other";
 }
+
 
 function normalize(s: string) {
   return s.trim().toLowerCase();

@@ -1,0 +1,198 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  When molluscum is not molluscum
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 36-year-old man presents with four weeks of fever, progressive weight loss,
+    fatigue, and multiple painless skin lesions. He recently returned to the United
+    States after spending several years working in northern Thailand. He reports
+    chronic cough, intermittent diarrhea, and profound weakness.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was diagnosed with HIV infection six months earlier but has not yet started
+    antiretroviral therapy. He denies recent travel outside Southeast Asia and has
+    no known tuberculosis contacts. He recalls frequent exposure to soil during the
+    rainy season while working in rural areas.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he appears cachectic and febrile. Numerous umbilicated papules
+    and nodules are scattered across the face, trunk, and upper extremities,
+    resembling molluscum contagiosum. Generalized lymphadenopathy and mild
+    hepatosplenomegaly are present. Laboratory studies reveal anemia, leukocytosis,
+    and a CD4 count of 38 cells/μL.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blood cultures are pending. A biopsy of a skin lesion demonstrates intracellular
+    yeast-like organisms within macrophages.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <div className="inline-block rounded-lg border border-gray-300 bg-transparent p-1">
+    <Image
+      src="/cases/talaromyces/talaromyces.png"
+      alt="Talaromyces marneffei yeast forms with transverse septa"
+      width={300}
+      height={300}
+      className="rounded-lg"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Yeast forms demonstrating characteristic transverse septa (GMS stain).
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-talaromyces-q1"
+  title="Question"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Disseminated histoplasmosis",
+      feedback:
+        "Incorrect. Histoplasmosis can present similarly but does not form yeast with a transverse septum. Geographic exposure here is also strongly suggestive of another pathogen.",
+    },
+    {
+      id: "B",
+      label: "Disseminated cryptococcosis",
+      feedback:
+        "Incorrect. Cryptococcus typically shows encapsulated yeast without transverse septa and often presents with meningitis.",
+    },
+    {
+      id: "C",
+      label: "Kaposi sarcoma",
+      feedback:
+        "Incorrect. Kaposi lesions are violaceous plaques or nodules and are not associated with intracellular yeast forms on biopsy.",
+    },
+    {
+      id: "D",
+      label: "Penicillium species colonization",
+      feedback:
+        "Incorrect. Talaromyces marneffei (formerly Penicillium marneffei) is pathogenic and causes systemic disease, unlike most other Penicillium species.",
+    },
+    {
+      id: "E",
+      label: "Talaromycosis (Talaromyces marneffei infection)",
+      correct: true,
+      feedback:
+        "Correct. Talaromyces marneffei is a thermally dimorphic fungus endemic to Southeast Asia that causes disseminated infection in advanced HIV. Umbilicated skin lesions mimicking molluscum and intracellular yeast with transverse septa are classic findings.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Talaromyces marneffei</em> (formerly <em>Penicillium marneffei</em>) is a
+    thermally dimorphic fungus endemic to Southeast Asia and southern China. It is
+    an intracellular pathogen that primarily affects individuals with advanced HIV
+    infection, although cases have also been described in patients with STAT1 gain-of-function
+    mutations or autoantibodies to interferon-γ.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Infection is thought to occur via inhalation of environmental conidia, possibly
+    from soil. Although the organism has been isolated from bamboo rats and their
+    burrows, soil exposure appears to be a stronger epidemiologic risk factor.
+    Disease incidence peaks during the rainy season.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Clinically, talaromycosis resembles disseminated histoplasmosis, with fever,
+    weight loss, lymphadenopathy, hepatosplenomegaly, anemia, and fungemia. Skin
+    lesions occur in 60–70% of patients and frequently become umbilicated in those
+    with HIV, mimicking molluscum contagiosum.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On histopathology, yeast forms (2–6 μm) may be seen within macrophages or
+    extracellularly. The hallmark finding is a transverse septum within the yeast,
+    reflecting division by binary fission rather than budding. Culture at 30°C
+    produces a mold that exudes a characteristic red pigment; conversion to yeast
+    occurs at 37°C.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Untreated disseminated disease carries high mortality. The recommended therapy
+    is intravenous amphotericin B for 2 weeks followed by oral itraconazole for
+    10 weeks. Fluconazole is associated with high failure rates. Secondary
+    prophylaxis with itraconazole is recommended in advanced HIV until immune
+    reconstitution (CD4 ≥100 cells/μL for at least 6 months).
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Talaromyces marneffei</em> is endemic to Southeast Asia and southern China.
+    </li>
+    <li>
+      Umbilicated skin lesions in advanced HIV from Southeast Asia should prompt
+      consideration of talaromycosis.
+    </li>
+    <li>
+      Yeast with a transverse septum on histopathology is characteristic.
+    </li>
+    <li>
+      Treat with amphotericin B induction followed by itraconazole consolidation.
+    </li>
+    <li>
+      Fluconazole has high failure rates and should not be used as primary therapy.
+    </li>
+    <li>
+      Secondary prophylaxis is indicated until immune reconstitution.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify space-y-6">
+  <li>
+    Lottie Brown, Ngo Thi Hoa, Vo Trieu Ly, Linghua Li, Cunwei Cao, Sirida Youngchim, Methee Chayakulkeeree, 
+    Tihana Bicanic, Jasper Fuk-Woo Chan, Kwok-Yung Yuen, Thuy Le, 
+    Recent Advances in the Diagnosis of Talaromycosis, Clinical Infectious Diseases, 
+    Volume 81, Issue 6, 15 December 2025, Pages e533–e543, https://doi.org/10.1093/cid/ciaf253
+    </li>
+    <li>
+    Wang F, Han R, Chen S, 2023. An Overlooked and Underrated Endemic Mycosis—Talaromycosis and the Pathogenic Fungus Talaromyces marneffei. Clin Microbiol Rev 36:e00051-22.
+    https://doi.org/10.1128/cmr.00051-22
+    </li>
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
