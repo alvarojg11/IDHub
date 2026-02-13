@@ -7,8 +7,6 @@ import type { SyndromeLRModule } from "./lrTypes";
  * - Replace with your curated evidence (and add `source` / `notes`) before clinical use.
  */
 
-import type { SyndromeLRModule } from "@/lib/lrTypes";
-
 export const CAP_MODULE: SyndromeLRModule = {
   id: "cap",
   name: "CAP",
@@ -107,8 +105,6 @@ export const CAP_MODULE: SyndromeLRModule = {
 };
 
 
-import type { SyndromeLRModule } from "@/lib/lrTypes";
-
 export const CDI_MODULE: SyndromeLRModule = {
   id: "cdi",
   name: "C. difficile",
@@ -202,8 +198,6 @@ export const CDI_MODULE: SyndromeLRModule = {
   ],
 };
 
-
-import type { SyndromeLRModule } from "@/lib/lrTypes";
 
 export const UTI_MODULE: SyndromeLRModule = {
   id: "uti",
