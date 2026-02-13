@@ -43,16 +43,6 @@ export type LRSource = {
   url?: string;
 };
 
-export type LRItem = {
-  id: string;
-  label: string;
-  category: LRCategory;
-  lrPos?: number; // LR+ if present
-  lrNeg?: number; // LR− if absent
-  group?: string; // mutually exclusive group key (e.g., "cxr")
-  notes?: string;
-  source?: LRSource;
-};
 
 export type PretestPreset = {
   id: string;
@@ -60,12 +50,4 @@ export type PretestPreset = {
   p: number; // 0..1
   notes?: string;
   source?: LRSource;
-};
-
-export type SyndromeLRModule = {
-  id: string;
-  name: string;
-  description?: string;
-  pretestPresets: PretestPreset[];
-  items: LRItem[];
 };
