@@ -22,6 +22,11 @@ const tiles = [
     desc: "Explore immunosuppressive medications, mechanisms of action, and high-yield infection risks—with an educational immunosuppression level estimate.",
   },
   {
+    href: "/probid",
+    title: "ProbID",
+    desc: "Explore infectious syndromes through structured diagnostic inputs—with an educational post-test probability estimate.",
+  },
+  {
     href: "/about",
     title: "About",
     desc: "Why IDHub exists, how it’s meant to be used, and the philosophy behind case-based learning and clinical reasoning in infectious diseases.",
@@ -51,7 +56,7 @@ export default function Home() {
 
 
 
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-6 sm:grid-cols-3 lg:grid-cols-3">
         {tiles.map((t) => (
           <Link
             key={t.href}
