@@ -1,0 +1,158 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fulminant Shock After Handling Dead Pigs
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 49-year-old woman who works on a small pig farm presents with abrupt onset of fever, myalgias,
+    and headache followed by vomiting and watery diarrhea. Two days earlier, she helped butcher a sick pig
+    and reports several small cuts on her hands from a kitchen knife. She did not wear gloves.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On arrival to the emergency department she is ill-appearing with a temperature of 39.8°C,
+    heart rate 126 beats/min, blood pressure 82/44 mm Hg, and respiratory rate 26 breaths/min.
+    She has a diffuse erythematous blanching rash over the distal extremities with scattered petechiae.
+    She is intermittently confused.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory testing shows leukocytosis with neutrophil predominance, acute kidney injury, elevated
+    transaminases, and coagulopathy consistent with disseminated intravascular coagulation (DIC).
+    Lactate is elevated. Chest imaging demonstrates bilateral opacities concerning for evolving ARDS.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She is admitted to the ICU, started on vasopressors, and broad-spectrum antimicrobials are initiated.
+    Blood cultures are growing gram-positive cocci in pairs and short chains.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-strep-suis-q1"
+  title="Question"
+  prompt="Which of the following is the most likely cause of this patient’s presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Streptococcal toxic shock syndrome due to Streptococcus suis",
+      correct: true,
+      feedback:
+        "Correct. Severe invasive S. suis infection (often serotype 2) can present with an STSS-like syndrome characterized by high fever, hypotension/vascular collapse, rash/petechiae, DIC, and multiorgan failure, particularly after exposure to sick or dead pigs via skin breaks.",
+    },
+    {
+      id: "B",
+      label: "Streptococcal toxic shock syndrome due to group A Streptococcus (Streptococcus pyogenes)",
+      feedback:
+        "Incorrect. GAS is the classic cause of STSS and also appears as gram-positive cocci in chains. However, the key epidemiologic clue here is unprotected handling of a sick pig with skin cuts, which strongly supports zoonotic S. suis.",
+    },
+    {
+      id: "C",
+      label: "Meningococcemia due to Neisseria meningitidis",
+      feedback:
+        "Incorrect. Meningococcemia can cause shock and petechiae, but it would appear as gram-negative diplococci rather than gram-positive cocci in short chains, and it is not linked to pig carcass exposure.",
+    },
+    {
+      id: "D",
+      label: "Severe leptospirosis (Weil disease)",
+      feedback:
+        "Incorrect. Leptospirosis can cause fever, AKI, and hepatitis, but it would not produce gram-positive cocci in pairs and short chains on blood culture, and the rash/petechiae with fulminant shock after pig butchering is more consistent with invasive streptococcal disease.",
+    },
+    {
+      id: "E",
+      label: "Anthrax due to Bacillus anthracis",
+      feedback:
+        "Incorrect. Anthrax is a gram-positive rod and typically presents with cutaneous eschar, inhalational disease, or gastrointestinal anthrax; it does not match the blood culture morphology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Rationale</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Streptococcus suis</em> is an important pathogen in pigs and a zoonotic cause of invasive infection
+    in humans, classically acquired through skin breaks during handling of pigs or raw pork. Human disease
+    often presents as meningitis or sepsis, but highly virulent strains—especially serotype 2—have been
+    associated with outbreaks featuring a streptococcal toxic shock syndrome (STSS)-like phenotype with rapid
+    progression to hypotension, shock, disseminated intravascular coagulation, and multiorgan failure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case is deliberately tricky because early microbiology is nonspecific: gram-positive cocci in pairs
+    and short chains can fit several streptococci, including group A streptococcus. The distinguishing feature
+    is the epidemiology—direct exposure to a sick pig with unprotected skin cuts—strongly pointing to zoonotic
+    <em> S. suis</em>. The combination of fulminant shock, erythematous rash with petechiae, DIC, and ARDS is
+    consistent with an STSS-like syndrome.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management is time-critical: aggressive supportive care (fluids/vasopressors and organ support) plus early
+    effective antimicrobials. Definitive therapy for <em>S. suis</em> is typically a beta-lactam (e.g., high-dose
+    IV penicillin G or ceftriaxone) guided by susceptibilities. Many clinicians add clindamycin early when a
+    toxin-mediated streptococcal syndrome is suspected to inhibit toxin production, although the strongest
+    evidence is for GAS rather than <em>S. suis</em>.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Teaching Points</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Streptococcus suis</em> is a pig-associated zoonosis; human infection often follows exposure to pigs
+      or raw pork via small skin breaks.
+    </li>
+    <li>
+      Virulent serotype 2 strains can present with an STSS-like syndrome: high fever, hypotension/shock,
+      rash/petechiae, DIC, ARDS, and multiorgan failure.
+    </li>
+    <li>
+      Early blood culture morphology (gram-positive cocci in pairs/short chains) is not specific—epidemiology
+      can be the decisive clue.
+    </li>
+    <li>
+      Management requires immediate resuscitation and early antibiotics; definitive therapy typically uses
+      a beta-lactam (e.g., penicillin G or ceftriaxone) based on susceptibilities. Consider adjunctive clindamycin
+      when toxin-mediated streptococcal disease is suspected.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">References</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Tang J, Wang C, Feng Y, Yang W, Song H, Chen Z, et al. Streptococcal Toxic Shock Syndrome Caused by
+    <em> Streptococcus suis</em> Serotype 2. <em> PLOS Medicine</em>. 2006;3(5):e151.
+  </p>
+
+  <p className="mt-3">
+    <a
+      href="https://doi.org/10.1371/journal.pmed.0030151"
+      target="_blank"
+      rel="noreferrer"
+      className="text-sm font-semibold text-blue-600 hover:underline"
+    >
+      DOI: https://doi.org/10.1371/journal.pmed.0030151
+    </a>
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

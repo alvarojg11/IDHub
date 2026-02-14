@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next"
+import { title } from "process";
 
 const cases = [
   {
@@ -16,6 +17,11 @@ const cases = [
     title: "Fever and Cytopenias After Heart Transplant",
     slug: "parvovirus",
     description: "When the Marrow Goes Quiet",
+  },
+  {
+    title: "Fulminant Shock",
+    slug: "ssuis",
+    description: "Shock in the Slaughterhouse",
   },
   {
     title: "A Nose Lesion that Wouldn’t Heal",
