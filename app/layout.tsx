@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from '@vercel/analytics/next';
 
 import type { Metadata } from "next";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
         <main className="mx-auto max-w-6xl px-6 py-2">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
