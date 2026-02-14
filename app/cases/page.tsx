@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next"
 
 const cases = [
   {
@@ -10,6 +11,11 @@ const cases = [
     title: "Amazon Adventure",
     slug: "lobomycosis",
     description: "A returning traveler lesion.",
+  },
+  {
+    title: "Fever and Cytopenias After Heart Transplant",
+    slug: "parvovirus",
+    description: "When the Marrow Goes Quiet",
   },
   {
     title: "A Nose Lesion that Wouldn’t Heal",
@@ -25,6 +31,11 @@ const cases = [
     title: "Bloody Diarrhea Without a Clear Cause",
     slug: "spirochetosis",
     description: "An unexpected culprit.",
+  },
+  {
+    title: "Headache, Ataxia, and Sixth Nerve Palsy in Connecticut",
+    slug: "powassan",
+    description: "Brief attachment",
   },
   {
     title: "When molluscum is not molluscum",

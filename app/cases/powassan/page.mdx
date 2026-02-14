@@ -1,0 +1,211 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Headache, Ataxia, and Sixth Nerve Palsy in Connecticut
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 56-year-old woman living in rural Connecticut presents in early summer with 4 days of
+    progressive bifrontal headache, nausea, and new gait instability. On the day of admission,
+    she develops horizontal diplopia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She reports gardening and hiking frequently. One week prior to symptom onset, she removed a
+    small tick from her posterior thigh after noticing it “briefly attached” following an evening
+    walk. She estimates the tick was attached for less than 6 hours. She discarded the tick.
+    She has no rash. She has not traveled outside New England. Past history is notable only for
+    well-controlled hypertension.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile and alert. Neurologic exam reveals truncal ataxia and a left
+    abducens (VI) nerve palsy. Strength is full in all extremities.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    MRI brain with and without contrast shows patchy T2/FLAIR hyperintensity involving the thalami
+    and dorsal brainstem without a focal abscess. Lumbar puncture reveals 160 WBC/mm³ with a
+    lymphocytic predominance (80%), protein 85 mg/dL, and glucose 60 mg/dL (serum glucose 95 mg/dL).
+    CSF Gram stain and bacterial culture are negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CSF meningitis/encephalitis PCR panel is negative (including HSV-1/2, VZV, enterovirus,
+    HHV-6). Serum and CSF testing for Lyme disease is sent. Given the geography and neuroinvasive
+    presentation further testing is also pursued. 
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-powassan-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Powassan virus encephalitis (deer tick virus lineage)",
+      correct: true,
+      feedback:
+        "Correct. Powassan virus can cause neuroinvasive disease (meningoencephalitis) in the Northeast and is transmitted by Ixodes scapularis. Unlike Lyme disease, transmission can occur rapidly after tick attachment.",
+    },
+    {
+      id: "B",
+      label: "Lyme neuroborreliosis",
+      feedback:
+        "Incorrect. Lyme can cause cranial neuropathies and lymphocytic CSF, but the timing after a very brief tick attachment and the thalamic/brainstem encephalitis pattern are more consistent with Powassan virus. Lyme transmission typically requires longer tick attachment.",
+    },
+    {
+      id: "C",
+      label: "Anaplasmosis with CNS involvement",
+      feedback:
+        "Incorrect. Anaplasmosis usually presents with fever, leukopenia, thrombocytopenia, and elevated transaminases; primary meningoencephalitis with focal cranial neuropathy is uncommon.",
+    },
+    {
+      id: "D",
+      label: "HSV encephalitis",
+      feedback:
+        "Incorrect. HSV encephalitis classically targets the temporal lobes and would typically be detected on CSF PCR early in the course.",
+    },
+    {
+      id: "E",
+      label: "West Nile neuroinvasive disease",
+      feedback:
+        "Incorrect. West Nile can cause meningitis/encephalitis and movement disorders, but in Connecticut with a recent deer tick exposure and a brief attachment history, Powassan virus is a higher-yield diagnosis to pursue early.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Rationale</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Powassan virus (POWV) is a tick-borne flavivirus that can cause severe neuroinvasive disease
+    in the Northeastern and Upper Midwestern United States. In Lyme-endemic regions, most modern
+    cases are thought to be caused by the deer tick virus lineage transmitted by <em>Ixodes scapularis</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Clinically, patients often present with headache, fever, altered mental status, focal
+    neurologic deficits, or cerebellar findings (e.g., ataxia). CSF typically shows lymphocytic
+    pleocytosis with elevated protein. MRI may demonstrate involvement of deep gray structures
+    (including thalami) and brainstem.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A key teaching point is the distinction from other <em>Ixodes</em>-transmitted infections:
+    experimental and clinical data suggest POWV can be transmitted rapidly—within hours and
+    potentially minutes—after tick attachment. This contrasts with Lyme disease and babesiosis,
+    which generally require more prolonged feeding.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is typically made by serology (POWV IgM) with confirmatory neutralization testing
+    (e.g., PRNT). Treatment is supportive; there is no proven antiviral therapy. Because
+    long-term neurologic sequelae are common among survivors, early recognition matters for
+    prognosis, counseling, and public health awareness.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-powassan-q2"
+  title="Question 2"
+  prompt="Which statement best distinguishes Powassan virus risk from other deer tick–transmitted infections?"
+  options={[
+    {
+      id: "A",
+      label: "Transmission typically requires >36 hours of tick attachment",
+      feedback:
+        "Incorrect. That pattern fits Lyme disease and babesiosis more than Powassan virus.",
+    },
+    {
+      id: "B",
+      label: "Transmission can occur within hours of tick attachment",
+      correct: true,
+      feedback:
+        "Correct. Powassan virus can be transmitted rapidly after tick attachment, which is distinctive compared with many other Ixodes-transmitted pathogens.",
+    },
+    {
+      id: "C",
+      label: "Prophylactic doxycycline reliably prevents neuroinvasive disease after any tick bite",
+      feedback:
+        "Incorrect. Doxycycline does not prevent Powassan virus infection.",
+    },
+    {
+      id: "D",
+      label: "A characteristic erythema migrans rash is expected in most cases",
+      feedback:
+        "Incorrect. Erythema migrans is associated with Lyme disease, not Powassan virus.",
+    },
+    {
+      id: "E",
+      label: "CSF PCR testing is usually highly sensitive early in disease",
+      feedback:
+        "Incorrect. Diagnosis is typically serologic (CSF IgM with confirmatory neutralization), not PCR-based in routine clinical practice.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Teaching Points</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      In New England, Powassan virus should be considered in encephalitis with cerebellar signs or
+      focal deficits, especially with deep gray/brainstem MRI involvement.
+    </li>
+    <li>
+      CSF often shows lymphocytic pleocytosis and elevated protein; routine bacterial cultures and
+      standard viral PCR panels may be negative.
+    </li>
+    <li>
+      Unlike Lyme disease, Powassan virus may be transmitted rapidly after tick attachment—early
+      tick removal helps but does not eliminate risk.
+    </li>
+    <li>
+      Diagnosis is typically made by CSF POWV IgM with confirmatory neutralization testing (e.g., PRNT).
+      Treatment is supportive; neurologic sequelae are common in survivors.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">References</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Feder HM Jr, Telford SR III, Goethert HK, Wormser GP. Powassan Virus Encephalitis Following
+    Brief Attachment of Connecticut Deer Ticks. <em>Clinical Infectious Diseases</em>. 2020;73(7):e2350–e2354.
+  </p>
+
+  <p className="mt-3">
+    <a
+      href="https://doi.org/10.1093/cid/ciaa1183"
+      target="_blank"
+      rel="noreferrer"
+      className="text-sm font-semibold text-blue-600 hover:underline"
+    >
+      DOI: https://doi.org/10.1093/cid/ciaa1183
+    </a>
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

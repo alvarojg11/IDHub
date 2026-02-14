@@ -47,7 +47,7 @@ export default function AboutPage() {
       <section className="mt-6 space-y-6">
 
         {/* Editorial row */}
-        <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex flex-col items-start gap-6 sm:flex-row sm:gap-4">
           {/* LEFT */}
           <div className="w-full sm:w-[220px] sm:shrink-0 flex  justify-center sm:justify-start sm:mt-8">
             <div className="overflow-hidden rounded-lg border border-[var(--border)]">

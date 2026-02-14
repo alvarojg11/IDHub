@@ -1,0 +1,211 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever and Cytopenias After Heart Transplant
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 62-year-old man with nonischemic cardiomyopathy undergoes orthotopic heart
+    transplantation. Induction immunosuppression included rabbit antithymocyte globulin (ATG),
+    followed by maintenance therapy with tacrolimus, mycophenolate mofetil, and low-dose
+    prednisone.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is discharged on valganciclovir for CMV prophylaxis and trimethoprim–
+    sulfamethoxazole for Pneumocystis prophylaxis. His early post-transplant course is
+    uncomplicated, and surveillance biopsy shows no rejection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Five weeks after transplantation, he presents with fatigue and low-grade fever. Laboratory
+    testing reveals hemoglobin of 7.1 g/dL (down from 10.8 g/dL at discharge), leukocyte count
+    of 1.9 × 10⁹/L, and normal platelet count. Reticulocyte count is markedly reduced. Iron
+    studies are normal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blood cultures, urine cultures, respiratory viral panel, CMV PCR, EBV PCR, and BK virus
+    testing are negative. Computed tomography of the chest, abdomen, and pelvis shows no occult
+    infection or lymphoproliferative disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Mycophenolate and valganciclovir are held due to leukopenia. He receives packed red blood cell
+    transfusion and granulocyte colony-stimulating factor. Despite these measures, anemia and
+    leukopenia persist, and he is readmitted two weeks later with recurrent fatigue.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A bone marrow biopsy is performed.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-parvo-heart-tricky-q1"
+  title="Question"
+  prompt="Which of the following is the most likely cause of this patient’s presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Parvovirus B19 infection causing pure red cell aplasia",
+      correct: true,
+      feedback:
+        "Correct. Parvovirus B19 infects erythroid progenitor cells, causing severe normocytic anemia with profound reticulocytopenia. Bone marrow findings of giant pronormoblasts are classic.",
+    },
+    {
+      id: "B",
+      label: "Valganciclovir-induced bone marrow suppression",
+      feedback:
+        "Incorrect. Valganciclovir can cause leukopenia but does not typically produce isolated erythroid hypoplasia with giant pronormoblasts on bone marrow biopsy.",
+    },
+    {
+      id: "C",
+      label: "Acute cellular rejection of the cardiac allograft",
+      feedback:
+        "Incorrect. Rejection affects graft function rather than selectively suppressing erythropoiesis.",
+    },
+    {
+      id: "D",
+      label: "Post-transplant lymphoproliferative disorder (PTLD)",
+      feedback:
+        "Incorrect. PTLD may cause fever and cytopenias but would not produce isolated erythroid suppression with viral inclusions.",
+    },
+    {
+      id: "E",
+      label: "Hemophagocytic lymphohistiocytosis (HLH)",
+      feedback:
+        "Incorrect. HLH typically presents with pancytopenia, hyperferritinemia, and hemophagocytosis on marrow exam, not isolated erythroid hypoplasia with giant pronormoblasts.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Rationale</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Parvovirus B19 is a single-stranded DNA virus with selective tropism for erythroid progenitor
+    cells. In solid organ transplant recipients, impaired humoral immunity allows persistent viral
+    replication, leading to pure red cell aplasia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The hallmark laboratory pattern is severe normocytic anemia with reticulocytopenia. Leukopenia
+    may occur, particularly in the setting of concomitant immunosuppressive therapy, which can
+    obscure the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis may be delayed because cytopenias are common after transplantation and often
+    attributed to medications such as valganciclovir or mycophenolate. Persistent anemia despite
+    transfusion or erythropoietin therapy should prompt testing for parvovirus B19 by PCR.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Infection may be community-acquired, transfusion-related, or potentially donor-derived.
+    Lymphocyte-depleting induction therapy (e.g., antithymocyte globulin) is associated with
+    increased risk.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-parvo-heart-tricky-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Escalate corticosteroids to treat possible rejection",
+      feedback:
+        "Incorrect. Increasing immunosuppression may worsen viral replication.",
+    },
+    {
+      id: "B",
+      label: "Continue transfusions and observe",
+      feedback:
+        "Incorrect. Persistent viremia in immunocompromised patients requires targeted therapy.",
+    },
+    {
+      id: "C",
+      label: "Initiate intravenous immunoglobulin (IVIG)",
+      correct: true,
+      feedback:
+        "Correct. IVIG provides neutralizing antibodies against parvovirus B19 and is the mainstay of therapy. Adjustment of immunosuppression may also be required.",
+    },
+    {
+      id: "D",
+      label: "Restart valganciclovir",
+      feedback:
+        "Incorrect. Valganciclovir has no activity against parvovirus B19.",
+    },
+    {
+      id: "E",
+      label: "Start oral ribavirin",
+      feedback:
+        "Incorrect. Ribavirin is not standard therapy for parvovirus B19 infection in solid organ transplant recipients. The mainstay of treatment is intravenous immunoglobulin (IVIG), which provides neutralizing antibodies against the virus.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Teaching Points</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Parvovirus B19 should be considered in transplant recipients with refractory normocytic anemia
+      and reticulocytopenia.
+    </li>
+    <li>
+      Cytopenias are often attributed to medications; persistent or severe anemia warrants viral PCR
+      testing.
+    </li>
+    <li>Bone marrow findings of giant pronormoblasts are classic.</li>
+    <li>IVIG is first-line therapy and may require repeat dosing.</li>
+    <li>Relapse can occur if immunosuppression remains intense.</li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Najar H, Goli K, Martinez Cantarin MP. Parvovirus B19 Infection in Kidney
+    Transplant Recipients. <em>Annals of Internal Medicine: Clinical Cases</em>.
+    2025;4(5).
+  </p>
+
+  <p className="mt-3">
+    <a
+      href="https://doi.org/10.7326/aimcc.2024.1156"
+      target="_blank"
+      rel="noreferrer"
+      className="text-sm font-semibold text-blue-600 hover:underline"
+    >
+      DOI: https://doi.org/10.7326/aimcc.2024.1156
+    </a>
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
