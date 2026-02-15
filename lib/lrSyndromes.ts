@@ -415,6 +415,204 @@ export const ENDO_MODULE: SyndromeLRModule = {
   ],
 };
 
+export const ACTIVE_TB_MODULE: SyndromeLRModule = {
+  id: "active_tb",
+  name: "Active TB",
+  description:
+    "Active pulmonary TB probability update using setting prevalence, host risk, symptom screen strategy, immune-based tests (QFT/TST), and chest X-ray. LRs use pooled estimates where available.",
+  pretestPresets: [
+    {
+      id: "tb_low",
+      label: "Low-prevalence setting (no major TB exposure/travel risk)",
+      p: 0.02,
+      notes: "Use as a starting point in low-incidence settings before adding risk factors/findings.",
+      source: {
+        short: "WHO Global TB Report",
+        year: 2024,
+        url: "https://www.who.int/publications/i/item/9789240101531",
+      },
+    },
+    {
+      id: "tb_intermediate",
+      label: "Intermediate prevalence (born in or traveled to endemic region)",
+      p: 0.08,
+      notes: "For patients from/intermittently exposed to moderate-to-high incidence settings.",
+      source: {
+        short: "WHO Global TB Report",
+        year: 2024,
+        url: "https://www.who.int/publications/i/item/9789240101531",
+      },
+    },
+    {
+      id: "tb_high",
+      label: "High prevalence or recent close exposure to contagious TB",
+      p: 0.20,
+      notes: "Higher baseline risk when epidemiology/exposure is strongly suggestive.",
+      source: {
+        short: "Fox et al. PLoS Med",
+        year: 2013,
+        url: "https://doi.org/10.1371/journal.pmed.1001432",
+      },
+    },
+  ],
+
+  items: [
+    // -------------------------
+    // Host risk factors (epidemiologic enrichers)
+    // -------------------------
+    {
+      id: "tb_contact",
+      label: "Close/household contact with infectious pulmonary TB",
+      category: "host",
+      lrPos: 2.0,
+      lrNeg: 0.85,
+      notes: "Approximate risk enrichment from contact-investigation cohorts/meta-analyses.",
+      source: {
+        short: "Fox et al. PLoS Med",
+        year: 2013,
+        url: "https://doi.org/10.1371/journal.pmed.1001432",
+      },
+    },
+    {
+      id: "tb_hiv_or_immunosuppression",
+      label: "HIV or major cellular immunosuppression",
+      category: "host",
+      lrPos: 2.5,
+      lrNeg: 0.9,
+      notes: "Major TB risk factor; modeled as conservative pretest enrichment in this tool.",
+      source: {
+        short: "WHO Global TB Report",
+        year: 2024,
+        url: "https://www.who.int/publications/i/item/9789240101531",
+      },
+    },
+    {
+      id: "tb_diabetes",
+      label: "Diabetes mellitus",
+      category: "host",
+      lrPos: 1.6,
+      lrNeg: 0.95,
+      notes: "Epidemiologic risk modifier rather than a direct microbiologic diagnostic test.",
+      source: {
+        short: "Jeon & Murray. PLoS Med",
+        year: 2008,
+        url: "https://doi.org/10.1371/journal.pmed.0050152",
+      },
+    },
+
+    // -------------------------
+    // Symptoms
+    // Use one symptom-screen strategy at a time to reduce double counting.
+    // -------------------------
+    {
+      id: "tb_sym_any",
+      label: "Any WHO TB symptom (cough, fever, night sweats, or weight loss)",
+      category: "symptom",
+      group: "tb_sym_screen",
+      lrPos: 2.0,
+      lrNeg: 0.45,
+      notes: "From pooled sensitivity/specificity of symptom screening studies.",
+      source: {
+        short: "van't Hoog et al. Cochrane",
+        year: 2022,
+        url: "https://doi.org/10.1002/14651858.CD010890.pub2",
+      },
+    },
+    {
+      id: "tb_sym_cough_2w",
+      label: "Cough >=2 weeks (cough-only symptom strategy)",
+      category: "symptom",
+      group: "tb_sym_screen",
+      lrPos: 7.5,
+      lrNeg: 0.61,
+      notes: "Higher specificity than broad symptom screens, with lower sensitivity.",
+      source: {
+        short: "van't Hoog et al. Cochrane",
+        year: 2022,
+        url: "https://doi.org/10.1002/14651858.CD010890.pub2",
+      },
+    },
+    {
+      id: "tb_sym_na",
+      label: "Symptom screen not done/unknown",
+      category: "symptom",
+      group: "tb_sym_screen",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Labs
+    // Immune-based assays do NOT distinguish latent from active TB.
+    // We allow one immune-test strategy at a time.
+    // -------------------------
+    {
+      id: "tb_qft",
+      label: "QuantiFERON (IGRA) result",
+      category: "lab",
+      group: "tb_immune_test",
+      lrPos: 3.0,
+      lrNeg: 0.24,
+      notes: "Set Present=positive, Absent=negative. Supportive only for active TB diagnosis.",
+      source: {
+        short: "AlAlyani et al. Diagnostics",
+        year: 2025,
+        url: "https://doi.org/10.3390/diagnostics15182343",
+      },
+    },
+    {
+      id: "tb_tst",
+      label: "Tuberculin skin test (TST) result",
+      category: "lab",
+      group: "tb_immune_test",
+      lrPos: 1.9,
+      lrNeg: 0.47,
+      notes: "Set Present=positive, Absent=negative. Supportive only for active TB diagnosis.",
+      source: {
+        short: "AlAlyani et al. Diagnostics",
+        year: 2025,
+        url: "https://doi.org/10.3390/diagnostics15182343",
+      },
+    },
+    {
+      id: "tb_immune_na",
+      label: "QFT/TST not done/unknown",
+      category: "lab",
+      group: "tb_immune_test",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Chest X-ray
+    // -------------------------
+    {
+      id: "tb_cxr_suggestive",
+      label: "CXR suggestive of active pulmonary TB",
+      category: "imaging",
+      group: "tb_cxr",
+      lrPos: 19.3,
+      lrNeg: 0.16,
+      notes: "Set Present=suggestive CXR, Absent=not suggestive CXR.",
+      source: {
+        short: "van't Hoog et al. Cochrane",
+        year: 2022,
+        url: "https://doi.org/10.1002/14651858.CD010890.pub2",
+      },
+    },
+    {
+      id: "tb_cxr_na",
+      label: "CXR not done/unknown",
+      category: "imaging",
+      group: "tb_cxr",
+      notes: "Neutral selection.",
+    },
+  ],
+};
 
 
-export const PROBID_MODULES: SyndromeLRModule[] = [CAP_MODULE, CDI_MODULE, UTI_MODULE, ENDO_MODULE];
+export const PROBID_MODULES: SyndromeLRModule[] = [
+  CAP_MODULE,
+  CDI_MODULE,
+  UTI_MODULE,
+  ENDO_MODULE,
+  ACTIVE_TB_MODULE,
+];

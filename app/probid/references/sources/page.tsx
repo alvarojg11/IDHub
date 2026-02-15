@@ -95,6 +95,42 @@ export default function ProbIDAllReferencesPage() {
         "Hooton TM. Clinical practice. Uncomplicated urinary tract infection. N Engl J Med. 2012;366:1028–1037.",
       doi: "https://doi.org/10.1056/NEJMcp1104429",
     },
+    {
+      section: "Active TB",
+      citation:
+        "van't Hoog AH, Langendam MW, Mitchell E, et al. Symptom- and chest-radiography screening for active pulmonary tuberculosis in HIV-negative adults and adolescents: a systematic review and meta-analysis. Cochrane Database Syst Rev. 2022;9:CD010890.",
+      doi: "https://doi.org/10.1002/14651858.CD010890.pub2",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "AlAlyani H, Alhaqbani M, Althomali O, et al. Evaluating Interferon-Gamma Release Assays for Diagnosing Active Tuberculosis in Adults: A Systematic Review and Meta-Analysis. Diagnostics (Basel). 2025;15(18):2343.",
+      doi: "https://doi.org/10.3390/diagnostics15182343",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Jeon CY, Murray MB. Diabetes mellitus increases the risk of active tuberculosis: a systematic review of 13 observational studies. PLoS Med. 2008;5(7):e152.",
+      doi: "https://doi.org/10.1371/journal.pmed.0050152",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Fox GJ, Barry SE, Britton WJ, Marks GB. Contact investigation for tuberculosis: a systematic review and meta-analysis. PLoS Med. 2013;10(11):e1001432.",
+      doi: "https://doi.org/10.1371/journal.pmed.1001432",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "World Health Organization. Global tuberculosis report 2024. Geneva: WHO; 2024.",
+      doi: "https://www.who.int/publications/i/item/9789240101531",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "World Health Organization. WHO consolidated guidelines on tuberculosis. Module 3: Diagnosis – rapid diagnostics for tuberculosis detection, 2021 update.",
+      doi: "https://www.who.int/publications/i/item/9789240029415",
+    },
   ];
 
   const grouped = references.reduce<Record<string, Reference[]>>((acc, r) => {
@@ -102,7 +138,7 @@ export default function ProbIDAllReferencesPage() {
     return acc;
   }, {});
 
-  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI"];
+  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "Active TB"];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">

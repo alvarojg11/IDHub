@@ -17,10 +17,10 @@ export const FAMILY_ORDER: CatalogFamily[] = [
   "Location",
   "Host",
   "Symptoms",
+  "Labs",
+  "Imaging",
   "Vitals",
   "Exam",
-  "Imaging",
-  "Labs",
   "Micro",
   "Other",
 ];
