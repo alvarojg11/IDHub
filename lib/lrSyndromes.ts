@@ -1,5 +1,5 @@
 // lib/lrSyndromes.ts
-import type { SyndromeLRModule } from "./lrTypes";
+import type { LRItem, LRSource, SyndromeLRModule } from "./lrTypes";
 
 /**
  * NOTE:
@@ -1210,12 +1210,139 @@ export const PJI_MODULE: SyndromeLRModule = {
   ],
 };
 
+const SRC_CAP_GUIDELINE: LRSource = {
+  short: "Metlay et al. ATS/IDSA",
+  year: 2019,
+  url: "https://doi.org/10.1164/rccm.201908-1581ST",
+};
+
+const SRC_CAP_CLINICAL: LRSource = {
+  short: "Metlay et al. JAMA",
+  year: 1997,
+  url: "https://doi.org/10.1001/jama.278.17.1440",
+};
+
+const SRC_CAP_BIOMARKER: LRSource = {
+  short: "Ebell et al. Acad Emerg Med",
+  year: 2020,
+  url: "https://doi.org/10.1111/acem.13889",
+};
+
+const SRC_CDI_GUIDELINE_2021: LRSource = {
+  short: "Johnson et al. IDSA/SHEA",
+  year: 2021,
+  url: "https://doi.org/10.1093/cid/ciab549",
+};
+
+const SRC_CDI_TEST_META: LRSource = {
+  short: "Kraft et al. Clin Microbiol Rev",
+  year: 2019,
+  url: "https://doi.org/10.1128/CMR.00032-18",
+};
+
+const SRC_UTI_GUIDELINE: LRSource = {
+  short: "Gupta et al. IDSA/ESCMID",
+  year: 2011,
+  url: "https://doi.org/10.1093/cid/ciq257",
+};
+
+const SRC_UTI_CLINICAL: LRSource = {
+  short: "Bent et al. JAMA",
+  year: 2002,
+  url: "https://doi.org/10.1001/jama.287.20.2701",
+};
+
+const SRC_UTI_DIPSTICK_META: LRSource = {
+  short: "Deville et al. BMC Urol",
+  year: 2004,
+  url: "https://doi.org/10.1186/1471-2490-4-4",
+};
+
+const SRC_ENDO_ESC_2023: LRSource = {
+  short: "Delgado et al. ESC Endocarditis",
+  year: 2023,
+  url: "https://doi.org/10.1093/eurheartj/ehad193",
+};
+
+const SRC_ENDO_DUKE_2023: LRSource = {
+  short: "Fowler et al. Duke-ISCVID",
+  year: 2023,
+  url: "https://doi.org/10.1093/cid/ciad271",
+};
+
+const SRC_ENDO_TTE_META: LRSource = {
+  short: "Bai et al. JASE",
+  year: 2017,
+  url: "https://doi.org/10.1016/j.echo.2017.03.007",
+};
+
+const SRC_ENDO_PET_META: LRSource = {
+  short: "San et al. Open Heart",
+  year: 2022,
+  url: "https://doi.org/10.1136/openhrt-2021-001856",
+};
+
+function withEvidenceSources(
+  module: SyndromeLRModule,
+  opts: {
+    pretestSource: LRSource;
+    resolveItemSource: (item: LRItem) => LRSource;
+  }
+): SyndromeLRModule {
+  return {
+    ...module,
+    pretestPresets: module.pretestPresets.map((p) =>
+      p.source ? p : { ...p, source: opts.pretestSource }
+    ),
+    items: module.items.map((item) =>
+      item.source ? item : { ...item, source: opts.resolveItemSource(item) }
+    ),
+  };
+}
+
+const CAP_MODULE_WITH_SOURCES = withEvidenceSources(CAP_MODULE, {
+  pretestSource: SRC_CAP_GUIDELINE,
+  resolveItemSource: (item) => {
+    if (item.id === "cap_procal_high") return SRC_CAP_BIOMARKER;
+    if (item.category === "symptom" || item.category === "vital" || item.category === "exam") {
+      return SRC_CAP_CLINICAL;
+    }
+    return SRC_CAP_GUIDELINE;
+  },
+});
+
+const CDI_MODULE_WITH_SOURCES = withEvidenceSources(CDI_MODULE, {
+  pretestSource: SRC_CDI_GUIDELINE_2021,
+  resolveItemSource: (item) => (item.category === "micro" ? SRC_CDI_TEST_META : SRC_CDI_GUIDELINE_2021),
+});
+
+const UTI_MODULE_WITH_SOURCES = withEvidenceSources(UTI_MODULE, {
+  pretestSource: SRC_UTI_GUIDELINE,
+  resolveItemSource: (item) => {
+    if (item.category === "lab") return SRC_UTI_DIPSTICK_META;
+    if (item.category === "symptom" || item.category === "exam" || item.category === "vital") {
+      return SRC_UTI_CLINICAL;
+    }
+    return SRC_UTI_GUIDELINE;
+  },
+});
+
+const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
+  pretestSource: SRC_ENDO_ESC_2023,
+  resolveItemSource: (item) => {
+    if (item.id === "endo_tte" || item.id === "endo_tte_na") return SRC_ENDO_TTE_META;
+    if (item.id === "endo_pet" || item.id === "endo_pet_na") return SRC_ENDO_PET_META;
+    if (item.id === "endo_tee") return SRC_ENDO_ESC_2023;
+    return SRC_ENDO_DUKE_2023;
+  },
+});
+
 
 export const PROBID_MODULES: SyndromeLRModule[] = [
-  CAP_MODULE,
-  CDI_MODULE,
-  UTI_MODULE,
-  ENDO_MODULE,
+  CAP_MODULE_WITH_SOURCES,
+  CDI_MODULE_WITH_SOURCES,
+  UTI_MODULE_WITH_SOURCES,
+  ENDO_MODULE_WITH_SOURCES,
   ACTIVE_TB_MODULE,
   PJP_MODULE,
   PJI_MODULE,

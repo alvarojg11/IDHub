@@ -62,14 +62,20 @@ export default function ProbIDAllReferencesPage() {
     {
       section: "Endocarditis",
       citation:
-        "Habib G, Lancellotti P, Antunes MJ, et al. 2015 ESC Guidelines for the management of infective endocarditis. Eur Heart J. 2015;36:3075–3128.",
-      doi: "https://doi.org/10.1093/eurheartj/ehv319",
+        "Delgado V, Ajmone Marsan N, de Waha S, et al. 2023 ESC Guidelines for the management of endocarditis. Eur Heart J. 2023;44(39):3948-4042.",
+      doi: "https://doi.org/10.1093/eurheartj/ehad193",
     },
     {
       section: "Endocarditis",
       citation:
-        "Simon Favre, Mathieu Sauvezie, Marie Sarah Dilhuydy, Stéphane Vigouroux, Reza Tabrizi, Gaelle Laboure, Margot Robles, Noel-Jean Milpied, Krimo Bouabdallah. High Incidence of HHV-6 Infection Associated with Bendamustine, Cytarabine, Etoposide and Melphalan (BeEAM) Conditioning Regimen: Results of a Monocentric and Retrospective Study. Blood. 2016;128(22):5817.",
-      doi: "https://doi.org/10.1182/blood.V128.22.5817.5817",
+        "Fowler VG, Durack DT, Selton-Suty C, et al. The 2023 Duke-International Society for Cardiovascular Infectious Diseases Criteria for Infective Endocarditis: Updating the Modified Duke Criteria. Clin Infect Dis. 2023;77(4):518-526.",
+      doi: "https://doi.org/10.1093/cid/ciad271",
+    },
+    {
+      section: "Endocarditis",
+      citation:
+        "Bai AD, Steinberg M, Showler A, et al. Diagnostic Accuracy of Transthoracic Echocardiography for Infective Endocarditis Findings Using Transesophageal Echocardiography as the Reference Standard: A Meta-Analysis. J Am Soc Echocardiogr. 2017;30(7):639-646.e8.",
+      doi: "https://doi.org/10.1016/j.echo.2017.03.007",
     },
     {
       section: "Endocarditis",
@@ -84,16 +90,52 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1164/rccm.201908-1581ST",
     },
     {
+      section: "CAP",
+      citation:
+        "Metlay JP, Kapoor WN, Fine MJ. Does this patient have community-acquired pneumonia? Diagnosing pneumonia by history and physical examination. JAMA. 1997;278(17):1440-1445.",
+      doi: "https://doi.org/10.1001/jama.278.17.1440",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Ebell MH, Bentivegna M, Cai X, Hulme C, Kearney M. Accuracy of Biomarkers for the Diagnosis of Adult Community-acquired Pneumonia: A Meta-analysis. Acad Emerg Med. 2020;27(3):195-206.",
+      doi: "https://doi.org/10.1111/acem.13889",
+    },
+    {
       section: "CDI",
       citation:
         "McDonald LC, Gerding DN, Johnson S, et al. Clinical Practice Guidelines for Clostridioides difficile Infection in Adults and Children. Clin Infect Dis. 2018;66:e1–e48.",
       doi: "https://doi.org/10.1093/cid/cix1085",
     },
     {
+      section: "CDI",
+      citation:
+        "Johnson S, Lavergne V, Skinner AM, et al. Clinical Practice Guideline by the IDSA and SHEA: 2021 Focused Update Guidelines on Management of Clostridioides difficile Infection in Adults. Clin Infect Dis. 2021;73(5):e1029-e1044.",
+      doi: "https://doi.org/10.1093/cid/ciab549",
+    },
+    {
+      section: "CDI",
+      citation:
+        "Kraft CS, Parrott JS, Cornish NE, et al. A Laboratory Medicine Best Practices Systematic Review and Meta-analysis of Nucleic Acid Amplification Tests (NAATs) and Algorithms Including NAATs for the Diagnosis of Clostridioides difficile in Adults. Clin Microbiol Rev. 2019;32(3):e00032-18.",
+      doi: "https://doi.org/10.1128/CMR.00032-18",
+    },
+    {
       section: "UTI",
       citation:
-        "Hooton TM. Clinical practice. Uncomplicated urinary tract infection. N Engl J Med. 2012;366:1028–1037.",
-      doi: "https://doi.org/10.1056/NEJMcp1104429",
+        "Gupta K, Hooton TM, Naber KG, et al. International Clinical Practice Guidelines for the Treatment of Acute Uncomplicated Cystitis and Pyelonephritis in Women: A 2010 Update by IDSA and ESCMID. Clin Infect Dis. 2011;52(5):e103-e120.",
+      doi: "https://doi.org/10.1093/cid/ciq257",
+    },
+    {
+      section: "UTI",
+      citation:
+        "Bent S, Nallamothu BK, Simel DL, Fihn SD, Saint S. Does this woman have an acute uncomplicated urinary tract infection? JAMA. 2002;287(20):2701-2710.",
+      doi: "https://doi.org/10.1001/jama.287.20.2701",
+    },
+    {
+      section: "UTI",
+      citation:
+        "Deville WL, Yzermans JC, van Duijn NP, et al. The urine dipstick test useful to rule out infections. A meta-analysis of the accuracy. BMC Urol. 2004;4:4.",
+      doi: "https://doi.org/10.1186/1471-2490-4-4",
     },
     {
       section: "PJP",
