@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { DRUGS, RiskTag } from "@/lib/immunoData";
+import Link from "next/link";
 
 type SelectedRisk = {
   tag: RiskTag;
@@ -528,7 +529,13 @@ export default function ImmunoTool() {
       </div>
 
       <div className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 text-sm text-gray-600">
-        Educational content only. Not medical advice. Always use clinical judgment, local guidance, and patient-specific factors.
+        Educational content only. Not medical advice. Always use clinical judgment, local guidance, and patient-specific factors.{" "}
+        <Link
+          href="/tools/immunoid/references"
+          className="underline decoration-gray-400 underline-offset-2 hover:decoration-gray-900"
+        >
+          See references & methodology.
+        </Link>
       </div>
 
       {/* =========================
