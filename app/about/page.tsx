@@ -1,6 +1,7 @@
 // app/about/page.tsx
 import Image from "next/image";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 
 const quickLinks = [
   {
@@ -33,24 +34,21 @@ const quickLinks = [
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
-      <header className="mb-12">
+      <header className="mb-14">
         <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
           About IDHub
         </h1>
-        <p className="mt-4 max-w-3xl text-[var(--foreground)]/85 text-justify">
+        <p className="mt-4 max-w-3xl text-[var(--foreground)]/85 leading-relaxed">
           IDHub is an educational space built around clinical reasoning,
           uncertainty, and the kind of problem-solving that happens at the bedside.
         </p>
       </header>
 
       {/* About Me */}
-      <section className="mt-6 space-y-6">
-
-        {/* Editorial row */}
-        <div className="flex flex-col items-start gap-6 sm:flex-row sm:gap-4">
-          {/* LEFT */}
-          <div className="w-full sm:w-[220px] sm:shrink-0 flex  justify-center sm:justify-start sm:mt-8">
-            <div className="overflow-hidden rounded-lg border border-[var(--border)]">
+      <section>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-[220px_minmax(0,1fr)]">
+          <div className="w-full">
+            <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-sm">
               <Image
                 src="/images/alvaro.png"
                 alt="Alvaro Ayala, MD"
@@ -62,10 +60,9 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="min-w-0 w-full sm:flex-1">
-            <div className="w-full max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-              <p className="text-[var(--foreground)]/85 text-justify leading-relaxed">
+          <div className="min-w-0">
+            <div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
+              <p className="text-[var(--foreground)]/85 leading-relaxed">
                 I’m{" "}
                 <span className="font-semibold text-[var(--foreground)]">Alvaro</span>,
                 currently a second-year Infectious Diseases Fellow. During fellowship, I encountered
@@ -75,7 +72,7 @@ export default function AboutPage() {
                 answers and more about navigating ambiguity thoughtfully.
               </p>
 
-              <p className="mt-5 text-[var(--foreground)]/85 text-justify leading-relaxed">
+              <p className="mt-5 text-[var(--foreground)]/85 leading-relaxed">
                 As my interest in medical education grew, I wanted a place to explore those nuances
                 more openly: how we interpret tests, how we communicate probability, and how we make
                 decisions when the evidence is incomplete. That was the beginning of my writing in
@@ -87,14 +84,14 @@ export default function AboutPage() {
       </section>
 
       {/* Why the tools */}
-      <section className="mt-14 space-y-6 py-12">
+      <section className="mt-14 space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
           Why the Tools?
         </h2>
 
-        <div className="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-          <div className="space-y-5 text-[var(--foreground)]/85 text-justify leading-relaxed">
-            <p className="mb-6">
+        <div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
+          <div className="space-y-5 text-[var(--foreground)]/85 leading-relaxed">
+            <p>
               During the intensive hours of fellowship and answering very common questions, I noticed antibiotic decisions were sometimes guided by
               patterns rather than mechanisms—without a clear understanding for antimicrobial resistance. That inspired{" "}
               <span className="font-semibold text-[var(--foreground)]">MechID</span>, a way to connect
@@ -102,7 +99,7 @@ export default function AboutPage() {
               and stewardship.
             </p>
 
-            <p className="mb-6">
+            <p>
               I also realized how central the host is in Infectious Diseases. With the rapid expansion
               of chemotherapeutic, biologic, and immunomodulatory agents, it became difficult to track
               mechanisms and infection risks. That led to{" "}
@@ -110,7 +107,7 @@ export default function AboutPage() {
               tool mapping immune modulation and offering a heuristic immunosuppression estimate.
             </p>
 
-            <p className="mb-6">
+            <p>
               Finally, I’ve always been fascinated by how poorly humans intuit probabilities.
               Translating “gestalt” into pretest and post-test probability is hard—yet it often
               determines the next step. I built{" "}
@@ -119,7 +116,7 @@ export default function AboutPage() {
               as an educational exercise in diagnostic reasoning.
             </p>
 
-            <p className="mb-6">
+            <p>
               My hope is that IDHub becomes an evolving set of learning tools and cases that helps
               trainees and clinicians feel more comfortable reasoning through uncertainty—and more
               connected to what makes infectious diseases so compelling.
@@ -134,20 +131,23 @@ export default function AboutPage() {
           Explore IDHub
         </h2>
 
-        <div className="mt-4 grid gap-6 sm:grid-cols-2 py-6">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {quickLinks.map((t) => (
             <Link
               key={t.href}
               href={t.href}
-              className="group h-full rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition hover:bg-[var(--cardHover)]"
+              className="group h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2"
             >
               <div className="flex h-full flex-col">
-                <h4 className="text-xl font-semibold tracking-tight text-[var(--foreground)] group-hover:text-[var(--primary)] transition">
+                <h4 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
                   {t.title}
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{t.desc}</p>
                 <div className="mt-auto pt-5">
-                  <span className="text-xs font-semibold text-[var(--primary)]">Open →</span>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--primary)]">
+                    Open
+                    <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
                 </div>
               </div>
             </Link>
@@ -155,9 +155,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <footer className="mt-12 border-t border-[var(--border)] pt-6 text-xs text-[var(--muted)] py-6">
-        Educational content only. Not medical advice. Always use clinical judgment and local guidance.
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
