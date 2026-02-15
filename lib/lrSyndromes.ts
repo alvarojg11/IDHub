@@ -608,6 +608,274 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
   ],
 };
 
+export const PJP_MODULE: SyndromeLRModule = {
+  id: "pjp",
+  name: "PJP",
+  description:
+    "Pneumocystis jirovecii pneumonia probability update using risk setting, host factors, vitals, serum BDG, respiratory diagnostics (PCR/DFA), and chest imaging.",
+  pretestPresets: [
+    {
+      id: "pjp_low",
+      label: "Low risk: no meaningful immunosuppression",
+      p: 0.01,
+      notes: "Very low baseline probability in patients without classic host risk factors.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_moderate",
+      label: "Moderate risk: some immunosuppression, usually not meeting prophylaxis criteria",
+      p: 0.08,
+      notes: "Intermediate pretest setting before adding diagnostic findings.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_high",
+      label: "High risk: AIDS, transplant, prolonged steroids, or similar high-risk state",
+      p: 0.25,
+      notes: "High pretest context where rapid diagnostics and empiric decisions are often needed.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+  ],
+  items: [
+    // -------------------------
+    // Risk factors
+    // (OR-informed approximations where pooled LRs are unavailable)
+    // -------------------------
+    {
+      id: "pjp_host_hiv_cd4_sot",
+      label: "HIV (CD4 <=200) or solid organ transplant",
+      category: "host",
+      lrPos: 3.2,
+      lrNeg: 0.9,
+      notes: "Approximate LR informed by adjusted OR from a bronchoscopy-derived diagnostic cohort.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_host_no_ppx",
+      label: "No TMP-SMX prophylaxis despite indication",
+      category: "host",
+      lrPos: 6.5,
+      lrNeg: 0.15,
+      notes: "Absence of prophylaxis increases risk; prophylaxis is strongly protective in risk-score cohorts.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_host_prolonged_steroids",
+      label: "Prolonged systemic steroids (roughly >=20 mg prednisone-equivalent for >=3 weeks)",
+      category: "host",
+      lrPos: 1.8,
+      lrNeg: 0.95,
+      notes: "Commonly recognized major risk state for non-HIV PJP; treated as conservative pretest enrichment.",
+      source: {
+        short: "Shin et al. Sci Rep",
+        year: 2019,
+        url: "https://doi.org/10.1038/s41598-019-38618-3",
+      },
+    },
+
+    // -------------------------
+    // Vital signs (limited standalone discrimination)
+    // -------------------------
+    {
+      id: "pjp_vital_hypoxemia",
+      label: "Hypoxemia",
+      category: "vital",
+      lrPos: 1.2,
+      lrNeg: 0.9,
+      notes: "Weak diagnostic discriminator alone in multivariable diagnostic cohorts.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_vital_fever",
+      label: "Fever",
+      category: "vital",
+      lrPos: 1.2,
+      lrNeg: 0.95,
+      notes: "Common but non-specific in immunocompromised hosts.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+
+    // -------------------------
+    // Labs (serum)
+    // -------------------------
+    {
+      id: "pjp_bdg_serum",
+      label: "Serum beta-D-glucan (BDG)",
+      category: "lab",
+      group: "pjp_bdg",
+      lrPos: 4.3,
+      lrNeg: 0.11,
+      notes: "Set Present=positive, Absent=negative. Good rule-out utility when pretest probability is low/intermediate.",
+      source: {
+        short: "Del Corpo et al. Clin Microbiol Infect",
+        year: 2020,
+        url: "https://doi.org/10.1016/j.cmi.2020.05.024",
+      },
+    },
+    {
+      id: "pjp_bdg_na",
+      label: "Serum BDG not done/unknown",
+      category: "lab",
+      group: "pjp_bdg",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "pjp_ldh_high",
+      label: "Serum LDH elevated (around >=265 IU/L)",
+      category: "lab",
+      lrPos: 3.0,
+      lrNeg: 0.75,
+      notes: "OR-informed approximation from multivariable diagnostic model.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+
+    // -------------------------
+    // Microbiology (respiratory samples)
+    // -------------------------
+    {
+      id: "pjp_pcr_bal",
+      label: "Respiratory PCR (BAL qPCR)",
+      category: "micro",
+      group: "pjp_pcr_strategy",
+      lrPos: 9.19,
+      lrNeg: 0.014,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Brown et al. Clin Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1093/cid/ciae239",
+      },
+    },
+    {
+      id: "pjp_pcr_induced_sputum",
+      label: "Respiratory PCR (induced sputum qPCR)",
+      category: "micro",
+      group: "pjp_pcr_strategy",
+      lrPos: 5.3,
+      lrNeg: 0.024,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Brown et al. Clin Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1093/cid/ciae239",
+      },
+    },
+    {
+      id: "pjp_pcr_upper_airway",
+      label: "Respiratory PCR (upper airway sample)",
+      category: "micro",
+      group: "pjp_pcr_strategy",
+      lrPos: 9.34,
+      lrNeg: 0.12,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Brown et al. Clin Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1093/cid/ciae239",
+      },
+    },
+    {
+      id: "pjp_pcr_na",
+      label: "Respiratory PCR not done/unknown",
+      category: "micro",
+      group: "pjp_pcr_strategy",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "pjp_dfa",
+      label: "Respiratory direct fluorescent antibody (DFA/IFA)",
+      category: "micro",
+      group: "pjp_dfa_strategy",
+      lrPos: 20,
+      lrNeg: 0.73,
+      notes: "Set Present=positive, Absent=negative. Very specific but substantially less sensitive than PCR in routine cohorts.",
+      source: {
+        short: "Veintimilla et al. J Fungi",
+        year: 2023,
+        url: "https://doi.org/10.3390/jof9040414",
+      },
+    },
+    {
+      id: "pjp_dfa_na",
+      label: "Respiratory DFA/IFA not done/unknown",
+      category: "micro",
+      group: "pjp_dfa_strategy",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Imaging
+    // -------------------------
+    {
+      id: "pjp_cxr_typical",
+      label: "CXR typical of PJP (diffuse/interstitial-interstitial-alveolar pattern)",
+      category: "imaging",
+      group: "pjp_imaging",
+      lrPos: 3.0,
+      lrNeg: 0.7,
+      notes: "Approximation informed by pooled ORs and multivariable diagnostic cohorts.",
+      source: {
+        short: "Wills et al. Open Forum Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1093/ofid/ofae146",
+      },
+    },
+    {
+      id: "pjp_ct_typical",
+      label: "CT typical of PJP (ground-glass/interstitial pattern)",
+      category: "imaging",
+      group: "pjp_imaging",
+      lrPos: 4.4,
+      lrNeg: 0.45,
+      notes: "OR-informed approximation from multivariable CT diagnostic cohorts.",
+      source: {
+        short: "Mappin-Kasirer et al. BMC Infect Dis",
+        year: 2024,
+        url: "https://doi.org/10.1186/s12879-024-09957-y",
+      },
+    },
+    {
+      id: "pjp_imaging_na",
+      label: "Chest imaging not done/unknown",
+      category: "imaging",
+      group: "pjp_imaging",
+      notes: "Neutral selection.",
+    },
+  ],
+};
+
 
 export const PROBID_MODULES: SyndromeLRModule[] = [
   CAP_MODULE,
@@ -615,4 +883,5 @@ export const PROBID_MODULES: SyndromeLRModule[] = [
   UTI_MODULE,
   ENDO_MODULE,
   ACTIVE_TB_MODULE,
+  PJP_MODULE,
 ];

@@ -96,6 +96,42 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1056/NEJMcp1104429",
     },
     {
+      section: "PJP",
+      citation:
+        "Brown A, Miah A, et al. Accuracy of Pneumocystis jirovecii PCR assays in respiratory samples for diagnosis of Pneumocystis pneumonia: a systematic review and meta-analysis. Clin Infect Dis. 2024.",
+      doi: "https://doi.org/10.1093/cid/ciae239",
+    },
+    {
+      section: "PJP",
+      citation:
+        "Del Corpo O, Butler-Laporte G, Sheppard DC, et al. Diagnostic accuracy of serum (1-3)-beta-D-glucan for Pneumocystis jirovecii pneumonia: a systematic review and meta-analysis. Clin Microbiol Infect. 2020;26(9):1137-1143.",
+      doi: "https://doi.org/10.1016/j.cmi.2020.05.024",
+    },
+    {
+      section: "PJP",
+      citation:
+        "Veintimilla C, Kuncio D, Mays JA, et al. Accuracy of Microscopy and PCR for the Diagnosis of Pneumocystis jirovecii from Bronchoalveolar Lavage in a Real-World Clinical Setting. J Fungi (Basel). 2023;9(4):414.",
+      doi: "https://doi.org/10.3390/jof9040414",
+    },
+    {
+      section: "PJP",
+      citation:
+        "Mappin-Kasirer B, et al. A diagnostic model for Pneumocystis jirovecii pneumonia in patients requiring bronchoscopy and bronchoalveolar lavage. BMC Infect Dis. 2024;24:1311.",
+      doi: "https://doi.org/10.1186/s12879-024-09957-y",
+    },
+    {
+      section: "PJP",
+      citation:
+        "Wills M, et al. Utility of Chest X-ray Features in Presumed HIV-Associated Pneumocystis jirovecii Pneumonia: A Systematic Review and Meta-Analysis. Open Forum Infect Dis. 2024;11(5):ofae146.",
+      doi: "https://doi.org/10.1093/ofid/ofae146",
+    },
+    {
+      section: "PJP",
+      citation:
+        "Shin HJ, et al. Risk factors for Pneumocystis jirovecii pneumonia in patients with autoimmune diseases receiving non-high-dose steroids. Sci Rep. 2019;9:1911.",
+      doi: "https://doi.org/10.1038/s41598-019-38618-3",
+    },
+    {
       section: "Active TB",
       citation:
         "van't Hoog AH, Langendam MW, Mitchell E, et al. Symptom- and chest-radiography screening for active pulmonary tuberculosis in HIV-negative adults and adolescents: a systematic review and meta-analysis. Cochrane Database Syst Rev. 2022;9:CD010890.",
@@ -138,7 +174,7 @@ export default function ProbIDAllReferencesPage() {
     return acc;
   }, {});
 
-  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "Active TB"];
+  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "PJP", "Active TB"];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
