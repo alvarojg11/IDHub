@@ -2,42 +2,43 @@
   Fever, urinary symptoms, and a heart murmur
 </h1>
 
-<h2 className="text-2xl font-bold text-gray-900 mb-6">
-  Clinical Vignette
-</h2>
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
 
 <div className="mx-auto max-w-5xl">
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     An 81-year-old man from Mississippi with alcohol use disorder, hypertension,
-    and benign prostatic hyperplasia presents with fever and malaise.
-    He reports mild urinary urgency and generalized malaise for the past 10 days.
-    He denies focal pain, cough, abdominal symptoms, or neurologic complaints.
+    and benign prostatic hyperplasia presents with fever and malaise. He reports
+    mild urinary urgency and generalized malaise for the past 10 days. He denies
+    focal pain, cough, abdominal symptoms, or neurologic complaints.
   </p>
 
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
-    Three months ago, he traveled to Arizona, staying near a farm.He lives with a dog 
-    and recently adopted two kittens from a local pet store and has had multiple skin 
-    excoriations. He also underwent a molar extraction 1 month ago. He denies any known 
-    allergies to antibiotics.
+    Three months ago, he traveled to Arizona, staying near a farm.He lives with a
+    dog and recently adopted two kittens from a local pet store and has had
+    multiple skin excoriations. He also underwent a molar extraction 1 month ago.
+    He denies any known allergies to antibiotics.
   </p>
 
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
-    Physical examination is notable for temperature of 38.9°C, heart rate 118 bpm, respiratory rate of 20 bpm. 
-    On auscultation there is a II/VI systolic murmur in cardiac apex radiating to the axilla
-    Labs are notable for leukocytosis (15.4 × 10⁹/L) and elevated CRP (138 mg/L). Blood cultures are reported to be growing an organism
-    (Gram stain is shown below). On culture, the organism is catalase negative and produces alpha-hemolytic colonies on blood agar.
-    A transthoracic echocardiogram demonstrates a small mitral valve vegetation.
+    Physical examination is notable for temperature of 38.9°C, heart rate 118 bpm,
+    respiratory rate of 20 bpm. On auscultation there is a II/VI systolic murmur
+    in cardiac apex radiating to the axilla. Labs are notable for leukocytosis
+    (15.4 × 10⁹/L) and elevated CRP (138 mg/L). Blood cultures are reported to be
+    growing Gram-positive cocci in pairs and short chains (Gram stain is shown
+    below). On culture, the organism is catalase negative and produces
+    alpha-hemolytic colonies on blood agar. A transthoracic echocardiogram
+    demonstrates a small mitral valve vegetation.
   </p>
 </div>
 
 <figure className="my-12">
   <div className="mx-auto max-w-xl rounded-lg border border-gray-600 bg-black p-0.5">
     <Image
-    src="/cases/case-1/aerococcus.png"
-    alt="Gram stain showing Gram-positive cocci in clusters"
-    width={600}
-    height={100}
-    className="rounded-lg mx-auto"
+      src="/cases/case-1/aerococcus.png"
+      alt="Gram stain showing Gram-positive cocci"
+      width={600}
+      height={100}
+      className="rounded-lg mx-auto"
     />
   </div>
 
@@ -46,43 +47,41 @@
   </figcaption>
 </figure>
 
-
-
 <CaseQuestion
   pollId="case-aerococcus-q1"
   title="Question"
-  prompt="Based on the most likely causative organism, which antibiotic regimen would you recommend?"
+  prompt="What is the most likely pathogen?"
   options={[
     {
       id: "A",
-      label: "Oral rifampin plus doxycycline",
+      label: "Aerococcus urinae",
+      correct: true,
       feedback:
-        "Incorrect. Rifampin and doxycycline are not standard therapy for Aerococcus urinae. Oral therapy is inadequate for bloodstream infection or endocarditis.",
+        "Correct. Aerococcus can appear as Gram-positive cocci in pairs/tetrads/short chains; it is catalase negative and often alpha-hemolytic—frequently confused with viridans streptococci or enterococci without MALDI-TOF/16S.",
     },
     {
       id: "B",
-      label: "Intravenous vancomycin monotherapy",
+      label: "Streptococcus mitis (viridans group)",
       feedback:
-        "Incorrect. Although vancomycin has Gram-positive activity, Aerococcus urinae is typically highly susceptible to penicillin. Vancomycin is generally reserved for patients with severe beta-lactam allergy.",
+        "Incorrect. Viridans streptococci can be alpha-hemolytic and catalase negative, but Aerococcus is a key mimic and should be suspected in older patients with genitourinary risk factors; definitive identification often requires MALDI-TOF or sequencing.",
     },
     {
       id: "C",
-      label: "Intravenous ceftriaxone",
+      label: "Streptococcus agalactiae",
       feedback:
-        "Incorrect. While ceftriaxone may have activity against some streptococci, data supporting its use for Aerococcus urinae endocarditis are limited. Penicillin-based therapy is preferred.",
+        "Incorrect. Group B streptococcus is classically beta-hemolytic (though hemolysis can vary). The overall phenotype and clinical context are more consistent with Aerococcus.",
     },
     {
       id: "D",
-      label: "High-dose intravenous penicillin plus a 7–14 day course of gentamicin",
-      correct: true,
+      label: "Enterococcus faecalis",
       feedback:
-        "Correct. Aerococcus urinae is typically highly susceptible to penicillin. In cases of endocarditis, adding gentamicin for 1–2 weeks provides synergistic bactericidal activity.",
+        "Incorrect. Enterococcus is catalase negative and can form short chains, but Aerococcus often mimics enterococci/viridans streptococci on routine culture; species-level identification is key.",
     },
     {
       id: "E",
-      label: "Hydroxychloroquine plus doxycycline",
+      label: "Staphylococcus aureus",
       feedback:
-        "Incorrect. This regimen is used for chronic Q fever endocarditis caused by Coxiella burnetii and has no activity against Aerococcus urinae.",
+        "Incorrect. S. aureus is catalase positive and more typically forms clusters on Gram stain.",
     },
   ]}
 />
@@ -91,40 +90,83 @@
 <hr className="border-gray-200" />
 <div className="my-6" />
 
+<CaseQuestion
+  pollId="case-aerococcus-q2"
+  title="Question 2"
+  prompt="Susceptibilities show penicillin susceptibility. What is the best treatment approach?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline monotherapy for 14 days",
+      feedback:
+        "Incorrect. Oral doxycycline is not standard therapy for Aerococcus endocarditis.",
+    },
+    {
+      id: "B",
+      label: "IV vancomycin monotherapy for 7–10 days",
+      feedback:
+        "Incorrect. Vancomycin is active, but when penicillin-susceptible Aerococcus is confirmed, a beta-lactam is preferred; duration is also too short for endocarditis.",
+    },
+    {
+      id: "C",
+      label: "IV penicillin G (or ampicillin) for ~4 weeks or Ceftriaxone daily",
+      correct: true,
+      feedback:
+        "Correct. For Aerococcus urinae endocarditis, beta-lactam therapy for ~4 weeks has good outcomes in published cohorts; once-daily ceftriaxone is a practical alternative when susceptible.",
+    },
+    {
+      id: "D",
+      label: "IV penicillin G plus gentamicin for the entire course",
+      feedback:
+        "Incorrect. Aminoglycoside synergy is not uniformly used and if considered, it should be individualized given toxicity risk.",
+    },
+    {
+      id: "E",
+      label: "No directed therapy—Aerococcus is usually a contaminant",
+      feedback:
+        "Incorrect. In this vignette there is bacteremia plus echocardiographic evidence of endocarditis; this requires treatment.",
+    },
+  ]}
+/>
 
-<h2 className="text-2xl font-bold text-gray-900 mb-6">
-  Rationale
-</h2>
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Rationale</h2>
 
 <div className="mx-auto max-w-5xl">
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     Aerococcus urinae is a Gram-positive, catalase-negative coccus that was first
-    described in the 1990s as a causative organism of urinary tract infections (1).
-    Although the organism is considered to be of low pathogenicity and may not always need to
-    be treated, there are descriptions of severe, sometimes fatal infections,
-    such as endocarditis, often in the presence of urinary tract infections or
-    symptoms typical of this infection. 
-  </p>
-    
-  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
-    Isolates of A. urinae may easily be mistaken for
-    staphylococci on Gram stain, because they appear as Gram-positive cocci
-    arranged in tetrads or clusters. Colonies on blood agar may be mistaken for
-    streptococci, because these show alpha hemolysis and are catalase negative,
-    resembling viridans streptococci and some enterococci. Primary identification
-    is based upon Gram stain of alpha-hemolytic colonies that are catalase
-    negative. Aerococcus species appear as Gram-positive cocci in clusters, which
-    differentiates them from streptococci and enterococci. 
+    described in the 1990s as a causative organism of urinary tract infections
+    (1). Although the organism is considered to be of low pathogenicity and may
+    not always need to be treated, there are descriptions of severe, sometimes
+    fatal infections, such as endocarditis, often in the presence of urinary
+    tract infections or symptoms typical of this infection.
   </p>
 
-  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">  
-    Differentiation between A. urinae and Aerococcus viridans can be done by testing for pyrrolidinyl
-    aminopeptidase (PYR), which is positive only for A. viridans, and leucine
-    aminopeptidase (LAP), which is positive only for A. urinae. Automated systems
-    such as Vitek are reliable for phenotypic identification, and 16S rRNA PCR may
-    be used for genotypic confirmation. In some cases, blood cultures remain
-    negative, in which case 16S rRNA PCR performed directly on blood culture may
-    reveal A. urinae (PMID: 20660216).
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Aerococcus can be mistaken for viridans streptococci or enterococci because
+    colonies may be alpha-hemolytic and catalase negative. Modern identification
+    methods (e.g., MALDI-TOF MS or sequencing) have increased recognition of
+    Aerococcus as a true pathogen, particularly in older patients with
+    genitourinary disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For penicillin-susceptible Aerococcus species, IV penicillin (or ampicillin)
+    is preferred. Observational multicenter experience suggests ~2 weeks for
+    uncomplicated bloodstream infection and ~4 weeks for endocarditis, with
+    ceftriaxone as a commonly used once-daily alternative when susceptible.
+    Aminoglycoside “synergy” is not universal and should not be automatic given
+    toxicity risk.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Differentiation between A. urinae and Aerococcus viridans can be done by
+    testing for pyrrolidinyl aminopeptidase (PYR) and leucine aminopeptidase
+    (LAP), and confirmatory testing (e.g., 16S rRNA sequencing) can be used when
+    needed (PMID: 20660216).
   </p>
 </div>
 
@@ -132,14 +174,30 @@
 <hr className="border-gray-200" />
 <div className="my-12" />
 
-<h2 className="text-2xl font-bold text-gray-900 mb-6">
-  References
-</h2>
+<h2 className="text-2xl font-bold text-gray-900 mb-6">References</h2>
 
 <div className="mx-auto max-w-5xl">
   <p className="text-lg leading-6 text-gray-800 text-justify">
-    Rasmussen M. Aerococcus urinae: an increasingly acknowledged human pathogen.
-    <em> Clinical Microbiology and Infection</em>. 2010;16(10):1247–1252.
+    Tai DBG, Go JR, Fida M, Saleh OA. <em>Management and treatment of Aerococcus bacteremia and endocarditis.</em>{" "}
+    <em>International Journal of Infectious Diseases</em>. 2021;102:584–589.
+  </p>
+
+  <p className="mt-3">
+    <a
+      href="https://doi.org/10.1016/j.ijid.2020.10.096"
+      target="_blank"
+      rel="noreferrer"
+      className="text-sm font-semibold text-blue-600 hover:underline"
+    >
+      DOI: https://doi.org/10.1016/j.ijid.2020.10.096
+    </a>
+  </p>
+
+  <div className="h-6" />
+
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Rasmussen M. <em>Aerococcus urinae: an increasingly acknowledged human pathogen.</em>{" "}
+    <em>Clinical Microbiology and Infection</em>. 2010;16(10):1247–1252.
   </p>
 
   <p className="mt-3">
@@ -153,7 +211,6 @@
     </a>
   </p>
 </div>
-
 
 <div className="my-12" />
 <hr className="border-gray-200" />

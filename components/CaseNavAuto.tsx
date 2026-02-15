@@ -70,7 +70,7 @@ export default function CaseNavAuto() {
         )}
       </div>
 
-      <footer className="mt-28 border-t border-[var(--border)] pt-8 pb-6 text-xs text-[var(--muted)] text-center">
+      <footer className="mt-20 border-t border-[var(--border)] pt-8 pb-6 text-xs text-[var(--muted)] text-center">
         Educational content only. Not medical advice. 
         <p className="text-xs text-[var(--muted)]">
             © {new Date().getFullYear()} IDHub
