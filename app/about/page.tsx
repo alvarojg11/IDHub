@@ -47,15 +47,15 @@ export default function AboutPage() {
       {/* About Me */}
       <section>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-[220px_minmax(0,1fr)]">
-          <div className="w-full">
-            <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-sm">
+          <div className="w-full sm:h-full">
+            <div className="relative min-h-[270px] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-sm sm:h-full">
               <Image
                 src="/images/alvaro.png"
                 alt="Alvaro Ayala, MD"
-                width={220}
-                height={270}
+                fill
                 priority
-                className="h-auto w-full object-cover"
+                sizes="(min-width: 640px) 220px, 100vw"
+                className="object-cover"
               />
             </div>
           </div>
@@ -73,10 +73,11 @@ export default function AboutPage() {
               </p>
 
               <p className="mt-5 text-[var(--foreground)]/85 leading-relaxed">
-                As my interest in medical education grew, I wanted a place to explore those nuances
+                As my interest in medical education grew, I wanted a place to explore these nuances
                 more openly: how we interpret tests, how we communicate probability, and how we make
-                decisions when the evidence is incomplete. That was the beginning of my writing in
-                Infectious Diseases and eventually the start of IDHub.
+                decisions when the evidence is insufficient. That was the beginning of my writing in
+                Infectious Diseases and, eventually, the start of IDHub, a place where all of this
+                comes together.
               </p>
             </div>
           </div>
