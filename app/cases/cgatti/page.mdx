@@ -1,0 +1,228 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Cryptic Case
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 54-year-old woman with no known immunocompromising condition presents with
+    3 weeks of progressive headache, nausea, blurry vision, and gait imbalance.
+    She has no history of HIV, transplant, malignancy, or immunosuppressive therapy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On exam, she is afebrile but has mild sixth-nerve palsy and neck stiffness.
+    Lumbar puncture shows elevated opening pressure, lymphocytic pleocytosis,
+    elevated protein, and low CSF glucose. CSF cryptococcal antigen is positive.
+    HIV testing is negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Fungal culture later identifies <em>Cryptococcus spp</em>. Chest imaging
+    does not show findings of pulmonary alveolar proteinosis.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-cgatti-q1"
+  title="Question"
+  prompt="Which host factor is most classically associated with this presentation in an otherwise immunocompetent patient?"
+  options={[
+    {
+      id: "A",
+      label: "Neutralizing anti-GM-CSF autoantibodies",
+      correct: true,
+      feedback:
+        "Correct. Neutralizing anti-GM-CSF autoantibodies are strongly associated with C. gattii CNS cryptococcosis in patients without classic immunocompromising conditions.",
+    },
+    {
+      id: "B",
+      label: "Neutralizing anti-IFN-gamma autoantibodies",
+      feedback:
+        "Incorrect. Anti-IFN-gamma autoantibodies are classically linked to disseminated nontuberculous mycobacterial and other intracellular infections, not specifically C. gattii CNS disease.",
+    },
+    {
+      id: "C",
+      label: "Complement C5 deficiency",
+      feedback:
+        "Incorrect. Terminal complement deficiency is classically linked to Neisseria infections, not this pattern of cryptococcosis.",
+    },
+    {
+      id: "D",
+      label: "Chronic granulomatous disease",
+      feedback:
+        "Incorrect. CGD predisposes to catalase-positive bacterial and fungal infections such as Aspergillus, but this is not the classic association here.",
+    },
+    {
+      id: "E",
+      label: "Isolated IgA deficiency",
+      feedback:
+        "Incorrect. IgA deficiency is common and usually linked to mucosal infections; it is not a classic risk factor for C. gattii CNS cryptococcosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cgatti-q2"
+  title="Question 2"
+  prompt="In anti-GM-CSF autoantibody-positive CNS cryptococcosis, which Cryptococcus species is most strongly associated?"
+  options={[
+    {
+      id: "A",
+      label: "Cryptococcus neoformans",
+      feedback:
+        "Incorrect. C. neoformans more often predominates in anti-GM-CSF autoantibody-negative CNS cryptococcosis.",
+    },
+    {
+      id: "B",
+      label: "Cryptococcus gattii",
+      correct: true,
+      feedback:
+        "Correct. In anti-GM-CSF autoantibody-positive CNS cryptococcosis, C. gattii was the dominant associated species.",
+    },
+    {
+      id: "C",
+      label: "Cryptococcus laurentii",
+      feedback:
+        "Incorrect. This species is not the major association described in anti-GM-CSF autoantibody-positive CNS disease.",
+    },
+    {
+      id: "D",
+      label: "No species-level pattern was observed",
+      feedback:
+        "Incorrect. A species pattern was observed, with C. gattii strongly associated with anti-GM-CSF autoantibody positivity.",
+    },
+    {
+      id: "E",
+      label: "Species identification is unrelated to anti-GM-CSF autoantibodies",
+      feedback:
+        "Incorrect. C. gattii is enriched among anti-GM-CSF autoantibody-positive CNS cases.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Anti-GM-CSF autoantibodies are a recognized acquired immune defect linked to
+    two major clinical phenotypes: pulmonary alveolar proteinosis (PAP) and
+    <em> Cryptococcus gattii</em> cryptococcosis. In the Taiwanese multicenter cohort
+    (Wang et al., 2022), 15 of 39 non-HIV cryptococcosis patients had high-titer
+    neutralizing anti-GM-CSF autoantibodies.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CNS involvement was prominent: 14 of 15 anti-GM-CSF-positive cryptococcosis
+    patients had CNS disease, and most typed isolates in that subgroup were
+    <em> C. gattii</em>. By contrast, <em>C. neoformans</em> predominated in the
+    autoantibody-negative group.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    An important teaching point is phenotype separation. Despite sharing the same
+    autoantibody risk factor, PAP and C. gattii cryptococcosis rarely overlapped
+    in the same individual in the reported cohort and in population-level data.
+    This suggests additional host/pathogen factors likely influence whether
+    disease manifests primarily in lung surfactant homeostasis (PAP) or as
+    invasive cryptococcosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Practical implication: when a patient with no classic immunocompromising
+    condition presents with CNS cryptococcosis due to <em>C. gattii</em>, consider
+    testing for anti-GM-CSF autoantibodies.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      In non-HIV patients with cryptococcosis, anti-GM-CSF autoantibodies are strongly associated with <em>C. gattii</em>, especially CNS disease.
+    </li>
+    <li>
+      PAP and C. gattii cryptococcosis share anti-GM-CSF autoantibodies but usually do not present together in the same patient.
+    </li>
+    <li>
+      Autoantibody titer and neutralizing activity alone may not fully explain why one patient develops PAP and another develops cryptococcosis.
+    </li>
+    <li>
+      Screening for anti-GM-CSF autoantibodies is reasonable in otherwise immunocompetent patients with CNS <em>C. gattii</em> infection.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wang SY, Lo YF, Shih HP, et al. Cryptococcus gattii Infection as the Major
+      Clinical Manifestation in Patients with Autoantibodies Against
+      Granulocyte-Macrophage Colony-Stimulating Factor.
+      <em> Journal of Clinical Immunology</em>. 2022;42:1730-1741.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s10875-022-01341-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1007/s10875-022-01341-2
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Saijo T, Chen J, Chen SCA, et al. Anti-granulocyte-macrophage
+      colony-stimulating factor autoantibodies are a risk factor for central
+      nervous system infection by Cryptococcus gattii in otherwise
+      immunocompetent patients. <em>mBio</em>. 2014;5(2):e00912-14.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/mBio.00912-14"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/mBio.00912-14
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

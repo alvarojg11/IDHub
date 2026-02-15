@@ -1,8 +1,9 @@
 export type CaseMeta = {
-  slug: string;        // route segment under /cases
-  title: string;       // h1 title
-  subtitle?: string;   // optional
-  enabled?: boolean;   // optional: hide drafts
+  slug: string;         // route segment under /cases
+  title: string;        // h1 title
+  description?: string; // optional card blurb
+  subtitle?: string;    // optional
+  enable?: boolean;     // optional: hide drafts
 };
 
 export const CASES: CaseMeta[] = [
@@ -58,6 +59,12 @@ export const CASES: CaseMeta[] = [
     title: "When molluscum is not molluscum",
     slug: "talaromyces",
     description: "Another skin lesion...",
+    enable: true
+  },
+  {
+    title: "A Cryptic Case",
+    slug: "cgatti",
+    description: "When CNS cryptococcosis reveals an acquired immune defect.",
     enable: true
   },
 ].filter((c) => c.enable !== false);

@@ -39,8 +39,8 @@ export default function AboutPage() {
           About IDHub
         </h1>
         <p className="mt-4 max-w-3xl text-[var(--foreground)]/85 leading-relaxed">
-          IDHub is an educational space built around clinical reasoning,
-          uncertainty, and the kind of problem-solving that happens at the bedside.
+          IDHub is a shared home for infectious diseases writing and educational
+          tools, designed to support practical medical education in one place.
         </p>
       </header>
 

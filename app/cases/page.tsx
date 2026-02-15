@@ -48,6 +48,11 @@ const cases = [
     slug: "talaromyces",
     description: "Another skin lesion...",
   },
+  {
+    title: "A Cryptic Case",
+    slug: "cgatti",
+    description: "About an immune defect.",
+  },
 ];
 
 export default function CasesPage() {
