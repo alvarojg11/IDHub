@@ -132,6 +132,54 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1038/s41598-019-38618-3",
     },
     {
+      section: "PJI",
+      citation:
+        "Parvizi J, Tan TL, Goswami K, et al. The 2018 Definition of Periprosthetic Hip and Knee Infection: An Evidence-Based and Validated Criteria. J Arthroplasty. 2018;33(5):1309-1314.e2.",
+      doi: "https://doi.org/10.1016/j.arth.2018.09.028",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Cortes-Penfield NW, Kulkarni PA, Theel ES. Prosthetic Joint Infection: Diagnostic Challenges and New Developments. Clin Infect Dis. 2023;76(1):e181-e188.",
+      doi: "https://doi.org/10.1093/cid/ciac992",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Tarabichi M, Shohat N, Goswami K, et al. C-Reactive Protein and Erythrocyte Sedimentation Rate Have Variable Sensitivity and Specificity for the Diagnosis of Periprosthetic Joint Infection in Total Knee Arthroplasty: A Clinical Study. J Arthroplasty. 2024.",
+      doi: "https://doi.org/10.1016/j.arth.2024.02.030",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Paul S, et al. Utility of alpha-defensin in diagnosing periprosthetic joint infection: a systematic review and meta-analysis. J Bone Jt Infect. 2025;10:525-538.",
+      doi: "https://doi.org/10.5194/jbji-10-525-2025",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Poursalehian M, et al. Diagnostic value of synovial fluid leucocyte esterase strip test in periprosthetic joint infection: a systematic review and meta-analysis. Arthroplasty. 2025;7:34.",
+      doi: "https://doi.org/10.1186/s42836-025-00325-y",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Watanabe M, et al. Preoperative Synovial Fluid Culture, Intraoperative Tissue Culture, and Sonication Fluid Culture in Diagnosing Periprosthetic Joint Infection: A Diagnostic Accuracy Study and Meta-analysis. J Arthroplasty. 2024.",
+      doi: "https://doi.org/10.1016/j.arth.2024.03.016",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Jun Y, Jiang Y, Xu Y, et al. Diagnostic Value of Synovial Fluid Polymerase Chain Reaction for Periprosthetic Joint Infection: A Meta-analysis. Surg Infect (Larchmt). 2018;19(7):683-691.",
+      doi: "https://doi.org/10.1089/sur.2018.014",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Zhu Y, Zhang F, Chen W, et al. Risk factors for periprosthetic joint infection after total joint arthroplasty: a systematic review and meta-analysis. Int Wound J. 2016;13(6):1213-1221.",
+      doi: "https://doi.org/10.1111/iwj.12465",
+    },
+    {
       section: "Active TB",
       citation:
         "van't Hoog AH, Langendam MW, Mitchell E, et al. Symptom- and chest-radiography screening for active pulmonary tuberculosis in HIV-negative adults and adolescents: a systematic review and meta-analysis. Cochrane Database Syst Rev. 2022;9:CD010890.",
@@ -174,7 +222,7 @@ export default function ProbIDAllReferencesPage() {
     return acc;
   }, {});
 
-  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "PJP", "Active TB"];
+  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "PJP", "PJI", "Active TB"];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">

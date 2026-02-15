@@ -876,6 +876,340 @@ export const PJP_MODULE: SyndromeLRModule = {
   ],
 };
 
+export const PJI_MODULE: SyndromeLRModule = {
+  id: "pji",
+  name: "PJI",
+  description:
+    "Prosthetic joint infection probability update using clinical setting, host risk factors, inflammatory markers, synovial biomarkers, microbiology, and supportive imaging.",
+  pretestPresets: [
+    {
+      id: "pji_low",
+      label: "Low concern: painful prosthesis without clear inflammatory/infectious features",
+      p: 0.05,
+      notes: "Low-prevalence context where aseptic causes remain more likely.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_intermediate",
+      label: "Intermediate concern: painful prosthesis with inflammatory/infectious features",
+      p: 0.20,
+      notes: "Intermediate pretest setting before synovial/microbiologic data.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_high",
+      label: "High concern: sinus tract, or strong suspicion",
+      p: 0.45,
+      notes: "High pretest setting where expedited aspiration and microbiology are central.",
+      source: {
+        short: "Parvizi et al. J Arthroplasty",
+        year: 2018,
+        url: "https://doi.org/10.1016/j.arth.2018.09.028",
+      },
+    },
+  ],
+  items: [
+    // -------------------------
+    // Host risk factors
+    // (OR-informed approximations where direct pooled LRs are unavailable)
+    // -------------------------
+    {
+      id: "pji_host_revision_arthroplasty",
+      label: "Prior revision arthroplasty",
+      category: "host",
+      lrPos: 2.2,
+      lrNeg: 0.9,
+      notes: "Approximate enrichment from pooled observational risk-factor data.",
+      source: {
+        short: "Zhu et al. Int Wound J",
+        year: 2016,
+        url: "https://doi.org/10.1111/iwj.12465",
+      },
+    },
+    {
+      id: "pji_host_obesity",
+      label: "Obesity (roughly BMI >=30)",
+      category: "host",
+      lrPos: 1.4,
+      lrNeg: 0.95,
+      notes: "Modeled as a modest pretest risk enricher.",
+      source: {
+        short: "Zhu et al. Int Wound J",
+        year: 2016,
+        url: "https://doi.org/10.1111/iwj.12465",
+      },
+    },
+    {
+      id: "pji_host_diabetes",
+      label: "Diabetes mellitus",
+      category: "host",
+      lrPos: 1.5,
+      lrNeg: 0.95,
+      notes: "Modeled as a modest pretest risk enricher.",
+      source: {
+        short: "Zhu et al. Int Wound J",
+        year: 2016,
+        url: "https://doi.org/10.1111/iwj.12465",
+      },
+    },
+    {
+      id: "pji_host_ra_immunosuppression",
+      label: "Rheumatoid arthritis or meaningful immunosuppression",
+      category: "host",
+      lrPos: 1.8,
+      lrNeg: 0.95,
+      notes: "Risk-factor enrichment from pooled observational datasets.",
+      source: {
+        short: "Zhu et al. Int Wound J",
+        year: 2016,
+        url: "https://doi.org/10.1111/iwj.12465",
+      },
+    },
+
+    // -------------------------
+    // Symptoms / signs
+    // -------------------------
+    {
+      id: "pji_sym_joint_pain",
+      label: "Persistent or worsening pain in prosthetic joint",
+      category: "symptom",
+      lrPos: 1.4,
+      lrNeg: 0.8,
+      notes: "Common but non-specific; best interpreted with labs and aspiration data.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_sym_local_inflammation",
+      label: "Local erythema, warmth, swelling, or drainage",
+      category: "symptom",
+      lrPos: 1.8,
+      lrNeg: 0.8,
+      notes: "Supportive but not definitive without microbiologic correlation.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_vital_fever",
+      label: "Fever (>=38 C)",
+      category: "vital",
+      lrPos: 1.3,
+      lrNeg: 0.95,
+      notes: "Absent fever does not exclude PJI, especially chronic presentations.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_exam_sinus_tract",
+      label: "Sinus tract communicating with prosthesis",
+      category: "exam",
+      lrPos: 30,
+      lrNeg: 0.95,
+      notes: "Major diagnostic criterion with very high rule-in value.",
+      source: {
+        short: "Parvizi et al. J Arthroplasty",
+        year: 2018,
+        url: "https://doi.org/10.1016/j.arth.2018.09.028",
+      },
+    },
+
+    // -------------------------
+    // Blood and synovial laboratory tests
+    // -------------------------
+    {
+      id: "pji_crp",
+      label: "C-reactive protein elevated",
+      category: "lab",
+      lrPos: 3.01,
+      lrNeg: 0.14,
+      notes: "Set Present=above selected threshold, Absent=below threshold.",
+      source: {
+        short: "Tarabichi et al. J Arthroplasty",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.arth.2024.02.030",
+      },
+    },
+    {
+      id: "pji_esr",
+      label: "ESR elevated",
+      category: "lab",
+      lrPos: 4.99,
+      lrNeg: 0.31,
+      notes: "Set Present=above selected threshold, Absent=below threshold.",
+      source: {
+        short: "Tarabichi et al. J Arthroplasty",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.arth.2024.02.030",
+      },
+    },
+    {
+      id: "pji_alpha_defensin_elisa",
+      label: "Synovial alpha-defensin (ELISA laboratory assay)",
+      category: "lab",
+      group: "pji_synovial_marker",
+      lrPos: 41.8,
+      lrNeg: 0.12,
+      notes: "Set Present=positive, Absent=negative. Very strong rule-in performance in pooled analyses.",
+      source: {
+        short: "Paul et al. JBJI",
+        year: 2025,
+        url: "https://doi.org/10.5194/jbji-10-525-2025",
+      },
+    },
+    {
+      id: "pji_alpha_defensin_lateral_flow",
+      label: "Synovial alpha-defensin (lateral flow)",
+      category: "lab",
+      group: "pji_synovial_marker",
+      lrPos: 17.0,
+      lrNeg: 0.23,
+      notes: "Set Present=positive, Absent=negative. Point-of-care format with lower sensitivity vs ELISA.",
+      source: {
+        short: "Paul et al. JBJI",
+        year: 2025,
+        url: "https://doi.org/10.5194/jbji-10-525-2025",
+      },
+    },
+    {
+      id: "pji_leukocyte_esterase",
+      label: "Synovial leukocyte esterase strip",
+      category: "lab",
+      group: "pji_synovial_marker",
+      lrPos: 20.4,
+      lrNeg: 0.13,
+      notes: "Set Present=positive, Absent=negative. Strong diagnostic utility in pooled analyses.",
+      source: {
+        short: "Poursalehian et al. Arthroplasty",
+        year: 2025,
+        url: "https://doi.org/10.1186/s42836-025-00325-y",
+      },
+    },
+    {
+      id: "pji_synovial_marker_na",
+      label: "Synovial biomarker testing not done/unknown",
+      category: "lab",
+      group: "pji_synovial_marker",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Microbiology
+    // -------------------------
+    {
+      id: "pji_synovial_fluid_culture",
+      label: "Preoperative synovial fluid culture",
+      category: "micro",
+      group: "pji_culture_strategy",
+      lrPos: 15.8,
+      lrNeg: 0.39,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Watanabe et al. J Arthroplasty",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.arth.2024.03.016",
+      },
+    },
+    {
+      id: "pji_intraop_tissue_culture",
+      label: "Intraoperative periprosthetic tissue culture",
+      category: "micro",
+      group: "pji_culture_strategy",
+      lrPos: 8.9,
+      lrNeg: 0.32,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Watanabe et al. J Arthroplasty",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.arth.2024.03.016",
+      },
+    },
+    {
+      id: "pji_sonication_culture",
+      label: "Sonication fluid culture (removed prosthesis)",
+      category: "micro",
+      group: "pji_culture_strategy",
+      lrPos: 8.7,
+      lrNeg: 0.24,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Watanabe et al. J Arthroplasty",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.arth.2024.03.016",
+      },
+    },
+    {
+      id: "pji_culture_na",
+      label: "Culture strategy not done/unknown",
+      category: "micro",
+      group: "pji_culture_strategy",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "pji_synovial_pcr",
+      label: "Synovial PCR for bacterial detection",
+      category: "micro",
+      group: "pji_pcr_strategy",
+      lrPos: 12.7,
+      lrNeg: 0.26,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Jun et al. Surg Infect",
+        year: 2018,
+        url: "https://doi.org/10.1089/sur.2018.014",
+      },
+    },
+    {
+      id: "pji_pcr_na",
+      label: "Synovial PCR not done/unknown",
+      category: "micro",
+      group: "pji_pcr_strategy",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Imaging
+    // -------------------------
+    {
+      id: "pji_xray_supportive",
+      label: "Plain radiograph suggestive of infection (rapid loosening/osteolysis/periosteal reaction)",
+      category: "imaging",
+      group: "pji_imaging",
+      lrPos: 2.0,
+      lrNeg: 0.7,
+      notes: "Supportive finding with limited standalone discrimination.",
+      source: {
+        short: "Cortes-Penfield et al. Clin Infect Dis",
+        year: 2023,
+        url: "https://doi.org/10.1093/cid/ciac992",
+      },
+    },
+    {
+      id: "pji_imaging_na",
+      label: "Imaging not done/unknown",
+      category: "imaging",
+      group: "pji_imaging",
+      notes: "Neutral selection.",
+    },
+  ],
+};
+
 
 export const PROBID_MODULES: SyndromeLRModule[] = [
   CAP_MODULE,
@@ -884,4 +1218,5 @@ export const PROBID_MODULES: SyndromeLRModule[] = [
   ENDO_MODULE,
   ACTIVE_TB_MODULE,
   PJP_MODULE,
+  PJI_MODULE,
 ];
