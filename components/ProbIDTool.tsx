@@ -14,6 +14,38 @@ type Props = {
   defaultModuleId?: string;
 };
 
+type PredictStage = "day1" | "day5";
+type PredictOnset = "nosocomial" | "healthcare" | "community";
+type PredictDevice = "none" | "icd_or_valve" | "ppm";
+type HandocSpecies =
+  | "unspecified_other"
+  | "s_anginosus_group"
+  | "s_gallolyticus_bovis_group"
+  | "s_mutans_group"
+  | "s_sanguinis_group"
+  | "s_mitis_oralis_group"
+  | "s_salivarius_group";
+
+const HANDOC_SPECIES_POINTS: Record<HandocSpecies, number> = {
+  unspecified_other: 0,
+  s_anginosus_group: -1,
+  s_gallolyticus_bovis_group: 1,
+  s_mutans_group: 1,
+  s_sanguinis_group: 1,
+  s_mitis_oralis_group: 0,
+  s_salivarius_group: 0,
+};
+
+const ENDO_SCORE_ITEM_IDS = [
+  "endo_predict_day1_high",
+  "endo_predict_day5_high",
+  "endo_predict_na",
+  "endo_denova_high",
+  "endo_denova_na",
+  "endo_handoc_high",
+  "endo_handoc_na",
+] as const;
+
 function byId(mods: SyndromeLRModule[], id?: string) {
   if (!id) return mods[0];
   return mods.find((m) => m.id === id) ?? mods[0];
@@ -22,10 +54,10 @@ function byId(mods: SyndromeLRModule[], id?: string) {
 export function ProbIDTool({ modules, defaultModuleId }: Props) {
   // Syndrome
   const [moduleId, setModuleId] = useState(byId(modules, defaultModuleId)?.id ?? modules[0]?.id);
-  const module = useMemo(() => byId(modules, moduleId), [modules, moduleId]);
+  const activeModule = useMemo(() => byId(modules, moduleId), [modules, moduleId]);
 
   // Location (pretest)
-  const [presetId, setPresetId] = useState(module.pretestPresets[0]?.id ?? "");
+  const [presetId, setPresetId] = useState(activeModule.pretestPresets[0]?.id ?? "");
 
   // Item states + step order
   const [states, setStates] = useState<Record<string, FindingState>>({});
@@ -37,23 +69,65 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [activeFamily, setActiveFamily] = useState<string>("Location");
   const [showSelectedOnly, setShowSelectedOnly] = useState(false);
 
+  // Endocarditis score autocompute controls
+  const [usePredict, setUsePredict] = useState(false);
+  const [predictStage, setPredictStage] = useState<PredictStage>("day5");
+  const [predictOnset, setPredictOnset] = useState<PredictOnset>("nosocomial");
+  const [predictDevice, setPredictDevice] = useState<PredictDevice>("none");
+  const [predictPersistent72h, setPredictPersistent72h] = useState(false);
+
+  const [useDenova, setUseDenova] = useState(false);
+  const [denovaDuration7d, setDenovaDuration7d] = useState(false);
+  const [denovaEmbolization, setDenovaEmbolization] = useState(false);
+  const [denovaNumPositive2, setDenovaNumPositive2] = useState(false);
+  const [denovaOriginUnknown, setDenovaOriginUnknown] = useState(false);
+  const [denovaValveDisease, setDenovaValveDisease] = useState(false);
+  const [denovaAuscultationMurmur, setDenovaAuscultationMurmur] = useState(false);
+
+  const [useHandoc, setUseHandoc] = useState(false);
+  const [handocHeartMurmurValve, setHandocHeartMurmurValve] = useState(false);
+  const [handocSpecies, setHandocSpecies] = useState<HandocSpecies>("unspecified_other");
+  const [handocNumPositive2, setHandocNumPositive2] = useState(false);
+  const [handocDuration7d, setHandocDuration7d] = useState(false);
+  const [handocOnlyOneSpecies, setHandocOnlyOneSpecies] = useState(false);
+  const [handocCommunityAcquired, setHandocCommunityAcquired] = useState(false);
+
   // Reset when syndrome changes
   useEffect(() => {
-    setPresetId(module.pretestPresets[0]?.id ?? "");
+    setPresetId(activeModule.pretestPresets[0]?.id ?? "");
     setStates({});
     setClickOrder([]);
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
-  }, [module.id]);
+    setUsePredict(false);
+    setPredictStage("day5");
+    setPredictOnset("nosocomial");
+    setPredictDevice("none");
+    setPredictPersistent72h(false);
+    setUseDenova(false);
+    setDenovaDuration7d(false);
+    setDenovaEmbolization(false);
+    setDenovaNumPositive2(false);
+    setDenovaOriginUnknown(false);
+    setDenovaValveDisease(false);
+    setDenovaAuscultationMurmur(false);
+    setUseHandoc(false);
+    setHandocHeartMurmurValve(false);
+    setHandocSpecies("unspecified_other");
+    setHandocNumPositive2(false);
+    setHandocDuration7d(false);
+    setHandocOnlyOneSpecies(false);
+    setHandocCommunityAcquired(false);
+  }, [activeModule]);
 
   // Derived pretest/posttest
-  const preset = module.pretestPresets.find((p) => p.id === presetId) ?? module.pretestPresets[0];
+  const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
   const pretestP = clamp(preset?.p ?? 0.05, 0.001, 0.999);
 
-  const itemsById = useMemo(() => new Map(module.items.map((i) => [i.id, i])), [module.items]);
+  const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
 
-  const lr = useMemo(() => combinedLR(module.items, states), [module.items, states]);
+  const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
 
   const steps = useMemo(
@@ -68,7 +142,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
       // mutual exclusion
       if (item.group && next !== "unknown") {
-        for (const other of module.items) {
+        for (const other of activeModule.items) {
           if (other.id !== item.id && other.group === item.group) out[other.id] = "unknown";
         }
       }
@@ -92,13 +166,40 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     });
   }
 
+  function isAutoManagedLocked(itemId: string) {
+    if (activeModule.id !== "endo") return false;
+    if (itemId.startsWith("endo_predict_")) return usePredict;
+    if (itemId.startsWith("endo_denova_")) return useDenova;
+    if (itemId.startsWith("endo_handoc_")) return useHandoc;
+    return false;
+  }
+
   function resetAll() {
-    setPresetId(module.pretestPresets[0]?.id ?? "");
+    setPresetId(activeModule.pretestPresets[0]?.id ?? "");
     setStates({});
     setClickOrder([]);
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
+    setUsePredict(false);
+    setPredictStage("day5");
+    setPredictOnset("nosocomial");
+    setPredictDevice("none");
+    setPredictPersistent72h(false);
+    setUseDenova(false);
+    setDenovaDuration7d(false);
+    setDenovaEmbolization(false);
+    setDenovaNumPositive2(false);
+    setDenovaOriginUnknown(false);
+    setDenovaValveDisease(false);
+    setDenovaAuscultationMurmur(false);
+    setUseHandoc(false);
+    setHandocHeartMurmurValve(false);
+    setHandocSpecies("unspecified_other");
+    setHandocNumPositive2(false);
+    setHandocDuration7d(false);
+    setHandocOnlyOneSpecies(false);
+    setHandocCommunityAcquired(false);
   }
 
   // Modal escape-close
@@ -112,17 +213,136 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   }, [catalogOpen]);
 
   function addLocation(pId: string) {
-    const p = module.pretestPresets.find((x) => x.id === pId);
+    const p = activeModule.pretestPresets.find((x) => x.id === pId);
     if (!p) return;
     setPresetId(pId);
   }
 
   // Selected: show everything active (not unknown)
   const activeSelected = useMemo(() => {
-    return module.items
+    return activeModule.items
       .filter((it) => (states[it.id] ?? "unknown") !== "unknown")
       .map((it) => it.id);
-  }, [module.items, states]);
+  }, [activeModule.items, states]);
+
+  const predictDay1Score = useMemo(() => {
+    const onsetPoints = predictOnset === "community" ? 2 : predictOnset === "healthcare" ? 1 : 0;
+    const devicePoints = predictDevice === "ppm" ? 3 : predictDevice === "icd_or_valve" ? 2 : 0;
+    return onsetPoints + devicePoints;
+  }, [predictOnset, predictDevice]);
+
+  const predictDay5Score = useMemo(
+    () => predictDay1Score + (predictPersistent72h ? 2 : 0),
+    [predictDay1Score, predictPersistent72h]
+  );
+
+  const denovaScore = useMemo(
+    () =>
+      [
+        denovaDuration7d,
+        denovaEmbolization,
+        denovaNumPositive2,
+        denovaOriginUnknown,
+        denovaValveDisease,
+        denovaAuscultationMurmur,
+      ].filter(Boolean).length,
+    [
+      denovaDuration7d,
+      denovaEmbolization,
+      denovaNumPositive2,
+      denovaOriginUnknown,
+      denovaValveDisease,
+      denovaAuscultationMurmur,
+    ]
+  );
+
+  const handocScore = useMemo(() => {
+    const aetiologyPoints = HANDOC_SPECIES_POINTS[handocSpecies];
+    return (
+      (handocHeartMurmurValve ? 1 : 0) +
+      aetiologyPoints +
+      (handocNumPositive2 ? 1 : 0) +
+      (handocDuration7d ? 1 : 0) +
+      (handocOnlyOneSpecies ? 1 : 0) +
+      (handocCommunityAcquired ? 1 : 0)
+    );
+  }, [
+    handocSpecies,
+    handocCommunityAcquired,
+    handocDuration7d,
+    handocHeartMurmurValve,
+    handocNumPositive2,
+    handocOnlyOneSpecies,
+  ]);
+
+  useEffect(() => {
+    if (activeModule.id !== "endo") return;
+
+    const autoStates: Record<string, FindingState> = {
+      endo_predict_day1_high: "unknown",
+      endo_predict_day5_high: "unknown",
+      endo_predict_na: "unknown",
+      endo_denova_high: "unknown",
+      endo_denova_na: "unknown",
+      endo_handoc_high: "unknown",
+      endo_handoc_na: "unknown",
+    };
+
+    if (usePredict) {
+      if (predictStage === "day1") {
+        autoStates.endo_predict_day1_high = predictDay1Score >= 4 ? "present" : "absent";
+      } else {
+        autoStates.endo_predict_day5_high = predictDay5Score >= 2 ? "present" : "absent";
+      }
+    }
+
+    if (useDenova) autoStates.endo_denova_high = denovaScore >= 3 ? "present" : "absent";
+    if (useHandoc) autoStates.endo_handoc_high = handocScore >= 3 ? "present" : "absent";
+
+    setStates((prev) => {
+      let changed = false;
+      const out = { ...prev };
+      for (const [id, next] of Object.entries(autoStates)) {
+        const current = out[id] ?? "unknown";
+        if (current !== next) {
+          out[id] = next;
+          changed = true;
+        }
+      }
+      return changed ? out : prev;
+    });
+
+    setClickOrder((prev) => {
+      const out = [...prev];
+      let changed = false;
+      for (const id of ENDO_SCORE_ITEM_IDS) {
+        const desired = autoStates[id] ?? "unknown";
+        const idx = out.indexOf(id);
+        if (desired === "unknown") {
+          if (idx !== -1) {
+            out.splice(idx, 1);
+            changed = true;
+          }
+          continue;
+        }
+        if (idx === -1) {
+          out.push(id);
+          changed = true;
+        }
+      }
+      return changed ? out : prev;
+    });
+  }, [
+    denovaScore,
+    handocScore,
+    activeModule.id,
+    predictDay1Score,
+    predictDay5Score,
+    predictStage,
+    useDenova,
+    useHandoc,
+    usePredict,
+  ]);
 
   const catalogQ = normalize(catalogQuery);
 
@@ -155,7 +375,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   onClick={() => setModuleId(m.id)}
                   className={[
                     "rounded-full border px-3 py-1 text-sm",
-                    m.id === module.id ? "bg-gray-900 text-white border-gray-900" : "hover:bg-gray-50",
+                    m.id === activeModule.id ? "bg-gray-900 text-white border-gray-900" : "hover:bg-gray-50",
                   ].join(" ")}
                 >
                   {m.name}
@@ -198,6 +418,170 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
           </div>
 
+          {activeModule.id === "endo" ? (
+            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
+              <div className="font-medium text-gray-900">Endocarditis score auto-compute</div>
+              <p className="mt-1 text-xs text-gray-600">
+                Enable a score, mark its components, and ProbID will auto-apply the threshold LR item.
+              </p>
+
+              <div className="mt-3 space-y-3">
+                <div className="rounded-md border bg-white p-3">
+                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+                    <input
+                      type="checkbox"
+                      checked={usePredict}
+                      onChange={(e) => setUsePredict(e.target.checked)}
+                    />
+                    PREDICT (for SAB)
+                  </label>
+
+                  {usePredict ? (
+                    <div className="mt-3 space-y-2 text-xs text-gray-700">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <label className="inline-flex items-center gap-1">
+                          <input
+                            type="radio"
+                            name="predict-stage"
+                            checked={predictStage === "day1"}
+                            onChange={() => setPredictStage("day1")}
+                          />
+                          Day 1
+                        </label>
+                        <label className="inline-flex items-center gap-1">
+                          <input
+                            type="radio"
+                            name="predict-stage"
+                            checked={predictStage === "day5"}
+                            onChange={() => setPredictStage("day5")}
+                          />
+                          Day 5
+                        </label>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        <label className="space-y-1">
+                          <span className="block text-[11px] uppercase tracking-wide text-gray-500">Onset</span>
+                          <select
+                            value={predictOnset}
+                            onChange={(e) => setPredictOnset(e.target.value as PredictOnset)}
+                            className="w-full rounded border px-2 py-1 text-xs"
+                          >
+                            <option value="nosocomial">Nosocomial (0)</option>
+                            <option value="healthcare">Healthcare-associated (1)</option>
+                            <option value="community">Community-acquired (2)</option>
+                          </select>
+                        </label>
+
+                        <label className="space-y-1">
+                          <span className="block text-[11px] uppercase tracking-wide text-gray-500">
+                            Intracardiac Prosthesis
+                          </span>
+                          <select
+                            value={predictDevice}
+                            onChange={(e) => setPredictDevice(e.target.value as PredictDevice)}
+                            className="w-full rounded border px-2 py-1 text-xs"
+                          >
+                            <option value="none">None (0)</option>
+                            <option value="icd_or_valve">ICD or prosthetic valve (2)</option>
+                            <option value="ppm">Permanent pacemaker (3)</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      {predictStage === "day5" ? (
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={predictPersistent72h}
+                            onChange={(e) => setPredictPersistent72h(e.target.checked)}
+                          />
+                          Persistent bacteremia &gt;=72h (+2)
+                        </label>
+                      ) : null}
+
+                      <div className="rounded border bg-gray-50 px-2 py-1">
+                        Day 1 score: <span className="font-semibold">{predictDay1Score}</span> (high if &gt;=4) • Day 5
+                        score: <span className="font-semibold">{predictDay5Score}</span> (high if &gt;=2)
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="rounded-md border bg-white p-3">
+                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+                    <input
+                      type="checkbox"
+                      checked={useDenova}
+                      onChange={(e) => setUseDenova(e.target.checked)}
+                    />
+                    DENOVA (for E. faecalis bacteremia)
+                  </label>
+
+                  {useDenova ? (
+                    <div className="mt-3 space-y-2 text-xs text-gray-700">
+                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaDuration7d} onChange={(e) => setDenovaDuration7d(e.target.checked)} />Duration of symptoms &gt;=7 days</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaEmbolization} onChange={(e) => setDenovaEmbolization(e.target.checked)} />Embolization</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaNumPositive2} onChange={(e) => setDenovaNumPositive2(e.target.checked)} />Number of positive cultures &gt;=2</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaOriginUnknown} onChange={(e) => setDenovaOriginUnknown(e.target.checked)} />Origin unknown</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaValveDisease} onChange={(e) => setDenovaValveDisease(e.target.checked)} />Valve disease</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaAuscultationMurmur} onChange={(e) => setDenovaAuscultationMurmur(e.target.checked)} />Auscultation murmur</label>
+                      </div>
+                      <div className="rounded border bg-gray-50 px-2 py-1">
+                        DENOVA score: <span className="font-semibold">{denovaScore}</span> (high if &gt;=3)
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="rounded-md border bg-white p-3">
+                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+                    <input
+                      type="checkbox"
+                      checked={useHandoc}
+                      onChange={(e) => setUseHandoc(e.target.checked)}
+                    />
+                    HANDOC (for NBHS bacteremia)
+                  </label>
+
+                  {useHandoc ? (
+                    <div className="mt-3 space-y-2 text-xs text-gray-700">
+                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocHeartMurmurValve} onChange={(e) => setHandocHeartMurmurValve(e.target.checked)} />Heart murmur or valve disease</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocNumPositive2} onChange={(e) => setHandocNumPositive2(e.target.checked)} />Number of positive cultures &gt;=2</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocDuration7d} onChange={(e) => setHandocDuration7d(e.target.checked)} />Duration of symptoms &gt;=7 days</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocOnlyOneSpecies} onChange={(e) => setHandocOnlyOneSpecies(e.target.checked)} />Only one species in blood cultures</label>
+                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocCommunityAcquired} onChange={(e) => setHandocCommunityAcquired(e.target.checked)} />Community acquisition</label>
+                      </div>
+
+                      <label className="space-y-1">
+                        <span className="block text-[11px] uppercase tracking-wide text-gray-500">Species (Aetiology)</span>
+                        <select
+                          value={handocSpecies}
+                          onChange={(e) => setHandocSpecies(e.target.value as HandocSpecies)}
+                          className="w-full rounded border px-2 py-1 text-xs"
+                        >
+                          <option value="unspecified_other">Other / unspecified NBHS (0)</option>
+                          <option value="s_anginosus_group">S. anginosus group (-1)</option>
+                          <option value="s_gallolyticus_bovis_group">S. gallolyticus (bovis) group (+1)</option>
+                          <option value="s_mutans_group">S. mutans group (+1)</option>
+                          <option value="s_sanguinis_group">S. sanguinis group (+1)</option>
+                          <option value="s_mitis_oralis_group">S. mitis / S. oralis group (0)</option>
+                          <option value="s_salivarius_group">S. salivarius group (0)</option>
+                        </select>
+                      </label>
+
+                      <div className="rounded border bg-gray-50 px-2 py-1">
+                        HANDOC score: <span className="font-semibold">{handocScore}</span> (high if &gt;=3)
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          ) : null}
+
           {/* Selected */}
           <div className="mt-6">
             <p className="text-sm font-medium text-gray-700">Selected findings/tests</p>
@@ -209,6 +593,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                 {activeSelected.map((id) => {
                   const it = itemsById.get(id);
                   if (!it) return null;
+                  const locked = isAutoManagedLocked(it.id);
                   return (
                     <div key={id} className="px-3 py-2">
                       <div className="flex items-start justify-between gap-3">
@@ -216,15 +601,16 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                           <LRItemToggle
                             item={it}
                             state={states[it.id] ?? "unknown"}
-                            disabled={false}
+                            disabled={locked}
                             onChange={(next) => setItemState(it, next)}
                           />
                         </div>
 
                         <button
                           type="button"
+                          disabled={locked}
                           onClick={() => setItemState(it, "unknown")}
-                          className="mt-1 shrink-0 rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50"
+                          className="mt-1 shrink-0 rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
                           title="Remove"
                         >
                           ×
@@ -402,8 +788,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
                   const count =
                     fam === "Location"
-                      ? module.pretestPresets.length
-                      : module.items.filter((it) => familyFor(it) === fam).length;
+                      ? activeModule.pretestPresets.length
+                      : activeModule.items.filter((it) => familyFor(it) === fam).length;
 
                   return (
                     <button
@@ -430,7 +816,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                     <div className="text-xs text-gray-600">Choosing location sets the pretest probability.</div>
 
                     <div className="mt-3 space-y-2">
-                      {module.pretestPresets
+                      {activeModule.pretestPresets
                         .filter((p) => (!catalogQ ? true : p.label.toLowerCase().includes(catalogQ)))
                         .map((p) => (
                           <button
@@ -456,7 +842,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                     </div>
 
                     {(() => {
-                      const items = module.items
+                      const items = activeModule.items
                         .filter((it) => familyFor(it) === activeFamily)
                         .filter((it) => (catalogQ ? matchesQuery(it, catalogQ) : true))
                         .filter((it) => (!showSelectedOnly ? true : (states[it.id] ?? "unknown") !== "unknown"));
@@ -484,6 +870,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                   const st = states[it.id] ?? "unknown";
                                   const isPresent = st === "present";
                                   const isAbsent = st === "absent";
+                                  const locked = isAutoManagedLocked(it.id);
 
                                   return (
                                     <div key={it.id} className="flex items-center justify-between gap-3 px-3 py-2">
@@ -497,9 +884,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                       <div className="shrink-0 flex items-center gap-2">
                                         <button
                                           type="button"
+                                          disabled={locked}
                                           onClick={() => setItemState(it, "present")}
                                           className={[
-                                            "rounded-md border px-2 py-1 text-xs",
+                                            "rounded-md border px-2 py-1 text-xs disabled:opacity-40 disabled:cursor-not-allowed",
                                             isPresent
                                               ? "border-gray-900 bg-gray-900 text-white"
                                               : "hover:bg-gray-50",
@@ -509,9 +897,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                         </button>
                                         <button
                                           type="button"
+                                          disabled={locked}
                                           onClick={() => setItemState(it, "absent")}
                                           className={[
-                                            "rounded-md border px-2 py-1 text-xs",
+                                            "rounded-md border px-2 py-1 text-xs disabled:opacity-40 disabled:cursor-not-allowed",
                                             isAbsent
                                               ? "border-gray-900 bg-gray-900 text-white"
                                               : "hover:bg-gray-50",
@@ -521,8 +910,9 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                         </button>
                                         <button
                                           type="button"
+                                          disabled={locked}
                                           onClick={() => setItemState(it, "unknown")}
-                                          className="rounded-md border px-2 py-1 text-xs hover:bg-gray-50"
+                                          className="rounded-md border px-2 py-1 text-xs hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
                                           title="Clear"
                                         >
                                           Clear

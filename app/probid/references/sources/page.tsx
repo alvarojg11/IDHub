@@ -84,6 +84,30 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1136/openhrt-2021-001856",
     },
     {
+      section: "Endocarditis",
+      citation:
+        "Tubiana S, Duval X, Alla F, et al. The PREDICT score to guide echocardiography in Staphylococcus aureus bacteremia. Clin Infect Dis. 2015;61(1):18-28.",
+      doi: "https://doi.org/10.1093/cid/civ235",
+    },
+    {
+      section: "Endocarditis",
+      citation:
+        "Peinado-Acevedo JS, et al. Prediction Rules for Ruling Out Endocarditis in Patients With Staphylococcus aureus Bacteremia. Clin Infect Dis. 2022;74(8):1442-1450.",
+      doi: "https://doi.org/10.1093/cid/ciab632",
+    },
+    {
+      section: "Endocarditis",
+      citation:
+        "Berge A, Krantz A, Östlund H, Nauclér P, Rasmussen M. The DENOVA score efficiently identifies patients with monomicrobial Enterococcus faecalis bacteremia where echocardiography is not necessary. Infection. 2019;47(1):45-50.",
+      doi: "https://doi.org/10.1007/s15010-018-1208-3",
+    },
+    {
+      section: "Endocarditis",
+      citation:
+        "Sunnerhagen T, Törnell A, Vikbrant M, et al. HANDOC: A Handy Score to Determine the Need for Echocardiography in Non-beta-hemolytic Streptococcal Bacteremia. Clin Infect Dis. 2018;66(5):693-698.",
+      doi: "https://doi.org/10.1093/cid/cix880",
+    },
+    {
       section: "CAP",
       citation:
         "Metlay JP, Waterer GW, Long AC, et al. Diagnosis and Treatment of Adults with Community-acquired Pneumonia. Am J Respir Crit Care Med. 2019;200:e45–e67.",

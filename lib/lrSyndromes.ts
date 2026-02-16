@@ -276,7 +276,7 @@ export const ENDO_MODULE: SyndromeLRModule = {
   id: "endo",
   name: "Endocarditis",
   description:
-    "Infective endocarditis probability update using host risk + microbiology + imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available; micro LRs are starter heuristics—replace with curated evidence. Beware correlated Duke elements.",
+    "Infective endocarditis probability update using host risk + organism-specific microbiology + risk-score context (PREDICT / DENOVA / HANDOC) + imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available; several organism/risk-score LRs are starter scaffolds—replace with curated local evidence. Beware correlated Duke elements.",
   pretestPresets: [
     { id: "endo_very_low", label: "Very low suspicion (fever, no RF, alternate dx likely)", p: 0.005 },
     { id: "endo_low", label: "Low suspicion (fever + murmur or RF, not classic)", p: 0.02 },
@@ -294,6 +294,30 @@ export const ENDO_MODULE: SyndromeLRModule = {
     { id: "endo_chd", label: "Congenital heart disease", category: "host", lrPos: 1.8, lrNeg: 0.95 },
     { id: "endo_cied", label: "Cardiac device (CIED/ICD/pacemaker)", category: "host", lrPos: 2.2, lrNeg: 0.95 },
     { id: "endo_hd", label: "Hemodialysis", category: "host", lrPos: 2.0, lrNeg: 0.95 },
+    {
+      id: "endo_sab_risk_context",
+      label: "S. aureus bacteremia high-risk context (community onset, persistent bacteremia, or intracardiac prosthesis)",
+      category: "host",
+      lrPos: 2.2,
+      lrNeg: 0.8,
+      notes: "Use mainly when S. aureus bacteremia is present. Avoid stacking with PREDICT if already applied.",
+    },
+    {
+      id: "endo_efaecalis_risk_context",
+      label: "E. faecalis bacteremia high-risk context (unknown source, valve disease, prolonged symptoms)",
+      category: "host",
+      lrPos: 2.4,
+      lrNeg: 0.75,
+      notes: "Use mainly when Enterococcus faecalis bacteremia is present. Avoid stacking with DENOVA if already applied.",
+    },
+    {
+      id: "endo_nbhs_risk_context",
+      label: "Non-beta-hemolytic streptococcal bacteremia high-risk context (community acquisition, >=2 positive sets, prolonged symptoms)",
+      category: "host",
+      lrPos: 2.0,
+      lrNeg: 0.8,
+      notes: "Use mainly when NBHS bacteremia is present. Avoid stacking with HANDOC if already applied.",
+    },
 
     // -------------------------
     // CLINICAL FEATURES (minor Duke-ish)
@@ -312,6 +336,64 @@ export const ENDO_MODULE: SyndromeLRModule = {
     // Nonspecific labs (keep weak)
     { id: "endo_esr_crp", label: "Elevated ESR/CRP", category: "lab", lrPos: 1.1, lrNeg: 0.95 },
     { id: "endo_anemia", label: "Anemia of Chronic Disease", category: "lab", lrPos: 1.1, lrNeg: 0.95 },
+    // Organism-specific risk scores
+    {
+      id: "endo_predict_day1_high",
+      label: "PREDICT (SAB) day-1 score >=4",
+      category: "lab",
+      group: "endo_predict",
+      lrPos: 5.3,
+      lrNeg: 0.82,
+      notes: "Rule-in oriented threshold for S. aureus bacteremia.",
+    },
+    {
+      id: "endo_predict_day5_high",
+      label: "PREDICT (SAB) day-5 score >=2",
+      category: "lab",
+      group: "endo_predict",
+      lrPos: 2.0,
+      lrNeg: 0.26,
+      notes: "Use when day-5 data available; stronger for ruling out when below threshold.",
+    },
+    {
+      id: "endo_predict_na",
+      label: "PREDICT not applied/unknown",
+      category: "lab",
+      group: "endo_predict",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "endo_denova_high",
+      label: "DENOVA (E. faecalis bacteremia) >=3",
+      category: "lab",
+      group: "endo_denova",
+      lrPos: 6.7,
+      lrNeg: 0.08,
+      notes: "High sensitivity score for E. faecalis bacteremia endocarditis risk stratification.",
+    },
+    {
+      id: "endo_denova_na",
+      label: "DENOVA not applied/unknown",
+      category: "lab",
+      group: "endo_denova",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "endo_handoc_high",
+      label: "HANDOC (NBHS bacteremia) >=3",
+      category: "lab",
+      group: "endo_handoc",
+      lrPos: 4.2,
+      lrNeg: 0.08,
+      notes: "High sensitivity score for non-beta-hemolytic streptococcal bacteremia.",
+    },
+    {
+      id: "endo_handoc_na",
+      label: "HANDOC not applied/unknown",
+      category: "lab",
+      group: "endo_handoc",
+      notes: "Neutral selection.",
+    },
 
     // -------------------------
     // MICROBIOLOGY
@@ -338,6 +420,33 @@ export const ENDO_MODULE: SyndromeLRModule = {
       lrNeg: 0.9,
       group: "endo_micro",
       notes: "Duke major criterion; correlated with typical organism + echo findings.",
+    },
+    {
+      id: "endo_bcx_saureus_multi",
+      label: "Blood cultures: Staphylococcus aureus in >=2 sets",
+      category: "micro",
+      lrPos: 11.0,
+      lrNeg: 0.9,
+      group: "endo_micro",
+      notes: "Typical IE organism; choose one microbiology option to avoid double counting.",
+    },
+    {
+      id: "endo_bcx_efaecalis_multi",
+      label: "Blood cultures: Enterococcus faecalis in >=2 sets",
+      category: "micro",
+      lrPos: 8.0,
+      lrNeg: 0.9,
+      group: "endo_micro",
+      notes: "Typical organism in appropriate context; pair with DENOVA only if clinically justified.",
+    },
+    {
+      id: "endo_bcx_nbhs_multi",
+      label: "Blood cultures: NBHS (e.g., viridans group / S. gallolyticus) in >=2 sets",
+      category: "micro",
+      lrPos: 7.0,
+      lrNeg: 0.9,
+      group: "endo_micro",
+      notes: "Typical organism in appropriate context; pair with HANDOC only if clinically justified.",
     },
     {
       id: "endo_bcx_pos_not_major",
@@ -1282,6 +1391,30 @@ const SRC_ENDO_PET_META: LRSource = {
   url: "https://doi.org/10.1136/openhrt-2021-001856",
 };
 
+const SRC_ENDO_PREDICT_2015: LRSource = {
+  short: "Tubiana et al. Clin Infect Dis",
+  year: 2015,
+  url: "https://doi.org/10.1093/cid/civ235",
+};
+
+const SRC_ENDO_PREDICT_EXT: LRSource = {
+  short: "Peinado-Acevedo et al. Clin Infect Dis",
+  year: 2022,
+  url: "https://doi.org/10.1093/cid/ciab632",
+};
+
+const SRC_ENDO_DENOVA_2018: LRSource = {
+  short: "Berge et al. Infection",
+  year: 2019,
+  url: "https://doi.org/10.1007/s15010-018-1208-3",
+};
+
+const SRC_ENDO_HANDOC_2018: LRSource = {
+  short: "Sunnerhagen et al. Clin Infect Dis",
+  year: 2018,
+  url: "https://doi.org/10.1093/cid/cix880",
+};
+
 function withEvidenceSources(
   module: SyndromeLRModule,
   opts: {
@@ -1333,6 +1466,15 @@ const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
     if (item.id === "endo_tte" || item.id === "endo_tte_na") return SRC_ENDO_TTE_META;
     if (item.id === "endo_pet" || item.id === "endo_pet_na") return SRC_ENDO_PET_META;
     if (item.id === "endo_tee") return SRC_ENDO_ESC_2023;
+    if (item.id === "endo_predict_day1_high") return SRC_ENDO_PREDICT_2015;
+    if (item.id === "endo_predict_day5_high" || item.id === "endo_predict_na") return SRC_ENDO_PREDICT_EXT;
+    if (item.id === "endo_denova_high" || item.id === "endo_denova_na" || item.id === "endo_efaecalis_risk_context") {
+      return SRC_ENDO_DENOVA_2018;
+    }
+    if (item.id === "endo_handoc_high" || item.id === "endo_handoc_na" || item.id === "endo_nbhs_risk_context") {
+      return SRC_ENDO_HANDOC_2018;
+    }
+    if (item.id === "endo_sab_risk_context") return SRC_ENDO_PREDICT_2015;
     return SRC_ENDO_DUKE_2023;
   },
 });
