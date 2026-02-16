@@ -140,6 +140,21 @@ const anthracycline = (id: string, name: string): ImmunoDrug => ({
   baseScore: 7,
 });
 
+const epipodophyllotoxin = (id: string, name: string): ImmunoDrug => ({
+  id,
+  name,
+  class: "Cytotoxic chemotherapy (epipodophyllotoxin / topoisomerase II inhibitor)",
+  mechanism:
+    "Topoisomerase II inhibition causes DNA strand breaks; infectious risk is primarily related to myelosuppression and regimen intensity.",
+  commonRisks: [
+    risk("Neutropenia-related infections", 3),
+    risk("Bacterial (general)", 2),
+    risk("Invasive mold (Aspergillus)", 1),
+    risk("C. difficile", 1),
+  ],
+  baseScore: 7,
+});
+
 const purineAnalog = (id: string, name: string): ImmunoDrug => ({
   id,
   name,
@@ -230,7 +245,7 @@ const tnf = (id: string, name: string): ImmunoDrug => ({
   notes: ["Screen for TB before therapy; consider endemic fungi risk by geography/exposure."],
 });
 
-const biologic = (id: string, name: string, drugClass: string, mechanism: string, baseScore: number, risks: any[], notes?: string[]): ImmunoDrug => ({
+const biologic = (id: string, name: string, drugClass: string, mechanism: string, baseScore: number, risks: RiskEntry[], notes?: string[]): ImmunoDrug => ({
   id,
   name,
   class: drugClass,
@@ -411,17 +426,22 @@ const checkpointExtended = (
   id: string,
   name: string,
   target: "CTLA-4" | "PD-1" | "PD-L1" | "LAG-3"
-): ImmunoDrug => ({
-  ...(checkpoint(id, name, target === "LAG-3" ? "PD-1" : target) as ImmunoDrug),
-  id,
-  name,
-  class: `Checkpoint inhibitor (${target})`,
-  mechanism:
-    target === "LAG-3"
-      ? "LAG-3 blockade releases an inhibitory checkpoint on T cells → immune stimulation; often used with PD-1 blockade."
-      : (checkpoint(id, name, target as any) as any).mechanism,
-  baseScore: 1,
-})
+): ImmunoDrug => {
+  const baseTarget: "CTLA-4" | "PD-1" | "PD-L1" = target === "LAG-3" ? "PD-1" : target;
+  const base = checkpoint(id, name, baseTarget);
+
+  return {
+    ...base,
+    id,
+    name,
+    class: `Checkpoint inhibitor (${target})`,
+    mechanism:
+      target === "LAG-3"
+        ? "LAG-3 blockade releases an inhibitory checkpoint on T cells → immune stimulation; often used with PD-1 blockade."
+        : base.mechanism,
+    baseScore: 1,
+  };
+}
 
 export const DRUGS: ImmunoDrug[] = [
   // ---------------------------
@@ -460,13 +480,19 @@ export const DRUGS: ImmunoDrug[] = [
   alkylator("diaziquone", "Diaziquone", "Aziridine/epoxide-related"),
 
   alkylator("cisplatin", "Cisplatin", "Platinum"),
+  alkylator("carboplatin", "Carboplatin", "Platinum"),
   alkylator("oxaliplatin", "Oxaliplatin", "Platinum"),
 
   // --- Cytotoxic chemo classes (ALL/AML regimens) ---
   vinca("vincristine", "Vincristine"),
+  vinca("vinblastine", "Vinblastine"),
+  vinca("vinorelbine", "Vinorelbine"),
   anthracycline("doxorubicin", "Doxorubicin"),
   anthracycline("daunorubicin", "Daunorubicin"),
   anthracycline("idarubicin", "Idarubicin"),
+  anthracycline("epirubicin", "Epirubicin"),
+  epipodophyllotoxin("etoposide", "Etoposide"),
+  epipodophyllotoxin("teniposide", "Teniposide"),
 
   // ---------------------------
   // Antimetabolites (includes oncology + classic immunomodulators)
@@ -482,6 +508,7 @@ export const DRUGS: ImmunoDrug[] = [
   ),
   antimetaboliteChemo("pemetrexed", "Pemetrexed"),
   antimetaboliteChemo("fluorouracil_5", "5-fluorouracil (5-FU)"),
+  antimetaboliteChemo("capecitabine", "Capecitabine"),
   antimetaboliteChemo("cytarabine", "Cytarabine"),
   antimetaboliteChemo("gemcitabine", "Gemcitabine"),
   biologic(
@@ -567,7 +594,21 @@ export const DRUGS: ImmunoDrug[] = [
     6,
     [risk("EBV/PTLD", 2, "Context-dependent; ensure appropriate screening/monitoring per protocol.") ],
     ["Risk profile varies by transplant setting and concomitant agents."]
-  ) as any,
+  ),
+  transplantAgent(
+    "antithymocyte_globulin",
+    "Anti-thymocyte globulin (ATG)",
+    "Lymphocyte-depleting polyclonal antibody",
+    "Polyclonal antibodies against human T-cell antigens cause broad lymphocyte depletion (especially T cells).",
+    8,
+    [
+      risk("CMV", 3),
+      risk("PJP", 3),
+      risk("VZV/HSV", 2),
+      risk("Invasive mold (Aspergillus)", 2),
+    ],
+    ["Used in transplant induction/rejection protocols; risk is highest with concurrent multi-agent immunosuppression."]
+  ),
 
   // ---------------------------
   // TNF blockers (each as selectable items)
@@ -577,6 +618,20 @@ export const DRUGS: ImmunoDrug[] = [
   tnf("adalimumab", "Adalimumab"),
   tnf("certolizumab", "Certolizumab pegol"),
   tnf("golimumab", "Golimumab"),
+
+  // ---------------------------
+  // BTK inhibitors
+  // ---------------------------
+  btkInhibitor("ibrutinib", "Ibrutinib"),
+  btkInhibitor("acalabrutinib", "Acalabrutinib"),
+  btkInhibitor("zanubrutinib", "Zanubrutinib"),
+  btkInhibitor("pirtobrutinib", "Pirtobrutinib"),
+
+  // ---------------------------
+  // Complement inhibitors (terminal pathway)
+  // ---------------------------
+  complementC5("eculizumab", "Eculizumab"),
+  complementC5("ravulizumab", "Ravulizumab"),
 
   // ---------------------------
   // Other immunosuppressive / immunomodulatory agents
@@ -613,6 +668,15 @@ export const DRUGS: ImmunoDrug[] = [
     ["Infection may present with muted inflammatory markers."]
   ),
   biologic(
+    "sarilumab",
+    "Sarilumab",
+    "Biologic (IL-6 receptor inhibitor)",
+    "Blocks IL-6 signaling; may blunt fever/CRP despite serious infection.",
+    4,
+    [risk("Bacterial (general)", 2), risk("TB (reactivation)", 1), risk("VZV/HSV", 1)],
+    ["Infection may present with muted inflammatory markers."]
+  ),
+  biologic(
     "abatacept",
     "Abatacept",
     "Immunomodulator (CTLA-4 Ig)",
@@ -629,21 +693,61 @@ export const DRUGS: ImmunoDrug[] = [
     [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1)]
   ),
   biologic(
+    "guselkumab",
+    "Guselkumab",
+    "Biologic (IL-23 inhibitor)",
+    "Blocks IL-23 signaling and downstream Th17 pathway activity.",
+    2,
+    [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1)]
+  ),
+  biologic(
+    "risankizumab",
+    "Risankizumab",
+    "Biologic (IL-23 inhibitor)",
+    "Blocks IL-23 signaling and downstream Th17 pathway activity.",
+    2,
+    [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1)]
+  ),
+  biologic(
+    "tildrakizumab",
+    "Tildrakizumab",
+    "Biologic (IL-23 inhibitor)",
+    "Blocks IL-23 signaling and downstream Th17 pathway activity.",
+    2,
+    [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1)]
+  ),
+  biologic(
     "secukinumab",
     "Secukinumab",
     "Biologic (IL-17A inhibitor)",
     "Blocks IL-17A signaling → impacts mucocutaneous defenses.",
     3,
     [risk("Fungal (Candida)", 2, "Mucocutaneous candidiasis risk is increased in some patients."), risk("Bacterial (general)", 1)]
-  ) as any,
+  ),
   biologic(
     "ixekizumab",
     "Ixekizumab",
     "Biologic (IL-17A inhibitor)",
     "Blocks IL-17A signaling → impacts mucocutaneous defenses.",
     3,
-    [risk("Fungal (Candida)", 2) as any, risk("Bacterial (general)", 1)]
-  ) as any,
+    [risk("Fungal (Candida)", 2), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "brodalumab",
+    "Brodalumab",
+    "Biologic (IL-17 receptor inhibitor)",
+    "Blocks IL-17 receptor signaling and can impair mucocutaneous antifungal defense.",
+    3,
+    [risk("Fungal (Candida)", 2), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "bimekizumab",
+    "Bimekizumab",
+    "Biologic (IL-17A/F inhibitor)",
+    "Dual IL-17A/17F blockade; can impair mucocutaneous antifungal defense.",
+    3,
+    [risk("Fungal (Candida)", 2), risk("Bacterial (general)", 1)]
+  ),
   biologic(
     "vedolizumab",
     "Vedolizumab",
@@ -678,6 +782,184 @@ export const DRUGS: ImmunoDrug[] = [
     "Inhibits JAK-STAT cytokine signaling → broad immunomodulatory effects.",
     5,
     [risk("VZV/HSV", 3), risk("TB (reactivation)", 2), risk("Bacterial (general)", 2), risk("PJP", 1)]
+  ),
+  biologic(
+    "upadacitinib",
+    "Upadacitinib",
+    "JAK inhibitor",
+    "Inhibits JAK-STAT cytokine signaling → broad immunomodulatory effects.",
+    5,
+    [risk("VZV/HSV", 3), risk("TB (reactivation)", 2), risk("Bacterial (general)", 2), risk("PJP", 1)]
+  ),
+  biologic(
+    "ruxolitinib",
+    "Ruxolitinib",
+    "JAK inhibitor",
+    "JAK1/2 inhibition with immunomodulatory effects and potential impairment of cellular immune responses.",
+    6,
+    [risk("VZV/HSV", 3), risk("Bacterial (general)", 2), risk("TB (reactivation)", 1), risk("PJP", 1)]
+  ),
+  biologic(
+    "deucravacitinib",
+    "Deucravacitinib",
+    "Immunomodulator (TYK2 inhibitor)",
+    "Selective TYK2 inhibition modulates IL-12/23 and type I interferon signaling pathways.",
+    3,
+    [risk("VZV/HSV", 2), risk("TB (reactivation)", 1), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "apremilast",
+    "Apremilast",
+    "Immunomodulator (PDE4 inhibitor)",
+    "PDE4 inhibition increases intracellular cAMP and downregulates pro-inflammatory cytokine signaling.",
+    1,
+    [risk("Bacterial (general)", 1)],
+    ["Generally lower infectious risk than many biologics/JAK inhibitors."]
+  ),
+  biologic(
+    "belimumab",
+    "Belimumab",
+    "Biologic (anti-BLyS/BAFF)",
+    "Inhibits soluble B-lymphocyte stimulator (BAFF) and reduces B-cell survival/activity.",
+    4,
+    [risk("Bacterial (general)", 2), risk("VZV/HSV", 1)]
+  ),
+  biologic(
+    "anifrolumab",
+    "Anifrolumab",
+    "Biologic (type I IFN receptor inhibitor)",
+    "Blocks type I interferon receptor signaling (IFNAR1), reducing interferon-driven inflammation.",
+    4,
+    [risk("VZV/HSV", 2), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "emapalumab",
+    "Emapalumab",
+    "Biologic (anti-IFN-gamma)",
+    "Neutralizes interferon-gamma signaling and impairs macrophage-mediated intracellular pathogen defense.",
+    7,
+    [risk("TB (reactivation)", 2), risk("Endemic fungi", 2), risk("Bacterial (general)", 2), risk("CMV", 1)],
+    ["Used in HLH settings where concurrent steroids/immunochemotherapy can further increase infection risk."]
+  ),
+  biologic(
+    "canakinumab",
+    "Canakinumab",
+    "Biologic (IL-1beta inhibitor)",
+    "Neutralizes IL-1beta signaling to reduce innate inflammatory activation.",
+    3,
+    [risk("Bacterial (general)", 2), risk("VZV/HSV", 1)]
+  ),
+  biologic(
+    "rilonacept",
+    "Rilonacept",
+    "Biologic (IL-1 inhibitor)",
+    "IL-1 trap fusion protein that neutralizes IL-1 signaling to reduce innate inflammatory activation.",
+    3,
+    [risk("Bacterial (general)", 2), risk("VZV/HSV", 1)]
+  ),
+  biologic(
+    "leflunomide",
+    "Leflunomide",
+    "DMARD (pyrimidine synthesis inhibitor)",
+    "Inhibits dihydroorotate dehydrogenase and reduces activated lymphocyte proliferation.",
+    4,
+    [risk("Bacterial (general)", 2), risk("TB (reactivation)", 1), risk("VZV/HSV", 1)]
+  ),
+  biologic(
+    "mirikizumab",
+    "Mirikizumab",
+    "Biologic (IL-23 inhibitor)",
+    "Blocks IL-23 signaling and downstream Th17 pathway activity.",
+    2,
+    [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1)]
+  ),
+  biologic(
+    "mepolizumab",
+    "Mepolizumab",
+    "Biologic (IL-5 pathway inhibitor)",
+    "IL-5 blockade reduces eosinophil survival and trafficking.",
+    2,
+    [risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "benralizumab",
+    "Benralizumab",
+    "Biologic (IL-5 receptor inhibitor)",
+    "Targets IL-5 receptor alpha and induces eosinophil depletion.",
+    2,
+    [risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "avacopan",
+    "Avacopan",
+    "Targeted therapy (C5a receptor inhibitor)",
+    "Blocks complement C5a receptor (C5aR1) on neutrophils, reducing complement-mediated inflammatory activation.",
+    4,
+    [risk("Bacterial (general)", 2), risk("Encapsulated bacteria", 1)]
+  ),
+  biologic(
+    "fingolimod",
+    "Fingolimod",
+    "Immunomodulator (S1P receptor modulator)",
+    "Functional S1P receptor antagonism sequesters lymphocytes in lymphoid tissue, reducing peripheral trafficking.",
+    5,
+    [risk("VZV/HSV", 2), risk("Cryptococcus", 1), risk("JC Virus (PML)", 1), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "siponimod",
+    "Siponimod",
+    "Immunomodulator (S1P receptor modulator)",
+    "Selective S1P receptor modulation reduces peripheral lymphocyte trafficking.",
+    4,
+    [risk("VZV/HSV", 2), risk("Cryptococcus", 1), risk("JC Virus (PML)", 1), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "ozanimod",
+    "Ozanimod",
+    "Immunomodulator (S1P receptor modulator)",
+    "Selective S1P receptor modulation reduces lymphocyte egress from lymph nodes.",
+    4,
+    [risk("VZV/HSV", 2), risk("Cryptococcus", 1), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "ponesimod",
+    "Ponesimod",
+    "Immunomodulator (S1P receptor modulator)",
+    "Selective S1P receptor modulation reduces peripheral lymphocyte trafficking.",
+    4,
+    [risk("VZV/HSV", 2), risk("Cryptococcus", 1), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "etrasimod",
+    "Etrasimod",
+    "Immunomodulator (S1P receptor modulator)",
+    "Selective S1P receptor modulation decreases circulating lymphocytes and inflammatory trafficking.",
+    4,
+    [risk("VZV/HSV", 2), risk("Bacterial (general)", 1)]
+  ),
+  biologic(
+    "dimethyl_fumarate",
+    "Dimethyl fumarate",
+    "Immunomodulator (fumarate)",
+    "Activates Nrf2-related pathways and can cause lymphopenia in a subset of patients.",
+    3,
+    [risk("Bacterial (general)", 1), risk("VZV/HSV", 1), risk("JC Virus (PML)", 1)]
+  ),
+  biologic(
+    "diroximel_fumarate",
+    "Diroximel fumarate",
+    "Immunomodulator (fumarate)",
+    "Fumarate therapy with immunomodulatory effects and possible treatment-related lymphopenia.",
+    3,
+    [risk("Bacterial (general)", 1), risk("VZV/HSV", 1), risk("JC Virus (PML)", 1)]
+  ),
+  biologic(
+    "teriflunomide",
+    "Teriflunomide",
+    "Immunomodulator (DHODH inhibitor)",
+    "Inhibits pyrimidine synthesis in activated lymphocytes, reducing adaptive immune proliferation.",
+    3,
+    [risk("Bacterial (general)", 1), risk("TB (reactivation)", 1), risk("VZV/HSV", 1)]
   ),
 
   // Hydroxychloroquine (low immunosuppression; still included per list)
@@ -759,6 +1041,31 @@ biologic(
   ["Similar infection considerations to rituximab; consider HBV screening/prophylaxis when indicated."]
 ),
 antiCD19("tafasitamab", "Tafasitamab (Monjuvi / Minjuvi)"),
+biologic(
+  "ocrelizumab",
+  "Ocrelizumab (Ocrevus)",
+  "Monoclonal antibody (anti-CD20)",
+  "B-cell depletion → impaired humoral immunity and reduced vaccine responses.",
+  6,
+  [risk("HBV reactivation", 2), risk("Encapsulated bacteria", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2)],
+  ["Common in MS and neuroimmunology practice; risk depends on hypogammaglobulinemia and prior therapies."]
+),
+biologic(
+  "ublituximab",
+  "Ublituximab (Briumvi)",
+  "Monoclonal antibody (anti-CD20)",
+  "B-cell depletion → impaired humoral immunity and reduced vaccine responses.",
+  6,
+  [risk("HBV reactivation", 2), risk("Encapsulated bacteria", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2)],
+),
+biologic(
+  "ofatumumab_kesimpta",
+  "Ofatumumab (Kesimpta)",
+  "Monoclonal antibody (anti-CD20)",
+  "B-cell depletion for MS with reduced humoral immunity and attenuated vaccine responses.",
+  6,
+  [risk("HBV reactivation", 2), risk("Encapsulated bacteria", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 2)],
+),
 
 // --- ADCs (add from list) ---
 adc("ado_trastuzumab_emtansine", "Ado-trastuzumab emtansine (Kadcyla)", "HER2"),
@@ -948,9 +1255,148 @@ biologic(
   [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1), risk("PJP", 1)],
   ["Risk increases with combinations (e.g., hypomethylating agents)."]
 ),
+biologic(
+  "imatinib",
+  "Imatinib",
+  "Targeted therapy (BCR-ABL TKI)",
+  "BCR-ABL tyrosine kinase inhibition; infection risk is usually low-to-moderate and often related to cytopenias.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "dasatinib",
+  "Dasatinib",
+  "Targeted therapy (BCR-ABL TKI)",
+  "Multi-kinase BCR-ABL inhibition; infectious risk often reflects myelosuppression and line of therapy.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 1)]
+),
+biologic(
+  "nilotinib",
+  "Nilotinib",
+  "Targeted therapy (BCR-ABL TKI)",
+  "BCR-ABL inhibition with generally modest direct immunosuppression; risk may rise with cytopenias.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "bosutinib",
+  "Bosutinib",
+  "Targeted therapy (BCR-ABL TKI)",
+  "BCR-ABL/Src pathway inhibition; infection risk is usually tied to marrow effects and treatment context.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "ponatinib",
+  "Ponatinib",
+  "Targeted therapy (BCR-ABL TKI)",
+  "Potent BCR-ABL inhibition including resistant clones; infection risk typically relates to cytopenias and prior therapies.",
+  5,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "selinexor",
+  "Selinexor",
+  "Targeted therapy (XPO1 inhibitor)",
+  "Nuclear export inhibition in relapsed hematologic malignancy; infection risk often reflects cytopenias and heavy pretreatment.",
+  6,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2), risk("VZV/HSV", 1), risk("PJP", 1)]
+),
+biologic(
+  "bortezomib",
+  "Bortezomib",
+  "Targeted therapy (proteasome inhibitor)",
+  "Proteasome inhibition alters malignant plasma cell survival and can impair cellular immunity in myeloma regimens.",
+  6,
+  [risk("VZV/HSV", 3), risk("Bacterial (general)", 2), risk("PJP", 1)],
+  ["Herpes zoster prophylaxis is commonly considered in myeloma protocols."]
+),
+biologic(
+  "carfilzomib",
+  "Carfilzomib",
+  "Targeted therapy (proteasome inhibitor)",
+  "Proteasome inhibition in myeloma therapy; infection risk is often regimen and line-of-therapy dependent.",
+  6,
+  [risk("VZV/HSV", 2), risk("Bacterial (general)", 2), risk("PJP", 1)]
+),
+biologic(
+  "ixazomib",
+  "Ixazomib",
+  "Targeted therapy (proteasome inhibitor)",
+  "Oral proteasome inhibition in myeloma regimens; infection risk is influenced by combination partners.",
+  5,
+  [risk("VZV/HSV", 2), risk("Bacterial (general)", 2), risk("PJP", 1)]
+),
+biologic(
+  "thalidomide",
+  "Thalidomide",
+  "Targeted therapy (IMiD)",
+  "Immunomodulatory imide with anti-myeloma and immune-modulatory effects; infection risk is often regimen-driven.",
+  4,
+  [risk("Bacterial (general)", 1), risk("VZV/HSV", 1)]
+),
+biologic(
+  "lenalidomide",
+  "Lenalidomide",
+  "Targeted therapy (IMiD)",
+  "Immunomodulatory imide used in myeloma/lymphoma with risk driven by cytopenias and combination therapy.",
+  5,
+  [risk("Bacterial (general)", 2), risk("Neutropenia-related infections", 2), risk("VZV/HSV", 2)]
+),
+biologic(
+  "pomalidomide",
+  "Pomalidomide",
+  "Targeted therapy (IMiD)",
+  "Immunomodulatory imide in relapsed myeloma; infectious risk is strongly regimen and cytopenia dependent.",
+  5,
+  [risk("Bacterial (general)", 2), risk("Neutropenia-related infections", 2), risk("VZV/HSV", 2)]
+),
+biologic(
+  "midostaurin",
+  "Midostaurin",
+  "Targeted therapy (FLT3 inhibitor)",
+  "Multi-kinase inhibitor including FLT3; infection risk usually reflects concomitant intensive AML chemotherapy.",
+  5,
+  [risk("Neutropenia-related infections", 3), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1)]
+),
+biologic(
+  "gilteritinib",
+  "Gilteritinib",
+  "Targeted therapy (FLT3 inhibitor)",
+  "FLT3 inhibition for relapsed/refractory AML; infection risk is often linked to disease status and cytopenias.",
+  5,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1)]
+),
+biologic(
+  "quizartinib",
+  "Quizartinib",
+  "Targeted therapy (FLT3 inhibitor)",
+  "FLT3 inhibition in AML; infectious risk is often driven by concomitant cytotoxic therapy and marrow suppression.",
+  5,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2), risk("Invasive mold (Aspergillus)", 1)]
+),
+biologic(
+  "ivosidenib",
+  "Ivosidenib",
+  "Targeted therapy (IDH1 inhibitor)",
+  "IDH1 inhibition in AML/cholangiocarcinoma; infection risk is usually disease and cytopenia dependent.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
+biologic(
+  "enasidenib",
+  "Enasidenib",
+  "Targeted therapy (IDH2 inhibitor)",
+  "IDH2 inhibition in AML; infection risk is usually disease and cytopenia dependent.",
+  4,
+  [risk("Neutropenia-related infections", 2), risk("Bacterial (general)", 2)]
+),
 
 // --- Fludarabine (classic lymphotoxic purine analog) ---
 purineAnalog("fludarabine", "Fludarabine"),
+purineAnalog("cladribine", "Cladribine"),
+purineAnalog("pentostatin", "Pentostatin"),
 
 // --- Ofatumumab (anti-CD20; similar to ritux/obinutuzumab but include for completeness) ---
 biologic(
