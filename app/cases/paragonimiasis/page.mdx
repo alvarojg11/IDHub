@@ -1,0 +1,223 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Chronic Hemoptysis in a Traveler from Rural Colombia
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old man presents with 4 months of chronic cough, intermittent
+    pleuritic chest pain, and recurrent hemoptysis. He reports progressive
+    fatigue and 4 kg of weight loss, but remains functionally active.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Six months before symptom onset, he spent several weeks in a rural riverine
+    area of Colombia where he frequently ate local marinated freshwater crabs.
+    He reports household exposure to pulmonary tuberculosis during adolescence
+    and a recent coworker treated for active TB. He has no prior chronic lung
+    disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Examination shows mild tachycardia and scattered crackles. Chest imaging
+    revealed a left patchy upper-lobe infiltrates with a small cavitary lesion. Labs show
+    WBC 9,800 cells/uL with eosinophils 8% (absolute eosinophil count
+    780 cells/uL). Initial AFB sputum smear
+    is negative, MTB PCR is negative, and routine bacterial sputum cultures are
+    negative.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <div className="inline-block rounded-lg border border-gray-300 bg-transparent p-1">
+    <Image
+      src="/cases/paragonimus/paragonimus.png"
+      alt="Chest imaging from pulmonary paragonimiasis case"
+      width={720}
+      height={460}
+      className="rounded-lg"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    CT chest without contrast.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-paragonimiasis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Pulmonary tuberculosis",
+      feedback:
+        "Incorrect. Tuberculosis remains in the differential, but eosinophilia plus freshwater crustacean exposure strongly supports a parasitic etiology.",
+    },
+    {
+      id: "B",
+      label: "Pulmonary paragonimiasis",
+      correct: true,
+      feedback:
+        "Correct. Chronic cough, hemoptysis, eosinophilia, cavitary/nodular lung lesions, and ingestion of undercooked freshwater crustaceans are classic for pulmonary paragonimiasis.",
+    },
+    {
+      id: "C",
+      label: "Chronic pulmonary paracoccidioidomycosis",
+      feedback:
+        "Incorrect. Paracoccidioidomycosis is an important endemic fungal diagnosis in Latin America, but crustacean exposure plus eosinophilia favors paragonimiasis.",
+    },
+    {
+      id: "D",
+      label: "Histoplasmosis",
+      feedback:
+        "Incorrect. Histoplasmosis can be chronic, but the dietary exposure to raw freshwater crustaceans points more strongly to Paragonimus infection.",
+    },
+    {
+      id: "E",
+      label: "Invasive pulmonary aspergillosis",
+      feedback:
+        "Incorrect. Invasive aspergillosis usually occurs in markedly immunocompromised hosts and does not explain the freshwater crustacean exposure risk.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Paragonimiasis is a food-borne trematode infection acquired when metacercariae
+    are ingested in raw or undercooked freshwater crabs or crayfish. After
+    ingestion, larvae migrate through tissue and ultimately localize in the lungs,
+    where chronic inflammatory cystic lesions can form.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Pulmonary disease typically presents with chronic cough and episodic
+    hemoptysis and may mimic pulmonary tuberculosis radiographically, including
+    nodules, infiltrates, and cavitary lesions. Peripheral eosinophilia and
+    compatible exposure history are high-yield clues.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Definitive diagnosis is made by identifying Paragonimus eggs in sputum, stool,
+    or pleural specimens; serology (including ELISA-based testing) can support
+    diagnosis, especially in extrapulmonary disease.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-paragonimiasis-q2"
+  title="Question 2"
+  prompt="Which treatment is most appropriate for uncomplicated pulmonary paragonimiasis?"
+  options={[
+    {
+      id: "A",
+      label: "Praziquantel 75 mg/kg/day divided every 8 hours for 3 days",
+      correct: true,
+      feedback:
+        "Correct. Praziquantel is the preferred therapy in most patients and is commonly given as 75 mg/kg/day in 3 divided doses for 3 days.",
+    },
+    {
+      id: "B",
+      label: "Isoniazid, rifampin, pyrazinamide, and ethambutol for 2 months",
+      feedback:
+        "Incorrect. This is first-line initial therapy for active tuberculosis, not paragonimiasis.",
+    },
+    {
+      id: "C",
+      label: "Itraconazole for 12 weeks",
+      feedback:
+        "Incorrect. Itraconazole is used for selected endemic mycoses, not as standard treatment for paragonimiasis.",
+    },
+    {
+      id: "D",
+      label: "No treatment because infection is always self-limited",
+      feedback:
+        "Incorrect. Untreated infection may persist for years and can involve serious extrapulmonary sites, including the CNS.",
+    },
+    {
+      id: "E",
+      label: "Single-dose ivermectin",
+      feedback:
+        "Incorrect. Ivermectin is not standard therapy for paragonimiasis.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Pulmonary paragonimiasis can closely mimic pulmonary tuberculosis in both
+      symptoms and imaging.
+    </li>
+    <li>
+      A dietary history of raw or undercooked freshwater crustaceans is a key
+      epidemiologic clue.
+    </li>
+    <li>
+      Eosinophilia supports a parasitic diagnosis, particularly during larval
+      migration phases.
+    </li>
+    <li>
+      Egg identification in sputum or stool is diagnostic; serology is useful
+      when direct parasitologic confirmation is difficult.
+    </li>
+    <li>
+      Praziquantel is the mainstay of treatment and usually leads to clinical
+      improvement.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Velez ID, Ortega JE, Velasquez LE. Paragonimiasis: a view from Colombia.
+    <em> Clinics in Chest Medicine</em>.
+  </p>
+
+  <p className="mt-3">
+    <a
+      href="https://doi.org/10.1016/S0272-5231(02)00003-5"
+      target="_blank"
+      rel="noreferrer"
+      className="text-sm font-semibold text-blue-600 hover:underline"
+    >
+      DOI: https://doi.org/10.1016/S0272-5231(02)00003-5
+    </a>
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

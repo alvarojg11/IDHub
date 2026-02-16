@@ -62,6 +62,12 @@ export const CASES: CaseMeta[] = [
     enable: true
   },
   {
+    title: "Chronic Hemoptysis in a Traveler from Rural Colombia",
+    slug: "paragonimiasis",
+    description: "When lung flukes mimic TB.",
+    enable: true
+  },
+  {
     title: "A Cryptic Case",
     slug: "cgatti",
     description: "When CNS cryptococcosis reveals an acquired immune defect.",

@@ -49,6 +49,11 @@ const cases = [
     description: "Another skin lesion...",
   },
   {
+    title: "Chronic Hemoptysis in a Traveler from Rural Colombia",
+    slug: "paragonimiasis",
+    description: "When lung flukes mimic TB.",
+  },
+  {
     title: "A Cryptic Case",
     slug: "cgatti",
     description: "About an immune defect.",
