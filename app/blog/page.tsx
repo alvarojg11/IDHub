@@ -11,9 +11,14 @@ type FeedItem = {
 export default async function BlogPage() {
   const parser = new Parser();
   const feedUrl = "https://alvaroayala1.substack.com/feed";
-
-  const feed = await parser.parseURL(feedUrl);
-  const items = (feed.items || []) as FeedItem[];
+  let items: FeedItem[] = [];
+  try {
+    const feed = await parser.parseURL(feedUrl);
+    items = (feed.items || []) as FeedItem[];
+  } catch {
+    // Keep the blog page renderable even when the feed host is unreachable.
+    items = [];
+  }
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
@@ -84,6 +89,12 @@ export default async function BlogPage() {
           );
         })}
       </section>
+
+      {items.length === 0 ? (
+        <p className="mt-6 text-sm text-[var(--muted)]">
+          No posts available right now. Please try again later or visit Substack directly.
+        </p>
+      ) : null}
 
       <footer className="mt-12 border-t border-[var(--border)] pt-6">
         <a

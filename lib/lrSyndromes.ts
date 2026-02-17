@@ -528,7 +528,7 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
   id: "active_tb",
   name: "Active TB",
   description:
-    "Active pulmonary TB probability update using setting prevalence, host risk, symptom screen strategy, immune-based tests (QFT/TST), and chest X-ray. LRs use pooled estimates where available.",
+    "Active pulmonary TB probability update using setting prevalence, host risk, symptom screen strategy, immune-based tests (QFT/TST), respiratory microbiology (MTB PCR, AFB smear, culture), and chest X-ray. LRs use pooled estimates where available.",
   pretestPresets: [
     {
       id: "tb_low",
@@ -688,6 +688,79 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
       category: "lab",
       group: "tb_immune_test",
       notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Respiratory microbiology
+    // -------------------------
+    {
+      id: "tb_mtbpcr_sputum",
+      label: "MTB PCR (Xpert MTB/RIF) on sputum",
+      category: "micro",
+      group: "tb_mtbpcr",
+      lrPos: 42.5,
+      lrNeg: 0.15,
+      notes: "Present=positive PCR, Absent=negative PCR. Pooled sensitivity ~85%, specificity ~98%.",
+      source: {
+        short: "Steingart et al. Cochrane",
+        year: 2014,
+        url: "https://doi.org/10.1002/14651858.CD009593.pub4",
+      },
+    },
+    {
+      id: "tb_mtbpcr_bal",
+      label: "MTB PCR (Xpert MTB/RIF) on BAL",
+      category: "micro",
+      group: "tb_mtbpcr",
+      lrPos: 10.21,
+      lrNeg: 0.16,
+      notes: "Present=positive PCR, Absent=negative PCR. Pooled PLR 10.21, NLR 0.16.",
+      source: {
+        short: "Liu et al. J Clin Microbiol",
+        year: 2021,
+        url: "https://doi.org/10.1128/JCM.02170-20",
+      },
+    },
+    {
+      id: "tb_afb_smear_sputum",
+      label: "AFB smear microscopy (sputum)",
+      category: "micro",
+      lrPos: 32.0,
+      lrNeg: 0.37,
+      notes: "Present=smear positive, Absent=smear negative. Pooled sensitivity ~64%, specificity ~98%.",
+      source: {
+        short: "Davis et al. Lancet Infect Dis",
+        year: 2013,
+        url: "https://doi.org/10.1016/S1473-3099(12)70232-3",
+      },
+    },
+    {
+      id: "tb_culture_sputum",
+      label: "Mycobacterial culture (sputum)",
+      category: "micro",
+      group: "tb_culture",
+      lrPos: 100,
+      lrNeg: 0.58,
+      notes: "Present=culture positive, Absent=culture negative. Reported specificity ~100%; LR+ is mathematically non-finite (capped here at 100).",
+      source: {
+        short: "You et al. Syst Rev",
+        year: 2024,
+        url: "https://doi.org/10.1186/s13643-024-02733-8",
+      },
+    },
+    {
+      id: "tb_culture_bal",
+      label: "Mycobacterial culture (BAL)",
+      category: "micro",
+      group: "tb_culture",
+      lrPos: 100,
+      lrNeg: 0.56,
+      notes: "Present=culture positive, Absent=culture negative. Reported specificity ~100%; LR+ is mathematically non-finite (capped here at 100).",
+      source: {
+        short: "You et al. Syst Rev",
+        year: 2024,
+        url: "https://doi.org/10.1186/s13643-024-02733-8",
+      },
     },
 
     // -------------------------

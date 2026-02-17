@@ -254,6 +254,30 @@ export default function ProbIDAllReferencesPage() {
     {
       section: "Active TB",
       citation:
+        "Steingart KR, Schiller I, Horne DJ, Pai M, Boehme CC, Dendukuri N. Xpert MTB/RIF assay for pulmonary tuberculosis and rifampicin resistance in adults. Cochrane Database Syst Rev. 2014;CD009593.",
+      doi: "https://doi.org/10.1002/14651858.CD009593.pub4",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Liu C, Cui Y, Li L, et al. The Value of Xpert MTB/RIF in Bronchoalveolar Lavage Fluid in the Diagnosis of Pulmonary Tuberculosis: A Systematic Review and Meta-analysis. J Clin Microbiol. 2021;59(1):e02170-20.",
+      doi: "https://doi.org/10.1128/JCM.02170-20",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Davis JL, Cattamanchi A, Cuevas LE, Hopewell PC, Steingart KR. Diagnostic accuracy of same-day microscopy versus standard microscopy for pulmonary tuberculosis: a systematic review and meta-analysis. Lancet Infect Dis. 2013;13(2):147-154.",
+      doi: "https://doi.org/10.1016/S1473-3099(12)70232-3",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "You L, Ma H, Lin S, et al. Performance of metagenomic next-generation sequencing versus conventional tests in pulmonary tuberculosis diagnosis: a systematic review and meta-analysis. Syst Rev. 2024;13:284.",
+      doi: "https://doi.org/10.1186/s13643-024-02733-8",
+    },
+    {
+      section: "Active TB",
+      citation:
         "AlAlyani H, Alhaqbani M, Althomali O, et al. Evaluating Interferon-Gamma Release Assays for Diagnosing Active Tuberculosis in Adults: A Systematic Review and Meta-Analysis. Diagnostics (Basel). 2025;15(18):2343.",
       doi: "https://doi.org/10.3390/diagnostics15182343",
     },

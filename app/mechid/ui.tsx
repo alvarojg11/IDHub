@@ -164,7 +164,7 @@ export default function MechIDClient() {
             <div className="mt-4 space-y-3">
               {panel.map((ab) => {
                 const isIntrinsic = intrinsic.includes(ab);
-                const value = isIntrinsic ? "Resistant" : (user[ab] ?? "");
+                const value: "" | SIR = isIntrinsic ? "Resistant" : (user[ab] ?? "");
                 return (
                   <div key={ab} className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
@@ -174,7 +174,7 @@ export default function MechIDClient() {
                     </div>
 
                     <select
-                      value={value as any}
+                      value={value}
                       disabled={isIntrinsic}
                       onChange={(e) => {
                         const v = e.target.value as "" | SIR;

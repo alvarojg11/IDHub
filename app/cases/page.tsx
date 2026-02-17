@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Analytics } from "@vercel/analytics/next"
-import { title } from "process";
 
 const cases = [
   {

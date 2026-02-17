@@ -30,11 +30,11 @@ function pickDefaultModule(modules: SyndromeLRModule[], id?: string) {
 
 export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByModule }: Props) {
   const [moduleId, setModuleId] = useState<string>(pickDefaultModule(modules, defaultModuleId)?.id ?? modules[0]?.id);
-  const module = useMemo(() => pickDefaultModule(modules, moduleId), [modules, moduleId]);
+  const activeModule = useMemo(() => pickDefaultModule(modules, moduleId), [modules, moduleId]);
 
-  const defaultPresetId = defaultPresetIdByModule?.[module.id];
+  const defaultPresetId = defaultPresetIdByModule?.[activeModule.id];
   const initialPreset =
-    module.pretestPresets.find((p) => p.id === defaultPresetId) ?? module.pretestPresets[0];
+    activeModule.pretestPresets.find((p) => p.id === defaultPresetId) ?? activeModule.pretestPresets[0];
 
   const [presetId, setPresetId] = useState<string>(initialPreset?.id ?? "");
   const [states, setStates] = useState<Record<string, FindingState>>({});
@@ -43,19 +43,21 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
 
   // If module changes, reset state to keep UX sane
   React.useEffect(() => {
-    const p = module.pretestPresets.find((x) => x.id === defaultPresetIdByModule?.[module.id]) ?? module.pretestPresets[0];
+    const p =
+      activeModule.pretestPresets.find((x) => x.id === defaultPresetIdByModule?.[activeModule.id]) ??
+      activeModule.pretestPresets[0];
     setPresetId(p?.id ?? "");
     setStates({});
     setClickOrder([]);
     setEvidenceId(null);
-  }, [module.id]);
+  }, [activeModule, defaultPresetIdByModule]);
 
-  const preset = module.pretestPresets.find((p) => p.id === presetId) ?? module.pretestPresets[0];
+  const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
   const pretestP = clamp(preset?.p ?? 0.05, 0.001, 0.999);
 
-  const itemsById = useMemo(() => new Map(module.items.map((i) => [i.id, i])), [module.items]);
+  const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
 
-  const lr = useMemo(() => combinedLR(module.items, states), [module.items, states]);
+  const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
 
   const steps = useMemo(
@@ -64,15 +66,15 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
   );
 
   // Catalog buckets
-  const sx = module.items.filter((i) => i.category === "symptom");
-  const vitals = module.items.filter((i) => i.category === "vital");
-  const exam = module.items.filter((i) => i.category === "exam");
-  const imaging = module.items.filter((i) => i.category === "imaging");
-  const labs = module.items.filter((i) => i.category === "lab" || i.category === "micro");
+  const sx = activeModule.items.filter((i) => i.category === "symptom");
+  const vitals = activeModule.items.filter((i) => i.category === "vital");
+  const exam = activeModule.items.filter((i) => i.category === "exam");
+  const imaging = activeModule.items.filter((i) => i.category === "imaging");
+  const labs = activeModule.items.filter((i) => i.category === "lab" || i.category === "micro");
 
   function isDisabledByGroup(item: LRItem) {
     if (!item.group) return false;
-    const activeId = module.items.find(
+    const activeId = activeModule.items.find(
       (it) => it.group === item.group && (states[it.id] === "present" || states[it.id] === "absent")
     )?.id;
     return !!activeId && activeId !== item.id;
@@ -82,7 +84,7 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
     setStates((prev) => {
       const out = { ...prev, [item.id]: next };
       if (item.group && next !== "unknown") {
-        for (const other of module.items) {
+        for (const other of activeModule.items) {
           if (other.id !== item.id && other.group === item.group) out[other.id] = "unknown";
         }
       }
@@ -114,7 +116,7 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
         <Section title="Clinical syndrome">
           <div className="flex flex-wrap gap-2">
             {modules.map((m) => {
-              const active = m.id === module.id;
+              const active = m.id === activeModule.id;
               return (
                 <button
                   key={m.id}
@@ -132,14 +134,14 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
               );
             })}
           </div>
-          {module.description ? (
-            <div className="mt-2 text-xs text-slate-600 dark:text-slate-300">{module.description}</div>
+          {activeModule.description ? (
+            <div className="mt-2 text-xs text-slate-600 dark:text-slate-300">{activeModule.description}</div>
           ) : null}
         </Section>
 
         <Section title="Location / setting (pretest)">
           <div className="space-y-2">
-            {module.pretestPresets.map((p) => (
+            {activeModule.pretestPresets.map((p) => (
               <button
                 key={p.id}
                 type="button"

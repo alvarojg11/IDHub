@@ -1,5 +1,5 @@
 // lib/mechid/logic.ts
-import type { MaybeSIR, OrganismRules, SIR, CascadeRule } from "./data";
+import type { MaybeSIR, OrganismRules, SIR } from "./data";
 
 export type ResultMap = Record<string, MaybeSIR>;
 export type ConsolidatedRow = { antibiotic: string; result: SIR; source: "User-entered" | "Intrinsic rule" | "Cascade rule" };
