@@ -33,17 +33,8 @@ export default function DoseIDTool() {
   const [category, setCategory] = useState<MedicationCategory>("antibacterial");
   const medsInCategory = useMemo(() => medsForCategory(category), [category]);
 
-  const [selectedMedicationIds, setSelectedMedicationIds] = useState<string[]>(() => {
-    const first = medsForCategory("antibacterial")[0]?.id;
-    return first ? [first] : [];
-  });
-  const [indicationByMedication, setIndicationByMedication] = useState<Record<string, string>>(
-    () => {
-      const first = medsForCategory("antibacterial")[0];
-      if (!first) return {};
-      return { [first.id]: first.indications[0]?.id ?? "" };
-    }
-  );
+  const [selectedMedicationIds, setSelectedMedicationIds] = useState<string[]>([]);
+  const [indicationByMedication, setIndicationByMedication] = useState<Record<string, string>>({});
   const [addMedicationId, setAddMedicationId] = useState("");
 
   const [renalMode, setRenalMode] = useState<RenalMode>("standard");
