@@ -32,7 +32,7 @@ export default function RootLayout({
               IDHub
             </Link>
 
-            <nav className="flex items-center gap-6 text-sm text-[var(--muted)]">
+            <nav className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 text-sm text-[var(--muted)]">
               <Link href="/blog" className="hover:text-[var(--primary)]">
                 Blog
               </Link>
@@ -44,6 +44,12 @@ export default function RootLayout({
               </Link>
               <Link href="/tools/immunoid" className="hover:text-[var(--primary)]">
                 ImmunoID
+              </Link>
+              <Link href="/probid" className="hover:text-[var(--primary)]">
+                ProbID
+              </Link>
+              <Link href="/tools/doseid" className="hover:text-[var(--primary)]">
+                DoseID
               </Link>
               <Link href="/about" className="hover:text-[var(--primary)]">
                 About

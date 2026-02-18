@@ -28,6 +28,11 @@ const tiles = [
     desc: "Explore infectious syndromes through structured diagnostic inputs—with an educational post-test probability estimate.",
   },
   {
+    href: "/tools/doseid",
+    title: "DoseID",
+    desc: "A reference app for optimizing antimicrobial dosing",
+  },
+  {
     href: "/about",
     title: "About",
     desc: "Why IDHub exists, how it’s meant to be used, and the philosophy behind case-based learning and clinical reasoning in infectious diseases.",
