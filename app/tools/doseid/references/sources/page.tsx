@@ -66,6 +66,14 @@ function MedicationChips({ ids }: { ids: string[] }) {
 
 const coreRenalRefs: RefItem[] = [
   {
+    citation: "Stanford Bugs & Drugs. Antimicrobial Dosing Reference Guide (adult; indication-based and renal pathways).",
+    url: "https://med.stanford.edu/content/dam/sm/bugsanddrugs/documents/antimicrobial-dosing-protocols/SHC-ABX-Dosing-Guide.pdf",
+  },
+  {
+    citation: "Stanford Bugs & Drugs. Heme/Onc Antimicrobial Prophylaxis Guidelines (includes PJP prophylaxis pathways).",
+    url: "https://med.stanford.edu/content/dam/sm/bugsanddrugs/documents/clinical-pathways/SHC-Heme-Onc-Antimicrobial-Prophylaxis.pdf",
+  },
+  {
     citation: "UCSF Infectious Diseases Management Program. Adult Antimicrobial Dosing, Non-dialysis.",
     url: "https://idmp.ucsf.edu/adult-antimicrobial-dosing-non-dialysis",
   },

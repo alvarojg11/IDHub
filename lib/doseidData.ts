@@ -838,43 +838,112 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
     name: "Trimethoprim-Sulfamethoxazole",
     category: "antibacterial",
     indications: [
-      { id: "common_infection", label: "Common infection (UTI / skin-soft tissue)" },
-      { id: "severe_systemic", label: "Severe systemic infection" },
+      { id: "uncomplicated_cystitis", label: "Uncomplicated cystitis" },
+      { id: "ssti", label: "Skin/soft tissue infection" },
+      { id: "staph_bone_joint", label: "S. aureus bone/joint infection" },
+      { id: "gnr_bacteremia", label: "Gram-negative rod bacteremia" },
+      { id: "stenotrophomonas", label: "Stenotrophomonas infection" },
+      { id: "pjp_treatment", label: "Pneumocystis jirovecii pneumonia (PJP) treatment" },
+      { id: "pjp_prophylaxis", label: "PJP prophylaxis" },
     ],
     sourcePages: ANTIBACTERIAL_SOURCE,
     calculate: (patient, context) => {
-      const severe = context.indicationId === "severe_systemic";
+      const indication = context.indicationId;
+      const pjpProphylaxis = indication === "pjp_prophylaxis";
+      const pjpTreatment = indication === "pjp_treatment";
+      const steno = indication === "stenotrophomonas";
+      const cystitis = indication === "uncomplicated_cystitis";
+      const ssti = indication === "ssti";
       const doseWeight = obesityAdjustedWeight(patient);
+      const tmpRange = (minMgPerKgPerDay: number, maxMgPerKgPerDay: number, factor = 1) => {
+        const low = mgFromWeight(minMgPerKgPerDay * factor, doseWeight.kg, 40);
+        const high = mgFromWeight(maxMgPerKgPerDay * factor, doseWeight.kg, 40);
+        return low === high ? `${low}` : `${low}-${high}`;
+      };
 
-      if (!severe) {
+      if (pjpProphylaxis) {
         if (context.renalMode === "ihd") {
           return {
-            regimen: "1 SS tablet PO x1 now, then 1 SS tablet PO qPM",
+            regimen: "1 SS tablet PO daily after HD (or 1 DS tablet PO three times weekly after HD)",
             renalBucket: "Intermittent hemodialysis",
             notes: [
-              "Give maintenance after HD when possible.",
-              "Adjust for potassium, cytopenia, and renal tolerance.",
+              "PJP prophylaxis pathway is oral and usually dose-timed after HD sessions.",
+              "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
+            ],
+          };
+        }
+
+        if (context.renalMode === "crrt") {
+          return {
+            regimen: "1 SS tablet PO daily",
+            renalBucket: "CRRT",
+            notes: [
+              "CRRT prophylaxis data are limited; this is a pragmatic reference starting regimen.",
+              "Adjust with local protocol and tolerance monitoring.",
+            ],
+          };
+        }
+
+        if (patient.crclMlMin > 30) {
+          return {
+            regimen: "1 DS tablet PO daily (or 1 DS tablet PO three times weekly)",
+            renalBucket: "CrCl > 30 mL/min",
+            notes: [
+              "Prophylaxis strategy can be daily or three-times-weekly based on tolerance and local protocol.",
+              "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
+            ],
+          };
+        }
+
+        if (patient.crclMlMin >= 15) {
+          return {
+            regimen: "1 SS tablet PO daily (or 1 DS tablet PO three times weekly)",
+            renalBucket: "CrCl 15-30 mL/min",
+            notes: [
+              "Renal pathway uses reduced prophylaxis intensity.",
+              "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
+            ],
+          };
+        }
+
+        return {
+          regimen: "1 SS tablet PO three times weekly (specialist-guided at very low CrCl)",
+          renalBucket: "CrCl < 15 mL/min",
+          notes: [
+            "At very low CrCl, prophylaxis should be individualized by ID/pharmacy.",
+            "Monitor for hyperkalemia, kidney function changes, and cytopenias.",
+          ],
+        };
+      }
+
+      if (cystitis) {
+        if (context.renalMode === "ihd") {
+          return {
+            regimen: "1 DS tablet PO q24h after HD",
+            renalBucket: "Intermittent hemodialysis",
+            notes: [
+              "Cystitis pathway is derived from Stanford-style clinical use plus dialysis timing.",
+              "Dose after HD on dialysis days.",
             ],
           };
         }
         if (context.renalMode === "crrt") {
           return {
-            regimen: "1 DS tablet PO q12h",
+            regimen: "1 DS tablet PO q12-24h",
             renalBucket: "CRRT",
             notes: [
-              "CRRT pathway is a simplified educational estimate.",
-              "Monitor potassium and renal function closely.",
+              "CRRT oral interval is a practical reference range.",
+              "Adjust to clinical response and local practice.",
             ],
           };
         }
-
         return {
           regimen:
             patient.crclMlMin > 30
               ? "1 DS tablet PO q12h"
               : patient.crclMlMin >= 15
               ? "1 DS tablet PO q24h"
-              : "1 SS tablet PO q24h",
+              : "Not routinely recommended at CrCl <15 mL/min; if required, 1 SS tablet PO q24h with close monitoring",
           renalBucket:
             patient.crclMlMin > 30
               ? "CrCl > 30 mL/min"
@@ -882,42 +951,135 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               ? "CrCl 15-30 mL/min"
               : "CrCl < 15 mL/min",
           notes: [
-            "Tablet pathway is simplified for common non-severe indications.",
-            "For invasive disease, use weight-based TMP dosing.",
+            "Stanford clinical-use pathway: uncomplicated cystitis oral dosing.",
+            "At very low CrCl, use only with specialist oversight.",
           ],
         };
       }
 
-      if (context.renalMode === "ihd") {
-        const doseMgTmp = mgFromWeight(2.5, doseWeight.kg, 40);
+      if (ssti) {
+        if (context.renalMode === "ihd") {
+          return {
+            regimen: "1 DS tablet PO q24h after HD (up to 2 DS/day in selected severe cases)",
+            renalBucket: "Intermittent hemodialysis",
+            notes: [
+              "SSTI pathway reflects Stanford clinical-use range (1-2 DS q12h baseline).",
+              "Use higher exposure only when clinically indicated.",
+            ],
+          };
+        }
+        if (context.renalMode === "crrt") {
+          return {
+            regimen: "1-2 DS tablets PO q12h",
+            renalBucket: "CRRT",
+            notes: [
+              "CRRT pathway uses standard exposure range as reference.",
+              "Monitor potassium, renal function, and blood counts.",
+            ],
+          };
+        }
         return {
-          regimen: `${doseMgTmp} mg TMP IV/PO x1 now, then ${doseMgTmp} mg TMP IV/PO qPM`,
+          regimen:
+            patient.crclMlMin > 30
+              ? "1-2 DS tablets PO q12h"
+              : patient.crclMlMin >= 15
+              ? "1 DS tablet PO q12h"
+              : "Not routinely recommended at CrCl <15 mL/min; if required, 1 DS tablet PO q24h with close monitoring",
+          renalBucket:
+            patient.crclMlMin > 30
+              ? "CrCl > 30 mL/min"
+              : patient.crclMlMin >= 15
+              ? "CrCl 15-30 mL/min"
+              : "CrCl < 15 mL/min",
+          notes: [
+            "Stanford clinical-use pathway: skin/soft tissue infection oral range.",
+            "At very low CrCl, use only with specialist oversight.",
+          ],
+        };
+      }
+
+      let baseMin = 8;
+      let baseMax = 10;
+      let interval = "q8-12h";
+      if (indication === "staph_bone_joint") {
+        baseMin = 8;
+        baseMax = 8;
+        interval = "q8-12h";
+      } else if (indication === "gnr_bacteremia") {
+        baseMin = 8;
+        baseMax = 10;
+        interval = "q8-12h";
+      } else if (steno) {
+        baseMin = 10;
+        baseMax = 15;
+        interval = "q8-12h";
+      } else if (pjpTreatment) {
+        baseMin = 15;
+        baseMax = 20;
+        interval = "q6-8h";
+      }
+
+      if (context.renalMode === "ihd") {
+        const hdMin = pjpTreatment || steno ? 5 : 2.5;
+        const hdMax = pjpTreatment || steno ? 7.5 : 5;
+        const range = tmpRange(hdMin, hdMax);
+        const practicalRegimen =
+          pjpTreatment || steno ? "1-2 DS tablets PO q24h after HD" : "1 DS tablet PO q24h after HD";
+        return {
+          regimen: practicalRegimen,
           renalBucket: "Intermittent hemodialysis",
           doseWeight,
           notes: [
             "Dose displayed as trimethoprim (TMP) component.",
-            "Severe pathways require close electrolyte and renal monitoring.",
+            `Weight-based HD equivalent: ${range} mg TMP/day.`,
+            pjpTreatment || steno
+              ? "Stanford HD pathway for PJP/Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
+              : "Stanford HD pathway for non-PJP severe indications uses 2.5-5 mg TMP/kg/day q24h.",
+            "Administer after HD and monitor potassium, renal function, and blood counts closely.",
           ],
         };
       }
 
       if (context.renalMode === "crrt") {
-        const totalDailyTmpMg = mgFromWeight(10, doseWeight.kg, 40);
+        const crrtMin = pjpTreatment || steno ? 10 : 5;
+        const crrtMax = pjpTreatment || steno ? 15 : 10;
+        const crrtInterval = pjpTreatment ? "q8h" : steno ? "q8-12h" : "q12h";
+        const range = tmpRange(crrtMin, crrtMax);
+        const practicalRegimen = pjpTreatment
+          ? "2 DS tablets PO q8-12h"
+          : steno
+          ? "2 DS tablets PO q12h"
+          : "1-2 DS tablets PO q12h";
         return {
-          regimen: `${totalDailyTmpMg} mg TMP/day IV/PO divided q8-12h`,
+          regimen: practicalRegimen,
           renalBucket: "CRRT",
           doseWeight,
           notes: [
-            "Dose displayed as TMP component and should be individualized to syndrome severity.",
-            "CRRT clearance varies by modality and intensity.",
+            `Weight-based CRRT equivalent: ${range} mg TMP/day divided ${crrtInterval} (TMP component).`,
+            "Stanford CRRT pathway: 5-10 mg TMP/kg/day for most severe indications; 10-15 mg TMP/kg/day for PJP/Stenotrophomonas.",
+            "CRRT clearance varies by modality and intensity; confirm final regimen with ICU pharmacy when possible.",
           ],
         };
       }
 
-      const mgPerKgPerDay = patient.crclMlMin > 30 ? 10 : patient.crclMlMin >= 15 ? 5 : 2.5;
-      const totalDailyTmpMg = mgFromWeight(mgPerKgPerDay, doseWeight.kg, 40);
+      const factor = patient.crclMlMin > 30 ? 1 : patient.crclMlMin >= 15 ? 0.5 : 0.25;
+      const range = tmpRange(baseMin, baseMax, factor);
+      const low25 = mgFromWeight(baseMin * 0.25, doseWeight.kg, 40);
+      const high50 = mgFromWeight(baseMax * 0.5, doseWeight.kg, 40);
+      const practicalRegimen =
+        patient.crclMlMin > 30
+          ? pjpTreatment
+            ? "2 DS tablets PO q8h"
+            : "2 DS tablets PO q12h"
+          : patient.crclMlMin >= 15
+          ? pjpTreatment
+            ? "2 DS tablets PO q12h"
+            : "1 DS tablet PO q12h"
+          : pjpTreatment
+          ? "1 DS tablet PO q12h (specialist-guided)"
+          : "1 DS tablet PO q24h (specialist-guided)";
       return {
-        regimen: `${totalDailyTmpMg} mg TMP/day IV/PO divided q12-24h`,
+        regimen: practicalRegimen,
         renalBucket:
           patient.crclMlMin > 30
             ? "CrCl > 30 mL/min"
@@ -926,8 +1088,14 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             : "CrCl < 15 mL/min",
         doseWeight,
         notes: [
-          "Dose displayed as trimethoprim (TMP) component.",
-          "Severe infection pathways should be finalized with syndrome-specific guidance and monitoring.",
+          "Stanford clinical-use indications are represented: uncomplicated cystitis, SSTI, S. aureus bone/joint infection, GNR bacteremia, Stenotrophomonas, and PJP treatment.",
+          "Dose displayed as trimethoprim (TMP) component; uses adjusted body weight in obesity.",
+          patient.crclMlMin > 30
+            ? `Weight-based target equivalent: ${range} mg TMP/day divided ${interval}.`
+            : patient.crclMlMin >= 15
+            ? `Weight-based target equivalent with renal reduction: ${range} mg TMP/day.`
+            : `At very low CrCl, if therapy is used, approximate target is ${low25}-${high50} mg TMP/day with specialist-guided monitoring.`,
+          "At CrCl <15 mL/min, use is generally avoided unless benefit outweighs risk and close monitoring is available.",
         ],
       };
     },
