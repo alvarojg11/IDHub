@@ -868,6 +868,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "Intermittent hemodialysis",
             notes: [
               "PJP prophylaxis pathway is oral and usually dose-timed after HD sessions.",
+              "Approximate IV equivalent (TMP component): 80-160 mg TMP/day.",
               "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
             ],
           };
@@ -879,6 +880,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "CRRT",
             notes: [
               "CRRT prophylaxis data are limited; this is a pragmatic reference starting regimen.",
+              "Approximate IV equivalent (TMP component): 80 mg TMP/day.",
               "Adjust with local protocol and tolerance monitoring.",
             ],
           };
@@ -890,6 +892,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "CrCl > 30 mL/min",
             notes: [
               "Prophylaxis strategy can be daily or three-times-weekly based on tolerance and local protocol.",
+              "Approximate IV equivalent (TMP component): 160 mg TMP/day (or 160 mg TMP on prophylaxis days for TIW strategy).",
               "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
             ],
           };
@@ -901,6 +904,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "CrCl 15-30 mL/min",
             notes: [
               "Renal pathway uses reduced prophylaxis intensity.",
+              "Approximate IV equivalent (TMP component): 80-160 mg TMP/day depending on chosen prophylaxis schedule.",
               "Monitor potassium, creatinine, and blood counts during chronic prophylaxis.",
             ],
           };
@@ -911,6 +915,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
           renalBucket: "CrCl < 15 mL/min",
           notes: [
             "At very low CrCl, prophylaxis should be individualized by ID/pharmacy.",
+            "Approximate IV equivalent (TMP component): 80 mg TMP on prophylaxis days.",
             "Monitor for hyperkalemia, kidney function changes, and cytopenias.",
           ],
         };
@@ -923,6 +928,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "Intermittent hemodialysis",
             notes: [
               "Cystitis pathway is derived from Stanford-style clinical use plus dialysis timing.",
+              "Approximate IV equivalent (TMP component): 160 mg TMP/day.",
               "Dose after HD on dialysis days.",
             ],
           };
@@ -933,6 +939,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "CRRT",
             notes: [
               "CRRT oral interval is a practical reference range.",
+              "Approximate IV equivalent (TMP component): 160-320 mg TMP/day.",
               "Adjust to clinical response and local practice.",
             ],
           };
@@ -952,6 +959,11 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               : "CrCl < 15 mL/min",
           notes: [
             "Stanford clinical-use pathway: uncomplicated cystitis oral dosing.",
+            patient.crclMlMin > 30
+              ? "Approximate IV equivalent (TMP component): 320 mg TMP/day."
+              : patient.crclMlMin >= 15
+              ? "Approximate IV equivalent (TMP component): 160 mg TMP/day."
+              : "Approximate IV equivalent (TMP component): ~80 mg TMP/day if therapy is used.",
             "At very low CrCl, use only with specialist oversight.",
           ],
         };
@@ -964,6 +976,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "Intermittent hemodialysis",
             notes: [
               "SSTI pathway reflects Stanford clinical-use range (1-2 DS q12h baseline).",
+              "Approximate IV equivalent (TMP component): 160-320 mg TMP/day (up to 320 mg/day for higher oral exposure).",
               "Use higher exposure only when clinically indicated.",
             ],
           };
@@ -974,6 +987,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             renalBucket: "CRRT",
             notes: [
               "CRRT pathway uses standard exposure range as reference.",
+              "Approximate IV equivalent (TMP component): 320-640 mg TMP/day.",
               "Monitor potassium, renal function, and blood counts.",
             ],
           };
@@ -993,6 +1007,11 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               : "CrCl < 15 mL/min",
           notes: [
             "Stanford clinical-use pathway: skin/soft tissue infection oral range.",
+            patient.crclMlMin > 30
+              ? "Approximate IV equivalent (TMP component): 320-640 mg TMP/day."
+              : patient.crclMlMin >= 15
+              ? "Approximate IV equivalent (TMP component): 320 mg TMP/day."
+              : "Approximate IV equivalent (TMP component): ~160 mg TMP/day if therapy is used.",
             "At very low CrCl, use only with specialist oversight.",
           ],
         };
@@ -1010,9 +1029,9 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
         baseMax = 10;
         interval = "q8-12h";
       } else if (steno) {
-        baseMin = 10;
+        baseMin = 15;
         baseMax = 15;
-        interval = "q8-12h";
+        interval = "q8h";
       } else if (pjpTreatment) {
         baseMin = 15;
         baseMax = 20;
@@ -1020,18 +1039,21 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
       }
 
       if (context.renalMode === "ihd") {
-        const hdMin = pjpTreatment || steno ? 5 : 2.5;
-        const hdMax = pjpTreatment || steno ? 7.5 : 5;
+        const hdMin = pjpTreatment ? 5 : steno ? 7.5 : 2.5;
+        const hdMax = pjpTreatment ? 7.5 : steno ? 7.5 : 5;
         const range = tmpRange(hdMin, hdMax);
         const practicalRegimen =
-          pjpTreatment || steno ? "1-2 DS tablets PO q24h after HD" : "1 DS tablet PO q24h after HD";
+          pjpTreatment ? "1-2 DS tablets PO q24h after HD" : steno ? "2 DS tablets PO q24h after HD" : "1 DS tablet PO q24h after HD";
         return {
           regimen: practicalRegimen,
           renalBucket: "Intermittent hemodialysis",
           doseWeight,
           notes: [
             "Dose displayed as trimethoprim (TMP) component.",
-            `Weight-based HD equivalent: ${range} mg TMP/day.`,
+            `Approximate IV equivalent (TMP component): ${range} mg TMP/day.`,
+            steno
+              ? "Stenotrophomonas pathway uses the maximum-target approach; oral suggestion is 2 DS tablets q24h after HD."
+              : "Oral suggestion uses a practical tablet-based pathway.",
             pjpTreatment || steno
               ? "Stanford HD pathway for PJP/Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
               : "Stanford HD pathway for non-PJP severe indications uses 2.5-5 mg TMP/kg/day q24h.",
@@ -1041,21 +1063,24 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
       }
 
       if (context.renalMode === "crrt") {
-        const crrtMin = pjpTreatment || steno ? 10 : 5;
-        const crrtMax = pjpTreatment || steno ? 15 : 10;
-        const crrtInterval = pjpTreatment ? "q8h" : steno ? "q8-12h" : "q12h";
+        const crrtMin = pjpTreatment ? 10 : steno ? 15 : 5;
+        const crrtMax = pjpTreatment ? 15 : steno ? 15 : 10;
+        const crrtInterval = pjpTreatment ? "q8h" : steno ? "q8h" : "q12h";
         const range = tmpRange(crrtMin, crrtMax);
         const practicalRegimen = pjpTreatment
           ? "2 DS tablets PO q8-12h"
           : steno
-          ? "2 DS tablets PO q12h"
+          ? "2 DS tablets PO q8h"
           : "1-2 DS tablets PO q12h";
         return {
           regimen: practicalRegimen,
           renalBucket: "CRRT",
           doseWeight,
           notes: [
-            `Weight-based CRRT equivalent: ${range} mg TMP/day divided ${crrtInterval} (TMP component).`,
+            `Approximate IV equivalent (TMP component): ${range} mg TMP/day divided ${crrtInterval}.`,
+            steno
+              ? "Stenotrophomonas pathway uses maximum-target dosing in CRRT with practical oral suggestion of 2 DS tablets q8h."
+              : "Oral suggestion uses a practical tablet-based pathway.",
             "Stanford CRRT pathway: 5-10 mg TMP/kg/day for most severe indications; 10-15 mg TMP/kg/day for PJP/Stenotrophomonas.",
             "CRRT clearance varies by modality and intensity; confirm final regimen with ICU pharmacy when possible.",
           ],
@@ -1070,12 +1095,18 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
         patient.crclMlMin > 30
           ? pjpTreatment
             ? "2 DS tablets PO q8h"
+            : steno
+            ? "2 DS tablets PO q8h"
             : "2 DS tablets PO q12h"
           : patient.crclMlMin >= 15
           ? pjpTreatment
             ? "2 DS tablets PO q12h"
+            : steno
+            ? "2 DS tablets PO q12h"
             : "1 DS tablet PO q12h"
           : pjpTreatment
+          ? "1 DS tablet PO q12h (specialist-guided)"
+          : steno
           ? "1 DS tablet PO q12h (specialist-guided)"
           : "1 DS tablet PO q24h (specialist-guided)";
       return {
@@ -1090,11 +1121,21 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
         notes: [
           "Stanford clinical-use indications are represented: uncomplicated cystitis, SSTI, S. aureus bone/joint infection, GNR bacteremia, Stenotrophomonas, and PJP treatment.",
           "Dose displayed as trimethoprim (TMP) component; uses adjusted body weight in obesity.",
+          steno
+            ? "Stenotrophomonas pathway uses maximum target 15 mg TMP/kg/day when feasible."
+            : "For non-Stenotrophomonas severe indications, target selection follows indication-specific ranges.",
+          steno && patient.crclMlMin > 30
+            ? "Approximate oral option: 2 DS tablets PO q8h (~960 mg TMP/day). Approximate IV option: TMP-based target above divided q8h."
+            : steno && patient.crclMlMin >= 15
+            ? "Approximate oral option: 2 DS tablets PO q12h (~640 mg TMP/day). Approximate IV option: TMP-based renal-reduced target above divided q12h."
+            : steno
+            ? "Approximate oral option: 1 DS tablet PO q12h (~320 mg TMP/day) if treatment is pursued. Approximate IV option: low-end specialist-guided renal-reduced TMP target."
+            : "Approximate oral and IV options should follow the selected indication range and renal bucket.",
           patient.crclMlMin > 30
-            ? `Weight-based target equivalent: ${range} mg TMP/day divided ${interval}.`
+            ? `Approximate IV equivalent (TMP component): ${range} mg TMP/day divided ${interval}.`
             : patient.crclMlMin >= 15
-            ? `Weight-based target equivalent with renal reduction: ${range} mg TMP/day.`
-            : `At very low CrCl, if therapy is used, approximate target is ${low25}-${high50} mg TMP/day with specialist-guided monitoring.`,
+            ? `Approximate IV equivalent with renal reduction (TMP component): ${range} mg TMP/day.`
+            : `At very low CrCl, if therapy is used, approximate IV equivalent target (TMP component): ${low25}-${high50} mg TMP/day with specialist-guided monitoring.`,
           "At CrCl <15 mL/min, use is generally avoided unless benefit outweighs risk and close monitoring is available.",
         ],
       };
