@@ -1051,11 +1051,15 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
           notes: [
             "Dose displayed as trimethoprim (TMP) component.",
             `Approximate IV equivalent (TMP component): ${range} mg TMP/day.`,
-            steno
+            pjpTreatment
+              ? "PJP pathway uses high-target dosing; oral suggestion is 1-2 DS tablets q24h after HD."
+              : steno
               ? "Stenotrophomonas pathway uses the maximum-target approach; oral suggestion is 2 DS tablets q24h after HD."
               : "Oral suggestion uses a practical tablet-based pathway.",
-            pjpTreatment || steno
-              ? "HD pathway for PJP/Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
+            pjpTreatment
+              ? "HD pathway for PJP uses 5-7.5 mg TMP/kg/day q24h."
+              : steno
+              ? "HD pathway for Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
               : "HD pathway for non-PJP severe indications uses 2.5-5 mg TMP/kg/day q24h.",
             "Administer after HD and monitor potassium, renal function, and blood counts closely.",
           ],
@@ -1078,10 +1082,16 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
           doseWeight,
           notes: [
             `Approximate IV equivalent (TMP component): ${range} mg TMP/day divided ${crrtInterval}.`,
-            steno
+            pjpTreatment
+              ? "PJP pathway uses high-target dosing in CRRT with practical oral suggestion of 2 DS tablets q8-12h."
+              : steno
               ? "Stenotrophomonas pathway uses maximum-target dosing in CRRT with practical oral suggestion of 2 DS tablets q8h."
               : "Oral suggestion uses a practical tablet-based pathway.",
-            "CRRT pathway: 5-10 mg TMP/kg/day for most severe indications; 10-15 mg TMP/kg/day for PJP/Stenotrophomonas.",
+            pjpTreatment
+              ? "CRRT pathway for PJP: 10-15 mg TMP/kg/day."
+              : steno
+              ? "CRRT pathway for Stenotrophomonas: 10-15 mg TMP/kg/day."
+              : "CRRT pathway for most severe non-PJP indications: 5-10 mg TMP/kg/day.",
             "CRRT clearance varies by modality and intensity; confirm final regimen with ICU pharmacy when possible.",
           ],
         };
@@ -1119,12 +1129,19 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             : "CrCl < 15 mL/min",
         doseWeight,
         notes: [
-          "Clinical-use indications are represented: uncomplicated cystitis, SSTI, S. aureus bone/joint infection, GNR bacteremia, Stenotrophomonas, and PJP treatment.",
           "Dose displayed as trimethoprim (TMP) component; uses adjusted body weight in obesity.",
-          steno
+          pjpTreatment
+            ? "PJP pathway uses high target 15-20 mg TMP/kg/day when feasible."
+            : steno
             ? "Stenotrophomonas pathway uses maximum target 15 mg TMP/kg/day when feasible."
             : "For non-Stenotrophomonas severe indications, target selection follows indication-specific ranges.",
-          steno && patient.crclMlMin > 30
+          pjpTreatment && patient.crclMlMin > 30
+            ? "Approximate oral option: 2 DS tablets PO q8h (~960 mg TMP/day). Approximate IV option: TMP-based target above divided q6-8h."
+            : pjpTreatment && patient.crclMlMin >= 15
+            ? "Approximate oral option: 2 DS tablets PO q12h (~640 mg TMP/day). Approximate IV option: TMP-based renal-reduced target above divided q12h."
+            : pjpTreatment
+            ? "Approximate oral option: 1 DS tablet PO q12h (~320 mg TMP/day) if treatment is pursued. Approximate IV option: low-end specialist-guided renal-reduced TMP target."
+            : steno && patient.crclMlMin > 30
             ? "Approximate oral option: 2 DS tablets PO q8h (~960 mg TMP/day). Approximate IV option: TMP-based target above divided q8h."
             : steno && patient.crclMlMin >= 15
             ? "Approximate oral option: 2 DS tablets PO q12h (~640 mg TMP/day). Approximate IV option: TMP-based renal-reduced target above divided q12h."
