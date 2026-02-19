@@ -16,12 +16,12 @@ export type CatalogFamily =
 export const FAMILY_ORDER: CatalogFamily[] = [
   "Location",
   "Host",
+  "Exam",
   "Symptoms",
   "Vitals",
   "Labs",
   "Micro",
   "Imaging",
-  "Exam",
   "Other",
 ];
 

@@ -212,6 +212,12 @@ export default function ProbIDAllReferencesPage() {
     {
       section: "Invasive Candidiasis",
       citation:
+        "Bassetti M, Giacobbe DR, Vena A, et al. Incidence and outcome of invasive candidiasis in intensive care units (EUCANDICU): a multinational prospective observational study. Crit Care. 2019;23:219.",
+      doi: "https://doi.org/10.1186/s13054-019-2497-3",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
         "León C, Ruiz-Santana S, Saavedra P, et al. A bedside scoring system (Candida score) for early antifungal treatment in nonneutropenic critically ill patients with Candida colonization. Crit Care Med. 2006;34(3):730-737.",
       doi: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
     },
@@ -406,6 +412,18 @@ export default function ProbIDAllReferencesPage() {
       citation:
         "Fox GJ, Barry SE, Britton WJ, Marks GB. Contact investigation for tuberculosis: a systematic review and meta-analysis. PLoS Med. 2013;10(11):e1001432.",
       doi: "https://doi.org/10.1371/journal.pmed.1001432",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Cords O, Martinez L, Warren JL, et al. Incidence and prevalence of tuberculosis in incarcerated populations: a systematic review and meta-analysis. Lancet Public Health. 2021;6(5):e300-e308.",
+      doi: "https://doi.org/10.1016/S2468-2667(21)00025-6",
+    },
+    {
+      section: "Active TB",
+      citation:
+        "Beijer U, Wolf A, Fazel S. Prevalence of tuberculosis, hepatitis C virus, and HIV in homeless people: a systematic review and meta-analysis. Lancet Infect Dis. 2012;12(11):859-870.",
+      doi: "https://doi.org/10.1016/S1473-3099(12)70177-9",
     },
     {
       section: "Active TB",

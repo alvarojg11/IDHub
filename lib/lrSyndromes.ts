@@ -13,8 +13,18 @@ export const CAP_MODULE: SyndromeLRModule = {
   description:
     "Community-acquired pneumonia probability update using symptoms/vitals/exam + simplified CXR and labs. Starter LRs—replace with curated evidence.",
   pretestPresets: [
-    { id: "pc_adult", label: "Primary Care", p: 0.05 },
-    { id: "ed_adult", label: "Emergency Department", p: 0.10 },
+    {
+      id: "pc_adult",
+      label: "Primary Care",
+      p: 0.03,
+      notes: "Setting-only baseline (not symptom-enriched). Add findings such as cough separately.",
+    },
+    {
+      id: "ed_adult",
+      label: "Emergency Department",
+      p: 0.06,
+      notes: "Setting-only baseline (not symptom-enriched). Add findings such as cough separately.",
+    },
   ],
   items: [
     // -------------------------
@@ -203,10 +213,20 @@ export const UTI_MODULE: SyndromeLRModule = {
   id: "uti",
   name: "UTI",
   description:
-    "UTI probability update using symptoms + urinalysis (and optional culture). Presets represent care setting; sex and other risk factors live in Host. Starter LRs—replace with curated evidence.",
+    "UTI probability update using setting-only pretest probability plus symptoms, urinalysis (and optional culture), and host risk factors. Starter LRs—replace with curated evidence.",
   pretestPresets: [
-    { id: "uti_comm", label: "Community / primary care", p: 0.25 },
-    { id: "uti_hc", label: "Hospital / healthcare-associated", p: 0.20 },
+    {
+      id: "uti_comm",
+      label: "Outpatient / primary care",
+      p: 0.05,
+      notes: "Setting-only baseline (not symptom-enriched). Add symptoms/UA findings separately.",
+    },
+    {
+      id: "uti_hc",
+      label: "ED / inpatient",
+      p: 0.08,
+      notes: "Setting-only baseline (not symptom-enriched). Add symptoms/UA findings separately.",
+    },
   ],
   items: [
     // -------------------------
@@ -276,11 +296,26 @@ export const ENDO_MODULE: SyndromeLRModule = {
   id: "endo",
   name: "Endocarditis",
   description:
-    "Infective endocarditis probability update using host risk + organism-specific microbiology + risk-score context (PREDICT / DENOVA / HANDOC) + imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available; several organism/risk-score LRs are starter scaffolds—replace with curated local evidence. Beware correlated Duke elements.",
+    "Infective endocarditis probability update using setting-only pretest probability plus selected host risk, organism-specific microbiology, risk-score context (PREDICT / DENOVA / HANDOC), and imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available; several organism/risk-score LRs are starter scaffolds—replace with curated local evidence. Beware correlated Duke elements.",
   pretestPresets: [
-    { id: "endo_very_low", label: "Very low suspicion (fever, no RF, alternate dx likely)", p: 0.005 },
-    { id: "endo_low", label: "Low suspicion (fever + murmur or RF, not classic)", p: 0.02 },
-    { id: "endo_mod", label: "Moderate suspicion (bacteremia or multiple RF)", p: 0.08 },
+    {
+      id: "endo_very_low",
+      label: "Outpatient / primary care",
+      p: 0.001,
+      notes: "Setting-only baseline. Add host, exam, microbiology, and imaging findings separately.",
+    },
+    {
+      id: "endo_low",
+      label: "ED / inpatient",
+      p: 0.005,
+      notes: "Setting-only baseline. Add host, exam, microbiology, and imaging findings separately.",
+    },
+    {
+      id: "endo_mod",
+      label: "Tertiary referral center",
+      p: 0.01,
+      notes: "Setting-only baseline for referral settings. Add host, exam, microbiology, and imaging findings separately.",
+    },
   ],
 
   items: [
@@ -300,7 +335,7 @@ export const ENDO_MODULE: SyndromeLRModule = {
       category: "host",
       lrPos: 2.2,
       lrNeg: 0.8,
-      notes: "Use mainly when S. aureus bacteremia is present. Avoid stacking with PREDICT if already applied.",
+      notes: "Use mainly when S. aureus bacteremia is present.",
     },
     {
       id: "endo_efaecalis_risk_context",
@@ -308,7 +343,7 @@ export const ENDO_MODULE: SyndromeLRModule = {
       category: "host",
       lrPos: 2.4,
       lrNeg: 0.75,
-      notes: "Use mainly when Enterococcus faecalis bacteremia is present. Avoid stacking with DENOVA if already applied.",
+      notes: "Use mainly when Enterococcus faecalis bacteremia is present.",
     },
     {
       id: "endo_nbhs_risk_context",
@@ -316,7 +351,7 @@ export const ENDO_MODULE: SyndromeLRModule = {
       category: "host",
       lrPos: 2.0,
       lrNeg: 0.8,
-      notes: "Use mainly when NBHS bacteremia is present. Avoid stacking with HANDOC if already applied.",
+      notes: "Use mainly when NBHS bacteremia is present.",
     },
 
     // -------------------------
@@ -528,13 +563,13 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
   id: "active_tb",
   name: "Active TB",
   description:
-    "Active pulmonary TB probability update using setting prevalence, host risk, symptom screen strategy, immune-based tests (QFT/TST), respiratory microbiology (MTB PCR, AFB smear, culture), and chest X-ray. LRs use pooled estimates where available.",
+    "Active pulmonary TB probability update using setting-only pretest probability plus selected host risk factors, symptom screen strategy, immune-based tests (QFT/TST), respiratory microbiology (MTB PCR, AFB smear, culture), and chest X-ray. LRs use pooled estimates where available.",
   pretestPresets: [
     {
       id: "tb_low",
-      label: "Low-prevalence setting (no major TB exposure/travel risk)",
-      p: 0.02,
-      notes: "Use as a starting point in low-incidence settings before adding risk factors/findings.",
+      label: "Outpatient",
+      p: 0.005,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "WHO Global TB Report",
         year: 2024,
@@ -543,24 +578,13 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
     },
     {
       id: "tb_intermediate",
-      label: "Intermediate prevalence (born in or traveled to endemic region)",
-      p: 0.08,
-      notes: "For patients from/intermittently exposed to moderate-to-high incidence settings.",
+      label: "ED / Inpatient",
+      p: 0.02,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "WHO Global TB Report",
         year: 2024,
         url: "https://www.who.int/publications/i/item/9789240101531",
-      },
-    },
-    {
-      id: "tb_high",
-      label: "High prevalence or recent close exposure to contagious TB",
-      p: 0.20,
-      notes: "Higher baseline risk when epidemiology/exposure is strongly suggestive.",
-      source: {
-        short: "Fox et al. PLoS Med",
-        year: 2013,
-        url: "https://doi.org/10.1371/journal.pmed.1001432",
       },
     },
   ],
@@ -580,6 +604,45 @@ export const ACTIVE_TB_MODULE: SyndromeLRModule = {
         short: "Fox et al. PLoS Med",
         year: 2013,
         url: "https://doi.org/10.1371/journal.pmed.1001432",
+      },
+    },
+    {
+      id: "tb_birth_travel_high_incidence",
+      label: "Born in or prolonged travel/residence in high-incidence TB region",
+      category: "host",
+      lrPos: 2.1,
+      lrNeg: 0.9,
+      notes: "Epidemiologic risk enrichment modeled conservatively to avoid overcounting with other host factors.",
+      source: {
+        short: "WHO Global TB Report",
+        year: 2024,
+        url: "https://www.who.int/publications/i/item/9789240101531",
+      },
+    },
+    {
+      id: "tb_incarceration",
+      label: "Current or recent incarceration",
+      category: "host",
+      lrPos: 2.2,
+      lrNeg: 0.9,
+      notes: "Prison populations have much higher TB burden than the general population; LR kept conservative due overlap with other social/host risks.",
+      source: {
+        short: "Cords et al. Lancet Public Health",
+        year: 2021,
+        url: "https://doi.org/10.1016/S2468-2667(21)00025-6",
+      },
+    },
+    {
+      id: "tb_homelessness",
+      label: "Experiencing homelessness or regular shelter exposure",
+      category: "host",
+      lrPos: 2.0,
+      lrNeg: 0.92,
+      notes: "Homeless populations/shelters are higher-risk TB settings; LR kept conservative to reduce overlap with other vulnerabilities.",
+      source: {
+        short: "Beijer et al. Lancet Infect Dis",
+        year: 2012,
+        url: "https://doi.org/10.1016/S1473-3099(12)70177-9",
       },
     },
     {
@@ -794,13 +857,13 @@ export const PJP_MODULE: SyndromeLRModule = {
   id: "pjp",
   name: "PJP",
   description:
-    "Pneumocystis jirovecii pneumonia probability update using risk setting, host factors, vitals, serum BDG, respiratory diagnostics (PCR/DFA), and chest imaging.",
+    "Pneumocystis jirovecii pneumonia probability update using setting-only pretest probability plus selected host risk factors, vitals, serum BDG, respiratory diagnostics (PCR/DFA), and chest imaging.",
   pretestPresets: [
     {
       id: "pjp_low",
-      label: "Low risk: no meaningful immunosuppression",
-      p: 0.01,
-      notes: "Very low baseline probability in patients without classic host risk factors.",
+      label: "Outpatient / Emergency Department",
+      p: 0.003,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "Mappin-Kasirer et al. BMC Infect Dis",
         year: 2024,
@@ -809,9 +872,9 @@ export const PJP_MODULE: SyndromeLRModule = {
     },
     {
       id: "pjp_moderate",
-      label: "Moderate risk: some immunosuppression, usually not meeting prophylaxis criteria",
-      p: 0.08,
-      notes: "Intermediate pretest setting before adding diagnostic findings.",
+      label: "Hospitalized (non-ICU)",
+      p: 0.01,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "Mappin-Kasirer et al. BMC Infect Dis",
         year: 2024,
@@ -820,9 +883,9 @@ export const PJP_MODULE: SyndromeLRModule = {
     },
     {
       id: "pjp_high",
-      label: "High risk: AIDS, transplant, prolonged steroids, or similar high-risk state",
-      p: 0.25,
-      notes: "High pretest context where rapid diagnostics and empiric decisions are often needed.",
+      label: "ICU",
+      p: 0.02,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "Mappin-Kasirer et al. BMC Infect Dis",
         year: 2024,
@@ -1067,8 +1130,8 @@ export const INVASIVE_MOLD_MODULE: SyndromeLRModule = {
     {
       id: "imi_low",
       label: "Outpatient / Emergency Department",
-      p: 0.01,
-      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      p: 0.001,
+      notes: "Setting-only baseline (very low prevalence). Add host/risk findings separately below.",
       source: {
         short: "Patterson et al. IDSA Aspergillosis",
         year: 2016,
@@ -1078,7 +1141,7 @@ export const INVASIVE_MOLD_MODULE: SyndromeLRModule = {
     {
       id: "imi_heme_high",
       label: "Hospitalized (non-ICU)",
-      p: 0.03,
+      p: 0.005,
       notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "Cruciani et al. Cochrane",
@@ -1089,8 +1152,8 @@ export const INVASIVE_MOLD_MODULE: SyndromeLRModule = {
     {
       id: "imi_icu_viral",
       label: "ICU",
-      p: 0.08,
-      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      p: 0.015,
+      notes: "Setting-only baseline (non-enriched ICU population). Add host/risk findings separately below.",
       source: {
         short: "Feys et al. Lancet Infect Dis",
         year: 2022,
@@ -1359,18 +1422,18 @@ export const INVASIVE_CANDIDIASIS_MODULE: SyndromeLRModule = {
     {
       id: "icand_low",
       label: "Outpatient / Emergency Department",
-      p: 0.01,
-      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      p: 0.002,
+      notes: "Setting-only baseline (low prevalence). Add host/risk findings separately below.",
       source: {
-        short: "Pappas et al. IDSA Candidiasis",
-        year: 2016,
-        url: "https://doi.org/10.1093/cid/civ933",
+        short: "Clancy and Nguyen. Clin Infect Dis",
+        year: 2013,
+        url: "https://doi.org/10.1093/cid/cit006",
       },
     },
     {
       id: "icand_icu_risk",
       label: "Hospitalized (non-ICU)",
-      p: 0.04,
+      p: 0.006,
       notes: "Setting-only baseline. Add host/risk findings separately below.",
       source: {
         short: "Clancy and Nguyen. Clin Infect Dis",
@@ -1381,12 +1444,12 @@ export const INVASIVE_CANDIDIASIS_MODULE: SyndromeLRModule = {
     {
       id: "icand_high",
       label: "ICU",
-      p: 0.1,
-      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      p: 0.01,
+      notes: "Setting-only baseline (typical ICU incidence is generally low single-digit percentages). Add host/risk findings separately below.",
       source: {
-        short: "León et al. Crit Care Med",
-        year: 2006,
-        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+        short: "Bassetti et al. Crit Care",
+        year: 2019,
+        url: "https://doi.org/10.1186/s13054-019-2497-3",
       },
     },
   ],
@@ -1570,13 +1633,13 @@ export const PJI_MODULE: SyndromeLRModule = {
   id: "pji",
   name: "PJI",
   description:
-    "Prosthetic joint infection probability update using clinical setting, host risk factors, inflammatory markers, synovial biomarkers, microbiology, and supportive imaging.",
+    "Prosthetic joint infection probability update using setting-only pretest probability plus selected host risk factors, exam findings, inflammatory markers, synovial biomarkers, microbiology, and supportive imaging.",
   pretestPresets: [
     {
       id: "pji_low",
-      label: "Low concern: painful prosthesis without clear inflammatory/infectious features",
-      p: 0.05,
-      notes: "Low-prevalence context where aseptic causes remain more likely.",
+      label: "Outpatient arthroplasty clinic follow-up",
+      p: 0.03,
+      notes: "Setting-only baseline. Add host/exam/lab findings separately below.",
       source: {
         short: "Cortes-Penfield et al. Clin Infect Dis",
         year: 2023,
@@ -1585,9 +1648,9 @@ export const PJI_MODULE: SyndromeLRModule = {
     },
     {
       id: "pji_intermediate",
-      label: "Intermediate concern: painful prosthesis with inflammatory/infectious features",
-      p: 0.20,
-      notes: "Intermediate pretest setting before synovial/microbiologic data.",
+      label: "ED / inpatient",
+      p: 0.08,
+      notes: "Setting-only baseline. Add host/exam/lab findings separately below.",
       source: {
         short: "Cortes-Penfield et al. Clin Infect Dis",
         year: 2023,
@@ -1596,9 +1659,9 @@ export const PJI_MODULE: SyndromeLRModule = {
     },
     {
       id: "pji_high",
-      label: "High concern: sinus tract, or strong suspicion",
-      p: 0.45,
-      notes: "High pretest setting where expedited aspiration and microbiology are central.",
+      label: "Pre-revision arthroplasty evaluation",
+      p: 0.15,
+      notes: "Setting-only baseline for revision workup contexts. Add host/exam/lab findings separately below.",
       source: {
         short: "Parvizi et al. J Arthroplasty",
         year: 2018,
@@ -1665,7 +1728,7 @@ export const PJI_MODULE: SyndromeLRModule = {
     },
 
     // -------------------------
-    // Symptoms / signs
+    // Symptoms
     // -------------------------
     {
       id: "pji_sym_joint_pain",
@@ -1681,12 +1744,12 @@ export const PJI_MODULE: SyndromeLRModule = {
       },
     },
     {
-      id: "pji_sym_local_inflammation",
-      label: "Local erythema, warmth, swelling, or drainage",
-      category: "symptom",
-      lrPos: 1.8,
-      lrNeg: 0.8,
-      notes: "Supportive but not definitive without microbiologic correlation.",
+      id: "pji_vital_fever",
+      label: "Fever (>=38 C)",
+      category: "vital",
+      lrPos: 1.3,
+      lrNeg: 0.95,
+      notes: "Absent fever does not exclude PJI, especially chronic presentations.",
       source: {
         short: "Cortes-Penfield et al. Clin Infect Dis",
         year: 2023,
@@ -1694,12 +1757,12 @@ export const PJI_MODULE: SyndromeLRModule = {
       },
     },
     {
-      id: "pji_vital_fever",
-      label: "Fever (>=38 C)",
-      category: "vital",
-      lrPos: 1.3,
-      lrNeg: 0.95,
-      notes: "Absent fever does not exclude PJI, especially chronic presentations.",
+      id: "pji_sym_local_inflammation",
+      label: "Local erythema, warmth, swelling, or drainage",
+      category: "exam",
+      lrPos: 1.8,
+      lrNeg: 0.8,
+      notes: "Physical exam finding; supportive but not definitive without microbiologic correlation.",
       source: {
         short: "Cortes-Penfield et al. Clin Infect Dis",
         year: 2023,
