@@ -60,6 +60,12 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1136/bmj.329.7458.168",
     },
     {
+      section: "General Methods",
+      citation:
+        "Pauker SG, Kassirer JP. Therapeutic Decision Making: A Cost-Benefit Analysis. N Engl J Med. 1975;293(5):229-234.",
+      doi: "https://doi.org/10.1056/NEJM197507312930505",
+    },
+    {
       section: "Endocarditis",
       citation:
         "Delgado V, Ajmone Marsan N, de Waha S, et al. 2023 ESC Guidelines for the management of endocarditis. Eur Heart J. 2023;44(39):3948-4042.",

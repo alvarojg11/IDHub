@@ -1,5 +1,6 @@
 // lib/probidCatalog.ts
 import type { LRItem, SyndromeLRModule } from "@/lib/lrTypes";
+import { formatPct } from "@/lib/lrMath";
 
 export type CatalogFamily =
   | "Location"
@@ -70,7 +71,7 @@ export function buildCatalog(module: SyndromeLRModule) {
     id: `loc__${p.id}`,
     label: p.label,
     category: "lab" as const, // not used in UI for location; we’ll special-case
-    notes: `Pretest ${Math.round(p.p * 100)}%`,
+    notes: `Pretest ${formatPct(p.p)}`,
   }));
 
   return { locations, items: module.items };

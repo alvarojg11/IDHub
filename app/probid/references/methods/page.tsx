@@ -201,6 +201,64 @@ export default function ProbIDMethodsPage() {
             </div>
           </div>
         </Callout>
+
+        <Callout title="4) Decision Layer: How Harms and Thresholds Are Computed">
+          <p>
+            ProbID now includes a decision layer that estimates whether to{" "}
+            <span className="font-semibold text-[var(--foreground)]">observe</span>,{" "}
+            <span className="font-semibold text-[var(--foreground)]">test further</span>, or{" "}
+            <span className="font-semibold text-[var(--foreground)]">treat now</span>, based on post-test probability.
+          </p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+              <div className="text-sm font-semibold text-[var(--foreground)]">A) Harm inputs</div>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Harms are auto-estimated from:
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
+                <li>Syndrome-specific baseline harm pair</li>
+                <li>Incremental adjustments from selected high-impact findings</li>
+              </ul>
+              <p className="mt-2 text-xs text-[var(--muted)]">
+                In the app, each baseline and increment includes a literature anchor shown in the expanded harm panel.
+              </p>
+              <p className="mt-2 text-xs text-[var(--muted)]">
+                Current implementation is a transparent heuristic, not a validated utility model.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+              <div className="text-sm font-semibold text-[var(--foreground)]">B) Treatment threshold</div>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Once harms are estimated, treatment threshold is calculated as:
+              </p>
+              <div className="mt-3">
+                <Formula>
+                  P(treat) = H(unnecessary treatment) / (H(unnecessary treatment) + H(missed diagnosis))
+                </Formula>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+            <div className="text-sm font-semibold text-[var(--foreground)]">C) Observation threshold and recommendation</div>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              MVP uses:
+            </p>
+            <div className="mt-3 space-y-2">
+              <Formula>P(observe) = 0.5 × P(treat)</Formula>
+            </div>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
+              <li>If post-test p ≤ P(observe): Observe/monitor</li>
+              <li>If P(observe) &lt; post-test p &lt; P(treat): Pursue further testing</li>
+              <li>If post-test p ≥ P(treat): Treat now</li>
+            </ul>
+            <p className="mt-3 text-xs text-[var(--muted)]">
+              The harm model is configurable in <span className="font-mono">lib/probidDecision.ts</span>.
+            </p>
+          </div>
+        </Callout>
       </section>
 
       <footer className="mt-16 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">

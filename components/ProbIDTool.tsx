@@ -4,6 +4,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import type { FindingState, LRItem, SyndromeLRModule } from "@/lib/lrTypes";
 import { combinedLR, postTestProb, buildStepwisePath, formatPct, clamp } from "@/lib/lrMath";
+import { deriveDecisionThresholds, estimateHarms } from "@/lib/probidDecision";
 import { FaganChart } from "@/components/FaganChart";
 import { LRItemToggle } from "@/components/LRItemToggle";
 import { FAMILY_ORDER, familyFor, matchesQuery, normalize } from "@/lib/probidCatalog";
@@ -129,6 +130,12 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
+  const harmEstimate = useMemo(() => estimateHarms(activeModule.id, states), [activeModule.id, states]);
+  const { treatThresholdP: treatmentThresholdP, observeThresholdP } = useMemo(
+    () => deriveDecisionThresholds(harmEstimate),
+    [harmEstimate]
+  );
+  const recommendation = postP >= treatmentThresholdP ? "treat" : postP <= observeThresholdP ? "observe" : "test";
 
   const steps = useMemo(
     () => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }),
@@ -403,7 +410,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="flex items-center justify-between">
               <div>
                 <span className="font-medium">Location:</span> {preset?.label}
-                <span className="ml-2 text-xs text-gray-600">(Pretest {Math.round(pretestP * 100)}%)</span>
+                <span className="ml-2 text-xs text-gray-600">(Pretest {formatPct(pretestP)})</span>
               </div>
               <button
                 type="button"
@@ -685,6 +692,151 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           </div>
 
           <div className="mt-4 rounded-lg border p-4">
+            <div className="text-sm font-semibold text-gray-900">Decision layer (MVP)</div>
+            <p className="mt-1 text-xs text-gray-600">
+              Harms are auto-estimated from syndrome + selected high-impact findings. Treatment threshold uses:
+              P(treat) = Harm of unnecessary treatment / (Harm of unnecessary treatment + Harm of missed diagnosis).
+            </p>
+
+            <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
+              <div className="rounded border bg-gray-50 px-3 py-2">
+                <div className="text-gray-600">Harm of missed diagnosis</div>
+                <div className="text-lg font-semibold text-gray-900">{harmEstimate.missedDx}</div>
+              </div>
+              <div className="rounded border bg-gray-50 px-3 py-2">
+                <div className="text-gray-600">Harm of unnecessary treatment</div>
+                <div className="text-lg font-semibold text-gray-900">{harmEstimate.unnecessaryTx}</div>
+              </div>
+            </div>
+
+            <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
+              <summary className="cursor-pointer font-semibold text-gray-900">What is driving harm?</summary>
+              <div className="mt-2 space-y-1">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span>Baseline missed-diagnosis harm ({activeModule.name})</span>
+                    <span className="font-semibold">{harmEstimate.baseMissedDx}</span>
+                  </div>
+                  {harmEstimate.baseEvidence ? (
+                    <div className="text-[11px] text-gray-500">
+                      Source:{" "}
+                      {harmEstimate.baseEvidence.url ? (
+                        <a
+                          href={harmEstimate.baseEvidence.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2 hover:text-gray-700"
+                        >
+                          {harmEstimate.baseEvidence.short}
+                        </a>
+                      ) : (
+                        harmEstimate.baseEvidence.short
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+                {harmEstimate.missedDxDrivers.map((d, idx) => (
+                  <div key={`${d.label}-${idx}`}>
+                    <div className="flex items-center justify-between">
+                      <span>+ {d.label}</span>
+                      <span className="font-semibold">+{d.delta}</span>
+                    </div>
+                    {d.evidence ? (
+                      <div className="text-[11px] text-gray-500">
+                        Source:{" "}
+                        {d.evidence.url ? (
+                          <a
+                            href={d.evidence.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="underline underline-offset-2 hover:text-gray-700"
+                          >
+                            {d.evidence.short}
+                          </a>
+                        ) : (
+                          d.evidence.short
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+                ))}
+                <div className="mt-1 border-t pt-1 flex items-center justify-between">
+                  <span>Total missed-diagnosis harm</span>
+                  <span className="font-semibold">{harmEstimate.missedDx}</span>
+                </div>
+              </div>
+            </details>
+
+            <div className="mt-3 text-sm text-gray-700">
+              Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
+            </div>
+            <div className="text-sm text-gray-700">
+              Observation threshold: <span className="font-semibold">{formatPct(observeThresholdP)}</span>
+            </div>
+
+            <div className="mt-2 space-y-2">
+              <div className="relative h-2 rounded bg-gray-200">
+                <div
+                  className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
+                  style={{ left: `${observeThresholdP * 100}%` }}
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
+                  style={{ left: `${treatmentThresholdP * 100}%` }}
+                  aria-hidden="true"
+                />
+                <div
+                  className={[
+                    "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
+                    recommendation === "treat"
+                      ? "border-emerald-700 bg-emerald-500"
+                      : recommendation === "observe"
+                      ? "border-sky-700 bg-sky-500"
+                      : "border-amber-700 bg-amber-500",
+                  ].join(" ")}
+                  style={{ left: `${postP * 100}%` }}
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="flex items-center justify-between text-[11px] text-gray-600">
+                <span>0%</span>
+                <span>Observe &le; {formatPct(observeThresholdP)}</span>
+                <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <div
+              className={[
+                "mt-3 rounded-md border px-3 py-2 text-sm",
+                recommendation === "treat"
+                  ? "border-emerald-200 bg-emerald-50 text-emerald-900"
+                  : recommendation === "observe"
+                  ? "border-sky-200 bg-sky-50 text-sky-900"
+                  : "border-amber-200 bg-amber-50 text-amber-900",
+              ].join(" ")}
+            >
+              <span className="font-semibold">
+                {recommendation === "treat"
+                  ? "Treat now"
+                  : recommendation === "observe"
+                  ? "Observe / monitor"
+                  : "Pursue further testing"}
+              </span>
+              <span className="ml-2">
+                (Post-test {formatPct(postP)})
+              </span>
+            </div>
+
+            <div className="mt-3 text-xs text-gray-600">
+              {harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
+                ? harmEstimate.rationale[0]
+                : "Harm estimates are heuristic and configurable in lib/probidDecision.ts."}
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-lg border p-4">
             <div className="text-sm font-semibold text-gray-900">What’s driving it?</div>
             {steps.length === 0 ? (
               <p className="mt-2 text-sm text-gray-700">No selected findings yet.</p>
@@ -829,7 +981,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                             ].join(" ")}
                           >
                             <div className="font-medium">{p.label}</div>
-                            <div className="text-xs opacity-90">Pretest {Math.round(p.p * 100)}%</div>
+                            <div className="text-xs opacity-90">Pretest {formatPct(p.p)}</div>
                           </button>
                         ))}
                     </div>
@@ -937,7 +1089,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-700">
                   Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
-                  <span className="font-semibold">{Math.round(pretestP * 100)}%</span>
+                  <span className="font-semibold">{formatPct(pretestP)}</span>
                 </div>
                 <button
                   type="button"

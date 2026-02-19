@@ -329,30 +329,6 @@ export const ENDO_MODULE: SyndromeLRModule = {
     { id: "endo_chd", label: "Congenital heart disease", category: "host", lrPos: 1.8, lrNeg: 0.95 },
     { id: "endo_cied", label: "Cardiac device (CIED/ICD/pacemaker)", category: "host", lrPos: 2.2, lrNeg: 0.95 },
     { id: "endo_hd", label: "Hemodialysis", category: "host", lrPos: 2.0, lrNeg: 0.95 },
-    {
-      id: "endo_sab_risk_context",
-      label: "S. aureus bacteremia high-risk context (community onset, persistent bacteremia, or intracardiac prosthesis)",
-      category: "host",
-      lrPos: 2.2,
-      lrNeg: 0.8,
-      notes: "Use mainly when S. aureus bacteremia is present.",
-    },
-    {
-      id: "endo_efaecalis_risk_context",
-      label: "E. faecalis bacteremia high-risk context (unknown source, valve disease, prolonged symptoms)",
-      category: "host",
-      lrPos: 2.4,
-      lrNeg: 0.75,
-      notes: "Use mainly when Enterococcus faecalis bacteremia is present.",
-    },
-    {
-      id: "endo_nbhs_risk_context",
-      label: "Non-beta-hemolytic streptococcal bacteremia high-risk context (community acquisition, >=2 positive sets, prolonged symptoms)",
-      category: "host",
-      lrPos: 2.0,
-      lrNeg: 0.8,
-      notes: "Use mainly when NBHS bacteremia is present.",
-    },
 
     // -------------------------
     // CLINICAL FEATURES (minor Duke-ish)
@@ -2112,13 +2088,12 @@ const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
     if (item.id === "endo_tee") return SRC_ENDO_ESC_2023;
     if (item.id === "endo_predict_day1_high") return SRC_ENDO_PREDICT_2015;
     if (item.id === "endo_predict_day5_high" || item.id === "endo_predict_na") return SRC_ENDO_PREDICT_EXT;
-    if (item.id === "endo_denova_high" || item.id === "endo_denova_na" || item.id === "endo_efaecalis_risk_context") {
+    if (item.id === "endo_denova_high" || item.id === "endo_denova_na") {
       return SRC_ENDO_DENOVA_2018;
     }
-    if (item.id === "endo_handoc_high" || item.id === "endo_handoc_na" || item.id === "endo_nbhs_risk_context") {
+    if (item.id === "endo_handoc_high" || item.id === "endo_handoc_na") {
       return SRC_ENDO_HANDOC_2018;
     }
-    if (item.id === "endo_sab_risk_context") return SRC_ENDO_PREDICT_2015;
     return SRC_ENDO_DUKE_2023;
   },
 });
