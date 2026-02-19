@@ -927,7 +927,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             regimen: "1 DS tablet PO q24h after HD",
             renalBucket: "Intermittent hemodialysis",
             notes: [
-              "Cystitis pathway is derived from Stanford-style clinical use plus dialysis timing.",
+              "Cystitis pathway is derived from indication-based clinical-use guidance plus dialysis timing.",
               "Approximate IV equivalent (TMP component): 160 mg TMP/day.",
               "Dose after HD on dialysis days.",
             ],
@@ -958,7 +958,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               ? "CrCl 15-30 mL/min"
               : "CrCl < 15 mL/min",
           notes: [
-            "Stanford clinical-use pathway: uncomplicated cystitis oral dosing.",
+            "Clinical-use pathway: uncomplicated cystitis oral dosing.",
             patient.crclMlMin > 30
               ? "Approximate IV equivalent (TMP component): 320 mg TMP/day."
               : patient.crclMlMin >= 15
@@ -975,7 +975,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             regimen: "1 DS tablet PO q24h after HD (up to 2 DS/day in selected severe cases)",
             renalBucket: "Intermittent hemodialysis",
             notes: [
-              "SSTI pathway reflects Stanford clinical-use range (1-2 DS q12h baseline).",
+              "SSTI pathway reflects a common clinical-use range (1-2 DS q12h baseline).",
               "Approximate IV equivalent (TMP component): 160-320 mg TMP/day (up to 320 mg/day for higher oral exposure).",
               "Use higher exposure only when clinically indicated.",
             ],
@@ -1006,7 +1006,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               ? "CrCl 15-30 mL/min"
               : "CrCl < 15 mL/min",
           notes: [
-            "Stanford clinical-use pathway: skin/soft tissue infection oral range.",
+            "Clinical-use pathway: skin/soft tissue infection oral range.",
             patient.crclMlMin > 30
               ? "Approximate IV equivalent (TMP component): 320-640 mg TMP/day."
               : patient.crclMlMin >= 15
@@ -1055,8 +1055,8 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
               ? "Stenotrophomonas pathway uses the maximum-target approach; oral suggestion is 2 DS tablets q24h after HD."
               : "Oral suggestion uses a practical tablet-based pathway.",
             pjpTreatment || steno
-              ? "Stanford HD pathway for PJP/Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
-              : "Stanford HD pathway for non-PJP severe indications uses 2.5-5 mg TMP/kg/day q24h.",
+              ? "HD pathway for PJP/Stenotrophomonas uses 5-7.5 mg TMP/kg/day q24h."
+              : "HD pathway for non-PJP severe indications uses 2.5-5 mg TMP/kg/day q24h.",
             "Administer after HD and monitor potassium, renal function, and blood counts closely.",
           ],
         };
@@ -1081,7 +1081,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             steno
               ? "Stenotrophomonas pathway uses maximum-target dosing in CRRT with practical oral suggestion of 2 DS tablets q8h."
               : "Oral suggestion uses a practical tablet-based pathway.",
-            "Stanford CRRT pathway: 5-10 mg TMP/kg/day for most severe indications; 10-15 mg TMP/kg/day for PJP/Stenotrophomonas.",
+            "CRRT pathway: 5-10 mg TMP/kg/day for most severe indications; 10-15 mg TMP/kg/day for PJP/Stenotrophomonas.",
             "CRRT clearance varies by modality and intensity; confirm final regimen with ICU pharmacy when possible.",
           ],
         };
@@ -1119,7 +1119,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
             : "CrCl < 15 mL/min",
         doseWeight,
         notes: [
-          "Stanford clinical-use indications are represented: uncomplicated cystitis, SSTI, S. aureus bone/joint infection, GNR bacteremia, Stenotrophomonas, and PJP treatment.",
+          "Clinical-use indications are represented: uncomplicated cystitis, SSTI, S. aureus bone/joint infection, GNR bacteremia, Stenotrophomonas, and PJP treatment.",
           "Dose displayed as trimethoprim (TMP) component; uses adjusted body weight in obesity.",
           steno
             ? "Stenotrophomonas pathway uses maximum target 15 mg TMP/kg/day when feasible."
@@ -2141,7 +2141,7 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
           regimen: `${doseMg} mg IV post-HD (level-guided redosing)`,
           renalBucket: "Intermittent hemodialysis",
           doseWeight,
-          notes: ["Stanford guide references gentamicin pathway; apply TDM-guided interval selection."],
+          notes: ["Reference pathway follows gentamicin-style guidance; apply TDM-guided interval selection."],
         };
       }
 
