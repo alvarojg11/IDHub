@@ -29,6 +29,11 @@ const quickLinks = [
     title: "ProbID",
     desc: "How findings, labs, and imaging shift pretest to post-test probability.",
   },
+  {
+    href: "/tools/doseid",
+    title: "DoseID",
+    desc: "A reference app for facilitating antimicrobial dosing for providers.",
+  },
 ];
 
 export default function AboutPage() {
