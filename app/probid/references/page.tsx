@@ -11,7 +11,7 @@ const tiles = [
     href: "/probid/references/sources",
     title: "References",
     desc:
-      "Primary literature, meta-analyses, and guideline documents informing likelihood ratios across Endocarditis, CAP, CDI, and UTI.",
+      "Primary literature, meta-analyses, and guideline documents informing likelihood ratios across all ProbID syndromes.",
   },
 ];
 

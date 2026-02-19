@@ -1058,6 +1058,514 @@ export const PJP_MODULE: SyndromeLRModule = {
   ],
 };
 
+export const INVASIVE_MOLD_MODULE: SyndromeLRModule = {
+  id: "inv_mold",
+  name: "Invasive Mold Infection",
+  description:
+    "Invasive mold infection probability update using care-setting pretest probability plus selected host risk factors, chest imaging, serum/BAL fungal biomarkers, Aspergillus PCR, and Mucorales PCR. Current diagnostics are Aspergillus-dominant with dedicated Mucorales PCR support.",
+  pretestPresets: [
+    {
+      id: "imi_low",
+      label: "Outpatient / Emergency Department",
+      p: 0.01,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "Patterson et al. IDSA Aspergillosis",
+        year: 2016,
+        url: "https://doi.org/10.1093/cid/ciw326",
+      },
+    },
+    {
+      id: "imi_heme_high",
+      label: "Hospitalized (non-ICU)",
+      p: 0.03,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "Cruciani et al. Cochrane",
+        year: 2019,
+        url: "https://doi.org/10.1002/14651858.CD009551.pub4",
+      },
+    },
+    {
+      id: "imi_icu_viral",
+      label: "ICU",
+      p: 0.08,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "Feys et al. Lancet Infect Dis",
+        year: 2022,
+        url: "https://doi.org/10.1016/S1473-3099(22)00044-8",
+      },
+    },
+  ],
+  items: [
+    // -------------------------
+    // Host context
+    // (risk-enrichment approximations informed by consensus host criteria)
+    // -------------------------
+    {
+      id: "imi_host_neutropenia_hsct",
+      label: "Profound neutropenia or recent allogeneic HSCT",
+      category: "host",
+      lrPos: 3.0,
+      lrNeg: 0.85,
+      notes: "Consensus major host factor for invasive mold disease; modeled as pretest enrichment.",
+      source: {
+        short: "Donnelly et al. Clin Infect Dis",
+        year: 2020,
+        url: "https://doi.org/10.1093/cid/ciz1008",
+      },
+    },
+    {
+      id: "imi_host_hematologic_malignancy",
+      label: "Active hematologic malignancy (e.g., AML/MDS/relapsed leukemia)",
+      category: "host",
+      lrPos: 2.2,
+      lrNeg: 0.92,
+      notes: "Consensus host-risk enricher for invasive aspergillosis and related mold disease.",
+      source: {
+        short: "Donnelly et al. Clin Infect Dis",
+        year: 2020,
+        url: "https://doi.org/10.1093/cid/ciz1008",
+      },
+    },
+    {
+      id: "imi_host_solid_organ_transplant",
+      label: "Solid organ transplant recipient",
+      category: "host",
+      lrPos: 1.9,
+      lrNeg: 0.94,
+      notes: "Modeled as a conservative pretest-risk enrichment factor.",
+      source: {
+        short: "Patterson et al. IDSA Aspergillosis",
+        year: 2016,
+        url: "https://doi.org/10.1093/cid/ciw326",
+      },
+    },
+    {
+      id: "imi_host_steroids_tcell",
+      label: "Prolonged corticosteroids or significant T-cell immunosuppression",
+      category: "host",
+      lrPos: 2.0,
+      lrNeg: 0.9,
+      notes: "Modeled as a conservative host-risk enricher when classic immunosuppression is present.",
+      source: {
+        short: "Donnelly et al. Clin Infect Dis",
+        year: 2020,
+        url: "https://doi.org/10.1093/cid/ciz1008",
+      },
+    },
+    {
+      id: "imi_host_icu_viral_steroid",
+      label: "Severe viral pneumonia in ICU with corticosteroid exposure (CAPA context)",
+      category: "host",
+      lrPos: 1.8,
+      lrNeg: 0.95,
+      notes: "Host/context enrichment only; add diagnostics (GM/PCR/imaging) for meaningful rule-in or rule-out shifts.",
+      source: {
+        short: "Feys et al. Lancet Infect Dis",
+        year: 2022,
+        url: "https://doi.org/10.1016/S1473-3099(22)00044-8",
+      },
+    },
+    {
+      id: "imi_fever_refractory",
+      label: "Persistent/refractory fever despite broad-spectrum antibacterials",
+      category: "symptom",
+      lrPos: 1.4,
+      lrNeg: 0.9,
+      notes: "Supportive but non-specific in high-risk patients.",
+      source: {
+        short: "Patterson et al. IDSA Aspergillosis",
+        year: 2016,
+        url: "https://doi.org/10.1093/cid/ciw326",
+      },
+    },
+
+    // -------------------------
+    // Imaging
+    // -------------------------
+    {
+      id: "imi_ct_halo_sign",
+      label: "Chest CT halo sign (nodular lesion with surrounding ground-glass opacity)",
+      category: "imaging",
+      group: "imi_ct",
+      lrPos: 5.6,
+      lrNeg: 0.55,
+      notes: "Good rule-in support in the right host context; absence does not exclude invasive mold infection.",
+      source: {
+        short: "Agarwal et al. Eur J Radiol",
+        year: 2020,
+        url: "https://doi.org/10.1016/j.ejrad.2020.108843",
+      },
+    },
+    {
+      id: "imi_ct_na",
+      label: "Chest CT not done/unknown",
+      category: "imaging",
+      group: "imi_ct",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Biomarkers
+    // -------------------------
+    {
+      id: "imi_serum_gm_odi10",
+      label: "Serum galactomannan (ODI threshold around 1.0)",
+      category: "lab",
+      group: "imi_gm",
+      lrPos: 5.2,
+      lrNeg: 0.31,
+      notes: "Set Present=positive, Absent=negative. Conservative LR estimate using ODI around 1.0 to limit false positives.",
+      source: {
+        short: "Leeflang et al. Cochrane",
+        year: 2015,
+        url: "https://doi.org/10.1002/14651858.CD007394.pub2",
+      },
+    },
+    {
+      id: "imi_bal_gm_odi10",
+      label: "BAL galactomannan (ODI threshold around 1.5)",
+      category: "lab",
+      group: "imi_gm",
+      lrPos: 53.7,
+      lrNeg: 0.08,
+      notes: "Set Present=positive, Absent=negative. Very strong rule-in utility in high-risk hematology cohorts.",
+      source: {
+        short: "Heng et al. Crit Rev Microbiol",
+        year: 2015,
+        url: "https://doi.org/10.3109/1040841X.2013.804033",
+      },
+    },
+    {
+      id: "imi_gm_na",
+      label: "Galactomannan testing not done/unknown",
+      category: "lab",
+      group: "imi_gm",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "imi_serum_bdg",
+      label: "Serum beta-D-glucan (BDG)",
+      category: "lab",
+      group: "imi_bdg",
+      lrPos: 4.0,
+      lrNeg: 0.34,
+      notes: "Pan-fungal biomarker; interpret with clinical context and potential non-mold causes of positivity.",
+      source: {
+        short: "Huang et al. Clin Respir J",
+        year: 2024,
+        url: "https://doi.org/10.1111/crj.13760",
+      },
+    },
+    {
+      id: "imi_bdg_na",
+      label: "Serum BDG not done/unknown",
+      category: "lab",
+      group: "imi_bdg",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "imi_aspergillus_lfd",
+      label: "Aspergillus lateral flow test (LFD/LFA)",
+      category: "lab",
+      group: "imi_lfd",
+      lrPos: 6.65,
+      lrNeg: 0.26,
+      notes: "Set Present=positive, Absent=negative. Interpret by specimen type and local assay performance.",
+      source: {
+        short: "Zhang et al. Heliyon",
+        year: 2024,
+        url: "https://doi.org/10.1016/j.heliyon.2024.e34569",
+      },
+    },
+    {
+      id: "imi_lfd_na",
+      label: "Aspergillus LFD/LFA not done/unknown",
+      category: "lab",
+      group: "imi_lfd",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Molecular diagnostics
+    // -------------------------
+    {
+      id: "imi_aspergillus_pcr_bal",
+      label: "Aspergillus PCR from BAL",
+      category: "micro",
+      group: "imi_aspergillus_pcr",
+      lrPos: 25.1,
+      lrNeg: 0.1,
+      notes: "Set Present=positive, Absent=negative. Performance can vary with antifungal exposure and assay method.",
+      source: {
+        short: "Avni et al. J Clin Microbiol",
+        year: 2012,
+        url: "https://doi.org/10.1128/JCM.00942-12",
+      },
+    },
+    {
+      id: "imi_aspergillus_pcr_na",
+      label: "Aspergillus PCR strategy not done/unknown",
+      category: "micro",
+      group: "imi_aspergillus_pcr",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "imi_mucorales_pcr_bal",
+      label: "Mucorales PCR from BAL",
+      category: "micro",
+      group: "imi_mucorales_pcr",
+      lrPos: 23.5,
+      lrNeg: 0.03,
+      notes: "Set Present=positive, Absent=negative. Very strong negative LR in pooled analyses.",
+      source: {
+        short: "Brown et al. Int J Infect Dis",
+        year: 2025,
+        url: "https://doi.org/10.1016/j.ijid.2025.107941",
+      },
+    },
+    {
+      id: "imi_mucorales_pcr_blood",
+      label: "Mucorales PCR from blood",
+      category: "micro",
+      group: "imi_mucorales_pcr",
+      lrPos: 18.3,
+      lrNeg: 0.19,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Brown et al. Int J Infect Dis",
+        year: 2025,
+        url: "https://doi.org/10.1016/j.ijid.2025.107941",
+      },
+    },
+    {
+      id: "imi_mucorales_pcr_na",
+      label: "Mucorales PCR not done/unknown",
+      category: "micro",
+      group: "imi_mucorales_pcr",
+      notes: "Neutral selection.",
+    },
+  ],
+};
+
+export const INVASIVE_CANDIDIASIS_MODULE: SyndromeLRModule = {
+  id: "inv_candida",
+  name: "Invasive Candidiasis",
+  description:
+    "Invasive candidiasis probability update using care-setting pretest probability plus selected risk factors (host findings), serum biomarkers, molecular diagnostics, and culture-based confirmation.",
+  pretestPresets: [
+    {
+      id: "icand_low",
+      label: "Outpatient / Emergency Department",
+      p: 0.01,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "Pappas et al. IDSA Candidiasis",
+        year: 2016,
+        url: "https://doi.org/10.1093/cid/civ933",
+      },
+    },
+    {
+      id: "icand_icu_risk",
+      label: "Hospitalized (non-ICU)",
+      p: 0.04,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "Clancy and Nguyen. Clin Infect Dis",
+        year: 2013,
+        url: "https://doi.org/10.1093/cid/cit006",
+      },
+    },
+    {
+      id: "icand_high",
+      label: "ICU",
+      p: 0.1,
+      notes: "Setting-only baseline. Add host/risk findings separately below.",
+      source: {
+        short: "León et al. Crit Care Med",
+        year: 2006,
+        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+      },
+    },
+  ],
+  items: [
+    // -------------------------
+    // Candida Score components
+    // (OR-informed LR approximations from derivation cohort)
+    // -------------------------
+    {
+      id: "icand_component_tpn",
+      label: "Total parenteral nutrition",
+      category: "host",
+      lrPos: 1.6,
+      lrNeg: 0.92,
+      notes: "Candida Score component; modeled as an OR-informed risk enricher rather than a standalone diagnostic test.",
+      source: {
+        short: "León et al. Crit Care Med",
+        year: 2006,
+        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+      },
+    },
+    {
+      id: "icand_component_surgery",
+      label: "Recent surgery",
+      category: "host",
+      lrPos: 1.7,
+      lrNeg: 0.9,
+      notes: "Candida Score component; modeled as an OR-informed risk enricher rather than a standalone diagnostic test.",
+      source: {
+        short: "León et al. Crit Care Med",
+        year: 2006,
+        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+      },
+    },
+    {
+      id: "icand_component_multifocal_colonization",
+      label: "Multifocal Candida colonization",
+      category: "micro",
+      lrPos: 2.3,
+      lrNeg: 0.85,
+      notes: "Candida Score component; stronger enrichment when colonization is documented at multiple non-blood sites.",
+      source: {
+        short: "León et al. Crit Care Med",
+        year: 2006,
+        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+      },
+    },
+    {
+      id: "icand_component_severe_sepsis",
+      label: "Severe sepsis/septic shock",
+      category: "vital",
+      lrPos: 2.8,
+      lrNeg: 0.85,
+      notes: "Candida Score component with the highest weighting in the original score derivation.",
+      source: {
+        short: "León et al. Crit Care Med",
+        year: 2006,
+        url: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+      },
+    },
+
+    // -------------------------
+    // Serum biomarkers
+    // -------------------------
+    {
+      id: "icand_bdg_serum",
+      label: "Serum beta-D-glucan (BDG)",
+      category: "lab",
+      group: "icand_bdg",
+      lrPos: 5.22,
+      lrNeg: 0.27,
+      notes: "Pan-fungal biomarker; values derived from pooled IFI performance and interpreted as supportive (not Candida-specific).",
+      source: {
+        short: "Karageorgopoulos et al. Clin Infect Dis",
+        year: 2011,
+        url: "https://doi.org/10.1093/cid/ciq206",
+      },
+    },
+    {
+      id: "icand_bdg_na",
+      label: "Serum BDG not done/unknown",
+      category: "lab",
+      group: "icand_bdg",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "icand_mannan_antimannan",
+      label: "Combined mannan + anti-mannan assay",
+      category: "lab",
+      group: "icand_mannan",
+      lrPos: 5.93,
+      lrNeg: 0.2,
+      notes: "Set Present=positive combined assay, Absent=negative combined assay.",
+      source: {
+        short: "Mikulska et al. Crit Care",
+        year: 2010,
+        url: "https://doi.org/10.1186/cc9365",
+      },
+    },
+    {
+      id: "icand_mannan_na",
+      label: "Mannan/anti-mannan testing not done/unknown",
+      category: "lab",
+      group: "icand_mannan",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Molecular diagnostics
+    // -------------------------
+    {
+      id: "icand_t2candida",
+      label: "T2Candida panel",
+      category: "micro",
+      group: "icand_t2",
+      lrPos: 10.16,
+      lrNeg: 0.08,
+      notes: "Set Present=positive, Absent=negative. High NPV performance in pooled analyses.",
+      source: {
+        short: "Tang et al. BMC Infect Dis",
+        year: 2019,
+        url: "https://doi.org/10.1186/s12879-019-4419-z",
+      },
+    },
+    {
+      id: "icand_t2_na",
+      label: "T2Candida not done/unknown",
+      category: "micro",
+      group: "icand_t2",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "icand_pcr_blood",
+      label: "Candida PCR from blood",
+      category: "micro",
+      group: "icand_pcr",
+      lrPos: 11.88,
+      lrNeg: 0.05,
+      notes: "Set Present=positive, Absent=negative.",
+      source: {
+        short: "Avni et al. J Clin Microbiol",
+        year: 2011,
+        url: "https://doi.org/10.1128/JCM.01602-10",
+      },
+    },
+    {
+      id: "icand_pcr_na",
+      label: "Candida PCR not done/unknown",
+      category: "micro",
+      group: "icand_pcr",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Culture confirmation
+    // -------------------------
+    {
+      id: "icand_culture_positive",
+      label: "Blood/sterile-site culture positive for Candida",
+      category: "micro",
+      group: "icand_culture",
+      lrPos: 20,
+      notes: "Strong rule-in finding. A negative blood culture should not be used to exclude invasive candidiasis.",
+      source: {
+        short: "Clancy and Nguyen. J Fungi",
+        year: 2018,
+        url: "https://doi.org/10.3390/jof4010027",
+      },
+    },
+    {
+      id: "icand_culture_na",
+      label: "Culture strategy not done/unknown",
+      category: "micro",
+      group: "icand_culture",
+      notes: "Neutral selection.",
+    },
+  ],
+};
+
 export const PJI_MODULE: SyndromeLRModule = {
   id: "pji",
   name: "PJI",
@@ -1560,5 +2068,7 @@ export const PROBID_MODULES: SyndromeLRModule[] = [
   ENDO_MODULE_WITH_SOURCES,
   ACTIVE_TB_MODULE,
   PJP_MODULE,
+  INVASIVE_CANDIDIASIS_MODULE,
+  INVASIVE_MOLD_MODULE,
   PJI_MODULE,
 ];

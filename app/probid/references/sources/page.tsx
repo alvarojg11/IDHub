@@ -198,6 +198,120 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1038/s41598-019-38618-3",
     },
     {
+      section: "Invasive Candidiasis",
+      citation:
+        "Pappas PG, Kauffman CA, Andes DR, et al. Clinical Practice Guideline for the Management of Candidiasis: 2016 Update by the IDSA. Clin Infect Dis. 2016;62(4):e1-e50.",
+      doi: "https://doi.org/10.1093/cid/civ933",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Clancy CJ, Nguyen MH. Finding the \"missing 50%\" of invasive candidiasis: how nonculture diagnostics will improve understanding of disease spectrum and transform patient care. Clin Infect Dis. 2013;56(9):1284-1292.",
+      doi: "https://doi.org/10.1093/cid/cit006",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "León C, Ruiz-Santana S, Saavedra P, et al. A bedside scoring system (Candida score) for early antifungal treatment in nonneutropenic critically ill patients with Candida colonization. Crit Care Med. 2006;34(3):730-737.",
+      doi: "https://doi.org/10.1097/01.CCM.0000202208.37364.7D",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Karageorgopoulos DE, Vouloumanou EK, Ntziora F, et al. beta-D-glucan assay for the diagnosis of invasive fungal infections: a meta-analysis. Clin Infect Dis. 2011;52(6):750-770.",
+      doi: "https://doi.org/10.1093/cid/ciq206",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Mikulska M, Calandra T, Sanguinetti M, Poulain D, Viscoli C. The use of mannan antigen and anti-mannan antibodies in the diagnosis of invasive candidiasis: recommendations from the 3rd European Conference on Infections in Leukemia. Crit Care. 2010;14(6):R222.",
+      doi: "https://doi.org/10.1186/cc9365",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Tang HJ, et al. The diagnostic accuracy of T2Candida to detect candidemia: a systematic review and meta-analysis. BMC Infect Dis. 2019;19:271.",
+      doi: "https://doi.org/10.1186/s12879-019-4419-z",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Avni T, Leibovici L, Paul M. PCR diagnosis of invasive candidiasis: systematic review and meta-analysis. J Clin Microbiol. 2011;49(2):665-670.",
+      doi: "https://doi.org/10.1128/JCM.01602-10",
+    },
+    {
+      section: "Invasive Candidiasis",
+      citation:
+        "Clancy CJ, Nguyen MH. Diagnosing Invasive Candidiasis. J Fungi (Basel). 2018;4(1):27.",
+      doi: "https://doi.org/10.3390/jof4010027",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Patterson TF, Thompson GR 3rd, Denning DW, et al. Practice Guidelines for the Diagnosis and Management of Aspergillosis: 2016 Update by the IDSA. Clin Infect Dis. 2016;63(4):e1-e60.",
+      doi: "https://doi.org/10.1093/cid/ciw326",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Donnelly JP, Chen SC, Kauffman CA, et al. Revision and Update of the Consensus Definitions of Invasive Fungal Disease from the EORTC/MSGERC. Clin Infect Dis. 2020;71(6):1367-1376.",
+      doi: "https://doi.org/10.1093/cid/ciz1008",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Cruciani M, Mengoli C, Loeffler J, et al. Polymerase chain reaction blood tests for the diagnosis of invasive aspergillosis in immunocompromised people. Cochrane Database Syst Rev. 2019;9:CD009551.",
+      doi: "https://doi.org/10.1002/14651858.CD009551.pub4",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Feys S, Almyroudi MP, Braspenning R, et al. A visual and comprehensive review on COVID-19-associated pulmonary aspergillosis (CAPA). Lancet Infect Dis. 2022;22(11):1621-1632.",
+      doi: "https://doi.org/10.1016/S1473-3099(22)00044-8",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Leeflang MMG, Debets-Ossenkopp YJ, Wang J, et al. Galactomannan detection for invasive aspergillosis in immunocompromised patients. Cochrane Database Syst Rev. 2015;12:CD007394.",
+      doi: "https://doi.org/10.1002/14651858.CD007394.pub2",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Heng SC, Morrissey O, Chen SCA, et al. Clinical utility of bronchoalveolar lavage fluid galactomannan in diagnosis of invasive pulmonary aspergillosis: a meta-analysis. Crit Rev Microbiol. 2015;41(1):124-134.",
+      doi: "https://doi.org/10.3109/1040841X.2013.804033",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Huang BG, Zhang YT, Zeng WT. Diagnostic value of beta-D-glucan in invasive aspergillosis: a systematic review and meta-analysis. Clin Respir J. 2024;18(2):e13760.",
+      doi: "https://doi.org/10.1111/crj.13760",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Zhang J, Yu Y, Yang C, et al. The role of aspergillus lateral flow assays in diagnosing invasive pulmonary aspergillosis: a systematic review and meta-analysis. Heliyon. 2024;10(17):e34569.",
+      doi: "https://doi.org/10.1016/j.heliyon.2024.e34569",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Avni T, Levy I, Sprecher H, et al. Diagnostic accuracy of PCR alone compared to galactomannan in bronchoalveolar lavage fluid for diagnosis of invasive pulmonary aspergillosis: a systematic review. J Clin Microbiol. 2012;50(11):3652-3658.",
+      doi: "https://doi.org/10.1128/JCM.00942-12",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Brown AC, Hennequin C, Alvarez-Moreno C, et al. Mucorales PCR in blood and bronchoalveolar lavage for diagnosis of mucormycosis: a systematic review and meta-analysis. Int J Infect Dis. 2025;153:107941.",
+      doi: "https://doi.org/10.1016/j.ijid.2025.107941",
+    },
+    {
+      section: "Invasive Mold Infection",
+      citation:
+        "Agarwal R, et al. The diagnostic performance of halo and reversed halo signs for invasive mold infections in compromised hosts: A systematic review and meta-analysis. Eur J Radiol. 2020;122:108843.",
+      doi: "https://doi.org/10.1016/j.ejrad.2020.108843",
+    },
+    {
       section: "PJI",
       citation:
         "Parvizi J, Tan TL, Goswami K, et al. The 2018 Definition of Periprosthetic Hip and Knee Infection: An Evidence-Based and Validated Criteria. J Arthroplasty. 2018;33(5):1309-1314.e2.",
@@ -312,7 +426,7 @@ export default function ProbIDAllReferencesPage() {
     return acc;
   }, {});
 
-  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "PJP", "PJI", "Active TB"];
+  const sectionOrder = ["General Methods", "Endocarditis", "CAP", "CDI", "UTI", "PJP", "Invasive Candidiasis", "Invasive Mold Infection", "PJI", "Active TB"];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
