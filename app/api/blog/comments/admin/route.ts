@@ -61,25 +61,30 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Invalid slug filter." }, { status: 400 });
   }
 
-  const [all, filtered] = await Promise.all([
-    getCommentsForAdmin(),
-    getCommentsForAdmin({
-      slug: slugRaw || undefined,
-      approved: approvedFilter.value,
-    }),
-  ]);
+  try {
+    const [all, filtered] = await Promise.all([
+      getCommentsForAdmin(),
+      getCommentsForAdmin({
+        slug: slugRaw || undefined,
+        approved: approvedFilter.value,
+      }),
+    ]);
 
-  return NextResponse.json({
-    ok: true,
-    storage: commentsStorageMode(),
-    filter: {
-      approved: approvedRaw ?? "all",
-      slug: slugRaw || "",
-    },
-    summary: summarize(all),
-    count: filtered.length,
-    comments: filtered,
-  });
+    return NextResponse.json({
+      ok: true,
+      storage: commentsStorageMode(),
+      filter: {
+        approved: approvedRaw ?? "all",
+        slug: slugRaw || "",
+      },
+      summary: summarize(all),
+      count: filtered.length,
+      comments: filtered,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unexpected server error.";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
 }
 
 export async function PATCH(request: NextRequest) {
@@ -103,10 +108,15 @@ export async function PATCH(request: NextRequest) {
     );
   }
 
-  const updated = await setCommentApproved(body.id.trim(), body.approved);
-  if (!updated) {
-    return NextResponse.json({ ok: false, error: "Comment not found." }, { status: 404 });
-  }
+  try {
+    const updated = await setCommentApproved(body.id.trim(), body.approved);
+    if (!updated) {
+      return NextResponse.json({ ok: false, error: "Comment not found." }, { status: 404 });
+    }
 
-  return NextResponse.json({ ok: true, id: body.id.trim(), approved: body.approved });
+    return NextResponse.json({ ok: true, id: body.id.trim(), approved: body.approved });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unexpected server error.";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
 }

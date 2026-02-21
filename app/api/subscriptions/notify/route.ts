@@ -56,146 +56,151 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const updates = await collectContentUpdates();
-  const { knownContentIds, sentByContentId } = await getNotificationState();
-  const confirmed = await getConfirmedSubscribers();
-  const backfill = Boolean(body?.backfill);
-  const dryRun = Boolean(body?.dryRun);
-  const explicitIds = new Set<string>([
-    ...normalizeList(body?.contentId),
-    ...normalizeList(body?.contentIds),
-    ...normalizeList(body?.caseSlug).map((slug) => `case:${slug}`),
-    ...normalizeList(body?.caseSlugs).map((slug) => `case:${slug}`),
-    ...normalizeList(body?.blogSlug).map((slug) => `blog:${slug}`),
-    ...normalizeList(body?.blogSlugs).map((slug) => `blog:${slug}`),
-  ]);
-  const targeted = explicitIds.size > 0;
+  try {
+    const updates = await collectContentUpdates();
+    const { knownContentIds, sentByContentId } = await getNotificationState();
+    const confirmed = await getConfirmedSubscribers();
+    const backfill = Boolean(body?.backfill);
+    const dryRun = Boolean(body?.dryRun);
+    const explicitIds = new Set<string>([
+      ...normalizeList(body?.contentId),
+      ...normalizeList(body?.contentIds),
+      ...normalizeList(body?.caseSlug).map((slug) => `case:${slug}`),
+      ...normalizeList(body?.caseSlugs).map((slug) => `case:${slug}`),
+      ...normalizeList(body?.blogSlug).map((slug) => `blog:${slug}`),
+      ...normalizeList(body?.blogSlugs).map((slug) => `blog:${slug}`),
+    ]);
+    const targeted = explicitIds.size > 0;
 
-  if (updates.length === 0) {
-    return NextResponse.json({ ok: true, message: "No content available to process.", sent: 0 });
-  }
+    if (updates.length === 0) {
+      return NextResponse.json({ ok: true, message: "No content available to process.", sent: 0 });
+    }
 
-  if (knownContentIds.size === 0 && !backfill && !targeted) {
-    await markKnownContentIds(updates.map((u) => u.id));
-    return NextResponse.json({
-      ok: true,
-      message:
-        "Baseline established. Existing content marked as known; future notify runs will send only new items.",
-      knownCount: updates.length,
-      sent: 0,
+    if (knownContentIds.size === 0 && !backfill && !targeted) {
+      await markKnownContentIds(updates.map((u) => u.id));
+      return NextResponse.json({
+        ok: true,
+        message:
+          "Baseline established. Existing content marked as known; future notify runs will send only new items.",
+        knownCount: updates.length,
+        sent: 0,
+      });
+    }
+
+    const candidates = updates.filter((u) => {
+      if (targeted) return explicitIds.has(u.id);
+      return backfill || !knownContentIds.has(u.id);
     });
-  }
 
-  const candidates = updates.filter((u) => {
-    if (targeted) return explicitIds.has(u.id);
-    return backfill || !knownContentIds.has(u.id);
-  });
+    if (targeted && candidates.length === 0) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "No matching content found for the requested target filter. Use contentId (e.g., case:carrions-disease, blog:your-blog-slug), caseSlug, or blogSlug.",
+        },
+        { status: 400 }
+      );
+    }
 
-  if (targeted && candidates.length === 0) {
-    return NextResponse.json(
-      {
-        ok: false,
-        error:
-          "No matching content found for the requested target filter. Use contentId (e.g., case:carrions-disease, blog:your-blog-slug), caseSlug, or blogSlug.",
-      },
-      { status: 400 }
-    );
-  }
+    if (candidates.length === 0) {
+      return NextResponse.json({ ok: true, message: "No new content to send.", sent: 0 });
+    }
 
-  if (candidates.length === 0) {
-    return NextResponse.json({ ok: true, message: "No new content to send.", sent: 0 });
-  }
+    if (!emailProviderConfigured() && !dryRun) {
+      return NextResponse.json(
+        { ok: false, error: "Email provider not configured. Set RESEND_API_KEY and RESEND_FROM_EMAIL." },
+        { status: 400 }
+      );
+    }
 
-  if (!emailProviderConfigured() && !dryRun) {
-    return NextResponse.json(
-      { ok: false, error: "Email provider not configured. Set RESEND_API_KEY and RESEND_FROM_EMAIL." },
-      { status: 400 }
-    );
-  }
+    let sent = 0;
+    const failures: Array<{ email: string; contentId: string; reason: string }> = [];
+    let nextSendAt = 0;
 
-  let sent = 0;
-  const failures: Array<{ email: string; contentId: string; reason: string }> = [];
-  let nextSendAt = 0;
+    for (const item of candidates) {
+      for (const subscriber of confirmed) {
+        const alreadySent = (sentByContentId[item.id] ?? []).includes(subscriber.email);
+        if (alreadySent) continue;
 
-  for (const item of candidates) {
-    for (const subscriber of confirmed) {
-      const alreadySent = (sentByContentId[item.id] ?? []).includes(subscriber.email);
-      if (alreadySent) continue;
-
-      if (dryRun) {
-        sent += 1;
-        continue;
-      }
-
-      let delivered = false;
-      let lastError = "Unknown send error";
-
-      for (let attempt = 0; attempt <= MAX_RATE_LIMIT_RETRIES; attempt += 1) {
-        const now = Date.now();
-        if (now < nextSendAt) {
-          await sleep(nextSendAt - now);
+        if (dryRun) {
+          sent += 1;
+          continue;
         }
 
-        try {
-          const result = await sendContentUpdateEmail({
-            to: subscriber.email,
-            title: item.title,
-            url: item.url,
-            kind: item.kind,
-            summary: item.summary,
-            firstQuestion: item.firstQuestion,
-            imageUrl: item.imageUrl,
-            unsubscribeToken: subscriber.unsubscribeToken,
-          });
+        let delivered = false;
+        let lastError = "Unknown send error";
 
-          // Pace requests under provider limit (~2 req/sec)
-          nextSendAt = Date.now() + RESEND_MIN_INTERVAL_MS;
+        for (let attempt = 0; attempt <= MAX_RATE_LIMIT_RETRIES; attempt += 1) {
+          const now = Date.now();
+          if (now < nextSendAt) {
+            await sleep(nextSendAt - now);
+          }
 
-          if (!result.ok) {
-            lastError = result.reason;
+          try {
+            const result = await sendContentUpdateEmail({
+              to: subscriber.email,
+              title: item.title,
+              url: item.url,
+              kind: item.kind,
+              summary: item.summary,
+              firstQuestion: item.firstQuestion,
+              imageUrl: item.imageUrl,
+              unsubscribeToken: subscriber.unsubscribeToken,
+            });
+
+            // Pace requests under provider limit (~2 req/sec)
+            nextSendAt = Date.now() + RESEND_MIN_INTERVAL_MS;
+
+            if (!result.ok) {
+              lastError = result.reason;
+              break;
+            }
+
+            await markDelivery(item.id, subscriber.email);
+            sent += 1;
+            delivered = true;
+            break;
+          } catch (err) {
+            const message = err instanceof Error ? err.message : "Unknown send error";
+            lastError = message;
+
+            if (isRateLimitedError(message) && attempt < MAX_RATE_LIMIT_RETRIES) {
+              const backoffMs = Math.max(
+                RESEND_MIN_INTERVAL_MS,
+                1000 * Math.pow(2, attempt)
+              );
+              nextSendAt = Date.now() + backoffMs;
+              continue;
+            }
             break;
           }
+        }
 
-          await markDelivery(item.id, subscriber.email);
-          sent += 1;
-          delivered = true;
-          break;
-        } catch (err) {
-          const message = err instanceof Error ? err.message : "Unknown send error";
-          lastError = message;
-
-          if (isRateLimitedError(message) && attempt < MAX_RATE_LIMIT_RETRIES) {
-            const backoffMs = Math.max(
-              RESEND_MIN_INTERVAL_MS,
-              1000 * Math.pow(2, attempt)
-            );
-            nextSendAt = Date.now() + backoffMs;
-            continue;
-          }
-          break;
+        if (!delivered) {
+          failures.push({
+            email: subscriber.email,
+            contentId: item.id,
+            reason: lastError,
+          });
         }
       }
-
-      if (!delivered) {
-        failures.push({
-          email: subscriber.email,
-          contentId: item.id,
-          reason: lastError,
-        });
-      }
     }
+
+    await markKnownContentIds(updates.map((u) => u.id));
+
+    return NextResponse.json({
+      ok: true,
+      candidates: candidates.length,
+      subscribers: confirmed.length,
+      sent,
+      dryRun,
+      targeted,
+      targetedIds: targeted ? Array.from(explicitIds) : [],
+      failures,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unexpected server error.";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
-
-  await markKnownContentIds(updates.map((u) => u.id));
-
-  return NextResponse.json({
-    ok: true,
-    candidates: candidates.length,
-    subscribers: confirmed.length,
-    sent,
-    dryRun,
-    targeted,
-    targetedIds: targeted ? Array.from(explicitIds) : [],
-    failures,
-  });
 }

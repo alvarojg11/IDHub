@@ -57,15 +57,20 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const all = await getSubscribers();
-  const filtered = status ? all.filter((s) => s.status === status) : all;
+  try {
+    const all = await getSubscribers();
+    const filtered = status ? all.filter((s) => s.status === status) : all;
 
-  return NextResponse.json({
-    ok: true,
-    storage: subscriptionsStorageMode(),
-    filter: status ?? "all",
-    summary: summarize(all),
-    count: filtered.length,
-    subscribers: filtered,
-  });
+    return NextResponse.json({
+      ok: true,
+      storage: subscriptionsStorageMode(),
+      filter: status ?? "all",
+      summary: summarize(all),
+      count: filtered.length,
+      subscribers: filtered,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unexpected server error.";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
 }
