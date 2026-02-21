@@ -69,6 +69,7 @@ export async function sendContentUpdateEmail(args: {
   kind: "case" | "blog";
   summary?: string | null;
   firstQuestion?: string | null;
+  imageUrl?: string | null;
   unsubscribeToken: string;
 }) {
   const baseUrl = getAppBaseUrl();
@@ -80,6 +81,7 @@ export async function sendContentUpdateEmail(args: {
   const firstQuestion = args.firstQuestion?.trim()
     ? escapeHtml(args.firstQuestion.trim())
     : null;
+  const imageUrl = args.imageUrl?.trim() ? args.imageUrl.trim() : null;
 
   const textParts = [
     `A new IDHub ${kindLabel.toLowerCase()} is available:`,
@@ -90,6 +92,9 @@ export async function sendContentUpdateEmail(args: {
   }
   if (firstQuestion && args.kind === "case") {
     textParts.push("", `First question: ${args.firstQuestion?.trim() ?? ""}`);
+  }
+  if (imageUrl && args.kind === "case") {
+    textParts.push("", `Image: ${imageUrl}`);
   }
   textParts.push("", args.url, "", `Unsubscribe: ${unsubscribeUrl}`);
   const text = textParts.join("\n");
@@ -113,6 +118,19 @@ export async function sendContentUpdateEmail(args: {
         `
       : "";
 
+  const imageHtml =
+    args.kind === "case" && imageUrl
+      ? `
+          <div style="margin: 0 0 12px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 8px;">
+            <img
+              src="${escapeHtml(imageUrl)}"
+              alt="${title}"
+              style="display: block; width: 100%; height: auto; border-radius: 8px;"
+            />
+          </div>
+        `
+      : "";
+
   const html = `
     <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
       <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
@@ -126,6 +144,7 @@ export async function sendContentUpdateEmail(args: {
             <strong>${title}</strong>
           </p>
 
+          ${imageHtml}
           ${casePreviewHtml}
           ${firstQuestionHtml}
 

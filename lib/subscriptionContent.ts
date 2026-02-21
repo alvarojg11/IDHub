@@ -14,6 +14,7 @@ export type ContentUpdate = {
   publishedAt: string | null;
   summary?: string | null;
   firstQuestion?: string | null;
+  imageUrl?: string | null;
 };
 
 const BLOG_FEED_URL = "https://alvaroayala1.substack.com/feed";
@@ -45,6 +46,7 @@ function normalizeText(input: string, max = 700) {
 async function extractCaseEmailPreview(slug: string): Promise<{
   summary: string | null;
   firstQuestion: string | null;
+  imageSrc: string | null;
 }> {
   const file = path.join(process.cwd(), "app", "cases", slug, "page.mdx");
   try {
@@ -52,15 +54,18 @@ async function extractCaseEmailPreview(slug: string): Promise<{
 
     const firstParagraphMatch = raw.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
     const firstQuestionMatch = raw.match(/<CaseQuestion[\s\S]*?prompt="([^"]+)"/i);
+    const firstImageMatch = raw.match(/<Image[\s\S]*?src="([^"]+)"/i);
 
     return {
       summary: firstParagraphMatch ? normalizeText(firstParagraphMatch[1], 900) : null,
       firstQuestion: firstQuestionMatch ? normalizeText(firstQuestionMatch[1], 300) : null,
+      imageSrc: firstImageMatch ? firstImageMatch[1] : null,
     };
   } catch {
     return {
       summary: null,
       firstQuestion: null,
+      imageSrc: null,
     };
   }
 }
@@ -70,6 +75,11 @@ export async function collectContentUpdates(): Promise<ContentUpdate[]> {
   const caseUpdates: ContentUpdate[] = await Promise.all(
     CASES.map(async (c) => {
       const preview = await extractCaseEmailPreview(c.slug);
+      const imageUrl = preview.imageSrc
+        ? preview.imageSrc.startsWith("http")
+          ? preview.imageSrc
+          : `${baseUrl}${preview.imageSrc.startsWith("/") ? "" : "/"}${preview.imageSrc}`
+        : null;
       return {
         id: `case:${c.slug}`,
         kind: "case" as const,
@@ -78,6 +88,7 @@ export async function collectContentUpdates(): Promise<ContentUpdate[]> {
         publishedAt: null,
         summary: preview.summary,
         firstQuestion: preview.firstQuestion,
+        imageUrl,
       };
     })
   );
@@ -96,6 +107,7 @@ export async function collectContentUpdates(): Promise<ContentUpdate[]> {
         publishedAt: item.isoDate ?? item.pubDate ?? null,
         summary: item.contentSnippet ?? null,
         firstQuestion: null,
+        imageUrl: null,
       }));
   } catch {
     blogUpdates = [];

@@ -120,6 +120,7 @@ export async function POST(request: NextRequest) {
           kind: item.kind,
           summary: item.summary,
           firstQuestion: item.firstQuestion,
+          imageUrl: item.imageUrl,
           unsubscribeToken: subscriber.unsubscribeToken,
         });
         if (!result.ok) {
