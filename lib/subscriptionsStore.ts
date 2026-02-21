@@ -83,10 +83,7 @@ async function getPgPool(): Promise<PgPool> {
   if (!pgPoolPromise) {
     pgPoolPromise = (async () => {
       try {
-        const importDynamic = new Function("moduleName", "return import(moduleName);") as (
-          moduleName: string
-        ) => Promise<unknown>;
-        const pg = (await importDynamic("pg")) as {
+        const pg = (await import("pg")) as {
           Pool: new (opts: { connectionString: string }) => PgPool;
         };
         return new pg.Pool({ connectionString });
