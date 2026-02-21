@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import {
+  confirmSubscriptionByToken,
   isValidEmail,
   normalizeEmail,
   subscribeEmail,
 } from "@/lib/subscriptionsStore";
-import { sendConfirmationEmail } from "@/lib/subscriptionMailer";
+import { sendWelcomeEmail } from "@/lib/subscriptionMailer";
 
 export const runtime = "nodejs";
 
@@ -28,21 +29,29 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const sendResult = await sendConfirmationEmail({
-      to: email,
-      confirmToken: result.confirmToken as string,
-      unsubscribeToken: result.unsubscribeToken,
+    const activation = await confirmSubscriptionByToken(result.confirmToken as string);
+    if (!activation.ok || !activation.email || !activation.unsubscribeToken) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Subscription was saved but activation failed. Please try again.",
+        },
+        { status: 500 }
+      );
+    }
+
+    const welcomeResult = await sendWelcomeEmail({
+      to: activation.email,
+      unsubscribeToken: activation.unsubscribeToken,
     });
 
     return NextResponse.json({
       ok: true,
-      status: result.status,
+      status: "subscribed",
       message:
-        sendResult.ok
-          ? "Check your email to confirm your subscription."
-          : "Subscription saved. Email delivery is not configured yet.",
-      confirmUrl:
-        process.env.NODE_ENV !== "production" ? sendResult.confirmUrl : undefined,
+        welcomeResult.ok
+          ? "Subscribed successfully. Welcome email sent."
+          : "Subscribed successfully, but welcome email delivery is not configured yet.",
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unexpected error.";

@@ -53,42 +53,6 @@ async function sendViaResend(input: MailInput) {
   return { ok: true as const };
 }
 
-export async function sendConfirmationEmail(args: {
-  to: string;
-  confirmToken: string;
-  unsubscribeToken: string;
-}) {
-  const baseUrl = getAppBaseUrl();
-  const confirmUrl = `${baseUrl}/subscribe/confirm?token=${encodeURIComponent(args.confirmToken)}`;
-  const unsubscribeUrl = `${baseUrl}/subscribe/unsubscribe?token=${encodeURIComponent(args.unsubscribeToken)}`;
-  const subject = "Confirm your IDHub subscription";
-
-  const text = [
-    "You requested IDHub updates.",
-    "",
-    `Confirm subscription: ${confirmUrl}`,
-    "",
-    `Unsubscribe: ${unsubscribeUrl}`,
-  ].join("\n");
-
-  const html = `
-    <div style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.5;">
-      <h2 style="margin: 0 0 12px;">Confirm your IDHub subscription</h2>
-      <p>Click below to confirm and receive updates when new cases or blog posts are published.</p>
-      <p><a href="${confirmUrl}">Confirm subscription</a></p>
-      <hr />
-      <p style="font-size: 12px; color: #666;">If this was not you, ignore this email.</p>
-      <p style="font-size: 12px; color: #666;">Unsubscribe: <a href="${unsubscribeUrl}">${unsubscribeUrl}</a></p>
-    </div>
-  `;
-
-  if (!canSendEmail()) {
-    return { ok: false as const, reason: "provider_not_configured" as const, confirmUrl };
-  }
-  const result = await sendViaResend({ to: args.to, subject, html, text });
-  return { ...result, confirmUrl };
-}
-
 export async function sendContentUpdateEmail(args: {
   to: string;
   title: string;
@@ -98,10 +62,11 @@ export async function sendContentUpdateEmail(args: {
 }) {
   const baseUrl = getAppBaseUrl();
   const unsubscribeUrl = `${baseUrl}/subscribe/unsubscribe?token=${encodeURIComponent(args.unsubscribeToken)}`;
-  const subject = `New IDHub ${args.kind}: ${args.title}`;
+  const kindLabel = args.kind === "case" ? "Case" : "Blog Post";
+  const subject = `New IDHub ${kindLabel}: ${args.title}`;
 
   const text = [
-    `A new IDHub ${args.kind} is available:`,
+    `A new IDHub ${kindLabel.toLowerCase()} is available:`,
     `${args.title}`,
     args.url,
     "",
@@ -109,12 +74,95 @@ export async function sendContentUpdateEmail(args: {
   ].join("\n");
 
   const html = `
-    <div style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.5;">
-      <h2 style="margin: 0 0 12px;">New IDHub ${args.kind}</h2>
-      <p><strong>${args.title}</strong></p>
-      <p><a href="${args.url}">Open update</a></p>
-      <hr />
-      <p style="font-size: 12px; color: #666;">Unsubscribe: <a href="${unsubscribeUrl}">${unsubscribeUrl}</a></p>
+    <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
+      <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
+        <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
+          <h2 style="margin: 0; font-size: 24px; line-height: 1.25; color: #1f6f4a;">New IDHub ${kindLabel}</h2>
+          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.5; color: #3f5649;">A new ${kindLabel.toLowerCase()} is available.</p>
+        </div>
+
+        <div style="padding: 20px 24px;">
+          <p style="margin: 0 0 14px; font-size: 18px; line-height: 1.4; color: #0f1a13;">
+            <strong>${args.title}</strong>
+          </p>
+
+          <p style="margin: 0 0 16px;">
+            <a href="${args.url}" style="display: inline-block; padding: 10px 14px; border-radius: 10px; background: #1f6f4a; color: #ffffff; font-size: 14px; text-decoration: none;">Open ${kindLabel}</a>
+          </p>
+
+          <p style="margin: 14px 0 0; font-size: 12px; color: #3f5649;">
+            Unsubscribe: <a href="${unsubscribeUrl}" style="color: #1f6f4a; text-decoration: underline;">${unsubscribeUrl}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (!canSendEmail()) {
+    return { ok: false as const, reason: "provider_not_configured" as const };
+  }
+  return sendViaResend({ to: args.to, subject, html, text });
+}
+
+export async function sendWelcomeEmail(args: {
+  to: string;
+  unsubscribeToken: string;
+}) {
+  const baseUrl = getAppBaseUrl();
+  const unsubscribeUrl = `${baseUrl}/subscribe/unsubscribe?token=${encodeURIComponent(args.unsubscribeToken)}`;
+  const mechidUrl = `${baseUrl}/mechid`;
+  const immunoidUrl = `${baseUrl}/tools/immunoid`;
+  const probidUrl = `${baseUrl}/probid`;
+  const doseidUrl = `${baseUrl}/tools/doseid`;
+  const casesUrl = `${baseUrl}/cases`;
+  const blogUrl = `${baseUrl}/blog`;
+  const subject = "Welcome to IDHub";
+  const introText =
+    "IDHub is an educational hub for infectious diseases with practical tools, case-based learning, and concise clinical updates.";
+
+  const text = [
+    "Thank you for subscribing to IDHub.",
+    "",
+    introText,
+    "",
+    "Explore IDHub:",
+    `Cases: ${casesUrl}`,
+    `Blog: ${blogUrl}`,
+    `MechID: ${mechidUrl}`,
+    `ImmunoID: ${immunoidUrl}`,
+    `ProbID: ${probidUrl}`,
+    `DoseID: ${doseidUrl}`,
+    "",
+    `Unsubscribe: ${unsubscribeUrl}`,
+  ].join("\n");
+
+  const html = `
+    <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
+      <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
+        <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
+          <h2 style="margin: 0; font-size: 24px; line-height: 1.25; color: #1f6f4a;">Welcome to IDHub</h2>
+          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.5; color: #3f5649;">Thank you for subscribing.</p>
+        </div>
+
+        <div style="padding: 20px 24px;">
+          <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #0f1a13;">
+            ${introText}
+          </p>
+
+          <div style="margin: 0 0 14px;">
+            <a href="${casesUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">Cases</a>
+            <a href="${blogUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">Blog</a>
+            <a href="${mechidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">MechID</a>
+            <a href="${immunoidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">ImmunoID</a>
+            <a href="${probidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">ProbID</a>
+            <a href="${doseidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">DoseID</a>
+          </div>
+
+          <p style="margin: 14px 0 0; font-size: 12px; color: #3f5649;">
+            Unsubscribe: <a href="${unsubscribeUrl}" style="color: #1f6f4a; text-decoration: underline;">${unsubscribeUrl}</a>
+          </p>
+        </div>
+      </div>
     </div>
   `;
 

@@ -11,7 +11,7 @@ export default function SubscribePage() {
       <section className="mt-8 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6">
         <h2 className="text-lg font-semibold text-[var(--foreground)]">Email updates</h2>
         <p className="mt-2 text-sm text-[var(--muted)]">
-          You will receive a confirmation email first. You can unsubscribe any time with one click.
+          Subscriptions are activated immediately. You can unsubscribe any time with one click.
         </p>
         <div className="mt-4">
           <SubscribeForm />

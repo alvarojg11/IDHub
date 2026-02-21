@@ -40,7 +40,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 IDHub includes a built-in subscription flow:
 
 - `/subscribe` for signup
-- `/subscribe/confirm?token=...` for double opt-in confirmation
 - `/subscribe/unsubscribe?token=...` for one-click unsubscribe
 - `POST /api/subscriptions/notify` to send new-case/new-blog notifications
 

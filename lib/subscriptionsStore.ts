@@ -181,6 +181,7 @@ export async function subscribeEmail(rawEmail: string): Promise<{
 export async function confirmSubscriptionByToken(token: string): Promise<{
   ok: boolean;
   email?: string;
+  unsubscribeToken?: string;
   reason?: "invalid_token" | "already_confirmed" | "unsubscribed";
 }> {
   if (!token.trim()) return { ok: false, reason: "invalid_token" };
@@ -196,7 +197,12 @@ export async function confirmSubscriptionByToken(token: string): Promise<{
       return { ok: false, reason: "unsubscribed" as const };
     }
     if (hit.status === "confirmed") {
-      return { ok: false, reason: "already_confirmed" as const, email: hit.email };
+      return {
+        ok: false,
+        reason: "already_confirmed" as const,
+        email: hit.email,
+        unsubscribeToken: hit.unsubscribeToken,
+      };
     }
 
     hit.status = "confirmed";
@@ -204,7 +210,7 @@ export async function confirmSubscriptionByToken(token: string): Promise<{
     hit.updatedAt = now;
     hit.confirmToken = null;
     await writeStore(store);
-    return { ok: true, email: hit.email };
+    return { ok: true, email: hit.email, unsubscribeToken: hit.unsubscribeToken };
   });
 }
 
