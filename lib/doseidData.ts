@@ -1629,47 +1629,109 @@ export const DOSEID_MEDICATIONS: MedicationRule[] = [
     name: "Cephalexin",
     category: "antibacterial",
     indications: [
-      { id: "standard_oral", label: "Standard oral infection" },
-      { id: "high_frequency_oral", label: "Higher-frequency oral pathway" },
+      { id: "general_infection", label: "General infection" },
+      { id: "uncomplicated_cystitis", label: "Uncomplicated cystitis" },
+      { id: "complicated_uti", label: "Complicated urinary tract infection" },
+      { id: "cellulitis_ssti", label: "Cellulitis / SSTI" },
     ],
     sourcePages: ANTIBACTERIAL_SOURCE,
     calculate: (patient, context) => {
-      const highFrequency = context.indicationId === "high_frequency_oral";
+      const indication = context.indicationId;
 
       if (context.renalMode === "ihd") {
         return {
-          regimen: highFrequency ? "500 mg PO q12h (after HD on dialysis days)" : "250-500 mg PO q12h",
+          regimen: "500 mg PO q24h (dose after HD on dialysis days)",
           renalBucket: "Intermittent hemodialysis",
-          notes: ["Dialysis-day doses should be given after HD when feasible."],
+          notes: ["Stanford SHC ABX guide: administer daily dose after HD on dialysis days."],
         };
       }
 
       if (context.renalMode === "crrt") {
         return {
-          regimen: highFrequency ? "500 mg PO q6h" : "500 mg PO q8h",
+          regimen: "No data",
           renalBucket: "CRRT",
-          notes: ["CRRT oral pathways are templates and should be clinically individualized."],
+          notes: ["Stanford SHC ABX guide lists no CRRT cephalexin dosing data."],
         };
       }
 
-      if (patient.crclMlMin > 30) {
+      if (patient.crclMlMin > 50) {
+        if (indication === "uncomplicated_cystitis") {
+          return {
+            regimen: "500 mg PO q12h",
+            renalBucket: "CrCl > 50 mL/min",
+            notes: ["Stanford indication-specific oral pathway."],
+          };
+        }
+        if (indication === "complicated_uti") {
+          return {
+            regimen: "1 g PO q8h (TID)",
+            renalBucket: "CrCl > 50 mL/min",
+            notes: ["Stanford indication-specific oral pathway."],
+          };
+        }
+        if (indication === "cellulitis_ssti") {
+          return {
+            regimen: "500 mg PO q6h",
+            renalBucket: "CrCl > 50 mL/min",
+            notes: ["Stanford indication-specific oral pathway."],
+          };
+        }
         return {
-          regimen: highFrequency ? "500 mg PO q6h" : "500 mg PO q8h",
-          renalBucket: "CrCl > 30 mL/min",
-          notes: ["Preserved-renal-function oral pathway."],
+          regimen: "250-1000 mg PO q6h",
+          renalBucket: "CrCl > 50 mL/min",
+          notes: ["Stanford general oral pathway."],
         };
       }
-      if (patient.crclMlMin > 15) {
+
+      if (patient.crclMlMin >= 30) {
+        if (indication === "uncomplicated_cystitis") {
+          return {
+            regimen: "500 mg PO q12h",
+            renalBucket: "CrCl 30-50 mL/min",
+            notes: ["Stanford table does not provide a separate 30-50 mL/min cephalexin adjustment."],
+          };
+        }
+        if (indication === "complicated_uti") {
+          return {
+            regimen: "1 g PO q8h (TID)",
+            renalBucket: "CrCl 30-50 mL/min",
+            notes: ["Stanford table does not provide a separate 30-50 mL/min cephalexin adjustment."],
+          };
+        }
+        if (indication === "cellulitis_ssti") {
+          return {
+            regimen: "500 mg PO q6h",
+            renalBucket: "CrCl 30-50 mL/min",
+            notes: ["Stanford table does not provide a separate 30-50 mL/min cephalexin adjustment."],
+          };
+        }
         return {
-          regimen: "500 mg PO q8h",
-          renalBucket: "CrCl 16-30 mL/min",
-          notes: ["Renal interval extension."],
+          regimen: "250-1000 mg PO q6h",
+          renalBucket: "CrCl 30-50 mL/min",
+          notes: ["Stanford table does not provide a separate 30-50 mL/min cephalexin adjustment."],
         };
       }
+
+      if (patient.crclMlMin >= 15) {
+        return {
+          regimen: "250 mg PO q8-12h",
+          renalBucket: "CrCl 15-29 mL/min",
+          notes: ["Stanford renal-adjusted oral pathway."],
+        };
+      }
+
+      if (patient.crclMlMin >= 5) {
+        return {
+          regimen: "250 mg PO q24h",
+          renalBucket: "CrCl 5-14 mL/min",
+          notes: ["Stanford renal-adjusted oral pathway."],
+        };
+      }
+
       return {
-        regimen: "500 mg PO q12h",
-        renalBucket: "CrCl <= 15 mL/min",
-        notes: ["Renal interval extension."],
+        regimen: "250 mg PO q24h",
+        renalBucket: "CrCl < 5 mL/min",
+        notes: ["Very low CrCl pathway should be clinically individualized."],
       };
     },
   },
