@@ -46,7 +46,9 @@ const STORE_PATH =
 const DATABASE_URL =
   process.env.SUBSCRIPTIONS_DATABASE_URL ??
   process.env.POSTGRES_URL ??
+  process.env.POSTGRES_URL_NON_POOLING ??
   process.env.DATABASE_URL;
+const DATABASE_URL_LEGACY = process.env.postgres_url;
 
 let pgPoolPromise: Promise<PgPool> | null = null;
 let pgSchemaReadyPromise: Promise<void> | null = null;
@@ -61,7 +63,7 @@ let memoryStore: SubscriptionStore = {
 };
 
 function usingPostgres() {
-  return Boolean(DATABASE_URL) && !pgUnavailable;
+  return Boolean(DATABASE_URL ?? DATABASE_URL_LEGACY) && !pgUnavailable;
 }
 
 export function subscriptionsStorageMode(): "postgres" | "file" {
@@ -69,8 +71,14 @@ export function subscriptionsStorageMode(): "postgres" | "file" {
 }
 
 async function getPgPool(): Promise<PgPool> {
-  if (!DATABASE_URL || pgUnavailable) {
-    throw new Error("Database URL is not configured.");
+  const connectionString = DATABASE_URL ?? DATABASE_URL_LEGACY;
+  if (pgUnavailable) {
+    throw new Error("Postgres driver is unavailable in this runtime.");
+  }
+  if (!connectionString) {
+    throw new Error(
+      "Database URL is not configured. Set SUBSCRIPTIONS_DATABASE_URL, POSTGRES_URL, POSTGRES_URL_NON_POOLING, or DATABASE_URL."
+    );
   }
   if (!pgPoolPromise) {
     pgPoolPromise = (async () => {
@@ -81,7 +89,7 @@ async function getPgPool(): Promise<PgPool> {
         const pg = (await importDynamic("pg")) as {
           Pool: new (opts: { connectionString: string }) => PgPool;
         };
-        return new pg.Pool({ connectionString: DATABASE_URL });
+        return new pg.Pool({ connectionString });
       } catch {
         pgUnavailable = true;
         pgPoolPromise = null;
@@ -92,8 +100,8 @@ async function getPgPool(): Promise<PgPool> {
   return pgPoolPromise;
 }
 
-async function ensurePgSchema() {
-  if (!usingPostgres()) return;
+async function ensurePgSchema(): Promise<boolean> {
+  if (!usingPostgres()) return false;
   if (!pgSchemaReadyPromise) {
     pgSchemaReadyPromise = (async () => {
       const pool = await getPgPool();
@@ -132,9 +140,11 @@ async function ensurePgSchema() {
   }
   try {
     await pgSchemaReadyPromise;
+    return true;
   } catch {
     pgUnavailable = true;
     pgSchemaReadyPromise = null;
+    return false;
   }
 }
 
@@ -252,9 +262,8 @@ export async function subscribeEmail(rawEmail: string): Promise<{
     throw new Error("Invalid email address.");
   }
 
-  if (usingPostgres()) {
+  if (usingPostgres() && (await ensurePgSchema())) {
     return withWriteLock(async () => {
-      await ensurePgSchema();
       const pool = await getPgPool();
       const now = new Date();
       const client = await pool.connect();
@@ -384,9 +393,8 @@ export async function confirmSubscriptionByToken(token: string): Promise<{
 }> {
   if (!token.trim()) return { ok: false, reason: "invalid_token" };
 
-  if (usingPostgres()) {
+  if (usingPostgres() && (await ensurePgSchema())) {
     return withWriteLock(async () => {
-      await ensurePgSchema();
       const pool = await getPgPool();
       const now = new Date();
       const client = await pool.connect();
@@ -477,9 +485,8 @@ export async function unsubscribeByToken(token: string): Promise<{
 }> {
   if (!token.trim()) return { ok: false, reason: "invalid_token" };
 
-  if (usingPostgres()) {
+  if (usingPostgres() && (await ensurePgSchema())) {
     return withWriteLock(async () => {
-      await ensurePgSchema();
       const pool = await getPgPool();
       const now = new Date();
       const client = await pool.connect();
@@ -533,8 +540,7 @@ export async function unsubscribeByToken(token: string): Promise<{
 }
 
 export async function getConfirmedSubscribers() {
-  if (usingPostgres()) {
-    await ensurePgSchema();
+  if (usingPostgres() && (await ensurePgSchema())) {
     const pool = await getPgPool();
     const res = await pool.query(
       `SELECT email, status, confirm_token, unsubscribe_token, created_at, updated_at, confirmed_at
@@ -549,8 +555,7 @@ export async function getConfirmedSubscribers() {
 }
 
 export async function getSubscribers(status?: SubscriberStatus): Promise<SubscriberListItem[]> {
-  if (usingPostgres()) {
-    await ensurePgSchema();
+  if (usingPostgres() && (await ensurePgSchema())) {
     const pool = await getPgPool();
     const params: unknown[] = [];
     const where = status ? "WHERE status = $1" : "";
@@ -589,8 +594,7 @@ export async function getSubscribers(status?: SubscriberStatus): Promise<Subscri
 }
 
 export async function getNotificationState() {
-  if (usingPostgres()) {
-    await ensurePgSchema();
+  if (usingPostgres() && (await ensurePgSchema())) {
     const pool = await getPgPool();
     const [knownRes, sentRes] = await Promise.all([
       pool.query(`SELECT content_id FROM subscription_known_content`),
@@ -616,9 +620,8 @@ export async function getNotificationState() {
 }
 
 export async function markKnownContentIds(ids: string[]) {
-  if (usingPostgres()) {
+  if (usingPostgres() && (await ensurePgSchema())) {
     if (ids.length === 0) return;
-    await ensurePgSchema();
     const pool = await getPgPool();
     await pool.query(
       `INSERT INTO subscription_known_content (content_id)
@@ -637,8 +640,7 @@ export async function markKnownContentIds(ids: string[]) {
 }
 
 export async function markDelivery(contentId: string, email: string) {
-  if (usingPostgres()) {
-    await ensurePgSchema();
+  if (usingPostgres() && (await ensurePgSchema())) {
     const pool = await getPgPool();
     await pool.query(
       `INSERT INTO subscription_deliveries (content_id, email)

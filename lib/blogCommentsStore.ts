@@ -33,7 +33,9 @@ const STORE_PATH =
 const DATABASE_URL =
   process.env.SUBSCRIPTIONS_DATABASE_URL ??
   process.env.POSTGRES_URL ??
+  process.env.POSTGRES_URL_NON_POOLING ??
   process.env.DATABASE_URL;
+const DATABASE_URL_LEGACY = process.env.postgres_url;
 
 let pgPoolPromise: Promise<PgPool> | null = null;
 let pgSchemaReadyPromise: Promise<void> | null = null;
@@ -44,7 +46,7 @@ let writeQueue: Promise<unknown> = Promise.resolve();
 let memoryStore: BlogCommentStore = { comments: [] };
 
 function usingPostgres() {
-  return Boolean(DATABASE_URL) && !pgUnavailable;
+  return Boolean(DATABASE_URL ?? DATABASE_URL_LEGACY) && !pgUnavailable;
 }
 
 export function commentsStorageMode(): "postgres" | "file" {
@@ -91,8 +93,14 @@ async function withWriteLock<T>(fn: () => Promise<T>): Promise<T> {
 }
 
 async function getPgPool(): Promise<PgPool> {
-  if (!DATABASE_URL || pgUnavailable) {
-    throw new Error("Database URL is not configured.");
+  const connectionString = DATABASE_URL ?? DATABASE_URL_LEGACY;
+  if (pgUnavailable) {
+    throw new Error("Postgres driver is unavailable in this runtime.");
+  }
+  if (!connectionString) {
+    throw new Error(
+      "Database URL is not configured. Set SUBSCRIPTIONS_DATABASE_URL, POSTGRES_URL, POSTGRES_URL_NON_POOLING, or DATABASE_URL."
+    );
   }
   if (!pgPoolPromise) {
     pgPoolPromise = (async () => {
@@ -103,7 +111,7 @@ async function getPgPool(): Promise<PgPool> {
         const pg = (await importDynamic("pg")) as {
           Pool: new (opts: { connectionString: string }) => PgPool;
         };
-        return new pg.Pool({ connectionString: DATABASE_URL });
+        return new pg.Pool({ connectionString });
       } catch {
         pgUnavailable = true;
         pgPoolPromise = null;
