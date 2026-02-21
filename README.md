@@ -52,6 +52,25 @@ APP_BASE_URL="https://your-domain.com"
 SUBSCRIPTIONS_NOTIFY_SECRET="choose-a-strong-secret"
 ```
 
+### Persistent subscriber storage (recommended)
+
+By default, subscriber data falls back to local file storage (`data/subscribers.json`), which is **not durable on Vercel**.
+
+To persist subscribers across deployments, set one of:
+
+```bash
+POSTGRES_URL=...
+# or
+DATABASE_URL=...
+# optional override:
+SUBSCRIPTIONS_DATABASE_URL=...
+```
+
+When configured, the app automatically creates and uses Postgres tables for:
+- subscribers
+- known content ids
+- per-content delivery tracking
+
 ### Triggering notifications
 
 Call the notify endpoint with your secret:

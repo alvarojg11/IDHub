@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import {
   getSubscribers,
+  subscriptionsStorageMode,
   type SubscriberListItem,
   type SubscriberStatus,
 } from "@/lib/subscriptionsStore";
@@ -61,6 +62,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     ok: true,
+    storage: subscriptionsStorageMode(),
     filter: status ?? "all",
     summary: summarize(all),
     count: filtered.length,
