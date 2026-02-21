@@ -46,6 +46,26 @@ function shortComment(value: string, max = 180) {
   return `${value.slice(0, max - 1).trim()}...`;
 }
 
+async function readJsonSafely<T>(res: Response): Promise<T | null> {
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return null;
+  }
+}
+
+function requestErrorMessage(
+  res: Response,
+  body: { error?: string } | null,
+  fallback: string
+) {
+  if (body?.error) return body.error;
+  if (!res.ok) return `${fallback} (${res.status})`;
+  return fallback;
+}
+
 export default function CommentsAdminPanel() {
   const [secret, setSecret] = useState("");
   const [approvedFilter, setApprovedFilter] = useState<"all" | "pending" | "approved">("pending");
@@ -81,9 +101,11 @@ export default function CommentsAdminPanel() {
         },
         cache: "no-store",
       });
-      const body = (await res.json()) as AdminResponse;
-      if (!res.ok || !body.ok) {
-        throw new Error(body.error ?? `Request failed (${res.status})`);
+      const body = await readJsonSafely<AdminResponse>(res);
+      if (!res.ok || !body?.ok) {
+        throw new Error(
+          requestErrorMessage(res, body, "Server returned an empty or invalid response")
+        );
       }
       setData(body);
       if (typeof window !== "undefined") {
@@ -116,9 +138,11 @@ export default function CommentsAdminPanel() {
           approved: nextApproved,
         }),
       });
-      const body = (await res.json()) as PatchResponse;
-      if (!res.ok || !body.ok) {
-        throw new Error(body.error ?? `Request failed (${res.status})`);
+      const body = await readJsonSafely<PatchResponse>(res);
+      if (!res.ok || !body?.ok) {
+        throw new Error(
+          requestErrorMessage(res, body, "Server returned an empty or invalid response")
+        );
       }
 
       setData((prev) => {

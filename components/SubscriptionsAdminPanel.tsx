@@ -48,6 +48,26 @@ function fmtDate(value: string | null) {
   return d.toLocaleString();
 }
 
+async function readJsonSafely<T>(res: Response): Promise<T | null> {
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return null;
+  }
+}
+
+function requestErrorMessage(
+  res: Response,
+  body: { error?: string } | null,
+  fallback: string
+) {
+  if (body?.error) return body.error;
+  if (!res.ok) return `${fallback} (${res.status})`;
+  return fallback;
+}
+
 export default function SubscriptionsAdminPanel() {
   const [secret, setSecret] = useState("");
   const [status, setStatus] = useState<"all" | SubscriberStatus>("confirmed");
@@ -88,9 +108,11 @@ export default function SubscriptionsAdminPanel() {
         },
         cache: "no-store",
       });
-      const body = (await res.json()) as AdminResponse;
-      if (!res.ok || !body.ok) {
-        throw new Error(body.error ?? `Request failed (${res.status})`);
+      const body = await readJsonSafely<AdminResponse>(res);
+      if (!res.ok || !body?.ok) {
+        throw new Error(
+          requestErrorMessage(res, body, "Server returned an empty or invalid response")
+        );
       }
       setData(body);
       if (typeof window !== "undefined") {
@@ -131,9 +153,11 @@ export default function SubscriptionsAdminPanel() {
         body: JSON.stringify(payload),
       });
 
-      const body = (await res.json()) as NotifyResponse;
-      if (!res.ok || !body.ok) {
-        throw new Error(body.error ?? `Request failed (${res.status})`);
+      const body = await readJsonSafely<NotifyResponse>(res);
+      if (!res.ok || !body?.ok) {
+        throw new Error(
+          requestErrorMessage(res, body, "Server returned an empty or invalid response")
+        );
       }
       setNotifyResult(body);
       if (typeof window !== "undefined") {

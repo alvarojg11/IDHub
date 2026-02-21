@@ -6,6 +6,16 @@ type Props = {
   compact?: boolean;
 };
 
+async function readJsonSafely<T>(res: Response): Promise<T | null> {
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return null;
+  }
+}
+
 export default function SubscribeForm({ compact = false }: Props) {
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState(false);
@@ -25,15 +35,18 @@ export default function SubscribeForm({ compact = false }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      const data = (await res.json()) as {
+      const data = await readJsonSafely<{
         ok: boolean;
         message?: string;
         error?: string;
         confirmUrl?: string;
-      };
+      }>(res);
 
-      if (!res.ok || !data.ok) {
-        setStatus({ kind: "error", text: data.error ?? "Subscription failed." });
+      if (!res.ok || !data?.ok) {
+        setStatus({
+          kind: "error",
+          text: data?.error ?? `Subscription failed (${res.status}).`,
+        });
         return;
       }
 
