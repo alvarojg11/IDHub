@@ -73,6 +73,12 @@ export const CASES: CaseMeta[] = [
     description: "When CNS cryptococcosis reveals an acquired immune defect.",
     enable: true
   },
+  {
+    title: "Slowly Progressive Lumbar Mass",
+    slug: "actinomycosis",
+    description: "When a soft-tissue mass is an indolent infection.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

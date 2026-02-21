@@ -56,6 +56,11 @@ const cases = [
     slug: "cgatti",
     description: "About an immune defect.",
   },
+  {
+    title: "Slowly Progressive Lumbar Mass",
+    slug: "actinomycosis",
+    description: "When a soft-tissue mass is an indolent infection.",
+  },
 ];
 
 export default function CasesPage() {

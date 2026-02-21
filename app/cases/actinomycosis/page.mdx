@@ -1,0 +1,252 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Slowly Progressive Lumbar Mass in a 71-Year-Old Woman
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 71-year-old woman with hypertension, hyperlipidemia, and diabetes mellitus presents
+    with a right lumbar mass that has enlarged over 1 month and is increasingly tender
+    to palpation. She denies fever, chills, night sweats, and weight loss.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On arrival she appears in good general condition. Vital signs are: blood pressure
+    130/90 mmHg, heart rate 100/min, respiratory rate 18/min, temperature 36.5°C,
+    and weight 123 lb. Examination shows a firm indurated mass over the right lower
+    back without overlying skin discoloration, fluctuance, or drainage.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Social history is non-contributory: she lives independently, has no recent travel,
+    no alcohol or tobacco use, and no known animal, freshwater, or soil exposures.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CT and tissue pathology were obtained because malignancy was initially suspected.
+    Imaging showed an infiltrative soft-tissue process with mass-like appearance.
+    Histopathology demonstrated sulfur granules with branching filamentous gram-positive
+    organisms, consistent with actinomycotic infection.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/actinomycosis/actino1.png"
+        alt="Actinomycosis case image 1"
+        width={650}
+        height={420}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/actinomycosis/actino2.png"
+        alt="Actinomycosis case image 2"
+        width={650}
+        height={420}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/actinomycosis/actino3.png"
+        alt="Actinomycosis case image 3"
+        width={650}
+        height={420}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+
+    <div className="rounded-lg border border-gray-600 bg-black p-0.5">
+      <Image
+        src="/cases/actinomycosis/actino4.png"
+        alt="Actinomycosis case image 4"
+        width={650}
+        height={420}
+        className="rounded-lg mx-auto"
+      />
+    </div>
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Clinical and pathology images from this actinomycosis case.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-actinomycosis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Soft tissue sarcoma",
+      feedback:
+        "Incorrect. Sarcoma can present as a mass, but sulfur granules with branching filamentous bacteria strongly support actinomycosis.",
+    },
+    {
+      id: "B",
+      label: "Cutaneous nocardiosis",
+      feedback:
+        "Incorrect. Nocardia can form branching filaments, but sulfur granules in this context and chronic infiltrative spread across tissue planes favor actinomycosis.",
+    },
+    {
+      id: "C",
+      label: "Actinomycosis",
+      correct: true,
+      feedback:
+        "Correct. Chronic indolent progression, infiltrative mass-like disease, and sulfur granules in tissue are classic for actinomycosis.",
+    },
+    {
+      id: "D",
+      label: "Tuberculous cold abscess",
+      feedback:
+        "Incorrect. TB remains a differential diagnosis for chronic masses, but sulfur granules and filamentous gram-positive organisms are more consistent with Actinomyces.",
+    },
+    {
+      id: "E",
+      label: "Metastatic adenocarcinoma",
+      feedback:
+        "Incorrect. Actinomycotic lesions can mimic malignancy, but the tissue findings here indicate a bacterial etiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-actinomycosis-q2"
+  title="Question 2"
+  prompt="Which management strategy is most appropriate for this presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Short-course oral therapy for 5 days",
+      feedback:
+        "Incorrect. Established actinomycosis typically requires prolonged therapy; short courses are associated with relapse.",
+    },
+    {
+      id: "B",
+      label: "Immediate radical surgery as first-line treatment",
+      feedback:
+        "Incorrect. Surgery is not routinely first-line and is usually reserved for selected critical sites, failed medical therapy, or source control needs.",
+    },
+    {
+      id: "C",
+      label: "High-dose IV beta-lactam therapy followed by prolonged oral therapy, with drainage if needed",
+      correct: true,
+      feedback:
+        "Correct. Typical management is high-dose IV penicillin-class therapy for initial control, followed by prolonged oral therapy; abscess drainage is added when accessible.",
+    },
+    {
+      id: "D",
+      label: "Metronidazole monotherapy",
+      feedback:
+        "Incorrect. Metronidazole is not a preferred agent for Actinomyces infections.",
+    },
+    {
+      id: "E",
+      label: "Observation only, because this is often self-limited",
+      feedback:
+        "Incorrect. Untreated actinomycosis may progress and can relapse or disseminate.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Actinomycosis is a chronic, slowly progressive bacterial infection caused by
+    <em> Actinomyces </em> species and related genera. It often presents as an indurated,
+    infiltrative, mass-like lesion and can be mistaken for malignancy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Key clinical clues include contiguous spread across tissue planes, sinus-tract
+    tendency, and tissue sulfur granules. Diagnosis is commonly delayed because routine
+    cultures may be negative, especially after prior antibiotic exposure. When suspected,
+    the microbiology laboratory should be alerted for anaerobic processing and prolonged incubation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For bulky or deep disease, treatment generally starts with high-dose IV penicillin-class
+    therapy, often for 2–6 weeks, then transitions to a prolonged oral course (commonly
+    total therapy 6–12 months, individualized by response and imaging). Source control,
+    including image-guided drainage, is useful when collections are present.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Actinomycosis can mimic malignancy because of chronic indurated mass-like lesions.
+    </li>
+    <li>
+      Sulfur granules in tissue are a major diagnostic clue.
+    </li>
+    <li>
+      Prior antibiotic exposure can reduce culture yield.
+    </li>
+    <li>
+      Therapy is usually prolonged and should be tailored to disease burden and response.
+    </li>
+    <li>
+      Drainage or limited procedures may support cure and reduce need for extensive surgery.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-8">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Russo TA, Hu JC. Agents of Actinomycosis. In: Bennett JE, Dolin R, Blaser MJ, eds.
+    <em> Mandell, Douglas, and Bennett&apos;s Principles and Practice of Infectious Diseases</em>.
+    10th ed. Elsevier; 2026:3073-3083.e4.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Wong VK, Turmezei TD, Weston VC. Actinomycosis. <em>BMJ</em>. 2011;343:d6099.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Bonnefond S, Catroux M, Melenotte C, et al. Clinical features of actinomycosis:
+    a retrospective multicenter study of miscellaneous presentations. <em>Medicine (Baltimore)</em>.
+    2016;95(24):e3923.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
