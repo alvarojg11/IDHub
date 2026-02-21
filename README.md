@@ -64,3 +64,21 @@ curl -X POST https://your-domain.com/api/subscriptions/notify \
 ```
 
 Use `{"dryRun": true}` to preview counts without sending.
+
+Send a specific case only:
+
+```bash
+curl -X POST https://your-domain.com/api/subscriptions/notify \
+  -H "Content-Type: application/json" \
+  -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET" \
+  -d '{"caseSlug":"carrions-disease"}'
+```
+
+You can also target by content id:
+
+```bash
+curl -X POST https://your-domain.com/api/subscriptions/notify \
+  -H "Content-Type: application/json" \
+  -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET" \
+  -d '{"contentId":"case:carrions-disease"}'
+```

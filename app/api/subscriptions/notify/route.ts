@@ -18,9 +18,23 @@ function authorized(request: NextRequest, bodySecret?: string) {
   return header === expected || bodySecret === expected;
 }
 
+function normalizeList(input?: string | string[]) {
+  if (!input) return [];
+  const arr = Array.isArray(input) ? input : [input];
+  return arr.map((v) => v.trim()).filter(Boolean);
+}
+
 export async function POST(request: NextRequest) {
   const body = (await request.json().catch(() => null)) as
-    | { secret?: string; backfill?: boolean; dryRun?: boolean }
+    | {
+        secret?: string;
+        backfill?: boolean;
+        dryRun?: boolean;
+        contentId?: string;
+        contentIds?: string[];
+        caseSlug?: string;
+        caseSlugs?: string[];
+      }
     | null;
 
   if (!authorized(request, body?.secret)) {
@@ -35,12 +49,19 @@ export async function POST(request: NextRequest) {
   const confirmed = await getConfirmedSubscribers();
   const backfill = Boolean(body?.backfill);
   const dryRun = Boolean(body?.dryRun);
+  const explicitIds = new Set<string>([
+    ...normalizeList(body?.contentId),
+    ...normalizeList(body?.contentIds),
+    ...normalizeList(body?.caseSlug).map((slug) => `case:${slug}`),
+    ...normalizeList(body?.caseSlugs).map((slug) => `case:${slug}`),
+  ]);
+  const targeted = explicitIds.size > 0;
 
   if (updates.length === 0) {
     return NextResponse.json({ ok: true, message: "No content available to process.", sent: 0 });
   }
 
-  if (knownContentIds.size === 0 && !backfill) {
+  if (knownContentIds.size === 0 && !backfill && !targeted) {
     await markKnownContentIds(updates.map((u) => u.id));
     return NextResponse.json({
       ok: true,
@@ -51,7 +72,22 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  const candidates = updates.filter((u) => backfill || !knownContentIds.has(u.id));
+  const candidates = updates.filter((u) => {
+    if (targeted) return explicitIds.has(u.id);
+    return backfill || !knownContentIds.has(u.id);
+  });
+
+  if (targeted && candidates.length === 0) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "No matching content found for the requested target filter. Use contentId (e.g., case:carrions-disease) or caseSlug (e.g., carrions-disease).",
+      },
+      { status: 400 }
+    );
+  }
+
   if (candidates.length === 0) {
     return NextResponse.json({ ok: true, message: "No new content to send.", sent: 0 });
   }
@@ -114,6 +150,8 @@ export async function POST(request: NextRequest) {
     subscribers: confirmed.length,
     sent,
     dryRun,
+    targeted,
+    targetedIds: targeted ? Array.from(explicitIds) : [],
     failures,
   });
 }
