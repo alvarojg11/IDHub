@@ -10,6 +10,8 @@ import {
 } from "@/lib/subscriptionsStore";
 
 export const runtime = "nodejs";
+const RESEND_MIN_INTERVAL_MS = 550;
+const MAX_RATE_LIMIT_RETRIES = 4;
 
 function authorized(request: NextRequest, bodySecret?: string) {
   const expected = process.env.SUBSCRIPTIONS_NOTIFY_SECRET;
@@ -22,6 +24,14 @@ function normalizeList(input?: string | string[]) {
   if (!input) return [];
   const arr = Array.isArray(input) ? input : [input];
   return arr.map((v) => v.trim()).filter(Boolean);
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRateLimitedError(message: string) {
+  return message.includes("(429)") || /too many requests/i.test(message);
 }
 
 export async function POST(request: NextRequest) {
@@ -101,6 +111,7 @@ export async function POST(request: NextRequest) {
 
   let sent = 0;
   const failures: Array<{ email: string; contentId: string; reason: string }> = [];
+  let nextSendAt = 0;
 
   for (const item of candidates) {
     for (const subscriber of confirmed) {
@@ -112,32 +123,60 @@ export async function POST(request: NextRequest) {
         continue;
       }
 
-      try {
-        const result = await sendContentUpdateEmail({
-          to: subscriber.email,
-          title: item.title,
-          url: item.url,
-          kind: item.kind,
-          summary: item.summary,
-          firstQuestion: item.firstQuestion,
-          imageUrl: item.imageUrl,
-          unsubscribeToken: subscriber.unsubscribeToken,
-        });
-        if (!result.ok) {
-          failures.push({
-            email: subscriber.email,
-            contentId: item.id,
-            reason: result.reason,
-          });
-          continue;
+      let delivered = false;
+      let lastError = "Unknown send error";
+
+      for (let attempt = 0; attempt <= MAX_RATE_LIMIT_RETRIES; attempt += 1) {
+        const now = Date.now();
+        if (now < nextSendAt) {
+          await sleep(nextSendAt - now);
         }
-        await markDelivery(item.id, subscriber.email);
-        sent += 1;
-      } catch (err) {
+
+        try {
+          const result = await sendContentUpdateEmail({
+            to: subscriber.email,
+            title: item.title,
+            url: item.url,
+            kind: item.kind,
+            summary: item.summary,
+            firstQuestion: item.firstQuestion,
+            imageUrl: item.imageUrl,
+            unsubscribeToken: subscriber.unsubscribeToken,
+          });
+
+          // Pace requests under provider limit (~2 req/sec)
+          nextSendAt = Date.now() + RESEND_MIN_INTERVAL_MS;
+
+          if (!result.ok) {
+            lastError = result.reason;
+            break;
+          }
+
+          await markDelivery(item.id, subscriber.email);
+          sent += 1;
+          delivered = true;
+          break;
+        } catch (err) {
+          const message = err instanceof Error ? err.message : "Unknown send error";
+          lastError = message;
+
+          if (isRateLimitedError(message) && attempt < MAX_RATE_LIMIT_RETRIES) {
+            const backoffMs = Math.max(
+              RESEND_MIN_INTERVAL_MS,
+              1000 * Math.pow(2, attempt)
+            );
+            nextSendAt = Date.now() + backoffMs;
+            continue;
+          }
+          break;
+        }
+      }
+
+      if (!delivered) {
         failures.push({
           email: subscriber.email,
           contentId: item.id,
-          reason: err instanceof Error ? err.message : "Unknown send error",
+          reason: lastError,
         });
       }
     }
