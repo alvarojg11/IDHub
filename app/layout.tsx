@@ -54,6 +54,9 @@ export default function RootLayout({
               <Link href="/about" className="hover:text-[var(--primary)]">
                 About
               </Link>
+              <Link href="/subscribe" className="hover:text-[var(--primary)]">
+                Subscribe
+              </Link>
             </nav>
           </div>
         </header>

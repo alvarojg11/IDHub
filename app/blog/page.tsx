@@ -1,4 +1,5 @@
 import Parser from "rss-parser";
+import SubscribeForm from "@/components/SubscribeForm";
 
 type FeedItem = {
   title?: string;
@@ -97,14 +98,28 @@ export default async function BlogPage() {
       ) : null}
 
       <footer className="mt-12 border-t border-[var(--border)] pt-6">
-        <a
-          href="https://alvaroayala1.substack.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)] transition"
-        >
-          Subscribe on Substack
-        </a>
+        <div className="grid gap-4 md:grid-cols-2">
+          <a
+            href="https://alvaroayala1.substack.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)] transition"
+          >
+            Subscribe on Substack
+          </a>
+
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
+            <p className="text-sm font-semibold text-[var(--foreground)]">
+              Or subscribe to all IDHub updates
+            </p>
+            <p className="mt-1 text-xs text-[var(--muted)]">
+              Includes new cases and blog posts.
+            </p>
+            <div className="mt-3">
+              <SubscribeForm compact />
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
   );

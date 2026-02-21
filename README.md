@@ -34,3 +34,34 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Email Subscriptions
+
+IDHub includes a built-in subscription flow:
+
+- `/subscribe` for signup
+- `/subscribe/confirm?token=...` for double opt-in confirmation
+- `/subscribe/unsubscribe?token=...` for one-click unsubscribe
+- `POST /api/subscriptions/notify` to send new-case/new-blog notifications
+
+### Required environment variables (email delivery)
+
+```bash
+RESEND_API_KEY=...
+RESEND_FROM_EMAIL="IDHub <noreply@yourdomain.com>"
+APP_BASE_URL="https://your-domain.com"
+SUBSCRIPTIONS_NOTIFY_SECRET="choose-a-strong-secret"
+```
+
+### Triggering notifications
+
+Call the notify endpoint with your secret:
+
+```bash
+curl -X POST https://your-domain.com/api/subscriptions/notify \
+  -H "Content-Type: application/json" \
+  -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET" \
+  -d '{}'
+```
+
+Use `{"dryRun": true}` to preview counts without sending.

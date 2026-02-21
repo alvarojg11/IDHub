@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SubscribeForm from "@/components/SubscribeForm";
 
 const cases = [
   {
@@ -101,7 +102,15 @@ export default function CasesPage() {
       </section>
 
       <footer className="mt-16 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)] py-12">
-        <div className="max-w-5xl mx-auto space-y-2">
+        <div className="max-w-5xl mx-auto space-y-5">
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
+            <p className="text-sm font-semibold text-[var(--foreground)]">
+              Get notified about new cases and blog posts
+            </p>
+            <div className="mt-3">
+              <SubscribeForm compact />
+            </div>
+          </div>
           <p>
             IDHub is an educational project focused on clinical teaching in Infectious Disease.
           </p>
