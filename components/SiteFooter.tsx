@@ -23,9 +23,12 @@ export default function SiteFooter() {
           Content is for learning purposes only and does not replace clinical judgment,
           institutional guidelines, or consultation with infectious diseases specialists.
         </p>
-        <p>
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
           <Link href="/subscribe" className="font-semibold text-[var(--primary)] hover:underline">
             Manage subscription
+          </Link>
+          <Link href="/contact" className="font-semibold text-[var(--primary)] hover:underline">
+            Contact / Collaborate
           </Link>
         </p>
         <p className="text-xs text-[var(--muted)]">

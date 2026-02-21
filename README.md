@@ -48,9 +48,20 @@ IDHub includes a built-in subscription flow:
 ```bash
 RESEND_API_KEY=...
 RESEND_FROM_EMAIL="IDHub <noreply@yourdomain.com>"
+CONTACT_TO_EMAIL="you@yourdomain.com"
 APP_BASE_URL="https://your-domain.com"
 SUBSCRIPTIONS_NOTIFY_SECRET="choose-a-strong-secret"
 ```
+
+Optional:
+
+```bash
+CONTACT_SUBJECT_PREFIX="IDHub contact"
+```
+
+Contact page:
+
+- `/contact` (feedback + collaboration form, sends to `CONTACT_TO_EMAIL`)
 
 ### Persistent subscriber storage (recommended)
 
