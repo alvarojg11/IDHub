@@ -82,3 +82,14 @@ curl -X POST https://your-domain.com/api/subscriptions/notify \
   -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET" \
   -d '{"contentId":"case:carrions-disease"}'
 ```
+
+List subscribers (admin endpoint):
+
+```bash
+curl -X GET "https://your-domain.com/api/subscriptions/admin?status=confirmed" \
+  -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET"
+```
+
+Admin UI page:
+
+- `/admin/subscriptions` (enter `SUBSCRIPTIONS_NOTIFY_SECRET` in the page to load data and run notifications)

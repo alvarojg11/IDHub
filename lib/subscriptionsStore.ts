@@ -22,6 +22,14 @@ export type SubscriptionStore = {
   sentByContentId: Record<string, string[]>;
 };
 
+export type SubscriberListItem = {
+  email: string;
+  status: SubscriberStatus;
+  createdAt: string;
+  updatedAt: string;
+  confirmedAt: string | null;
+};
+
 const STORE_PATH =
   process.env.SUBSCRIPTIONS_STORE_PATH ?? path.join(process.cwd(), "data", "subscribers.json");
 
@@ -238,6 +246,22 @@ export async function unsubscribeByToken(token: string): Promise<{
 export async function getConfirmedSubscribers() {
   const store = await readStore();
   return store.subscribers.filter((s) => s.status === "confirmed");
+}
+
+export async function getSubscribers(status?: SubscriberStatus): Promise<SubscriberListItem[]> {
+  const store = await readStore();
+  const list = status
+    ? store.subscribers.filter((s) => s.status === status)
+    : store.subscribers;
+  return list
+    .map((s) => ({
+      email: s.email,
+      status: s.status,
+      createdAt: s.createdAt,
+      updatedAt: s.updatedAt,
+      confirmedAt: s.confirmedAt,
+    }))
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
 }
 
 export async function getNotificationState() {
