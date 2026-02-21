@@ -82,6 +82,8 @@ export async function POST(request: NextRequest) {
           title: item.title,
           url: item.url,
           kind: item.kind,
+          summary: item.summary,
+          firstQuestion: item.firstQuestion,
           unsubscribeToken: subscriber.unsubscribeToken,
         });
         if (!result.ok) {

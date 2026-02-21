@@ -18,6 +18,15 @@ export function emailProviderConfigured() {
   return canSendEmail();
 }
 
+function escapeHtml(input: string) {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 type MailInput = {
   to: string;
   subject: string;
@@ -58,20 +67,51 @@ export async function sendContentUpdateEmail(args: {
   title: string;
   url: string;
   kind: "case" | "blog";
+  summary?: string | null;
+  firstQuestion?: string | null;
   unsubscribeToken: string;
 }) {
   const baseUrl = getAppBaseUrl();
   const unsubscribeUrl = `${baseUrl}/subscribe/unsubscribe?token=${encodeURIComponent(args.unsubscribeToken)}`;
   const kindLabel = args.kind === "case" ? "Case" : "Blog Post";
   const subject = `New IDHub ${kindLabel}: ${args.title}`;
+  const title = escapeHtml(args.title);
+  const summary = args.summary?.trim() ? escapeHtml(args.summary.trim()) : null;
+  const firstQuestion = args.firstQuestion?.trim()
+    ? escapeHtml(args.firstQuestion.trim())
+    : null;
 
-  const text = [
+  const textParts = [
     `A new IDHub ${kindLabel.toLowerCase()} is available:`,
     `${args.title}`,
-    args.url,
-    "",
-    `Unsubscribe: ${unsubscribeUrl}`,
-  ].join("\n");
+  ];
+  if (summary && args.kind === "case") {
+    textParts.push("", `Preview: ${args.summary?.trim() ?? ""}`);
+  }
+  if (firstQuestion && args.kind === "case") {
+    textParts.push("", `First question: ${args.firstQuestion?.trim() ?? ""}`);
+  }
+  textParts.push("", args.url, "", `Unsubscribe: ${unsubscribeUrl}`);
+  const text = textParts.join("\n");
+
+  const casePreviewHtml =
+    args.kind === "case" && summary
+      ? `
+          <div style="margin: 0 0 12px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
+            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #0f1a13;">${summary}</p>
+          </div>
+        `
+      : "";
+
+  const firstQuestionHtml =
+    args.kind === "case" && firstQuestion
+      ? `
+          <div style="margin: 0 0 16px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
+            <p style="margin: 0; font-size: 12px; color: #3f5649; letter-spacing: 0.02em; text-transform: uppercase;">First question</p>
+            <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #0f1a13;">${firstQuestion}</p>
+          </div>
+        `
+      : "";
 
   const html = `
     <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
@@ -83,8 +123,11 @@ export async function sendContentUpdateEmail(args: {
 
         <div style="padding: 20px 24px;">
           <p style="margin: 0 0 14px; font-size: 18px; line-height: 1.4; color: #0f1a13;">
-            <strong>${args.title}</strong>
+            <strong>${title}</strong>
           </p>
+
+          ${casePreviewHtml}
+          ${firstQuestionHtml}
 
           <p style="margin: 0 0 16px;">
             <a href="${args.url}" style="display: inline-block; padding: 10px 14px; border-radius: 10px; background: #1f6f4a; color: #ffffff; font-size: 14px; text-decoration: none;">Open ${kindLabel}</a>

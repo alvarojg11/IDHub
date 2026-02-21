@@ -79,6 +79,12 @@ export const CASES: CaseMeta[] = [
     description: "When a soft-tissue mass is an indolent infection.",
     enable: true
   },
+  {
+    title: "Fever, Hemolysis, and Bleeding Papules After Andes Travel",
+    slug: "carrions-disease",
+    description: "A classic biphasic Bartonella bacilliformis syndrome.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

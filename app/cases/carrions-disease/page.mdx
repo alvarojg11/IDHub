@@ -1,0 +1,263 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever, Hemolytic Anemia, and Bleeding Skin Lesions After Travel to the Andes
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 24-year-old previously healthy man presents with 9 days of high fevers, profound
+    fatigue, headache, diffuse myalgias, and progressive dyspnea on exertion. He reports
+    dark urine for 3 days and near-syncope when climbing stairs. He returned 3 weeks ago
+    from a rural valley in the Peruvian Andes, where he stayed in adobe housing without
+    window screens and reported frequent nighttime insect bites. He did not take malaria
+    prophylaxis and has no known chronic immunocompromising condition.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Physical exam shows an ill-appearing, markedly pale patient with mild scleral icterus.
+    Vital signs are temperature 39.4 C, blood pressure 96/58 mmHg, heart rate 126/min,
+    respiratory rate 24/min, and oxygen saturation 95% on room air. He has conjunctival
+    pallor, a flow systolic murmur, and mild right upper quadrant tenderness. There is no
+    nuchal rigidity, no focal neurologic deficit, and no rash at initial presentation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Initial laboratories show severe anemia (hemoglobin 6.1 g/dL), thrombocytopenia,
+    indirect hyperbilirubinemia, elevated LDH, and low haptoglobin, consistent with active
+    hemolysis. A peripheral blood smear demonstrates pleomorphic bacillary forms associated
+    with erythrocytes, and early blood cultures are unrevealing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is treated and initially improves clinically, but several weeks later develops crops
+    of friable red-violaceous papules and nodules on the extremities that bleed with minor
+    trauma, consistent with the eruptive phase of disease.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-carrions-dx"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Severe falciparum malaria",
+      feedback:
+        "Incorrect. Malaria can cause hemolysis and fever, but this biphasic pattern and exposure history are more consistent with Carrion's disease.",
+    },
+    {
+      id: "B",
+      label: "Carrion's disease due to Bartonella bacilliformis",
+      correct: true,
+      feedback:
+        "Correct. The biphasic pattern of acute hemolytic illness (Oroya fever) followed by vascular skin lesions (verruga peruana) is classic.",
+    },
+    {
+      id: "C",
+      label: "Babesiosis",
+      feedback:
+        "Incorrect. Babesiosis causes hemolysis but does not typically produce the characteristic verruga peruana phase.",
+    },
+    {
+      id: "D",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis can cause fever and jaundice, but this biphasic pattern and smear findings point to Bartonella bacilliformis.",
+    },
+    {
+      id: "E",
+      label: "Disseminated histoplasmosis",
+      feedback:
+        "Incorrect. Disseminated histoplasmosis can cause systemic illness, but the acute severe hemolytic phase with later eruptive vascular lesions is not typical.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-carrions-tx"
+  title="Question 2"
+  prompt="Based on this initial presentation, which management approach is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "IV artesunate-based therapy",
+      feedback:
+        "Incorrect. Artesunate is appropriate for severe malaria, but this presentation is more consistent with acute bartonellosis requiring targeted antibacterial therapy.",
+    },
+    {
+      id: "B",
+      label: "Topical steroid therapy alone for skin lesions",
+      feedback:
+        "Incorrect. Acute Oroya fever is a systemic infection and requires systemic antimicrobial therapy.",
+    },
+    {
+      id: "C",
+      label: "Prompt systemic therapy, commonly a ciprofloxacin-based regimen for 14 days with ceftriaxone added in severe illness",
+      correct: true,
+      feedback:
+        "Correct. Contemporary references describe ciprofloxacin-based therapy for severe acute bacteremic disease, with escalation or combination in severe presentations, while monitoring for resistance and complications.",
+    },
+    {
+      id: "D",
+      label: "Trimethoprim-sulfamethoxazole monotherapy for 5 days",
+      feedback:
+        "Incorrect. This is not a preferred regimen for severe acute Carrion's disease.",
+    },
+    {
+      id: "E",
+      label: "Single-dose azithromycin only",
+      feedback:
+        "Incorrect. Single-dose therapy is inadequate for severe acute bacteremic (Oroya fever) disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-carrions-tx">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Carrion's disease is caused by <em>Bartonella bacilliformis</em>, a fastidious
+    gram-negative bacillus transmitted by sand flies (genus <em>Lutzomyia</em>).
+    Endemic transmission occurs in Andean valleys of Peru, Ecuador, and Colombia,
+    generally at mid-altitude elevations.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Transmission is classically stercorarian: infected sand flies feed, then
+    Bartonella-containing vector feces are inoculated into nonintact skin at or near
+    the bite site (often through scratching). Humans are the main reservoir for
+    <em> B. bacilliformis</em>; bacteremic individuals (symptomatic or asymptomatic)
+    infect new sand flies, which then transmit infection to other humans. Unlike many
+    other zoonotic Bartonella species, a consistent nonhuman vertebrate reservoir has
+    not been established for this organism.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The illness is classically biphasic. The acute bacteremic phase (Oroya fever)
+    presents with high fever, profound hemolytic anemia, and potentially high fatality
+    without timely treatment. Survivors can later develop the eruptive phase
+    (verruga peruana), characterized by vascular papules or nodules that may bleed.
+    Although this later phase is often less immediately life-threatening than acute
+    Oroya fever, it is still active infection and is generally treated rather than
+    observed alone, especially when lesions are multiple, friable, or bleeding.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis in the acute phase can be supported by peripheral blood smear in endemic
+    settings, while PCR can improve detection when smear is negative. Clinical history
+    (Andean exposure, vector risk, and biphasic syndrome) is critical because culture
+    is difficult and often delayed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For severe acute disease, references describe prompt systemic treatment, commonly
+    ciprofloxacin-based regimens (often 14 days), with ceftriaxone added when illness
+    is severe or persistent. Because fluoroquinolone resistance has been reported,
+    close clinical follow-up and awareness of alternative regimens are important.
+    For verruga peruana, azithromycin is commonly used (often 7 to 14 days), with
+    rifampin as an alternative in selected cases, depending on context and local practice.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-carrions-tx">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Think of Carrion's disease in patients with hemolytic fever after travel to endemic Andean regions.
+    </li>
+    <li>
+      Oroya fever and verruga peruana represent different phases of the same infection.
+    </li>
+    <li>
+      Verruga peruana usually still warrants antimicrobial treatment, not observation alone, especially if lesions are extensive or bleeding.
+    </li>
+    <li>
+      Severe acute disease requires urgent systemic treatment due to significant mortality if untreated.
+    </li>
+    <li>
+      Blood smear can be useful in acute disease; PCR improves detection when smear is negative.
+    </li>
+    <li>
+      Reported fluoroquinolone resistance means follow-up and regimen reassessment are essential.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rose SR, Koehler JE. Bartonella, Including Cat-Scratch Disease. In: Bennett JE, Dolin R,
+      Blaser MJ, eds. <em>Mandell, Douglas, and Bennett&apos;s Principles and Practice of Infectious
+      Diseases</em>. 10th ed. Elsevier; 2026:2819-2839.e4.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gomes C, Ruiz J. Carrion&apos;s disease: the sound of silence.
+      <em> Clinical Microbiology Reviews</em>. 2018;31(1):e00056-17.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00056-17"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/CMR.00056-17
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Maguina C, Garcia PJ, Gotuzzo E, Cordero L, Spach DH. Bartonellosis (Carrion&apos;s disease)
+      in the modern era. <em>Clinical Infectious Diseases</em>. 2001;33(6):772-779.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      del Valle Mendoza J, Silva Caso W, Tinco Valdez C, et al. Diagnosis of Carrion&apos;s disease
+      by direct blood PCR in thin blood smear negative samples. <em>PLoS One</em>. 2014;9(7):e102203.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

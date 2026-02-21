@@ -62,6 +62,11 @@ const cases = [
     slug: "actinomycosis",
     description: "When a soft-tissue mass is an indolent infection.",
   },
+  {
+    title: "Fever, Hemolysis, and Bleeding Papules After Andes Travel",
+    slug: "carrions-disease",
+    description: "a biphasic vector-borne disease.",
+  },
 ];
 
 export default function CasesPage() {
