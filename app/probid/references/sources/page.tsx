@@ -132,6 +132,24 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1111/acem.13889",
     },
     {
+      section: "CAP",
+      citation:
+        "Klompas M, Calandra T, Singer M. Antibiotics for respiratory tract infections in adults in intensive care units and general wards after implementation of molecular diagnostics: a multicenter cohort study. Infect Control Hosp Epidemiol. 2021;42(2):131-138.",
+      doi: "https://doi.org/10.1017/ice.2020.1312",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Metlay JP, et al. Adult Outpatients With Suspected Community-Acquired Pneumonia: What Is the Role of Viral Respiratory Diagnostics? An Official American Thoracic Society Clinical Practice Guideline. Am J Respir Crit Care Med. 2024.",
+      doi: "https://doi.org/10.1164/rccm.202102-0498ST",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Nahum J, et al. IDSA Position Statement on Use of Influenza and SARS-CoV-2 Molecular Assays to Inform Antibacterial Prescribing in Adults with Suspected Community-Acquired Pneumonia. Clin Infect Dis. 2025.",
+      doi: "https://doi.org/10.1093/cid/ciaf625",
+    },
+    {
       section: "CDI",
       citation:
         "McDonald LC, Gerding DN, Johnson S, et al. Clinical Practice Guidelines for Clostridioides difficile Infection in Adults and Children. Clin Infect Dis. 2018;66:e1–e48.",

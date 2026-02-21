@@ -102,6 +102,32 @@ export const CAP_MODULE: SyndromeLRModule = {
     },
 
     // -------------------------
+    // Virology (bacterial coinfection modifier)
+    // -------------------------
+    {
+      id: "cap_rvp_pos",
+      label: "Respiratory viral panel positive",
+      category: "micro",
+      group: "cap_rvp",
+      lrPos: 0.53,
+      lrNeg: 1.07,
+      notes:
+        "Modeled as modifier of bacterial coinfection likelihood in CAP (proxy endpoint: blood-culture positivity). Derived from cohort rates (viral-positive 12.6%; blood-culture positivity 2.7% vs 5.3%), yielding LR+ ~0.53 and LR− ~1.07.",
+      source: {
+        short: "Klompas et al. Infect Control Hosp Epidemiol",
+        year: 2021,
+        url: "https://doi.org/10.1017/ice.2020.1312",
+      },
+    },
+    {
+      id: "cap_rvp_na",
+      label: "Respiratory viral panel not done/unknown",
+      category: "micro",
+      group: "cap_rvp",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
     // Host factors (optional)
     // These are not “classic diagnostic tests”; consider later modeling as pretest modifiers instead.
     // Keep LRs small to avoid over-weighting.
