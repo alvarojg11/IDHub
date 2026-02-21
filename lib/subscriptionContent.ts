@@ -2,8 +2,8 @@ import "server-only";
 
 import { promises as fs } from "fs";
 import path from "path";
-import Parser from "rss-parser";
 
+import { getBlogPosts } from "@/lib/blog/registry";
 import { CASES } from "@/lib/cases/registry";
 
 export type ContentUpdate = {
@@ -16,8 +16,6 @@ export type ContentUpdate = {
   firstQuestion?: string | null;
   imageUrl?: string | null;
 };
-
-const BLOG_FEED_URL = "https://alvaroayala1.substack.com/feed";
 
 function appBaseUrl() {
   return (
@@ -70,6 +68,28 @@ async function extractCaseEmailPreview(slug: string): Promise<{
   }
 }
 
+async function extractBlogEmailPreview(slug: string): Promise<string | null> {
+  const file = path.join(process.cwd(), "app", "blog", slug, "page.mdx");
+  try {
+    const raw = await fs.readFile(file, "utf8");
+    const withoutExports = raw
+      .replace(/export\s+const\s+\w+\s*=\s*\{[\s\S]*?\}\s*;/g, "")
+      .trim();
+    const blocks = withoutExports.split(/\n\s*\n/);
+
+    for (const block of blocks) {
+      const line = block.trim();
+      if (!line || line.startsWith("#") || line.startsWith("```")) continue;
+      if (line.includes("dangerouslySetInnerHTML")) continue;
+      const text = normalizeText(line, 900);
+      if (text.length >= 40) return text;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export async function collectContentUpdates(): Promise<ContentUpdate[]> {
   const baseUrl = appBaseUrl();
   const caseUpdates: ContentUpdate[] = await Promise.all(
@@ -93,25 +113,19 @@ export async function collectContentUpdates(): Promise<ContentUpdate[]> {
     })
   );
 
-  const parser = new Parser();
-  let blogUpdates: ContentUpdate[] = [];
-  try {
-    const feed = await parser.parseURL(BLOG_FEED_URL);
-    blogUpdates = (feed.items ?? [])
-      .filter((item) => Boolean(item.link))
-      .map((item) => ({
-        id: `blog:${item.link}`,
-        kind: "blog" as const,
-        title: item.title ?? "Untitled",
-        url: item.link as string,
-        publishedAt: item.isoDate ?? item.pubDate ?? null,
-        summary: item.contentSnippet ?? null,
-        firstQuestion: null,
-        imageUrl: null,
-      }));
-  } catch {
-    blogUpdates = [];
-  }
+  const blogPosts = await getBlogPosts();
+  const blogUpdates: ContentUpdate[] = await Promise.all(
+    blogPosts.map(async (post) => ({
+      id: `blog:${post.slug}`,
+      kind: "blog" as const,
+      title: post.title,
+      url: `${baseUrl}/blog/${post.slug}`,
+      publishedAt: post.publishedAt,
+      summary: (await extractBlogEmailPreview(post.slug)) ?? post.description,
+      firstQuestion: null,
+      imageUrl: null,
+    }))
+  );
 
   return [...caseUpdates, ...blogUpdates];
 }

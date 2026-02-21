@@ -1,123 +1,83 @@
-import Parser from "rss-parser";
-import SubscribeForm from "@/components/SubscribeForm";
+import Link from "next/link";
 
-type FeedItem = {
-  title?: string;
-  link?: string;
-  isoDate?: string;
-  pubDate?: string;
-  contentSnippet?: string;
-};
+import SubscribeForm from "@/components/SubscribeForm";
+import { getBlogPosts } from "@/lib/blog/registry";
 
 export default async function BlogPage() {
-  const parser = new Parser();
-  const feedUrl = "https://alvaroayala1.substack.com/feed";
-  let items: FeedItem[] = [];
-  try {
-    const feed = await parser.parseURL(feedUrl);
-    items = (feed.items || []) as FeedItem[];
-  } catch {
-    // Keep the blog page renderable even when the feed host is unreachable.
-    items = [];
-  }
+  const posts = await getBlogPosts();
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <header className="mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
-          Blog
-        </h1>
+        <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Blog</h1>
 
         <p className="mt-4 max-w-3xl text-[var(--foreground)]/85 text-justify">
-          This blog grew out of a simple realization: we all carry ideas, doubts,
-          and clinical questions that rarely make it to paper. Here, I try to slow
-          down and write through the nuances of infectious diseases—diagnostics,
-          antimicrobials, and the everyday clinical decisions shaped by evidence,
-          experience, and interpretation rather than certainty.
-          <span className="ml-2 text-[var(--muted)]">
-            Posts from Substack (ID)as &amp; Op(ID)nions.
-          </span>
+          Practical reflections on diagnostics, antimicrobials, and clinical uncertainty in
+          infectious diseases. Posts are now published directly in IDHub, with no third-party
+          platform.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href="https://alvaroayala1.substack.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)] transition"
+          <Link
+            href="/subscribe"
+            className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white"
           >
-            Subscribe on Substack
-          </a>
+            Subscribe
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-lg border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-[var(--foreground)]"
+          >
+            Collaborate
+          </Link>
         </div>
       </header>
 
       <section className="grid gap-6 sm:grid-cols-2">
-        {items.map((item, idx) => {
-          const dateLabel = item.isoDate
-            ? new Date(item.isoDate).toLocaleDateString()
-            : item.pubDate ?? "";
+        {posts.map((post) => {
+          const dateLabel = post.publishedAt
+            ? new Date(post.publishedAt).toLocaleDateString()
+            : "Draft / Undated";
 
           return (
             <article
-              key={(item.link || "") + idx}
-              className="group rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm hover:bg-[var(--cardHover)] transition"
+              key={post.slug}
+              className="group rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition hover:bg-[var(--cardHover)]"
             >
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                className="block"
-              >
-                <h2 className="text-xl font-semibold tracking-tight text-[var(--foreground)] group-hover:text-[var(--primary)] transition">
-                  {item.title ?? "Untitled"}
+              <Link href={`/blog/${post.slug}`} className="block">
+                <h2 className="text-xl font-semibold tracking-tight text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                  {post.title}
                 </h2>
 
-                {item.contentSnippet ? (
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--foreground)]/80">
-                    {item.contentSnippet}
-                  </p>
-                ) : null}
+                <p className="mt-3 text-sm leading-relaxed text-[var(--foreground)]/80">
+                  {post.description}
+                </p>
 
                 <div className="mt-4 flex items-center justify-between gap-3">
                   <p className="text-xs text-[var(--muted)]">{dateLabel}</p>
 
-                  <span className="text-xs font-semibold text-[var(--primary)]">
-                    Read →
-                  </span>
+                  <span className="text-xs font-semibold text-[var(--primary)]">Read →</span>
                 </div>
-              </a>
+              </Link>
             </article>
           );
         })}
       </section>
 
-      {items.length === 0 ? (
+      {posts.length === 0 ? (
         <p className="mt-6 text-sm text-[var(--muted)]">
-          No posts available right now. Please try again later or visit Substack directly.
+          No blog posts found yet. Add a post under `app/blog/&lt;slug&gt;/page.mdx`.
         </p>
       ) : null}
 
       <footer className="mt-12 border-t border-[var(--border)] pt-6">
-        <div className="grid gap-4 md:grid-cols-2">
-          <a
-            href="https://alvaroayala1.substack.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)] transition"
-          >
-            Subscribe on Substack
-          </a>
-
-          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
-            <p className="text-sm font-semibold text-[var(--foreground)]">
-              Or subscribe to all IDHub updates
-            </p>
-            <p className="mt-1 text-xs text-[var(--muted)]">
-              Includes new cases and blog posts.
-            </p>
-            <div className="mt-3">
-              <SubscribeForm compact />
-            </div>
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
+          <p className="text-sm font-semibold text-[var(--foreground)]">
+            Subscribe to IDHub updates
+          </p>
+          <p className="mt-1 text-xs text-[var(--muted)]">Includes new cases and blog posts.</p>
+          <div className="mt-3">
+            <SubscribeForm compact />
           </div>
         </div>
       </footer>

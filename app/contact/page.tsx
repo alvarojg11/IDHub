@@ -15,7 +15,8 @@ export default function ContactPage() {
       <header className="mb-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Contact</h1>
         <p className="mt-3 text-[var(--foreground)]/85">
-          Have feedback, an idea for a case, or interest in collaborating? Send a message below.
+          Do you want to collaborate with IDHub? Let us know. We would love to hear your ideas,
+          opinions, educational cases, and projects.
         </p>
         <div className="mt-5">
           <Link
@@ -28,7 +29,7 @@ export default function ContactPage() {
       </header>
 
       <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-[var(--foreground)]">Reach out</h2>
+        <h2 className="text-lg font-semibold text-[var(--foreground)]">Reach out and collaborate</h2>
         <p className="mt-2 text-sm text-[var(--muted)]">
           Replies will go to the email address you include in the form.
         </p>

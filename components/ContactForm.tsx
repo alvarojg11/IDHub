@@ -90,7 +90,7 @@ export default function ContactForm() {
 
       <label className="block">
         <span className="text-sm font-medium text-[var(--foreground)]">
-          Institution or Project (optional)
+          Feedback, Idea, or Project (optional)
         </span>
         <input
           value={form.organization}

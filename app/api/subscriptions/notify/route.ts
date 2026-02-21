@@ -44,6 +44,8 @@ export async function POST(request: NextRequest) {
         contentIds?: string[];
         caseSlug?: string;
         caseSlugs?: string[];
+        blogSlug?: string;
+        blogSlugs?: string[];
       }
     | null;
 
@@ -64,6 +66,8 @@ export async function POST(request: NextRequest) {
     ...normalizeList(body?.contentIds),
     ...normalizeList(body?.caseSlug).map((slug) => `case:${slug}`),
     ...normalizeList(body?.caseSlugs).map((slug) => `case:${slug}`),
+    ...normalizeList(body?.blogSlug).map((slug) => `blog:${slug}`),
+    ...normalizeList(body?.blogSlugs).map((slug) => `blog:${slug}`),
   ]);
   const targeted = explicitIds.size > 0;
 
@@ -92,7 +96,7 @@ export async function POST(request: NextRequest) {
       {
         ok: false,
         error:
-          "No matching content found for the requested target filter. Use contentId (e.g., case:carrions-disease) or caseSlug (e.g., carrions-disease).",
+          "No matching content found for the requested target filter. Use contentId (e.g., case:carrions-disease, blog:your-blog-slug), caseSlug, or blogSlug.",
       },
       { status: 400 }
     );

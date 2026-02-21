@@ -114,6 +114,15 @@ curl -X POST https://your-domain.com/api/subscriptions/notify \
   -d '{"contentId":"case:carrions-disease"}'
 ```
 
+Target a specific blog post:
+
+```bash
+curl -X POST https://your-domain.com/api/subscriptions/notify \
+  -H "Content-Type: application/json" \
+  -H "x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET" \
+  -d '{"blogSlug":"your-blog-slug"}'
+```
+
 List subscribers (admin endpoint):
 
 ```bash
@@ -124,3 +133,59 @@ curl -X GET "https://your-domain.com/api/subscriptions/admin?status=confirmed" \
 Admin UI page:
 
 - `/admin/subscriptions` (enter `SUBSCRIPTIONS_NOTIFY_SECRET` in the page to load data and run notifications)
+
+## Blog Publishing (Local, no Substack dependency)
+
+Blog posts are served from local MDX files:
+
+- `app/blog/<slug>/page.mdx`
+
+Each post can include:
+
+```mdx
+export const post = {
+  title: "Post title",
+  description: "Short card/preview description",
+  publishedAt: "2026-02-21",
+};
+```
+
+### Import existing Substack posts
+
+Run:
+
+```bash
+npm run import:substack
+```
+
+Useful flags:
+
+```bash
+npm run import:substack -- --dry-run
+npm run import:substack -- --limit=5
+npm run import:substack -- --overwrite
+```
+
+Optional feed override:
+
+```bash
+SUBSTACK_FEED_URL="https://your-substack-url/feed" npm run import:substack
+```
+
+## Blog Comments
+
+Comments are stored in the same persistence layer used by subscriptions:
+
+- Postgres/Neon when `DATABASE_URL`/`POSTGRES_URL` is configured
+- otherwise local file fallback: `data/blog-comments.json`
+
+Public API:
+
+- `GET /api/blog/comments?slug=<blog-slug>` (approved comments only)
+- `POST /api/blog/comments` (submits pending comment)
+
+Admin moderation:
+
+- UI: `/admin/comments`
+- API: `GET /api/blog/comments/admin` and `PATCH /api/blog/comments/admin`
+- Auth: pass `x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET`

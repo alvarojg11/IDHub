@@ -1,4 +1,5 @@
 import SubscriptionsAdminPanel from "@/components/SubscriptionsAdminPanel";
+import Link from "next/link";
 
 export const metadata = {
   title: "Subscriptions Admin | IDHub",
@@ -13,6 +14,12 @@ export default function SubscriptionsAdminPage() {
         </h1>
         <p className="mt-3 text-[var(--foreground)]/85">
           Manage subscriber visibility and trigger case/blog notifications.
+        </p>
+        <p className="mt-2 text-sm text-[var(--muted)]">
+          Need comment moderation?{" "}
+          <Link href="/admin/comments" className="font-semibold text-[var(--primary)] hover:underline">
+            Open Comments Admin
+          </Link>
         </p>
       </header>
 
