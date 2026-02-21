@@ -50,6 +50,7 @@ const DATABASE_URL =
 
 let pgPoolPromise: Promise<PgPool> | null = null;
 let pgSchemaReadyPromise: Promise<void> | null = null;
+let pgUnavailable = false;
 
 let canWriteFileStore = true;
 let writeQueue: Promise<unknown> = Promise.resolve();
@@ -60,7 +61,7 @@ let memoryStore: SubscriptionStore = {
 };
 
 function usingPostgres() {
-  return Boolean(DATABASE_URL);
+  return Boolean(DATABASE_URL) && !pgUnavailable;
 }
 
 export function subscriptionsStorageMode(): "postgres" | "file" {
@@ -68,18 +69,24 @@ export function subscriptionsStorageMode(): "postgres" | "file" {
 }
 
 async function getPgPool(): Promise<PgPool> {
-  if (!DATABASE_URL) {
+  if (!DATABASE_URL || pgUnavailable) {
     throw new Error("Database URL is not configured.");
   }
   if (!pgPoolPromise) {
     pgPoolPromise = (async () => {
-      const importDynamic = new Function("moduleName", "return import(moduleName);") as (
-        moduleName: string
-      ) => Promise<unknown>;
-      const pg = (await importDynamic("pg")) as {
-        Pool: new (opts: { connectionString: string }) => PgPool;
-      };
-      return new pg.Pool({ connectionString: DATABASE_URL });
+      try {
+        const importDynamic = new Function("moduleName", "return import(moduleName);") as (
+          moduleName: string
+        ) => Promise<unknown>;
+        const pg = (await importDynamic("pg")) as {
+          Pool: new (opts: { connectionString: string }) => PgPool;
+        };
+        return new pg.Pool({ connectionString: DATABASE_URL });
+      } catch {
+        pgUnavailable = true;
+        pgPoolPromise = null;
+        throw new Error("Postgres driver 'pg' is unavailable; falling back to file storage.");
+      }
     })();
   }
   return pgPoolPromise;
@@ -123,7 +130,12 @@ async function ensurePgSchema() {
       );
     })();
   }
-  await pgSchemaReadyPromise;
+  try {
+    await pgSchemaReadyPromise;
+  } catch {
+    pgUnavailable = true;
+    pgSchemaReadyPromise = null;
+  }
 }
 
 function asIso(value: unknown): string {
