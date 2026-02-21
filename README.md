@@ -57,6 +57,7 @@ Optional:
 
 ```bash
 CONTACT_SUBJECT_PREFIX="IDHub contact"
+NEXT_PUBLIC_GA_ID="G-ZMBJ2JZ5XQ"
 ```
 
 Contact page:
