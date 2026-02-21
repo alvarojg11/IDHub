@@ -163,7 +163,10 @@ export async function subscribeEmail(rawEmail: string): Promise<{
     }
 
     existing.status = "pending";
-    existing.confirmToken = randomToken();
+    // Keep the same pending token so previously sent confirmation links remain valid.
+    if (!existing.confirmToken) {
+      existing.confirmToken = randomToken();
+    }
     existing.updatedAt = now;
     await writeStore(store);
     return {
