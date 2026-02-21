@@ -15,6 +15,7 @@ type SubscriberItem = {
 type AdminResponse = {
   ok: boolean;
   error?: string;
+  storage?: "postgres" | "file";
   filter?: string;
   summary?: {
     total: number;
@@ -230,6 +231,19 @@ export default function SubscriptionsAdminPanel() {
           <Metric label="Pending" value={data?.summary?.pending ?? 0} />
           <Metric label="Unsubscribed" value={data?.summary?.unsubscribed ?? 0} />
         </div>
+
+        {data?.storage ? (
+          <p
+            className={`mt-3 text-sm ${
+              data.storage === "postgres" ? "text-green-700" : "text-amber-700"
+            }`}
+          >
+            Storage mode: <strong>{data.storage}</strong>
+            {data.storage === "file"
+              ? " (file storage can reset on Vercel redeploys)"
+              : ""}
+          </p>
+        ) : null}
 
         <div className="mt-4 overflow-x-auto rounded-lg border border-[var(--border)] bg-white">
           <table className="min-w-full text-sm">
