@@ -1,0 +1,255 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  At the Tip of the Nose
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 57-year-old woman with no known immunocompromising condition presents with a
+    15-day history of progressive pruritus, burning, and paresthesia around the right
+    eye and forehead. She initially used artificial tears after a first evaluation for
+    presumed nonspecific ocular irritation, but symptoms persisted.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Three days later, she developed erythema and swelling involving the right upper
+    eyelid and nasal tip, along with nasal congestion. She was diagnosed with
+    blepharitis and started on topical tobramycin. Within 24 hours, the erythema
+    progressed across the right forehead and periorbital region, and the diagnosis was
+    revised to periorbital cellulitis. Oral clindamycin was started, but the lesions
+    continued to evolve.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    At follow-up one week later, examination showed grouped crusted and necrotic lesions
+    involving the right frontal scalp/forehead and a prominent necrotic-crusted lesion
+    on the nasal tip with surrounding erythematous halo.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Vital signs are stable, and she is afebrile. There is right periorbital erythema and
+    edema without proptosis. Extraocular movements are intact without pain, and visual
+    acuity is preserved on bedside assessment. Ophthalmology evaluation is requested to
+    assess for corneal or intraocular involvement.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-600 bg-black p-0.5">
+    <Image
+      src="/cases/hzo-hutchinson-sign/hutchinson-sign.jpg"
+      alt="Facial herpes zoster with Hutchinson's sign"
+      width={900}
+      height={650}
+      className="rounded-lg mx-auto"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Image provided by Dr. Juan Daza, MD
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-hzo-hutchinson-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Bacterial blepharitis",
+      feedback:
+        "Incorrect. The unilateral dermatomal evolution with neuropathic pain and nasal tip involvement is not explained by isolated blepharitis.",
+    },
+    {
+      id: "B",
+      label: "Preseptal cellulitis",
+      feedback:
+        "Incorrect. Secondary bacterial infection may be present, but the dermatomal pattern and nasal tip lesion strongly suggest herpes zoster ophthalmicus.",
+    },
+    {
+      id: "C",
+      label: "Herpes zoster ophthalmicus with Hutchinson's sign",
+      correct: true,
+      feedback:
+        "Correct. Unilateral V1 dermatomal lesions plus nasal tip involvement (Hutchinson's sign) strongly support HZO.",
+    },
+    {
+      id: "D",
+      label: "Herpes simplex periorbital infection",
+      feedback:
+        "Incorrect. HSV can cause clustered vesicles, but the V1 dermatomal distribution and Hutchinson's sign are more characteristic of HZO.",
+    },
+    {
+      id: "E",
+      label: "Rhino-orbital mucormycosis",
+      feedback:
+        "Incorrect. Necrosis raises concern for invasive infection in immunocompromised hosts or uncontrolled diabetes, but this presentation is more consistent with zoster.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hzo-hutchinson-q2"
+  title="Question 2"
+  prompt="Which management approach is most appropriate at this stage?"
+  options={[
+    {
+      id: "A",
+      label: "Continue topical tobramycin only and observe for spontaneous resolution",
+      feedback:
+        "Incorrect. Suspected HZO requires systemic antiviral therapy and ophthalmology evaluation; topical therapy alone is inadequate.",
+    },
+    {
+      id: "B",
+      label: "Start prompt systemic antiviral therapy (e.g., valaciclovir) and urgent ophthalmology evaluation",
+      correct: true,
+      feedback:
+        "Correct. HZO with Hutchinson's sign warrants prompt antiviral treatment and eye evaluation, while necrosis/progressive erythema support concurrent antibacterial treatment for superinfection.",
+    },
+    {
+      id: "C",
+      label: "Delay antiviral therapy until PCR confirmation returns",
+      feedback:
+        "Incorrect. Antivirals should not be delayed when HZO is clinically suspected, especially with Hutchinson's sign and potential ocular risk.",
+    },
+    {
+      id: "D",
+      label: "Start systemic corticosteroids alone to reduce inflammation",
+      feedback:
+        "Incorrect. Steroids without antiviral therapy can worsen uncontrolled viral infection and do not address bacterial superinfection.",
+    },
+    {
+      id: "E",
+      label: "Incision and drainage of facial lesions as primary therapy",
+      feedback:
+        "Incorrect. This is not the primary management strategy for zoster lesions and may worsen tissue injury; the key intervention is antiviral therapy plus appropriate supportive/adjunctive care.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hzo-hutchinson-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Herpes zoster ophthalmicus (HZO) is caused by reactivation of latent varicella-zoster
+    virus in the ophthalmic division (V1) of the trigeminal nerve. The combination of
+    unilateral dermatomal facial lesions and neuropathic symptoms (burning, paresthesia,
+    dysesthesia) should prompt consideration of zoster even when early vesicles are absent
+    or atypical.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hutchinson&apos;s sign refers to vesicular or crusted lesions on the nasal tip and reflects
+    nasociliary nerve involvement. This is an important bedside clue because it is strongly
+    associated with increased risk of ocular involvement (e.g., keratitis, uveitis, and
+    other vision-threatening complications). Patients with suspected HZO should receive
+    prompt ophthalmologic assessment even if initial bedside visual acuity appears normal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Early systemic antiviral therapy is ideally started within 72 hours of rash onset to
+    reduce complications, but treatment should not be withheld when presentation is delayed
+    if HZO is clinically suspected, especially when lesions are evolving or ocular risk is
+    high. Oral valaciclovir is commonly favored in outpatient care because of better
+    bioavailability and simpler dosing compared with oral aciclovir.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    PCR from lesion material can confirm varicella-zoster virus and is helpful when the
+    diagnosis is delayed or lesions are atypical. However, HZO remains a clinical diagnosis
+    in many cases, and therapy should be guided by the urgency of preventing ocular sequelae
+    rather than waiting for confirmatory testing.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hzo-hutchinson-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Unilateral dermatomal facial pain/pruritus with evolving rash should raise suspicion for HZO, even before classic vesicles are obvious.
+    </li>
+    <li>
+      Hutchinson&apos;s sign (nasal tip lesions) is an important predictor of ocular involvement and should prompt urgent eye evaluation.
+    </li>
+    <li>
+      Do not delay systemic antivirals while awaiting PCR if HZO is clinically suspected.
+    </li>
+    <li>
+      HZO can be misdiagnosed as blepharitis or periorbital cellulitis early in the course, especially with atypical prodromal symptoms.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ramirez-Castro D, Daza Ovalle JF, Boucle D, Zorrilla P, Alonso J. Facial Herpes Zoster With
+      Hutchinson&apos;s Sign Complicated by Secondary Bacterial Superinfection: A Case Report.
+      <em> Cureus</em>. 2026;18(2):e103969.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.7759/cureus.103969"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.7759/cureus.103969
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Vrcek I, Choudhury E, Durairaj V. Herpes zoster ophthalmicus: a review for the internist.
+      <em> American Journal of Medicine</em>. 2017;130(1):21-26.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ting DSJ, Ghosh N, Ghosh S. Herpes zoster ophthalmicus. <em>BMJ</em>. 2019;364:k5234.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kovacevic J, Samia AM, Shah A, Motaparthi K. Herpes zoster ophthalmicus.
+      <em> Clinical Dermatology</em>. 2024;42(3):355-359.
+    </p>
+  </div>
+</div>

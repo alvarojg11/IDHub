@@ -85,6 +85,12 @@ export const CASES: CaseMeta[] = [
     description: "A classic biphasic Bartonella bacilliformis syndrome.",
     enable: true
   },
+  {
+    title: "At the Tip of the Nose",
+    slug: "hzo-hutchinson-sign",
+    description: "A unilateral facial eruption with ocular risk and a misleading early course.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

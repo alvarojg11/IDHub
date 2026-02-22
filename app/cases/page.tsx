@@ -67,6 +67,11 @@ const cases = [
     slug: "carrions-disease",
     description: "a biphasic vector-borne disease.",
   },
+  {
+    title: "At the Tip of the Nose",
+    slug: "hzo-hutchinson-sign",
+    description: "A misleading early course.",
+  },
 ];
 
 export default function CasesPage() {
