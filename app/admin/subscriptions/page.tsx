@@ -16,9 +16,13 @@ export default function SubscriptionsAdminPage() {
           Manage subscriber visibility and trigger case/blog notifications.
         </p>
         <p className="mt-2 text-sm text-[var(--muted)]">
-          Need comment moderation?{" "}
+          Need other admin tools?{" "}
           <Link href="/admin/comments" className="font-semibold text-[var(--primary)] hover:underline">
             Open Comments Admin
+          </Link>
+          {" · "}
+          <Link href="/admin/case-polls" className="font-semibold text-[var(--primary)] hover:underline">
+            Open Case Polls Admin
           </Link>
         </p>
       </header>
