@@ -1,4 +1,5 @@
 import CommentsAdminPanel from "@/components/CommentsAdminPanel";
+import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
   title: "Comments Admin | IDHub",
@@ -14,6 +15,7 @@ export default function CommentsAdminPage() {
         <p className="mt-3 text-[var(--foreground)]/85">
           Review pending comments and approve or hide them.
         </p>
+        <AdminQuickNav current="comments" />
       </header>
 
       <CommentsAdminPanel />

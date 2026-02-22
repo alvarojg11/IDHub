@@ -1,5 +1,5 @@
 import CasePollsAdminPanel from "@/components/CasePollsAdminPanel";
-import Link from "next/link";
+import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
   title: "Case Polls Admin | IDHub",
@@ -15,16 +15,7 @@ export default function CasePollsAdminPage() {
         <p className="mt-3 text-[var(--foreground)]/85">
           Review how users answered case questions across IDHub.
         </p>
-        <p className="mt-2 text-sm text-[var(--muted)]">
-          Need subscribers or comments?{" "}
-          <Link href="/admin/subscriptions" className="font-semibold text-[var(--primary)] hover:underline">
-            Subscriptions
-          </Link>
-          {" · "}
-          <Link href="/admin/comments" className="font-semibold text-[var(--primary)] hover:underline">
-            Comments
-          </Link>
-        </p>
+        <AdminQuickNav current="case-polls" />
       </header>
 
       <CasePollsAdminPanel />

@@ -72,6 +72,11 @@ const cases = [
     slug: "hzo-hutchinson-sign",
     description: "A misleading early course.",
   },
+  {
+    title: "The Fever Came Back",
+    slug: "lbrf",
+    description: "Recurrent fever, jaundice, and a diagnosis hiding in the clothing seams.",
+  },
 ];
 
 export default function CasesPage() {

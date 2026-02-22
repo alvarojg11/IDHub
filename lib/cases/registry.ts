@@ -91,6 +91,12 @@ export const CASES: CaseMeta[] = [
     description: "A unilateral facial eruption with ocular risk and a misleading early course.",
     enable: true
   },
+  {
+    title: "The Fever Came Back",
+    slug: "lbrf",
+    description: "Recurrent fever, jaundice, and a diagnosis hiding in the clothing seams.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

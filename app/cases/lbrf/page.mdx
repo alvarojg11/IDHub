@@ -1,0 +1,242 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Fever Came Back
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 22-year-old man presents with high fevers, rigors, severe headache, diffuse myalgias,
+    and profound weakness. He recently arrived in Europe after traveling from the Horn of
+    Africa through multiple crowded transit settings. He reports poor access to bathing and
+    frequent itching with scratching of his trunk and clothing seams during the journey.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He describes an abrupt febrile illness about one week ago that seemed to improve after
+    several days, followed by an afebrile interval. He now has recurrent fever with worsening
+    malaise, epistaxis, and upper abdominal discomfort. He denies known tick exposure. No prior
+    medical history is available, and he is not taking medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he appears ill and dehydrated. Temperature is 39.8 C, heart rate 122/min,
+    blood pressure 96/60 mmHg, and respiratory rate 24/min. He has scleral icterus, scattered
+    petechiae over the trunk, dried blood at the nares, hepatic tenderness, and mild
+    splenomegaly. Scratch marks are present on the torso, and body louse infestation is
+    suspected based on visible nits and insects within clothing seams.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Initial laboratory studies show hemoglobin 9.6 g/dL, leukocytes 12.8 x10^9/L, platelets
+    46 x10^9/L, total bilirubin 4.3 mg/dL (direct 2.1 mg/dL), AST 112 U/L, ALT 74 U/L,
+    creatinine 1.4 mg/dL, and CRP 146 mg/L. A thick and thin Giemsa-stained blood smear obtained
+    while febrile demonstrates numerous long extracellular spirochaetes.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-lbrf-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Louse-borne relapsing fever (Borrelia recurrentis infection)",
+      correct: true,
+      feedback:
+        "Correct. Abrupt recurrent fever, jaundice/bleeding features, body louse exposure, and spirochaetes on blood smear are classic for louse-borne relapsing fever.",
+    },
+    {
+      id: "B",
+      label: "Severe falciparum malaria",
+      feedback:
+        "Incorrect. Thrombocytopenia and jaundice can mimic severe malaria, but the smear shows extracellular spirochaetes rather than intraerythrocytic parasites.",
+    },
+    {
+      id: "C",
+      label: "Louse-borne typhus (Rickettsia prowazekii)",
+      feedback:
+        "Incorrect. Epidemic typhus is an important louse-associated differential, but visible spirochaetes on blood smear and the relapse pattern strongly support relapsing fever.",
+    },
+    {
+      id: "D",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis can cause jaundice and bleeding, but this recurrent fever pattern plus visible spirochaetaemia is more consistent with louse-borne relapsing fever.",
+    },
+    {
+      id: "E",
+      label: "Tick-borne relapsing fever (Borrelia duttonii or related species)",
+      feedback:
+        "Incorrect. Tick-borne relapsing fever can also produce spirochaetaemia and relapse, but this patient has strong body louse exposure and no tick exposure, favoring louse-borne relapsing fever due to Borrelia recurrentis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-lbrf-q2"
+  title="Question 2"
+  prompt="Which treatment is most appropriate now?"
+  options={[
+    {
+      id: "A",
+      label: "IV artesunate-based therapy for severe malaria",
+      feedback:
+        "Incorrect. Severe malaria is an urgent differential, but the smear in this case shows extracellular spirochaetes consistent with relapsing fever, not Plasmodium falciparum.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline (with close monitoring for Jarisch-Herxheimer reaction after treatment initiation)",
+      correct: true,
+      feedback:
+        "Correct. Louse-borne relapsing fever requires prompt anti-borrelial therapy (commonly doxycycline/tetracycline, with alternatives depending on severity and contraindications), and treatment can precipitate a severe Jarisch-Herxheimer reaction requiring close monitoring and supportive care.",
+    },
+    {
+      id: "C",
+      label: "Valaciclovir",
+      feedback:
+        "Incorrect. Valaciclovir treats herpesvirus infections and has no role in borrelial relapsing fever.",
+    },
+    {
+      id: "D",
+      label: "Clindamycin",
+      feedback:
+        "Incorrect. Clindamycin is not standard therapy for louse-borne relapsing fever.",
+    },
+    {
+      id: "E",
+      label: "No antimicrobial therapy; delousing and supportive care only",
+      feedback:
+        "Incorrect. Delousing is essential for transmission control, but active louse-borne relapsing fever requires antimicrobial therapy in addition to supportive care.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-lbrf-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Louse-borne relapsing fever (LBRF) is caused by <em>Borrelia recurrentis</em> and is classically
+    associated with crowding, forced migration, poverty, and poor access to hygiene that favor
+    infestation with the human body louse (<em>Pediculus humanus corporis</em>). Unlike tick-borne
+    relapsing fevers, there is no known animal reservoir; humans are the reservoir.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Transmission occurs when infected louse feces is inoculated into
+    broken skin (often by scratching) or mucous membranes. Body lice usually live in clothing
+    seams rather than remaining on the skin between feeds, which makes clothing decontamination
+    and pediculosis treatment central to outbreak control.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The relapse phenomenon is a hallmark of disease and reflects antigenic variation of borrelial
+    outer membrane proteins. Patients typically have abrupt fever, rigors, headache, severe pain,
+    prostration, and may also develop petechiae, epistaxis, jaundice, hepatosplenomegaly, and
+    thrombocytopenia/coagulopathy. Untreated attacks may resolve temporarily, followed by afebrile
+    intervals and recurrent episodes.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis can often be made rapidly at the bedside by microscopy of thick and thin blood films
+    obtained while the patient is febrile, because spirochaetaemia in LBRF can be high and more
+    persistent than in other relapsing fevers. PCR is increasingly used for confirmation and
+    species-level characterization, especially in imported cases, but treatment should not be delayed
+    in a clinically compatible, smear-positive patient.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Prompt antibiotic therapy is life-saving, but clinicians must anticipate the Jarisch-Herxheimer
+    reaction, which may occur within 1 to 2 hours after treatment and can be severe, with
+    rigors, hyperpyrexia, hemodynamic instability, and cardiorespiratory deterioration. This is why
+    treatment should be initiated with close observation and supportive care readiness, especially in
+    severe disease. Doxycycline or tetracycline are commonly used treatments, with other options
+    (such as penicillin-class agents or macrolides) considered in specific scenarios. Severe
+    falciparum malaria and leptospirosis remain urgent differential diagnoses in appropriate
+    epidemiologic settings and should be assessed in parallel when uncertainty remains.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-lbrf-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Recurrent febrile episodes with jaundice/bleeding clues and body louse exposure should raise suspicion for louse-borne relapsing fever.
+    </li>
+    <li>
+      Thick and thin blood smear microscopy during febrile periods can provide rapid diagnosis.
+    </li>
+    <li>
+      The relapse pattern is driven by antigenic variation of Borrelia outer membrane proteins.
+    </li>
+    <li>
+      Antibiotic therapy can precipitate a severe Jarisch-Herxheimer reaction; monitor closely after treatment initiation.
+    </li>
+    <li>
+      Louse control (pediculicide plus clothing decontamination/hygiene measures) is essential for public health control but does not replace antibiotic treatment.
+    </li>
+    <li>
+      Severe falciparum malaria and leptospirosis are urgent differentials in travelers/migrants from endemic regions.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Warrell DA. Louse-borne relapsing fever (<em>Borrelia recurrentis</em> infection).
+      <em> Epidemiology and Infection</em>. 2019;147:e106.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1017/S0950268819000116"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1017/S0950268819000116
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Butler T. The Jarisch-Herxheimer reaction after antibiotic treatment of spirochetal infections:
+      a review of recent cases and our understanding of pathogenesis.
+      <em> American Journal of Tropical Medicine and Hygiene</em>. 2017;96(1):46-52.
+    </p>
+  </div>
+</div>
