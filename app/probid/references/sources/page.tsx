@@ -150,6 +150,24 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1093/cid/ciaf625",
     },
     {
+      section: "VAP",
+      citation:
+        "Kalil AC, Metersky ML, Klompas M, et al. Management of Adults With Hospital-acquired and Ventilator-associated Pneumonia: 2016 Clinical Practice Guidelines by the IDSA and ATS. Clin Infect Dis. 2016;63(5):e61-e111.",
+      doi: "https://doi.org/10.1093/cid/ciw353",
+    },
+    {
+      section: "VAP",
+      citation:
+        "Fernando SM, Tran A, Cheng W, et al. Diagnosis of ventilator-associated pneumonia in critically ill adult patients-a systematic review and meta-analysis. Intensive Care Med. 2020;46(6):1170-1179.",
+      doi: "https://doi.org/10.1007/s00134-020-06036-z",
+    },
+    {
+      section: "VAP",
+      citation:
+        "Cook DJ, Walter SD, Cook RJ, et al. Incidence of and risk factors for ventilator-associated pneumonia in critically ill patients. Ann Intern Med. 1998;129(6):433-440.",
+      doi: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
+    },
+    {
       section: "CDI",
       citation:
         "McDonald LC, Gerding DN, Johnson S, et al. Clinical Practice Guidelines for Clostridioides difficile Infection in Adults and Children. Clin Infect Dis. 2018;66:e1–e48.",

@@ -140,6 +140,182 @@ export const CAP_MODULE: SyndromeLRModule = {
   ],
 };
 
+export const VAP_MODULE: SyndromeLRModule = {
+  id: "vap",
+  name: "VAP",
+  description:
+    "Ventilator-associated pneumonia (adult ICU, mechanically ventilated >48h) diagnostic probability update using clinical features and respiratory sampling thresholds. Core LRs are derived from a 2020 systematic review/meta-analysis using histopathology as reference standard where available.",
+  pretestPresets: [
+    {
+      id: "vap_early_suspected",
+      label: "ICU, suspected VAP, intubated >48h to day 4",
+      p: 0.25,
+      notes:
+        "Pragmatic early-window diagnostic pretest for a patient in whom VAP is being considered. Time cutoffs follow standard VAP definitions/early-vs-late framing; calibrate to local ICU epidemiology.",
+      source: {
+        short: "Cook et al. Ann Intern Med",
+        year: 1998,
+        url: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
+      },
+    },
+    {
+      id: "vap_late_suspected",
+      label: "ICU, suspected VAP, intubated >=5 days",
+      p: 0.35,
+      notes:
+        "Pragmatic later-window diagnostic pretest. Time on ventilation raises cumulative VAP risk and shifts pathogen resistance risk, but local rates vary substantially.",
+      source: {
+        short: "Cook et al. Ann Intern Med",
+        year: 1998,
+        url: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
+      },
+    },
+    {
+      id: "vap_high_concern",
+      label: "ICU, suspected VAP (high clinical concern/workup cohort)",
+      p: 0.5,
+      notes:
+        "Guideline evidence summaries often model suspected HAP/VAP cohorts using prevalence around 50%. Use when your diagnostic threshold resembles a formal VAP workup population.",
+      source: {
+        short: "Kalil et al. ATS/IDSA HAP/VAP",
+        year: 2016,
+        url: "https://doi.org/10.1093/cid/ciw353",
+      },
+    },
+  ],
+  items: [
+    // -------------------------
+    // Clinical features (histopathology-referenced meta-analysis)
+    // -------------------------
+    {
+      id: "vap_fever",
+      label: "Fever (>=38 C)",
+      category: "vital",
+      lrPos: 1.44,
+      lrNeg: 0.62,
+      notes: "Weak diagnostic modifier in suspected VAP.",
+    },
+    {
+      id: "vap_purulent_secretions",
+      label: "Purulent tracheal secretions",
+      category: "exam",
+      lrPos: 1.26,
+      lrNeg: 0.59,
+      notes: "Common but non-specific in mechanically ventilated ICU patients.",
+    },
+    {
+      id: "vap_cxr_infiltrate",
+      label: "Chest radiograph infiltrate (new/progressive compatible opacity)",
+      category: "imaging",
+      group: "vap_cxr",
+      lrPos: 1.2,
+      lrNeg: 0.42,
+      notes:
+        "High sensitivity but poor specificity in the meta-analysis. If CXR done, mark Present/Absent. If not done/indeterminate, choose 'CXR not done/unknown'.",
+    },
+    {
+      id: "vap_cxr_na",
+      label: "CXR not done/unknown",
+      category: "imaging",
+      group: "vap_cxr",
+      notes: "Neutral selection.",
+    },
+    {
+      id: "vap_leukocytosis",
+      label: "Leukocytosis (WBC >10-12 x10^9/L, study-dependent threshold)",
+      category: "lab",
+      lrPos: 1.57,
+      lrNeg: 0.61,
+      notes:
+        "Threshold varied across studies (commonly >=10 or >=12 x10^9/L); weak diagnostic modifier.",
+    },
+
+    // -------------------------
+    // Composite score (avoid double counting)
+    // -------------------------
+    {
+      id: "vap_cpis_gt6",
+      label: "CPIS > 6 (use instead of individual CPIS component findings)",
+      category: "lab",
+      group: "vap_cpis",
+      lrPos: 2.2,
+      lrNeg: 0.4,
+      notes:
+        "Do not combine with fever/secretions/WBC/CXR component findings if using CPIS, as this will double count overlapping information.",
+    },
+    {
+      id: "vap_cpis_na",
+      label: "CPIS not used/unknown",
+      category: "lab",
+      group: "vap_cpis",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Respiratory microbiology (mutually exclusive strategy to avoid double counting)
+    // Mark Present if culture is at/above threshold; mark Absent if below threshold/negative.
+    // -------------------------
+    {
+      id: "vap_eta_qcx",
+      label: "Endotracheal aspirate quantitative culture >=10^5 CFU/mL",
+      category: "micro",
+      group: "vap_resp_micro",
+      lrPos: 2.36,
+      lrNeg: 0.36,
+      notes:
+        "Set Present for a positive ETA quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+    },
+    {
+      id: "vap_psb_qcx",
+      label: "Protected specimen brush quantitative culture >=10^3 CFU/mL",
+      category: "micro",
+      group: "vap_resp_micro",
+      lrPos: 2.62,
+      lrNeg: 0.5,
+      notes:
+        "Set Present for a positive PSB quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+    },
+    {
+      id: "vap_bal_qcx",
+      label: "BAL quantitative culture >=10^4 CFU/mL",
+      category: "micro",
+      group: "vap_resp_micro",
+      lrPos: 3.48,
+      lrNeg: 0.36,
+      notes:
+        "Set Present for a positive BAL quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+    },
+    {
+      id: "vap_resp_micro_na",
+      label: "Respiratory sampling/culture not done or unknown",
+      category: "micro",
+      group: "vap_resp_micro",
+      notes: "Neutral selection.",
+    },
+
+    // -------------------------
+    // Biomarker (guideline-pooled HAP/VAP data; optional, not definitive)
+    // -------------------------
+    {
+      id: "vap_pct_elevated",
+      label: "Serum procalcitonin elevated (diagnostic threshold assay/study dependent)",
+      category: "lab",
+      group: "vap_pct",
+      lrPos: 3.9,
+      lrNeg: 0.4,
+      notes:
+        "Pooled HAP/VAP estimate from ATS/IDSA evidence review (cutoffs varied ~0.5-3.9 ng/mL). Not recommended as a sole trigger to start antibiotics.",
+    },
+    {
+      id: "vap_pct_na",
+      label: "Procalcitonin not done/unknown",
+      category: "lab",
+      group: "vap_pct",
+      notes: "Neutral selection.",
+    },
+  ],
+};
+
 
 export const CDI_MODULE: SyndromeLRModule = {
   id: "cdi",
@@ -2061,6 +2237,24 @@ const SRC_ENDO_HANDOC_2018: LRSource = {
   url: "https://doi.org/10.1093/cid/cix880",
 };
 
+const SRC_VAP_DIAG_META_2020: LRSource = {
+  short: "Fernando et al. Intensive Care Med",
+  year: 2020,
+  url: "https://doi.org/10.1007/s00134-020-06036-z",
+};
+
+const SRC_VAP_GUIDELINE_2016: LRSource = {
+  short: "Kalil et al. ATS/IDSA HAP/VAP",
+  year: 2016,
+  url: "https://doi.org/10.1093/cid/ciw353",
+};
+
+const SRC_VAP_INCIDENCE_COOK_1998: LRSource = {
+  short: "Cook et al. Ann Intern Med",
+  year: 1998,
+  url: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
+};
+
 function withEvidenceSources(
   module: SyndromeLRModule,
   opts: {
@@ -2106,6 +2300,14 @@ const UTI_MODULE_WITH_SOURCES = withEvidenceSources(UTI_MODULE, {
   },
 });
 
+const VAP_MODULE_WITH_SOURCES = withEvidenceSources(VAP_MODULE, {
+  pretestSource: SRC_VAP_INCIDENCE_COOK_1998,
+  resolveItemSource: (item) => {
+    if (item.id === "vap_pct_elevated" || item.id === "vap_pct_na") return SRC_VAP_GUIDELINE_2016;
+    return SRC_VAP_DIAG_META_2020;
+  },
+});
+
 const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
   pretestSource: SRC_ENDO_ESC_2023,
   resolveItemSource: (item) => {
@@ -2127,6 +2329,7 @@ const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
 
 export const PROBID_MODULES: SyndromeLRModule[] = [
   CAP_MODULE_WITH_SOURCES,
+  VAP_MODULE_WITH_SOURCES,
   CDI_MODULE_WITH_SOURCES,
   UTI_MODULE_WITH_SOURCES,
   ENDO_MODULE_WITH_SOURCES,
