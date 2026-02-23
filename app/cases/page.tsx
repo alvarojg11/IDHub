@@ -73,7 +73,7 @@ const cases = [
     description: "A misleading early course.",
   },
   {
-    title: "The Fever Came Back",
+    title: "The Case of the Returning Fever",
     slug: "lbrf",
     description: "Recurrent fever, jaundice, and a diagnosis hiding in the clothing seams.",
   },
