@@ -15,9 +15,7 @@ type Props = {
   defaultModuleId?: string;
 };
 
-type PredictStage = "day1" | "day5";
-type PredictOnset = "nosocomial" | "healthcare" | "community";
-type PredictDevice = "none" | "icd_or_valve" | "ppm";
+type VirstaAcquisition = "nosocomial" | "community_or_nhca";
 type HandocSpecies =
   | "unspecified_other"
   | "s_anginosus_group"
@@ -38,9 +36,8 @@ const HANDOC_SPECIES_POINTS: Record<HandocSpecies, number> = {
 };
 
 const ENDO_SCORE_ITEM_IDS = [
-  "endo_predict_day1_high",
-  "endo_predict_day5_high",
-  "endo_predict_na",
+  "endo_virsta_high",
+  "endo_virsta_na",
   "endo_denova_high",
   "endo_denova_na",
   "endo_handoc_high",
@@ -97,6 +94,45 @@ const DEFAULT_VAP_RISK_STATE: Record<VapRiskFactorId, boolean> = {
 const VAP_RISK_OR_SHRINK_EXPONENT = 0.5;
 const VAP_RISK_MAX_MULTIPLIER = 6;
 
+type EndoRiskFactorId =
+  | "ivdu"
+  | "prosthetic_valve"
+  | "prior_endo"
+  | "structural_valve_disease"
+  | "chd"
+  | "cied"
+  | "hemodialysis";
+
+type EndoRiskFactorOption = {
+  id: EndoRiskFactorId;
+  label: string;
+  orLike: number;
+  group: "general_ie" | "sab_context";
+};
+
+const ENDO_RISK_FACTOR_OPTIONS: EndoRiskFactorOption[] = [
+  { id: "prosthetic_valve", label: "Prosthetic valve", orLike: 2.5, group: "general_ie" },
+  { id: "chd", label: "Congenital heart disease", orLike: 1.8, group: "general_ie" },
+  { id: "hemodialysis", label: "Hemodialysis", orLike: 2.0, group: "general_ie" },
+  { id: "ivdu", label: "Injection drug use", orLike: 2.5, group: "sab_context" },
+  { id: "prior_endo", label: "Prior endocarditis", orLike: 2.5, group: "sab_context" },
+  { id: "structural_valve_disease", label: "Known structural/native valve disease", orLike: 1.8, group: "sab_context" },
+  { id: "cied", label: "Cardiac device (CIED/ICD/pacemaker)", orLike: 2.2, group: "sab_context" },
+];
+
+const DEFAULT_ENDO_RISK_STATE: Record<EndoRiskFactorId, boolean> = {
+  ivdu: false,
+  prosthetic_valve: false,
+  prior_endo: false,
+  structural_valve_disease: false,
+  chd: false,
+  cied: false,
+  hemodialysis: false,
+};
+
+const ENDO_RISK_OR_SHRINK_EXPONENT = 0.5;
+const ENDO_RISK_MAX_MULTIPLIER = 5;
+
 function byId(mods: SyndromeLRModule[], id?: string) {
   if (!id) return mods[0];
   return mods.find((m) => m.id === id) ?? mods[0];
@@ -123,13 +159,22 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   // VAP pretest risk modifiers (OR-informed, applied before diagnostic LR stack)
   const [useVapRiskModifiers, setUseVapRiskModifiers] = useState(false);
   const [vapRiskState, setVapRiskState] = useState<Record<VapRiskFactorId, boolean>>(DEFAULT_VAP_RISK_STATE);
+  const [useEndoRiskModifiers, setUseEndoRiskModifiers] = useState(false);
+  const [endoRiskState, setEndoRiskState] = useState<Record<EndoRiskFactorId, boolean>>(DEFAULT_ENDO_RISK_STATE);
 
   // Endocarditis score autocompute controls
-  const [usePredict, setUsePredict] = useState(false);
-  const [predictStage, setPredictStage] = useState<PredictStage>("day5");
-  const [predictOnset, setPredictOnset] = useState<PredictOnset>("nosocomial");
-  const [predictDevice, setPredictDevice] = useState<PredictDevice>("none");
-  const [predictPersistent72h, setPredictPersistent72h] = useState(false);
+  const [useVirsta, setUseVirsta] = useState(false);
+  const [virstaEmboli, setVirstaEmboli] = useState(false);
+  const [virstaMeningitis, setVirstaMeningitis] = useState(false);
+  const [virstaIntracardiacDevice, setVirstaIntracardiacDevice] = useState(false);
+  const [virstaPriorEndocarditis, setVirstaPriorEndocarditis] = useState(false);
+  const [virstaNativeValveDisease, setVirstaNativeValveDisease] = useState(false);
+  const [virstaIvdu, setVirstaIvdu] = useState(false);
+  const [virstaPersistentBacteremia48h, setVirstaPersistentBacteremia48h] = useState(false);
+  const [virstaVertebralOsteomyelitis, setVirstaVertebralOsteomyelitis] = useState(false);
+  const [virstaAcquisition, setVirstaAcquisition] = useState<VirstaAcquisition>("nosocomial");
+  const [virstaSevereSepsisShock, setVirstaSevereSepsisShock] = useState(false);
+  const [virstaCrpGt190, setVirstaCrpGt190] = useState(false);
 
   const [useDenova, setUseDenova] = useState(false);
   const [denovaDuration7d, setDenovaDuration7d] = useState(false);
@@ -157,11 +202,20 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setShowSelectedOnly(false);
     setUseVapRiskModifiers(false);
     setVapRiskState(DEFAULT_VAP_RISK_STATE);
-    setUsePredict(false);
-    setPredictStage("day5");
-    setPredictOnset("nosocomial");
-    setPredictDevice("none");
-    setPredictPersistent72h(false);
+    setUseEndoRiskModifiers(false);
+    setEndoRiskState(DEFAULT_ENDO_RISK_STATE);
+    setUseVirsta(false);
+    setVirstaEmboli(false);
+    setVirstaMeningitis(false);
+    setVirstaIntracardiacDevice(false);
+    setVirstaPriorEndocarditis(false);
+    setVirstaNativeValveDisease(false);
+    setVirstaIvdu(false);
+    setVirstaPersistentBacteremia48h(false);
+    setVirstaVertebralOsteomyelitis(false);
+    setVirstaAcquisition("nosocomial");
+    setVirstaSevereSepsisShock(false);
+    setVirstaCrpGt190(false);
     setUseDenova(false);
     setDenovaDuration7d(false);
     setDenovaEmbolization(false);
@@ -186,6 +240,20 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     () => VAP_RISK_FACTOR_OPTIONS.filter((opt) => vapRiskState[opt.id]),
     [vapRiskState]
   );
+  const endoSelectedRiskFactors = useMemo(
+    () => ENDO_RISK_FACTOR_OPTIONS.filter((opt) => endoRiskState[opt.id]),
+    [endoRiskState]
+  );
+  const endoAppliedRiskFactors = useMemo(
+    () =>
+      endoSelectedRiskFactors.filter((opt) => !(useVirsta && opt.group === "sab_context")),
+    [endoSelectedRiskFactors, useVirsta]
+  );
+  const endoSuppressedRiskFactors = useMemo(
+    () =>
+      endoSelectedRiskFactors.filter((opt) => useVirsta && opt.group === "sab_context"),
+    [endoSelectedRiskFactors, useVirsta]
+  );
 
   const vapRiskRawMultiplier = useMemo(() => {
     if (activeModule.id !== "vap" || !useVapRiskModifiers) return 1;
@@ -198,18 +266,52 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     return clamp(shrunk, 1, VAP_RISK_MAX_MULTIPLIER);
   }, [activeModule.id, useVapRiskModifiers, vapRiskRawMultiplier]);
 
+  const endoRiskRawMultiplier = useMemo(() => {
+    if (activeModule.id !== "endo" || !useEndoRiskModifiers) return 1;
+    return endoAppliedRiskFactors.reduce((acc, rf) => acc * rf.orLike, 1);
+  }, [activeModule.id, useEndoRiskModifiers, endoAppliedRiskFactors]);
+
+  const endoRiskAppliedMultiplier = useMemo(() => {
+    if (activeModule.id !== "endo" || !useEndoRiskModifiers) return 1;
+    const shrunk = Math.pow(endoRiskRawMultiplier, ENDO_RISK_OR_SHRINK_EXPONENT);
+    return clamp(shrunk, 1, ENDO_RISK_MAX_MULTIPLIER);
+  }, [activeModule.id, useEndoRiskModifiers, endoRiskRawMultiplier]);
+
   const pretestP = useMemo(() => {
-    if (activeModule.id !== "vap" || !useVapRiskModifiers) return basePretestP;
     const odds = basePretestP / (1 - basePretestP);
-    const adjustedOdds = odds * vapRiskAppliedMultiplier;
+    let adjustedOdds = odds;
+    if (activeModule.id === "vap" && useVapRiskModifiers) {
+      adjustedOdds *= vapRiskAppliedMultiplier;
+    }
+    if (activeModule.id === "endo" && useEndoRiskModifiers) {
+      adjustedOdds *= endoRiskAppliedMultiplier;
+    }
     return clamp(adjustedOdds / (1 + adjustedOdds), 0.001, 0.999);
-  }, [activeModule.id, basePretestP, useVapRiskModifiers, vapRiskAppliedMultiplier]);
+  }, [
+    activeModule.id,
+    basePretestP,
+    useVapRiskModifiers,
+    vapRiskAppliedMultiplier,
+    useEndoRiskModifiers,
+    endoRiskAppliedMultiplier,
+  ]);
+  const showAdjustedPretest =
+    (activeModule.id === "vap" && useVapRiskModifiers) ||
+    (activeModule.id === "endo" && useEndoRiskModifiers);
 
   const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
 
   const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
-  const harmEstimate = useMemo(() => estimateHarms(activeModule.id, states), [activeModule.id, states]);
+  const harmStates = useMemo(() => {
+    if (activeModule.id !== "endo" || !useEndoRiskModifiers) return states;
+    return {
+      ...states,
+      endo_prosthetic_valve: endoRiskState.prosthetic_valve ? "present" : "unknown",
+      endo_cied: endoRiskState.cied ? "present" : "unknown",
+    } as Record<string, FindingState>;
+  }, [activeModule.id, useEndoRiskModifiers, endoRiskState, states]);
+  const harmEstimate = useMemo(() => estimateHarms(activeModule.id, harmStates), [activeModule.id, harmStates]);
   const { treatThresholdP: treatmentThresholdP, observeThresholdP } = useMemo(
     () => deriveDecisionThresholds(harmEstimate),
     [harmEstimate]
@@ -254,7 +356,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   function isAutoManagedLocked(itemId: string) {
     if (activeModule.id !== "endo") return false;
-    if (itemId.startsWith("endo_predict_")) return usePredict;
+    if (itemId.startsWith("endo_virsta_")) return useVirsta;
     if (itemId.startsWith("endo_denova_")) return useDenova;
     if (itemId.startsWith("endo_handoc_")) return useHandoc;
     return false;
@@ -269,11 +371,20 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setShowSelectedOnly(false);
     setUseVapRiskModifiers(false);
     setVapRiskState(DEFAULT_VAP_RISK_STATE);
-    setUsePredict(false);
-    setPredictStage("day5");
-    setPredictOnset("nosocomial");
-    setPredictDevice("none");
-    setPredictPersistent72h(false);
+    setUseEndoRiskModifiers(false);
+    setEndoRiskState(DEFAULT_ENDO_RISK_STATE);
+    setUseVirsta(false);
+    setVirstaEmboli(false);
+    setVirstaMeningitis(false);
+    setVirstaIntracardiacDevice(false);
+    setVirstaPriorEndocarditis(false);
+    setVirstaNativeValveDisease(false);
+    setVirstaIvdu(false);
+    setVirstaPersistentBacteremia48h(false);
+    setVirstaVertebralOsteomyelitis(false);
+    setVirstaAcquisition("nosocomial");
+    setVirstaSevereSepsisShock(false);
+    setVirstaCrpGt190(false);
     setUseDenova(false);
     setDenovaDuration7d(false);
     setDenovaEmbolization(false);
@@ -310,6 +421,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setVapRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
   }
 
+  function toggleEndoRiskFactor(id: EndoRiskFactorId) {
+    setEndoRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
   // Selected: show everything active (not unknown)
   const activeSelected = useMemo(() => {
     return activeModule.items
@@ -317,16 +432,35 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
       .map((it) => it.id);
   }, [activeModule.items, states]);
 
-  const predictDay1Score = useMemo(() => {
-    const onsetPoints = predictOnset === "community" ? 2 : predictOnset === "healthcare" ? 1 : 0;
-    const devicePoints = predictDevice === "ppm" ? 3 : predictDevice === "icd_or_valve" ? 2 : 0;
-    return onsetPoints + devicePoints;
-  }, [predictOnset, predictDevice]);
+  const virstaScore = useMemo(() => {
+    const deviceOrPriorIePoints = virstaIntracardiacDevice || virstaPriorEndocarditis ? 4 : 0;
+    const acquisitionPoints = virstaAcquisition === "community_or_nhca" ? 2 : 0;
 
-  const predictDay5Score = useMemo(
-    () => predictDay1Score + (predictPersistent72h ? 2 : 0),
-    [predictDay1Score, predictPersistent72h]
-  );
+    return (
+      (virstaEmboli ? 5 : 0) +
+      (virstaMeningitis ? 5 : 0) +
+      deviceOrPriorIePoints +
+      (virstaNativeValveDisease ? 3 : 0) +
+      (virstaIvdu ? 4 : 0) +
+      (virstaPersistentBacteremia48h ? 3 : 0) +
+      (virstaVertebralOsteomyelitis ? 2 : 0) +
+      acquisitionPoints +
+      (virstaSevereSepsisShock ? 1 : 0) +
+      (virstaCrpGt190 ? 1 : 0)
+    );
+  }, [
+    virstaAcquisition,
+    virstaCrpGt190,
+    virstaEmboli,
+    virstaIntracardiacDevice,
+    virstaIvdu,
+    virstaMeningitis,
+    virstaNativeValveDisease,
+    virstaPersistentBacteremia48h,
+    virstaPriorEndocarditis,
+    virstaSevereSepsisShock,
+    virstaVertebralOsteomyelitis,
+  ]);
 
   const denovaScore = useMemo(
     () =>
@@ -371,22 +505,15 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     if (activeModule.id !== "endo") return;
 
     const autoStates: Record<string, FindingState> = {
-      endo_predict_day1_high: "unknown",
-      endo_predict_day5_high: "unknown",
-      endo_predict_na: "unknown",
+      endo_virsta_high: "unknown",
+      endo_virsta_na: "unknown",
       endo_denova_high: "unknown",
       endo_denova_na: "unknown",
       endo_handoc_high: "unknown",
       endo_handoc_na: "unknown",
     };
 
-    if (usePredict) {
-      if (predictStage === "day1") {
-        autoStates.endo_predict_day1_high = predictDay1Score >= 4 ? "present" : "absent";
-      } else {
-        autoStates.endo_predict_day5_high = predictDay5Score >= 2 ? "present" : "absent";
-      }
-    }
+    if (useVirsta) autoStates.endo_virsta_high = virstaScore >= 3 ? "present" : "absent";
 
     if (useDenova) autoStates.endo_denova_high = denovaScore >= 3 ? "present" : "absent";
     if (useHandoc) autoStates.endo_handoc_high = handocScore >= 3 ? "present" : "absent";
@@ -428,12 +555,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     denovaScore,
     handocScore,
     activeModule.id,
-    predictDay1Score,
-    predictDay5Score,
-    predictStage,
     useDenova,
     useHandoc,
-    usePredict,
+    useVirsta,
+    virstaScore,
   ]);
 
   const catalogQ = normalize(catalogQuery);
@@ -496,7 +621,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               <div>
                 <span className="font-medium">Location:</span> {preset?.label}
                 <span className="ml-2 text-xs text-gray-600">(Pretest {formatPct(basePretestP)})</span>
-                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                {showAdjustedPretest ? (
                   <span className="ml-2 text-xs text-gray-600">
                     (Risk-adjusted {formatPct(pretestP)})
                   </span>
@@ -579,6 +704,147 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
           {activeModule.id === "endo" ? (
             <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
+              <div className="font-medium text-gray-900">Endocarditis host risk modifiers (pretest)</div>
+              <p className="mt-1 text-xs text-gray-600">
+                Optional: adjust the setting-based pretest using host-risk associations before applying diagnostic LRs.
+                These are pretest modifiers (OR-informed), not diagnostic test LRs.
+              </p>
+
+              <div className="mt-3 rounded-md border bg-white p-3">
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+                  <input
+                    type="checkbox"
+                    checked={useEndoRiskModifiers}
+                    onChange={(e) => setUseEndoRiskModifiers(e.target.checked)}
+                  />
+                  Apply endocarditis host-risk pretest adjustment
+                </label>
+
+                {useEndoRiskModifiers ? (
+                  <div className="mt-3 space-y-3">
+                    <div className="rounded border bg-gray-50 p-2">
+                      <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">
+                        General IE Host Risk (pretest)
+                      </div>
+                      <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
+                        {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "general_ie").map((rf) => (
+                          <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
+                            <input
+                              type="checkbox"
+                              checked={endoRiskState[rf.id]}
+                              onChange={() => toggleEndoRiskFactor(rf.id)}
+                            />
+                            <span>
+                              {rf.label} <span className="text-gray-500">(OR-like {rf.orLike.toFixed(2)})</span>
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded border bg-gray-50 p-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">
+                          SAB Context (pretest)
+                        </div>
+                        {useVirsta ? (
+                          <span className="text-[10px] rounded border bg-white px-2 py-0.5 text-gray-600">
+                            suppressed while VIRSTA is enabled
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
+                        {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "sab_context").map((rf) => (
+                          <label
+                            key={rf.id}
+                            className={`inline-flex items-center gap-2 text-xs ${useVirsta ? "text-gray-400" : "text-gray-700"}`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={endoRiskState[rf.id]}
+                              onChange={() => toggleEndoRiskFactor(rf.id)}
+                              disabled={useVirsta}
+                            />
+                            <span>
+                              {rf.label} <span className="text-gray-500">(OR-like {rf.orLike.toFixed(2)})</span>
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
+                      <div>
+                        Selected factors: <span className="font-semibold">{endoSelectedRiskFactors.length}</span>
+                        {endoSuppressedRiskFactors.length > 0 ? (
+                          <span className="ml-2 text-gray-500">
+                            ({endoSuppressedRiskFactors.length} SAB factor{endoSuppressedRiskFactors.length === 1 ? "" : "s"} excluded by VIRSTA)
+                          </span>
+                        ) : null}
+                      </div>
+                      <div>
+                        Applied factors: <span className="font-semibold">{endoAppliedRiskFactors.length}</span>
+                      </div>
+                      <div>
+                        Raw multiplier product: <span className="font-semibold">{endoRiskRawMultiplier.toFixed(2)}</span>
+                      </div>
+                      <div>
+                        Applied multiplier (sqrt shrink + cap):{" "}
+                        <span className="font-semibold">{endoRiskAppliedMultiplier.toFixed(2)}</span>
+                      </div>
+                      <div>
+                        Base pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → adjusted pretest{" "}
+                        <span className="font-semibold">{formatPct(pretestP)}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-[11px] text-gray-600">
+                      Conservative implementation to avoid over-amplifying correlated host factors. These values should be
+                      curated against score- and organism-specific populations over time.
+                    </p>
+
+                    <div className="rounded border bg-white px-2 py-2 text-[11px] text-gray-600 space-y-1">
+                      <div className="font-semibold text-gray-700">Sources</div>
+                      <div>
+                        General IE host-risk context:{" "}
+                        <a
+                          href="https://doi.org/10.1093/eurheartj/ehad193"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2 hover:text-gray-900"
+                        >
+                          ESC Endocarditis Guideline (2023)
+                        </a>
+                      </div>
+                      <div>
+                        SAB-specific host/context variables overlap with VIRSTA components:{" "}
+                        <a
+                          href="https://doi.org/10.1016/j.jinf.2016.04.005"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2 hover:text-gray-900"
+                        >
+                          VIRSTA derivation (Tubiana et al., 2016)
+                        </a>
+                        {" "}and{" "}
+                        <a
+                          href="https://doi.org/10.1093/cid/ciaa1844"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2 hover:text-gray-900"
+                        >
+                          external validation (Peinado-Acevedo et al., 2021)
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
+
+          {activeModule.id === "endo" ? (
+            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
               <div className="font-medium text-gray-900">Endocarditis score auto-compute</div>
               <p className="mt-1 text-xs text-gray-600">
                 Enable a score, mark its components, and ProbID will auto-apply the threshold LR item.
@@ -589,79 +855,107 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
                     <input
                       type="checkbox"
-                      checked={usePredict}
-                      onChange={(e) => setUsePredict(e.target.checked)}
+                      checked={useVirsta}
+                      onChange={(e) => setUseVirsta(e.target.checked)}
                     />
-                    PREDICT (for SAB)
+                    VIRSTA (for SAB)
                   </label>
 
-                  {usePredict ? (
+                  {useVirsta ? (
                     <div className="mt-3 space-y-2 text-xs text-gray-700">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <label className="inline-flex items-center gap-1">
-                          <input
-                            type="radio"
-                            name="predict-stage"
-                            checked={predictStage === "day1"}
-                            onChange={() => setPredictStage("day1")}
-                          />
-                          Day 1
+                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                        <label className="inline-flex items-center gap-2">
+                          <input type="checkbox" checked={virstaEmboli} onChange={(e) => setVirstaEmboli(e.target.checked)} />
+                          Cerebral/peripheral emboli (+5)
                         </label>
-                        <label className="inline-flex items-center gap-1">
-                          <input
-                            type="radio"
-                            name="predict-stage"
-                            checked={predictStage === "day5"}
-                            onChange={() => setPredictStage("day5")}
-                          />
-                          Day 5
+                        <label className="inline-flex items-center gap-2">
+                          <input type="checkbox" checked={virstaMeningitis} onChange={(e) => setVirstaMeningitis(e.target.checked)} />
+                          Meningitis (+5)
                         </label>
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                        <label className="space-y-1">
-                          <span className="block text-[11px] uppercase tracking-wide text-gray-500">Onset</span>
-                          <select
-                            value={predictOnset}
-                            onChange={(e) => setPredictOnset(e.target.value as PredictOnset)}
-                            className="w-full rounded border px-2 py-1 text-xs"
-                          >
-                            <option value="nosocomial">Nosocomial (0)</option>
-                            <option value="healthcare">Healthcare-associated (1)</option>
-                            <option value="community">Community-acquired (2)</option>
-                          </select>
-                        </label>
-
-                        <label className="space-y-1">
-                          <span className="block text-[11px] uppercase tracking-wide text-gray-500">
-                            Intracardiac Prosthesis
-                          </span>
-                          <select
-                            value={predictDevice}
-                            onChange={(e) => setPredictDevice(e.target.value as PredictDevice)}
-                            className="w-full rounded border px-2 py-1 text-xs"
-                          >
-                            <option value="none">None (0)</option>
-                            <option value="icd_or_valve">ICD or prosthetic valve (2)</option>
-                            <option value="ppm">Permanent pacemaker (3)</option>
-                          </select>
-                        </label>
-                      </div>
-
-                      {predictStage === "day5" ? (
                         <label className="inline-flex items-center gap-2">
                           <input
                             type="checkbox"
-                            checked={predictPersistent72h}
-                            onChange={(e) => setPredictPersistent72h(e.target.checked)}
+                            checked={virstaIntracardiacDevice}
+                            onChange={(e) => setVirstaIntracardiacDevice(e.target.checked)}
                           />
-                          Persistent bacteremia &gt;=72h (+2)
+                          Permanent intracardiac device (+4)
                         </label>
-                      ) : null}
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaPriorEndocarditis}
+                            onChange={(e) => setVirstaPriorEndocarditis(e.target.checked)}
+                          />
+                          Prior endocarditis (+4; shared bucket)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaNativeValveDisease}
+                            onChange={(e) => setVirstaNativeValveDisease(e.target.checked)}
+                          />
+                          Native valve disease (+3)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input type="checkbox" checked={virstaIvdu} onChange={(e) => setVirstaIvdu(e.target.checked)} />
+                          Injection drug use (+4)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaPersistentBacteremia48h}
+                            onChange={(e) => setVirstaPersistentBacteremia48h(e.target.checked)}
+                          />
+                          Persistent bacteremia &gt;48h (+3)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaVertebralOsteomyelitis}
+                            onChange={(e) => setVirstaVertebralOsteomyelitis(e.target.checked)}
+                          />
+                          Vertebral osteomyelitis (+2)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaSevereSepsisShock}
+                            onChange={(e) => setVirstaSevereSepsisShock(e.target.checked)}
+                          />
+                          Severe sepsis / septic shock (+1)
+                        </label>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={virstaCrpGt190}
+                            onChange={(e) => setVirstaCrpGt190(e.target.checked)}
+                          />
+                          CRP &gt;190 mg/L (+1)
+                        </label>
+                      </div>
+
+                      <label className="space-y-1 block">
+                        <span className="block text-[11px] uppercase tracking-wide text-gray-500">Acquisition</span>
+                        <select
+                          value={virstaAcquisition}
+                          onChange={(e) => setVirstaAcquisition(e.target.value as VirstaAcquisition)}
+                          className="w-full rounded border px-2 py-1 text-xs"
+                        >
+                          <option value="nosocomial">Nosocomial (0)</option>
+                          <option value="community_or_nhca">Community or non-nosocomial healthcare-associated (+2)</option>
+                        </select>
+                      </label>
 
                       <div className="rounded border bg-gray-50 px-2 py-1">
-                        Day 1 score: <span className="font-semibold">{predictDay1Score}</span> (high if &gt;=4) • Day 5
-                        score: <span className="font-semibold">{predictDay5Score}</span> (high if &gt;=2)
+                        VIRSTA score: <span className="font-semibold">{virstaScore}</span> (high if &gt;=3)
+                      </div>
+                      {useEndoRiskModifiers ? (
+                        <div className="rounded border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] text-amber-900">
+                          SAB-context host-risk modifiers in the pretest panel are suppressed while VIRSTA is enabled to avoid overlap.
+                        </div>
+                      ) : null}
+                      <div className="text-[11px] text-gray-600">
+                        Auto-applies the <span className="font-semibold">VIRSTA &gt;=3</span> LR item for SAB.
                       </div>
                     </div>
                   ) : null}
@@ -793,7 +1087,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="mt-4 space-y-2 text-sm text-gray-700">
               <div>
                 Start: <span className="font-semibold">{formatPct(pretestP)}</span>
-                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                {showAdjustedPretest ? (
                   <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
                 ) : null}
               </div>
@@ -833,7 +1127,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="flex items-center justify-between gap-3">
               <div className="font-semibold text-gray-900">Estimated probability</div>
               <div className="text-sm text-gray-700">
-                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                {showAdjustedPretest ? (
                   <>
                     Base <span className="font-semibold">{formatPct(basePretestP)}</span>{" "}
                     <span className="mx-1">•</span>
@@ -1196,6 +1490,27 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                         {it.notes ? (
                                           <div className="mt-0.5 text-xs text-gray-600">{it.notes}</div>
                                         ) : null}
+                                        {it.source ? (
+                                          <div className="mt-1 text-xs text-gray-600">
+                                            Source:{" "}
+                                            {it.source.url ? (
+                                              <a
+                                                href={it.source.url}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="underline underline-offset-2 hover:text-gray-900"
+                                              >
+                                                {it.source.short}
+                                                {it.source.year ? ` (${it.source.year})` : ""}
+                                              </a>
+                                            ) : (
+                                              <span>
+                                                {it.source.short}
+                                                {it.source.year ? ` (${it.source.year})` : ""}
+                                              </span>
+                                            )}
+                                          </div>
+                                        ) : null}
                                       </div>
 
                                       <div className="shrink-0 flex items-center gap-2">
@@ -1255,7 +1570,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                 <div className="text-sm text-gray-700">
                   Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
                   <span className="font-semibold">{formatPct(pretestP)}</span>
-                  {activeModule.id === "vap" && useVapRiskModifiers ? (
+                  {showAdjustedPretest ? (
                     <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
                   ) : null}
                 </div>

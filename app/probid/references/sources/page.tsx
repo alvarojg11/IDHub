@@ -98,6 +98,18 @@ export default function ProbIDAllReferencesPage() {
     {
       section: "Endocarditis",
       citation:
+        "Tubiana S, Duval X, et al. The VIRSTA score, a prediction score to estimate risk of infective endocarditis and determine priority for echocardiography in patients with Staphylococcus aureus bacteremia. J Infect. 2016;72(5):544-553.",
+      doi: "https://doi.org/10.1016/j.jinf.2016.04.005",
+    },
+    {
+      section: "Endocarditis",
+      citation:
+        "Peinado-Acevedo JS, Chiaramonte R, et al. Validation of VIRSTA and PREDICT Scores in Staphylococcus aureus Bacteremia for Ruling Out Endocarditis. Clin Infect Dis. 2021.",
+      doi: "https://doi.org/10.1093/cid/ciaa1844",
+    },
+    {
+      section: "Endocarditis",
+      citation:
         "Peinado-Acevedo JS, et al. Prediction Rules for Ruling Out Endocarditis in Patients With Staphylococcus aureus Bacteremia. Clin Infect Dis. 2022;74(8):1442-1450.",
       doi: "https://doi.org/10.1093/cid/ciab632",
     },
@@ -176,8 +188,8 @@ export default function ProbIDAllReferencesPage() {
     {
       section: "VAP",
       citation:
-        "Ferrer M, et al. Low accuracy of the clinical pulmonary infection score and lack of usefulness of biomarkers in one-year mortality prediction in patients with suspected ventilator-associated pneumonia. Crit Care. 2019;23:320. (Used here for PaO2/FiO2 <=240 diagnostic-performance caution in suspected VAP.)",
-      doi: "https://doi.org/10.1186/s13054-019-2574-4",
+        "Ferrer M, et al. Accuracy of the PaO2/FiO2 Ratio for the Diagnosis of Ventilator-Associated Pneumonia. J Clin Med. 2019;8(8):1217. (Used here for the PaO2/FiO2 <=240 diagnostic-performance caution/derivation in suspected VAP.)",
+      doi: "https://doi.org/10.3390/jcm8081217",
     },
     {
       section: "VAP",

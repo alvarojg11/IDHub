@@ -495,7 +495,7 @@ export const ENDO_MODULE: SyndromeLRModule = {
   id: "endo",
   name: "Endocarditis",
   description:
-    "Infective endocarditis probability update using setting-only pretest probability plus selected host risk, organism-specific microbiology, risk-score context (PREDICT / DENOVA / HANDOC), and imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available; several organism/risk-score LRs are starter scaffolds—replace with curated local evidence. Beware correlated Duke elements.",
+    "Infective endocarditis probability update using setting-only pretest probability plus selected host risk, organism-specific microbiology, risk-score context (VIRSTA / DENOVA / HANDOC), and imaging (TTE/TEE) ± FDG PET/CT. Imaging LRs derived from published sensitivity/specificity where available. Beware correlated Duke elements.",
   pretestPresets: [
     {
       id: "endo_very_low",
@@ -519,17 +519,6 @@ export const ENDO_MODULE: SyndromeLRModule = {
 
   items: [
     // -------------------------
-    // HOST / RISK (baseline drivers)
-    // -------------------------
-    { id: "endo_ivdu", label: "Injection drug use", category: "host", lrPos: 2.5, lrNeg: 0.9 },
-    { id: "endo_prosthetic_valve", label: "Prosthetic valve", category: "host", lrPos: 2.5, lrNeg: 0.9 },
-    { id: "endo_prior_endo", label: "Prior endocarditis", category: "host", lrPos: 2.5, lrNeg: 0.95 },
-    { id: "endo_structural", label: "Known structural valve disease", category: "host", lrPos: 1.8, lrNeg: 0.95 },
-    { id: "endo_chd", label: "Congenital heart disease", category: "host", lrPos: 1.8, lrNeg: 0.95 },
-    { id: "endo_cied", label: "Cardiac device (CIED/ICD/pacemaker)", category: "host", lrPos: 2.2, lrNeg: 0.95 },
-    { id: "endo_hd", label: "Hemodialysis", category: "host", lrPos: 2.0, lrNeg: 0.95 },
-
-    // -------------------------
     // CLINICAL FEATURES (minor Duke-ish)
     // -------------------------
     { id: "endo_fever", label: "Fever (≥38°C)", category: "symptom", lrPos: 1.4, lrNeg: 0.85 },
@@ -548,28 +537,20 @@ export const ENDO_MODULE: SyndromeLRModule = {
     { id: "endo_anemia", label: "Anemia of Chronic Disease", category: "lab", lrPos: 1.1, lrNeg: 0.95 },
     // Organism-specific risk scores
     {
-      id: "endo_predict_day1_high",
-      label: "PREDICT (SAB) day-1 score >=4",
+      id: "endo_virsta_high",
+      label: "VIRSTA (SAB) score >=3",
       category: "lab",
-      group: "endo_predict",
-      lrPos: 5.3,
-      lrNeg: 0.82,
-      notes: "Rule-in oriented threshold for S. aureus bacteremia.",
-    },
-    {
-      id: "endo_predict_day5_high",
-      label: "PREDICT (SAB) day-5 score >=2",
-      category: "lab",
-      group: "endo_predict",
+      group: "endo_virsta",
       lrPos: 2.0,
-      lrNeg: 0.26,
-      notes: "Use when day-5 data available; stronger for ruling out when below threshold.",
+      lrNeg: 0.06,
+      notes:
+        "High-sensitivity rule-out oriented SAB score for endocarditis risk stratification (external validation performance).",
     },
     {
-      id: "endo_predict_na",
-      label: "PREDICT not applied/unknown",
+      id: "endo_virsta_na",
+      label: "VIRSTA not applied/unknown",
       category: "lab",
-      group: "endo_predict",
+      group: "endo_virsta",
       notes: "Neutral selection.",
     },
     {
@@ -2210,16 +2191,16 @@ const SRC_ENDO_PET_META: LRSource = {
   url: "https://doi.org/10.1136/openhrt-2021-001856",
 };
 
-const SRC_ENDO_PREDICT_2015: LRSource = {
-  short: "Tubiana et al. Clin Infect Dis",
-  year: 2015,
-  url: "https://doi.org/10.1093/cid/civ235",
+const SRC_ENDO_VIRSTA_2016: LRSource = {
+  short: "Tubiana et al. J Infect",
+  year: 2016,
+  url: "https://doi.org/10.1016/j.jinf.2016.04.005",
 };
 
-const SRC_ENDO_PREDICT_EXT: LRSource = {
+const SRC_ENDO_VIRSTA_EXT_2021: LRSource = {
   short: "Peinado-Acevedo et al. Clin Infect Dis",
-  year: 2022,
-  url: "https://doi.org/10.1093/cid/ciab632",
+  year: 2021,
+  url: "https://doi.org/10.1093/cid/ciaa1844",
 };
 
 const SRC_ENDO_DENOVA_2018: LRSource = {
@@ -2253,9 +2234,9 @@ const SRC_VAP_INCIDENCE_COOK_1998: LRSource = {
 };
 
 const SRC_VAP_OXYGENATION_FERRER_2019: LRSource = {
-  short: "Ferrer et al. Crit Care",
+  short: "Ferrer et al. J Clin Med",
   year: 2019,
-  url: "https://doi.org/10.1186/s13054-019-2574-4",
+  url: "https://doi.org/10.3390/jcm8081217",
 };
 
 function withEvidenceSources(
@@ -2318,8 +2299,8 @@ const ENDO_MODULE_WITH_SOURCES = withEvidenceSources(ENDO_MODULE, {
     if (item.id === "endo_tte" || item.id === "endo_tte_na") return SRC_ENDO_TTE_META;
     if (item.id === "endo_pet" || item.id === "endo_pet_na") return SRC_ENDO_PET_META;
     if (item.id === "endo_tee") return SRC_ENDO_ESC_2023;
-    if (item.id === "endo_predict_day1_high") return SRC_ENDO_PREDICT_2015;
-    if (item.id === "endo_predict_day5_high" || item.id === "endo_predict_na") return SRC_ENDO_PREDICT_EXT;
+    if (item.id === "endo_virsta_high") return SRC_ENDO_VIRSTA_EXT_2021;
+    if (item.id === "endo_virsta_na") return SRC_ENDO_VIRSTA_2016;
     if (item.id === "endo_denova_high" || item.id === "endo_denova_na") {
       return SRC_ENDO_DENOVA_2018;
     }

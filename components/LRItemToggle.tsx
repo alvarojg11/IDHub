@@ -60,6 +60,27 @@ export function LRItemToggle({ item, state, disabled, onChange, onOpenEvidence }
           {lrText}
           {item.notes ? <span className="ml-2">• {item.notes}</span> : null}
         </div>
+        {item.source ? (
+          <div className="mt-1 text-xs text-slate-600 dark:text-slate-300">
+            Source:{" "}
+            {item.source.url ? (
+              <a
+                href={item.source.url}
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-2 hover:text-slate-900 dark:hover:text-slate-100"
+              >
+                {item.source.short}
+                {item.source.year ? ` (${item.source.year})` : ""}
+              </a>
+            ) : (
+              <span>
+                {item.source.short}
+                {item.source.year ? ` (${item.source.year})` : ""}
+              </span>
+            )}
+          </div>
+        ) : null}
       </div>
 
       <div className="flex items-center gap-1">
