@@ -144,14 +144,14 @@ export const VAP_MODULE: SyndromeLRModule = {
   id: "vap",
   name: "VAP",
   description:
-    "Ventilator-associated pneumonia (adult ICU, mechanically ventilated >48h) diagnostic probability update using clinical features and respiratory sampling thresholds. Core LRs are derived from a 2020 systematic review/meta-analysis using histopathology as reference standard where available.",
+    "Ventilator-associated pneumonia (adult ICU, mechanically ventilated >48h) diagnostic probability update using clinical features and respiratory microbiology. Core LRs are derived from a 2020 systematic review/meta-analysis using histopathology as reference standard where available.",
   pretestPresets: [
     {
-      id: "vap_early_suspected",
-      label: "ICU, suspected VAP, intubated >48h to day 4",
-      p: 0.25,
+      id: "vap_icu_gt48h",
+      label: "ICU, mechanically ventilated >48 hours",
+      p: 0.12,
       notes:
-        "Pragmatic early-window diagnostic pretest for a patient in whom VAP is being considered. Time cutoffs follow standard VAP definitions/early-vs-late framing; calibrate to local ICU epidemiology.",
+        "Setting/time-only baseline. Select clinical, imaging, and microbiology findings separately. Calibrate to local ICU epidemiology and surveillance definitions.",
       source: {
         short: "Cook et al. Ann Intern Med",
         year: 1998,
@@ -159,27 +159,15 @@ export const VAP_MODULE: SyndromeLRModule = {
       },
     },
     {
-      id: "vap_late_suspected",
-      label: "ICU, suspected VAP, intubated >=5 days",
-      p: 0.35,
+      id: "vap_icu_ge5d",
+      label: "ICU, mechanically ventilated >=5 days",
+      p: 0.2,
       notes:
-        "Pragmatic later-window diagnostic pretest. Time on ventilation raises cumulative VAP risk and shifts pathogen resistance risk, but local rates vary substantially.",
+        "Setting/time-only baseline with longer ventilation exposure. Higher duration mainly increases cumulative VAP risk and shifts pathogen resistance risk; calibrate locally.",
       source: {
         short: "Cook et al. Ann Intern Med",
         year: 1998,
         url: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
-      },
-    },
-    {
-      id: "vap_high_concern",
-      label: "ICU, suspected VAP (high clinical concern/workup cohort)",
-      p: 0.5,
-      notes:
-        "Guideline evidence summaries often model suspected HAP/VAP cohorts using prevalence around 50%. Use when your diagnostic threshold resembles a formal VAP workup population.",
-      source: {
-        short: "Kalil et al. ATS/IDSA HAP/VAP",
-        year: 2016,
-        url: "https://doi.org/10.1093/cid/ciw353",
       },
     },
   ],
@@ -222,12 +210,21 @@ export const VAP_MODULE: SyndromeLRModule = {
     },
     {
       id: "vap_leukocytosis",
-      label: "Leukocytosis (WBC >10-12 x10^9/L, study-dependent threshold)",
+      label: "Leukocytosis (WBC >=12 x10^9/L)",
       category: "lab",
       lrPos: 1.57,
       lrNeg: 0.61,
       notes:
-        "Threshold varied across studies (commonly >=10 or >=12 x10^9/L); weak diagnostic modifier.",
+        "Evidence synthesis used varying thresholds (commonly >=10 or >=12 x10^9/L); this module standardizes to >=12 for usability. Weak diagnostic modifier.",
+    },
+    {
+      id: "vap_hypoxemia_pf240",
+      label: "Worsening oxygenation (PaO2/FiO2 <=240)",
+      category: "vital",
+      lrPos: 0.77,
+      lrNeg: 1.95,
+      notes:
+        "Included because it is commonly used in bedside VAP suspicion frameworks, but evidence suggests poor diagnostic performance for microbiologically confirmed VAP. In one multicenter prospective cohort of suspected VAP, this threshold was associated with LESS microbiologic confirmation.",
     },
 
     // -------------------------
@@ -257,33 +254,33 @@ export const VAP_MODULE: SyndromeLRModule = {
     // -------------------------
     {
       id: "vap_eta_qcx",
-      label: "Endotracheal aspirate quantitative culture >=10^5 CFU/mL",
+      label: "Endotracheal aspirate culture positive",
       category: "micro",
       group: "vap_resp_micro",
       lrPos: 2.36,
       lrNeg: 0.36,
       notes:
-        "Set Present for a positive ETA quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+        "Set Present for clinically significant ETA culture growth (quantitative threshold if your lab reports it; semiquantitative positive interpreted clinically if not). Published pooled LRs are based primarily on quantitative thresholds.",
     },
     {
       id: "vap_psb_qcx",
-      label: "Protected specimen brush quantitative culture >=10^3 CFU/mL",
+      label: "Protected specimen brush culture positive",
       category: "micro",
       group: "vap_resp_micro",
       lrPos: 2.62,
       lrNeg: 0.5,
       notes:
-        "Set Present for a positive PSB quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+        "Set Present for clinically significant PSB culture growth. Published pooled LRs are based on quantitative thresholds (commonly >=10^3 CFU/mL).",
     },
     {
       id: "vap_bal_qcx",
-      label: "BAL quantitative culture >=10^4 CFU/mL",
+      label: "BAL culture positive",
       category: "micro",
       group: "vap_resp_micro",
       lrPos: 3.48,
       lrNeg: 0.36,
       notes:
-        "Set Present for a positive BAL quantitative culture meeting threshold; Absent for below-threshold/negative result.",
+        "Set Present for clinically significant BAL culture growth (quantitative threshold if reported; semiquantitative positive interpreted clinically if not). Published pooled LRs are based primarily on quantitative thresholds (commonly >=10^4 CFU/mL).",
     },
     {
       id: "vap_resp_micro_na",
@@ -2255,6 +2252,12 @@ const SRC_VAP_INCIDENCE_COOK_1998: LRSource = {
   url: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
 };
 
+const SRC_VAP_OXYGENATION_FERRER_2019: LRSource = {
+  short: "Ferrer et al. Crit Care",
+  year: 2019,
+  url: "https://doi.org/10.1186/s13054-019-2574-4",
+};
+
 function withEvidenceSources(
   module: SyndromeLRModule,
   opts: {
@@ -2303,6 +2306,7 @@ const UTI_MODULE_WITH_SOURCES = withEvidenceSources(UTI_MODULE, {
 const VAP_MODULE_WITH_SOURCES = withEvidenceSources(VAP_MODULE, {
   pretestSource: SRC_VAP_INCIDENCE_COOK_1998,
   resolveItemSource: (item) => {
+    if (item.id === "vap_hypoxemia_pf240") return SRC_VAP_OXYGENATION_FERRER_2019;
     if (item.id === "vap_pct_elevated" || item.id === "vap_pct_na") return SRC_VAP_GUIDELINE_2016;
     return SRC_VAP_DIAG_META_2020;
   },

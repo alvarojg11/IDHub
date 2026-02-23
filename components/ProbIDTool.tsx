@@ -47,6 +47,56 @@ const ENDO_SCORE_ITEM_IDS = [
   "endo_handoc_na",
 ] as const;
 
+type VapRiskFactorId =
+  | "male_sex"
+  | "copd"
+  | "trauma"
+  | "impaired_consciousness"
+  | "prior_antibiotics"
+  | "reintubation"
+  | "tracheostomy"
+  | "enteral_feeding"
+  | "nasogastric_tube"
+  | "h2_blocker";
+
+type VapRiskFactorOption = {
+  id: VapRiskFactorId;
+  label: string;
+  pooledOr: number;
+  notes?: string;
+};
+
+const VAP_RISK_FACTOR_OPTIONS: VapRiskFactorOption[] = [
+  { id: "male_sex", label: "Male sex", pooledOr: 1.3 },
+  { id: "copd", label: "COPD", pooledOr: 1.52 },
+  { id: "trauma", label: "Trauma admission", pooledOr: 1.47 },
+  { id: "impaired_consciousness", label: "Impaired consciousness (admission)", pooledOr: 3.14 },
+  { id: "prior_antibiotics", label: "Prior antibiotics", pooledOr: 1.52 },
+  { id: "reintubation", label: "Reintubation", pooledOr: 5.11 },
+  { id: "tracheostomy", label: "Tracheostomy", pooledOr: 3.44 },
+  { id: "enteral_feeding", label: "Enteral feeding", pooledOr: 4.73 },
+  { id: "nasogastric_tube", label: "Nasogastric tube", pooledOr: 2.94 },
+  { id: "h2_blocker", label: "H2 blocker exposure", pooledOr: 2.24 },
+];
+
+const DEFAULT_VAP_RISK_STATE: Record<VapRiskFactorId, boolean> = {
+  male_sex: false,
+  copd: false,
+  trauma: false,
+  impaired_consciousness: false,
+  prior_antibiotics: false,
+  reintubation: false,
+  tracheostomy: false,
+  enteral_feeding: false,
+  nasogastric_tube: false,
+  h2_blocker: false,
+};
+
+// ORs from incidence/risk-factor meta-analysis are not diagnostic LRs.
+// We apply them as a conservative odds-space pretest modifier with shrinkage + cap.
+const VAP_RISK_OR_SHRINK_EXPONENT = 0.5;
+const VAP_RISK_MAX_MULTIPLIER = 6;
+
 function byId(mods: SyndromeLRModule[], id?: string) {
   if (!id) return mods[0];
   return mods.find((m) => m.id === id) ?? mods[0];
@@ -69,6 +119,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [catalogQuery, setCatalogQuery] = useState("");
   const [activeFamily, setActiveFamily] = useState<string>("Location");
   const [showSelectedOnly, setShowSelectedOnly] = useState(false);
+
+  // VAP pretest risk modifiers (OR-informed, applied before diagnostic LR stack)
+  const [useVapRiskModifiers, setUseVapRiskModifiers] = useState(false);
+  const [vapRiskState, setVapRiskState] = useState<Record<VapRiskFactorId, boolean>>(DEFAULT_VAP_RISK_STATE);
 
   // Endocarditis score autocompute controls
   const [usePredict, setUsePredict] = useState(false);
@@ -101,6 +155,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
+    setUseVapRiskModifiers(false);
+    setVapRiskState(DEFAULT_VAP_RISK_STATE);
     setUsePredict(false);
     setPredictStage("day5");
     setPredictOnset("nosocomial");
@@ -124,7 +180,30 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   // Derived pretest/posttest
   const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
-  const pretestP = clamp(preset?.p ?? 0.05, 0.001, 0.999);
+  const basePretestP = clamp(preset?.p ?? 0.05, 0.001, 0.999);
+
+  const vapSelectedRiskFactors = useMemo(
+    () => VAP_RISK_FACTOR_OPTIONS.filter((opt) => vapRiskState[opt.id]),
+    [vapRiskState]
+  );
+
+  const vapRiskRawMultiplier = useMemo(() => {
+    if (activeModule.id !== "vap" || !useVapRiskModifiers) return 1;
+    return vapSelectedRiskFactors.reduce((acc, rf) => acc * rf.pooledOr, 1);
+  }, [activeModule.id, useVapRiskModifiers, vapSelectedRiskFactors]);
+
+  const vapRiskAppliedMultiplier = useMemo(() => {
+    if (activeModule.id !== "vap" || !useVapRiskModifiers) return 1;
+    const shrunk = Math.pow(vapRiskRawMultiplier, VAP_RISK_OR_SHRINK_EXPONENT);
+    return clamp(shrunk, 1, VAP_RISK_MAX_MULTIPLIER);
+  }, [activeModule.id, useVapRiskModifiers, vapRiskRawMultiplier]);
+
+  const pretestP = useMemo(() => {
+    if (activeModule.id !== "vap" || !useVapRiskModifiers) return basePretestP;
+    const odds = basePretestP / (1 - basePretestP);
+    const adjustedOdds = odds * vapRiskAppliedMultiplier;
+    return clamp(adjustedOdds / (1 + adjustedOdds), 0.001, 0.999);
+  }, [activeModule.id, basePretestP, useVapRiskModifiers, vapRiskAppliedMultiplier]);
 
   const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
 
@@ -188,6 +267,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
+    setUseVapRiskModifiers(false);
+    setVapRiskState(DEFAULT_VAP_RISK_STATE);
     setUsePredict(false);
     setPredictStage("day5");
     setPredictOnset("nosocomial");
@@ -223,6 +304,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     const p = activeModule.pretestPresets.find((x) => x.id === pId);
     if (!p) return;
     setPresetId(pId);
+  }
+
+  function toggleVapRiskFactor(id: VapRiskFactorId) {
+    setVapRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
   }
 
   // Selected: show everything active (not unknown)
@@ -410,7 +495,12 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="flex items-center justify-between">
               <div>
                 <span className="font-medium">Location:</span> {preset?.label}
-                <span className="ml-2 text-xs text-gray-600">(Pretest {formatPct(pretestP)})</span>
+                <span className="ml-2 text-xs text-gray-600">(Pretest {formatPct(basePretestP)})</span>
+                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                  <span className="ml-2 text-xs text-gray-600">
+                    (Risk-adjusted {formatPct(pretestP)})
+                  </span>
+                ) : null}
               </div>
               <button
                 type="button"
@@ -424,6 +514,68 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               </button>
             </div>
           </div>
+
+          {activeModule.id === "vap" ? (
+            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
+              <div className="font-medium text-gray-900">VAP risk modifiers (pretest)</div>
+              <p className="mt-1 text-xs text-gray-600">
+                Optional: adjust the ICU time-based pretest using pooled VAP risk-factor associations (ORs), then apply
+                diagnostic LRs. These are not diagnostic test LRs.
+              </p>
+
+              <div className="mt-3 rounded-md border bg-white p-3">
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+                  <input
+                    type="checkbox"
+                    checked={useVapRiskModifiers}
+                    onChange={(e) => setUseVapRiskModifiers(e.target.checked)}
+                  />
+                  Apply VAP risk-factor pretest adjustment
+                </label>
+
+                {useVapRiskModifiers ? (
+                  <div className="mt-3 space-y-3">
+                    <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                      {VAP_RISK_FACTOR_OPTIONS.map((rf) => (
+                        <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
+                          <input
+                            type="checkbox"
+                            checked={vapRiskState[rf.id]}
+                            onChange={() => toggleVapRiskFactor(rf.id)}
+                          />
+                          <span>
+                            {rf.label} <span className="text-gray-500">(pooled OR {rf.pooledOr.toFixed(2)})</span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+
+                    <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
+                      <div>
+                        Selected factors: <span className="font-semibold">{vapSelectedRiskFactors.length}</span>
+                      </div>
+                      <div>
+                        Raw OR product: <span className="font-semibold">{vapRiskRawMultiplier.toFixed(2)}</span>
+                      </div>
+                      <div>
+                        Applied multiplier (sqrt shrink + cap):{" "}
+                        <span className="font-semibold">{vapRiskAppliedMultiplier.toFixed(2)}</span>
+                      </div>
+                      <div>
+                        Base pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → adjusted pretest{" "}
+                        <span className="font-semibold">{formatPct(pretestP)}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-[11px] text-gray-600">
+                      Conservative implementation to avoid over-amplifying correlated ICU exposures (for example,
+                      reintubation, tracheostomy, enteral feeding, and NGT use).
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
 
           {activeModule.id === "endo" ? (
             <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
@@ -641,6 +793,9 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="mt-4 space-y-2 text-sm text-gray-700">
               <div>
                 Start: <span className="font-semibold">{formatPct(pretestP)}</span>
+                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                  <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
+                ) : null}
               </div>
               <ol className="mt-2 space-y-2">
                 {steps.map((s, idx) => (
@@ -678,7 +833,17 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="flex items-center justify-between gap-3">
               <div className="font-semibold text-gray-900">Estimated probability</div>
               <div className="text-sm text-gray-700">
-                Pretest <span className="font-semibold">{formatPct(pretestP)}</span>
+                {activeModule.id === "vap" && useVapRiskModifiers ? (
+                  <>
+                    Base <span className="font-semibold">{formatPct(basePretestP)}</span>{" "}
+                    <span className="mx-1">•</span>
+                    Adj pretest <span className="font-semibold">{formatPct(pretestP)}</span>
+                  </>
+                ) : (
+                  <>
+                    Pretest <span className="font-semibold">{formatPct(pretestP)}</span>
+                  </>
+                )}
               </div>
             </div>
 
@@ -1090,6 +1255,9 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                 <div className="text-sm text-gray-700">
                   Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
                   <span className="font-semibold">{formatPct(pretestP)}</span>
+                  {activeModule.id === "vap" && useVapRiskModifiers ? (
+                    <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
+                  ) : null}
                 </div>
                 <button
                   type="button"

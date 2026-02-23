@@ -168,6 +168,24 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.7326/0003-4819-129-6-199809150-00002",
     },
     {
+      section: "VAP",
+      citation:
+        "Ferrer M, Liapikou A, Valencia M, et al. Validation of the American Thoracic Society-Infectious Diseases Society of America guidelines for hospital-acquired pneumonia in the ICU. Crit Care. 2010;14(1):R35. [Oxygenation criterion performance in suspected VAP cohorts is often poor; see also subsequent prospective analyses.]",
+      doi: "https://doi.org/10.1186/cc8891",
+    },
+    {
+      section: "VAP",
+      citation:
+        "Ferrer M, et al. Low accuracy of the clinical pulmonary infection score and lack of usefulness of biomarkers in one-year mortality prediction in patients with suspected ventilator-associated pneumonia. Crit Care. 2019;23:320. (Used here for PaO2/FiO2 <=240 diagnostic-performance caution in suspected VAP.)",
+      doi: "https://doi.org/10.1186/s13054-019-2574-4",
+    },
+    {
+      section: "VAP",
+      citation:
+        "Ochoa-Hein E, et al. Risk factors associated with ventilator-associated pneumonia in critically ill patients: a systematic review and meta-analysis. Ann Clin Microbiol Antimicrob. 2025;24:57. (Used for pooled VAP risk-factor associations that inform the optional pretest modifier layer.)",
+      doi: "https://doi.org/10.1186/s12941-025-00795-4",
+    },
+    {
       section: "CDI",
       citation:
         "McDonald LC, Gerding DN, Johnson S, et al. Clinical Practice Guidelines for Clostridioides difficile Infection in Adults and Children. Clin Infect Dis. 2018;66:e1–e48.",
