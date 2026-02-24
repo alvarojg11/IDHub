@@ -241,6 +241,7 @@ export async function sendContactEmail(args: {
   email: string;
   organization?: string;
   message: string;
+  context?: "contact" | "research";
 }) {
   const to = process.env.CONTACT_TO_EMAIL;
   if (!to) {
@@ -248,8 +249,10 @@ export async function sendContactEmail(args: {
   }
 
   const organization = args.organization?.trim();
+  const context = args.context === "research" ? "research" : "contact";
+  const contextLabel = context === "research" ? "research inquiry" : "contact";
   const subjectPrefix = process.env.CONTACT_SUBJECT_PREFIX?.trim() || "IDHub contact";
-  const subject = `${subjectPrefix}: ${args.name}`;
+  const subject = `${subjectPrefix} (${contextLabel}): ${args.name}`;
   const escapedName = escapeHtml(args.name);
   const escapedEmail = escapeHtml(args.email);
   const escapedOrg = organization ? escapeHtml(organization) : null;
@@ -259,6 +262,7 @@ export async function sendContactEmail(args: {
     `Name: ${args.name}`,
     `Email: ${args.email}`,
     `Organization: ${organization || "-"}`,
+    `Context: ${contextLabel}`,
     "",
     "Message:",
     args.message,
@@ -268,14 +272,15 @@ export async function sendContactEmail(args: {
     <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
       <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
         <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
-          <h2 style="margin: 0; font-size: 22px; line-height: 1.25; color: #1f6f4a;">New contact message</h2>
-          <p style="margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: #3f5649;">Sent from the IDHub contact page.</p>
+          <h2 style="margin: 0; font-size: 22px; line-height: 1.25; color: #1f6f4a;">New ${context === "research" ? "research" : "contact"} message</h2>
+          <p style="margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: #3f5649;">Sent from the IDHub ${context === "research" ? "research" : "contact"} page.</p>
         </div>
 
         <div style="padding: 20px 24px;">
           <p style="margin: 0 0 8px; font-size: 14px;"><strong>Name:</strong> ${escapedName}</p>
           <p style="margin: 0 0 8px; font-size: 14px;"><strong>Email:</strong> ${escapedEmail}</p>
           <p style="margin: 0 0 14px; font-size: 14px;"><strong>Organization:</strong> ${escapedOrg ?? "-"}</p>
+          <p style="margin: 0 0 14px; font-size: 14px;"><strong>Context:</strong> ${escapeHtml(contextLabel)}</p>
 
           <div style="margin: 0; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
             <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #0f1a13;">${escapedMessage}</p>

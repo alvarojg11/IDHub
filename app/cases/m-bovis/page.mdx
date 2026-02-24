@@ -1,0 +1,304 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Cheesy Clue
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 30-year-old man with no known past medical history presents with months of worsening
+    abdominal pain, chronic diarrhea, progressive fatigue, lower-extremity edema, and
+    approximately 25 kg of unintentional weight loss over 6 months. He reports that his
+    diarrhea began earlier in the year and persisted despite prior antibiotic empiric treatment.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Prior abdominal imaging at an outside hospital reportedly showed extensive abdominal and
+    pelvic lymphadenopathy with mass-like thickening of the terminal ileum and cecum, raising
+    concern for malignancy. He declined admission at that time. Symptoms progressed as he developed worsening abdominal pain, fatigue,
+    and ongoing diarrhea, prompting emergency evaluation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was born and raised in Guatemala, but lived in Mexico most of his live, and has traveled between Mexico and the United
+    States mukltiple times. He denies smoking, alcohol, substance use, incarceration, and known tuberculosis
+    contacts. He reports frequently eating traditional foods, including unpasteurized
+    &ldquo;queso fresco.&rdquo; has two dogs. 
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he is cachectic but not in acute distress. Temperature is 36.7 C, heart
+    rate 103/min, blood pressure 91/63 mmHg, and respiratory rate 18/min. He has pale
+    conjunctivae, decreased air entry on the right hemithorax, right lower-quadrant abdominal
+    tenderness, and 2+ bilateral lower-extremity edema. A chest radiograph is obtained as part
+    of the inpatient workup.
+  </p>
+</div>
+
+<div className="mx-auto my-12 grid max-w-5xl gap-6 md:grid-cols-2">
+  <figure className="flex h-full flex-col">
+    <div className="flex h-[320px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/m-bovis/abdominal-ct.png"
+        alt="Coronal abdominal CT showing extensive abdominal and pelvic lymphadenopathy with ileocecal pathology"
+        width={668}
+        height={642}
+        className="rounded-lg mx-auto h-full w-full max-w-[420px] object-contain"
+      />
+    </div>
+
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Abdominal CT
+    </figcaption>
+  </figure>
+
+  <figure className="flex h-full flex-col">
+    <div className="flex h-[320px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/m-bovis/chest-xray.png"
+        alt="Chest radiograph showing bilateral patchy pulmonary opacities and right pleural effusion"
+        width={973}
+        height={726}
+        className="rounded-lg mx-auto h-full w-full max-w-[420px] object-contain"
+      />
+    </div>
+
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Chest X-ray
+    </figcaption>
+  </figure>
+</div>
+
+<CaseQuestion
+  pollId="case-mbovis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Ileocecal adenocarcinoma with metastatic disease",
+      feedback:
+        "Incorrect. Malignancy is an important consideration given the ileocecal mass-like thickening and weight loss, but the exposure history and subsequent mycobacterial workup favor an infectious cause.",
+    },
+    {
+      id: "B",
+      label: "Crohn disease with fistulizing/stricturing ileocolitis",
+      feedback:
+        "Incorrect. Crohn disease can mimic this presentation, but the epidemiologic clue (unpasteurized dairy) and mycobacterial considerations make intestinal tuberculosis due to M. bovis more likely.",
+    },
+    {
+      id: "C",
+      label: "Disseminated histoplasmosis",
+      feedback:
+        "Incorrect. Disseminated fungal infection can cause weight loss, GI symptoms, and lymphadenopathy, but the classic zoonotic food exposure and TB-complex context point elsewhere.",
+    },
+    {
+      id: "D",
+      label: "Disseminated Mycobacterium tuberculosis complex",
+      correct: true,
+      feedback:
+        "Correct. Chronic GI symptoms, weight loss, abdominal lymphadenopathy/ileocecal involvement, pulmonary findings, and exposure to unpasteurized queso fresco strongly support M. bovis infection within the M. tuberculosis complex.",
+    },
+    {
+      id: "E",
+      label: "Whipple disease",
+      feedback:
+        "Incorrect. Chronic diarrhea and weight loss can fit, but the imaging pattern and tuberculosis-complex epidemiology make M. bovis more likely.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-mbovis-q2"
+  title="Question 2"
+  prompt="Sputum AFB testing and mycobacterial workup identify Mycobacterium bovis. Which is the best treatment regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Isoniazid + rifampin + ethambutol for 2 months, then isoniazid + rifampin for 7 more months (avoid pyrazinamide)",
+      correct: true,
+      feedback:
+        "Correct. M. bovis is intrinsically resistant to pyrazinamide, so treatment generally uses INH/RIF/EMB initially followed by INH/RIF to complete an extended course (commonly 9 total months in drug-susceptible disease).",
+    },
+    {
+      id: "B",
+      label: "Isoniazid, rifampin, pyrazinamide, and ethambutol for 6 months total",
+      feedback:
+        "Incorrect. The key issue is intrinsic pyrazinamide resistance in M. bovis, so the usual 6-month rifampin-based regimen including pyrazinamide is not appropriate.",
+    },
+    {
+      id: "C",
+      label: "Rifampin monotherapy for 4 months",
+      feedback:
+        "Incorrect. Monotherapy is inadequate and risks resistance; TB-complex disease requires combination therapy.",
+    },
+    {
+      id: "D",
+      label: "Azithromycin, rifampin, and ethambutol",
+      feedback:
+        "Incorrect. This is a nontuberculous mycobacterial-style regimen and not appropriate for M. tuberculosis complex infection.",
+    },
+    {
+      id: "E",
+      label: "No treatment until full species sequencing and phenotypic susceptibility testing are finalized",
+      feedback:
+        "Incorrect. Once TB-complex disease is identified and M. bovis is suspected/confirmed, therapy should be started promptly with a pyrazinamide-sparing regimen while additional susceptibility data are completed.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-mbovis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Mycobacterium bovis</em> is a member of the <em>M. tuberculosis</em> complex and can cause
+    pulmonary, extrapulmonary, or disseminated tuberculosis in humans. In many modern cases in the
+    United States, an important epidemiologic clue is ingestion of unpasteurized dairy products
+    (such as queso fresco), particularly in patients with ties to regions where bovine TB exposure
+    remains relevant.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The ileocecal region is a classic site of gastrointestinal tuberculosis, and chronic abdominal
+    pain, diarrhea, weight loss, and abdominal lymphadenopathy can mimic inflammatory bowel disease
+    or malignancy. This case also includes pulmonary imaging abnormalities, which broadens concern
+    for TB-complex infection rather than an isolated gastrointestinal process.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A major management implication of identifying <em>M. bovis</em> is intrinsic resistance to
+    pyrazinamide (PZA). For that reason, standard 6-month therapy for drug-susceptible pulmonary
+    <em>M. tuberculosis</em> (which depends on PZA to shorten duration) is not used. Treatment is
+    typically extrapolated from pyrazinamide-resistant TB experience and guideline-based practice,
+    commonly using isoniazid, rifampin, and ethambutol initially, followed by isoniazid plus
+    rifampin to complete a longer course (often 9 months total in uncomplicated, drug-susceptible
+    disease).
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Species-level identification within the <em>M. tuberculosis</em> complex may require genotypic
+    methods (e.g., PCR-based methods, line probe assays, sequencing, or other laboratory workflows)
+    in addition to culture growth. While precise laboratory workflows vary by institution, the
+    clinical consequence is the same: recognizing <em>M. bovis</em> changes the regimen because PZA
+    should be avoided.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-mbovis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>M. bovis</em> is part of the <em>M. tuberculosis</em> complex and can present with pulmonary,
+      gastrointestinal, or disseminated TB.
+    </li>
+    <li>
+      Unpasteurized dairy exposure (especially queso fresco) is an important epidemiologic clue for human <em>M. bovis</em> infection.
+    </li>
+    <li>
+      Ileocecal TB can mimic malignancy and inflammatory bowel disease with chronic diarrhea, abdominal pain, and weight loss.
+    </li>
+    <li>
+      <em>M. bovis</em> is intrinsically resistant to pyrazinamide, so treatment is typically pyrazinamide-sparing and longer than standard 6-month TB therapy.
+    </li>
+    <li>
+      Species-level identification within the TB complex can directly change management, not just refine epidemiology.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nahid P, Dorman SE, Alipanah N, et al. Official American Thoracic Society/Centers for
+      Disease Control and Prevention/Infectious Diseases Society of America Clinical Practice
+      Guidelines: Treatment of Drug-Susceptible Tuberculosis. <em>Clinical Infectious Diseases</em>.
+      2016;63(7):e147-e195.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw376"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/ciw376
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hlavsa MC, Moonan PK, Cowan LS, et al. Human tuberculosis due to <em>Mycobacterium bovis</em>
+      in the United States, 1995-2005. <em>Clinical Infectious Diseases</em>. 2008;47(2):168-175.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/589240"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1086/589240
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pinsky BA, Banaei N. Multiplex real-time PCR assay for rapid identification of
+      <em> Mycobacterium tuberculosis</em> complex members to the species level.
+      <em> Journal of Clinical Microbiology</em>. 2008;46(7):2241-2246.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.00347-08"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/JCM.00347-08
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Malone KM, Gordon SV. <em>Mycobacterium tuberculosis</em> complex members adapted to wild and
+      domestic animals. In: <em>Advances in Experimental Medicine and Biology</em>. 2017;1019:135-154.
+    </p>
+  </div>
+</div>

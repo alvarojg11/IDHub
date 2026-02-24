@@ -77,6 +77,11 @@ const cases = [
     slug: "lbrf",
     description: "Recurrent fever, jaundice, and a diagnosis hiding in the clothing seams.",
   },
+  {
+    title: "The Cheese Clue",
+    slug: "m-bovis",
+    description: "Infectious differential for chronic diarrhea and edema.",
+  },
 ];
 
 export default function CasesPage() {

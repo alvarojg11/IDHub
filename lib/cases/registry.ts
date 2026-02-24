@@ -97,6 +97,12 @@ export const CASES: CaseMeta[] = [
     description: "Recurrent fever, jaundice, and a diagnosis hiding in the clothing seams.",
     enable: true
   },
+  {
+    title: "The Cheese Clue",
+    slug: "m-bovis",
+    description: "Infectious differential for chronic diarrhea and edema.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

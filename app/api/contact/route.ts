@@ -10,6 +10,7 @@ type ContactBody = {
   organization?: string;
   message?: string;
   website?: string;
+  context?: string;
 };
 
 function asText(value: unknown) {
@@ -40,6 +41,7 @@ export async function POST(request: NextRequest) {
   const email = normalizeEmail(asText(body.email));
   const organization = asText(body.organization);
   const message = asText(body.message);
+  const context = asText(body.context) === "research" ? "research" : "contact";
 
   if (name.length < 2 || name.length > 120) {
     return NextResponse.json({ ok: false, error: "Please enter a valid name." }, { status: 400 });
@@ -66,6 +68,7 @@ export async function POST(request: NextRequest) {
       email,
       organization: organization || undefined,
       message,
+      context,
     });
 
     if (!sent.ok) {

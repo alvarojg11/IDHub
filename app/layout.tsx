@@ -66,6 +66,9 @@ export default function RootLayout({
               <Link href="/tools/doseid" className="hover:text-[var(--primary)]">
                 DoseID
               </Link>
+              <Link href="/research" className="hover:text-[var(--primary)]">
+                Research
+              </Link>
               <Link href="/subscribe" className="hover:text-[var(--primary)]">
                 Subscribe
               </Link>

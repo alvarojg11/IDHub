@@ -33,6 +33,11 @@ const tiles = [
     desc: "A reference app for optimizing antimicrobial dosing",
   },
   {
+    href: "/research",
+    title: "Research",
+    desc: "A space for medical education research ideas, collaborations, and projects in clinical infectious diseases.",
+  },
+  {
     href: "/about",
     title: "About",
     desc: "Why IDHub exists, how it’s meant to be used, and the philosophy behind case-based learning and clinical reasoning in infectious diseases.",

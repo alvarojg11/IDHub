@@ -9,6 +9,7 @@ type ContactState = {
   organization: string;
   message: string;
   website: string; // honeypot
+  context: string;
 };
 
 const INITIAL_STATE: ContactState = {
@@ -17,11 +18,26 @@ const INITIAL_STATE: ContactState = {
   organization: "",
   message: "",
   website: "",
+  context: "contact",
 };
 
-export default function ContactForm() {
+type ContactFormProps = {
+  context?: "contact" | "research";
+  organizationLabel?: string;
+  messageLabel?: string;
+  submitLabel?: string;
+  successRedirect?: string;
+};
+
+export default function ContactForm({
+  context = "contact",
+  organizationLabel = "Feedback, Idea, or Project (optional)",
+  messageLabel = "Message",
+  submitLabel = "Send message",
+  successRedirect = "/contact/thanks",
+}: ContactFormProps) {
   const router = useRouter();
-  const [form, setForm] = useState<ContactState>(INITIAL_STATE);
+  const [form, setForm] = useState<ContactState>({ ...INITIAL_STATE, context });
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
 
@@ -49,8 +65,8 @@ export default function ContactForm() {
         throw new Error(body?.error ?? "Could not send message.");
       }
 
-      setForm(INITIAL_STATE);
-      router.push("/contact/thanks");
+      setForm({ ...INITIAL_STATE, context });
+      router.push(successRedirect);
     } catch (err) {
       setResult({
         ok: false,
@@ -90,7 +106,7 @@ export default function ContactForm() {
 
       <label className="block">
         <span className="text-sm font-medium text-[var(--foreground)]">
-          Feedback, Idea, or Project (optional)
+          {organizationLabel}
         </span>
         <input
           value={form.organization}
@@ -101,7 +117,7 @@ export default function ContactForm() {
       </label>
 
       <label className="block">
-        <span className="text-sm font-medium text-[var(--foreground)]">Message</span>
+        <span className="text-sm font-medium text-[var(--foreground)]">{messageLabel}</span>
         <textarea
           required
           value={form.message}
@@ -128,7 +144,7 @@ export default function ContactForm() {
           disabled={submitting}
           className="rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {submitting ? "Sending..." : "Send message"}
+          {submitting ? "Sending..." : submitLabel}
         </button>
 
         {result ? (
