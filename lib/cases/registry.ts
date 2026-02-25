@@ -98,9 +98,15 @@ export const CASES: CaseMeta[] = [
     enable: true
   },
   {
-    title: "The Cheese Clue",
+    title: "A Cheesy Clue",
     slug: "m-bovis",
     description: "Infectious differential for chronic diarrhea and edema.",
+    enable: true
+  },
+  {
+    title: "After the Steroid Burst",
+    slug: "strongyloides-hyperinfection",
+    description: "ICU shock, pulmonary infiltrates, and diarrhea after immunosuppression.",
     enable: true
   },
 ].filter((c) => c.enable !== false);

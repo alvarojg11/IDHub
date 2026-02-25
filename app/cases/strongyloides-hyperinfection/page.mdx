@@ -1,0 +1,311 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  After the Steroid Burst
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 69-year-old man is admitted to the ICU with progressive dyspnea, diarrhea,
+    abdominal pain, and fever. He was born in rural Ecuador and has lived in the United
+    States for many years. He has been on prednisone 20 mg daily for the last 2 months for 
+    concerns for polymialgia rheumatica. He has not been on TMP/SMX for PJP prophylaxis. 
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two days before admsiion, he developed worsening cough, wheezing, and diffuse weakness. 
+    In the emergency department he became hypotensive and
+    hypoxemic, requiring vasopressors and ICU transfer. Chest imaging shows bilateral patchy
+    interstitial and alveolar infiltrates. Blood cultures later grow a gram-negative enteric
+    organism.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is ill-appearing, tachypneic, and confused. Temperature is 38.8 °C,
+    heart rate 118/min, blood pressure 86/52 mmHg on norepinephrine, and oxygen saturation
+    90% on high-flow oxygen. He has diffuse wheezing, abdominal distension with mild diffuse
+    tenderness.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory tests show WBC 18.6 x10^9/L (88% neutrophils), hemoglobin 10.4 g/dL, platelets
+    142 x10^9/L, absolute eosinophil count 0.1 x10^9/L, creatinine 2.1 mg/dL (baseline 0.9),
+    bicarbonate 17 mmol/L, and lactate 5.2 mmol/L.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-4xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/strongyloides-hyperinfection/strongy.png"
+      alt="Chest X-ray with bilateral patchy infiltrates in Strongyloides hyperinfection"
+      width={1200}
+      height={900}
+      className="rounded-lg mx-auto h-auto w-full"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Chest X-ray
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-strongy-hyper-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Pneumocystis jirovecii pneumonia with steroid-associated sepsis",
+      feedback:
+        "Incorrect. PCP can cause hypoxemia and diffuse infiltrates, but it does not explain the GI symptoms and classic association with enteric bacteremia from larval translocation.",
+    },
+    {
+      id: "B",
+      label: "Viscus perforation secondary to peptic ulcer disease",
+      feedback:
+        "Incorrect. This may explain severe illness and sepsis, but it does not fit the combined pulmonary and gastrointestinal syndrome with steroid exposure and enteric polymicrobail bacteremia pattern seen in Strongyloides hyperinfection.",
+    },
+    {
+      id: "C",
+      label: "Severe community-acquired pneumonia with septic shock",
+      feedback:
+        "Incorrect. Bacterial pneumonia alone does not explain the combined pulmonary/GI syndrome.",
+    },
+    {
+      id: "D",
+      label: "VZV pneumonitis",
+      feedback:
+        "Incorrect. VZV pneumonitis can cause severe pulmonary disease in immunocompromised patients, but it does not explain the GI syndrome and enteric bacteremia pattern of Strongyloides hyperinfection.",
+    },
+    {
+      id: "E",
+      label: "Strongyloides stercoralis hyperinfection syndrome",
+      correct: true,
+      feedback:
+        "Correct. Recent corticosteroid exposure, GI + pulmonary symptoms, enteric bacteremia, and possible larva currens are classic clues for Strongyloides hyperinfection syndrome.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-strongy-hyper-q2"
+  title="Question 2"
+  prompt="Which management approach is most appropriate now for the most likely etiologic diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Single-dose ivermectin and discharge when oxygenation improves",
+      feedback:
+        "Incorrect. Single-dose therapy may be used for uncomplicated infection, but hyperinfection requires prolonged daily treatment and inpatient monitoring.",
+    },
+    {
+      id: "B",
+      label: "Daily ivermectin plus empiric treatment of concurrent bacterial infection, with reduction of immunosuppression when feasible",
+      correct: true,
+      feedback:
+        "Correct. Hyperinfection syndrome requires daily ivermectin (often for at least 14 days and continued until clinical improvement and parasitologic clearance), management of concurrent bacteremia/sepsis, and minimization of immunosuppression when possible.",
+    },
+    {
+      id: "C",
+      label: "Albendazole monotherapy for 3 days",
+      feedback:
+        "Incorrect. Albendazole is less effective than ivermectin and is inadequate for severe/complicated strongyloidiasis.",
+    },
+    {
+      id: "D",
+      label: "Increase corticosteroids to treat presumed inflammatory pneumonitis while awaiting serology",
+      feedback:
+        "Incorrect. Corticosteroids can accelerate autoinfection and precipitate worsening hyperinfection/dissemination.",
+    },
+    {
+      id: "E",
+      label: "Continue empiric vancomycin and piperacillin-tazobactam, follow culture identification, and obtain urgent surgical consultation",
+      feedback:
+        "Incorrect. Broad-spectrum antibiotics and source-control evaluation may be appropriate parts of early sepsis care, but they do not address the underlying parasitic hyperinfection and should not delay ivermectin when Strongyloides hyperinfection is suspected.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-strongy-hyper-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Strongyloides stercoralis</em> is a soil-transmitted nematode with a unique ability to
+    perpetuate infection through autoinfection. Rhabditiform larvae can mature into infective
+    filariform larvae within the host, then penetrate the intestinal mucosa or perianal skin and
+    restart the migration cycle. This allows chronic infection to persist for years or even
+    lifelong, often with few or nonspecific symptoms.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hyperinfection syndrome occurs when autoinfection accelerates, typically in the setting of
+    impaired cell-mediated immunity. Corticosteroids are the most common trigger and can precipitate
+    severe disease within days. HTLV-1 infection is another major risk factor. During hyperinfection,
+    larvae are abundant in organs involved in the normal life cycle (GI tract and lungs), causing
+    GI symptoms, pulmonary infiltrates, respiratory failure, and a marked increase in parasite burden.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A key complication is translocation of enteric bacteria across damaged intestinal mucosa during
+    larval penetration. This explains the frequent association with gram-negative or polymicrobial
+    bacteremia, meningitis, pneumonia, and septic shock. The combination of steroid exposure,
+    pulmonary and GI symptoms, and enteric bacteremia should immediately raise suspicion for severe
+    strongyloidiasis. Eosinophilia may be absent in hyperinfection and in immunocompromised hosts,
+    so a normal eosinophil count does not exclude the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis of chronic strongyloidiasis is often difficult because stool shedding is intermittent
+    and single stool microscopy has low sensitivity; repeated stool exams (often 3 to 7), stool
+    culture techniques (including agar plate culture), and serology are commonly combined. In
+    hyperinfection syndrome, however, parasite burden is much higher, and larvae may be identified
+    in stool, sputum, bronchoalveolar lavage, and other clinical specimens. Finding larvae in
+    respiratory samples strongly supports hyperinfection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Ivermectin is the cornerstone of treatment. For hyperinfection or disseminated strongyloidiasis,
+    daily ivermectin (200 μg/kg/day) is generally recommended for at least 14 days and often longer,
+    continued until clinical improvement and repeated parasitologic studies are negative (stool culture). Concurrent
+    bacterial/fungal infections must be treated promptly, and immunosuppressive therapy should be
+    reduced whenever feasible. In patients unable to absorb oral medication, alternative routes
+    (including rectal or subcutaneous veterinary formulations under special protocols) have been
+    used in severe cases.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-strongy-hyper-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Strongyloides</em> can persist for years through autoinfection, so remote exposure in endemic regions remains clinically relevant.
+    </li>
+    <li>
+      Corticosteroids are the most common trigger for hyperinfection syndrome and can precipitate rapid deterioration.
+    </li>
+    <li>
+      Hyperinfection often presents with combined GI and pulmonary symptoms plus enteric bacteremia or sepsis.
+    </li>
+    <li>
+      Absence of eosinophilia does not exclude severe strongyloidiasis, especially in immunocompromised patients.
+    </li>
+    <li>
+      Chronic strongyloidiasis often requires repeated stool testing and/or serology because of intermittent larval shedding.
+    </li>
+    <li>
+      Hyperinfection requires daily ivermectin and aggressive management of concurrent bacterial/fungal infections; do not delay therapy while waiting for serology.
+    </li>
+    <li>
+      Screening before immunosuppression (especially steroids or transplantation) is essential in patients with epidemiologic risk.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Luvira V, Siripoon T, Phiboonbanakit D, et al. <em>Strongyloides stercoralis</em>: A
+      neglected but fatal parasite. <em>Tropical Medicine and Infectious Disease</em>.
+      2022;7(10):310.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/tropicalmed7100310"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3390/tropicalmed7100310
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Keiser PB, Nutman TB. <em>Strongyloides stercoralis</em> in the immunocompromised population.
+      <em> Clinical Microbiology Reviews</em>. 2004;17(1):208-217.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.17.1.208-217.2004"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/CMR.17.1.208-217.2004
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Buonfrate D, Requena-Mendez A, Angheben A, et al. Severe strongyloidiasis: a systematic
+      review of case reports. <em>BMC Infectious Diseases</em>. 2013;13:78.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1186/1471-2334-13-78"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1186/1471-2334-13-78
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Boggild AK, Libman M, Greenaway C, McCarthy AE. CATMAT statement on disseminated
+      strongyloidiasis: prevention, assessment and management guidelines.
+      <em> Canada Communicable Disease Report</em>. 2016;42(1):12-19.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.14745/ccdr.v42i01a03"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.14745/ccdr.v42i01a03
+      </a>
+    </p>
+  </div>
+</div>
