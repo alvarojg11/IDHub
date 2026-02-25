@@ -15,7 +15,7 @@ const tiles = [
   {
     href: "/mechid",
     title: "MechID",
-    desc: "An interactive susceptibility interpretation tool to support antimicrobial selection and stewardship.",
+    desc: "Need help interpreting antimicrobial susceptibility results? Try MechID.",
   },
   {
     href: "/tools/immunoid",
