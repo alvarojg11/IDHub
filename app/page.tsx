@@ -52,7 +52,7 @@ export default function Home() {
           <h1 className="text-5xl tracking-tight">
             <span className="font-extrabold text-[var(--foreground)]">ID</span>
             <span className="font-semibold text-[var(--foreground)]/80">
-              Hub
+              Hub 
             </span>
           </h1>
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
           IDHub is an educational platform with interactive clinical tools and
           case-based learning to encourage and enhance clinical decision-making
           for clinicians, students, and trainees, and to build a community
-          interested in clinical Infectious Diseases and medical education.
+          interested in clinical Infectious Diseases and Medical Education.
         </p>
       </header>
 
