@@ -3,6 +3,11 @@ import SubscribeForm from "@/components/SubscribeForm";
 
 const cases = [
   {
+    title: "Post-traumatic Knee Lesion with Sporotrichoid Spread",
+    slug: "nocardia-brasiliensis",
+    description: "Primary cutaneous lymphocutaneous nocardiosis after trauma.",
+  },
+  {
     title: "Fever, Urinary Symptoms, and a Heart Murmur",
     slug: "aerococcus",
     description: "Beyond the obvious: Gram-positive clusters.",

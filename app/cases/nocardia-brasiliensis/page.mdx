@@ -1,0 +1,279 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Coral Cut That Kept Climbing
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 25-year-old woman presents with painful erythematous edema of the right knee.
+    Over the last several days she has developed worsening redness, superficial
+    erosions, shallow ulcers, and several small satellite pustules.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Most recently, she returned from a trip to Brazil, where she spent several days
+    surfing near coral reefs and recalls multiple superficial lacerations to her
+    legs. Since returning home, she has continued frequent gardening but does not
+    remember a specific puncture wound or traumatic injury. She also notes regular
+    contact with feral cats near her neighborhood.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She is otherwise healthy and takes no immunosuppressive medications.
+    Examination shows tender knee edema with maceration and ulceration, multiple
+    erythematous nodules in a sporotrichoid (lymphangitic) distribution extending
+    up the right thigh, and right inguinal lymphadenopathy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She was initially seen at urgent care and prescribed cephalexin for concern for
+    a skin and soft tissue infection. Unfortunately, she did not improve and
+    re-presented with progression of the lesions, at which point you were
+    consulted.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 14,900/mm3 (85.8% neutrophils),
+    hemoglobin 14.0 g/dL, platelets 23.2 × 10^4/mm3, creatinine 0.6 mg/dL, CRP
+    0.7 mg/dL, and ESR 17 mm/h. Skin biopsy demonstrates nonspecific granulomatous
+    inflammation with abscess formation. Grocott stain reveals fine filamentous
+    branching bacilli in the dermis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Cultures including routine bacterial, fungal, and AFB are pending.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <a
+    href="https://doi.org/10.1111/j.1346-8138.2008.00482.x"
+    target="_blank"
+    rel="noreferrer"
+    className="inline-block rounded-lg border border-gray-300 bg-transparent p-1 hover:opacity-90 transition"
+  >
+    <Image
+      src="/cases/nocardia-brasiliensis/nocardia.png"
+      alt="Gram stain showing branching Gram-positive rods consistent with Nocardia"
+      width={700}
+      height={520}
+      className="rounded-lg"
+    />
+  </a>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Obtained from Fukuda H et al., <em>The Journal of Dermatology</em> (2008).
+    {" "}DOI:{" "}
+    <a
+      href="https://doi.org/10.1111/j.1346-8138.2008.00482.x"
+      target="_blank"
+      rel="noreferrer"
+      className="text-blue-600 hover:underline"
+    >
+      10.1111/j.1346-8138.2008.00482.x
+    </a>
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-nocardia-brasiliensis-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Lymphocutaneous sporotrichosis",
+      feedback:
+        "Incorrect. Sporotrichosis is an important sporotrichoid mimic, but the biopsy and special stains here point toward branching filamentous bacteria rather than fungal forms.",
+    },
+    {
+      id: "B",
+      label: "Uncomplicated bacterial skin and soft tissue infection",
+      feedback:
+        "Incorrect. The sporotrichoid spread, granulomatous inflammation, and branching filamentous organisms on special stains are not typical for a routine skin and soft tissue infection.",
+    },
+    {
+      id: "C",
+      label: "Lymphocutaneous primary cutaneous nocardiosis due to Nocardia brasiliensis",
+      correct: true,
+      feedback:
+        "Correct. Inoculation-associated exposure (including minor or unrecognized trauma), sporotrichoid nodules, granulomatous inflammation, and branching Gram-positive weakly acid-fast filaments strongly support lymphocutaneous nocardiosis, classically caused by N. brasiliensis in cutaneous disease.",
+    },
+    {
+      id: "D",
+      label: "Cutaneous atypical mycobacterial infection (M. marinum)",
+      feedback:
+        "Incorrect. M. marinum can produce sporotrichoid lesions, but the described branching filamentous morphology favors Nocardia.",
+    },
+    {
+      id: "E",
+      label: "Cutaneous leishmaniasis",
+      feedback:
+        "Incorrect. Cutaneous leishmaniasis can cause ulcerative skin lesions after travel, but the tissue findings here support a filamentous actinomycete rather than intracellular amastigotes.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-nocardia-brasiliensis-q2"
+  title="Question 2"
+  prompt="What is the best next step?"
+  options={[
+    {
+      id: "A",
+      label: "Start cefadroxil plus doxycycline",
+      feedback:
+        "Incorrect. This may cover some common skin and soft tissue pathogens, but it does not adequately address suspected nocardiosis based on the biopsy/stain findings.",
+    },
+    {
+      id: "B",
+      label: "Start TMP/SMX",
+      correct: true,
+      feedback:
+        "Correct. TMP/SMX is a standard first-line option for suspected nocardiosis while cultures and speciation/susceptibility testing are pending, with later tailoring based on results and clinical response.",
+    },
+    {
+      id: "C",
+      label: "Start itraconazole",
+      feedback:
+        "Incorrect. Itraconazole would be appropriate for some fungal causes of sporotrichoid disease, but the histopathology here points toward nocardiosis.",
+    },
+    {
+      id: "D",
+      label: "Start azithromycin and ethambutol",
+      feedback:
+        "Incorrect. This combination is more aligned with treatment for certain nontuberculous mycobacterial infections, not classic cutaneous nocardiosis.",
+    },
+    {
+      id: "E",
+      label: "Proceed directly to surgery",
+      feedback:
+        "Incorrect. Surgery can be useful in selected cases, but systemic anti-nocardial therapy is the key next step here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-nocardia-brasiliensis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Primary cutaneous nocardiosis usually follows direct inoculation after trauma
+    and can present as localized disease, mycetoma, or a lymphocutaneous pattern
+    with nodules spreading proximally along lymphatic channels (a sporotrichoid
+    pattern). This appearance often leads clinicians to initially consider
+    sporotrichosis, a routine bacterial skin and soft tissue infection, or nontuberculous mycobacterial
+    infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On Gram stain, <em>Nocardia</em> classically appears as branching, beaded,
+    filamentous Gram-positive rods. On modified acid-fast staining, organisms are
+    often weakly acid-fast, which helps distinguish nocardiosis from several other
+    filamentous bacteria. In culture, <em>Nocardia</em> may require several days to
+    grow and often forms dry, chalky, white-to-pigmented colonies, so clinicians
+    should communicate suspicion early and ensure the laboratory holds cultures long
+    enough for recovery and speciation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Patients with nocardiosis should be evaluated for deeper or disseminated
+    infection (especially pulmonary involvement) and for immunocompromising
+    conditions, but primary cutaneous disease can occur in immunocompetent hosts
+    after inoculation exposures, sometimes without a clearly recalled injury.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment should be individualized to the syndrome, species, and susceptibility
+    profile. TMP-SMX is commonly used as initial therapy for suspected cutaneous
+    nocardiosis, while alternatives such as minocycline may be appropriate for some
+    isolates depending on susceptibility testing and patient factors. Treatment
+    duration is typically longer than for routine skin and soft tissue infections.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-nocardia-brasiliensis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      A sporotrichoid pattern after inoculation (often minor or unrecognized trauma)
+      is a syndrome, not a diagnosis; the differential includes <em>Sporothrix</em>,
+      <em>Nocardia</em>, and nontuberculous mycobacteria.
+    </li>
+    <li>
+      Branching Gram-positive, weakly acid-fast filaments strongly suggest
+      <em>Nocardia</em>.
+    </li>
+    <li>
+      <em>N. brasiliensis</em> is a major cause of primary cutaneous nocardiosis.
+    </li>
+    <li>
+      Primary (cutaneous) nocardiosis can occur in immunocompetent hosts.
+    </li>
+    <li>
+      Reassess the diagnosis when a presumed skin and soft tissue infection worsens
+      despite empiric therapy.
+    </li>
+    <li>
+      Confirm species and susceptibility when possible, and tailor anti-nocardial
+      therapy accordingly.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Fukuda H, Saotome A, Usami N, Urushibata O, Mukai H. Lymphocutaneous type of
+      nocardiosis caused by <em>Nocardia brasiliensis</em>: A case report and review
+      of primary cutaneous nocardiosis caused by <em>N. brasiliensis</em> reported in
+      Japan. <em>The Journal of Dermatology</em>. 2008;35(6):346-353.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/j.1346-8138.2008.00482.x"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1111/j.1346-8138.2008.00482.x
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
