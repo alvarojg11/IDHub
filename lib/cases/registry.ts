@@ -7,7 +7,13 @@ export type CaseMeta = {
 };
 
 export const CASES: CaseMeta[] = [
-    {
+  {
+    title: "The Climbing Lesion",
+    slug: "nocardia-brasiliensis",
+    description: "Not your routine skin and soft tissue infection.",
+    enable: true
+  },
+  {
     title: "Fever, Urinary Symptoms, and a Heart Murmur",
     slug: "aerococcus",
     description: "Beyond the obvious: Gram-positive clusters.",
