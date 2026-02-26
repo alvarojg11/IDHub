@@ -3,9 +3,9 @@ import SubscribeForm from "@/components/SubscribeForm";
 
 const cases = [
   {
-    title: "Post-traumatic Knee Lesion with Sporotrichoid Spread",
+    title: "The Climbing Lesion",
     slug: "nocardia-brasiliensis",
-    description: "Primary cutaneous lymphocutaneous nocardiosis after trauma.",
+    description: "Not your routine skin and soft tissue infection.",
   },
   {
     title: "Fever, Urinary Symptoms, and a Heart Murmur",

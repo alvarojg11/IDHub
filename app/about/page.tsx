@@ -36,6 +36,21 @@ const quickLinks = [
   },
 ];
 
+const collaborators = [
+  {
+    name: "Juan Daza-Ovalle, MD",
+    role: "Research Collaborator",
+    contribution: "Research Projects",
+    imageSrc: "/images/juan-daza-ovalle.png",
+    imageAlt: "Juan Daza-Ovalle, MD",
+    bio: "Juan is the IDHub Research Associate. His interests lie at the intersection of infectious diseases and neurology, especially neurovascular and neurocritical complications of infection. He is especially motivated by the early recognition of underrecognized infectious conditions associated with stroke syndromes, such as meningovascular syphilis.",
+    details:
+      "He is currently engaged in clinical research in critical care and vascular neurology through CHOP/University of Pennsylvania and Montefiore/Albert Einstein.",
+    goal:
+      "Through IDHub, his goal is not only to contribute to ongoing learning in medical education, but also to help other early-career colleagues advance their research goals by collaborating with them and sharing his experience as a researcher.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
@@ -49,42 +64,169 @@ export default function AboutPage() {
         </p>
       </header>
 
-      {/* About Me */}
+      {/* Mission and Vision */}
       <section>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-[220px_minmax(0,1fr)]">
-          <div className="w-full sm:h-full">
-            <div className="relative min-h-[270px] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-sm sm:h-full">
-              <Image
-                src="/images/alvaro.png"
-                alt="Alvaro Ayala, MD"
-                fill
-                priority
-                sizes="(min-width: 640px) 220px, 100vw"
-                className="object-cover"
-              />
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
+          <h2 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+            Our Purpose and Goal
+          </h2>
+
+          <div className="mt-5 space-y-5">
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+                Purpose
+              </h3>
+              <p className="mt-2 text-[var(--foreground)]/85 leading-relaxed">
+                The mission of IDHub is to provide educational tools that are accessible to
+                everyone, not only to encourage curiosity about the fascinating world of
+                Infectious Diseases, but also to keep growing the way we teach and learn in
+                medical education. Through multiple tools, we aim to expand understanding of
+                the complexity of infectious diseases and provide different ways to think
+                through challenging scenarios, including multidrug-resistant organisms,
+                immunocompromised hosts, and diagnostic uncertainty.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+                Goal
+              </h3>
+              <p className="mt-2 text-[var(--foreground)]/85 leading-relaxed">
+                The ultimate goal of IDHub is to support a more deliberate and transparent
+                approach to uncertainty. In this era, we should be able to ground decisions in
+                informed risk-benefit reasoning. New technologies have put an extraordinary amount
+                of information at our fingertips, and we should use that access to better navigate
+                diagnostic uncertainty and make better clinical decisions. By collaborating and
+                building on ideas from these tools, we hope to grow a community that can make
+                better, more personalized decisions. We also aim to have an impact on how clinical
+                education and clinical reasoning are taught and conceived.
+              </p>
             </div>
           </div>
+        </article>
+      </section>
 
-          <div className="min-w-0">
-            <div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-              <p className="text-[var(--foreground)]/85 leading-relaxed">
-                I’m{" "}
-                <span className="font-semibold text-[var(--foreground)]">Alvaro</span>,
-                currently a second-year Infectious Diseases Fellow. During fellowship, I encountered
-                many situations where there was no clear pathway forward—cases shaped by uncertainty,
-                imperfect data, and competing possibilities. Over time, I realized how often
-                Infectious Diseases follows this pattern. The specialty is less about memorizing
-                answers and more about navigating ambiguity thoughtfully.
-              </p>
+      {/* People Behind IDHub */}
+      <section className="mt-14">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+              People Behind IDHub
+            </h2>
+            <p className="mt-2 max-w-3xl text-[var(--muted)] leading-relaxed">
+              Collaborators helping build IDHub through research, case development, and medical education work.
+            </p>
+          </div>
+        </div>
 
-              <p className="mt-5 text-[var(--foreground)]/85 leading-relaxed">
-                As my interest in medical education grew, I wanted a place to explore these nuances
-                more openly: how we interpret tests, how we communicate probability, and how we make
-                decisions when the evidence is insufficient. That was the beginning of my writing in
-                Infectious Diseases and, eventually, the start of IDHub, a place where all of this
-                comes together.
-              </p>
+        <div className="mt-6 grid gap-6">
+          <article className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-[220px_minmax(0,1fr)]">
+              <div className="w-full">
+                <div className="relative min-h-[270px] overflow-hidden rounded-xl border border-[var(--border)] bg-white sm:h-full">
+                  <Image
+                    src="/images/alvaro.png"
+                    alt="Alvaro Ayala, MD"
+                    fill
+                    priority
+                    sizes="(min-width: 640px) 220px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                    Alvaro Ayala, MD
+                  </h3>
+                  <span className="rounded-full border border-[var(--border)] bg-white px-2.5 py-1 text-xs font-medium text-[var(--muted)]">
+                    Founder
+                  </span>
+                </div>
+
+                <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                  Hi I’m Alvaro, currently a second-year Infectious Diseases Fellow at Stanford University.
+                </p>
+
+                <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                  During fellowship, I encountered many situations where there was no clear pathway
+                  forward: cases shaped by uncertainty, imperfect data, and competing possibilities.
+                  Over time, I realized how often Infectious Diseases follows this pattern. The
+                  specialty is less about memorizing answers and more about navigating ambiguity
+                  thoughtfully.
+                </p>
+
+                <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                  As my interest in medical education grew, I wanted a place to explore these nuances
+                  more openly: how we interpret tests, how we communicate probability, and how we make
+                  decisions when the evidence is insufficient. That was the beginning of my writing in
+                  Infectious Diseases and, eventually, the start of IDHub, a place where all of this
+                  comes together.
+                </p>
+              </div>
             </div>
+          </article>
+
+          {collaborators.map((c) => (
+            <article
+              key={c.name}
+              className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm"
+            >
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-[220px_minmax(0,1fr)]">
+                <div className="w-full">
+                  <div className="relative min-h-[270px] overflow-hidden rounded-xl border border-[var(--border)] bg-white sm:h-full">
+                    <Image
+                      src={c.imageSrc}
+                      alt={c.imageAlt}
+                      fill
+                      sizes="(min-width: 640px) 220px, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                      {c.name}
+                    </h3>
+                    <span className="rounded-full border border-[var(--border)] bg-white px-2.5 py-1 text-xs font-medium text-[var(--muted)]">
+                      {c.role}
+                    </span>
+                    <span className="rounded-full border border-[var(--border)] bg-white px-2.5 py-1 text-xs font-medium text-[var(--muted)]">
+                      {c.contribution}
+                    </span>
+                  </div>
+
+                  <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                    {c.bio}
+                  </p>
+
+                  <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                    {c.details}
+                  </p>
+
+                  {"goal" in c ? (
+                    <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
+                      {c.goal}
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+            </article>
+          ))}
+
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
+            <p className="text-sm text-[var(--muted)]">
+              Do you have a research idea in mind?{" "}
+              <Link
+                href="/contact"
+                className="font-semibold text-[var(--primary)] hover:underline"
+              >
+                Just contact us.
+              </Link>
+            </p>
           </div>
         </div>
       </section>
