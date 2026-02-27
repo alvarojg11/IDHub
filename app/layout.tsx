@@ -6,9 +6,9 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Infectious Disease Hub — Bayesian Clinical Reasoning & Diagnostic Tools",
+  title: "Infectious Disease Hub - Infectious Diseases Education, Cases, and Clinical Reasoning",
   description:
-    "Infectious Disease Hub provides Bayesian clinical reasoning tools, diagnostic probability calculators, antimicrobial decision support, and high-yield infectious disease case discussions for clinicians and fellows.",
+    "Infectious Disease Hub is an educational resource in infectious disease, with clinical reasoning tools, case-based learning, medical education resources, and practical teaching content for clinicians, students, and trainees.",
   icons: {
     icon: "/favicon.ico",
   },
