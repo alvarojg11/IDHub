@@ -38,6 +38,11 @@ const tiles = [
     desc: "A space for medical education research ideas, collaborations, and projects in clinical infectious diseases.",
   },
   {
+    href: "/recommended-projects",
+    title: "Recommended Projects",
+    desc: "A space to discover infectious diseases education projects, medical education resources, and practical ID teaching tools, and to see how others are building new ideas for learning.",
+  },
+  {
     href: "/about",
     title: "About",
     desc: "Why IDHub exists, how it’s meant to be used, and the philosophy behind case-based learning and clinical reasoning in infectious diseases.",

@@ -43,11 +43,29 @@ const collaborators = [
     contribution: "Research Projects",
     imageSrc: "/images/juan-daza-ovalle.png",
     imageAlt: "Juan Daza-Ovalle, MD",
-    bio: "Juan is the IDHub Research Associate. His interests lie at the intersection of infectious diseases and neurology, especially neurovascular and neurocritical complications of infection. He is especially motivated by the early recognition of underrecognized infectious conditions associated with stroke syndromes, such as meningovascular syphilis.",
+    bio: "Juan is the IDHub Research Associate. He is currently engaged in clinical research in critical care and vascular neurology through CHOP/University of Pennsylvania and Montefiore/Albert Einstein.",
     details:
-      "He is currently engaged in clinical research in critical care and vascular neurology through CHOP/University of Pennsylvania and Montefiore/Albert Einstein.",
-    goal:
       "Through IDHub, his goal is not only to contribute to ongoing learning in medical education, but also to help other early-career colleagues advance their research goals by collaborating with them and sharing his experience as a researcher.",
+  },
+  {
+    name: "Jorge Luis Salinas, MD",
+    role: "Project Advisor",
+    contribution: "Mentorship",
+    imageSrc: "/images/jorge-salinas.png",
+    imageAlt: "Jorge Luis Salinas, MD",
+    bio: "Jorge is an infectious diseases physician at Stanford who brings a thoughtful, systems-based perspective to the way clinical care, infection prevention, and medical education intersect.",
+    details:
+      "As Project Advisor, he helps shape the broader direction of IDHub and offers steady guidance on how the project can grow in a way that stays practical, rigorous, and useful for learners.",
+  },
+  {
+    name: "Hector Fabio Bonilla, MD",
+    role: "Case Development Advisor",
+    contribution: "Clinical Cases",
+    imageSrc: "/images/hector-bonilla.png",
+    imageAlt: "Hector Fabio Bonilla, MD",
+    bio: "Hector is an infectious diseases physician at Stanford with deep experience in patient care, teaching, and clinical reasoning across a wide range of infectious diseases.",
+    details:
+      "As Case Development Advisor, he brings clinical perspective to the development of IDHub cases and helps refine them so they feel grounded, relevant, and educationally meaningful.",
   },
 ];
 
