@@ -4,6 +4,8 @@ import crypto from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
 
+import { loadPgModule } from "@/lib/loadPgModule";
+
 type PgQueryResultRow = Record<string, unknown>;
 type PgClient = {
   query: (text: string, values?: unknown[]) => Promise<{ rows: PgQueryResultRow[] }>;
@@ -105,7 +107,7 @@ async function getPgPool(): Promise<PgPool> {
   if (!pgPoolPromise) {
     pgPoolPromise = (async () => {
       try {
-        const pg = (await import("pg")) as {
+        const pg = (await loadPgModule()) as {
           Pool: new (opts: { connectionString: string }) => PgPool;
         };
         return new pg.Pool({ connectionString });

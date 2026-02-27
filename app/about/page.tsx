@@ -224,12 +224,6 @@ export default function AboutPage() {
                   <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
                     {c.details}
                   </p>
-
-                  {"goal" in c ? (
-                    <p className="mt-4 text-[var(--foreground)]/85 leading-relaxed">
-                      {c.goal}
-                    </p>
-                  ) : null}
                 </div>
               </div>
             </article>
