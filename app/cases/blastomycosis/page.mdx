@@ -1,0 +1,274 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Verrucous Skin Lesions and a Right Upper Lobe Cavitary Opacity
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 48-year-old previously healthy woman presents with fatigue, dizziness, dyspnea on
+    exertion, and progressive verrucous skin lesions over her left arm and back. She
+    first noticed the skin lesions 2 months ago but did not seek medical attention.
+    During the week before admission, her fatigue and dyspnea became more prominent and
+    began to limit her daily activities.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She denies cough, fever, and other systemic symptoms. She works as a technician in a
+    nursing home, has had no recent travel, and has been a lifelong resident of Missouri.
+    She has no pets and is unsure about sick contacts given the nature of her job.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Examination reveals a large painless verrucous plaque over the left arm and a
+    second smaller verrucous lesion over the back. Respiratory
+    examination shows decreased air entry over the right upper lung field.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chest radiography demonstrates a right upper lobe cavitary opacity with surrounding
+    consolidation. Routine laboratory studies are largely unremarkable, and sputum
+    cultures are unrevealing. Skin biopsy demonstrates broad-based budding yeast on
+    Grocott methenamine silver staining, shown below. HIV fourth-generation testing is
+    pending. Lumbar puncture is performed to assess for CNS involvement and is
+    unremarkable.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+    <div className="flex flex-col">
+      <div className="flex h-[360px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+        <Image
+          src="/cases/blastomycosis/blasto-lesion-arm.png"
+          alt="Large verrucous blastomycosis lesion over the left arm"
+          width={464}
+          height={726}
+          className="rounded-lg mx-auto h-full w-full object-contain"
+        />
+      </div>
+
+      <p className="mt-3 text-center text-sm text-gray-600">
+        Left arm lesion
+      </p>
+    </div>
+
+    <div className="flex flex-col">
+      <div className="flex h-[360px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+        <Image
+          src="/cases/blastomycosis/blasto-gms-stain.png"
+          alt="Grocott methenamine silver stain showing broad-based budding yeast"
+          width={590}
+          height={890}
+          className="rounded-lg mx-auto h-full w-full object-contain"
+        />
+      </div>
+
+      <p className="mt-3 text-center text-sm text-gray-600">
+        Skin biopsy (GMS stain)
+      </p>
+    </div>
+
+    <div className="flex flex-col">
+      <div className="flex h-[360px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+        <Image
+          src="/cases/blastomycosis/blasto-chest-xray.png"
+          alt="Chest X-ray showing a right upper lobe cavitary opacity with surrounding consolidation"
+          width={520}
+          height={518}
+          className="rounded-lg mx-auto h-full w-full object-contain"
+        />
+      </div>
+
+      <p className="mt-3 text-center text-sm text-gray-600">
+        Chest X-ray
+      </p>
+    </div>
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Images provided by Dr. Hector Bonilla, MD, Stanford University.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-blastomycosis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Disseminated blastomycosis",
+      correct: true,
+      feedback:
+        "Correct. Verrucous cutaneous lesions plus a pulmonary cavitary lesion in a patient from an endemic region, with broad-based budding yeast on biopsy, are classic for disseminated blastomycosis.",
+    },
+    {
+      id: "B",
+      label: "Disseminated histoplasmosis",
+      feedback:
+        "Incorrect. Histoplasma is endemic in the same region, but tissue morphology classically shows small intracellular yeasts rather than broad-based budding yeast.",
+    },
+    {
+      id: "C",
+      label: "Disseminated coccidioidomycosis",
+      feedback:
+        "Incorrect. Coccidioides more often shows spherules in tissue and is epidemiologically linked to the US Southwest rather than Missouri.",
+    },
+    {
+      id: "D",
+      label: "Disseminated sporotrichosis",
+      feedback:
+        "Incorrect. Sporotrichosis can cause verrucous or nodular skin lesions, but pulmonary cavitary disease with broad-based budding yeast favors blastomycosis.",
+    },
+    {
+      id: "E",
+      label: "Cryptococcosis",
+      feedback:
+        "Incorrect. Cryptococcosis can disseminate and involve the lungs, especially in immunocompromised hosts, but broad-based budding yeast is more consistent with blastomycosis than encapsulated yeast.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-blastomycosis-q2"
+  title="Question 2"
+  prompt="CSF evaluation is normal and she is clinically stable. What is the best treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Oral itraconazole for 6 to 12 months",
+      correct: true,
+      feedback:
+        "Correct. For mild to moderate disseminated blastomycosis without CNS involvement, itraconazole is standard therapy, typically continued for at least 6 to 12 months.",
+    },
+    {
+      id: "B",
+      label: "Liposomal amphotericin B for 6 to 12 months",
+      feedback:
+        "Incorrect. Amphotericin B is generally used for severe disease or as induction therapy, not as prolonged standalone therapy for this stable non-CNS presentation.",
+    },
+    {
+      id: "C",
+      label: "Fluconazole for 6 to 12 months",
+      feedback:
+        "Incorrect. Fluconazole has less reliable activity than itraconazole and is not preferred first-line therapy for mild to moderate disseminated blastomycosis without CNS involvement.",
+    },
+    {
+      id: "D",
+      label: "Voriconazole plus caspofungin for 2 to 4 weeks, followed by voriconazole for 6 months",
+      feedback:
+        "Incorrect. Combination therapy with an echinocandin is not standard first-line treatment for uncomplicated disseminated blastomycosis.",
+    },
+    {
+      id: "E",
+      label: "Liposomal amphotericin B plus flucytosine for 2 weeks, followed by fluconazole for 6 to 12 months",
+      feedback:
+        "Incorrect. Amphotericin plus flucytosine followed by fluconazole is a cryptococcal treatment strategy, not standard therapy for blastomycosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-blastomycosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blastomycosis is caused by <em>Blastomyces</em> species, a dimorphic fungus endemic in
+    parts of the Ohio and Mississippi River valleys, the Great Lakes region, and the
+    southeastern United States. Infection usually begins after inhalation of conidia,
+    with pulmonary disease ranging from asymptomatic infection to severe pneumonia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Extrapulmonary disease follows hematogenous spread, and the skin is the most common
+    site of dissemination. Verrucous or ulcerative cutaneous lesions together with
+    pulmonary findings should prompt consideration of blastomycosis, especially in a
+    patient from an endemic region. A key diagnostic clue is broad-based budding yeast on
+    tissue examination.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For mild to moderate pulmonary or disseminated disease without CNS involvement,
+    itraconazole is the preferred treatment. Severe disease, CNS involvement, or clinical
+    instability generally warrants initial liposomal amphotericin B followed by step-down
+    oral azole therapy once the patient improves.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In this case, the normal CSF evaluation and stable clinical status support treatment
+    with oral itraconazole rather than upfront amphotericin B. Close clinical follow-up
+    and interval imaging are appropriate to document response.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chapman SW, Dismukes WE, Proia LA, et al. Clinical practice guidelines for the
+      management of blastomycosis: 2008 update by the Infectious Diseases Society of
+      America. <em>Clinical Infectious Diseases</em>. 2008;46(12):1801-1812.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/588300"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1086/588300
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hashim S, Barrios C. Disseminated blastomycosis. <em>IDCases</em>. 2020;21:e00786.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.idcr.2020.e00786"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.idcr.2020.e00786
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bradsher RW Jr. Blastomyces dermatitidis (Blastomycosis). In: Bennett JE, Dolin
+      R, Blaser MJ, eds. <em>Mandell, Douglas, and Bennett&apos;s Principles and Practice
+      of Infectious Diseases</em>. 10th ed. Elsevier; 2026.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

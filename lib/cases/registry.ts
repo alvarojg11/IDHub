@@ -86,6 +86,12 @@ export const CASES: CaseMeta[] = [
     enable: true
   },
   {
+    title: "Verrucous Skin Lesions and a Right Upper Lobe Cavitary Opacity",
+    slug: "blastomycosis",
+    description: "A verrucous arm lesion, diagnostic GMS stain, and right upper lobe pulmonary disease.",
+    enable: true
+  },
+  {
     title: "Fever, Hemolysis, and Bleeding Papules After Andes Travel",
     slug: "carrions-disease",
     description: "A classic biphasic Bartonella bacilliformis syndrome.",
