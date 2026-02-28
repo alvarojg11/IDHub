@@ -100,7 +100,17 @@ const cases = [
   {
     title: "Persistent Fever, Splinter Hemorrhages, and an Aortic Valve Abscess",
     slug: "brucella-endocarditis",
-    description: "A zoonotic case.",
+    description: "A culture-negative endocarditis clue hiding in the exposure history.",
+  },
+  {
+    title: "Transient Leg Weakness in a Man from Rural Colombia",
+    slug: "sancc",
+    description: "Transient deficits, basal cistern lesions, and a hidden tropical diagnosis.",
+  },
+  {
+    title: "Jaw Stiffness in a Visitor from Rural Haiti",
+    slug: "tetanus-trismus",
+    description: "An early neurologic warning sign with a dangerous trajectory.",
   },
 ];
 

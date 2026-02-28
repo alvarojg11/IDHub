@@ -1,0 +1,290 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Transient Leg Weakness in a Man from Rural Colombia
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 31-year-old Colombian man with no past medical history presents to a hospital
+    in New York City after several minutes of sudden left leg weakness and numbness.
+    His symptoms resolve just before arrival. During the prior 2 weeks, he also had
+    two brief episodes of left facial twitching lasting about 10 seconds each, both
+    of which resolved spontaneously.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was born and raised in a rural area of Colombia and moved to New York 5 years
+    ago. In Colombia, his family kept free-roaming pigs near the home and the house
+    lacked indoor sanitation. He has not returned to Colombia since immigrating and
+    denies recent sick contacts, trauma, or substance use.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Vital signs are normal. Cranial nerves are intact. Motor strength, sensation, deep
+    tendon reflexes, and gait are all normal on examination after symptom resolution.
+    The remainder of the exam is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show a white blood cell count of 6.8 x 10^9/L, hemoglobin
+    14.1 g/dL, platelets 248 x 10^9/L, sodium 138 mmol/L, creatinine 0.9 mg/dL,
+    and glucose 96 mg/dL. Liver enzymes are normal. Noncontrast head CT shows multiple
+    small parenchymal calcifications. HIV fourth-generation testing is pending. CT
+    angiography demonstrates patent cerebral arteries. Brain MRI reveals dilatation of
+    the suprasellar and Sylvian cisterns with septated fluid-filled subarachnoid cystic
+    lesions surrounding the proximal middle cerebral arteries, peripheral enhancement
+    after gadolinium, and an old lacunar infarct adjacent to one of the cysts.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-3xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/sancc/sancc_mri.png"
+      alt="MRI brain showing subarachnoid cystic lesions with inflammatory enhancement"
+      width={1200}
+      height={900}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Brain MRI showing enlarged basal cisterns, peripheral enhancement, and septated
+    subarachnoid cystic lesions.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-sancc-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Primary CNS vasculitis",
+      feedback:
+        "Incorrect. CNS vasculitis can cause transient focal deficits and infarcts, but the combination of parenchymal calcifications, septated subarachnoid cysts, and epidemiologic exposure strongly suggests a parasitic infection.",
+    },
+    {
+      id: "B",
+      label: "Subarachnoid neurocysticercosis",
+      correct: true,
+      feedback:
+        "Correct. Exposure in a Taenia solium endemic setting, parenchymal calcifications, complex cystic lesions in the subarachnoid space, and a nearby lacunar infarct are classic for subarachnoid neurocysticercosis.",
+    },
+    {
+      id: "C",
+      label: "Tuberculous meningitis with vasculitic infarcts",
+      feedback:
+        "Incorrect. TB meningitis can involve the basal cisterns and cause infarcts, but the multiple calcified parenchymal lesions and septated cysts in this epidemiologic context are more characteristic of neurocysticercosis.",
+    },
+    {
+      id: "D",
+      label: "Cerebral toxoplasmosis",
+      feedback:
+        "Incorrect. Toxoplasmosis is an important consideration when HIV status is unknown, but it more often causes ring-enhancing parenchymal lesions with edema rather than calcifications plus racemose-appearing subarachnoid cysts in the basal cisterns.",
+    },
+    {
+      id: "E",
+      label: "Brain metastases with leptomeningeal spread",
+      feedback:
+        "Incorrect. This would not fit the imaging pattern of multiple calcifications plus septated CSF-like cystic lesions in the basal subarachnoid space.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-sancc-q2"
+  title="Question 2"
+  prompt="What is the most appropriate diagnostic and treatment approach?"
+  options={[
+    {
+      id: "A",
+      label: "Treat as isolated calcified parenchymal neurocysticercosis and avoid antiparasitic therapy",
+      feedback:
+        "Incorrect. The management of subarachnoid disease is different from isolated calcified parenchymal disease and generally requires active antiparasitic treatment.",
+    },
+    {
+      id: "B",
+      label: "Start levetiracetam alone and repeat imaging only if he has another event",
+      feedback:
+        "Incorrect. Seizure control may be needed in some patients, but this does not address the viable subarachnoid disease and inflammatory complications.",
+    },
+    {
+      id: "C",
+      label: "Confirm with serology, evaluate for spinal disease, and treat with corticosteroids plus prolonged antiparasitic therapy with serial imaging",
+      correct: true,
+      feedback:
+        "Correct. MRI and serology are complementary, spinal imaging should be considered because spinal involvement can coexist, and subarachnoid neurocysticercosis usually requires corticosteroids plus prolonged antiparasitic therapy, often with albendazole and praziquantel, guided by serial imaging and antigen response.",
+    },
+    {
+      id: "D",
+      label: "Give 7 days of albendazole monotherapy",
+      feedback:
+        "Incorrect. Short-course therapy without anti-inflammatory treatment is not appropriate for subarachnoid disease and may worsen inflammatory complications.",
+    },
+    {
+      id: "E",
+      label: "Proceed directly to thrombolysis because the CT angiogram is normal",
+      feedback:
+        "Incorrect. His symptoms resolved before arrival, and the imaging pattern indicates an underlying inflammatory parasitic process rather than an isolated thromboembolic event.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-sancc-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Subarachnoid neurocysticercosis is caused by the larval form of <em>Taenia solium</em>
+    in the subarachnoid spaces of the central nervous system. It is one of the most
+    severe forms of neurocysticercosis because the parasite can proliferate in an
+    aberrant racemose pattern, especially in the basal cisterns and Sylvian fissures,
+    producing large multiloculated cystic lesions and marked local inflammation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathophysiology is driven not only by the cyst burden but also by the host
+    inflammatory response. Inflammation around the cysts can cause chronic arachnoiditis,
+    meningitis, communicating hydrocephalus, and cerebrovascular complications. Small
+    perforating arteries are often affected by inflammatory endarteritis, which can lead
+    to lacunar infarcts adjacent to cysts. Because of this, CT angiography may be normal
+    even when clinically important vascular involvement is present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Neuroimaging is central to diagnosis. CT is helpful for identifying calcified
+    parenchymal lesions, while MRI is superior for detecting subarachnoid cysts,
+    enhancement, and the full extent of inflammation. Serologic testing with enzyme-linked
+    immunotransfer blot (immunoblot) is highly sensitive in patients with multiple lesions
+    and is generally positive in subarachnoid disease because of the higher parasite burden.
+    Circulating parasite antigen can help assess the presence of viable cysts and can be
+    followed over time as a marker of treatment response. Because asymptomatic spinal
+    involvement can coexist, spine MRI should also be considered.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment differs from the approach used for isolated parenchymal neurocysticercosis.
+    Patients with subarachnoid disease usually require antiparasitic therapy, often with
+    albendazole plus praziquantel, together with corticosteroids to control treatment-related
+    inflammation. Therapy is frequently prolonged and is often continued until radiographic
+    resolution or clear inactivity on follow-up imaging. Serial neuroimaging, and when
+    available antigen testing, help guide duration and assess for relapse or persistent
+    viable disease.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-sancc-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Subarachnoid neurocysticercosis is a severe extraparenchymal form of
+      <em> Taenia solium</em> infection.
+    </li>
+    <li>
+      MRI is better than CT for defining subarachnoid cysts and inflammatory burden,
+      while CT is useful for calcifications.
+    </li>
+    <li>
+      Vascular involvement can produce lacunar infarcts even when CT angiography is normal.
+    </li>
+    <li>
+      Serology and, when available, parasite antigen testing complement imaging and can
+      support follow-up.
+    </li>
+    <li>
+      Management usually requires corticosteroids plus prolonged antiparasitic therapy,
+      not the short regimens used for uncomplicated parenchymal disease.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Berto CG, Coyle CM. A 31-Year-Old Man from Guatemala With Acute Weakness and
+      Numbness of the Leg. In: <em>Clinical Cases in Tropical Medicine</em>. Elsevier; 2024:229-231.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      White AC, Coyle CM, Rajshekhar V, et al. Diagnosis and Treatment of
+      Neurocysticercosis: 2017 Clinical Practice Guidelines by the Infectious Diseases
+      Society of America (IDSA) and the American Society of Tropical Medicine and Hygiene
+      (ASTMH). <em>Clinical Infectious Diseases</em>. 2018;66(8):1159-1163.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cix1084"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/cix1084
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nash TE, O&apos;Connell EM. Subarachnoid Neurocysticercosis: Emerging concepts and treatment.
+      <em> Current Opinion in Infectious Diseases</em>. 2020;33(5):339-346.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7733161/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7733161/
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Garcia HH, Nash TE, Del Brutto OH. Clinical symptoms, diagnosis, and treatment of
+      neurocysticercosis. <em>Lancet Neurology</em>. 2014;13(12):1202-1215.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
