@@ -168,6 +168,50 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             </Link>
           </div>
         </div>
+
+        {totalPages > 1 ? (
+          <nav
+            aria-label="Cases pagination summary"
+            className="mt-6 flex items-center justify-between rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3"
+          >
+            <div>
+              <div className="text-sm font-semibold text-[var(--foreground)]">
+                Showing {shownCount} / {cases.length} cases
+              </div>
+              <div className="text-xs text-[var(--muted)]">
+                Cases {start + 1}-{end} • Page {currentPage} of {totalPages}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {hasPrev ? (
+                <Link
+                  href={pageHref(currentPage - 1)}
+                  className="rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)]"
+                >
+                  ← Previous
+                </Link>
+              ) : (
+                <span className="rounded-lg border border-[var(--border)] bg-white/60 px-3 py-2 text-sm font-semibold text-[var(--muted)]">
+                  ← Previous
+                </span>
+              )}
+
+              {hasNext ? (
+                <Link
+                  href={pageHref(currentPage + 1)}
+                  className="rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--cardHover)]"
+                >
+                  Next →
+                </Link>
+              ) : (
+                <span className="rounded-lg border border-[var(--border)] bg-white/60 px-3 py-2 text-sm font-semibold text-[var(--muted)]">
+                  Next →
+                </span>
+              )}
+            </div>
+          </nav>
+        ) : null}
       </header>
 
       <section className="grid gap-6 sm:grid-cols-2">
