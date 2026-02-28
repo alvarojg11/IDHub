@@ -1,0 +1,260 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Persistent Fever, Splinter Hemorrhages, and an Aortic Valve Abscess
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 29-year-old man presents with 1 month of fever, drenching sweats, malaise,
+    and reduced appetite. He reports daily temperatures at home, progressive fatigue,
+    and an unintentional 4-kg weight loss. He has no known valvular disease and takes
+    no chronic medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He recently returned from visiting family in a rural area where he consumed
+    unpasteurized goat cheese and helped care for sheep and goats. He denies injection
+    drug use. On examination, he is febrile to 39.3 degrees C, tachycardic, and has splinter
+    hemorrhages under several fingernails. Cardiac auscultation reveals a new diastolic
+    murmur.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show a white blood cell count of 8.9 x 10^9/L, hemoglobin
+    12.6 g/dL, platelets 214 x 10^9/L, C-reactive protein 29 mg/dL, and erythrocyte
+    sedimentation rate 58 mm/hour. Aspartate aminotransferase is 42 U/L and alanine
+    aminotransferase is 39 U/L. Transthoracic echocardiography demonstrates a friable
+    vegetation on the aortic valve with an aortic root abscess. Four blood culture sets
+    remain negative at 48 hours, but one bottle later grows a small gram-negative
+    coccobacillus after prolonged incubation. A standard tube agglutination test returns
+    positive at a titer of 1:640.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-3xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/brucella-endocarditis/echo.png"
+      alt="Echocardiogram showing an aortic valve vegetation"
+      width={1200}
+      height={900}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Echocardiogram demonstrating an aortic valve vegetation with associated destructive disease.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-brucella-endocarditis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Viridans streptococcal native valve endocarditis",
+      feedback:
+        "Incorrect. Viridans streptococci are not gram-negative coccobacilli and would not fit the zoonotic exposure pattern described here.",
+    },
+    {
+      id: "B",
+      label: "Coxiella burnetii endocarditis",
+      feedback:
+        "Incorrect. Q fever endocarditis is part of the differential in zoonotic culture-negative endocarditis, but the delayed growth of a gram-negative coccobacillus in blood culture and the positive Brucella agglutination test point elsewhere.",
+    },
+    {
+      id: "C",
+      label: "Bartonella henselae endocarditis",
+      feedback:
+        "Incorrect. Bartonella can cause culture-negative endocarditis, but the livestock and dairy exposure, serology, and blood culture result are more consistent with brucellosis.",
+    },
+    {
+      id: "D",
+      label: "Aerococcus urinae endocarditis",
+      feedback:
+        "Incorrect. Aerococcus is a gram-positive organism associated with genitourinary disease, not a slow-growing gram-negative coccobacillus linked to livestock exposure.",
+    },
+    {
+      id: "E",
+      label: "Brucella melitensis endocarditis",
+      correct: true,
+      feedback:
+        "Correct. Exposure to sheep/goats and unpasteurized dairy, slow-growing gram-negative coccobacilli, delayed blood culture positivity, and a high agglutination titer strongly support brucellar endocarditis, most likely due to Brucella melitensis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-brucella-endocarditis-q2"
+  title="Question 2"
+  prompt="Which management strategy is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline monotherapy for 2 weeks",
+      feedback:
+        "Incorrect. Monotherapy is associated with treatment failure and relapse in brucellosis and is not appropriate for endocarditis.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline plus rifampin for 6 weeks only, with no further evaluation",
+      feedback:
+        "Incorrect. Dual therapy alone may be used in uncomplicated brucellosis, but endocarditis with an aortic root abscess is a complicated focal infection that usually needs longer multidrug therapy and surgical assessment.",
+    },
+    {
+      id: "C",
+      label: "Prolonged combination therapy with doxycycline, rifampin, and an aminoglycoside, plus urgent cardiothoracic surgery evaluation",
+      correct: true,
+      feedback:
+        "Correct. Brucella endocarditis is the major cause of brucellosis-related mortality. Root abscess, severe valvular damage, heart failure, or uncontrolled infection are major reasons for early surgical involvement, and therapy should use prolonged combination antibiotics rather than short-course treatment.",
+    },
+    {
+      id: "D",
+      label: "Vancomycin and cefepime for 7 days while awaiting repeat serology",
+      feedback:
+        "Incorrect. This does not provide appropriate directed therapy for brucellosis and the duration is far too short for endocarditis.",
+    },
+    {
+      id: "E",
+      label: "No treatment because a single late-positive culture is most likely contamination",
+      feedback:
+        "Incorrect. In this setting, the blood culture result matches the exposure history, serology, and echocardiographic findings; this should be treated as true infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-brucella-endocarditis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Brucellosis is a zoonotic infection acquired through direct contact with infected
+    animals or by ingesting unpasteurized dairy products. <em>Brucella melitensis</em>,
+    associated with sheep and goats, is the most invasive species in human disease and is
+    a classic cause of severe brucellosis in endemic regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism is a small, nonmotile gram-negative coccobacillus and can be difficult
+    to recover in routine culture. When brucellosis is suspected, prolonged incubation
+    and laboratory notification matter because early cultures may appear negative. Standard
+    agglutination testing remains a key diagnostic tool; a titer of at least 1:160 is
+    generally supportive, and this patient&apos;s 1:640 result makes active infection highly
+    likely in the correct clinical context.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Although cardiovascular involvement is uncommon, endocarditis is the most feared
+    cardiac complication of brucellosis and accounts for most brucellosis-related deaths.
+    The aortic valve is commonly involved, and complications may include root abscess,
+    embolic stroke, heart failure, and conduction abnormalities. In the case series that
+    informed this vignette, delayed blood culture positivity after 5 to 7 days helped
+    establish the diagnosis when early cultures were unrevealing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment should be individualized, but complicated focal disease generally requires
+    prolonged multidrug therapy rather than the 6-week regimens used for uncomplicated
+    brucellosis. Common regimens include doxycycline plus rifampin with an aminoglycoside
+    such as streptomycin or gentamicin; ceftriaxone may be added in selected CNS
+    complications. Surgery should be strongly considered when there is heart failure,
+    severe valvular dysfunction, uncontrolled infection, relapse, embolic complications,
+    or abscess formation, all of which substantially increase risk.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-brucella-endocarditis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Brucellosis should be considered in prolonged fever with livestock exposure or
+      unpasteurized dairy ingestion.
+    </li>
+    <li>
+      Negative blood cultures at 48 hours do not exclude brucellosis; prolonged incubation
+      can increase yield.
+    </li>
+    <li>
+      Standard agglutination titers support diagnosis, but they must be interpreted with
+      the clinical picture and exposure history.
+    </li>
+    <li>
+      Endocarditis is uncommon in brucellosis but causes most brucellosis-related deaths.
+    </li>
+    <li>
+      Root abscess or heart failure should prompt early cardiothoracic surgery involvement.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gul HC, Erdem H. Brucellosis (Brucella Species). In: Bennett JE, Dolin R, Blaser MJ,
+      eds. <em>Mandell, Douglas, and Bennett&apos;s Principles and Practice of Infectious Diseases</em>.
+      10th ed. Elsevier; 2026:2744-2749.e3.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bhat SA, Guroo FA, Koul AN, et al. Brucella Endocarditis: A Case Series.
+      <em> Cureus</em>. 2024;16(12):e74969.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.7759/cureus.74969"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.7759/cureus.74969
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Koruk ST, Erdem H, Koruk I, et al. Management of Brucella endocarditis: results of
+      the Gulhane study. <em>International Journal of Antimicrobial Agents</em>. 2012;40(2).
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

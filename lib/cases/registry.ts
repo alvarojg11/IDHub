@@ -121,6 +121,12 @@ export const CASES: CaseMeta[] = [
     description: "ICU shock, pulmonary infiltrates, and diarrhea after immunosuppression.",
     enable: true
   },
+  {
+    title: "Persistent Fever, Splinter Hemorrhages, and an Aortic Valve Abscess",
+    slug: "brucella-endocarditis",
+    description: "A zoonotic endocarditis case hiding behind slow cultures.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

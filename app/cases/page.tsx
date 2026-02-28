@@ -97,6 +97,11 @@ const cases = [
     slug: "strongyloides-hyperinfection",
     description: "Groundglass infiltrates in a ICU patient.",
   },
+  {
+    title: "Persistent Fever, Splinter Hemorrhages, and an Aortic Valve Abscess",
+    slug: "brucella-endocarditis",
+    description: "A zoonotic case.",
+  },
 ];
 
 const CASES_PER_PAGE = 20;
