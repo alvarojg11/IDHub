@@ -134,6 +134,8 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
     : 1;
   const start = (currentPage - 1) * CASES_PER_PAGE;
   const visibleCases = cases.slice(start, start + CASES_PER_PAGE);
+  const shownCount = visibleCases.length;
+  const end = start + shownCount;
   const hasPrev = currentPage > 1;
   const hasNext = currentPage < totalPages;
 
@@ -195,8 +197,13 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
           aria-label="Cases pagination"
           className="mt-8 flex items-center justify-between rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3"
         >
-          <div className="text-sm text-[var(--muted)]">
-            Page {currentPage} of {totalPages}
+          <div>
+            <div className="text-sm font-semibold text-[var(--foreground)]">
+              Showing {shownCount} / {cases.length} cases
+            </div>
+            <div className="text-xs text-[var(--muted)]">
+              Cases {start + 1}-{end} • Page {currentPage} of {totalPages}
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
