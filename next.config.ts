@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: '/health',
+        destination: `${ASSISTANT_BACKEND_ORIGIN}/health`,
+      },
+      {
         source: '/assistant',
         destination: `${ASSISTANT_BACKEND_ORIGIN}/assistant`,
       },
