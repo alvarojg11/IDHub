@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import SiteFooter from "@/components/SiteFooter";
 
@@ -24,6 +25,8 @@ const projects = [
   {
     name: "The Host Response",
     href: "https://www.firstcallid.ca/",
+    logoSrc: "/recommended-projects/firstcallid-logo.png",
+    logoAlt: "FirstCallID logo",
     tagline: "A practical infectious diseases podcast",
     desc: "The Host Response is a clinically focused, practical podcast built for learners who want high-yield infectious diseases teaching in a clear and approachable format. Hosted by Dr. Paul Bunce, whose soothing voice makes it an especially inviting listen, it is also a thoughtful space for reflecting on what it means to work in infectious diseases.",
     whyItFits:
@@ -32,6 +35,16 @@ const projects = [
       "Rotating in ID? Start with FirstCallID.",
     podcastDesc:
       "Beyond the podcast, FirstCallID is a practical infectious diseases education resource that helps students, residents, and early trainees build a strong starting framework for common ID questions and bedside learning. It is a strong place to start if you want concise review and useful clinical pearls before or during an ID rotation.",
+  },
+  {
+    name: "SIGIT",
+    href: "https://sigit.uniandes.edu.co/",
+    logoSrc: "/recommended-projects/sigit-logo.png",
+    logoAlt: "SIGIT logo",
+    tagline: "Public Health and Tropical Medicine Research from Universidad de los Andes, Colombia",
+    desc: "SIGIT is an interdisciplinary research group at Universidad de los Andes focused on health systems, childhood, gender, interculturality, and tropical health. Their work connects applied research, education, and community action, with a strong emphasis on equity and improving health outcomes in vulnerable communities across Colombia.",
+    whyItFits:
+      "Its work is notable for its interdisciplinary academic approach, linking population health research, implementation, and medical education to the study of tropical diseases and health inequities.",
   },
 ];
 
@@ -71,9 +84,22 @@ export default function RecommendedProjectsPage() {
               className="rounded-xl border border-[var(--border)] bg-white p-5"
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-xl font-semibold text-[var(--foreground)]">{project.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-[var(--primary)]">{project.tagline}</p>
+                <div className="flex items-start gap-4">
+                  {"logoSrc" in project ? (
+                    <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)] p-3">
+                      <Image
+                        src={project.logoSrc}
+                        alt={project.logoAlt}
+                        width={96}
+                        height={96}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  ) : null}
+                  <div>
+                    <h3 className="text-xl font-semibold text-[var(--foreground)]">{project.name}</h3>
+                    <p className="mt-1 text-sm font-medium text-[var(--primary)]">{project.tagline}</p>
+                  </div>
                 </div>
                 <Link
                   href={project.href}

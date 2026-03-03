@@ -139,6 +139,12 @@ export const CASES: CaseMeta[] = [
     description: "An early neurologic warning sign with a dangerous trajectory.",
     enable: true
   },
+  {
+    title: "Severe Hypertension and Renal Failure in Western Mozambique",
+    slug: "urogenital-schistosomiasis",
+    description: "A tropical cause of bilateral obstructive uropathy and renal failure.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

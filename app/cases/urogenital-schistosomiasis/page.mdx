@@ -1,0 +1,280 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Severe Hypertension and Renal Failure in a Fisherman from Western Mozambique
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 39-year-old man from western Mozambique presents with 5 days of progressive
+    shortness of breath. He reports marked orthopnea and paroxysmal nocturnal dyspnea.
+    Over the same interval, he has developed continuous bilateral flank pain and persistent
+    nausea. He denies cough, fever, and chest pain.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was told he had arterial hypertension 2 years earlier and was prescribed medication,
+    but he never took it and had no further evaluation. His past medical and family history
+    are otherwise unremarkable. A recent HIV test was negative. He works as a fisherman and
+    has frequent freshwater exposure in endemic areas.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he is pale and in respiratory distress but does not appear chronically ill.
+    His blood pressure is 200/130 mmHg, pulse 66/min, temperature 36.8 C, and respiratory rate
+    32/min. The apex beat is mildly displaced. Heart sounds are regular without an obvious murmur.
+    Jugular venous pressure is not elevated. Fine bibasilar crackles are present. The abdomen is
+    soft and non-tender, but there is bilateral renal angle tenderness, and both kidneys are
+    ballotable. There is no peripheral edema.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Initial laboratory testing shows WBC 3.8 x 10^9/L, hemoglobin 6.0 g/dL, MCV 92 fL,
+    platelets 187 x 10^9/L, creatinine 12.1 mg/dL, BUN 250 mg/dL, and potassium 7.2 mmol/L.
+    Chest radiography shows an enlarged cardiac silhouette with lower-zone hazy opacification
+    consistent with pulmonary edema. CT abdomen and pelvis demonstrated massive right-sided hydroureteronephrosis
+    and moderate left-sided hydronephrosis.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <div className="inline-block rounded-lg border border-gray-300 bg-transparent p-1">
+    <Image
+      src="/cases/urogenital-schistosomiasis/hydro.png"
+      alt="CT abdomen and pelvis demonstrating massive right-sided hydroureteronephrosis"
+      width={520}
+      height={520}
+      className="rounded-lg"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    CT abdomen and pelvis demonstrating massive right-sided hydroureteronephrosis.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-urogenital-schisto-dx"
+  title="Question"
+  prompt="What is the most likely unifying clinical impression?"
+  options={[
+    {
+      id: "A",
+      label: "Urogenital histoplasmosis causing obstructive urinary tract disease",
+      feedback:
+        "Incorrect. Histoplasmosis can involve the genitourinary tract in rare cases, but it is not the most likely explanation for this pattern of bilateral obstructive uropathy in a fisherman with heavy freshwater exposure in an endemic schistosomiasis setting.",
+    },
+    {
+      id: "B",
+      label: "Hepatitis C-associated nephritic syndrome (such as immune complex glomerulonephritis)",
+      feedback:
+        "Incorrect. Hepatitis C can cause a nephritic picture, but it would not explain the bilateral enlarged ballotable kidneys and likely obstructive pattern seen here.",
+    },
+    {
+      id: "C",
+      label: "Genitourinary schistosomiasis due to Schistosoma haematobium causing chronic obstructive uropathy with bilateral hydronephrosis, renal failure, and secondary heart failure",
+      correct: true,
+      feedback:
+        "Correct. Severe renal failure with hyperkalemia, enlarged kidneys, and freshwater exposure in an endemic region strongly support chronic urogenital schistosomiasis causing bilateral obstructive uropathy.",
+    },
+    {
+      id: "D",
+      label: "Renal tuberculosis with bilateral obstructive uropathy",
+      feedback:
+        "Incorrect. Genitourinary tuberculosis can cause chronic urinary tract damage, but the heavy freshwater exposure and classic epidemiologic context make chronic Schistosoma haematobium infection more likely here.",
+    },
+    {
+      id: "E",
+      label: "Secondary nephrotic syndrome due to chronic hepatitis B",
+      feedback:
+        "Incorrect. Chronic hepatitis B can cause secondary glomerular disease, but nephrotic syndromes do not explain this clear obstructive picture with enlarged kidneys and flank tenderness.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-urogenital-schisto-workup"
+  title="Question 2"
+  prompt="After the CT findings, which investigation is the most useful next step to establish the diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Cystoscopy with biopsy if available",
+      correct: true,
+      feedback:
+        "Correct. Once CT has already demonstrated obstructive uropathy, cystoscopy is the most useful next step because it can directly assess the bladder mucosa, identify sandy patches, and obtain tissue if available.",
+    },
+    {
+      id: "B",
+      label: "CT pulmonary angiography",
+      feedback:
+        "Incorrect. The key unanswered question is the cause of his renal failure and enlarged kidneys, not pulmonary embolism.",
+    },
+    {
+      id: "C",
+      label: "Urine acid-fast bacillus testing for genitourinary tuberculosis",
+      feedback:
+        "Incorrect. Genitourinary TB remains a reasonable differential consideration, but it does not define the cause of the already-demonstrated obstruction as directly as cystoscopy.",
+    },
+    {
+      id: "D",
+      label: "Bone marrow biopsy for severe anemia",
+      feedback:
+        "Incorrect. The anemia is important, but it is not the immediate diagnostic priority in a patient with life-threatening renal failure and hyperkalemia.",
+    },
+    {
+      id: "E",
+      label: "Transthoracic echocardiography as the first defining study",
+      feedback:
+        "Incorrect. Cardiac imaging may help characterize secondary consequences, but it will not answer the key question of why both kidneys are enlarged and failing.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-urogenital-schisto-workup">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This patient presents with a combined cardiorenal syndrome: acute decompensated
+    left-sided heart failure, severe kidney failure, hyperkalemia, and profound anemia.
+    The striking clues are the bilateral flank pain, enlarged ballotable kidneys, and
+    markedly elevated creatinine. Those findings argue against uncomplicated hypertensive
+    nephrosclerosis, which would more typically produce small chronically scarred kidneys.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In a patient with heavy freshwater exposure in an endemic region of southern Africa,
+    chronic genitourinary schistosomiasis due to <em>Schistosoma haematobium</em> should be
+    high on the differential. Chronic egg deposition in the bladder and distal ureters can
+    lead to granulomatous inflammation, fibrosis, obstructive uropathy, hydronephrosis,
+    recurrent infection, and eventually end-stage kidney disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The CT abdomen and pelvis has already established advanced obstructive uropathy, with
+    severe right-sided hydroureteronephrosis and contralateral hydronephrosis. Once that is
+    known, the most useful next investigation is cystoscopy, because it can evaluate the
+    bladder and ureteric orifice region directly and help identify the lesion responsible
+    for distal obstruction.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In chronic <em>Schistosoma haematobium</em> infection, cystoscopy may show characteristic
+    hyperemia and so-called sandy patches caused by chronic mucosal granulomatous inflammation.
+    Tissue biopsy is ideal when available because it can confirm ova in tissue and help exclude
+    bladder malignancy. Urine microscopy may be negative in advanced disease because egg
+    excretion often declines once fibrosis is established.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management is urgent and initially supportive: hyperkalemia treatment, relief of urinary
+    obstruction, and dialysis if available. Praziquantel may still be given to eradicate
+    viable adult worms, but in advanced obstructive disease it does not reverse established
+    hydronephrosis or renal failure by itself.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-urogenital-schisto-workup">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Chronic <em>Schistosoma haematobium</em> infection can present late with obstructive uropathy,
+      hydronephrosis, and end-stage kidney disease.
+    </li>
+    <li>
+      Enlarged ballotable kidneys in severe renal failure should push the differential toward
+      obstruction rather than hypertensive nephrosclerosis alone.
+    </li>
+    <li>
+      In endemic settings, urine ova testing can be negative in advanced chronic disease and
+      does not exclude urogenital schistosomiasis.
+    </li>
+    <li>
+      After cross-sectional imaging has shown hydronephrosis, cystoscopy is often the most useful next
+      step to identify the distal lesion and support the diagnosis.
+    </li>
+    <li>
+      Sandy patches on cystoscopy are highly suggestive of chronic genitourinary schistosomiasis.
+    </li>
+    <li>
+      Praziquantel may clear active infection, but advanced hydronephrosis often requires decompression
+      and renal replacement support when available.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bustinduy AL, King CH. Schistosomiasis. In: Farrar J, Hotez PJ, Junghanss T, Kang G,
+      Lalloo D, White NJ, eds. <em>Manson&apos;s Tropical Diseases</em>. 24th ed. Elsevier; 2023.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Colley DG, Bustinduy AL, Secor WE, King CH. Human schistosomiasis.
+      <em> Lancet</em>. 2014;383(9936):2253-2264.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(13)61949-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S0140-6736(13)61949-2
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Richter J. The impact of chemotherapy on morbidity due to schistosomiasis.
+      <em> Acta Tropica</em>. 2003;86(2-3):161-183.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Asundi A, Belavsky A, Liu XJ, et al. Prevalence of strongyloidiasis and schistosomiasis among
+      migrants: a systematic review and meta-analysis. <em>Lancet Global Health</em>. 2019;7(2):e236-e248.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
