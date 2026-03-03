@@ -15,6 +15,9 @@ type Props = {
   defaultModuleId?: string;
 };
 
+const UNCERTAINTY_ASSISTANT_URL =
+  process.env.NEXT_PUBLIC_UNCERTAINTY_ASSISTANT_URL ?? "/assistant";
+
 type VirstaAcquisition = "nosocomial" | "community_or_nhca";
 type HandocSpecies =
   | "unspecified_other"
@@ -565,6 +568,28 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl py-12">
+      <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+        <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">
+          Uncertainty Assistant
+        </p>
+        <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-lg font-semibold text-emerald-950">Try ProbID in our Uncertainty Assistant</p>
+            <p className="mt-1 text-sm text-emerald-900/80">
+              Describe the case in plain language and the assistant will guide the ProbID workflow for you.
+            </p>
+          </div>
+          <a
+            href={UNCERTAINTY_ASSISTANT_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800"
+          >
+            Open assistant
+          </a>
+        </div>
+      </div>
+
       <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">ProbID</h1>
       <p className="mt-3 text-gray-700">
         Choose syndrome, location/setting, and features to estimate post-test probability using likelihood ratios.
