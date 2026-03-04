@@ -1,0 +1,248 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Acute Dysentery in a Returning Aid Worker
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 29-year-old woman presents 3 days after returning from humanitarian fieldwork
+    in a refugee camp in the Democratic Republic of the Congo with high fever, lower
+    abdominal cramping, and frequent small-volume stools. Over the last 24 hours, her
+    stools have become bloody and mucoid, and she reports severe tenesmus with each
+    bowel movement.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She spent several weeks in an overcrowded camp clinic in eastern DRC where
+    sanitation was limited and multiple patients had acute diarrheal illness. She
+    reports poor appetite and malaise but no vomiting. She took no antimicrobial
+    prophylaxis and has not used antibiotics recently.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, she appears ill but not toxic. Temperature is 39.1 C, heart
+    rate 112/min, blood pressure 104/66 mmHg, and mucous membranes are mildly dry.
+    Her abdomen is soft with lower abdominal tenderness but no guarding or rebound.
+    Stool passed in clinic is scant and mixed with visible blood and mucus.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Stool microscopy shows numerous polymorphonuclear cells and red blood cells.
+    Basic metabolic testing is unremarkable, and there is no access to rapid multiplex
+    PCR. She is otherwise healthy and not pregnant.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-shigellosis-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Shigellosis causing bacillary dysentery",
+      correct: true,
+      feedback:
+        "Correct. Fever, abdominal cramps, tenesmus, and frequent small-volume bloody-mucoid stools are classic for shigellosis with dysentery.",
+    },
+    {
+      id: "B",
+      label: "Enterotoxigenic Escherichia coli infection",
+      feedback:
+        "Incorrect. Enterotoxigenic E. coli typically causes watery traveler’s diarrhea without invasive dysentery or marked tenesmus.",
+    },
+    {
+      id: "C",
+      label: "Entamoeba histolytica colitis",
+      feedback:
+        "Incorrect. Amebic colitis can cause bloody diarrhea, but patients are often less acutely febrile and less toxic, and the intense tenesmus here is more typical of shigellosis.",
+    },
+    {
+      id: "D",
+      label: "Campylobacter jejuni enteritis",
+      feedback:
+        "Incorrect. Campylobacter can cause inflammatory diarrhea, but severe tenesmus with frequent scant bloody-mucoid stools points more strongly to dysentery from Shigella.",
+    },
+    {
+      id: "E",
+      label: "Ulcerative colitis flare",
+      feedback:
+        "Incorrect. Inflammatory bowel disease can mimic infectious colitis, but the abrupt onset after high-risk exposure in an endemic setting favors acute infectious dysentery.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-shigellosis-q1">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This patient has the dysentery syndrome: fever, abdominal cramps, tenesmus, and
+    repeated passage of small-volume stools containing blood and mucus. In endemic
+    low-resource settings, that clinical pattern strongly supports shigellosis,
+    even when stool culture is not available.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Shigella</em> species are invasive gram-negative bacilli that infect the distal
+    ileum and colon, invade colonic epithelial cells, and trigger intense local
+    inflammation. Mucosal ulceration, inflammatory exudate, and small-vessel injury
+    produce the characteristic bloody-mucoid stool.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Humans are the only important reservoir, and spread is typically fecal-oral or
+    direct person-to-person, especially where sanitation is poor or children are in
+    close contact such as daycare settings. The infectious inoculum is very low, so
+    clusters of disease are common.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Other causes of bloody diarrhea remain in the differential, but the combination
+    of fever, marked tenesmus, inflammatory stool microscopy, and a high-risk exposure
+    setting makes shigellosis the most likely diagnosis here.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseQuestion
+  pollId="case-shigellosis-q2"
+  title="Question 2"
+  prompt="Which is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Begin oral rehydration and start empiric ciprofloxacin, guided by local susceptibility patterns",
+      correct: true,
+      feedback:
+        "Correct. In an adult with presumptive shigellosis and dysentery, empiric antimicrobial therapy is appropriate because it shortens illness and reduces complications; ciprofloxacin remains a common first-line choice where locally active.",
+    },
+    {
+      id: "B",
+      label: "Provide loperamide alone and reassess if symptoms persist after 72 hours",
+      feedback:
+        "Incorrect. Antimotility agents are not appropriate here and do not address invasive bacterial dysentery.",
+    },
+    {
+      id: "C",
+      label: "Start oral cefixime because it has broad gram-negative coverage",
+      feedback:
+        "Incorrect. Oral cephalosporins have not performed well in shigellosis and are not preferred first-line therapy.",
+    },
+    {
+      id: "D",
+      label: "Withhold antibiotics because inflammatory diarrhea should be treated supportively until culture confirmation returns",
+      feedback:
+        "Incorrect. In likely shigellosis with dysentery, waiting for confirmatory culture can delay beneficial therapy, especially in low-resource settings.",
+    },
+    {
+      id: "E",
+      label: "Start metronidazole monotherapy for presumed invasive amebiasis",
+      feedback:
+        "Incorrect. Amebiasis is less likely in this presentation, and the syndrome is more consistent with shigellosis.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-shigellosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Shigellosis classically presents as dysentery with fever, tenesmus, abdominal
+      cramps, and bloody-mucoid stools, but some patients may initially have watery diarrhea.
+    </li>
+    <li>
+      A board-style clue for Shigella is the combination of frequent scant bloody stools
+      plus prominent tenesmus, reflecting distal colonic inflammation.
+    </li>
+    <li>
+      In many endemic low-resource settings, treatment is started on a presumptive
+      clinical diagnosis because stool culture is unavailable or delayed.
+    </li>
+    <li>
+      Antimicrobial therapy is most clearly beneficial in patients with dysentery
+      or systemic symptoms and should be guided by local resistance patterns.
+    </li>
+    <li>
+      Ciprofloxacin and azithromycin remain common outpatient options, but resistance
+      to both is increasing.
+    </li>
+    <li>
+      Complications to remember include seizures, reactive arthritis, and, with
+      <em> S. dysenteriae</em> type 1, hemolytic uremic syndrome.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bennish ML, Ahmed S. Shigellosis. In: Ryan ET, Hill DR, Solomon T, Aronson NE,
+      Endy TP, eds. <em>Hunter&apos;s Tropical Medicine and Emerging Infectious Diseases</em>.
+      10th ed. Elsevier; 2020.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/B978-0-323-55512-8.00048-X"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/B978-0-323-55512-8.00048-X
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kotloff KL, Riddle MS, Platts-Mills JA, Pavlinac P, Zaidi AKM.
+      Shigellosis. <em>Lancet</em>. 2018;391(10122):801-812.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(17)33296-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S0140-6736(17)33296-8
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

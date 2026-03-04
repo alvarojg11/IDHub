@@ -145,6 +145,12 @@ export const CASES: CaseMeta[] = [
     description: "A tropical cause of bilateral obstructive uropathy and renal failure.",
     enable: true
   },
+  {
+    title: "Acute Dysentery in a Returning Aid Worker",
+    slug: "shigellosis",
+    description: "A high-yield cause of acute bloody diarrhea.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
