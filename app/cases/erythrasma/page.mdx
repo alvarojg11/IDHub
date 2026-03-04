@@ -1,0 +1,221 @@
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Symmetric Groin Plaques in a Man With Diabetes
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 60-year-old man with type 2 diabetes mellitus and obesity presents to dermatology
+    for evaluation of a flesh-colored pedunculated lesion on his right proximal thigh.
+    During the examination, the clinician also notices bilateral groin plaques that the
+    patient had not considered important.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The plaques are well-demarcated and brown-red with fine peripheral scale and central
+    hypopigmentation along both inguinal folds. They are minimally symptomatic, with only
+    occasional mild pruritus. He has no fever, no satellite pustules, and no involvement
+    of the scrotum.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He reports chronic sweating and spends long hours working outdoors. He has tried an
+    over-the-counter antifungal powder intermittently without clear improvement. The rest
+    of the skin examination is unremarkable.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-erythrasma-q1"
+  title="Question"
+  prompt="Which finding would most strongly support the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Green fluorescence of the plaques under Wood lamp",
+      feedback:
+        "Incorrect. Green fluorescence is more consistent with certain dermatophyte infections, particularly some Microsporum species, not erythrasma.",
+    },
+    {
+      id: "B",
+      label: "Potassium hydroxide preparation showing pseudohyphae",
+      feedback:
+        "Incorrect. Pseudohyphae suggest candidal intertrigo rather than erythrasma.",
+    },
+    {
+      id: "C",
+      label: "Bright coral-pink fluorescence under Wood lamp examination",
+      correct: true,
+      feedback:
+        "Correct. Coral-pink fluorescence under Wood lamp is the classic bedside clue for erythrasma caused by Corynebacterium minutissimum.",
+    },
+    {
+      id: "D",
+      label: "Potassium hydroxide preparation showing hyphae and spores in a spaghetti-and-meatballs pattern",
+      feedback:
+        "Incorrect. That finding supports pityriasis versicolor due to Malassezia rather than erythrasma.",
+    },
+    {
+      id: "E",
+      label: "Complete removal of the plaque with 70% isopropyl alcohol",
+      feedback:
+        "Incorrect. That would suggest terra firma-forme dermatosis, not erythrasma.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-erythrasma-q1">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This is a classic intertriginous rash in a high-risk host. Erythrasma is a superficial
+    bacterial infection of the stratum corneum caused most often by <em>Corynebacterium
+    minutissimum</em>. It favors warm, moist skin folds, especially the inguinal, axillary,
+    and interdigital regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Risk factors include diabetes, obesity, advancing age, hyperhidrosis, and chronic skin
+    occlusion. The lesions are often asymptomatic or only mildly pruritic, making them easy
+    to overlook unless a deliberate skin-fold examination is performed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The highest-yield bedside diagnostic clue is bright coral-pink fluorescence on Wood lamp
+    examination. This fluorescence results from porphyrins, especially coproporphyrin III,
+    produced by the organism. In contrast, candidiasis and most dermatophyte infections are
+    diagnosed by potassium hydroxide preparation rather than this characteristic Wood lamp finding.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The differential diagnosis in the groin includes candidal intertrigo, tinea cruris,
+    pityriasis versicolor, and terra firma-forme dermatosis. The pattern here, coupled with
+    the expected Wood lamp finding, makes erythrasma the best fit.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseQuestion
+  pollId="case-erythrasma-q2"
+  title="Question 2"
+  prompt="What is the most appropriate initial treatment for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Oral fluconazole once weekly for 4 weeks",
+      feedback:
+        "Incorrect. Fluconazole is used for fungal infections and would not be first-line treatment for erythrasma.",
+    },
+    {
+      id: "B",
+      label: "Topical terbinafine cream twice daily",
+      feedback:
+        "Incorrect. Terbinafine targets dermatophytes, not Corynebacterium minutissimum.",
+    },
+    {
+      id: "C",
+      label: "Single-dose oral ivermectin",
+      feedback:
+        "Incorrect. Ivermectin is not a treatment for erythrasma.",
+    },
+    {
+      id: "D",
+      label: "Topical 2% mupirocin applied twice daily",
+      correct: true,
+      feedback:
+        "Correct. Localized erythrasma is typically treated with topical therapy, and topical mupirocin is an effective option with minimal systemic adverse effects.",
+    },
+    {
+      id: "E",
+      label: "No treatment because the condition is always self-limited",
+      feedback:
+        "Incorrect. Erythrasma often persists without treatment and may recur, especially in warm and moist skin folds.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-erythrasma-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Erythrasma is a superficial infection caused by <em>Corynebacterium minutissimum</em>
+      that classically affects warm, moist intertriginous skin.
+    </li>
+    <li>
+      Diabetes, obesity, hyperhidrosis, and advanced age are common risk factors.
+    </li>
+    <li>
+      A board-style hallmark is coral-pink fluorescence under Wood lamp examination due
+      to porphyrin production by the organism.
+    </li>
+    <li>
+      The main groin differential includes candidiasis, tinea cruris, pityriasis versicolor,
+      and terra firma-forme dermatosis.
+    </li>
+    <li>
+      Topical therapy is preferred for localized disease because it is effective and avoids
+      the adverse effects of systemic antibiotics.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Forouzan P, Cohen PR. Erythrasma revisited: diagnosis, differential diagnoses,
+      and comprehensive review of treatment. <em>Cureus</em>. 2020;12(10):e11143.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7599055/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        PMCID: PMC7599055
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Holdiness MR. Management of cutaneous erythrasma. <em>Drugs</em>. 2002;62(8):1131-1141.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

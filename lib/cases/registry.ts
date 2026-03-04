@@ -86,6 +86,12 @@ export const CASES: CaseMeta[] = [
     enable: true
   },
   {
+    title: "Symmetric Groin Plaques in a Man With Diabetes",
+    slug: "erythrasma",
+    description: "An intertriginous rash with a key bedside clue.",
+    enable: true
+  },
+  {
     title: "Verrucous Skin Lesions and a Right Upper Lobe Cavitary Opacity",
     slug: "blastomycosis",
     description: "A verrucous arm lesion, diagnostic GMS stain, and right upper lobe pulmonary disease.",
