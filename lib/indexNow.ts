@@ -25,11 +25,8 @@ function getSiteBaseUrl() {
 
 async function resolveKeyFromPublicDir(baseUrl: string) {
   const publicDir = path.join(process.cwd(), "public");
-
-  let entries: Awaited<ReturnType<typeof fs.readdir>>;
-  try {
-    entries = await fs.readdir(publicDir, { withFileTypes: true });
-  } catch {
+  const entries = await fs.readdir(publicDir, { withFileTypes: true }).catch(() => null);
+  if (!entries) {
     return null;
   }
 
