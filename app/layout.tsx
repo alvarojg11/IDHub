@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Infectious Disease Hub - Infectious Diseases Education, Cases, and Clinical Reasoning",
+  title: "IDHub",
   description:
     "Infectious Disease Hub is an educational resource in infectious disease, with clinical reasoning tools, case-based learning, medical education resources, and practical teaching content for clinicians, students, and trainees.",
   icons: {

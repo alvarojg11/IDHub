@@ -2,7 +2,7 @@ import SiteFooter from "@/components/SiteFooter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MechID — Antimicrobial Susceptibility Interpretation Tool for Clinicians",
+  title: "MechID | Antimicrobial Susceptibility Interpretation Tool",
   description:
     "MechID is an interactive antimicrobial susceptibility interpretation tool for infectious diseases, focused on mechanism-based reasoning.",
 };
