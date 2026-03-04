@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { collectContentUpdates } from "@/lib/subscriptionContent";
+import { submitIndexNow } from "@/lib/indexNow";
 import { emailProviderConfigured, sendContentUpdateEmail } from "@/lib/subscriptionMailer";
 import {
   getConfirmedSubscribers,
@@ -117,6 +118,31 @@ export async function POST(request: NextRequest) {
     let sent = 0;
     const failures: Array<{ email: string; contentId: string; reason: string }> = [];
     let nextSendAt = 0;
+    let indexNow:
+      | {
+          ok: true;
+          submitted: number;
+          keyLocation: string;
+          endpoint: string;
+        }
+      | {
+          ok: false;
+          reason: string;
+        }
+      | null = null;
+
+    if (dryRun) {
+      indexNow = { ok: false, reason: "skipped_dry_run" };
+    } else {
+      try {
+        indexNow = await submitIndexNow(candidates.map((item) => item.url));
+      } catch (err) {
+        indexNow = {
+          ok: false,
+          reason: err instanceof Error ? err.message : "IndexNow submit failed.",
+        };
+      }
+    }
 
     for (const item of candidates) {
       for (const subscriber of confirmed) {
@@ -197,6 +223,7 @@ export async function POST(request: NextRequest) {
       dryRun,
       targeted,
       targetedIds: targeted ? Array.from(explicitIds) : [],
+      indexNow,
       failures,
     });
   } catch (err) {
