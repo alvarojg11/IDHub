@@ -1,0 +1,260 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hiv-hemodialysis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  New HIV Diagnosis in a Patient on Hemodialysis
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old man with autosomal dominant polycystic kidney disease and end-stage
+    kidney disease on chronic intermittent hemodialysis presents after a new diagnosis
+    of HIV-1 infection. He receives dialysis three times weekly through a mature
+    arteriovenous fistula and has no residual urine output.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Baseline labs show HIV RNA 186,000 copies/mL and CD4 count 228 cells/mm^3.
+    Creatinine is 8.9 mg/dL (pre-dialysis), and liver enzymes are normal. He is
+    treatment-naive and has no prior opportunistic infections. HIV genotype and
+    integrase resistance testing are sent but not yet available.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Current medications include amlodipine, sevelamer carbonate, calcitriol, and
+    epoetin alfa at dialysis. He is motivated to start antiretroviral therapy
+    immediately and asks for the simplest effective regimen.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-hiv-hemodialysis-q1"
+  title="Question"
+  prompt="What is the most appropriate initial antiretroviral regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Dolutegravir plus tenofovir alafenamide/emtricitabine once daily, with dosing after dialysis on hemodialysis days",
+      correct: true,
+      feedback:
+        "Correct. In this case, dolutegravir plus TAF/FTC is a preferred INSTI-based option for a treatment-naive patient on chronic hemodialysis, with post-dialysis dosing on dialysis days.",
+    },
+    {
+      id: "B",
+      label: "Bictegravir/tenofovir alafenamide/emtricitabine once daily, given after dialysis on hemodialysis days",
+      feedback:
+        "Partially correct concept, but not the best choice for this teaching case. BIC/TAF/FTC can be used in selected hemodialysis patients, yet many clinicians prefer dolutegravir-based therapy here given labeling caveats and broader comfort in ESRD practice.",
+    },
+    {
+      id: "C",
+      label: "Dolutegravir/abacavir/lamivudine fixed-dose combination without additional testing",
+      feedback:
+        "Incorrect. This fixed-dose regimen is not ideal here because lamivudine requires renal dose adjustment, and abacavir use requires HLA-B*57:01 and hepatitis B status considerations.",
+    },
+    {
+      id: "D",
+      label: "Darunavir/cobicistat plus tenofovir disoproxil fumarate/emtricitabine at standard daily dosing",
+      feedback:
+        "Incorrect. TDF is generally less attractive in advanced kidney disease, and this regimen adds interaction burden and renal/bone toxicity concerns.",
+    },
+    {
+      id: "E",
+      label: "Delay ART until genotype, HLA-B*57:01, and hepatitis serologies are all finalized",
+      feedback:
+        "Incorrect. Rapid ART is recommended in most patients; initial therapy should not be unnecessarily delayed.",
+    },
+    {
+      id: "F",
+      label: "Lamivudine monotherapy with post-dialysis dosing until confirmatory HIV testing is repeated",
+      feedback:
+        "Incorrect. Monotherapy is inappropriate and risks rapid virologic failure and resistance.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hiv-hemodialysis-q2"
+  title="Question 2"
+  prompt="He starts dolutegravir plus TAF/FTC. Which counseling about phosphate binders is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Take dolutegravir at the same time as cation-containing phosphate binders to improve adherence",
+      feedback:
+        "Incorrect. Cation-containing binders can reduce dolutegravir absorption when given together.",
+    },
+    {
+      id: "B",
+      label: "Separate dolutegravir from cation-containing binders (for example calcium- or lanthanum-based) by taking dolutegravir at least 2 hours before or 6 hours after",
+      correct: true,
+      feedback:
+        "Correct. Polyvalent cations can chelate integrase inhibitors and lower exposure; practical timing separation is key when cation-containing binders are used.",
+    },
+    {
+      id: "C",
+      label: "Stop phosphate binders permanently to avoid interactions with ART",
+      feedback:
+        "Incorrect. Binders are often essential in dialysis care; manage interactions with timing rather than stopping needed renal medications.",
+    },
+    {
+      id: "D",
+      label: "Hold dolutegravir on non-dialysis days to reduce interaction risk",
+      feedback:
+        "Incorrect. ART should be taken daily; skipping doses increases failure and resistance risk.",
+    },
+    {
+      id: "E",
+      label: "No timing adjustments are needed because phosphate binders do not interact with integrase inhibitors",
+      feedback:
+        "Incorrect. Interaction risk exists with cation-containing products, and counseling on timing is an important safety step.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-hiv-hemodialysis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This patient should start ART promptly with a potent, high-barrier regimen that is
+    practical in the setting of chronic hemodialysis. Integrase inhibitor-based therapy
+    is preferred for most treatment-naive adults. In this case, dolutegravir plus
+    TAF/FTC is selected as the preferred initial regimen, with administration after
+    dialysis on dialysis days.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A common pitfall is selecting fixed-dose combinations that include nucleoside analogs
+    requiring renal adjustment in ways that are incompatible with the fixed tablet.
+    Another practical issue is polycation interactions. Cation-containing phosphate binders
+    or supplements (such as calcium, magnesium, iron, aluminum, or lanthanum products)
+    can reduce integrase inhibitor absorption, so timing separation should be reviewed
+    explicitly at ART initiation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hepatitis B status is a high-priority baseline assessment. If HBV coinfection is
+    present, ART should preserve two HBV-active drugs in the regimen to avoid HBV
+    breakthrough or flare. Follow-up should include early virologic response checks,
+    adherence review, and resistance-result reconciliation once genotype data return.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hiv-hemodialysis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      ART should generally be started rapidly after HIV diagnosis, including in patients
+      on chronic hemodialysis.
+    </li>
+    <li>
+      In treatment-naive ESRD patients on hemodialysis, dolutegravir plus TAF/FTC is a
+      practical INSTI-based option when dosed appropriately.
+    </li>
+    <li>
+      Give daily ART after dialysis on dialysis days when recommended by product labeling
+      and guideline dosing tables.
+    </li>
+    <li>
+      Counsel explicitly on interaction timing between integrase inhibitors and
+      cation-containing phosphate binders or supplements.
+    </li>
+    <li>
+      Check HBV serologies early and maintain two HBV-active agents in ART when HBV
+      coinfection is present.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Antiretroviral Guidelines for Adults and Adolescents. Guidelines for the
+      Use of Antiretroviral Agents in Adults and Adolescents with HIV. U.S. Department of
+      Health and Human Services.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/sites/default/files/guidelines/documents/adult-adolescent-arv/guidelines-adult-adolescent-arv.pdf"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Guideline PDF (Adult and Adolescent ARV)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      U.S. Food and Drug Administration. BIKTARVY (bictegravir/emtricitabine/tenofovir
+      alafenamide) Prescribing Information.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/210251s017lbl.pdf"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        FDA Label PDF
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      U.S. Food and Drug Administration. TIVICAY (dolutegravir) Prescribing Information.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/204790s039lbl.pdf"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        FDA Label PDF
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

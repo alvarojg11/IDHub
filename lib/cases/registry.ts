@@ -157,6 +157,18 @@ export const CASES: CaseMeta[] = [
     description: "A high-yield cause of acute bloody diarrhea.",
     enable: true
   },
+  {
+    title: "New HIV Diagnosis in a Patient on Hemodialysis",
+    slug: "hiv-hemodialysis",
+    description: "Selecting initial ART in end-stage kidney disease on dialysis.",
+    enable: true
+  },
+  {
+    title: "Postpartum Fever, Diplopia, and Hemiparesis",
+    slug: "listeria-rhombencephalitis",
+    description: "A stroke-mimic presentation of brainstem listeriosis.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

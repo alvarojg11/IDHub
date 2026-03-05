@@ -40,10 +40,6 @@ const nextConfig: NextConfig = {
         destination: `${ASSISTANT_BACKEND_ORIGIN}/health`,
       },
       {
-        source: '/assistant',
-        destination: `${ASSISTANT_BACKEND_ORIGIN}/assistant`,
-      },
-      {
         source: '/v1/:path*',
         destination: `${ASSISTANT_BACKEND_ORIGIN}/v1/:path*`,
       },

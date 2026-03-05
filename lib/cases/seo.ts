@@ -44,6 +44,14 @@ const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-02-21T23:26:30-08:00",
     modifiedAt: "2026-02-21T23:31:37-08:00",
   },
+  "hiv-hemodialysis": {
+    publishedAt: "2026-03-04T22:40:00-08:00",
+    modifiedAt: "2026-03-04T22:40:00-08:00",
+  },
+  "listeria-rhombencephalitis": {
+    publishedAt: "2026-03-04T23:28:00-08:00",
+    modifiedAt: "2026-03-04T23:28:00-08:00",
+  },
   "lbrf": {
     publishedAt: "2026-02-22T12:13:50-08:00",
     modifiedAt: "2026-02-22T17:43:00-08:00",
