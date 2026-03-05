@@ -166,7 +166,7 @@ export const CASES: CaseMeta[] = [
   {
     title: "Postpartum Fever, Diplopia, and Hemiparesis",
     slug: "listeria-rhombencephalitis",
-    description: "A stroke-mimic presentation of brainstem listeriosis.",
+    description: "A stroke-mimic presentation of postpartum brainstem infection.",
     enable: true
   },
 ].filter((c) => c.enable !== false);
