@@ -36,6 +36,10 @@ const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-02-15T10:33:49-08:00",
     modifiedAt: "2026-02-20T20:48:24-08:00",
   },
+  "cmv-alemtuzumab": {
+    publishedAt: "2026-03-06T19:53:36-08:00",
+    modifiedAt: "2026-03-06T19:53:36-08:00",
+  },
   "erythrasma": {
     publishedAt: "2026-03-03T19:33:11-08:00",
     modifiedAt: "2026-03-03T19:33:11-08:00",

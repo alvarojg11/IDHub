@@ -169,6 +169,12 @@ export const CASES: CaseMeta[] = [
     description: "A stroke-mimic presentation of postpartum brainstem infection.",
     enable: true
   },
+  {
+    title: "Fever During Alemtuzumab Therapy",
+    slug: "cmv-alemtuzumab",
+    description: "An opportunistic infection clue during lymphocyte-depleting therapy.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

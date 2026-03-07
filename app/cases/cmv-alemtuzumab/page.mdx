@@ -1,0 +1,255 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cmv-alemtuzumab");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever During Alemtuzumab Therapy
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 61-year-old man with Sezary syndrome is receiving alemtuzumab as salvage therapy
+    with intent to bridge to allogeneic stem cell transplantation. He had no prior
+    transplant exposure. Baseline CMV serology before treatment is IgG positive.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is now in week 5 of alemtuzumab therapy. He reports malaise, low-grade fever,
+    anorexia, and increasing fatigue over several days but no dysuria, diarrhea, or
+    focal skin findings. He is taking trimethoprim-sulfamethoxazole prophylaxis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Examination shows temperature 38.2 C, heart rate 106/min, blood pressure 112/68 mmHg,
+    and oxygen saturation 97% on room air. There is no new rash, no oral ulceration,
+    and no focal pulmonary findings. Chest radiograph is unrevealing. Blood cultures are
+    negative to date.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    His absolute neutrophil count is 0.8 x 10^9/L and lymphocyte count is profoundly
+    suppressed. Alemtuzumab-associated disease progression and opportunistic infection are
+    both being considered.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-cmv-alemtuzumab-q1"
+  title="Question"
+  prompt="Which opportunistic infection should be highest on the differential?"
+  options={[
+    {
+      id: "A",
+      label: "Tumor lysis syndrome from alemtuzumab",
+      feedback:
+        "Incorrect. Tumor lysis syndrome presents with metabolic derangements, not a subacute febrile syndrome several weeks into therapy.",
+    },
+    {
+      id: "B",
+      label: "Cytomegalovirus infection with CMV syndrome",
+      correct: true,
+      feedback:
+        "Correct. Alemtuzumab causes profound T-cell depletion, and CMV is a high-yield explanation for fever and constitutional symptoms around week 5 even before tissue-invasive disease becomes obvious.",
+    },
+    {
+      id: "C",
+      label: "Drug fever from trimethoprim-sulfamethoxazole",
+      feedback:
+        "Incorrect. Drug fever is possible, but alemtuzumab exposure makes CMV a more important opportunistic diagnosis to actively pursue.",
+    },
+    {
+      id: "D",
+      label: "Breakthrough Pneumocystis jirovecii pneumonia",
+      feedback:
+        "Incorrect. Pneumocystis usually presents with progressive dyspnea, hypoxemia, and diffuse pulmonary infiltrates rather than an isolated febrile syndrome with a normal chest radiograph.",
+    },
+    {
+      id: "E",
+      label: "EBV-driven post-transplant lymphoproliferative disorder",
+      feedback:
+        "Incorrect. He has not undergone transplantation, and PTLD would be a poor fit for this timing and presentation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-cmv-alemtuzumab-q1">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Rationale</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Alemtuzumab is a potent CD52-directed lymphocyte-depleting antibody, and CMV is one of
+    its most important opportunistic infectious complications. In the 2024 retrospective
+    cohort by George, Mozessohn, and Lam, non-transplant patients with hematologic
+    malignancies treated with alemtuzumab had a composite CMV infection rate of 42%, with
+    symptomatic infection in 21%.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Timing matters. In that cohort, the median time to CMV infection was 39.5 days from
+    the first dose, closely matching this patient&apos;s week-5 presentation. In a patient on
+    alemtuzumab with fever and no clear bacterial source, CMV deserves early consideration
+    even before PCR confirmation is available.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The same study showed major variation in screening and prevention practices, but most
+    infections were identified by serum PCR during preemptive monitoring rather than after
+    fulminant tissue-invasive disease. That makes early recognition essential in patients
+    receiving alemtuzumab outside the transplant setting.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+</CaseReveal>
+
+<CaseQuestion
+  pollId="case-cmv-alemtuzumab-q2"
+  title="Question 2"
+  prompt="Serum CMV PCR is checked and returns at 5,400 IU/mL. What is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Switch trimethoprim-sulfamethoxazole to atovaquone because this is the likely cause of CMV reactivation",
+      feedback:
+        "Incorrect. Pneumocystis prophylaxis choice does not treat CMV infection and is not the main issue here.",
+    },
+    {
+      id: "B",
+      label: "Give acyclovir because all herpesviruses respond similarly",
+      feedback:
+        "Incorrect. Acyclovir is not adequate treatment for CMV.",
+    },
+    {
+      id: "C",
+      label: "Start valganciclovir and continue close CMV PCR monitoring during alemtuzumab therapy",
+      correct: true,
+      feedback:
+        "Correct. Symptomatic CMV DNAemia during alemtuzumab therapy warrants prompt CMV-directed treatment, typically oral valganciclovir if the patient is stable, with ongoing viral-load monitoring.",
+    },
+    {
+      id: "D",
+      label: "Stop CMV surveillance because infections usually occur only after alemtuzumab is completed",
+      feedback:
+        "Incorrect. CMV infection usually occurs during therapy, often within the first 4 to 8 weeks.",
+    },
+    {
+      id: "E",
+      label: "Observe without treatment unless the viral load exceeds 50,000 IU/mL",
+      feedback:
+        "Incorrect. Waiting for very high-level viremia risks progression to CMV disease; treatment thresholds in preemptive strategies are much lower.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-cmv-alemtuzumab-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Teaching Points</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Alemtuzumab used for lymphoproliferative disorders outside transplantation carries
+      substantial CMV risk, not just in chronic lymphocytic leukemia.
+    </li>
+    <li>
+      In the 2024 Sunnybrook cohort, CMV infection occurred in 42% of patients and was
+      detected a median of 39.5 days after alemtuzumab initiation.
+    </li>
+    <li>
+      Weekly serum CMV PCR during therapy is a reasonable preemptive strategy when using
+      alemtuzumab, especially in CMV-seropositive patients.
+    </li>
+    <li>
+      Stable patients with CMV DNAemia are often treated with oral valganciclovir, while
+      severe or tissue-invasive disease may require intravenous ganciclovir.
+    </li>
+    <li>
+      Standardized prevention protocols remain poorly defined in the non-transplant setting,
+      so baseline CMV serology and consistent surveillance can reduce missed infections.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      George J, Mozessohn L, Lam PW. Cytomegalovirus infection risk with alemtuzumab
+      therapy in hematological malignancies: a retrospective cohort study in the
+      non-transplant setting. <em>Leukemia &amp; Lymphoma</em>. 2024;65(11):1716-1723.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1080/10428194.2024.2371474"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1080/10428194.2024.2371474
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      O&apos;Brien SM, Keating MJ, Mocarski ES. Updated guidelines on the management of
+      cytomegalovirus reactivation in patients with chronic lymphocytic leukemia treated
+      with alemtuzumab. <em>Clin Lymphoma Myeloma</em>. 2006;7(2):125-130.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3816/CLM.2006.n.049"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3816/CLM.2006.n.049
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ljungman P, de la Camara R, Robin C, et al. Guidelines for the management of
+      cytomegalovirus infection in patients with haematological malignancies and after
+      stem cell transplantation from the 2017 European Conference on Infections in
+      Leukaemia (ECIL 7). <em>Lancet Infect Dis</em>. 2019;19(8):e260-e272.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(19)30107-0"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S1473-3099(19)30107-0
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
