@@ -1,0 +1,278 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("giardiasis-india");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Persistent Diarrhea and Flatulence After Travel to India
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 45-year-old man is evaluated after backpacking in India for the previous month.
+    He reports 2 weeks of loose stools, initially four to five episodes daily,
+    associated with anorexia, malaise, weight loss, flatulence, and abdominal cramping
+    with defecation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the last 3 days he has developed prominent bloating and abdominal distension
+    after drinking milk or eating dairy products, followed by urgency to pass stool.
+    He has mild nausea but no fever. Earlier stools were watery, but after taking
+    ciprofloxacin from a local pharmacy for 5 days, the frequency decreased slightly
+    and the stools became mushy, greasy, and foul-smelling.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    During the trip he frequently stayed in budget hostels, drank beverages with ice,
+    ate street food, and on several long travel days refilled his bottle from untreated
+    tap water because he could not find bottled water. He recalls one overnight trek
+    when he also drank water that had only been filtered through a cloth. Several other
+    travelers he met developed brief diarrheal illness, but his symptoms persisted after
+    theirs resolved.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is 180 cm tall and now weighs 72 kg, down about 4 kg from baseline. On
+    examination he is not dehydrated and has only mild diffuse abdominal tenderness.
+    The remainder of the physical examination is normal. Stool testing later shows
+    positive reducing substances.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-4xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/giardiasis-india/giardia.png"
+      alt="Stool microscopy"
+      width={1200}
+      height={900}
+      className="rounded-lg mx-auto h-auto w-full"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Stool microscopy
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-giardiasis-india-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Amebic colitis due to Entamoeba histolytica",
+      feedback:
+        "Incorrect. Amebic colitis more often causes inflammatory diarrhea with blood, fever in some cases, and colitis symptoms rather than foul-smelling greasy stools and flatulence from small-bowel malabsorption.",
+    },
+    {
+      id: "B",
+      label: "Clostridioides difficile infection after ciprofloxacin exposure",
+      feedback:
+        "Incorrect. Fluoroquinolone exposure can precipitate C. difficile, but the timeline, stool microscopy, and malabsorptive features strongly support giardiasis instead.",
+    },
+    {
+      id: "C",
+      label: "Giardiasis",
+      correct: true,
+      feedback:
+        "Correct. Persistent greasy, foul-smelling stools with flatulence, weight loss, bloating after dairy, and exposure to untreated water are classic clues for giardiasis.",
+    },
+    {
+      id: "D",
+      label: "Shigellosis causing bacillary dysentery",
+      feedback:
+        "Incorrect. Shigellosis typically causes frequent small-volume inflammatory stools, often with fever, tenesmus, blood, or mucus rather than prolonged greasy malabsorptive diarrhea.",
+    },
+    {
+      id: "E",
+      label: "Enterotoxigenic Escherichia coli infection",
+      feedback:
+        "Incorrect. ETEC usually causes short-lived watery traveler&apos;s diarrhea, not 2 weeks of greasy foul-smelling stools with demonstrable protozoa on stool exam.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-giardiasis-india-q2"
+  title="Question 2"
+  prompt="Which is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Provide loperamide alone and encourage continued dairy intake to maintain calories",
+      feedback:
+        "Incorrect. Symptomatic therapy alone leaves the infection untreated, and ongoing lactose intake may worsen bloating and diarrhea while secondary malabsorption persists.",
+    },
+    {
+      id: "B",
+      label: "Give tinidazole 2 g orally once and advise temporary avoidance of milk and high-sugar foods",
+      correct: true,
+      feedback:
+        "Correct. Tinidazole is a preferred treatment for uncomplicated giardiasis and the positive stool reducing substances plus bloating after dairy support transient carbohydrate malabsorption, so short-term lactose restriction is appropriate.",
+    },
+    {
+      id: "C",
+      label: "Start oral vancomycin for presumed antibiotic-associated diarrhea",
+      feedback:
+        "Incorrect. The diagnostic stool findings already establish giardiasis, and the syndrome is not typical for C. difficile colitis.",
+    },
+    {
+      id: "D",
+      label: "Continue ciprofloxacin for another 5 to 7 days",
+      feedback:
+        "Incorrect. Ciprofloxacin does not adequately treat Giardia and may only partially alter the stool pattern without addressing the underlying protozoal infection.",
+    },
+    {
+      id: "E",
+      label: "Start albendazole single-dose therapy",
+      feedback:
+        "Incorrect. Albendazole is not the preferred regimen here; nitroimidazoles such as tinidazole or metronidazole are standard therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-giardiasis-india-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This patient has a classic small-bowel diarrheal syndrome: relatively bulky loose
+    stools, weight loss, flatulence, and malabsorptive features rather than dysentery.
+    The evolution from watery stools to greasy, foul-smelling stools and the worsening
+    after milk products point toward proximal intestinal dysfunction rather than invasive
+    colitis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The main epidemiologic clue is exposure to untreated water during backpacking.
+    <em>Giardia intestinalis</em> (also called <em>G. lamblia</em>) is a noninvasive
+    flagellated protozoan that colonizes the small intestine and commonly affects
+    travelers exposed to contaminated water or food in endemic settings. In this case,
+    stool microscopy later confirms the diagnosis by showing trophozoites on fresh
+    examination and cysts on concentrated stool testing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Positive stool reducing substances support secondary carbohydrate malabsorption,
+    most likely transient lactose intolerance after enteric infection. Giardia can
+    impair intestinal absorption and produce both carbohydrate intolerance and fat
+    malabsorption, explaining bloating after dairy and greasy stools.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Tinidazole 2 g orally once is an appropriate treatment for uncomplicated giardiasis.
+    Metronidazole is another standard option, but requires a multi-day course. Temporary
+    restriction of milk and other high-sugar foods can reduce symptoms while the
+    post-infectious malabsorption resolves over the next several days to weeks.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-giardiasis-india-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Clinical features can help localize infectious diarrhea when laboratory support is limited:
+      high-volume watery or bulky stools suggest small-bowel disease, whereas frequent small-volume
+      stools, urgency, tenesmus, or blood suggest colonic inflammation.
+    </li>
+    <li>
+      Persistent diarrhea lasting more than 2 weeks with flatulence, greasy stools, weight loss,
+      and bloating after dairy is a strong clue for giardiasis and secondary malabsorption.
+    </li>
+    <li>
+      <em>Giardia</em> commonly causes carbohydrate intolerance and fat malabsorption; positive stool
+      reducing substances support this complication.
+    </li>
+    <li>
+      Important post-enteric complications to remember include hemolytic uremic syndrome after
+      enterohemorrhagic <em>E. coli</em> or <em>Shigella dysenteriae</em>, Guillain-Barre syndrome
+      after <em>Campylobacter jejuni</em>, reactive arthritis after <em>Campylobacter</em>,
+      <em>Salmonella</em>, <em>Shigella</em>, or <em>Yersinia</em>, and liver abscess from
+      <em>Entamoeba histolytica</em>.
+    </li>
+    <li>
+      Nitroimidazoles remain standard treatment for giardiasis, with tinidazole often preferred
+      because it is effective as a single 2 g oral dose.
+    </li>
+    <li>
+      Travelers should be counseled about food and water safety, especially avoidance of unsafe
+      drinking water and foods prepared under poor hygienic conditions.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gardner TB, Hill DR. Treatment of giardiasis. <em>Clinical Microbiology Reviews</em>.
+      2001;14(1):114-128.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.14.1.114-128.2001"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/CMR.14.1.114-128.2001
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lalle M, Hanevik K. Treatment-refractory giardiasis: challenges and solutions.
+      <em>Infection and Drug Resistance</em>. 2018;11:1921-1933.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.2147/IDR.S141468"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.2147/IDR.S141468
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

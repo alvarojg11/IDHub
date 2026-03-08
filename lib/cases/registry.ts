@@ -175,6 +175,12 @@ export const CASES: CaseMeta[] = [
     description: "An opportunistic infection clue during lymphocyte-depleting therapy.",
     enable: true
   },
+  {
+    title: "Persistent Diarrhea and Flatulence After Travel to India",
+    slug: "giardiasis-india",
+    description: "Greasy stools, bloating after dairy, and a classic travel-related cause of persistent diarrhea.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
