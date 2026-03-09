@@ -181,6 +181,12 @@ export const CASES: CaseMeta[] = [
     description: "Greasy stools, bloating after dairy, and a classic travel-related cause of persistent diarrhea.",
     enable: true
   },
+  {
+    title: "Progressive Spastic Paraparesis in a Woman from Guyana",
+    slug: "ham-tsp",
+    description: "A chronic myelopathy clue hiding in epidemiology, bladder symptoms, and HTLV-1 serology.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

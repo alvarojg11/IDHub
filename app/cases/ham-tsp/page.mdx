@@ -1,0 +1,289 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("ham-tsp");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Progressive Spastic Paraparesis in a Woman from Guyana
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 66-year-old woman originally from Guyana presents because she can no longer walk.
+    For 3 years she has had progressive bilateral leg numbness and tingling, stiffness,
+    heaviness, and urinary incontinence. She first needed a cane, then a walker, and
+    now cannot stand without assistance.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She reports intermittent low back pain but no recent fever, rash, or acute
+    infectious illness. Her history includes lumbar disc herniation and a remote knee
+    ligament injury. She takes no medications. On examination, mental status is intact.
+    Tone is markedly increased in both lower extremities with clear spasticity. Iliopsoas
+    strength is 3/5 bilaterally, while knee extension, ankle dorsiflexion, and plantar
+    flexion are 4/5. Reflexes are diffusely brisk with bilateral Hoffman's signs and
+    upgoing toes. Vibratory sensation is reduced at the feet and ankles.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    MRI of the total spine shows only moderate degenerative changes without cord
+    compression, cauda equina syndrome, or another structural lesion to explain the
+    examination. EMG and nerve conduction studies demonstrate a distal sensorimotor
+    axonal neuropathy with some demyelinating features, but these findings do not fully
+    account for the severe spastic paraparesis. Lumbar puncture is then performed and
+    shows a mild lymphocytic pleocytosis with modestly elevated protein. Neurology asks
+    for an infectious diseases evaluation, and a broader workup is sent including HIV,
+    RPR, and HTLV-1 testing from serum and CSF.
+  </p>
+
+</div>
+
+<CaseQuestion
+  pollId="case-ham-tsp-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Primary progressive multiple sclerosis",
+      feedback:
+        "Incorrect. Primary progressive MS can cause chronic myelopathy, but this patient's epidemiology, symmetric leg-predominant spastic paraparesis, early bladder dysfunction, and HTLV-1 seropositivity are more characteristic of HAM/TSP.",
+    },
+    {
+      id: "B",
+      label: "Cervical spondylotic myelopathy",
+      feedback:
+        "Incorrect. Compressive cervical myelopathy should be considered in spastic paraparesis, but MRI did not show a causative compressive lesion.",
+    },
+    {
+      id: "C",
+      label: "HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP)",
+      correct: true,
+      feedback:
+        "Correct. Chronic progressive spastic paraparesis with urinary dysfunction, mild sensory loss, nonrevealing spine imaging, origin from an HTLV-1 endemic region, and confirmatory HTLV-1 serology strongly support HAM/TSP.",
+    },
+    {
+      id: "D",
+      label: "Subacute combined degeneration from vitamin B12 deficiency",
+      feedback:
+        "Incorrect. B12 deficiency can cause gait dysfunction and dorsal column signs, but the overall syndrome here is more consistent with a chronic inflammatory myelopathy linked to HTLV-1.",
+    },
+    {
+      id: "E",
+      label: "Hereditary spastic paraplegia",
+      feedback:
+        "Incorrect. Hereditary spastic paraplegia is a consideration in chronic lower-extremity spasticity, but this late presentation plus positive HTLV-1 testing favors an acquired infectious-inflammatory cause.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-ham-tsp-q2"
+  title="Question 2"
+  prompt="Which statement best reflects current therapeutic considerations for HAM/TSP?"
+  options={[
+    {
+      id: "A",
+      label: "Combination antiretroviral therapy is established first-line treatment and usually reverses motor deficits",
+      feedback:
+        "Incorrect. Antiretroviral regimens such as zidovudine, lamivudine, or raltegravir have not shown definitive clinical benefit and are not standard first-line therapy for HAM/TSP.",
+    },
+    {
+      id: "B",
+      label: "Management centers on rehabilitation and symptom control; corticosteroids may be used for progressive disease, but no curative therapy currently exists",
+      correct: true,
+      feedback:
+        "Correct. HAM/TSP has no proven curative treatment. Physical therapy, occupational therapy, bladder and spasticity management, and in selected patients corticosteroid-based anti-inflammatory treatment are central components of care.",
+    },
+    {
+      id: "C",
+      label: "Urgent spinal decompression is indicated even when MRI shows no explanatory lesion",
+      feedback:
+        "Incorrect. Surgery is not indicated without a structural compressive lesion.",
+    },
+    {
+      id: "D",
+      label: "Interferon-alpha is universally recommended as first-line maintenance therapy because benefits persist after discontinuation",
+      feedback:
+        "Incorrect. Interferon-alpha has shown inconsistent benefit, and expert reviews do not recommend it as routine first-line therapy.",
+    },
+    {
+      id: "E",
+      label: "Disease-directed treatment should be deferred until CSF biomarkers are available because serum HTLV-1 testing is not diagnostically useful",
+      feedback:
+        "Incorrect. Serum HTLV-1 testing is a key diagnostic element, and treatment decisions are made using the overall clinical picture rather than waiting on CSF biomarkers alone.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-ham-tsp-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP) is a chronic
+    inflammatory myelopathy caused by HTLV-1 infection. The classic presentation is an
+    insidious, nonremitting spastic paraparesis with lower-extremity weakness, urinary
+    dysfunction, and mild sensory complaints. This patient fits that pattern closely:
+    she has slowly progressive bilateral leg spasticity and weakness, hyperreflexia with
+    Babinski signs, reduced vibration sense, urinary incontinence, and CSF findings
+    compatible with an inflammatory myelopathy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnosis is often missed because the syndrome overlaps with other chronic
+    myelopathies such as cervical spondylotic myelopathy or primary progressive multiple
+    sclerosis. In this case, the absence of a compressive spinal lesion, the symmetric
+    lower-extremity-predominant course, and the epidemiologic clue of origin from Guyana,
+    where HTLV-1 seroprevalence is higher than in the general U.S. population, should push
+    HAM/TSP higher on the differential. The lumbar puncture also helps exclude competing
+    diagnoses while supporting an inflammatory process. A comprehensive workup for chronic
+    infectious myelopathy can reasonably include HIV, syphilis serologies, and HTLV-1
+    testing from serum and CSF. Positive HTLV-1 testing then strongly supports the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Important risk factors for developing HAM/TSP among HTLV-1 carriers include longer
+    duration of infection and higher proviral load. Female sex and older age at onset are
+    also associated with disease in epidemiologic cohorts. Some patients have rapid
+    progression, while others decline slowly over many years; cerebrospinal fluid markers
+    such as CXCL10 and neopterin may help stratify disease activity when available.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    There is no proven curative therapy. Management is therefore focused on maintaining
+    mobility and quality of life through physical therapy, occupational therapy, assistive
+    devices, and treatment of bladder dysfunction, pain, and spasticity. For progressive
+    inflammatory disease, expert reviews support corticosteroid-based strategies such as
+    pulsed methylprednisolone and, in selected patients, low-dose oral prednisolone
+    maintenance. Antiretroviral therapy has not shown consistent benefit, and newer
+    immunomodulatory options such as mogamulizumab remain promising but are not yet routine
+    standard care.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-ham-tsp-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      HAM/TSP should be considered in chronic, nonremitting spastic paraparesis with early
+      bladder symptoms, especially in patients from HTLV-1 endemic regions such as the
+      Caribbean, parts of South America, southwestern Japan, and West Africa.
+    </li>
+    <li>
+      MRI may be unrevealing or show nonspecific changes; the absence of a structural lesion
+      is an important clue when the examination strongly suggests myelopathy.
+    </li>
+    <li>
+      Higher HTLV-1 proviral load is associated with increased risk of HAM/TSP, and disease
+      course can range from very slow progression to rapidly disabling disease.
+    </li>
+    <li>
+      The differential diagnosis includes compressive myelopathy, multiple sclerosis, vitamin
+      B12 deficiency, and hereditary spastic paraplegia.
+    </li>
+    <li>
+      No curative therapy exists. Rehabilitation and symptom-directed care are foundational,
+      while corticosteroids may be considered for progressive inflammatory disease.
+    </li>
+    <li>
+      Patients diagnosed with HTLV-1 infection should also be assessed for other associated
+      conditions and counseled about transmission risk.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Saab L, DiCapua D, Zubair AS. HTLV-1 associated myelopathy/tropical spastic
+      paraparesis (HAM/TSP): Case based discussion of risk factors, clinical, and
+      therapeutic considerations. <em>Journal of the Neurological Sciences</em>.
+      2024;459:122973.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jns.2024.122973"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.jns.2024.122973
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Araujo A, Bangham CRM, Casseb J, et al. Management of HAM/TSP: Systematic
+      Review and Consensus-based Recommendations 2019. <em>Neurology Clinical
+      Practice</em>. 2021;11(1):49-56.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1212/CPJ.0000000000000832"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1212/CPJ.0000000000000832
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sato T, Yagishita N, Tamaki K, et al. Proposal of Classification Criteria for
+      HTLV-1-Associated Myelopathy/Tropical Spastic Paraparesis Disease Activity.
+      <em>Frontiers in Microbiology</em>. 2018;9:1651.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fmicb.2018.01651"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3389/fmicb.2018.01651
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
