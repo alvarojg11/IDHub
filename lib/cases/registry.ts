@@ -184,7 +184,7 @@ export const CASES: CaseMeta[] = [
   {
     title: "Progressive Spastic Paraparesis in a Woman from Guyana",
     slug: "ham-tsp",
-    description: "A chronic myelopathy clue hiding in epidemiology, bladder symptoms, and HTLV-1 serology.",
+    description: "A tropical differential for myelopathy.",
     enable: true
   },
 ].filter((c) => c.enable !== false);
