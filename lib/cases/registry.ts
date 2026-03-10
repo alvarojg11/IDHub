@@ -187,6 +187,12 @@ export const CASES: CaseMeta[] = [
     description: "A tropical differential for myelopathy.",
     enable: true
   },
+  {
+    title: "Recurrent Pneumococcemia",
+    slug: "pneumococcemia-myeloma",
+    description: "Recurrent invasive pneumococcal disease with a subtle hematologic clue.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

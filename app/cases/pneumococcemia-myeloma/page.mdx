@@ -1,0 +1,240 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pneumococcemia-myeloma");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Recurrent Pneumococcemia
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 61-year-old woman is admitted with fever, cough, and purulent sputum. Chest
+    radiography shows right lower lobe consolidation, and blood cultures obtained on
+    presentation grow penicillin-susceptible <em>Streptococcus pneumoniae</em>. Review
+    of the chart shows that she also had a previous episode of pneumococcal bacteremia
+    about 1 year earlier.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory evaluation shows a white blood cell count of 0.9 x 10^3/uL, hemoglobin
+    10.4 g/dL, platelets 196 x 10^3/uL, total protein 10.3 g/dL, albumin 2.8 g/dL,
+    creatinine 1.0 mg/dL, and calcium 9.1 mg/dL. A peripheral blood smear demonstrates
+    prominent rouleaux formation. She has no known history of splenectomy, cirrhosis,
+    or advanced HIV infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Given the recurrence of invasive pneumococcal disease and the abnormal laboratory
+    pattern, the team begins to consider whether there is any immunodeficiency that
+    could be predisposing her to recurrent infection.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-pneumococcemia-myeloma-q1"
+  title="Question"
+  prompt="Which underlying diagnosis best explains this presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Common variable immunodeficiency",
+      feedback:
+        "Incorrect. CVID can predispose to pneumococcal infection, but the anemia, hyperproteinemia, and rouleaux point more strongly to a monoclonal plasma-cell disorder.",
+    },
+    {
+      id: "B",
+      label: "Multiple myeloma",
+      correct: true,
+      feedback:
+        "Correct. Invasive pneumococcal infection plus anemia, elevated total protein, and rouleaux formation is a classic clue to occult multiple myeloma.",
+    },
+    {
+      id: "C",
+      label: "Alcohol-associated cirrhosis with functional hyposplenism",
+      feedback:
+        "Incorrect. Chronic liver disease can increase infection risk, but it does not account well for the marked rouleaux and paraprotein-type laboratory pattern.",
+    },
+    {
+      id: "D",
+      label: "Chronic granulomatous disease",
+      feedback:
+        "Incorrect. CGD typically presents earlier in life and predisposes to catalase-positive organisms rather than this plasma-cell dyscrasia pattern.",
+    },
+    {
+      id: "E",
+      label: "Sickle cell disease",
+      feedback:
+        "Incorrect. Functional asplenia is a pneumococcal risk factor, but the smear clue here is rouleaux rather than sickling, and the overall laboratory picture suggests myeloma.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pneumococcemia-myeloma-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next step in the diagnostic work-up?"
+  options={[
+    {
+      id: "A",
+      label: "Serum and urine protein electrophoresis with immunofixation, serum free light chains, and bone marrow biopsy",
+      correct: true,
+      feedback:
+        "Correct. Recurrent invasive pneumococcal disease plus anemia, elevated total protein, low albumin, and rouleaux should prompt work-up for a monoclonal gammopathy with confirmatory marrow evaluation.",
+    },
+    {
+      id: "B",
+      label: "JAK2 mutation testing for a myeloproliferative neoplasm",
+      feedback:
+        "Incorrect. This presentation suggests a plasma-cell dyscrasia, not a myeloproliferative neoplasm.",
+    },
+    {
+      id: "C",
+      label: "ANCA and anti-GBM serologies",
+      feedback:
+        "Incorrect. There is no vasculitic or pulmonary-renal syndrome pattern here.",
+    },
+    {
+      id: "D",
+      label: "Repeat blood cultures only, without further hematologic workup",
+      feedback:
+        "Incorrect. Clearing bacteremia matters, but the hematologic clues should not be ignored.",
+    },
+    {
+      id: "E",
+      label: "Neutrophil oxidative burst testing with a dihydrorhodamine assay for chronic granulomatous disease",
+      feedback:
+        "Incorrect. CGD testing is not the best next step here. This patient's age, recurrent pneumococcemia, rouleaux, anemia, and elevated total protein with low albumin fit a monoclonal gammopathy work-up much better.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-pneumococcemia-myeloma-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Invasive pneumococcal disease in an adult should prompt consideration of an
+    underlying host-defense problem, especially when the infection is accompanied by
+    unexplained anemia or abnormal serum protein findings. Multiple myeloma is a
+    particularly important consideration because clonal plasma-cell proliferation can
+    suppress functional polyclonal immunoglobulin production, leaving patients
+    vulnerable to encapsulated organisms such as <em>S. pneumoniae</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The peripheral smear clue in this case is rouleaux formation. When rouleaux appears
+    alongside anemia and hyperproteinemia, a monoclonal gammopathy should move high on
+    the differential.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Confirmation requires studies that demonstrate and characterize the monoclonal
+    protein burden and establish clonal marrow involvement. Serum protein electrophoresis,
+    urine protein studies with immunofixation, serum free light chains, and bone marrow
+    biopsy are therefore the appropriate next steps once the clinical pattern is
+    recognized. Acute infection still requires standard antimicrobial management, but
+    finding the underlying plasma-cell disorder changes both prognosis and long-term
+    infection-prevention planning.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pneumococcemia-myeloma-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Invasive <em>S. pneumoniae</em> infection can be the first clue to an occult
+      humoral immune defect or hematologic malignancy.
+    </li>
+    <li>
+      Rouleaux formation plus anemia and elevated total protein should trigger evaluation
+      for a monoclonal gammopathy.
+    </li>
+    <li>
+      Multiple myeloma increases susceptibility to encapsulated bacteria despite the
+      presence of a paraprotein, because normal antibody function is impaired.
+    </li>
+    <li>
+      Diagnostic confirmation typically includes serum and urine electrophoresis,
+      immunofixation, serum free light chains, and bone marrow examination.
+    </li>
+    <li>
+      Treat the acute invasive infection promptly, but do not stop at the blood-culture
+      result when additional host-risk clues are present.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Avcu F, Yilmaz N, Ural AU, Cetin T, Nevruz O. Pneumococcemia as the presenting
+      feature of multiple myeloma. <em>American Journal of Hematology</em>. 2004;76(4):382-383.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/ajh.20158"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI Link
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rajkumar SV, Dimopoulos MA, Palumbo A, et al. International Myeloma Working Group
+      updated criteria for the diagnosis of multiple myeloma. <em>The Lancet Oncology</em>.
+      2014;15(12):e538-e548.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://pubmed.ncbi.nlm.nih.gov/25439696/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        PubMed Abstract
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
