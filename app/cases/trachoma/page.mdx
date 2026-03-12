@@ -1,0 +1,256 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("trachoma");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Follicles Beneath the Upper Lid
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 7-year-old girl from a remote rural village in Ethiopia is brought to clinic
+    because of months of intermittent bilateral eye redness, tearing, photophobia, and
+    sticky discharge. Several younger siblings have similar symptoms. Her family has
+    limited access to water, lives in a crowded household, and reports frequent flies
+    around the children&apos;s faces.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She is afebrile and otherwise well. Visual acuity is preserved. External
+    examination shows mild conjunctival injection and mucoid discharge. When the upper
+    eyelid is everted, the upper tarsal conjunctiva contains multiple pale follicles,
+    each roughly 0.5 mm or larger, with associated papillary inflammation. There is no
+    trichiasis, entropion, or corneal opacity.
+  </p>
+
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/trachoma/trachoma.png"
+      alt="Follicular trachoma of the upper tarsal conjunctiva after upper lid eversion"
+      width={1200}
+      height={900}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Follicular inflammation of the upper tarsal conjunctiva seen after lid eversion.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-trachoma-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Adenoviral conjunctivitis",
+      feedback:
+        "Incorrect. Adenoviral conjunctivitis is usually an acute self-limited illness and does not classically produce this endemic childhood pattern with repeated exposure risk and characteristic upper tarsal follicles.",
+    },
+    {
+      id: "B",
+      label: "Vernal keratoconjunctivitis",
+      feedback:
+        "Incorrect. Vernal disease is strongly associated with itching and atopy; the epidemiology and follicular upper tarsal findings here fit trachoma better.",
+    },
+    {
+      id: "C",
+      label: "Trachomatous inflammation-follicular (active trachoma)",
+      correct: true,
+      feedback:
+        "Correct. Recurrent conjunctivitis in a child from an endemic setting plus five or more follicles on the everted upper tarsal conjunctiva is classic for active trachoma, specifically TF.",
+    },
+    {
+      id: "D",
+      label: "Adult inclusion conjunctivitis from genital chlamydial infection",
+      feedback:
+        "Incorrect. Inclusion conjunctivitis is caused by genital serovars of C. trachomatis and is typically linked to genital exposure or neonatal acquisition rather than this classic endemic childhood presentation.",
+    },
+    {
+      id: "E",
+      label: "Molluscum-associated follicular conjunctivitis",
+      feedback:
+        "Incorrect. Molluscum can cause chronic follicular conjunctivitis, but there is no eyelid margin molluscum lesion and the broader epidemiology strongly supports trachoma.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trachoma-q2"
+  title="Question 2"
+  prompt="A recent district survey found that children aged 1 to 9 years with this same clinical presentation make up about 40% of the surrounding population. Based on this prevalence, which public health approach is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Immediate eyelid surgery for all affected children with follicles",
+      feedback:
+        "Incorrect. Surgery is used for trachomatous trichiasis, not uncomplicated active follicular disease in children.",
+    },
+    {
+      id: "B",
+      label: "Implement the WHO SAFE strategy, including district-wide mass azithromycin distribution",
+      correct: true,
+      feedback:
+        "Correct. A TF prevalence around 40% is well above the threshold for district-wide mass antibiotic treatment. WHO recommends the SAFE strategy, and in very high-prevalence settings repeated rounds of community treatment are typically needed.",
+    },
+    {
+      id: "C",
+      label: "Continue surveillance and targeted case management, while reinforcing facial cleanliness and environmental improvement rather than district-wide mass antibiotics",
+      feedback:
+        "Incorrect. A prevalence around 40% is high enough to warrant district-wide mass antibiotic distribution as part of the SAFE strategy, not surveillance alone.",
+    },
+    {
+      id: "D",
+      label: "Wait for nucleic acid amplification testing from each child before starting any programmatic intervention",
+      feedback:
+        "Incorrect. Control programs are guided primarily by clinical prevalence surveys using WHO grading, not by requiring NAAT confirmation for every child.",
+    },
+    {
+      id: "E",
+      label: "Treat only adults with corneal opacity because children usually outgrow the infection without consequence",
+      feedback:
+        "Incorrect. Children are the main reservoir of infection, and repeated childhood infection drives later scarring, trichiasis, and blindness.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-trachoma-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Trachoma is a chronic keratoconjunctivitis caused by recurrent infection with
+    ocular serovars of <em>Chlamydia trachomatis</em>, classically A through C. Active
+    disease is concentrated in children living in poor, crowded settings with limited
+    water access and ongoing transmission through ocular and nasal secretions, fomites,
+    and possibly eye-seeking flies. The hallmark examination finding is follicular
+    inflammation of the upper tarsal conjunctiva, which requires lid eversion to see.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Under the WHO simplified grading system, trachomatous inflammation-follicular (TF)
+    is defined by the presence of five or more follicles at least 0.5 mm in diameter on
+    the upper tarsal conjunctiva. This child has the typical age group, exposure
+    setting, and conjunctival findings for active trachoma. She does not yet have the
+    late blinding complications of conjunctival scarring, entropion, trichiasis, or
+    corneal opacity, which develop after repeated episodes of inflammation over many
+    years.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Public health management depends on community prevalence. The WHO defines trachoma
+    as a public health problem when TF prevalence is at least 10% in children aged 1 to
+    9 years or when trachomatous trichiasis prevalence is at least 1% in those older
+    than 14 years. With a district-level TF prevalence of about 40%, this scenario
+    clearly warrants community-wide control. Oral azithromycin mass treatment is used to
+    reduce the chlamydial reservoir, and where baseline prevalence is very high,
+    multiple annual rounds and sometimes longer treatment programs may be needed before
+    reassessment. These antibiotic efforts should be paired with facial cleanliness and
+    environmental improvement, while surgery remains reserved for patients whose lashes
+    are already abrading the globe.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Inclusion conjunctivitis remains an important differential diagnosis because it is
+    also caused by <em>C. trachomatis</em>, but it is linked to genital serovars D
+    through K and follows genital-to-eye transmission in adults or perinatal exposure in
+    neonates. In contrast, this case represents classic endemic pediatric trachoma.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-trachoma-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Trachoma is the leading infectious cause of blindness worldwide and is caused by
+      repeated ocular infection with <em>C. trachomatis</em> serovars A through C.
+    </li>
+    <li>
+      Active disease is primarily a pediatric illness; the upper lid must be everted to
+      identify the follicles and papillary inflammation of the tarsal conjunctiva.
+    </li>
+    <li>
+      TF is defined by five or more follicles at least 0.5 mm in diameter on the upper
+      tarsal conjunctiva.
+    </li>
+    <li>
+      Recurrent infection in childhood drives later conjunctival scarring, entropion,
+      trichiasis, corneal opacity, and potentially irreversible blindness.
+    </li>
+    <li>
+      The WHO SAFE strategy is the backbone of control efforts: surgery, antibiotics,
+      facial cleanliness, and environmental improvement.
+    </li>
+    <li>
+      Inclusion conjunctivitis is also caused by <em>C. trachomatis</em>, but it is due
+      to genital serovars D through K and has a different transmission pattern and
+      clinical context.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hu V, Caswell R, Last A, Burton M, Mabey D. Trachoma and Inclusion
+      Conjunctivitis. <em>Hunter&apos;s Tropical Medicine and Emerging Infectious
+      Diseases</em>. Chapter 39:421-428.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Negrel AD, Taylor HR, West S. <em>Guidelines for Rapid Assessment for Blinding
+      Trachoma</em>. WHO/PBD/GET/00.8. Geneva: World Health Organization; 2001.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wright HR, Keeffe JE, Taylor HR. Trachoma and the need for a coordinated
+      community-wide response: a case-based study. <em>PLoS Medicine</em>.
+      2006;3:186-190.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

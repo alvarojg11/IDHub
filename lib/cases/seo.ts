@@ -56,6 +56,10 @@ const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-03-10T09:45:00-07:00",
     modifiedAt: "2026-03-10T10:12:00-07:00",
   },
+  "trachoma": {
+    publishedAt: "2026-03-12T09:30:00-04:00",
+    modifiedAt: "2026-03-12T09:30:00-04:00",
+  },
   "hzo-hutchinson-sign": {
     publishedAt: "2026-02-21T23:26:30-08:00",
     modifiedAt: "2026-02-21T23:31:37-08:00",

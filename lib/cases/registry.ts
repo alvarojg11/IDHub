@@ -193,6 +193,12 @@ export const CASES: CaseMeta[] = [
     description: "Recurrent invasive pneumococcal disease with a subtle hematologic clue.",
     enable: true
   },
+  {
+    title: "Follicles Beneath the Upper Lid",
+    slug: "trachoma",
+    description: "Chronic conjunctivitis in a child from rural Ethiopia.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
