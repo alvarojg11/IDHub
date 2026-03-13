@@ -199,6 +199,12 @@ export const CASES: CaseMeta[] = [
     description: "Chronic conjunctivitis in a child from rural Ethiopia.",
     enable: true
   },
+  {
+    title: "When the Fever Breaks",
+    slug: "dengue",
+    description: "A tropical febrile illness takes a dangerous turn.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
