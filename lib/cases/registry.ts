@@ -205,6 +205,12 @@ export const CASES: CaseMeta[] = [
     description: "A tropical febrile illness takes a dangerous turn.",
     enable: true
   },
+  {
+    title: "Desert Screening Dilemma",
+    slug: "coccidioidomycosis-prophylaxis",
+    description: "An HIV follow-up case.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

@@ -183,10 +183,14 @@ export function estimateHarms(moduleId: string, states: Record<string, FindingSt
         url: "https://doi.org/10.1093/cid/ciz1008",
       });
     }
-    if (has("imi_mucorales_pcr_bal") || has("imi_aspergillus_pcr_bal")) {
-      addMissedDxDriver(2, "Specific mold molecular evidence selected.", {
-        short: "Brown et al. Int J Infect Dis",
-        url: "https://doi.org/10.1016/j.ijid.2025.107941",
+    if (
+      has("imi_mucorales_pcr_bal") ||
+      has("imi_aspergillus_pcr_bal") ||
+      has("imi_aspergillus_pcr_plasma") ||
+      has("imi_aspergillus_culture_resp")
+    ) {
+      addMissedDxDriver(2, "Specific mold microbiology selected.", {
+        short: "Aspergillus/Mucorales PCR studies",
       });
     }
   }

@@ -1,0 +1,273 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("coccidioidomycosis-prophylaxis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Desert Screening Dilemma
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 43-year-old man with HIV returns to clinic in Tucson, Arizona, after several
+    months of inconsistent antiretroviral therapy adherence. He has lived in southern
+    Arizona for the last 5 years and works as a delivery driver. He reports no recent
+    travel outside the U.S. Southwest.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He feels well and denies fever, cough, pleuritic chest pain, dyspnea, rash,
+    headache, focal bone pain, or weight loss. Nine months earlier, screening
+    serologies for <em>Coccidioides</em> IgM and IgG were negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Current laboratory studies show HIV RNA 68,400 copies/mL and CD4 count
+    172 cells/mm^3. CBC, liver enzymes, and creatinine are unremarkable. He asks
+    whether he should take an antifungal medication now because "everyone here talks
+    about valley fever."
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-cocci-prophylaxis-q1"
+  title="Question"
+  prompt="Which preventive strategy is most appropriate at this visit?"
+  options={[
+    {
+      id: "A",
+      label: "Start fluconazole 400 mg PO once daily now because he lives in an endemic area and has a CD4 count below 250 cells/mm^3",
+      feedback:
+        "Incorrect. Primary antifungal prophylaxis is not recommended for serologically negative people with HIV who live in endemic areas, even when the CD4 count is below 250 cells/mm^3.",
+    },
+    {
+      id: "B",
+      label: "Start itraconazole 200 mg PO twice daily until the CD4 count rises above 250 cells/mm^3",
+      feedback:
+        "Incorrect. Routine azole prophylaxis for a seronegative patient in an endemic area is not recommended.",
+    },
+    {
+      id: "C",
+      label: "Do not start antifungal prophylaxis now; continue ART optimization and repeat Coccidioides serology yearly or twice yearly while he remains at risk",
+      correct: true,
+      feedback:
+        "Correct. For serologically negative people with HIV who live in endemic areas, periodic serologic screening can be considered, but primary antifungal prophylaxis is not recommended.",
+    },
+    {
+      id: "D",
+      label: "Give monthly liposomal amphotericin B until HIV RNA becomes undetectable",
+      feedback:
+        "Incorrect. This is not a recommended prevention strategy for coccidioidomycosis in HIV.",
+    },
+    {
+      id: "E",
+      label: "Avoid further serologic screening unless he develops pneumonia symptoms",
+      feedback:
+        "Incorrect. In endemic areas, yearly or twice-yearly serologic screening can be considered even in asymptomatic patients who previously tested negative.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Four months later, after partial ART re-engagement, his HIV RNA remains detectable
+    and CD4 count is 188 cells/mm^3. Routine repeat screening now shows newly positive
+    <em> Coccidioides</em> EIA IgM and IgG. Confirmatory immunodiffusion and complement
+    fixation tests are sent.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He remains afebrile and continues to deny cough, dyspnea, chest pain, rash,
+    headache, or focal musculoskeletal symptoms. Examination is unrevealing, chest
+    radiograph shows no focal or diffuse infiltrates, and there are no laboratory
+    abnormalities suggesting active extrapulmonary disease.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-cocci-prophylaxis-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next step now?"
+  options={[
+    {
+      id: "A",
+      label: "Observe without antifungal therapy because he has no symptoms",
+      feedback:
+        "Incorrect. In a previously seronegative patient with HIV whose CD4 count is below 250 cells/mm^3, a new positive coccidioidal serology should not simply be observed without action after active disease has been assessed.",
+    },
+    {
+      id: "B",
+      label: "Start fluconazole 400 mg PO once daily after clinical evaluation finds no evidence of active coccidioidomycosis",
+      correct: true,
+      feedback:
+        "Correct. For a previously seronegative patient with HIV who develops a new positive coccidioidal serology, has CD4 count below 250 cells/mm^3, and has no evidence of active disease after evaluation, pre-emptive fluconazole 400 mg daily is recommended.",
+    },
+    {
+      id: "C",
+      label: "Start fluconazole 200 mg PO once daily only if the complement fixation titer becomes positive",
+      feedback:
+        "Incorrect. The recommended pre-emptive regimen is fluconazole 400 mg daily, and management should not be deferred solely pending complement fixation positivity if the overall scenario fits.",
+    },
+    {
+      id: "D",
+      label: "Treat immediately with amphotericin B because any new positive serology in HIV implies disseminated infection",
+      feedback:
+        "Incorrect. A new positive serology warrants evaluation for active disease, but it does not automatically mean disseminated infection requiring amphotericin B.",
+    },
+    {
+      id: "E",
+      label: "Ignore the result because enzyme immunoassays are too nonspecific to influence management",
+      feedback:
+        "Incorrect. EIA testing can yield false positives, especially for IgM, but a new positive result in this clinical setting should prompt confirmation and management rather than dismissal.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-cocci-prophylaxis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case highlights the distinction between primary antifungal prophylaxis and
+    pre-emptive therapy for coccidioidomycosis in people with HIV living in endemic
+    regions. Those are not the same decision.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For patients who are serologically negative, routine primary antifungal prophylaxis
+    is not recommended, even when the CD4 count is below 250 cells/mm^3. Instead,
+    yearly or twice-yearly serologic screening can be considered for people with HIV
+    who live in endemic areas or who previously lived in or traveled through those
+    regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A new positive IgM or IgG serologic result in a previously negative patient with
+    HIV and CD4 count below 250 cells/mm^3 changes the situation. That result raises
+    concern for possible active coccidioidomycosis and should trigger a focused clinical
+    evaluation for pulmonary, meningeal, osseous, or other extrapulmonary disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    If no signs, symptoms, imaging findings, or laboratory abnormalities compatible
+    with active coccidioidomycosis are identified, pre-emptive therapy with fluconazole
+    400 mg PO once daily is recommended. This approach should be continued until the
+    CD4 count is at least 250 cells/mm^3 and virologic suppression on ART is documented.
+    By contrast, if the patient already has CD4 count at or above 250 cells/mm^3 with
+    viral suppression, close follow-up without antifungal therapy is generally preferred.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    One additional pearl: serology is useful for screening and follow-up, but it cannot
+    exclude disease in a symptomatic or highly suspicious presentation because antibodies
+    may take time to develop, especially in immunocompromised hosts.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cocci-prophylaxis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      In endemic areas, yearly or twice-yearly coccidioidal serology can be considered
+      for people with HIV who previously tested negative.
+    </li>
+    <li>
+      Primary antifungal prophylaxis is not recommended for serologically negative
+      patients solely because they live in an endemic area and have a low CD4 count.
+    </li>
+    <li>
+      A new positive coccidioidal IgM or IgG result in a previously negative patient
+      with CD4 count below 250 cells/mm^3 should prompt evaluation for active disease.
+    </li>
+    <li>
+      If that evaluation does not reveal active coccidioidomycosis, use fluconazole
+      400 mg PO once daily as pre-emptive therapy.
+    </li>
+    <li>
+      Stop pre-emptive therapy once the CD4 count is at least 250 cells/mm^3 and HIV
+      is virologically suppressed on ART.
+    </li>
+    <li>
+      Counsel patients in endemic regions to avoid major dust exposure when possible,
+      use appropriate N95 protection around soil excavation, and stay indoors during
+      dust storms.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Guidelines for the Prevention and Treatment of Opportunistic Infections
+      in Adults and Adolescents with HIV. Coccidioidomycosis. In: <em>Guidelines for
+      the Prevention and Treatment of Opportunistic Infections in Adults and Adolescents
+      with HIV</em>. National Institutes of Health, Centers for Disease Control and
+      Prevention, HIV Medicine Association of the Infectious Diseases Society of America.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/en/guidelines/adult-and-adolescent-opportunistic-infection/coccidioidomycosis"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        NIH HIV OI guideline
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Galgiani JN, Ampel NM, Blair JE, et al. 2016 Infectious Diseases Society of
+      America (IDSA) Clinical Practice Guideline for the Treatment of Coccidioidomycosis.
+      <em> Clinical Infectious Diseases</em>. 2016;63(6):e112-e146.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw360"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/ciw360
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -18,6 +18,49 @@ type Props = {
 const UNCERTAINTY_ASSISTANT_URL =
   process.env.NEXT_PUBLIC_UNCERTAINTY_ASSISTANT_URL ?? "/assistant";
 
+function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId !== "inv_mold") {
+    if (recommendation === "treat") return "Treat now";
+    if (recommendation === "observe") return "Observe / monitor";
+    return "Pursue further testing";
+  }
+  if (recommendation === "treat") return "Start mold-active therapy";
+  if (recommendation === "observe") return "Broaden the differential";
+  return "Keep mold on the differential";
+}
+
+function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId !== "inv_mold") return null;
+  if (recommendation === "treat") {
+    return "Invasive mold infection is concerning enough that empiric mold-active therapy is reasonable while you continue confirming the diagnosis and reassessing competing explanations.";
+  }
+  if (recommendation === "test") {
+    return "Invasive mold infection remains on the differential, but better microbiologic or tissue confirmation would be helpful before calling this established disease.";
+  }
+  return "Invasive mold infection is not strongly supported by the current data, so competing diagnoses should stay front and center rather than anchoring on mold right now.";
+}
+
+function recommendationNextSteps(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId !== "inv_mold") return [] as string[];
+  if (recommendation === "treat") {
+    return [
+      "If feasible, obtain BAL and send fungal culture/cytology plus galactomannan and Aspergillus PCR if that workup has not already been done.",
+      "Repeat chest CT to assess radiographic trajectory after treatment starts.",
+      "If the patient is not responding clinically or the CT chest is worsening, pursue tissue biopsy for histopathology and fungal culture if it is feasible and safe.",
+    ];
+  }
+  if (recommendation === "test") {
+    return [
+      "If feasible, obtain BAL and send fungal culture/cytology plus galactomannan and Aspergillus PCR.",
+      "If the lesion is accessible and the procedure is safe, pursue tissue biopsy for histopathology and fungal culture.",
+      "Keep competing diagnoses in play rather than assuming all compatible imaging is mold.",
+    ];
+  }
+  return [
+    "Reassess alternative diagnoses such as bacterial pneumonia, other fungal infection, nocardiosis, malignancy, drug toxicity, or noninfectious inflammatory lung disease.",
+  ];
+}
+
 type VirstaAcquisition = "nosocomial" | "community_or_nhca";
 type HandocSpecies =
   | "unspecified_other"
@@ -320,6 +363,14 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     [harmEstimate]
   );
   const recommendation = postP >= treatmentThresholdP ? "treat" : postP <= observeThresholdP ? "observe" : "test";
+  const recommendationCopy = useMemo(
+    () => ({
+      headline: recommendationHeadline(activeModule.id, recommendation),
+      detail: recommendationDetail(activeModule.id, recommendation),
+      nextSteps: recommendationNextSteps(activeModule.id, recommendation),
+    }),
+    [activeModule.id, recommendation]
+  );
 
   const steps = useMemo(
     () => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }),
@@ -1302,16 +1353,26 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               ].join(" ")}
             >
               <span className="font-semibold">
-                {recommendation === "treat"
-                  ? "Treat now"
-                  : recommendation === "observe"
-                  ? "Observe / monitor"
-                  : "Pursue further testing"}
+                {recommendationCopy.headline}
               </span>
               <span className="ml-2">
                 (Post-test {formatPct(postP)})
               </span>
+              {recommendationCopy.detail ? (
+                <div className="mt-2 text-xs leading-5 opacity-90">{recommendationCopy.detail}</div>
+              ) : null}
             </div>
+
+            {recommendationCopy.nextSteps.length > 0 ? (
+              <div className="mt-3 rounded-md border border-gray-200 bg-white px-3 py-3">
+                <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">Suggested next steps</div>
+                <ul className="mt-2 list-disc pl-5 text-xs leading-5 text-gray-700">
+                  {recommendationCopy.nextSteps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             <div className="mt-3 text-xs text-gray-600">
               {harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
