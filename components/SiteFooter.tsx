@@ -3,7 +3,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 
 const footerLinks = [
-  { href: "/assistant", label: "Assistant" },
+  { href: "/assistant", label: "IDAssistant" },
   { href: "/cases", label: "Cases" },
   { href: "/blog", label: "Blog" },
   { href: "/probid", label: "ProbID" },

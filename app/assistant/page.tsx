@@ -6,9 +6,9 @@ const ASSISTANT_BACKEND_ORIGIN =
 const ASSISTANT_URL = `${ASSISTANT_BACKEND_ORIGIN}/assistant`;
 
 export const metadata: Metadata = {
-  title: "IDHub Assistant",
+  title: "IDAssistant | IDHub",
   description:
-    "IDHub Uncertainty Assistant for Infectious Diseases clinical reasoning and ProbID-guided workflows.",
+    "IDAssistant for Infectious Diseases clinical reasoning and ProbID-guided workflows.",
   alternates: {
     canonical: "https://infectiousdiseasehub.com/assistant",
   },
@@ -21,7 +21,7 @@ export default function AssistantPage() {
         <div className="flex items-center justify-between gap-4 border-b border-[var(--border)] px-4 py-3 sm:px-6">
           <div>
             <h1 className="text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl">
-              IDHub Uncertainty Assistant
+              IDAssistant
             </h1>
             <p className="text-sm text-[var(--foreground)]/75">
               Full-screen clinical reasoning workspace for Infectious Diseases cases.
@@ -38,7 +38,7 @@ export default function AssistantPage() {
         </div>
         <iframe
           src={ASSISTANT_URL}
-          title="IDHub Uncertainty Assistant"
+          title="IDAssistant"
           className="block h-[calc(100dvh-8.5rem)] w-full border-0"
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"

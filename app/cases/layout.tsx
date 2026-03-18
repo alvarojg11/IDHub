@@ -10,7 +10,7 @@ export default function CasesLayout({ children }: { children: ReactNode }) {
       <CaseStructuredData />
       <main className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
         <article className="mx-auto max-w-4xl">
-          <section className="idhub-case-content rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,251,249,0.94))] p-5 shadow-[var(--shadow-soft)] sm:p-8">
+          <section className="idhub-case-content px-1 sm:px-2">
             {children}
           </section>
         </article>

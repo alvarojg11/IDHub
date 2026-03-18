@@ -48,12 +48,6 @@ const stats = [
 
 const featuredTools = [
   {
-    href: "/assistant",
-    title: "Assistant",
-    desc: "A full-screen reasoning workspace for walking through uncertainty in Infectious Diseases cases.",
-    tag: "New workflow",
-  },
-  {
     href: "/probid",
     title: "ProbID",
     desc: "Structured probability support for syndromes where pretest thinking matters.",
@@ -64,6 +58,12 @@ const featuredTools = [
     title: "ImmunoID",
     desc: "An educational guide to immunosuppressive therapies, mechanisms, and infection risk.",
     tag: "Host factors",
+  },
+  {
+    href: "/mechid",
+    title: "MechID",
+    desc: "Mechanism-based susceptibility interpretation grounded in microbiology and stewardship.",
+    tag: "Antimicrobial reasoning",
   },
 ];
 
@@ -128,10 +128,10 @@ export default function Home() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/assistant"
+                  href="/blog"
                   className="rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(20,92,71,0.24)] hover:bg-[var(--primary-strong)]"
                 >
-                  Launch Assistant
+                  Explore Blog
                 </Link>
                 <Link
                   href="/cases"
@@ -162,12 +162,12 @@ export default function Home() {
 
           <aside className="lg:h-full">
             <div className="idhub-panel-strong flex h-full flex-col rounded-[1.75rem] p-6">
-              <p className="idhub-kicker">Assistant Mission</p>
+              <p className="idhub-kicker">IDAssistant Mission</p>
               <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
                 Infectious Diseases thinking, for everyone
               </h2>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-                The assistant is designed to make Infectious Diseases clinical reasoning more
+                IDAssistant is designed to make Infectious Diseases clinical reasoning more
                 accessible to clinicians, learners, and care teams. Its purpose is not to replace
                 specialists, but to extend the habits of Infectious Diseases assessment: careful
                 syndrome framing, differential construction, interpretation of host factors, and
@@ -177,8 +177,8 @@ export default function Home() {
               <div className="mt-6 rounded-[1.4rem] border border-[var(--border)] bg-[var(--background-soft)] p-4">
                 <p className="text-sm font-semibold text-[var(--foreground)]">The vision</p>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                  A practical educational assistant that helps bring the methods of Infectious
-                  Diseases consultation to more clinicians, more patients, and more care settings.
+                  IDAssistant helps bring the methods of Infectious Diseases consultation to more
+                  clinicians, more patients, and more care settings.
                 </p>
               </div>
 
@@ -186,7 +186,7 @@ export default function Home() {
                 href="/assistant"
                 className="mt-auto inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
-                Open the assistant
+                Open IDAssistant
               </Link>
             </div>
           </aside>

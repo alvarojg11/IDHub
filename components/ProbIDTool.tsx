@@ -15,9 +15,6 @@ type Props = {
   defaultModuleId?: string;
 };
 
-const UNCERTAINTY_ASSISTANT_URL =
-  process.env.NEXT_PUBLIC_UNCERTAINTY_ASSISTANT_URL ?? "/assistant";
-
 function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
   if (moduleId !== "inv_mold") {
     if (recommendation === "treat") return "Treat now";
@@ -619,28 +616,6 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   return (
     <div className="idhub-tool-shell mx-auto max-w-6xl py-6">
-      <div className="mb-6 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(222,240,233,0.94),rgba(243,249,246,0.96))] p-5 shadow-[var(--shadow-soft)]">
-        <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">
-          Uncertainty Assistant
-        </p>
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-lg font-semibold text-emerald-950">Try ProbID in our Uncertainty Assistant</p>
-            <p className="mt-1 text-sm text-emerald-900/80">
-              Describe the case in plain language and the assistant will guide the ProbID workflow for you.
-            </p>
-          </div>
-          <a
-            href={UNCERTAINTY_ASSISTANT_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800"
-          >
-            Open assistant
-          </a>
-        </div>
-      </div>
-
       <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
         <p className="idhub-kicker">Interactive Tool</p>
         <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ProbID</h1>

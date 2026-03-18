@@ -83,7 +83,7 @@ export default function RootLayout({
                   href="/assistant"
                   className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(20,92,71,0.28)] hover:bg-[var(--primary-strong)]"
                 >
-                  Open Assistant
+                  Open IDAssistant
                 </Link>
               </div>
             </div>
