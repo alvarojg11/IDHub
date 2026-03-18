@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Research | IDHub",
-  description: "Research ideas and collaboration in medical education and clinical infectious diseases.",
+  description: "Research ideas and collaboration in medical education and clinical Infectious Diseases.",
 };
 
 const currentIdeas = [
@@ -35,7 +35,7 @@ export default function ResearchPage() {
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
             IDHub treats medical education as something to study, iterate, and improve. This space
-            is for collaborations around clinical infectious diseases teaching, tool evaluation, and
+            is for collaborations around clinical Infectious Diseases teaching, tool evaluation, and
             project design.
           </p>
 

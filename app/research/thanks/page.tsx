@@ -15,7 +15,7 @@ export default function ResearchThanksPage() {
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-[var(--foreground)]/85">
           Your research message was sent successfully. I appreciate your interest in contributing
-          to medical education and clinical infectious diseases learning.
+          to medical education and clinical Infectious Diseases learning.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

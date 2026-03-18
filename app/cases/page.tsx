@@ -1,11 +1,10 @@
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
-import SubscribeForm from "@/components/SubscribeForm";
 import { CASES } from "@/lib/cases/registry";
 
 const cases = CASES;
-const CASES_PER_PAGE = 20;
+const CASES_PER_PAGE = 18;
 
 function pageHref(page: number) {
   return page <= 1 ? "/cases" : `/cases?page=${page}`;
@@ -66,7 +65,7 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Cases
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            Interactive, stepwise clinical reasoning cases in infectious diseases, built to make
+            Interactive, stepwise clinical reasoning cases in Infectious Diseases, built to make
             uncertainty more teachable and problem solving more deliberate.
           </p>
 
@@ -184,25 +183,6 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
           </div>
         </section>
       ) : null}
-
-      <section className="mt-10">
-        <div className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:items-center">
-            <div>
-              <p className="idhub-kicker">Updates</p>
-              <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
-                Get notified about new cases and blog posts
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                Follow along as new teaching cases, essays, and clinical reasoning tools are added.
-              </p>
-            </div>
-            <div>
-              <SubscribeForm compact />
-            </div>
-          </div>
-        </div>
-      </section>
 
       <SiteFooter />
     </section>

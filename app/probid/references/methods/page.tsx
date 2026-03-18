@@ -263,9 +263,9 @@ export default function ProbIDMethodsPage() {
 
       <footer className="mt-16 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">
         <p>
-            IDHub is an educational project focused on clinical teaching in Infectious Disease.
+            IDHub is an educational project focused on clinical teaching in Infectious Diseases.
 
-            Content is for learning purposes only and does not replace clinical judgment, institutional guidelines, or consultation with infectious diseases specialists.
+            Content is for learning purposes only and does not replace clinical judgment, institutional guidelines, or consultation with Infectious Diseases specialists.
 
             © 2026 IDHub
         </p>

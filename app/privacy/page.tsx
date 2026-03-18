@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <header className="mb-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Privacy</h1>
         <p className="mt-3 text-[var(--foreground)]/85">
-          This website provides educational clinical reasoning tools for infectious diseases.
+          This website provides educational clinical reasoning tools for Infectious Diseases.
         </p>
       </header>
 

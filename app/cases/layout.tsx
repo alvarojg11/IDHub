@@ -13,7 +13,7 @@ export default function CasesLayout({ children }: { children: ReactNode }) {
           <div className="border-b border-[var(--border)] px-6 py-5 sm:px-8">
             <p className="idhub-kicker">Interactive Case</p>
             <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              Stepwise infectious diseases reasoning with polls, reveals, and teaching commentary.
+              Stepwise Infectious Diseases reasoning with polls, reveals, and teaching commentary.
             </p>
           </div>
           <section className="idhub-case-content px-6 py-8 sm:px-8">

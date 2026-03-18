@@ -17,7 +17,7 @@ export default function ImmunoIDPage() {
           <p className="idhub-kicker">Tool Overview</p>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             ImmunoID organizes immunosuppressive drugs around mechanisms and infection risk so the
-            host side of infectious diseases becomes easier to reason through.
+            host side of Infectious Diseases care becomes easier to reason through.
           </p>
         </div>
 

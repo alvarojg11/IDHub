@@ -22,25 +22,11 @@ export default function CaseNavAuto() {
 
   return (
     <div className="mt-28">
-      <div className="mx-auto max-w-5xl flex justify-center gap-8">
+      <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4">
         {prev && (
           <Link
             href={`/cases/${prev.slug}`}
-            className="
-              flex-1 max-w-sm
-              inline-flex items-center justify-center
-              rounded-full
-              px-12 py-10
-              text-xl font-semibold
-              tracking-wide
-              transition-all duration-200
-              hover:-translate-y-1 hover:shadow-lg
-            "
-            style={{
-              backgroundColor: "var(--card2)",
-              border: "1.5px solid var(--border)",
-              color: "var(--foreground)",
-            }}
+            className="idhub-button-secondary inline-flex min-w-[180px] items-center justify-center px-5 py-3 text-sm font-semibold"
           >
             ← Previous
           </Link>
@@ -49,21 +35,7 @@ export default function CaseNavAuto() {
         {next && (
           <Link
             href={`/cases/${next.slug}`}
-            className="
-              flex-1 max-w-sm
-              inline-flex items-center justify-center
-              rounded-full
-              px-12 py-10
-              text-xl font-semibold
-              tracking-wide
-              transition-all duration-200
-              hover:-translate-y-1 hover:shadow-lg
-            "
-            style={{
-              backgroundColor: "var(--card2)",
-              border: "1.5px solid var(--border)",
-              color: "var(--foreground)",
-            }}
+            className="idhub-button-secondary inline-flex min-w-[180px] items-center justify-center px-5 py-3 text-sm font-semibold"
           >
             Next →
           </Link>

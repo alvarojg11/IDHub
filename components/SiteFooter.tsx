@@ -33,7 +33,7 @@ export default function SiteFooter() {
                 Keep up with new cases, essays, and tools
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">
-                IDHub is an educational platform for infectious diseases clinical reasoning,
+                IDHub is an educational platform for Infectious Diseases clinical reasoning,
                 diagnostic probability, and practical teaching resources.
               </p>
             </div>
@@ -97,8 +97,8 @@ export default function SiteFooter() {
         <div className="border-t border-[var(--border)] px-6 py-5 lg:px-8">
           <p className="max-w-4xl text-xs leading-6 text-[var(--muted)]">
             Content is for learning purposes only and does not replace clinical judgment,
-            institutional guidelines, or consultation with infectious diseases specialists. IDHub is
-            an educational project focused on clinical teaching in infectious disease.
+            institutional guidelines, or consultation with Infectious Diseases specialists. IDHub is
+            an educational project focused on clinical teaching in Infectious Diseases.
           </p>
           <p className="mt-3 text-xs text-[var(--muted-soft)]">© {new Date().getFullYear()} IDHub</p>
         </div>

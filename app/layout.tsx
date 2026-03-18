@@ -19,7 +19,7 @@ const primaryNav = [
 export const metadata: Metadata = {
   title: "IDHub",
   description:
-    "Infectious Disease Hub is an educational resource in infectious disease, with clinical reasoning tools, case-based learning, medical education resources, and practical teaching content for clinicians, students, and trainees.",
+    "Infectious Disease Hub is an educational resource in Infectious Diseases, with clinical reasoning tools, case-based learning, medical education resources, and practical teaching content for clinicians, students, and trainees.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -55,7 +55,7 @@ export default function RootLayout({
                 IDHub
               </span>
               <span className="mt-1 max-w-md text-sm text-[var(--muted)]">
-                Infectious diseases cases, uncertainty tools, and practical teaching content.
+                Infectious Diseases cases, uncertainty tools, and practical teaching content.
               </span>
             </Link>
 

@@ -7,13 +7,13 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Recommended Projects | IDHub",
   description:
-    "Discover recommended infectious diseases education projects, medical education resources, and ID teaching tools for clinicians, students, and trainees.",
+    "Discover recommended Infectious Diseases education projects, medical education resources, and ID teaching tools for clinicians, students, and trainees.",
   keywords: [
-    "infectious diseases education",
+    "Infectious Diseases education",
     "medical education resources",
     "ID teaching tools",
-    "infectious diseases teaching",
-    "infectious diseases podcast",
+    "Infectious Diseases teaching",
+    "Infectious Diseases podcast",
     "rotating on ID service",
     "ID rotation",
     "clinical reasoning",
@@ -27,13 +27,13 @@ const projects = [
     href: "https://www.firstcallid.ca/",
     logoSrc: "/recommended-projects/firstcallid-logo.png",
     logoAlt: "FirstCallID logo",
-    tagline: "A practical infectious diseases podcast",
-    desc: "The Host Response is a clinically focused, practical podcast built for learners who want high-yield infectious diseases teaching in a clear and approachable format. Hosted by Dr. Paul Bunce, whose soothing voice makes it an especially inviting listen, it is also a thoughtful space for reflecting on what it means to work in infectious diseases.",
+    tagline: "A practical Infectious Diseases podcast",
+    desc: "The Host Response is a clinically focused, practical podcast built for learners who want high-yield Infectious Diseases teaching in a clear and approachable format. Hosted by Dr. Paul Bunce, whose soothing voice makes it an especially inviting listen, it is also a thoughtful space for reflecting on what it means to work in Infectious Diseases.",
     whyItFits:
-      "We share a similar perspective on medical education: learning should be practical, grounded in clinical reasoning, and honest about the fact that much of infectious diseases requires living with uncertainty.",
+      "We share a similar perspective on medical education: learning should be practical, grounded in clinical reasoning, and honest about the fact that much of Infectious Diseases requires living with uncertainty.",
     podcastQuestion: "Rotating in ID? Start with FirstCallID.",
     podcastDesc:
-      "Beyond the podcast, FirstCallID is a practical infectious diseases education resource that helps students, residents, and early trainees build a strong starting framework for common ID questions and bedside learning. It is a strong place to start if you want concise review and useful clinical pearls before or during an ID rotation.",
+      "Beyond the podcast, FirstCallID is a practical Infectious Diseases education resource that helps students, residents, and early trainees build a strong starting framework for common ID questions and bedside learning. It is a strong place to start if you want concise review and useful clinical pearls before or during an ID rotation.",
   },
   {
     name: "SIGIT",
@@ -57,7 +57,7 @@ export default function RecommendedProjectsPage() {
             Projects we think are worth following
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            This page highlights infectious diseases education projects, medical education
+            This page highlights Infectious Diseases education projects, medical education
             resources, and practical teaching work that complements IDHub&apos;s focus on clinical
             reasoning, case-based learning, and thoughtful pedagogy.
           </p>
@@ -75,7 +75,7 @@ export default function RecommendedProjectsPage() {
           </p>
           <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
             IDHub should not feel isolated. This is a growing place to point people toward other
-            projects doing thoughtful work in infectious diseases and medical education.
+            projects doing thoughtful work in Infectious Diseases and medical education.
           </p>
         </aside>
       </header>
@@ -155,7 +155,7 @@ export default function RecommendedProjectsPage() {
             Know a project to add?
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-            If there is an infectious diseases or medical education project that belongs here, reach
+            If there is an Infectious Diseases or medical education project that belongs here, reach
             out through the contact page. The goal is for this to become a useful place to discover
             thoughtful educational work.
           </p>

@@ -8,7 +8,7 @@ const ASSISTANT_URL = `${ASSISTANT_BACKEND_ORIGIN}/assistant`;
 export const metadata: Metadata = {
   title: "IDHub Assistant",
   description:
-    "IDHub Uncertainty Assistant for infectious diseases clinical reasoning and ProbID-guided workflows.",
+    "IDHub Uncertainty Assistant for Infectious Diseases clinical reasoning and ProbID-guided workflows.",
   alternates: {
     canonical: "https://infectiousdiseasehub.com/assistant",
   },
@@ -24,7 +24,7 @@ export default function AssistantPage() {
               IDHub Uncertainty Assistant
             </h1>
             <p className="text-sm text-[var(--foreground)]/75">
-              Full-screen clinical reasoning workspace for infectious diseases cases.
+              Full-screen clinical reasoning workspace for Infectious Diseases cases.
             </p>
           </div>
           <a

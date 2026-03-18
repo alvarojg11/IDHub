@@ -7,7 +7,7 @@ import { PROBID_MODULES } from "@/lib/lrSyndromes";
 export const metadata: Metadata = {
   title: "ProbID | IDHub",
   description:
-    "ProbID is an educational diagnostic reasoning tool that uses pretest probability and likelihood ratios to estimate post-test probability in infectious diseases syndromes.",
+    "ProbID is an educational diagnostic reasoning tool that uses pretest probability and likelihood ratios to estimate post-test probability in Infectious Diseases syndromes.",
 };
 
 export default function ProbIDPage() {

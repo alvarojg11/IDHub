@@ -5,7 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "MechID | Antimicrobial Susceptibility Interpretation Tool",
   description:
-    "MechID is an interactive antimicrobial susceptibility interpretation tool for infectious diseases, focused on mechanism-based reasoning.",
+    "MechID is an interactive antimicrobial susceptibility interpretation tool for Infectious Diseases, focused on mechanism-based reasoning.",
 };
 
 const valuePoints = [
@@ -52,7 +52,7 @@ export default function MechIDPage() {
             Best for
           </p>
           <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-            Infectious diseases clinicians, stewardship teams, microbiology learners, hospitalists,
+            Infectious Diseases clinicians, stewardship teams, microbiology learners, hospitalists,
             pharmacists, residents, fellows, and anyone trying to connect lab data with mechanism.
           </p>
         </aside>

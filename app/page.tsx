@@ -8,7 +8,7 @@ const medicalWebPageSchema = {
   name: "InfectiousDiseaseHub",
   url: "https://infectiousdiseasehub.com",
   description:
-    "Educational platform with clinical reasoning tools and cases for infectious diseases.",
+    "Educational platform with clinical reasoning tools and cases for Infectious Diseases.",
   publisher: {
     "@type": "Organization",
     name: "InfectiousDiseaseHub",
@@ -50,7 +50,7 @@ const featuredTools = [
   {
     href: "/assistant",
     title: "Assistant",
-    desc: "A full-screen reasoning workspace for walking through uncertainty in infectious diseases cases.",
+    desc: "A full-screen reasoning workspace for walking through uncertainty in Infectious Diseases cases.",
     tag: "New workflow",
   },
   {
@@ -119,7 +119,7 @@ export default function Home() {
             <div className="relative">
               <p className="idhub-kicker">Infectious Diseases Education</p>
               <h1 className="idhub-display mt-4 max-w-3xl text-5xl leading-[0.95] text-[var(--foreground)] sm:text-6xl lg:text-7xl">
-                Modern clinical reasoning, built for the messy middle.
+                Infectious Diseases education centered on clinical reasoning, evidence, and uncertainty.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
                 IDHub brings together cases, teaching essays, and decision-support tools so learners
@@ -162,40 +162,42 @@ export default function Home() {
 
           <aside className="space-y-5">
             <div className="idhub-panel-strong rounded-[1.75rem] p-6">
-              <p className="idhub-kicker">Featured Workflow</p>
+              <p className="idhub-kicker">Assistant Mission</p>
               <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
-                A cleaner front door for clinical uncertainty
+                Infectious Diseases thinking, for everyone
               </h2>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-                Use the assistant for full-screen case discussion, then move into ProbID,
-                ImmunoID, MechID, or DoseID when you need more focused teaching support.
+                The assistant is designed to make Infectious Diseases clinical reasoning more
+                accessible to clinicians, learners, and care teams. Its purpose is not to replace
+                specialists, but to extend the habits of Infectious Diseases assessment: careful
+                syndrome framing, differential construction, interpretation of host factors, and
+                thoughtful antimicrobial decision-making.
               </p>
 
               <div className="mt-6 rounded-[1.4rem] border border-[var(--border)] bg-[var(--background-soft)] p-4">
-                <p className="text-sm font-semibold text-[var(--foreground)]">Suggested path</p>
-                <ol className="mt-3 space-y-3 text-sm text-[var(--muted)]">
-                  <li>1. Start with a case summary in the assistant.</li>
-                  <li>2. Pressure-test the differential with ProbID.</li>
-                  <li>3. Add host factors, susceptibility, or dosing tools as needed.</li>
-                </ol>
+                <p className="text-sm font-semibold text-[var(--foreground)]">The vision</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                  A practical educational assistant that helps bring the methods of Infectious
+                  Diseases consultation to more clinicians, more patients, and more care settings.
+                </p>
               </div>
 
               <Link
                 href="/assistant"
                 className="mt-6 inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
-                Open the workspace
+                Open the assistant
               </Link>
             </div>
 
             <div className="idhub-panel rounded-[1.75rem] p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted-soft)]">
-                Why it feels different
+                Educational Mission
               </p>
               <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
-                <li>Built around uncertainty, not only lookup.</li>
-                <li>Educational tools that stay clinically grounded.</li>
-                <li>Writing, cases, and apps that live in one system.</li>
+                <li>Infectious Diseases education made more accessible for everyone.</li>
+                <li>Clinical reasoning tools designed for learners, trainees, and clinicians.</li>
+                <li>Cases, writing, and teaching resources gathered in one place.</li>
               </ul>
             </div>
           </aside>
@@ -207,13 +209,9 @@ export default function Home() {
           <div>
             <p className="idhub-kicker">Core Tools</p>
             <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
-              Product-style entry points
+              Core educational tools
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[var(--muted)]">
-            These are the fastest ways into the platform when you want a concrete workflow rather
-            than a long menu of links.
-          </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
@@ -243,10 +241,10 @@ export default function Home() {
 
       <section className="py-8">
         <div className="mb-6">
-          <p className="idhub-kicker">Library</p>
-          <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
-            Writing, tools, and collaborations organized with more clarity
-          </h2>
+            <p className="idhub-kicker">Library</p>
+            <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
+              Writing, tools, and collaborations for Infectious Diseases education
+            </h2>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

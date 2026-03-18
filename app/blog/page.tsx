@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
-import SubscribeForm from "@/components/SubscribeForm";
 import { getBlogPosts } from "@/lib/blog/registry";
 
 export default async function BlogPage() {
@@ -17,7 +16,7 @@ export default async function BlogPage() {
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
             Practical reflections on diagnostics, antimicrobials, and clinical uncertainty in
-            infectious diseases. Posts now live directly inside IDHub so the writing feels like part
+            Infectious Diseases. Posts now live directly inside IDHub so the writing feels like part
             of the same learning system as the tools and cases.
           </p>
 
@@ -95,26 +94,6 @@ export default async function BlogPage() {
           No blog posts found yet. Add a post under `app/blog/&lt;slug&gt;/page.mdx`.
         </p>
       ) : null}
-
-      <section className="mt-10">
-        <div className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:items-center">
-            <div>
-              <p className="idhub-kicker">Follow Along</p>
-              <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
-                Subscribe to new essays and cases
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                Updates include new blog posts, clinical cases, and larger additions to the
-                educational tools.
-              </p>
-            </div>
-            <div>
-              <SubscribeForm compact />
-            </div>
-          </div>
-        </div>
-      </section>
 
       <SiteFooter />
     </section>

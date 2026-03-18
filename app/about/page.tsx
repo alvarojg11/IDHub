@@ -12,7 +12,7 @@ const quickLinks = [
   {
     href: "/blog",
     title: "Blog",
-    desc: "Reflections on diagnostics, antimicrobials, and clinical reasoning in infectious diseases.",
+    desc: "Reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
   },
   {
     href: "/mechid",
@@ -53,7 +53,7 @@ const collaborators = [
     contribution: "Mentorship",
     imageSrc: "/images/jorge-salinas.png",
     imageAlt: "Jorge Luis Salinas, MD",
-    bio: "Jorge is an infectious diseases physician at Stanford who brings a thoughtful, systems-based perspective to the way clinical care, infection prevention, and medical education intersect.",
+    bio: "Jorge is an Infectious Diseases physician at Stanford who brings a thoughtful, systems-based perspective to the way clinical care, infection prevention, and medical education intersect.",
     details:
       "As Project Advisor, he helps shape the broader direction of IDHub and offers steady guidance on how the project can grow in a way that stays practical, rigorous, and useful for learners.",
   },
@@ -63,7 +63,7 @@ const collaborators = [
     contribution: "Clinical Cases",
     imageSrc: "/images/hector-bonilla.png",
     imageAlt: "Hector Fabio Bonilla, MD",
-    bio: "Hector is an infectious diseases physician at Stanford with deep experience in patient care, teaching, and clinical reasoning across a wide range of infectious diseases.",
+    bio: "Hector is an Infectious Diseases physician at Stanford with deep experience in patient care, teaching, and clinical reasoning across a wide range of Infectious Diseases presentations.",
     details:
       "As Case Development Advisor, he brings clinical perspective to the development of IDHub cases and helps refine them so they feel grounded, relevant, and educationally meaningful.",
   },
@@ -76,11 +76,11 @@ export default function AboutPage() {
         <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
           <p className="idhub-kicker">About IDHub</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
-            A shared home for infectious diseases learning
+            A shared home for Infectious Diseases learning
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
             IDHub brings together writing, cases, and educational tools to support practical
-            medical education and clearer clinical reasoning in infectious diseases.
+            medical education and clearer clinical reasoning in Infectious Diseases.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
             Guiding idea
           </p>
           <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-            Infectious diseases is rarely about perfect certainty. The platform is designed to help
+            Infectious Diseases is rarely about perfect certainty. The platform is designed to help
             learners and clinicians reason more deliberately when the evidence is incomplete.
           </p>
         </aside>
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <p className="idhub-kicker">Purpose</p>
           <p className="mt-4 text-sm leading-8 text-[var(--muted)] sm:text-base">
             The mission of IDHub is to provide educational tools that are accessible to everyone,
-            not only to encourage curiosity about the world of infectious diseases, but also to help
+            not only to encourage curiosity about the world of Infectious Diseases, but also to help
             evolve how we teach and learn in medical education. Through multiple tools, the goal is
             to expand understanding of complexity and make difficult scenarios more teachable,
             including multidrug-resistant organisms, immunocompromised hosts, and diagnostic
@@ -158,7 +158,7 @@ export default function AboutPage() {
                     uncertainty, imperfect data, and competing possibilities.
                   </p>
                   <p>
-                    Over time, that became a central insight. Infectious diseases is less about
+                    Over time, that became a central insight. Infectious Diseases is less about
                     memorizing answers and more about navigating ambiguity thoughtfully. As his
                     interest in medical education grew, he wanted a place to explore those nuances
                     more openly, from test interpretation to probability framing to real-world
@@ -234,7 +234,7 @@ export default function AboutPage() {
             <p>
               The goal is an evolving set of cases and tools that helps learners and clinicians feel
               more comfortable reasoning through uncertainty while staying connected to what makes
-              infectious diseases so compelling.
+              Infectious Diseases so compelling.
             </p>
           </div>
         </article>
