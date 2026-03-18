@@ -91,6 +91,23 @@ h6,
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 70%);
 }
 
+body.idhub-assistant-route {
+  background: #f7fbf9;
+}
+
+body.idhub-assistant-route.idhub-shell::before {
+  display: none;
+}
+
+body.idhub-assistant-route > header {
+  display: none;
+}
+
+body.idhub-assistant-route > main {
+  max-width: none;
+  padding: 0;
+}
+
 .idhub-panel {
   border: 1px solid var(--border);
   background: var(--card);
