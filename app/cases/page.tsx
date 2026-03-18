@@ -59,7 +59,7 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
         <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
-          <p className="idhub-kicker">Case Library</p>
+          <p className="idhub-kicker">ID Cases</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             Cases
           </h1>
@@ -67,6 +67,21 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Interactive, stepwise clinical reasoning cases in Infectious Diseases, built to make
             uncertainty more teachable and problem solving more deliberate.
           </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="idhub-button-primary px-5 py-3 text-sm font-semibold"
+            >
+              Collaborate
+            </Link>
+            <Link
+              href="/about"
+              className="idhub-button-secondary px-5 py-3 text-sm font-semibold"
+            >
+              About IDHub
+            </Link>
+          </div>
         </div>
 
         <aside className="idhub-panel rounded-[1.75rem] p-6">

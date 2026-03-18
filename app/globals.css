@@ -327,6 +327,9 @@ h6,
   font-weight: 800 !important;
   letter-spacing: -0.035em !important;
   line-height: 1.06 !important;
+  max-width: 22ch;
+  min-height: calc(1.06em * 2);
+  text-wrap: balance;
 }
 
 .idhub-case-content h2 {
