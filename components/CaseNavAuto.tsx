@@ -22,7 +22,7 @@ export default function CaseNavAuto() {
 
   return (
     <div className="mt-28">
-      <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {prev && (
           <Link
             href={`/cases/${prev.slug}`}
@@ -41,13 +41,6 @@ export default function CaseNavAuto() {
           </Link>
         )}
       </div>
-
-      <footer className="mt-20 border-t border-[var(--border)] pt-8 pb-6 text-xs text-[var(--muted)] text-center">
-        Educational content only. Not medical advice. 
-        <p className="text-xs text-[var(--muted)]">
-            © {new Date().getFullYear()} IDHub
-        </p>
-      </footer>
     </div>
   );
 }

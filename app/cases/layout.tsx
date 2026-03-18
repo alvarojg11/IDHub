@@ -9,19 +9,15 @@ export default function CasesLayout({ children }: { children: ReactNode }) {
     <>
       <CaseStructuredData />
       <main className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
-        <article className="idhub-reading-shell overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,249,247,0.95))] shadow-[var(--shadow-medium)]">
-          <div className="border-b border-[var(--border)] px-6 py-5 sm:px-8">
-            <p className="idhub-kicker">Interactive Case</p>
-            <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              Stepwise Infectious Diseases reasoning with polls, reveals, and teaching commentary.
-            </p>
-          </div>
-          <section className="idhub-case-content px-6 py-8 sm:px-8">
+        <article className="mx-auto max-w-4xl">
+          <section className="idhub-case-content rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,251,249,0.94))] p-5 shadow-[var(--shadow-soft)] sm:p-8">
             {children}
           </section>
         </article>
 
-        <CaseNavAuto />
+        <div className="mx-auto max-w-4xl">
+          <CaseNavAuto />
+        </div>
         <SiteFooter />
       </main>
     </>

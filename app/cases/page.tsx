@@ -68,47 +68,23 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Interactive, stepwise clinical reasoning cases in Infectious Diseases, built to make
             uncertainty more teachable and problem solving more deliberate.
           </p>
-
-          <div className="mt-8 grid gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
-            <div>
-              <p className="text-3xl font-semibold text-[var(--foreground)]">{cases.length}</p>
-              <p className="mt-1 text-sm text-[var(--muted)]">total published cases</p>
-            </div>
-            <div>
-              <p className="text-3xl font-semibold text-[var(--foreground)]">{shownCount}</p>
-              <p className="mt-1 text-sm text-[var(--muted)]">shown on this page</p>
-            </div>
-            <div>
-              <p className="text-3xl font-semibold text-[var(--foreground)]">{currentPage}</p>
-              <p className="mt-1 text-sm text-[var(--muted)]">current page</p>
-            </div>
-          </div>
         </div>
 
-        <aside className="space-y-5">
-          <div className="idhub-panel rounded-[1.75rem] p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-              Collaboration
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-              Have a case concept, teaching idea, or educational project that belongs on IDHub?
-            </p>
-            <Link
-              href="/contact"
-              className="idhub-button-secondary mt-5 inline-flex px-4 py-2.5 text-sm font-semibold"
-            >
-              Collaborate
-            </Link>
-          </div>
-
-          <div className="idhub-panel rounded-[1.75rem] p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-              Page Summary
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-              Showing cases {start + 1}-{end} of {cases.length}. Page {currentPage} of {totalPages}.
-            </p>
-          </div>
+        <aside className="idhub-panel rounded-[1.75rem] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            What to expect
+          </p>
+          <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
+            <li>Interactive cases built around uncertainty and clinical reasoning.</li>
+            <li>Stepwise teaching with reveals, polls, and management decisions.</li>
+            <li>Use the contact page to share a case concept or teaching idea.</li>
+          </ul>
+          <Link
+            href="/contact"
+            className="idhub-button-secondary mt-5 inline-flex px-4 py-2.5 text-sm font-semibold"
+          >
+            Collaborate
+          </Link>
         </aside>
       </header>
 
@@ -151,17 +127,25 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
 
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {visibleCases.map((c) => (
-              <Link
+              <article
                 key={c.slug}
-                href={`/cases/${c.slug}`}
                 className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
               >
-                <h3 className="text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
-                  {c.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{c.description}</p>
-                <div className="mt-8 text-sm font-semibold text-[var(--primary)]">Open case</div>
-              </Link>
+                <Link href={`/cases/${c.slug}`} className="block h-full">
+                  <div className="flex h-full flex-col">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+                      Interactive case
+                    </p>
+                    <h3 className="mt-4 text-[2rem] font-semibold leading-tight text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                      {c.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{c.description}</p>
+                    <span className="mt-auto pt-8 text-sm font-semibold text-[var(--primary)]">
+                      Open case
+                    </span>
+                  </div>
+                </Link>
+              </article>
             ))}
           </div>
 

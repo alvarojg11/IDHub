@@ -113,12 +113,12 @@ export default function Home() {
       />
 
       <section className="pb-10 pt-6">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-stretch">
           <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(236,245,241,0.92))] px-6 py-8 shadow-[var(--shadow-medium)] sm:px-8 sm:py-10">
             <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,rgba(20,92,71,0.14),transparent_70%)]" />
             <div className="relative">
               <p className="idhub-kicker">Infectious Diseases Education</p>
-              <h1 className="idhub-display mt-4 max-w-3xl text-5xl leading-[0.95] text-[var(--foreground)] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-3 max-w-3xl text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
                 An educational platform for Infectious Diseases
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
@@ -160,8 +160,8 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="space-y-5">
-            <div className="idhub-panel-strong rounded-[1.75rem] p-6">
+          <aside className="lg:h-full">
+            <div className="idhub-panel-strong flex h-full flex-col rounded-[1.75rem] p-6">
               <p className="idhub-kicker">Assistant Mission</p>
               <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
                 Infectious Diseases thinking, for everyone
@@ -184,21 +184,10 @@ export default function Home() {
 
               <Link
                 href="/assistant"
-                className="mt-6 inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                className="mt-auto inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
                 Open the assistant
               </Link>
-            </div>
-
-            <div className="idhub-panel rounded-[1.75rem] p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted-soft)]">
-                Educational Mission
-              </p>
-              <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
-                <li>Infectious Diseases education made more accessible for everyone.</li>
-                <li>Clinical reasoning tools designed for learners, trainees, and clinicians.</li>
-                <li>Cases, writing, and teaching resources gathered in one place.</li>
-              </ul>
             </div>
           </aside>
         </div>
