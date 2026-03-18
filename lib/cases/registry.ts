@@ -8,6 +8,12 @@ export type CaseMeta = {
 
 export const CASES: CaseMeta[] = [
   {
+    title: "The Traveling Swelling",
+    slug: "gnathostomiasis",
+    description: "Migratory swelling after raw seafood exposure.",
+    enable: true
+  },
+  {
     title: "The Climbing Lesion",
     slug: "nocardia-brasiliensis",
     description: "Not your routine skin and soft tissue infection.",

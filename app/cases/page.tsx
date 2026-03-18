@@ -68,21 +68,6 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Infectious Diseases. Cases now live directly inside IDHub so the case library feels
             like part of the same learning system as the tools and writing.
           </p>
-
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link
-              href="/blog"
-              className="idhub-button-primary px-5 py-3 text-sm font-semibold"
-            >
-              Read Blog
-            </Link>
-            <Link
-              href="/about"
-              className="idhub-button-secondary px-5 py-3 text-sm font-semibold"
-            >
-              About IDHub
-            </Link>
-          </div>
         </div>
 
         <aside className="idhub-panel rounded-[1.75rem] p-6">

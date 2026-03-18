@@ -1,0 +1,224 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("gnathostomiasis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Traveling Edema
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 37-year-old woman presents with recurrent, painful edema of the right forearm and cheek.
+    The edema first appeared 3 weeks after returning from a trip to coastal Mexico, where she
+    ate several dishes made with raw fish and shrimp. The first episode resolved spontaneously
+    after 5 days, but a new area of edema appeared 2 weeks later near the jaw.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She describes a deep piercing sensation just before each area of edema becomes visible. She has had
+    intermittent nausea and mild epigastric discomfort since the trip, but no diarrhea. She does
+    not take immunosuppressive medications and has no prior history of angioedema or chronic skin
+    disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Examination shows a firm, non-pitting, mildly erythematous subcutaneous edema over the left
+    mandibular region. There is no urticaria, wheezing, or lip edema. Her white blood cell
+    count is 11,900 cells/uL with eosinophils 18% (absolute eosinophil count 2,100 cells/uL).
+    Stool ova and parasite examination is negative.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <div className="inline-block rounded-lg border border-gray-300 bg-transparent p-1">
+    <Image
+      src="/cases/gnathostoma/gnathostoma.png"
+      alt="Mandibular edema from cutaneous gnathostomiasis"
+      width={720}
+      height={520}
+      className="rounded-lg"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Migratory mandibular edema in cutaneous gnathostomiasis.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-gnathostomiasis-q1"
+  title="Question"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Localized angioedema",
+      feedback:
+        "Incorrect. Angioedema is usually softer, more transient, and not typically associated with eosinophilia plus recurrent migratory edema after raw fish exposure.",
+    },
+    {
+      id: "B",
+      label: "Cutaneous larva migrans",
+      feedback:
+        "Incorrect. Cutaneous larva migrans causes serpiginous superficial tracks rather than deeper intermittent migratory edema with piercing pain.",
+    },
+    {
+      id: "C",
+      label: "Cutaneous gnathostomiasis",
+      correct: true,
+      feedback:
+        "Correct. Intermittent migratory subcutaneous edema, piercing pain, eosinophilia, and ingestion of raw fish or other paratenic hosts are classic clues for gnathostomiasis.",
+    },
+    {
+      id: "D",
+      label: "Loiasis",
+      feedback:
+        "Incorrect. Loiasis can cause migratory edema, but the exposure history here points to a food-borne helminth rather than Chrysops exposure in West or Central Africa.",
+    },
+    {
+      id: "E",
+      label: "Baylisascariasis",
+      feedback:
+        "Incorrect. Baylisascariasis more often causes visceral or neurologic disease after ingestion of roundworm eggs and is not the classic explanation for this food-borne migratory edema syndrome.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-gnathostomiasis-q1">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Gnathostomiasis is a food-borne parasitic zoonosis caused by nematodes of the genus
+    <em> Gnathostoma</em>. Humans acquire infection after ingesting larvae in raw or undercooked
+    intermediate or paratenic hosts, most commonly fish, shrimp, crab, frog, or chicken.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In humans, larvae do not mature into adult worms. Instead, they penetrate the gastric wall and
+    migrate unpredictably through tissues. The most common manifestation is intermittent migratory
+    edema of the skin and subcutaneous tissues, often accompanied by erythema, pain, and a
+    piercing sensation. Peripheral eosinophilia is common but not universal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The epidemiologic clue is critical. In this case, recurrent migratory edema following
+    consumption of raw seafood in an endemic region is much more suggestive of gnathostomiasis than
+    simple angioedema or bacterial skin infection. Ocular and central nervous system involvement can
+    occur and are the most feared complications.
+  </p>
+</div>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+</CaseReveal>
+
+<CaseQuestion
+  pollId="case-gnathostomiasis-q2"
+  title="Question 2"
+  prompt="Which treatment approach is most appropriate for uncomplicated cutaneous gnathostomiasis when the larva is not easily accessible?"
+  options={[
+    {
+      id: "A",
+      label: "Albendazole 400 mg twice daily for 21 to 28 days",
+      correct: true,
+      feedback:
+        "Correct. Albendazole is a standard medical option for cutaneous gnathostomiasis when direct removal is not practical.",
+    },
+    {
+      id: "B",
+      label: "Praziquantel for 3 days",
+      feedback:
+        "Incorrect. Praziquantel is not standard therapy for gnathostomiasis.",
+    },
+    {
+      id: "C",
+      label: "Observation alone because the larvae always die quickly",
+      feedback:
+        "Incorrect. Untreated larvae may persist for years, with recurrent symptoms and risk of migration to critical sites.",
+    },
+    {
+      id: "D",
+      label: "Broad-spectrum antibiotics for 14 days",
+      feedback:
+        "Incorrect. Antibiotics do not treat gnathostomiasis unless there is a separate bacterial complication.",
+    },
+    {
+      id: "E",
+      label: "High-dose corticosteroids alone",
+      feedback:
+        "Incorrect. Corticosteroids may help selected inflammatory complications, especially in CNS disease, but are not definitive monotherapy for cutaneous gnathostomiasis.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-gnathostomiasis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Gnathostomiasis is a food-borne helminth infection associated with raw or undercooked fish,
+      shrimp, crab, frog, or chicken.
+    </li>
+    <li>
+      The most common presentation is recurrent migratory subcutaneous edema with pain or a
+      piercing sensation.
+    </li>
+    <li>
+      Eosinophilia supports the diagnosis, but exposure history and the migratory nature of the
+      lesions are especially important clues.
+    </li>
+    <li>
+      Surgical removal is preferred if the larva is easily accessible; otherwise albendazole and/or
+      ivermectin are reasonable medical options.
+    </li>
+    <li>
+      Ocular and central nervous system involvement can occur and should raise concern for severe
+      disease.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Dekumyoy P, Watthanakulpanich D. Gnathostomiasis. In:
+    <em> Hunter&apos;s Tropical Medicine and Emerging Infectious Diseases</em>. 121:888-890.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 text-justify">
+    Sharma C, Piyaphanee W, Watthanakulpanich D. Clinical features of intermittent migratory
+    edema caused by gnathostomiasis with complete follow-up.
+    <em> American Journal of Tropical Medicine and Hygiene</em>. 2017;97:1611-1615.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
