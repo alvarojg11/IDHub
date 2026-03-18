@@ -1,29 +1,40 @@
-import ImmunoTool from "@/components/ImmunoTool";
+import type { Metadata } from "next";
 
-export const metadata = {
+import ImmunoTool from "@/components/ImmunoTool";
+import SiteFooter from "@/components/SiteFooter";
+
+export const metadata: Metadata = {
   title: "ImmunoID | IDHub",
+  description:
+    "ImmunoID helps learners review immunosuppressive agents, mechanisms of action, and high-yield infection risks in one place.",
 };
 
 export default function ImmunoIDPage() {
   return (
-    <main className="py-16">
-      <ImmunoTool />
-    
-          <footer className="mt-16 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)] py-12">
-        <div className="max-w-5xl mx-auto space-y-2">
-          <p>
-            IDHub is an educational project focused on clinical teaching in Infectious Disease.
+    <section className="mx-auto max-w-7xl px-2 py-10 sm:px-4">
+      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.85fr)]">
+        <div className="idhub-panel rounded-[1.8rem] p-6">
+          <p className="idhub-kicker">Tool Overview</p>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+            ImmunoID organizes immunosuppressive drugs around mechanisms and infection risk so the
+            host side of infectious diseases becomes easier to reason through.
           </p>
-          <p>
-            Content is for learning purposes only and does not replace clinical judgment,
-            institutional guidelines, or consultation with infectious diseases specialists.
-        </p>
-          <p className="text-xs text-[var(--muted)]">
-            © {new Date().getFullYear()} IDHub
-        </p>
         </div>
-      </footer>
-      
-    </main>
+
+        <div className="idhub-panel rounded-[1.8rem] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            Best for
+          </p>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+            Learners and clinicians who want a fast overview of immune-modifying therapies and the
+            opportunistic patterns they should keep in mind.
+          </p>
+        </div>
+      </div>
+
+      <ImmunoTool />
+
+      <SiteFooter />
+    </section>
   );
 }

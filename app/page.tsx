@@ -40,51 +40,63 @@ const authorSchema = {
   ],
 };
 
-const tiles = [
+const stats = [
+  { value: "5+", label: "interactive tools" },
+  { value: "30+", label: "case-based learning modules" },
+  { value: "1", label: "home for ID reasoning" },
+];
+
+const featuredTools = [
   {
-    href: "/blog",
-    title: "Blog",
-    desc: "Reflections on diagnostics, antimicrobial therapy, and clinical reasoning in infectious diseases, shaped by training, bedside conversations, and the recognition that even strong evidence leaves room for nuance.",
-  },
-  {
-    href: "/cases",
-    title: "Cases",
-    desc: "Clinical cases for ongoing learning in infectious diseases, using problem solving to revisit syndromes, pathogens, and treatment decisions.",
-  },
-  {
-    href: "/mechid",
-    title: "MechID",
-    desc: "Need help interpreting antimicrobial susceptibility results? Try MechID.",
-  },
-  {
-    href: "/tools/immunoid",
-    title: "ImmunoID",
-    desc: "Explore immunosuppressive medications, mechanisms of action, and high-yield infection risks-with an educational immunosuppression level estimate.",
+    href: "/assistant",
+    title: "Assistant",
+    desc: "A full-screen reasoning workspace for walking through uncertainty in infectious diseases cases.",
+    tag: "New workflow",
   },
   {
     href: "/probid",
     title: "ProbID",
-    desc: "Explore infectious syndromes through structured diagnostic inputs-with an educational post-test probability estimate.",
+    desc: "Structured probability support for syndromes where pretest thinking matters.",
+    tag: "Diagnostic framing",
+  },
+  {
+    href: "/tools/immunoid",
+    title: "ImmunoID",
+    desc: "An educational guide to immunosuppressive therapies, mechanisms, and infection risk.",
+    tag: "Host factors",
+  },
+];
+
+const librarySections = [
+  {
+    href: "/cases",
+    title: "Cases",
+    desc: "Case-driven learning for syndromes, pathogens, and management choices.",
+  },
+  {
+    href: "/blog",
+    title: "Blog",
+    desc: "Short essays and teaching pieces on diagnostics, antimicrobial therapy, and uncertainty.",
+  },
+  {
+    href: "/mechid",
+    title: "MechID",
+    desc: "Resistance mechanism interpretation grounded in microbiology and clinical use.",
   },
   {
     href: "/tools/doseid",
     title: "DoseID",
-    desc: "A reference app for optimizing antimicrobial dosing",
+    desc: "Practical antimicrobial dosing support built for real clinical decisions.",
   },
   {
     href: "/research",
     title: "Research",
-    desc: "A space for medical education research ideas, collaborations, and projects in clinical infectious diseases.",
+    desc: "A place to explore collaborations and medical education projects.",
   },
   {
     href: "/recommended-projects",
     title: "Recommended Projects",
-    desc: "A space to discover infectious diseases education projects, medical education resources, and practical ID teaching tools, and to see how others are building new ideas for learning.",
-  },
-  {
-    href: "/about",
-    title: "About",
-    desc: "Why IDHub exists, how it is meant to be used, and the philosophy behind case-based learning and clinical reasoning in infectious diseases.",
+    desc: "A curated way to discover other thoughtful ID education projects and teaching tools.",
   },
 ];
 
@@ -100,48 +112,158 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
       />
 
-      <main className="mx-auto max-w-5xl px-6 py-12">
-        <header className="mb-14">
-          <div className="inline-flex items-baseline gap-2">
-            <h1 className="text-5xl tracking-tight">
-              <span className="font-extrabold text-[var(--foreground)]">ID</span>
-              <span className="font-semibold text-[var(--foreground)]/80">Hub</span>
-            </h1>
+      <section className="pb-10 pt-6">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(236,245,241,0.92))] px-6 py-8 shadow-[var(--shadow-medium)] sm:px-8 sm:py-10">
+            <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,rgba(20,92,71,0.14),transparent_70%)]" />
+            <div className="relative">
+              <p className="idhub-kicker">Infectious Diseases Education</p>
+              <h1 className="idhub-display mt-4 max-w-3xl text-5xl leading-[0.95] text-[var(--foreground)] sm:text-6xl lg:text-7xl">
+                Modern clinical reasoning, built for the messy middle.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
+                IDHub brings together cases, teaching essays, and decision-support tools so learners
+                and clinicians can approach uncertainty with more structure, nuance, and clarity.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/assistant"
+                  className="rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(20,92,71,0.24)] hover:bg-[var(--primary-strong)]"
+                >
+                  Launch Assistant
+                </Link>
+                <Link
+                  href="/cases"
+                  className="rounded-full border border-[var(--border-strong)] bg-white/85 px-5 py-3 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                >
+                  Explore Cases
+                </Link>
+                <Link
+                  href="/about"
+                  className="rounded-full border border-transparent px-5 py-3 text-sm font-semibold text-[var(--muted)] hover:border-[var(--border)] hover:bg-white/60 hover:text-[var(--foreground)]"
+                >
+                  About IDHub
+                </Link>
+              </div>
+
+              <div className="mt-10 grid gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--muted)]">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--foreground)]/85">
-            IDHub is an educational platform with interactive clinical tools and case-based learning
-            to encourage and enhance clinical decision-making for clinicians, students, and trainees,
-            and to build a community interested in clinical Infectious Diseases and Medical
-            Education.
+          <aside className="space-y-5">
+            <div className="idhub-panel-strong rounded-[1.75rem] p-6">
+              <p className="idhub-kicker">Featured Workflow</p>
+              <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
+                A cleaner front door for clinical uncertainty
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+                Use the assistant for full-screen case discussion, then move into ProbID,
+                ImmunoID, MechID, or DoseID when you need more focused teaching support.
+              </p>
+
+              <div className="mt-6 rounded-[1.4rem] border border-[var(--border)] bg-[var(--background-soft)] p-4">
+                <p className="text-sm font-semibold text-[var(--foreground)]">Suggested path</p>
+                <ol className="mt-3 space-y-3 text-sm text-[var(--muted)]">
+                  <li>1. Start with a case summary in the assistant.</li>
+                  <li>2. Pressure-test the differential with ProbID.</li>
+                  <li>3. Add host factors, susceptibility, or dosing tools as needed.</li>
+                </ol>
+              </div>
+
+              <Link
+                href="/assistant"
+                className="mt-6 inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+              >
+                Open the workspace
+              </Link>
+            </div>
+
+            <div className="idhub-panel rounded-[1.75rem] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted-soft)]">
+                Why it feels different
+              </p>
+              <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
+                <li>Built around uncertainty, not only lookup.</li>
+                <li>Educational tools that stay clinically grounded.</li>
+                <li>Writing, cases, and apps that live in one system.</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="py-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="idhub-kicker">Core Tools</p>
+            <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
+              Product-style entry points
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-7 text-[var(--muted)]">
+            These are the fastest ways into the platform when you want a concrete workflow rather
+            than a long menu of links.
           </p>
-        </header>
+        </div>
 
-        <section className="grid gap-6 sm:grid-cols-3 lg:grid-cols-3">
-          {tiles.map((t) => (
+        <div className="grid gap-5 lg:grid-cols-3">
+          {featuredTools.map((tool) => (
             <Link
-              key={t.href}
-              href={t.href}
-              className="group h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2"
+              key={tool.href}
+              href={tool.href}
+              className="group relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] hover:-translate-y-1 hover:border-[var(--border-strong)]"
             >
-              <div className="flex h-full flex-col">
-                <h2 className="text-xl font-semibold text-[var(--foreground)]">{t.title}</h2>
-
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{t.desc}</p>
-
-                <div className="mt-auto pt-5">
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--primary)]">
-                    Open
-                    <span className="transition-transform group-hover:translate-x-0.5">→</span>
-                  </span>
-                </div>
+              <div className="absolute inset-x-6 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(20,92,71,0.14),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
+              <div className="relative">
+                <span className="inline-flex rounded-full bg-[var(--primary-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                  {tool.tag}
+                </span>
+                <h3 className="mt-5 text-3xl font-semibold text-[var(--foreground)]">
+                  {tool.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{tool.desc}</p>
+                <span className="mt-8 inline-flex text-sm font-semibold text-[var(--primary)]">
+                  Open section
+                </span>
               </div>
             </Link>
           ))}
-        </section>
+        </div>
+      </section>
 
-        <SiteFooter />
-      </main>
+      <section className="py-8">
+        <div className="mb-6">
+          <p className="idhub-kicker">Library</p>
+          <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
+            Writing, tools, and collaborations organized with more clarity
+          </h2>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {librarySections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] p-5 shadow-[var(--shadow-soft)] hover:border-[var(--border-strong)] hover:bg-white"
+            >
+              <h3 className="text-2xl font-semibold text-[var(--foreground)]">{section.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{section.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <SiteFooter />
     </>
   );
 }

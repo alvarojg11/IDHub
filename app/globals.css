@@ -1,43 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  /* Page */
-  --background: #e7f1ea; /* soft sage */
-  --foreground: #0f1a13; /* deep green-black */
-
-  /* Surfaces */
-  --card: #f7fbf8;       /* paper */
-  --card2: #ffffff;      /* optional pure white for nested panels */
-  --border: #cfe0d4;     /* subtle sage-gray border */
-
-  /* Text */
-  --muted: #3f5649;
-
-  /* Accent */
-  --primary: #1f6f4a;    /* evergreen */
+  --background: #f3f7f6;
+  --background-soft: #eaf1ef;
+  --foreground: #102019;
+  --card: rgba(255, 255, 255, 0.82);
+  --card2: #ffffff;
+  --card-hover: #f6fbf9;
+  --cardHover: #f6fbf9;
+  --border: rgba(18, 53, 41, 0.12);
+  --border-strong: rgba(18, 53, 41, 0.22);
+  --muted: #53675f;
+  --muted-soft: #73877f;
+  --primary: #145c47;
+  --primary-strong: #0d4535;
+  --primary-soft: #d9ebe5;
+  --hero-glow: rgba(41, 124, 96, 0.14);
+  --shadow-soft: 0 18px 40px rgba(13, 30, 24, 0.08);
+  --shadow-medium: 0 28px 80px rgba(13, 30, 24, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card2: var(--card2);
+  --color-primary: var(--primary);
+  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 520px at 0% 0%, rgba(173, 216, 201, 0.34) 0%, rgba(173, 216, 201, 0) 60%),
+    radial-gradient(900px 560px at 100% 0%, rgba(207, 226, 238, 0.46) 0%, rgba(207, 226, 238, 0) 58%),
+    linear-gradient(180deg, #f9fbfb 0%, var(--background) 38%, #edf4f1 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background: radial-gradient(1200px 800px at 20% 0%, #f1faf4 0%, var(--background) 55%);
+::selection {
+  background: rgba(20, 92, 71, 0.18);
   color: var(--foreground);
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+h1,
+h2,
+h3,
+.idhub-display {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: -0.035em;
+}
+
+.idhub-shell {
+  position: relative;
+}
+
+.idhub-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(20, 92, 71, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 92, 71, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 70%);
+}
+
+.idhub-panel {
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+}
+
+.idhub-panel-strong {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 247, 0.95));
+  box-shadow: var(--shadow-medium);
+}
+
+.idhub-input,
+.idhub-textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--foreground);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  outline: none;
+}
+
+.idhub-input {
+  padding: 0.8rem 0.95rem;
+}
+
+.idhub-textarea {
+  min-height: 10rem;
+  padding: 0.9rem 0.95rem;
+}
+
+.idhub-input:focus,
+.idhub-textarea:focus {
+  border-color: rgba(20, 92, 71, 0.38);
+  box-shadow:
+    0 0 0 4px rgba(20, 92, 71, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.idhub-button-primary {
+  border-radius: 999px;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 12px 28px rgba(20, 92, 71, 0.22);
+}
+
+.idhub-button-primary:hover {
+  background: var(--primary-strong);
+}
+
+.idhub-button-secondary {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--foreground);
+  box-shadow: 0 8px 24px rgba(13, 30, 24, 0.05);
+}
+
+.idhub-button-secondary:hover {
+  border-color: var(--border-strong);
+  background: white;
+}
+
+.idhub-kicker {
+  color: var(--primary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .idhub-blog-content {
   line-height: 1.78;
   color: var(--foreground);
+}
+
+.idhub-blog-content {
+  font-size: 1.02rem;
 }
 
 .idhub-blog-content > p,
@@ -50,9 +179,9 @@ body {
 .idhub-blog-content > div > p:first-of-type {
   border: 1px solid var(--border);
   border-left: 4px solid var(--primary);
-  border-radius: 12px;
-  background: #eef6f0;
-  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(236, 246, 242, 0.95), rgba(245, 250, 248, 0.98));
+  padding: 1rem 1.05rem;
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
   line-height: 1.82;
@@ -95,7 +224,7 @@ body {
 .idhub-blog-content > div > div > hr {
   margin: 1.4rem 0;
   border: 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-strong);
 }
 
 .idhub-blog-content blockquote {
@@ -123,6 +252,263 @@ body {
 .idhub-blog-content .youtube-wrap iframe {
   width: 100%;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid var(--border);
+}
+
+.idhub-blog-content .captioned-image-container,
+.idhub-blog-content .image2-inset,
+.idhub-blog-content .digest-post-embed {
+  margin: 1.6rem 0;
+}
+
+.idhub-blog-content .captioned-image-container figure,
+.idhub-blog-content .image-link,
+.idhub-blog-content .digest-post-embed {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-soft);
+}
+
+.idhub-blog-content .image-link img,
+.idhub-blog-content .captioned-image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.idhub-blog-content .captioned-image-container figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.idhub-reading-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.idhub-reading-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top, rgba(20, 92, 71, 0.08), transparent 42%);
+}
+
+.idhub-case-content {
+  color: var(--foreground);
+}
+
+.idhub-case-content h1,
+.idhub-case-content h2,
+.idhub-case-content h3,
+.idhub-case-content h4 {
+  color: var(--foreground);
+  letter-spacing: -0.03em;
+}
+
+.idhub-case-content h1:first-child {
+  margin-top: 0 !important;
+}
+
+.idhub-case-content h1 {
+  margin: 0 0 2rem !important;
+  font-size: clamp(2.65rem, 5vw, 4.25rem) !important;
+  line-height: 0.98 !important;
+}
+
+.idhub-case-content h2 {
+  margin: 2.3rem 0 1rem !important;
+  font-size: clamp(1.75rem, 3vw, 2.2rem) !important;
+  line-height: 1.08 !important;
+}
+
+.idhub-case-content h3 {
+  margin: 1.8rem 0 0.8rem !important;
+  font-size: 1.3rem !important;
+}
+
+.idhub-case-content p,
+.idhub-case-content li {
+  color: rgba(16, 32, 25, 0.88) !important;
+  line-height: 1.9 !important;
+  font-size: 1.04rem !important;
+}
+
+.idhub-case-content p {
+  margin-bottom: 1.15rem !important;
+}
+
+.idhub-case-content figure {
+  margin: 2.5rem 0 !important;
+}
+
+.idhub-case-content figcaption {
+  color: var(--muted) !important;
+  font-size: 0.9rem !important;
+}
+
+.idhub-case-content hr {
+  margin: 2.2rem 0 !important;
+  border-color: var(--border) !important;
+}
+
+.idhub-case-content a {
+  color: var(--primary) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.idhub-case-content > .mx-auto.max-w-5xl,
+.idhub-case-content > .mx-auto.max-w-4xl,
+.idhub-case-content > .mx-auto.max-w-3xl,
+.idhub-case-content > .mx-auto.max-w-xl {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.idhub-case-content .text-gray-900,
+.idhub-case-content .text-gray-800 {
+  color: var(--foreground) !important;
+}
+
+.idhub-case-content .text-gray-700,
+.idhub-case-content .text-gray-600 {
+  color: var(--muted) !important;
+}
+
+.idhub-case-content .border-gray-200,
+.idhub-case-content .border-gray-300,
+.idhub-case-content .border-gray-600 {
+  border-color: var(--border) !important;
+}
+
+.idhub-case-content .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.idhub-case-content .bg-black {
+  background: linear-gradient(180deg, #16231c, #0f1714) !important;
+}
+
+.idhub-case-content .rounded-lg {
+  border-radius: 1rem !important;
+}
+
+.idhub-case-content .text-justify {
+  text-align: left !important;
+}
+
+.idhub-case-content .leading-6,
+.idhub-case-content .leading-7 {
+  line-height: 1.9 !important;
+}
+
+.idhub-case-content .text-lg {
+  font-size: 1.03rem !important;
+}
+
+.idhub-case-content figure .mx-auto.max-w-5xl,
+.idhub-case-content figure .mx-auto.max-w-4xl,
+.idhub-case-content figure .mx-auto.max-w-3xl,
+.idhub-case-content figure .mx-auto.max-w-xl {
+  max-width: min(100%, 52rem) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.idhub-case-content figure .bg-transparent {
+  background: transparent !important;
+}
+
+.idhub-tool-shell {
+  color: var(--foreground);
+}
+
+.idhub-tool-shell section {
+  border-color: var(--border) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(244, 249, 247, 0.94)) !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.idhub-tool-shell input:not([type="checkbox"]):not([type="radio"]),
+.idhub-tool-shell select,
+.idhub-tool-shell textarea {
+  border-color: var(--border) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--foreground) !important;
+  border-radius: 0.9rem !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.idhub-tool-shell input:not([type="checkbox"]):not([type="radio"]):focus,
+.idhub-tool-shell select:focus,
+.idhub-tool-shell textarea:focus {
+  outline: none;
+  border-color: rgba(20, 92, 71, 0.38) !important;
+  box-shadow:
+    0 0 0 4px rgba(20, 92, 71, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.idhub-tool-shell button,
+.idhub-tool-shell a {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.idhub-tool-shell .text-gray-900 {
+  color: var(--foreground) !important;
+}
+
+.idhub-tool-shell .text-gray-700 {
+  color: var(--muted) !important;
+}
+
+.idhub-tool-shell .text-gray-600,
+.idhub-tool-shell .text-gray-500 {
+  color: var(--muted-soft) !important;
+}
+
+.idhub-tool-shell .border-gray-200 {
+  border-color: var(--border) !important;
+}
+
+.idhub-tool-shell .bg-gray-50 {
+  background: var(--background-soft) !important;
+}
+
+.idhub-tool-shell .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.idhub-tool-shell .bg-gray-900,
+.idhub-tool-shell .hover\:bg-gray-900:hover {
+  background: var(--primary-strong) !important;
+}
+
+.idhub-tool-shell .border-gray-900 {
+  border-color: var(--primary-strong) !important;
+}
+
+.idhub-tool-shell .hover\:bg-gray-50:hover {
+  background: var(--card-hover) !important;
+}
+
+.idhub-tool-shell .hover\:text-gray-900:hover,
+.idhub-tool-shell .underline:hover {
+  color: var(--foreground) !important;
+}
+
+.idhub-tool-shell .shadow-lg {
+  box-shadow: var(--shadow-medium) !important;
 }

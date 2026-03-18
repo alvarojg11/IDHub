@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import BlogComments from "@/components/BlogComments";
+import SiteFooter from "@/components/SiteFooter";
 
 type BlogPostShellProps = {
   title: string;
@@ -23,13 +24,13 @@ export default function BlogPostShell({ title, publishedAt, children }: BlogPost
   const publishedLabel = formatPublishedAt(publishedAt);
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <article className="mx-auto max-w-4xl">
-        <header className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--primary)]">
+        <header className="idhub-reading-shell mb-8 rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)] sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
             IDHub Blog
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
+          <h1 className="mt-3 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">
             {title}
           </h1>
           {publishedLabel ? (
@@ -37,7 +38,7 @@ export default function BlogPostShell({ title, publishedAt, children }: BlogPost
           ) : null}
         </header>
 
-        <section className="idhub-blog-content rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm sm:p-7">
+        <section className="idhub-blog-content rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,251,249,0.94))] p-5 shadow-[var(--shadow-soft)] sm:p-8">
           {children}
         </section>
 
@@ -45,6 +46,8 @@ export default function BlogPostShell({ title, publishedAt, children }: BlogPost
           <BlogComments />
         </div>
       </article>
-    </main>
+
+      <SiteFooter />
+    </section>
   );
 }

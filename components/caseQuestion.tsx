@@ -199,9 +199,11 @@ export default function CaseQuestion({
   const showResults = showPoll && !!selectedId;
 
   return (
-    <section className="mt-10 rounded-xl border bg-white p-6">
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-      <p className="mt-3 text-gray-800">{prompt}</p>
+    <section className="mt-10 rounded-[1.6rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,249,247,0.95))] p-6 shadow-[var(--shadow-soft)]">
+      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
+        {title}
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-[var(--foreground)]">{prompt}</p>
 
       <div className="mt-5 space-y-3">
         {options.map((o) => {
@@ -215,30 +217,32 @@ export default function CaseQuestion({
               type="button"
               onClick={() => vote(o.id)}
               disabled={!!selectedId || submitting}
-              className={`w-full rounded-lg border p-4 text-left transition ${
-                active ? "bg-gray-50" : "hover:bg-gray-50"
+              className={`w-full rounded-[1rem] border border-[var(--border)] p-4 text-left transition ${
+                active
+                  ? "bg-[var(--background-soft)] shadow-[0_10px_24px_rgba(13,30,24,0.05)]"
+                  : "bg-white hover:border-[var(--border-strong)] hover:bg-[var(--card-hover)]"
               }`}
             >
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md border text-sm font-semibold text-gray-700">
+                <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-md border border-[var(--border)] text-sm font-semibold text-[var(--foreground)]">
                   {o.id}
                 </span>
 
                 <div className="flex-1">
                   <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-gray-900">{o.label}</span>
+                    <span className="text-[var(--foreground)]">{o.label}</span>
 
                     {showResults && (
-                      <span className="text-xs text-gray-600">
+                      <span className="text-xs text-[var(--muted)]">
                         {pct}% ({count})
                       </span>
                     )}
                   </div>
 
                   {showResults && (
-                    <div className="mt-2 h-2 w-full overflow-hidden rounded bg-gray-100">
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded bg-[var(--background-soft)]">
                       <div
-                        className="h-2 rounded bg-gray-300"
+                        className="h-2 rounded bg-[var(--primary)]/45"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -251,7 +255,7 @@ export default function CaseQuestion({
       </div>
 
       {showPoll && (
-        <p className="mt-3 text-xs text-gray-500">
+        <p className="mt-3 text-xs text-[var(--muted)]">
           {selectedId
             ? `Live poll results shown (${totalVotes} total responses).`
             : "Select one option to submit your answer and view live poll results."}
@@ -261,14 +265,14 @@ export default function CaseQuestion({
       {fetchError && <p className="mt-2 text-xs text-amber-700">{fetchError}</p>}
 
       {selected && (
-        <div className="mt-6 rounded-lg border bg-gray-50 p-4">
-          <p className="text-sm font-semibold text-gray-900">
+        <div className="mt-6 rounded-[1rem] border border-[var(--border)] bg-[var(--background-soft)] p-4">
+          <p className="text-sm font-semibold text-[var(--foreground)]">
             {correctId ? (isCorrect ? "Correct" : "Explanation") : "Explanation"}
           </p>
-          <p className="mt-2 text-gray-700">{selected.feedback}</p>
+          <p className="mt-2 text-[var(--muted)]">{selected.feedback}</p>
 
           {correctId && selectedId !== correctId && (
-            <p className="mt-3 text-sm text-gray-600">
+            <p className="mt-3 text-sm text-[var(--muted)]">
               Best answer: <span className="font-semibold">{correctId}</span>
             </p>
           )}

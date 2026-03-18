@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import SiteFooter from "@/components/SiteFooter";
 import SubscribeForm from "@/components/SubscribeForm";
 import { getBlogPosts } from "@/lib/blog/registry";
 
@@ -7,61 +8,86 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
-      <header className="mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Blog</h1>
+    <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
+      <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
+        <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
+          <p className="idhub-kicker">ID Writing</p>
+          <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
+            Blog
+          </h1>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
+            Practical reflections on diagnostics, antimicrobials, and clinical uncertainty in
+            infectious diseases. Posts now live directly inside IDHub so the writing feels like part
+            of the same learning system as the tools and cases.
+          </p>
 
-        <p className="mt-4 max-w-3xl text-[var(--foreground)]/85 text-justify">
-          Practical reflections on diagnostics, antimicrobials, and clinical uncertainty in
-          infectious diseases. Posts are now published directly in IDHub, with no third-party
-          platform.
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            href="/subscribe"
-            className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white"
-          >
-            Subscribe
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-lg border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-[var(--foreground)]"
-          >
-            Collaborate
-          </Link>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/subscribe"
+              className="idhub-button-primary px-5 py-3 text-sm font-semibold"
+            >
+              Subscribe
+            </Link>
+            <Link
+              href="/contact"
+              className="idhub-button-secondary px-5 py-3 text-sm font-semibold"
+            >
+              Collaborate
+            </Link>
+          </div>
         </div>
+
+        <aside className="idhub-panel rounded-[1.75rem] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            What to expect
+          </p>
+          <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
+            <li>Short essays grounded in bedside questions and uncertainty.</li>
+            <li>Teaching-oriented writing that pairs well with the interactive tools.</li>
+            <li>{posts.length} published posts and growing.</li>
+          </ul>
+        </aside>
       </header>
 
-      <section className="grid gap-6 sm:grid-cols-2">
-        {posts.map((post) => {
-          const dateLabel = post.publishedAt
-            ? new Date(post.publishedAt).toLocaleDateString()
-            : "Draft / Undated";
+      <section className="mt-10">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="idhub-kicker">Latest Essays</p>
+            <h2 className="mt-2 text-3xl font-semibold text-[var(--foreground)]">
+              Recent posts from IDHub
+            </h2>
+          </div>
+        </div>
 
-          return (
-            <article
-              key={post.slug}
-              className="group rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition hover:bg-[var(--cardHover)]"
-            >
-              <Link href={`/blog/${post.slug}`} className="block">
-                <h2 className="text-xl font-semibold tracking-tight text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
-                  {post.title}
-                </h2>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => {
+            const dateLabel = post.publishedAt
+              ? new Date(post.publishedAt).toLocaleDateString()
+              : "Draft / Undated";
 
-                <p className="mt-3 text-sm leading-relaxed text-[var(--foreground)]/80">
-                  {post.description}
-                </p>
-
-                <div className="mt-4 flex items-center justify-between gap-3">
-                  <p className="text-xs text-[var(--muted)]">{dateLabel}</p>
-
-                  <span className="text-xs font-semibold text-[var(--primary)]">Read →</span>
-                </div>
-              </Link>
-            </article>
-          );
-        })}
+            return (
+              <article
+                key={post.slug}
+                className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              >
+                <Link href={`/blog/${post.slug}`} className="block h-full">
+                  <div className="flex h-full flex-col">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+                      {dateLabel}
+                    </p>
+                    <h3 className="mt-4 text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                      {post.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{post.description}</p>
+                    <span className="mt-auto pt-8 text-sm font-semibold text-[var(--primary)]">
+                      Read article
+                    </span>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       {posts.length === 0 ? (
@@ -70,17 +96,27 @@ export default async function BlogPage() {
         </p>
       ) : null}
 
-      <footer className="mt-12 border-t border-[var(--border)] pt-6">
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
-          <p className="text-sm font-semibold text-[var(--foreground)]">
-            Subscribe to IDHub updates
-          </p>
-          <p className="mt-1 text-xs text-[var(--muted)]">Includes new cases and blog posts.</p>
-          <div className="mt-3">
-            <SubscribeForm compact />
+      <section className="mt-10">
+        <div className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:items-center">
+            <div>
+              <p className="idhub-kicker">Follow Along</p>
+              <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
+                Subscribe to new essays and cases
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                Updates include new blog posts, clinical cases, and larger additions to the
+                educational tools.
+              </p>
+            </div>
+            <div>
+              <SubscribeForm compact />
+            </div>
           </div>
         </div>
-      </footer>
-    </main>
+      </section>
+
+      <SiteFooter />
+    </section>
   );
 }

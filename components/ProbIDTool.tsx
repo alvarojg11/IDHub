@@ -618,8 +618,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const catalogQ = normalize(catalogQuery);
 
   return (
-    <div className="mx-auto max-w-6xl py-12">
-      <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+    <div className="idhub-tool-shell mx-auto max-w-6xl py-6">
+      <div className="mb-6 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(222,240,233,0.94),rgba(243,249,246,0.96))] p-5 shadow-[var(--shadow-soft)]">
         <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">
           Uncertainty Assistant
         </p>
@@ -641,11 +641,14 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
         </div>
       </div>
 
-      <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">ProbID</h1>
-      <p className="mt-3 text-gray-700">
+      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
+        <p className="idhub-kicker">Interactive Tool</p>
+        <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ProbID</h1>
+        <p className="mt-4 max-w-4xl text-[var(--muted)]">
         Choose syndrome, location/setting, and features to estimate post-test probability using likelihood ratios.
         (Educational aid—not a guideline.)
-      </p>
+        </p>
+      </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* LEFT */}
@@ -1125,7 +1128,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   const locked = isAutoManagedLocked(it.id);
                   return (
                     <div key={id} className="px-3 py-2">
-                      <div className="flex items-start justify-between gap-3">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div className="min-w-0 flex-1">
                           <LRItemToggle
                             item={it}
@@ -1139,7 +1142,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                           type="button"
                           disabled={locked}
                           onClick={() => setItemState(it, "unknown")}
-                          className="mt-1 shrink-0 rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                          className="mt-1 shrink-0 self-start rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
                           title="Remove"
                         >
                           ×
@@ -1190,7 +1193,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
           </div>
 
-          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-3 text-xs text-gray-600">
+          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-3 text-xs leading-6 text-gray-600">
             Multiplying LRs assumes conditional independence. Correlated inputs may overestimate certainty.
           </div>
         </section>
@@ -1413,12 +1416,12 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           CATALOG MODAL (2-pane)
          ========================= */}
       {catalogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true">
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/30" onClick={() => setCatalogOpen(false)} aria-hidden="true" />
 
           {/* Panel */}
-          <div className="relative z-10 flex h-[640px] max-h-[80vh] w-[min(980px,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl border bg-white shadow-lg">
+          <div className="relative z-10 flex h-[min(720px,calc(100dvh-1rem))] max-h-[calc(100dvh-1rem)] w-[min(980px,calc(100vw-1rem))] flex-col overflow-hidden rounded-[1.25rem] border bg-white shadow-lg sm:rounded-[1.5rem]">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 border-b p-4">
               <div className="min-w-0">
@@ -1475,34 +1478,36 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
 
             {/* Body: 2-pane layout (right pane scrolls) */}
-            <div className="flex min-h-0 flex-1">
+            <div className="flex min-h-0 flex-1 flex-col md:flex-row">
               {/* LEFT: categories */}
-              <aside className="w-52 border-r bg-gray-50 p-2">
+              <aside className="w-full border-b bg-gray-50 p-2 md:w-52 md:border-b-0 md:border-r">
                 <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-600">Categories</div>
 
-                {(["Location", ...FAMILY_ORDER.filter((f) => f !== "Location")] as string[]).map((fam) => {
-                  const isActive = fam === activeFamily;
+                <div className="flex gap-2 overflow-x-auto pb-1 md:block md:overflow-visible md:pb-0">
+                  {(["Location", ...FAMILY_ORDER.filter((f) => f !== "Location")] as string[]).map((fam) => {
+                    const isActive = fam === activeFamily;
 
-                  const count =
-                    fam === "Location"
-                      ? activeModule.pretestPresets.length
-                      : activeModule.items.filter((it) => familyFor(it) === fam).length;
+                    const count =
+                      fam === "Location"
+                        ? activeModule.pretestPresets.length
+                        : activeModule.items.filter((it) => familyFor(it) === fam).length;
 
-                  return (
-                    <button
-                      key={fam}
-                      type="button"
-                      onClick={() => setActiveFamily(fam)}
-                      className={[
-                        "mb-1 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm",
-                        isActive ? "bg-white border border-gray-200 shadow-sm" : "hover:bg-white/70",
-                      ].join(" ")}
-                    >
-                      <span className="truncate">{fam}</span>
-                      <span className="ml-2 text-xs text-gray-500">{count}</span>
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={fam}
+                        type="button"
+                        onClick={() => setActiveFamily(fam)}
+                        className={[
+                          "mb-1 flex shrink-0 items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm md:w-full",
+                          isActive ? "bg-white border border-gray-200 shadow-sm" : "hover:bg-white/70",
+                        ].join(" ")}
+                      >
+                        <span className="truncate">{fam}</span>
+                        <span className="ml-2 text-xs text-gray-500">{count}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </aside>
 
               {/* RIGHT: scrollable list */}
@@ -1570,7 +1575,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                   const locked = isAutoManagedLocked(it.id);
 
                                   return (
-                                    <div key={it.id} className="flex items-center justify-between gap-3 px-3 py-2">
+                                    <div key={it.id} className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
                                       <div className="min-w-0">
                                         <div className="truncate text-sm font-medium text-gray-900">{it.label}</div>
                                         {it.notes ? (
@@ -1599,7 +1604,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                         ) : null}
                                       </div>
 
-                                      <div className="shrink-0 flex items-center gap-2">
+                                      <div className="flex shrink-0 flex-wrap items-center gap-2">
                                         <button
                                           type="button"
                                           disabled={locked}
@@ -1652,7 +1657,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
             {/* Footer */}
             <div className="border-t bg-white p-3">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="text-sm text-gray-700">
                   Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
                   <span className="font-semibold">{formatPct(pretestP)}</span>

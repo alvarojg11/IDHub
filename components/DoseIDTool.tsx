@@ -212,11 +212,14 @@ export default function DoseIDTool() {
   }, [normalized, selectedMedications, indicationByMedication, renalMode]);
 
   return (
-    <div className="mx-auto max-w-5xl py-12">
-      <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">DoseID</h1>
-      <p className="mt-3 max-w-3xl text-gray-700">
-        A reference app for facilitating antimicrobial dosing for providers.
-      </p>
+    <div className="idhub-tool-shell mx-auto max-w-6xl py-4">
+      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
+        <p className="idhub-kicker">Interactive Tool</p>
+        <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">DoseID</h1>
+        <p className="mt-4 max-w-3xl text-[var(--muted)]">
+          A reference app for facilitating antimicrobial dosing for providers.
+        </p>
+      </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
         <section className="rounded-2xl border border-gray-200 bg-white p-6 lg:col-span-1">
@@ -552,7 +555,7 @@ export default function DoseIDTool() {
                 </div>
               )}
 
-              <div className="grid gap-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-sm">
                   <p className="font-medium text-gray-900">TBW</p>
                   <p className="mt-1 text-gray-700">{format1(normalized.totalBodyWeightKg)} kg</p>
@@ -601,7 +604,7 @@ export default function DoseIDTool() {
       </div>
 
       {catalogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="Medication catalog">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true" aria-label="Medication catalog">
           <button
             type="button"
             className="absolute inset-0 bg-black/30"
@@ -609,7 +612,7 @@ export default function DoseIDTool() {
             aria-label="Close catalog"
           />
 
-          <div className="relative z-10 flex h-[640px] max-h-[80vh] w-[min(980px,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
+          <div className="relative z-10 flex h-[min(720px,calc(100dvh-1rem))] max-h-[calc(100dvh-1rem)] w-[min(980px,calc(100vw-1rem))] flex-col overflow-hidden rounded-[1.25rem] border border-gray-200 bg-white shadow-lg sm:rounded-[1.5rem]">
             <div className="flex items-start justify-between gap-4 border-b border-gray-200 p-4">
               <div className="min-w-0">
                 <div className="text-lg font-semibold text-gray-900">Browse medication catalog</div>
@@ -626,16 +629,16 @@ export default function DoseIDTool() {
               </button>
             </div>
 
-            <div className="flex min-h-0 flex-1">
-              <aside className="w-56 border-r border-gray-200 p-3">
+            <div className="flex min-h-0 flex-1 flex-col md:flex-row">
+              <aside className="w-full border-b border-gray-200 p-3 md:w-56 md:border-b-0 md:border-r">
                 <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">Classes</div>
-                <div className="mt-3 space-y-1">
+                <div className="mt-3 flex gap-2 overflow-x-auto md:block md:space-y-1 md:overflow-visible">
                   {CATEGORY_ORDER.map((cat) => (
                     <button
                       key={cat}
                       type="button"
                       onClick={() => setCatalogCategory(cat)}
-                      className={`w-full rounded-md px-2 py-2 text-left text-sm ${
+                      className={`shrink-0 rounded-md px-2 py-2 text-left text-sm md:w-full ${
                         catalogCategory === cat
                           ? "bg-gray-50 font-medium text-gray-900"
                           : "text-gray-700 hover:bg-gray-50"

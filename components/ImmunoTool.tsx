@@ -335,11 +335,14 @@ export default function ImmunoTool() {
   }, [recentIds]);
 
   return (
-    <div className="mx-auto max-w-5xl">
-      <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">ImmunoID</h1>
-      <p className="mt-3 text-gray-700">
+    <div className="idhub-tool-shell mx-auto max-w-6xl">
+      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
+        <p className="idhub-kicker">Interactive Tool</p>
+        <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ImmunoID</h1>
+        <p className="mt-4 max-w-3xl text-[var(--muted)]">
         Select immunosuppressive agents to review mechanisms and high-yield infection risks. (Educational aid—not a guideline.)
-      </p>
+        </p>
+      </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* LEFT: Selector */}
@@ -543,7 +546,7 @@ export default function ImmunoTool() {
          ========================= */}
       {catalogOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label="Drug catalog"
@@ -557,7 +560,7 @@ export default function ImmunoTool() {
           />
 
           {/* Panel */}
-          <div className="relative z-10 w-[min(980px,calc(100vw-2rem))] max-h-[calc(100vh-2rem)] overflow-hidden rounded-xl border bg-white shadow-lg">
+          <div className="relative z-10 w-[min(980px,calc(100vw-1rem))] max-h-[calc(100dvh-1rem)] overflow-hidden rounded-[1.25rem] border bg-white shadow-lg sm:rounded-[1.5rem]">
             <div className="flex items-start justify-between gap-4 border-b p-4">
               <div className="min-w-0">
                 <div className="text-lg font-semibold text-gray-900">Browse catalog</div>
@@ -614,7 +617,7 @@ export default function ImmunoTool() {
                 </div>
               </div>
 
-              <div className="mt-4 max-h-[calc(100vh-14rem)] overflow-y-auto pr-1">
+              <div className="mt-4 max-h-[calc(100dvh-14rem)] overflow-y-auto pr-1">
                 <div className="space-y-3">
                   {FAMILY_ORDER.map((fam) => {
                     const classes = drugsByFamilyThenClass[fam] ?? {};

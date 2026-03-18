@@ -86,7 +86,7 @@ export default function ContactForm({
             required
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] outline-none ring-[var(--primary)] focus:ring-2"
+            className="idhub-input mt-2 text-sm"
             maxLength={120}
           />
         </label>
@@ -98,7 +98,7 @@ export default function ContactForm({
             type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] outline-none ring-[var(--primary)] focus:ring-2"
+            className="idhub-input mt-2 text-sm"
             maxLength={254}
           />
         </label>
@@ -111,7 +111,7 @@ export default function ContactForm({
         <input
           value={form.organization}
           onChange={(e) => update("organization", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] outline-none ring-[var(--primary)] focus:ring-2"
+          className="idhub-input mt-2 text-sm"
           maxLength={180}
         />
       </label>
@@ -122,7 +122,7 @@ export default function ContactForm({
           required
           value={form.message}
           onChange={(e) => update("message", e.target.value)}
-          className="mt-1 min-h-36 w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] outline-none ring-[var(--primary)] focus:ring-2"
+          className="idhub-textarea mt-2 text-sm"
           maxLength={4000}
         />
       </label>
@@ -142,7 +142,7 @@ export default function ContactForm({
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="idhub-button-primary px-5 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? "Sending..." : submitLabel}
         </button>

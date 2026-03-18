@@ -10,12 +10,10 @@ type Props = {
   onOpenEvidence?: () => void;
 };
 
-const pillBase =
-  "px-2 py-1 text-xs rounded-md border transition select-none";
-const onCls =
-  "bg-slate-900 text-white border-slate-900 dark:bg-slate-100 dark:text-slate-900 dark:border-slate-100";
+const pillBase = "px-2.5 py-1.5 text-xs rounded-md border transition select-none";
+const onCls = "bg-[var(--primary-strong)] text-white border-[var(--primary-strong)]";
 const offCls =
-  "bg-transparent text-slate-700 border-slate-300 hover:bg-slate-50 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-900/30";
+  "bg-transparent text-[var(--muted)] border-[var(--border)] hover:bg-[var(--card-hover)]";
 
 function Pill({
   active,
@@ -33,7 +31,7 @@ function Pill({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={`${pillBase} ${active ? onCls : offCls} ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+      className={`${pillBase} ${active ? onCls : offCls} ${disabled ? "cursor-not-allowed opacity-40" : ""}`}
     >
       {label}
     </button>
@@ -47,28 +45,30 @@ export function LRItemToggle({ item, state, disabled, onChange, onOpenEvidence }
       : "";
 
   return (
-    <div className={`flex items-center justify-between gap-3 py-2 ${disabled ? "opacity-60" : ""}`}>
+    <div
+      className={`flex flex-col gap-3 py-2 sm:flex-row sm:items-center sm:justify-between ${disabled ? "opacity-60" : ""}`}
+    >
       <div className="min-w-0">
         <button
           type="button"
           onClick={onOpenEvidence}
-          className="text-left font-medium text-slate-900 dark:text-slate-100 hover:underline"
+          className="text-left font-medium text-[var(--foreground)] hover:underline"
         >
           {item.label}
         </button>
-        <div className="text-xs text-slate-600 dark:text-slate-300">
+        <div className="text-xs text-[var(--muted)]">
           {lrText}
           {item.notes ? <span className="ml-2">• {item.notes}</span> : null}
         </div>
         {item.source ? (
-          <div className="mt-1 text-xs text-slate-600 dark:text-slate-300">
+          <div className="mt-1 text-xs text-[var(--muted)]">
             Source:{" "}
             {item.source.url ? (
               <a
                 href={item.source.url}
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-2 hover:text-slate-900 dark:hover:text-slate-100"
+                className="underline underline-offset-2 hover:text-[var(--foreground)]"
               >
                 {item.source.short}
                 {item.source.year ? ` (${item.source.year})` : ""}
@@ -83,7 +83,7 @@ export function LRItemToggle({ item, state, disabled, onChange, onOpenEvidence }
         ) : null}
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className="flex w-full flex-wrap items-center gap-1 sm:w-auto sm:justify-end">
         <Pill
           disabled={disabled}
           active={state === "present"}

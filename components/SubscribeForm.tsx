@@ -77,7 +77,7 @@ export default function SubscribeForm({ compact = false }: Props) {
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] transition hover:bg-[var(--cardHover)] disabled:opacity-60"
+          className="inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] transition hover:bg-[var(--card-hover)] disabled:opacity-60"
         >
           {busy ? "Submitting..." : "Subscribe"}
         </button>

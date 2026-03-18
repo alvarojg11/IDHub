@@ -49,7 +49,7 @@ export default function CaseReveal({
   }
 
   return (
-    <div className="my-6 rounded-lg border border-dashed border-gray-300 bg-gray-50 p-4 text-sm text-gray-600">
+    <div className="my-6 rounded-[1rem] border border-dashed border-[var(--border-strong)] bg-[var(--background-soft)] p-4 text-sm text-[var(--muted)]">
       {lockedMessage}
     </div>
   );
