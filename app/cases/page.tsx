@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import SiteFooter from "@/components/SiteFooter";
 import { CASES } from "@/lib/cases/registry";
 
 const cases = CASES;
@@ -57,8 +56,8 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
   const hasNext = currentPage < totalPages;
 
   return (
-    <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
-      <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
+    <section className="mx-auto max-w-7xl px-2 py-10 sm:px-4">
+      <header className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(300px,0.8fr)] lg:items-start">
         <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
           <p className="idhub-kicker">Case Library</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
@@ -146,8 +145,6 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
           </div>
         </section>
       ) : null}
-
-      <SiteFooter />
     </section>
   );
 }

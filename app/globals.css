@@ -322,8 +322,9 @@ h6,
 
 .idhub-case-content h1 {
   margin: 0 0 2rem !important;
-  font-size: clamp(2.65rem, 5vw, 4.25rem) !important;
-  line-height: 0.98 !important;
+  font-size: clamp(2.4rem, 4vw, 3.35rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
 }
 
 .idhub-case-content h2 {
