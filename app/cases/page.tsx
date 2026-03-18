@@ -120,44 +120,11 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
               Stepwise case-based learning
             </h2>
           </div>
+        </div>
 
+        <div className="idhub-panel rounded-[1.8rem] p-5 sm:p-6">
           {totalPages > 1 ? (
-            <div className="flex flex-wrap items-center gap-2">
-              <PaginationLink
-                href={pageHref(currentPage - 1)}
-                disabled={!hasPrev}
-                label="Previous"
-              />
-              <PaginationLink
-                href={pageHref(currentPage + 1)}
-                disabled={!hasNext}
-                label="Next"
-              />
-            </div>
-          ) : null}
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {visibleCases.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/cases/${c.slug}`}
-              className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
-            >
-              <h3 className="text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
-                {c.title}
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{c.description}</p>
-              <div className="mt-8 text-sm font-semibold text-[var(--primary)]">Open case</div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {totalPages > 1 ? (
-        <section className="mt-8">
-          <div className="idhub-panel rounded-[1.6rem] px-5 py-4">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mb-6 flex flex-col gap-4 border-b border-[var(--border)] pb-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-[var(--foreground)]">
                   Cases {start + 1}-{end} of {cases.length}
@@ -180,9 +147,51 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
                 />
               </div>
             </div>
+          ) : null}
+
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {visibleCases.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cases/${c.slug}`}
+                className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              >
+                <h3 className="text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                  {c.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{c.description}</p>
+                <div className="mt-8 text-sm font-semibold text-[var(--primary)]">Open case</div>
+              </Link>
+            ))}
           </div>
-        </section>
-      ) : null}
+
+          {totalPages > 1 ? (
+            <div className="mt-6 flex flex-col gap-4 border-t border-[var(--border)] pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-[var(--foreground)]">
+                  Cases {start + 1}-{end} of {cases.length}
+                </p>
+                <p className="text-sm text-[var(--muted)]">
+                  Page {currentPage} of {totalPages}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <PaginationLink
+                  href={pageHref(currentPage - 1)}
+                  disabled={!hasPrev}
+                  label="Previous"
+                />
+                <PaginationLink
+                  href={pageHref(currentPage + 1)}
+                  disabled={!hasNext}
+                  label="Next"
+                />
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </section>
 
       <SiteFooter />
     </section>

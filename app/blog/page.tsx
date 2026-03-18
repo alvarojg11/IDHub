@@ -58,34 +58,38 @@ export default async function BlogPage() {
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => {
-            const dateLabel = post.publishedAt
-              ? new Date(post.publishedAt).toLocaleDateString()
-              : "Draft / Undated";
+        <div className="idhub-panel rounded-[1.8rem] p-5 sm:p-6">
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post) => {
+              const dateLabel = post.publishedAt
+                ? new Date(post.publishedAt).toLocaleDateString()
+                : "Draft / Undated";
 
-            return (
-              <article
-                key={post.slug}
-                className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
-              >
-                <Link href={`/blog/${post.slug}`} className="block h-full">
-                  <div className="flex h-full flex-col">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-                      {dateLabel}
-                    </p>
-                    <h3 className="mt-4 text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
-                      {post.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{post.description}</p>
-                    <span className="mt-auto pt-8 text-sm font-semibold text-[var(--primary)]">
-                      Read article
-                    </span>
-                  </div>
-                </Link>
-              </article>
-            );
-          })}
+              return (
+                <article
+                  key={post.slug}
+                  className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
+                >
+                  <Link href={`/blog/${post.slug}`} className="block h-full">
+                    <div className="flex h-full flex-col">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+                        {dateLabel}
+                      </p>
+                      <h3 className="mt-4 text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                        {post.title}
+                      </h3>
+                      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+                        {post.description}
+                      </p>
+                      <span className="mt-auto pt-8 text-sm font-semibold text-[var(--primary)]">
+                        Read article
+                      </span>
+                    </div>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 

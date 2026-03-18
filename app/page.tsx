@@ -119,7 +119,7 @@ export default function Home() {
             <div className="relative">
               <p className="idhub-kicker">Infectious Diseases Education</p>
               <h1 className="idhub-display mt-4 max-w-3xl text-5xl leading-[0.95] text-[var(--foreground)] sm:text-6xl lg:text-7xl">
-                Infectious Diseases education centered on clinical reasoning, evidence, and uncertainty.
+                An educational platform for Infectious Diseases
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
                 IDHub brings together cases, teaching essays, and decision-support tools so learners
