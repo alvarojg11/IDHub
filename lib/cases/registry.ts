@@ -8,9 +8,9 @@ export type CaseMeta = {
 
 export const CASES: CaseMeta[] = [
   {
-    title: "The Traveling Swelling",
+    title: "The Traveling Edema",
     slug: "gnathostomiasis",
-    description: "Migratory swelling after raw seafood exposure.",
+    description: "Migratory edema after raw seafood exposure.",
     enable: true
   },
   {
