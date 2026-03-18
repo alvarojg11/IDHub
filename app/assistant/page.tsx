@@ -16,35 +16,34 @@ export const metadata: Metadata = {
 
 export default function AssistantPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-10">
-      <header className="mb-6">
-        <h1 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)]">
-          IDHub Uncertainty Assistant
-        </h1>
-        <p className="mt-3 max-w-3xl text-[var(--foreground)]/85">
-          Describe your case in plain language to get guided infectious diseases clinical reasoning.
-        </p>
-        <div className="mt-4">
+    <section className="relative left-1/2 w-screen -translate-x-1/2">
+      <div className="border-y border-[var(--border)] bg-[var(--card2)] shadow-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-[var(--border)] px-4 py-3 sm:px-6">
+          <div>
+            <h1 className="text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl">
+              IDHub Uncertainty Assistant
+            </h1>
+            <p className="text-sm text-[var(--foreground)]/75">
+              Full-screen clinical reasoning workspace for infectious diseases cases.
+            </p>
+          </div>
           <a
             href={ASSISTANT_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white"
+            className="inline-flex shrink-0 items-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white"
           >
-            Open Full Assistant
+            Open in New Tab
           </a>
         </div>
-      </header>
-
-      <section className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm">
         <iframe
           src={ASSISTANT_URL}
           title="IDHub Uncertainty Assistant"
-          className="h-[80vh] w-full"
+          className="block h-[calc(100dvh-8.5rem)] w-full border-0"
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"
         />
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
