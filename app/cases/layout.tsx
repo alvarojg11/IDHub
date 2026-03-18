@@ -1,10 +1,19 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 import CaseStructuredData from "@/components/CaseStructuredData";
 import CaseNavAuto from "@/components/CaseNavAuto";
 import SiteFooter from "@/components/SiteFooter";
 
 export default function CasesLayout({ children }: { children: ReactNode }) {
+  const segment = useSelectedLayoutSegment();
+
+  if (segment === null) {
+    return <>{children}</>;
+  }
+
   return (
     <>
       <CaseStructuredData />

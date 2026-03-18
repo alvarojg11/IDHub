@@ -64,17 +64,17 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Cases
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            Practical case-based learning for clinical uncertainty in Infectious Diseases. Cases
-            now live directly inside IDHub so they feel like part of the same learning system as
-            the tools and writing.
+            Practical case-based learning on diagnostics, syndromes, and clinical uncertainty in
+            Infectious Diseases. Cases now live directly inside IDHub so the case library feels
+            like part of the same learning system as the tools and writing.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
-              href="/contact"
+              href="/blog"
               className="idhub-button-primary px-5 py-3 text-sm font-semibold"
             >
-              Collaborate
+              Read Blog
             </Link>
             <Link
               href="/about"
@@ -117,7 +117,7 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
                 <Link href={`/cases/${c.slug}`} className="block h-full">
                   <div className="flex h-full flex-col">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-                      Interactive case
+                      Case
                     </p>
                     <h3 className="mt-4 text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
                       {c.title}
