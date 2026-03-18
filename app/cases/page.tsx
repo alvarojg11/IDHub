@@ -64,8 +64,9 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             Cases
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            Interactive, stepwise clinical reasoning cases in Infectious Diseases, built to make
-            uncertainty more teachable and problem solving more deliberate.
+            Practical case-based learning for clinical uncertainty in Infectious Diseases. Cases
+            now live directly inside IDHub so they feel like part of the same learning system as
+            the tools and writing.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -89,8 +90,8 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
             What to expect
           </p>
           <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
-            <li>Interactive cases built around uncertainty and clinical reasoning.</li>
-            <li>Stepwise teaching with reveals, polls, and management decisions.</li>
+            <li>Stepwise cases grounded in bedside questions and uncertainty.</li>
+            <li>Teaching-oriented cases that pair well with the interactive tools.</li>
             <li>{cases.length} published cases and growing.</li>
           </ul>
         </aside>
