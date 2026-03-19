@@ -1,0 +1,305 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chancroid");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Soft Edges and a Swollen Groin
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 28-year-old previously healthy man presents to an STI clinic with 6 days of a
+    progressively painful penile ulcer. He reports unprotected intercourse with a new
+    partner approximately 10 days ago. He initially noticed a small erythematous papule
+    on the prepuce that rapidly broke down into an open, painful sore over 2 to 3 days.
+    He rates the pain as 8 out of 10, describing it as constant and worsened by touch.
+    He denies fever, urethral discharge, prior similar lesions, or any known STI history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Physical examination reveals an irregular ulcer approximately 1.5 cm in diameter on
+    the prepuce with soft, non-indurated edges, undermined borders, and a grayish-yellow
+    purulent base that bleeds readily on contact. There are no vesicles, no satellite
+    lesions, and no induration of the surrounding skin. On inguinal examination, there
+    is a cluster of tender, matted lymph nodes in the left inguinal region with early
+    fluctuance and overlying erythema.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A rapid plasma reagin (RPR) returns non-reactive. A swab of the ulcer base is sent
+    for HSV PCR, which is pending. Urethral discharge is absent, and no gram-positive
+    diplococci are identified on urethral smear. Point-of-care gonorrhea and chlamydia
+    testing are negative. HIV testing is ordered but results are pending.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-chancroid-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Primary syphilis",
+      feedback:
+        "Incorrect. Primary syphilis classically presents as a painless, indurated, clean-based ulcer (chancre) with non-tender regional lymphadenopathy. This patient's ulcer is exquisitely painful, soft, and purulent — features that argue strongly against syphilis. RPR is also non-reactive here.",
+    },
+    {
+      id: "B",
+      label: "Genital herpes (HSV-2)",
+      feedback:
+        "Incorrect. HSV-2 typically causes grouped vesicles that erode into multiple small, shallow ulcers, often with prodromal tingling or burning. Inguinal bubo formation with fluctuance is uncommon in primary HSV. The ulcer morphology here — large, irregular, purulent, with undermined edges — is not typical of herpes.",
+    },
+    {
+      id: "C",
+      label: "Chancroid due to Haemophilus ducreyi",
+      correct: true,
+      feedback:
+        "Correct. Chancroid classically presents as a painful, non-indurated genital ulcer with undermined edges, a purulent base, and tender inguinal lymphadenopathy progressing to bubo formation. This presentation — soft ulcer, pain out of proportion to appearance, and fluctuant left inguinal bubo — is the hallmark of H. ducreyi infection.",
+    },
+    {
+      id: "D",
+      label: "Lymphogranuloma venereum (LGV)",
+      feedback:
+        "Incorrect. LGV (Chlamydia trachomatis L1–L3) typically causes a small, transient, painless primary ulcer that often goes unnoticed, followed by prominent painful inguinal lymphadenopathy. The large, persistently painful ulcer with a purulent base seen here is not the typical LGV presentation.",
+    },
+    {
+      id: "E",
+      label: "Granuloma inguinale (Donovanosis)",
+      feedback:
+        "Incorrect. Granuloma inguinale (Klebsiella granulomatis) presents as a painless, beefy-red, friable, progressive ulcer without true lymphadenopathy. Inguinal swelling in donovanosis represents subcutaneous granulomatous spread (pseudobuboes), not suppurative adenitis. This patient's pain and bubo are more consistent with chancroid.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chancroid-q2"
+  title="Question 2"
+  prompt="Which of the following treatment regimens is most appropriate for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Azithromycin 1 g orally as a single dose",
+      correct: true,
+      feedback:
+        "Correct. Azithromycin 1 g orally as a single dose is a recommended first-line regimen for chancroid per the 2021 CDC STI Treatment Guidelines. It offers high cure rates in immunocompetent patients, excellent tolerability, and the advantage of directly observed single-dose administration. Ceftriaxone 250 mg IM single dose is an equivalent alternative.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline 100 mg orally twice daily for 21 days",
+      feedback:
+        "Incorrect. Doxycycline 100 mg BID for 21 days is the treatment for lymphogranuloma venereum (LGV), not chancroid. H. ducreyi can also carry resistance plasmids, and doxycycline is not a recommended agent for chancroid.",
+    },
+    {
+      id: "C",
+      label: "Benzathine penicillin G 2.4 million units IM as a single dose",
+      feedback:
+        "Incorrect. Benzathine penicillin G is the treatment of choice for primary and secondary syphilis. H. ducreyi is not susceptible to penicillin in a clinically reliable way, and this regimen would not be effective for chancroid.",
+    },
+    {
+      id: "D",
+      label: "Acyclovir 400 mg orally three times daily for 7 days",
+      feedback:
+        "Incorrect. Acyclovir is an antiviral used for HSV infection. It has no activity against H. ducreyi. Empiric treatment for chancroid requires an antibacterial agent with proven activity against the organism.",
+    },
+    {
+      id: "E",
+      label: "Trimethoprim-sulfamethoxazole DS orally twice daily for 7 days",
+      feedback:
+        "Incorrect. H. ducreyi readily acquires resistance plasmids. Plasmid-mediated resistance to sulfonamides and trimethoprim is well described and widespread. This regimen is no longer recommended and would carry a high risk of treatment failure.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-chancroid-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chancroid is a painful, ulcerative sexually transmitted infection caused by{" "}
+    <em>Haemophilus ducreyi</em>, a small gram-negative coccobacillus with a characteristic
+    "school of fish" arrangement on Gram stain. The organism requires specific growth factors
+    (hemin, glutamine, cystine) making culture technically demanding and insensitive; nucleic
+    acid amplification tests (NAAT) are more sensitive but not widely available in routine
+    clinical settings. In practice, diagnosis is often clinical.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The classic presentation is a painful, non-indurated genital ulcer with irregular,
+    undermined edges, a grayish-yellow purulent base that bleeds easily on contact, and
+    regional suppurative lymphadenopathy progressing to bubo formation in approximately
+    30% of patients. Pain is a key differentiating feature: it sharply contrasts with
+    the painless, clean, indurated ulcer of primary syphilis and the vesicular-then-shallow
+    erosive pattern of genital herpes. The term "soft chancre" has been used historically
+    to distinguish the non-indurated ulcer of chancroid from the indurated "hard chancre"
+    of syphilis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chancroid was the leading cause of genital ulceration in sub-Saharan Africa and parts
+    of Asia through the 1980s. Its prevalence declined dramatically after widespread
+    fluoroquinolone use for syndromic STI management and improved STI control during the
+    HIV era; herpes simplex virus now causes the majority of genital ulcers worldwide.
+    Chancroid remains endemic in parts of sub-Saharan Africa, South and Southeast Asia,
+    and Latin America, and should still be considered in travelers or migrants from these
+    regions. Importantly, <em>H. ducreyi</em> has more recently been identified as a cause
+    of non-venereal chronic cutaneous leg ulcers in children in Papua New Guinea, the South
+    Pacific islands, and Ghana — a new epidemiologic presentation distinct from the classical
+    STI.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The interaction between chancroid and HIV is clinically significant. <em>H. ducreyi</em>{" "}
+    ulcers recruit and activate CD4+ T lymphocytes and macrophages — precisely the cells
+    HIV targets — markedly increasing both the risk of HIV acquisition (through portal-of-entry
+    disruption) and HIV transmission (through elevated viral shedding in genital secretions).
+    HIV testing is therefore mandatory in any patient with chancroid.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Regarding treatment, <em>H. ducreyi</em> acquires resistance plasmids readily. Resistance
+    to tetracyclines, ampicillin, sulfonamides, trimethoprim, kanamycin, and chloramphenicol
+    is described. Recommended regimens from the 2021 CDC STI Treatment Guidelines include
+    azithromycin 1 g orally as a single dose or ceftriaxone 250 mg IM as a single dose.
+    Ciprofloxacin 500 mg orally twice daily for 3 days is an effective alternative but
+    is contraindicated in pregnancy. Fluctuant buboes should be incised and drained or
+    needle-aspirated to prevent spontaneous rupture and sinus tract formation. Patients
+    co-infected with HIV may have slower healing and higher failure rates; close clinical
+    follow-up is essential.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chancroid-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Chancroid presents as a painful, non-indurated ("soft") genital ulcer with undermined
+      edges, a purulent base, and suppurative inguinal lymphadenopathy — pain is the key
+      feature distinguishing it from the painless, indurated chancre of primary syphilis.
+    </li>
+    <li>
+      Approximately 30% of patients develop inguinal bubo formation; fluctuant buboes
+      should be drained to prevent spontaneous rupture.
+    </li>
+    <li>
+      Diagnosis is primarily clinical; culture is insensitive due to fastidious growth
+      requirements, and NAAT is not widely available. The "school of fish" arrangement
+      on Gram stain is a classic but inconsistently present clue.
+    </li>
+    <li>
+      Azithromycin 1 g orally as a single dose and ceftriaxone 250 mg IM as a single
+      dose are the preferred first-line regimens (2021 CDC STI Guidelines).
+    </li>
+    <li>
+      <em>H. ducreyi</em> acquires resistance plasmids readily — sulfonamides,
+      trimethoprim, tetracyclines, and ampicillin are no longer reliable options.
+    </li>
+    <li>
+      Chancroid markedly amplifies HIV transmission in both directions; always test for
+      HIV in any patient with a genital ulcer due to chancroid.
+    </li>
+    <li>
+      <em>H. ducreyi</em> is now recognized as a cause of non-venereal chronic cutaneous
+      ulcers in children in Papua New Guinea, South Pacific islands, and Ghana — a
+      distinct and emerging epidemiologic presentation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ronald AR. Chancroid. In: Magill AJ, Ryan ET, Hill D, Solomon T, eds.{" "}
+      <em>Hunter&apos;s Tropical Medicine and Emerging Infectious Diseases</em>. 10th ed.
+      Elsevier; 2020:528-530.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Workowski KA, Bachmann LH, Chan PA, et al. Sexually Transmitted Infections Treatment
+      Guidelines, 2021. <em>MMWR Recommendations and Reports</em>. 2021;70(4):1-187.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.15585/mmwr.rr7004a1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.15585/mmwr.rr7004a1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lewis DA, Mitja O. <em>Haemophilus ducreyi</em>: from sexually transmitted infection
+      to skin ulcer pathogen. <em>Current Opinion in Infectious Diseases</em>. 2016;29(1):52-57.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/QCO.0000000000000226"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1097/QCO.0000000000000226
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Janowicz DM, Ofner S, Katz BP, Spinola SM. Experimental infection of human volunteers
+      with <em>Haemophilus ducreyi</em>: fifteen years of clinical data and experience.{" "}
+      <em>Journal of Infectious Diseases</em>. 2009;199(11):1671-1680.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/598947"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1086/598947
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

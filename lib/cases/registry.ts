@@ -217,6 +217,12 @@ export const CASES: CaseMeta[] = [
     description: "An HIV follow-up case.",
     enable: true
   },
+  {
+    title: "Soft Edges and a Swollen Groin",
+    slug: "chancroid",
+    description: "A painful genital ulcer that resists easy categorization.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
