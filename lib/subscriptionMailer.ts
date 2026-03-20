@@ -104,8 +104,8 @@ export async function sendContentUpdateEmail(args: {
   const casePreviewHtml =
     args.kind === "case" && summary
       ? `
-          <div style="margin: 0 0 12px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #0f1a13;">${summary}</p>
+          <div style="margin: 0 0 16px; border: 1px solid #dde5e2; border-radius: 12px; background: #ffffff; padding: 16px;">
+            <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #102019;">${summary}</p>
           </div>
         `
       : "";
@@ -113,9 +113,9 @@ export async function sendContentUpdateEmail(args: {
   const firstQuestionHtml =
     args.kind === "case" && firstQuestion
       ? `
-          <div style="margin: 0 0 16px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
-            <p style="margin: 0; font-size: 12px; color: #3f5649; letter-spacing: 0.02em; text-transform: uppercase;">First question</p>
-            <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #0f1a13;">${firstQuestion}</p>
+          <div style="margin: 0 0 16px; border: 1px solid #dde5e2; border-radius: 12px; background: #ffffff; padding: 16px;">
+            <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">First Question</p>
+            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #102019;">${firstQuestion}</p>
           </div>
         `
       : "";
@@ -123,41 +123,50 @@ export async function sendContentUpdateEmail(args: {
   const imageHtml =
     args.kind === "case" && imageUrl
       ? `
-          <div style="margin: 0 0 12px; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 8px;">
+          <div style="margin: 0 0 16px; border: 1px solid #dde5e2; border-radius: 12px; overflow: hidden;">
             <img
               src="${escapeHtml(imageUrl)}"
               alt="${title}"
-              style="display: block; width: 100%; height: auto; border-radius: 8px;"
+              style="display: block; width: 100%; height: auto;"
             />
           </div>
         `
       : "";
 
   const html = `
-    <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
-      <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
-        <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
-          <h2 style="margin: 0; font-size: 24px; line-height: 1.25; color: #1f6f4a;">New IDHub ${kindLabel}</h2>
-          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.5; color: #3f5649;">A new ${kindLabel.toLowerCase()} is available.</p>
+    <div style="margin: 0; padding: 32px 16px; background: #f3f7f6; font-family: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #102019;">
+      <div style="max-width: 600px; margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span style="font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">New ${kindLabel}</span>
         </div>
 
-        <div style="padding: 20px 24px;">
-          <p style="margin: 0 0 14px; font-size: 18px; line-height: 1.4; color: #0f1a13;">
-            <strong>${title}</strong>
-          </p>
+        <div style="border: 1px solid #dde5e2; border-radius: 16px; background: #ffffff; overflow: hidden; box-shadow: 0 18px 40px rgba(13, 30, 24, 0.08);">
 
-          ${imageHtml}
-          ${casePreviewHtml}
-          ${firstQuestionHtml}
+          <div style="padding: 28px 28px 20px;">
+            <h1 style="margin: 0 0 8px; font-size: 22px; line-height: 1.2; letter-spacing: -0.022em; color: #102019; font-weight: 800;">${title}</h1>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #53675f;">A new ${kindLabel.toLowerCase()} is now available on IDHub.</p>
+          </div>
 
-          <p style="margin: 0 0 16px;">
-            <a href="${args.url}" style="display: inline-block; padding: 10px 14px; border-radius: 10px; background: #1f6f4a; color: #ffffff; font-size: 14px; text-decoration: none;">Open ${kindLabel}</a>
-          </p>
+          <div style="padding: 0 28px 28px;">
+            ${imageHtml}
+            ${casePreviewHtml}
+            ${firstQuestionHtml}
 
-          <p style="margin: 14px 0 0; font-size: 12px; color: #3f5649;">
-            Unsubscribe: <a href="${unsubscribeUrl}" style="color: #1f6f4a; text-decoration: underline;">${unsubscribeUrl}</a>
+            <div style="text-align: center; margin: 8px 0 0;">
+              <a href="${args.url}" style="display: inline-block; padding: 12px 28px; border-radius: 999px; background: #145c47; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 12px 28px rgba(20, 92, 71, 0.22);">Read ${kindLabel}</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; padding: 24px 0 0;">
+          <p style="margin: 0 0 4px; font-size: 12px; color: #53675f;">InfectiousDiseaseHub</p>
+          <p style="margin: 0; font-size: 11px; color: #73877f;">
+            <a href="${unsubscribeUrl}" style="color: #73877f; text-decoration: underline;">Unsubscribe</a>
           </p>
         </div>
+
       </div>
     </div>
   `;
@@ -200,32 +209,49 @@ export async function sendWelcomeEmail(args: {
     `Unsubscribe: ${unsubscribeUrl}`,
   ].join("\n");
 
+  const pillLink = (href: string, label: string) =>
+    `<a href="${href}" style="display: inline-block; margin: 0 6px 8px 0; padding: 8px 16px; border-radius: 999px; border: 1px solid #dde5e2; background: #ffffff; color: #145c47; font-size: 13px; font-weight: 600; text-decoration: none; box-shadow: 0 2px 6px rgba(13, 30, 24, 0.05);">${label}</a>`;
+
   const html = `
-    <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
-      <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
-        <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
-          <h2 style="margin: 0; font-size: 24px; line-height: 1.25; color: #1f6f4a;">Welcome to IDHub</h2>
-          <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.5; color: #3f5649;">Thank you for subscribing.</p>
+    <div style="margin: 0; padding: 32px 16px; background: #f3f7f6; font-family: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #102019;">
+      <div style="max-width: 600px; margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span style="font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">Welcome</span>
         </div>
 
-        <div style="padding: 20px 24px;">
-          <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #0f1a13;">
-            ${introText}
-          </p>
+        <div style="border: 1px solid #dde5e2; border-radius: 16px; background: #ffffff; overflow: hidden; box-shadow: 0 18px 40px rgba(13, 30, 24, 0.08);">
 
-          <div style="margin: 0 0 14px;">
-            <a href="${casesUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">Cases</a>
-            <a href="${blogUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">Blog</a>
-            <a href="${mechidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">MechID</a>
-            <a href="${immunoidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">ImmunoID</a>
-            <a href="${probidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">ProbID</a>
-            <a href="${doseidUrl}" style="display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; border-radius: 999px; border: 1px solid #cfe0d4; background: #ffffff; color: #1f6f4a; font-size: 13px; text-decoration: none;">DoseID</a>
+          <div style="padding: 28px 28px 16px;">
+            <h1 style="margin: 0 0 10px; font-size: 24px; line-height: 1.15; letter-spacing: -0.022em; color: #102019; font-weight: 800;">Welcome to IDHub</h1>
+            <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #53675f;">Thank you for subscribing.</p>
           </div>
 
-          <p style="margin: 14px 0 0; font-size: 12px; color: #3f5649;">
-            Unsubscribe: <a href="${unsubscribeUrl}" style="color: #1f6f4a; text-decoration: underline;">${unsubscribeUrl}</a>
+          <div style="padding: 0 28px 24px;">
+            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.7; color: #102019;">
+              ${introText}
+            </p>
+
+            <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">Explore</p>
+            <div style="margin: 0 0 8px;">
+              ${pillLink(casesUrl, "Cases")}
+              ${pillLink(blogUrl, "Blog")}
+              ${pillLink(mechidUrl, "MechID")}
+              ${pillLink(immunoidUrl, "ImmunoID")}
+              ${pillLink(probidUrl, "ProbID")}
+              ${pillLink(doseidUrl, "DoseID")}
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; padding: 24px 0 0;">
+          <p style="margin: 0 0 4px; font-size: 12px; color: #53675f;">InfectiousDiseaseHub</p>
+          <p style="margin: 0; font-size: 11px; color: #73877f;">
+            <a href="${unsubscribeUrl}" style="color: #73877f; text-decoration: underline;">Unsubscribe</a>
           </p>
         </div>
+
       </div>
     </div>
   `;
@@ -269,23 +295,52 @@ export async function sendContactEmail(args: {
   ].join("\n");
 
   const html = `
-    <div style="margin: 0; padding: 24px; background: #e7f1ea; font-family: Arial, Helvetica, sans-serif; color: #0f1a13;">
-      <div style="max-width: 640px; margin: 0 auto; border: 1px solid #cfe0d4; border-radius: 16px; background: #f7fbf8; overflow: hidden;">
-        <div style="padding: 22px 24px; border-bottom: 1px solid #cfe0d4; background: #ffffff;">
-          <h2 style="margin: 0; font-size: 22px; line-height: 1.25; color: #1f6f4a;">New ${context === "research" ? "research" : "contact"} message</h2>
-          <p style="margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: #3f5649;">Sent from the IDHub ${context === "research" ? "research" : "contact"} page.</p>
+    <div style="margin: 0; padding: 32px 16px; background: #f3f7f6; font-family: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #102019;">
+      <div style="max-width: 600px; margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span style="font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">${context === "research" ? "Research Inquiry" : "Contact Message"}</span>
         </div>
 
-        <div style="padding: 20px 24px;">
-          <p style="margin: 0 0 8px; font-size: 14px;"><strong>Name:</strong> ${escapedName}</p>
-          <p style="margin: 0 0 8px; font-size: 14px;"><strong>Email:</strong> ${escapedEmail}</p>
-          <p style="margin: 0 0 14px; font-size: 14px;"><strong>Organization:</strong> ${escapedOrg ?? "-"}</p>
-          <p style="margin: 0 0 14px; font-size: 14px;"><strong>Context:</strong> ${escapeHtml(contextLabel)}</p>
+        <div style="border: 1px solid #dde5e2; border-radius: 16px; background: #ffffff; overflow: hidden; box-shadow: 0 18px 40px rgba(13, 30, 24, 0.08);">
 
-          <div style="margin: 0; border: 1px solid #cfe0d4; border-radius: 10px; background: #ffffff; padding: 12px;">
-            <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #0f1a13;">${escapedMessage}</p>
+          <div style="padding: 28px 28px 16px;">
+            <h1 style="margin: 0 0 8px; font-size: 20px; line-height: 1.2; letter-spacing: -0.022em; color: #102019; font-weight: 800;">New ${context === "research" ? "research" : "contact"} message</h1>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #53675f;">Sent from the IDHub ${context === "research" ? "research" : "contact"} page.</p>
           </div>
+
+          <div style="padding: 0 28px 24px;">
+            <table style="width: 100%; border-collapse: collapse; margin: 0 0 16px;">
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #53675f; width: 100px; vertical-align: top;">Name</td>
+                <td style="padding: 6px 0; font-size: 14px; color: #102019; font-weight: 600;">${escapedName}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #53675f; vertical-align: top;">Email</td>
+                <td style="padding: 6px 0; font-size: 14px; color: #102019;">${escapedEmail}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #53675f; vertical-align: top;">Organization</td>
+                <td style="padding: 6px 0; font-size: 14px; color: #102019;">${escapedOrg ?? "—"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #53675f; vertical-align: top;">Context</td>
+                <td style="padding: 6px 0; font-size: 14px; color: #102019;">${escapeHtml(contextLabel)}</td>
+              </tr>
+            </table>
+
+            <div style="border: 1px solid #dde5e2; border-radius: 12px; background: #f3f7f6; padding: 16px;">
+              <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">Message</p>
+              <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #102019;">${escapedMessage}</p>
+            </div>
+          </div>
+
         </div>
+
+        <div style="text-align: center; padding: 24px 0 0;">
+          <p style="margin: 0; font-size: 12px; color: #53675f;">InfectiousDiseaseHub</p>
+        </div>
+
       </div>
     </div>
   `;

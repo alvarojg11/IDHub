@@ -223,6 +223,12 @@ export const CASES: CaseMeta[] = [
     description: "A painful genital ulcer that resists easy categorization.",
     enable: true
   },
+  {
+    title: "A Shot in the Dark",
+    slug: "hiv-cabotegravir-prep",
+    description: "Choosing the right ART when prevention was an injection.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

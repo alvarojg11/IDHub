@@ -1,0 +1,273 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hiv-cabotegravir-prep");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Shot in the Dark
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old man presents to the HIV clinic after a new diagnosis of HIV-1 infection.
+    He has been receiving long-acting injectable cabotegravir (CAB-LA) every 2 months for
+    HIV preexposure prophylaxis (PrEP) for the past 14 months. His most recent injection was
+    6 weeks ago. He presented to urgent care 5 days ago with fever, pharyngitis, diffuse
+    lymphadenopathy, and a maculopapular rash; a fourth-generation HIV antigen/antibody
+    test was reactive, and a confirmatory HIV-1/HIV-2 differentiation assay was positive
+    for HIV-1.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Baseline labs show HIV-1 RNA 64,000 copies/mL and CD4 count 410 cells/mm&#179;.
+    Standard reverse transcriptase and protease genotype testing has been sent, as well
+    as integrase genotype testing, but results are not yet available. Hepatitis B surface
+    antigen is negative, hepatitis C antibody is negative, and HLA-B*57:01 testing is pending.
+    He is otherwise healthy, takes no other medications, and is eager to begin treatment
+    immediately.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-hiv-cabotegravir-prep-q1"
+  title="Question 1"
+  prompt="Which of the following is the most appropriate initial antiretroviral regimen while genotype results are pending?"
+  options={[
+    {
+      id: "A",
+      label: "Bictegravir/tenofovir alafenamide/emtricitabine (BIC/TAF/FTC)",
+      feedback:
+        "Incorrect. BIC/TAF/FTC is a first-line regimen for most treatment-naive patients, but bictegravir is an integrase strand transfer inhibitor (InSTI). In a patient who acquired HIV while on long-acting cabotegravir — also an InSTI — there is concern for InSTI resistance. Starting an InSTI-based regimen before InSTI genotype results are available risks using a drug to which the virus may already be resistant.",
+    },
+    {
+      id: "B",
+      label: "Dolutegravir plus tenofovir alafenamide/emtricitabine (DTG + TAF/FTC)",
+      feedback:
+        "Incorrect. Although dolutegravir is a potent InSTI with a high barrier to resistance, it belongs to the same drug class as cabotegravir. Cross-resistance between cabotegravir and dolutegravir is well documented. Until InSTI genotype results exclude resistance, an InSTI-based regimen should not be used in this setting.",
+    },
+    {
+      id: "C",
+      label: "Darunavir boosted with ritonavir or cobicistat plus tenofovir alafenamide/emtricitabine (DRV/r or DRV/COBI + TAF/FTC)",
+      correct: true,
+      feedback:
+        "Correct. Per the 2024 IAS-USA guidelines, when HIV is acquired after exposure to long-acting cabotegravir for PrEP, InSTI genotype should be drawn before initiating therapy. If treatment is desired before genotype results are available — or if InSTI resistance is present or suspected — ritonavir- or cobicistat-boosted darunavir plus TXF/XTC is recommended (evidence rating: AIIb). Boosted darunavir has a high barrier to resistance and is unaffected by potential InSTI mutations.",
+    },
+    {
+      id: "D",
+      label: "Dolutegravir/lamivudine (DTG/3TC)",
+      feedback:
+        "Incorrect. DTG/3TC is a recommended 2-drug initial regimen, but it should never be used for rapid ART initiation when genotype, HIV RNA, and HBV serology results are not yet available. Moreover, dolutegravir is an InSTI, and in the setting of prior cabotegravir exposure, InSTI resistance must be excluded before using an InSTI-based regimen.",
+    },
+    {
+      id: "E",
+      label: "Delay ART until all genotype results are available",
+      feedback:
+        "Incorrect. Rapid ART initiation is recommended for all individuals with HIV, ideally within 7 days of diagnosis. Genotype results can take weeks to return, and delaying ART during this time increases the risk of ongoing viral replication, immune decline, and transmission. An appropriate non-InSTI-based regimen can be started immediately while awaiting results.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hiv-cabotegravir-prep-q2"
+  title="Question 2"
+  prompt="The integrase genotype returns with no evidence of InSTI resistance mutations. What is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Continue boosted darunavir plus TAF/FTC indefinitely since it is effective",
+      feedback:
+        "Incorrect. While boosted darunavir-based regimens are effective, they are not preferred long-term initial therapy for most patients. Boosted protease inhibitors carry a higher pill burden, more drug-drug interactions, and metabolic side effects (dyslipidemia) compared with InSTI-based regimens. Once InSTI resistance has been excluded, switching to a recommended InSTI-based regimen is appropriate.",
+    },
+    {
+      id: "B",
+      label: "Switch to bictegravir/tenofovir alafenamide/emtricitabine (BIC/TAF/FTC) or dolutegravir plus TAF/FTC",
+      correct: true,
+      feedback:
+        "Correct. Per the 2024 IAS-USA guidelines, the initial boosted darunavir regimen can be modified to an InSTI-based therapy once results of resistance testing exclude resistance to these drug classes. BIC/TAF/FTC and dolutegravir plus TXF/XTC are the recommended first-line regimens for most people with HIV due to high viral suppression rates, excellent tolerability, a high barrier to resistance, and low pill burden (evidence rating: AIa).",
+    },
+    {
+      id: "C",
+      label: "Switch to long-acting injectable cabotegravir plus rilpivirine (CAB/RPV LA)",
+      feedback:
+        "Incorrect. Long-acting CAB/RPV is approved for virologically suppressed patients as a switch strategy, not for initial ART in treatment-naive individuals. Additionally, this patient previously acquired HIV while on cabotegravir, so resuming cabotegravir — even as part of a treatment regimen — requires caution and confirmed susceptibility. Injectable CAB/RPV also carries a 1-2% risk of virologic failure with dual-class resistance even with adherence.",
+    },
+    {
+      id: "D",
+      label: "Switch to dolutegravir/lamivudine (DTG/3TC)",
+      feedback:
+        "Incorrect. While DTG/3TC is a recommended initial 2-drug regimen, it requires confirmed HIV RNA below 500,000 copies/mL, absence of lamivudine resistance, absence of HBV co-infection, and an adequate CD4 count. More importantly, the patient is already on an effective 3-drug regimen and has just started therapy. The standard approach is to transition to a recommended 3-drug InSTI-based regimen.",
+    },
+    {
+      id: "E",
+      label: "Repeat the integrase genotype before making any changes",
+      feedback:
+        "Incorrect. A single integrase genotype showing no resistance mutations is sufficient to guide the switch. Repeating the test without clinical indication would delay optimization of the regimen unnecessarily.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hiv-cabotegravir-prep-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Long-acting injectable cabotegravir (CAB-LA) is a highly effective PrEP option, but
+    breakthrough HIV acquisition — though rare — does occur. The key clinical challenge
+    in these cases is that cabotegravir is an integrase strand transfer inhibitor (InSTI),
+    and HIV acquired in the presence of an InSTI may harbor InSTI resistance mutations.
+    Cross-resistance within the InSTI class means that mutations selected by cabotegravir
+    can compromise the activity of dolutegravir and bictegravir, the two InSTIs recommended
+    for first-line ART.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The 2024 IAS-USA guidelines address this scenario directly: persons who acquired HIV
+    after exposure to cabotegravir for PrEP should have a blood sample for InSTI genotyping
+    drawn prior to beginning therapy with an InSTI-based regimen. If therapy is desired
+    before genotype results are available — or if InSTI resistance is present or suspected —
+    ritonavir- or cobicistat-boosted darunavir plus TXF/XTC should be used (evidence rating:
+    AIIb). Boosted darunavir has a high barrier to resistance and belongs to a completely
+    different drug class (protease inhibitor), making it unaffected by any potential InSTI
+    mutations.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This approach contrasts with breakthrough HIV in patients on oral TDF/FTC or TAF/FTC
+    PrEP, where the concern is for NRTI resistance (M184V/I, K65R) rather than InSTI
+    resistance. In those cases, the guidelines permit starting dolutegravir or bictegravir
+    plus TXF/XTC before resistance testing returns, since the anchor drug (the InSTI) is
+    not compromised by prior PrEP exposure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Once the InSTI genotype confirms no resistance, the regimen should be transitioned to a
+    recommended InSTI-based regimen — either BIC/TAF/FTC or dolutegravir plus TXF/XTC —
+    which are preferred for long-term therapy due to superior tolerability, fewer drug-drug
+    interactions, and lower metabolic burden compared with boosted protease inhibitor
+    regimens.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hiv-cabotegravir-prep-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      When HIV is acquired during or after long-acting cabotegravir PrEP, InSTI resistance
+      must be suspected until proven otherwise — draw an integrase genotype before starting
+      an InSTI-based regimen.
+    </li>
+    <li>
+      If ART is needed before InSTI genotype results return, use boosted darunavir (DRV/r
+      or DRV/COBI) plus TXF/XTC as the initial regimen (IAS-USA 2024, evidence rating: AIIb).
+    </li>
+    <li>
+      Do not start BIC/TAF/FTC, DTG-based, or any InSTI-based regimen empirically in this
+      setting — cross-resistance among InSTIs means cabotegravir-selected mutations can
+      compromise dolutegravir and bictegravir.
+    </li>
+    <li>
+      This differs from breakthrough HIV on oral TDF/FTC or TAF/FTC PrEP, where InSTIs
+      (dolutegravir or bictegravir) can be started before genotype results return because
+      the InSTI class is not compromised by prior NRTI exposure.
+    </li>
+    <li>
+      Once InSTI genotype excludes resistance, transition to a recommended first-line
+      InSTI-based regimen (BIC/TAF/FTC or DTG + TXF/XTC) for long-term therapy.
+    </li>
+    <li>
+      Rapid ART initiation remains the standard — do not delay therapy while waiting for
+      genotype results. Start an appropriate non-InSTI regimen and modify once results
+      are available.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gandhi RT, Landovitz RJ, Sax PE, et al. Antiretroviral Drugs for Treatment and
+      Prevention of HIV in Adults: 2024 Recommendations of the International Antiviral
+      Society–USA Panel. <em>JAMA</em>. 2025;333(7):609-628.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.2024.24543"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1001/jama.2024.24543
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Antiretroviral Guidelines for Adults and Adolescents. Guidelines for the
+      Use of Antiretroviral Agents in Adults and Adolescents with HIV. U.S. Department of
+      Health and Human Services.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/sites/default/files/guidelines/documents/adult-adolescent-arv/guidelines-adult-adolescent-arv.pdf"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Guideline PDF (Adult and Adolescent ARV)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Landovitz RJ, Donnell D, Clement ME, et al. Cabotegravir for HIV Prevention in
+      Cisgender Men and Transgender Women. <em>N Engl J Med</em>. 2021;385(7):595-608.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa2101016"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1056/NEJMoa2101016
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

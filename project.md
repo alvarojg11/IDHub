@@ -73,6 +73,16 @@
 
 ---
 
+## Content Cadence
+
+- **Cases:** ~1 new case per day
+- **Blog posts:** ~1 per week
+
+Each case requires 3 changes:
+1. `app/cases/<slug>/page.mdx` — the case MDX file
+2. `lib/cases/registry.ts` — add entry to `CASES` array
+3. `lib/cases/seo.ts` — add slug to `CASE_DATES` record
+
 ## Priorities / Work Areas
 
 > Update this section as tasks are agreed upon.
