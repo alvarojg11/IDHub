@@ -48,6 +48,10 @@ const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-03-19T10:00:00-07:00",
     modifiedAt: "2026-03-19T10:00:00-07:00",
   },
+  "melioidosis": {
+    publishedAt: "2026-03-21T10:00:00-07:00",
+    modifiedAt: "2026-03-21T10:00:00-07:00",
+  },
   "coccidioidomycosis-prophylaxis": {
     publishedAt: "2026-03-16T11:15:00-04:00",
     modifiedAt: "2026-03-16T11:15:00-04:00",

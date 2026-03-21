@@ -1,0 +1,314 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("melioidosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Rainy Season Abscess
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 51-year-old man from rural northeastern Thailand presents to a provincial hospital
+    in September with 3 weeks of intermittent fevers, drenching night sweats, diffuse
+    myalgias, and a progressively enlarging painful swelling on his left flank. He works
+    as a rice farmer and spends long hours barefoot in flooded paddies during the monsoon
+    season. He was diagnosed with type 2 diabetes mellitus 6 years ago but has been
+    inconsistently adherent to metformin and has not seen a physician in over a year.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    One week prior to presentation, the flank lesion was incised and drained at a local
+    clinic. He was prescribed dicloxacillin 500 mg four times daily. Despite this, he
+    has continued to worsen, with new-onset rigors, productive cough, and significant
+    malaise over the past 3 days prompting hospital referral.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he appears acutely ill. Temperature is 39.8&#176;C, heart rate 128 bpm,
+    blood pressure 108/62 mmHg, respiratory rate 28 breaths per minute, and oxygen
+    saturation 93% on room air. He is pale and mildly jaundiced. The left flank has a
+    5 &#215; 3 cm area of erythema and fluctuance with purulent drainage from a central
+    wound. There is no regional lymphadenopathy. Chest auscultation reveals bilateral
+    basilar crackles with reduced breath sounds on the right. The abdomen is soft without
+    palpable organomegaly.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show WBC 18.4 &#215; 10&#8313;/L with 89% neutrophils, hemoglobin
+    11.8 g/dL, platelets 98 &#215; 10&#8313;/L, random glucose 22.3 mmol/L, AST 148 U/L,
+    ALT 96 U/L, total bilirubin 89 &#956;mol/L, and creatinine 72 &#956;mol/L. Blood
+    cultures and a deep wound swab are sent. Chest radiograph shows bilateral pleural
+    effusions with patchy airspace opacities in the right lower lobe.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-melioidosis-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus bacteremia with metastatic abscess",
+      feedback:
+        "Incorrect. S. aureus bacteremia can cause skin abscesses with sepsis, but the epidemiologic context — a rice farmer with poorly controlled diabetes presenting during the rainy season in a highly endemic region of Southeast Asia — should raise immediate suspicion for melioidosis. The subacute course, multiorgan involvement, and failure to respond to antistaphylococcal therapy are additional clues.",
+    },
+    {
+      id: "B",
+      label: "Melioidosis due to Burkholderia pseudomallei",
+      correct: true,
+      feedback:
+        "Correct. This presentation — a diabetic rice farmer in a highly endemic region of Southeast Asia presenting during the wet season with a subcutaneous abscess unresponsive to antistaphylococcal antibiotics, sepsis, pneumonia, and hepatobiliary dysfunction — is classic for melioidosis. B. pseudomallei is an environmental saprophyte in endemic soil and water, and diabetes mellitus is the single strongest risk factor.",
+    },
+    {
+      id: "C",
+      label: "Disseminated tuberculosis with cold abscess",
+      feedback:
+        "Incorrect. While tuberculosis should be considered with subacute fever and pulmonary findings, tuberculous abscesses are classically 'cold' — lacking the intense pain, erythema, warmth, and purulence seen here. The acute septic presentation with leukocytosis and neutrophilia also favors an acute bacterial process.",
+    },
+    {
+      id: "D",
+      label: "Klebsiella pneumoniae liver abscess syndrome",
+      feedback:
+        "Incorrect. Hypervirulent K. pneumoniae liver abscess syndrome is an important consideration in diabetic patients from East and Southeast Asia, but imaging in this patient did not reveal hepatic or splenic abscesses. The subcutaneous abscess with bilateral pleural effusions and failure of antistaphylococcal therapy is more consistent with melioidosis.",
+    },
+    {
+      id: "E",
+      label: "Disseminated fungal infection (Talaromyces marneffei)",
+      feedback:
+        "Incorrect. T. marneffei causes disseminated infection primarily in patients with advanced HIV/AIDS in Southeast Asia. This patient's primary risk factor is diabetes, not HIV, and the acute septic presentation with a subcutaneous abscess and pneumonia is more characteristic of a bacterial etiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-melioidosis-q2"
+  title="Question 2"
+  prompt="The wound culture grows Burkholderia pseudomallei at 48 hours. Which of the following is the most appropriate treatment strategy?"
+  options={[
+    {
+      id: "A",
+      label: "Ceftriaxone 2 g IV daily for 2 weeks, then oral amoxicillin-clavulanate for 3 months",
+      feedback:
+        "Incorrect. Ceftriaxone does not have reliable activity against B. pseudomallei. The organism is intrinsically resistant to aminoglycosides, first- and second-generation cephalosporins, and most third-generation cephalosporins including ceftriaxone. Ceftazidime or meropenem are the recommended parenteral agents.",
+    },
+    {
+      id: "B",
+      label: "IV ceftazidime for a minimum of 2 weeks (intensive phase), followed by oral co-trimoxazole to complete 3 to 6 months of eradication therapy",
+      correct: true,
+      feedback:
+        "Correct. Treatment of melioidosis follows a two-phase approach: (1) an intensive phase of IV ceftazidime (or meropenem for severe or CNS disease) for a minimum of 2 weeks, often extended based on clinical response; followed by (2) an eradication phase of oral co-trimoxazole for 3 to 6 months to prevent relapse. Abscess drainage and glycemic control are also critical.",
+    },
+    {
+      id: "C",
+      label: "IV meropenem for 5 days followed by oral ciprofloxacin for 2 weeks",
+      feedback:
+        "Incorrect. Five days of parenteral therapy is too short for melioidosis, and ciprofloxacin is not a recommended eradication-phase agent. B. pseudomallei can persist intracellularly, and premature transition to oral therapy with an inadequate agent carries high relapse risk.",
+    },
+    {
+      id: "D",
+      label: "IV piperacillin-tazobactam for 2 weeks, then no oral follow-up",
+      feedback:
+        "Incorrect. While piperacillin-tazobactam has some in vitro activity, it is not a recommended first-line agent for melioidosis. More critically, omitting the oral eradication phase is a major management error — without prolonged oral therapy, relapse rates are unacceptably high.",
+    },
+    {
+      id: "E",
+      label: "Oral doxycycline plus co-trimoxazole for 20 weeks as outpatient therapy",
+      feedback:
+        "Incorrect. This patient has bacteremic, disseminated melioidosis with sepsis. Oral therapy alone is inappropriate for the initial treatment of severe disease. An intensive phase with parenteral antibiotics is mandatory before transitioning to oral eradication therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-melioidosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Melioidosis is caused by <em>Burkholderia pseudomallei</em>, a gram-negative
+    environmental saprophyte found in soil and surface water in endemic tropical regions,
+    particularly Southeast Asia and northern Australia. Humans are infected primarily
+    through percutaneous inoculation (cuts and abrasions during contact with contaminated
+    soil or water), inhalation during severe weather events, or ingestion of unchlorinated
+    water. The disease is highly seasonal, with approximately 80% of cases presenting
+    during the wet season.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Host immunocompromise is central to disease susceptibility. Diabetes mellitus is the
+    predominant risk factor, present in over 50% of cases. Other risk factors include
+    hazardous alcohol use, chronic kidney disease, chronic lung disease, thalassemia,
+    immunosuppressive therapy, and malignancy. Notably, HIV infection is not a major
+    risk factor for melioidosis — a distinctive epidemiologic feature.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical spectrum ranges from localized skin and soft tissue infection to
+    fulminant septicemia. Bacteremia is present in 40% to 60% of cases, and over half
+    of patients present with pneumonia. The organism has a remarkable propensity for
+    abscess formation in visceral organs — liver, spleen, prostate, and parotid are
+    classic sites. Approximately 10% to 15% of bacteremic cases have no identifiable
+    clinical focus. The case fatality rate ranges from 10% to 40%, and is even higher
+    in resource-limited settings with delayed diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A modeling study has estimated 165,000 cases and 89,000 deaths from melioidosis
+    per year worldwide, making it a significant neglected tropical disease — though it
+    does not appear on the WHO&apos;s official NTD list. The disease is almost certainly
+    underdiagnosed in many endemic regions due to limited laboratory capacity.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is confirmed by isolation and identification of <em>B. pseudomallei</em>{" "}
+    from clinical specimens. In endemic areas, immunofluorescence, lateral flow
+    immunoassays, and latex agglutination on isolates can accelerate identification.
+    Serology has limited utility due to high background seropositivity in endemic
+    populations. Imaging — particularly abdominal ultrasound or CT — is essential to
+    identify occult visceral abscesses.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is divided into two mandatory phases. The intensive phase consists of IV
+    ceftazidime or meropenem (preferred for severe or CNS disease) for a minimum of 2
+    weeks, often extended until clinical improvement. The eradication phase uses oral
+    co-trimoxazole for 3 to 6 months to prevent relapse; co-amoxiclav is an alternative
+    but carries higher relapse rates. Surgical drainage of abscesses and rigorous
+    glycemic control are essential adjuncts. <em>B. pseudomallei</em> is intrinsically
+    resistant to aminoglycosides, most third-generation cephalosporins (including
+    ceftriaxone), and first-line antistaphylococcal agents — a critical point, since
+    empiric coverage for presumed staphylococcal abscess will be ineffective.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-melioidosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Melioidosis should be suspected in any patient with sepsis, pneumonia, or
+      deep-seated abscesses who has exposure to endemic soil or water in tropical
+      regions — especially during the wet season.
+    </li>
+    <li>
+      Diabetes mellitus is the single strongest risk factor, present in over half of
+      all cases. HIV infection is notably not a major risk factor.
+    </li>
+    <li>
+      <em>B. pseudomallei</em> is intrinsically resistant to aminoglycosides, most
+      third-generation cephalosporins (including ceftriaxone), and antistaphylococcal
+      penicillins — empiric antistaphylococcal therapy will fail.
+    </li>
+    <li>
+      Treatment requires two phases: IV ceftazidime (or meropenem) for a minimum of 2
+      weeks, followed by oral co-trimoxazole for 3 to 6 months. Omitting the eradication
+      phase risks relapse.
+    </li>
+    <li>
+      Imaging for occult visceral abscesses (liver, spleen, prostate) should be performed
+      in all cases of suspected disseminated disease.
+    </li>
+    <li>
+      An estimated 165,000 cases and 89,000 deaths occur annually worldwide — melioidosis
+      is a major neglected tropical disease that is substantially underdiagnosed.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rattanavong S, Keoluangkhot V, Sisouphonh S, et al. A 44-Year-Old Male Farmer from
+      Laos With Diabetes and a Back Abscess. In: Rothe C, ed.{" "}
+      <em>Clinical Cases in Tropical Medicine</em>. 2nd ed. Elsevier; 2021:87-89.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wiersinga WJ, Virk HS, Torres AG, et al. Melioidosis.{" "}
+      <em>Nature Reviews Disease Primers</em>. 2018;4:17107.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/nrdp.2017.107"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1038/nrdp.2017.107
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Limmathurotsakul D, Golding N, Dance DAB, et al. Predicted global distribution
+      of <em>Burkholderia pseudomallei</em> and burden of melioidosis.{" "}
+      <em>Nature Microbiology</em>. 2016;1(1):15008.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/nmicrobiol.2015.8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1038/nmicrobiol.2015.8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Currie BJ. Melioidosis: evolving concepts in epidemiology, pathogenesis, and
+      treatment. <em>Seminars in Respiratory and Critical Care Medicine</em>.
+      2015;36(1):111-125.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1055/s-0034-1398389"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1055/s-0034-1398389
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

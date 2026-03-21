@@ -229,6 +229,12 @@ export const CASES: CaseMeta[] = [
     description: "Choosing the right ART when prevention was an injection.",
     enable: true
   },
+  {
+    title: "The Rainy Season Abscess",
+    slug: "melioidosis",
+    description: "A diabetic farmer, a draining wound, and a dangerous saprophyte.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
