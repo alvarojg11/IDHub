@@ -235,6 +235,12 @@ export const CASES: CaseMeta[] = [
     description: "A diabetic farmer, a draining wound, and a dangerous saprophyte.",
     enable: true
   },
+  {
+    title: "The Breast Mass That Wasn't Cancer",
+    slug: "granulomatous-mastitis",
+    description: "A suspicious breast mass with a hidden microbiologic cause.",
+    enable: true
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

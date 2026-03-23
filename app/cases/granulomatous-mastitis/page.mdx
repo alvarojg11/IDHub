@@ -1,0 +1,300 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("granulomatous-mastitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Breast Mass That Wasn&apos;t Cancer
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 33-year-old woman presents to the breast surgery clinic with a 6-week history of
+    a progressively enlarging, painful left breast mass. She notes overlying skin
+    erythema that has worsened despite two courses of oral cephalexin prescribed by her
+    primary care physician. She has no fever, nipple discharge, or axillary
+    lymphadenopathy. She has no history of breast trauma or prior breast surgery. She
+    stopped breastfeeding her youngest child 18 months ago.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She has no significant past medical history and takes no immunosuppressive
+    medications. She is a non-smoker. A mammogram performed 2 weeks ago was read as
+    BI-RADS 4 (suspicious), prompting a core needle biopsy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination the left breast has a firm, tender, ill-defined 4 &#215; 5 cm mass
+    in the periareolar region with overlying violaceous skin changes. There is no
+    fluctuance, no nipple retraction, and no palpable axillary lymphadenopathy. The
+    right breast is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The core biopsy returns showing non-caseating granulomatous inflammation with
+    lipogranulomas containing cystic spaces surrounded by neutrophils. No malignant
+    cells are identified. Acid-fast and fungal stains are negative. Standard aerobic
+    cultures show no growth at 48 hours. The pathologist notes the histologic pattern
+    is consistent with cystic neutrophilic granulomatous mastitis (CNGM).
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-granulomatous-mastitis-q1"
+  title="Question 1"
+  prompt="Given the histopathologic finding of cystic neutrophilic granulomatous mastitis, which organism is most strongly associated with this pattern?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus",
+      feedback:
+        "Incorrect. S. aureus causes acute breast abscesses, typically with purulent collections and neutrophilic inflammation, but not the distinctive lipogranulomas with cystic spaces that define cystic neutrophilic granulomatous mastitis.",
+    },
+    {
+      id: "B",
+      label: "Mycobacterium tuberculosis",
+      feedback:
+        "Incorrect. Tuberculous mastitis can cause granulomatous inflammation, but classically produces caseating granulomas — not the cystic neutrophilic pattern seen here. AFB stains are also negative in this case.",
+    },
+    {
+      id: "C",
+      label: "Corynebacterium kroppenstedtii",
+      correct: true,
+      feedback:
+        "Correct. Corynebacterium kroppenstedtii is specifically associated with cystic neutrophilic granulomatous mastitis (CNGM), a histologic pattern characterized by lipogranulomas with cystic spaces surrounded by neutrophils. This lipophilic corynebacterium is difficult to recover on standard culture and often requires extended incubation or molecular methods for identification.",
+    },
+    {
+      id: "D",
+      label: "Actinomyces species",
+      feedback:
+        "Incorrect. Actinomyces can rarely involve the breast and produces suppurative granulomatous inflammation with sulfur granules, not the lipogranulomas with cystic spaces characteristic of CNGM.",
+    },
+    {
+      id: "E",
+      label: "Nontuberculous mycobacteria (Mycobacterium abscessus complex)",
+      feedback:
+        "Incorrect. Nontuberculous mycobacteria can cause breast infections — particularly after surgical procedures or implants — but they produce a different granulomatous pattern and are typically identified on AFB staining or mycobacterial culture, both of which are negative here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-granulomatous-mastitis-q2"
+  title="Question 2"
+  prompt="The infectious diseases team recommends sending tissue for 16S rRNA gene sequencing, which identifies Corynebacterium kroppenstedtii. The organism is subsequently recovered on lipid-supplemented culture and antimicrobial susceptibility testing shows susceptibility to vancomycin, daptomycin, and moxifloxacin, but resistance to penicillin and erythromycin. Which of the following is the most appropriate management strategy?"
+  options={[
+    {
+      id: "A",
+      label: "Amoxicillin-clavulanate for 14 days",
+      feedback:
+        "Incorrect. This isolate demonstrates penicillin resistance, which has been well described in C. kroppenstedtii. A penicillin-based regimen would carry a high risk of treatment failure. Additionally, 14 days is likely insufficient given the propensity for recurrence.",
+    },
+    {
+      id: "B",
+      label: "Targeted antimicrobial therapy based on susceptibility results with abscess drainage if a drainable collection develops, and consideration of prolonged therapy given the risk of recurrence",
+      correct: true,
+      feedback:
+        "Correct. Management of C. kroppenstedtii granulomatous mastitis includes targeted antimicrobial therapy guided by susceptibility testing, drainage of any drainable abscess, and consideration of prolonged antibiotic courses given the well-documented risk of recurrent infection. Empiric regimen choices should not assume susceptibility to beta-lactams or macrolides, as high-level resistance to penicillin, macrolides, lincosamides, and tetracyclines has been reported.",
+    },
+    {
+      id: "C",
+      label: "Surgical mastectomy without antimicrobial therapy",
+      feedback:
+        "Incorrect. Mastectomy is not indicated for granulomatous mastitis. This is an infectious and inflammatory condition, not a malignancy. Antimicrobial therapy targeting the identified organism is the cornerstone of treatment, with surgical drainage reserved for drainable collections.",
+    },
+    {
+      id: "D",
+      label: "High-dose corticosteroids alone for 8 weeks",
+      feedback:
+        "Incorrect. Corticosteroids are sometimes used for idiopathic granulomatous mastitis (when no infectious cause is identified), but when a specific pathogen such as C. kroppenstedtii has been isolated, targeted antimicrobial therapy is essential. Immunosuppression without antibiotics in the setting of active infection risks worsening disease.",
+    },
+    {
+      id: "E",
+      label: "Azithromycin 500 mg daily for 5 days",
+      feedback:
+        "Incorrect. This isolate is resistant to erythromycin, and macrolide cross-resistance is expected with azithromycin. A short course of a resistant antibiotic would be ineffective and risks clinical deterioration and recurrence.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-granulomatous-mastitis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Corynebacterium kroppenstedtii</em> is a lipophilic, gram-positive rod that has
+    emerged as an important and underrecognized cause of granulomatous mastitis. It is
+    specifically associated with a histologic pattern known as cystic neutrophilic
+    granulomatous mastitis (CNGM), characterized by lipogranulomas with cystic spaces
+    surrounded by neutrophils. This distinctive pathology should prompt the clinician to
+    consider <em>C. kroppenstedtii</em> even when standard cultures are negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism is difficult to isolate on routine culture due to its lipophilic nature
+    and relatively slow growth. Standard aerobic cultures may fail to recover it, and
+    microbiologic identification increasingly relies on molecular methods such as 16S rRNA
+    gene sequencing or other nucleic acid-based techniques. The advent of MALDI-TOF mass
+    spectrometry and improved sequencing platforms has substantially improved recognition
+    of this organism in clinical practice.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Granulomatous mastitis caused by <em>C. kroppenstedtii</em> typically presents in
+    women of reproductive age, often with a history of prior lactation. The clinical
+    presentation — a painful, enlarging breast mass with overlying skin changes — closely
+    mimics inflammatory breast cancer, frequently leading to extensive oncologic workup
+    before the diagnosis is established. The periareolar region is commonly involved.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Although <em>C. kroppenstedtii</em> is generally susceptible to many antimicrobials,
+    high-level resistance to penicillin, lincosamides, macrolides, and tetracyclines has
+    been reported across multiple case series. Multidrug-resistant strains carrying
+    multiple resistance genes have also been described. For this reason, empiric therapy
+    should not assume beta-lactam or macrolide susceptibility, and antimicrobial
+    susceptibility testing is essential to guide treatment.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment consists of targeted antimicrobial therapy based on susceptibility results,
+    drainage of drainable abscesses, and prolonged antibiotic courses when necessary.
+    Recurrence is a well-documented challenge, reported across multiple case series, and
+    patients should be counseled about this risk. It is worth noting that{" "}
+    <em>C. kroppenstedtii</em> has also been identified as a cause of native and prosthetic
+    valve endocarditis, highlighting its capacity for invasive disease beyond the breast.
+    Two related species, <em>Corynebacterium parakroppenstedtii</em> and{" "}
+    <em>Corynebacterium pseudokroppenstedtii</em>, have also been associated with mastitis.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-granulomatous-mastitis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Cystic neutrophilic granulomatous mastitis (CNGM) — lipogranulomas with cystic
+      spaces surrounded by neutrophils — is the histologic hallmark of{" "}
+      <em>C. kroppenstedtii</em> breast infection.
+    </li>
+    <li>
+      The clinical presentation mimics inflammatory breast cancer; biopsy is essential
+      both to exclude malignancy and to identify the granulomatous pattern.
+    </li>
+    <li>
+      Standard cultures often fail to recover <em>C. kroppenstedtii</em> due to its
+      lipophilic growth requirements; 16S rRNA gene sequencing or MALDI-TOF on tissue
+      specimens should be considered when CNGM is identified on pathology.
+    </li>
+    <li>
+      Do not assume beta-lactam or macrolide susceptibility — high-level resistance to
+      penicillin, macrolides, lincosamides, and tetracyclines is well described.
+      Susceptibility testing is essential.
+    </li>
+    <li>
+      Management includes targeted antimicrobials, abscess drainage, and consideration
+      of prolonged therapy given well-documented recurrence risk.
+    </li>
+    <li>
+      When granulomatous mastitis is diagnosed, steroids should not be used empirically
+      without first excluding an infectious cause such as <em>C. kroppenstedtii</em>,
+      mycobacteria, or fungi.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Funke G, Bernard KA. Coryneform Gram-Positive Rods. In: Carroll KC, Pfaller MA, eds.{" "}
+      <em>Manual of Clinical Microbiology</em>. 13th ed. ASM Press; 2023.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wong SCY, Poon RWS, Chen JHK, et al. <em>Corynebacterium kroppenstedtii</em> Is an
+      Emerging Cause of Granulomatous Mastitis. <em>Open Forum Infectious Diseases</em>.
+      2017;4(3):ofx120.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/ofid/ofx120"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/ofid/ofx120
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tauch A, Fernández-Natal I, Hedrich F. A Microbiological, Molecular, and Immunological
+      Approach to the Diagnosis of <em>Corynebacterium kroppenstedtii</em> Granulomatous
+      Mastitis. <em>International Journal of Infectious Diseases</em>. 2022;115:56-62.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.ijid.2021.11.030"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.ijid.2021.11.030
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Paviour S, Musaad S, Roberts S, et al. <em>Corynebacterium</em> Species Isolated from
+      Patients with Mastitis. <em>Clinical Infectious Diseases</em>. 2002;35(11):1434-1440.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/344463"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1086/344463
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
