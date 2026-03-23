@@ -67,7 +67,7 @@ const authorSchema = {
 };
 
 const stats = [
-  { value: "5+", label: "interactive tools" },
+  { value: "6+", label: "interactive tools" },
   { value: "30+", label: "case-based learning modules" },
   { value: "1", label: "home for ID reasoning" },
 ];
@@ -91,6 +91,12 @@ const featuredTools = [
     desc: "Mechanism-based susceptibility interpretation grounded in microbiology and stewardship.",
     tag: "Antimicrobial reasoning",
   },
+  {
+    href: "/tools/spectrum",
+    title: "Spectrum",
+    desc: "Searchable antimicrobial spectrum of activity chart for common organisms and antibiotics.",
+    tag: "Quick reference",
+  },
 ];
 
 const librarySections = [
@@ -113,6 +119,11 @@ const librarySections = [
     href: "/tools/doseid",
     title: "DoseID",
     desc: "Practical antimicrobial dosing support built for real clinical decisions.",
+  },
+  {
+    href: "/references",
+    title: "Organism & Syndrome Index",
+    desc: "Browse all IDHub cases by organism, syndrome, or clinical concept.",
   },
   {
     href: "/research",

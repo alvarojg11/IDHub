@@ -8,10 +8,12 @@ import type { Metadata } from "next";
 const primaryNav = [
   { href: "/blog", label: "Blog" },
   { href: "/cases", label: "Cases" },
+  { href: "/references", label: "Index" },
   { href: "/mechid", label: "MechID" },
   { href: "/tools/immunoid", label: "ImmunoID" },
   { href: "/probid", label: "ProbID" },
   { href: "/tools/doseid", label: "DoseID" },
+  { href: "/tools/spectrum", label: "Spectrum" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
 ];

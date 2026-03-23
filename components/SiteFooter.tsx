@@ -6,10 +6,12 @@ const footerLinks = [
   { href: "/assistant", label: "IDAssistant" },
   { href: "/cases", label: "Cases" },
   { href: "/blog", label: "Blog" },
+  { href: "/references", label: "Organism Index" },
   { href: "/probid", label: "ProbID" },
   { href: "/mechid", label: "MechID" },
   { href: "/tools/immunoid", label: "ImmunoID" },
   { href: "/tools/doseid", label: "DoseID" },
+  { href: "/tools/spectrum", label: "Spectrum" },
 ];
 
 const utilityLinks = [
