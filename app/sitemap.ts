@@ -81,7 +81,7 @@ function isIncludedRoute(route: string) {
 
 function getPriority(route: string) {
   if (route === "/") return 1;
-  if (["/blog", "/cases", "/tools/immunoid", "/tools/doseid", "/probid", "/mechid"].includes(route)) {
+  if (["/blog", "/cases", "/tools/immunoid", "/tools/doseid", "/probid", "/mechid", "/references", "/tools/spectrum"].includes(route)) {
     return 0.9;
   }
   if (route.startsWith("/blog/") || route.startsWith("/cases/")) return 0.8;

@@ -191,8 +191,12 @@ function fallbackTitleFromSlug(slug: string) {
 export function getCaseSeoEntry(slug: string) {
   const match = CASES.find((item) => item.slug === slug);
   const title = match?.title ?? fallbackTitleFromSlug(slug);
+
+  const organismHint = match?.tags?.organisms?.length
+    ? ` Featuring ${match.tags.organisms.join(", ")}.`
+    : "";
   const description = match?.description
-    ? `${match.description} Interactive infectious diseases case from IDHub.`
+    ? `${match.description}${organismHint} Interactive infectious diseases case from IDHub.`
     : `Interactive infectious diseases case study: ${title}.`;
   const dates = CASE_DATES[slug];
 
@@ -200,6 +204,7 @@ export function getCaseSeoEntry(slug: string) {
     slug,
     title,
     description,
+    tags: match?.tags,
     url: `${BASE_URL}/cases/${slug}`,
     publishedAt: dates?.publishedAt ?? undefined,
     modifiedAt: dates?.modifiedAt ?? dates?.publishedAt ?? undefined,
@@ -220,9 +225,17 @@ export function buildCaseMetadata(slug: string): Metadata {
   const entry = getCaseSeoEntry(slug);
   const seoTitle = toCaseSeoTitle(entry.title);
 
+  const keywords = [
+    ...(entry.tags?.organisms ?? []),
+    ...(entry.tags?.syndromes ?? []),
+    ...(entry.tags?.concepts ?? []),
+    "infectious diseases", "clinical case", "medical education",
+  ];
+
   return {
     title: { absolute: seoTitle },
     description: entry.description,
+    keywords,
     alternates: {
       canonical: entry.url,
     },
@@ -235,6 +248,7 @@ export function buildCaseMetadata(slug: string): Metadata {
       publishedTime: entry.publishedAt,
       modifiedTime: entry.modifiedAt,
       authors: ["Alvaro Ayala"],
+      tags: [...(entry.tags?.organisms ?? []), ...(entry.tags?.syndromes ?? [])],
     },
     twitter: {
       card: "summary_large_image",
