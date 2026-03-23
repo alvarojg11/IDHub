@@ -9,13 +9,16 @@ const primaryNav = [
   { href: "/blog", label: "Blog" },
   { href: "/cases", label: "Cases" },
   { href: "/references", label: "Index" },
-  { href: "/mechid", label: "MechID" },
-  { href: "/tools/immunoid", label: "ImmunoID" },
-  { href: "/probid", label: "ProbID" },
-  { href: "/tools/doseid", label: "DoseID" },
-  { href: "/tools/spectrum", label: "Spectrum" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
+];
+
+const toolsNav = [
+  { href: "/probid", label: "ProbID" },
+  { href: "/mechid", label: "MechID" },
+  { href: "/tools/immunoid", label: "ImmunoID" },
+  { href: "/tools/doseid", label: "DoseID" },
+  { href: "/tools/spectrum", label: "Spectrum" },
 ];
 
 export const metadata: Metadata = {
@@ -59,14 +62,11 @@ export default function RootLayout({
           `}
         </Script>
         <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-white/75 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <Link href="/" className="group flex min-w-0 flex-col">
               <span className="idhub-kicker">Clinical Learning Platform</span>
-              <span className="mt-1 text-3xl font-semibold text-[var(--foreground)] sm:text-[2.15rem]">
+              <span className="mt-1 text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
                 IDHub
-              </span>
-              <span className="mt-1 max-w-md text-sm text-[var(--muted)]">
-                Infectious Diseases cases, uncertainty tools, and practical teaching content.
               </span>
             </Link>
 
@@ -81,6 +81,25 @@ export default function RootLayout({
                     {item.label}
                   </Link>
                 ))}
+                <span className="group relative">
+                  <button
+                    type="button"
+                    className="rounded-full border border-transparent px-3 py-1.5 hover:border-[var(--border)] hover:bg-white/80 hover:text-[var(--foreground)]"
+                  >
+                    Tools ▾
+                  </button>
+                  <span className="pointer-events-none absolute right-0 top-full z-50 mt-1 flex min-w-[160px] flex-col rounded-2xl border border-[var(--border)] bg-white p-2 opacity-0 shadow-[var(--shadow-medium)] transition-opacity group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                    {toolsNav.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="rounded-xl px-3 py-2 text-sm text-[var(--muted)] hover:bg-[var(--background-soft)] hover:text-[var(--foreground)]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </span>
+                </span>
               </nav>
 
               <div className="flex flex-wrap items-center gap-2">

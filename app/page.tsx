@@ -92,10 +92,10 @@ const featuredTools = [
     tag: "Antimicrobial reasoning",
   },
   {
-    href: "/tools/spectrum",
-    title: "Spectrum",
-    desc: "Searchable antimicrobial spectrum of activity chart for common organisms and antibiotics.",
-    tag: "Quick reference",
+    href: "/tools/doseid",
+    title: "DoseID",
+    desc: "Practical antimicrobial dosing support built for real clinical decisions.",
+    tag: "Dosing reference",
   },
 ];
 
@@ -111,14 +111,9 @@ const librarySections = [
     desc: "Short essays and teaching pieces on diagnostics, antimicrobial therapy, and uncertainty.",
   },
   {
-    href: "/mechid",
-    title: "MechID",
-    desc: "Resistance mechanism interpretation grounded in microbiology and clinical use.",
-  },
-  {
-    href: "/tools/doseid",
-    title: "DoseID",
-    desc: "Practical antimicrobial dosing support built for real clinical decisions.",
+    href: "/tools/spectrum",
+    title: "Spectrum",
+    desc: "Searchable antimicrobial spectrum of activity chart for common organisms and antibiotics.",
   },
   {
     href: "/references",
