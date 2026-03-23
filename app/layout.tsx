@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   metadataBase: new URL("https://infectiousdiseasehub.com"),
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-ZMBJ2JZ5XQ";
