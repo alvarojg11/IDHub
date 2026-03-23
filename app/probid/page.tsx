@@ -5,14 +5,54 @@ import SiteFooter from "@/components/SiteFooter";
 import { PROBID_MODULES } from "@/lib/lrSyndromes";
 
 export const metadata: Metadata = {
-  title: "ProbID | IDHub",
+  title: "ProbID — Diagnostic Reasoning & Pretest Probability Tool",
   description:
     "ProbID is an educational diagnostic reasoning tool that uses pretest probability and likelihood ratios to estimate post-test probability in Infectious Diseases syndromes.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/probid" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/probid",
+    siteName: "InfectiousDiseaseHub",
+    title: "ProbID | IDHub — Diagnostic Reasoning & Pretest Probability Tool",
+    description:
+      "Educational tool using pretest probability and likelihood ratios for Infectious Diseases diagnostic reasoning.",
+  },
+  twitter: {
+    card: "summary",
+    title: "ProbID | IDHub — Diagnostic Reasoning & Pretest Probability Tool",
+    description:
+      "Educational tool using pretest probability and likelihood ratios for Infectious Diseases diagnostic reasoning.",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "ProbID",
+  url: "https://infectiousdiseasehub.com/probid",
+  description:
+    "Educational diagnostic reasoning tool using pretest probability and likelihood ratios for Infectious Diseases syndromes.",
+  applicationCategory: "Medical Education",
+  operatingSystem: "Web",
+  author: {
+    "@type": "Person",
+    name: "Alvaro Ayala",
+    affiliation: { "@type": "Organization", name: "Stanford University" },
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    name: "InfectiousDiseaseHub",
+    url: "https://infectiousdiseasehub.com",
+  },
 };
 
 export default function ProbIDPage() {
   return (
     <section className="mx-auto max-w-7xl px-2 py-10 sm:px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.85fr)]">
         <div className="idhub-panel rounded-[1.8rem] p-6">
           <p className="idhub-kicker">Tool Overview</p>

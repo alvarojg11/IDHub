@@ -3,8 +3,16 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Terms | IDHub",
+  title: "Terms",
   description: "Terms of use for InfectiousDiseaseHub.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/terms" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/terms",
+    siteName: "InfectiousDiseaseHub",
+    title: "Terms",
+    description: "Terms of use for InfectiousDiseaseHub.",
+  },
 };
 
 export default function TermsPage() {

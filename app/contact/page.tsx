@@ -5,8 +5,21 @@ import ContactForm from "@/components/ContactForm";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Contact | IDHub",
+  title: "Contact",
   description: "Contact IDHub for feedback, ideas, and collaboration.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/contact" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/contact",
+    siteName: "InfectiousDiseaseHub",
+    title: "Contact",
+    description: "Contact IDHub for feedback, ideas, and collaboration.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Contact",
+    description: "Contact IDHub for feedback, ideas, and collaboration.",
+  },
 };
 
 export default function ContactPage() {

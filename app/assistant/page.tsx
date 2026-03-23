@@ -6,11 +6,25 @@ const ASSISTANT_BACKEND_ORIGIN =
 const ASSISTANT_URL = `${ASSISTANT_BACKEND_ORIGIN}/assistant`;
 
 export const metadata: Metadata = {
-  title: "IDAssistant | IDHub",
+  title: "IDAssistant — AI Clinical Reasoning for Infectious Diseases",
   description:
     "IDAssistant for Infectious Diseases clinical reasoning and ProbID-guided workflows.",
   alternates: {
     canonical: "https://infectiousdiseasehub.com/assistant",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/assistant",
+    siteName: "InfectiousDiseaseHub",
+    title: "IDAssistant | IDHub — AI Clinical Reasoning for Infectious Diseases",
+    description:
+      "AI-powered Infectious Diseases clinical reasoning and ProbID-guided diagnostic workflows.",
+  },
+  twitter: {
+    card: "summary",
+    title: "IDAssistant | IDHub — AI Clinical Reasoning for Infectious Diseases",
+    description:
+      "AI-powered Infectious Diseases clinical reasoning and ProbID-guided diagnostic workflows.",
   },
 };
 

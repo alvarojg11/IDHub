@@ -17,12 +17,16 @@ const primaryNav = [
 ];
 
 export const metadata: Metadata = {
-  title: "IDHub",
+  title: {
+    default: "IDHub | Infectious Diseases Education, Cases & Clinical Tools",
+    template: "%s | IDHub",
+  },
   description:
     "Infectious Disease Hub is an educational resource in Infectious Diseases, with clinical reasoning tools, case-based learning, medical education resources, and practical teaching content for clinicians, students, and trainees.",
   icons: {
     icon: "/favicon.ico",
   },
+  metadataBase: new URL("https://infectiousdiseasehub.com"),
 };
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-ZMBJ2JZ5XQ";

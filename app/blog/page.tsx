@@ -1,7 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
 import { getBlogPosts } from "@/lib/blog/registry";
+
+const BASE_URL = "https://infectiousdiseasehub.com";
+
+export const metadata: Metadata = {
+  title: "Blog — Infectious Diseases Teaching Essays",
+  description:
+    "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases. Teaching essays from an ID fellow at Stanford.",
+  alternates: { canonical: `${BASE_URL}/blog` },
+  openGraph: {
+    type: "website",
+    url: `${BASE_URL}/blog`,
+    siteName: "InfectiousDiseaseHub",
+    title: "Blog — Infectious Diseases Teaching Essays | IDHub",
+    description:
+      "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Blog — Infectious Diseases Teaching Essays | IDHub",
+    description:
+      "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+  },
+};
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();

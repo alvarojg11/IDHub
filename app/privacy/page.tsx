@@ -3,8 +3,16 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Privacy | IDHub",
+  title: "Privacy",
   description: "Privacy information for InfectiousDiseaseHub.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/privacy" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/privacy",
+    siteName: "InfectiousDiseaseHub",
+    title: "Privacy",
+    description: "Privacy information for InfectiousDiseaseHub.",
+  },
 };
 
 export default function PrivacyPage() {

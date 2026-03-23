@@ -5,9 +5,24 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Recommended Projects | IDHub",
+  title: "Recommended Projects — ID Education Resources",
   description:
     "Discover recommended Infectious Diseases education projects, medical education resources, and ID teaching tools for clinicians, students, and trainees.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/recommended-projects" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/recommended-projects",
+    siteName: "InfectiousDiseaseHub",
+    title: "Recommended Projects — ID Education Resources | IDHub",
+    description:
+      "Curated Infectious Diseases education projects, resources, and teaching tools for clinicians and trainees.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Recommended Projects — ID Education Resources | IDHub",
+    description:
+      "Curated Infectious Diseases education projects, resources, and teaching tools for clinicians and trainees.",
+  },
   keywords: [
     "Infectious Diseases education",
     "medical education resources",

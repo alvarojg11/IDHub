@@ -1,6 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
+
+const BASE_URL = "https://infectiousdiseasehub.com";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "IDHub | Infectious Diseases Education, Cases & Clinical Tools",
+  },
+  description:
+    "IDHub is a free medical education platform for Infectious Diseases, featuring interactive clinical cases, diagnostic reasoning tools, and teaching essays for clinicians, students, and trainees.",
+  alternates: { canonical: BASE_URL },
+  openGraph: {
+    type: "website",
+    url: BASE_URL,
+    siteName: "InfectiousDiseaseHub",
+    title: "IDHub | Infectious Diseases Education, Cases & Clinical Tools",
+    description:
+      "Free interactive clinical cases, diagnostic reasoning tools, and ID teaching essays.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IDHub | Infectious Diseases Education, Cases & Clinical Tools",
+    description:
+      "Free interactive clinical cases, diagnostic reasoning tools, and ID teaching essays.",
+  },
+};
 
 const medicalWebPageSchema = {
   "@context": "https://schema.org",

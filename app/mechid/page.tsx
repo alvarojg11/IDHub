@@ -3,9 +3,45 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "MechID | Antimicrobial Susceptibility Interpretation Tool",
+  title: "MechID — Antimicrobial Susceptibility Interpretation Tool",
   description:
     "MechID is an interactive antimicrobial susceptibility interpretation tool for Infectious Diseases, focused on mechanism-based reasoning.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/mechid" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/mechid",
+    siteName: "InfectiousDiseaseHub",
+    title: "MechID | IDHub — Antimicrobial Susceptibility Interpretation Tool",
+    description:
+      "Interactive tool for mechanism-based antimicrobial susceptibility interpretation in Infectious Diseases.",
+  },
+  twitter: {
+    card: "summary",
+    title: "MechID | IDHub — Antimicrobial Susceptibility Interpretation Tool",
+    description:
+      "Interactive tool for mechanism-based antimicrobial susceptibility interpretation in Infectious Diseases.",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "MechID",
+  url: "https://infectiousdiseasehub.com/mechid",
+  description:
+    "Interactive antimicrobial susceptibility interpretation tool focused on mechanism-based reasoning.",
+  applicationCategory: "Medical Education",
+  operatingSystem: "Web",
+  author: {
+    "@type": "Person",
+    name: "Alvaro Ayala",
+    affiliation: { "@type": "Organization", name: "Stanford University" },
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    name: "InfectiousDiseaseHub",
+    url: "https://infectiousdiseasehub.com",
+  },
 };
 
 const valuePoints = [
@@ -26,6 +62,10 @@ const valuePoints = [
 export default function MechIDPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
         <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
           <p className="idhub-kicker">Tool Overview</p>

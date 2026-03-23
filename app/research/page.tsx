@@ -5,8 +5,21 @@ import ContactForm from "@/components/ContactForm";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Research | IDHub",
+  title: "Research",
   description: "Research ideas and collaboration in medical education and clinical Infectious Diseases.",
+  alternates: { canonical: "https://infectiousdiseasehub.com/research" },
+  openGraph: {
+    type: "website",
+    url: "https://infectiousdiseasehub.com/research",
+    siteName: "InfectiousDiseaseHub",
+    title: "Research",
+    description: "Research ideas and collaboration in medical education and clinical Infectious Diseases.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Research",
+    description: "Research ideas and collaboration in medical education and clinical Infectious Diseases.",
+  },
 };
 
 const currentIdeas = [

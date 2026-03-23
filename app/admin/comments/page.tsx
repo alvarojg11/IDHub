@@ -2,7 +2,7 @@ import CommentsAdminPanel from "@/components/CommentsAdminPanel";
 import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
-  title: "Comments Admin | IDHub",
+  title: "Comments Admin",
 };
 
 export default function CommentsAdminPage() {

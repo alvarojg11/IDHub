@@ -1,7 +1,31 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
+
+const BASE_URL = "https://infectiousdiseasehub.com";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about IDHub and its mission to make Infectious Diseases clinical reasoning more accessible through interactive cases, tools, and teaching content.",
+  alternates: { canonical: `${BASE_URL}/about` },
+  openGraph: {
+    type: "website",
+    url: `${BASE_URL}/about`,
+    siteName: "InfectiousDiseaseHub",
+    title: "About",
+    description:
+      "Learn about IDHub and its mission to make Infectious Diseases clinical reasoning more accessible.",
+  },
+  twitter: {
+    card: "summary",
+    title: "About",
+    description:
+      "Learn about IDHub and its mission to make Infectious Diseases clinical reasoning more accessible.",
+  },
+};
 
 const quickLinks = [
   {

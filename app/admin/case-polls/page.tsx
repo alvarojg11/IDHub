@@ -2,7 +2,7 @@ import CasePollsAdminPanel from "@/components/CasePollsAdminPanel";
 import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
-  title: "Case Polls Admin | IDHub",
+  title: "Case Polls Admin",
 };
 
 export default function CasePollsAdminPage() {

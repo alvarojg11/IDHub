@@ -85,6 +85,29 @@ Each case requires 3 changes:
 
 ## Priorities / Work Areas
 
-> Update this section as tasks are agreed upon.
+### SEO: Missing & Incomplete Page Metadata
 
-- [ ] TBD — add specific features/bugs here as they come up
+**Pages with NO metadata (title falls back to generic "IDHub"):**
+- [ ] Homepage `/` — needs title like "IDHub | Infectious Diseases Education, Cases & Tools"
+- [ ] About `/about` — needs title like "About | IDHub"
+- [ ] Blog index `/blog` — needs title like "Blog | IDHub — Infectious Diseases Teaching Essays"
+- [ ] Blog posts `/blog/[slug]` — each post has `post.title` and `post.description` but no `metadata` export; need to wire these into a `generateMetadata` or export
+- [ ] Cases index `/cases` — needs title like "Cases | IDHub — Interactive ID Case-Based Learning"
+- [ ] Subscribe `/subscribe` — needs title like "Subscribe | IDHub"
+
+**Pages with title/description but missing OpenGraph & Twitter card tags:**
+- [ ] DoseID `/tools/doseid`
+- [ ] ImmunoID `/tools/immunoid`
+- [ ] ProbID `/probid`
+- [ ] MechID `/mechid`
+- [ ] IDAssistant `/assistant`
+- [ ] Contact `/contact`
+- [ ] Research `/research`
+- [ ] Recommended Projects `/recommended-projects`
+- [ ] Privacy `/privacy`
+- [ ] Terms `/terms`
+
+**Other SEO improvements to consider:**
+- [ ] Add canonical URLs to all public pages
+- [ ] Add structured data (Schema.org) to tools pages and blog posts
+- [ ] Consider a shared `buildPageMetadata()` helper (similar to `buildCaseMetadata`) for consistent OG/Twitter across all pages

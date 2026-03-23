@@ -1,4 +1,29 @@
+import type { Metadata } from "next";
+
 import SubscribeForm from "@/components/SubscribeForm";
+
+const BASE_URL = "https://infectiousdiseasehub.com";
+
+export const metadata: Metadata = {
+  title: "Subscribe",
+  description:
+    "Subscribe to IDHub for email updates on new Infectious Diseases cases, teaching essays, and clinical tools.",
+  alternates: { canonical: `${BASE_URL}/subscribe` },
+  openGraph: {
+    type: "website",
+    url: `${BASE_URL}/subscribe`,
+    siteName: "InfectiousDiseaseHub",
+    title: "Subscribe",
+    description:
+      "Get email updates on new Infectious Diseases cases, teaching essays, and clinical tools.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Subscribe",
+    description:
+      "Get email updates on new Infectious Diseases cases, teaching essays, and clinical tools.",
+  },
+};
 
 export default function SubscribePage() {
   return (

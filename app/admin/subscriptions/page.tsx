@@ -2,7 +2,7 @@ import SubscriptionsAdminPanel from "@/components/SubscriptionsAdminPanel";
 import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
-  title: "Subscriptions Admin | IDHub",
+  title: "Subscriptions Admin",
 };
 
 export default function SubscriptionsAdminPage() {

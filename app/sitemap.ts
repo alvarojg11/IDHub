@@ -3,6 +3,10 @@ import path from "node:path";
 
 import type { MetadataRoute } from "next";
 
+import { getBlogPosts } from "@/lib/blog/registry";
+import { getCaseSeoEntry } from "@/lib/cases/seo";
+import { CASES } from "@/lib/cases/registry";
+
 const APP_DIR = path.join(process.cwd(), "app");
 const PAGE_FILE_RE = /^page\.(tsx|mdx)$/;
 
@@ -84,9 +88,31 @@ function getPriority(route: string) {
   return 0.7;
 }
 
+async function buildDateMap(): Promise<Record<string, Date>> {
+  const dates: Record<string, Date> = {};
+
+  // Case dates from CASE_DATES registry
+  for (const c of CASES) {
+    const entry = getCaseSeoEntry(c.slug);
+    const ts = entry.modifiedAt ?? entry.publishedAt;
+    if (ts) dates[`/cases/${c.slug}`] = new Date(ts);
+  }
+
+  // Blog dates from post frontmatter
+  const posts = await getBlogPosts();
+  for (const post of posts) {
+    if (post.publishedAt) {
+      dates[`/blog/${post.slug}`] = new Date(post.publishedAt);
+    }
+  }
+
+  return dates;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseUrl();
   const pageFiles = await walk(APP_DIR);
+  const dateMap = await buildDateMap();
 
   const routes = [...new Set(pageFiles.map(filePathToRoute))]
     .filter(isIncludedRoute)
@@ -94,8 +120,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route.startsWith("/blog/") ? "monthly" : "weekly",
+    lastModified: dateMap[route] ?? new Date(),
+    changeFrequency: route.startsWith("/blog/") ? "monthly" as const : "weekly" as const,
     priority: getPriority(route),
   }));
 }

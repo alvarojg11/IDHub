@@ -221,7 +221,7 @@ export function buildCaseMetadata(slug: string): Metadata {
   const seoTitle = toCaseSeoTitle(entry.title);
 
   return {
-    title: seoTitle,
+    title: { absolute: seoTitle },
     description: entry.description,
     alternates: {
       canonical: entry.url,

@@ -3,7 +3,7 @@ import Link from "next/link";
 import AdminQuickNav from "@/components/AdminQuickNav";
 
 export const metadata = {
-  title: "Admin | IDHub",
+  title: "Admin",
 };
 
 const tools = [

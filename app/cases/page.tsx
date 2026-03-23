@@ -1,6 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CASES } from "@/lib/cases/registry";
+
+const BASE_URL = "https://infectiousdiseasehub.com";
+
+export const metadata: Metadata = {
+  title: "Cases — Interactive Infectious Diseases Case-Based Learning",
+  description:
+    "Interactive, stepwise clinical reasoning cases covering tropical medicine, HIV, mycology, parasitology, and more. Free ID case-based learning for clinicians and trainees.",
+  alternates: { canonical: `${BASE_URL}/cases` },
+  openGraph: {
+    type: "website",
+    url: `${BASE_URL}/cases`,
+    siteName: "InfectiousDiseaseHub",
+    title: "Cases — Interactive ID Case-Based Learning | IDHub",
+    description:
+      "Interactive clinical reasoning cases covering tropical medicine, HIV, mycology, parasitology, and more.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Cases — Interactive ID Case-Based Learning | IDHub",
+    description:
+      "Interactive clinical reasoning cases covering tropical medicine, HIV, mycology, parasitology, and more.",
+  },
+};
 
 const cases = CASES;
 const CASES_PER_PAGE = 18;
