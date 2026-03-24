@@ -287,6 +287,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: ["Corynebacterium kroppenstedtii"], syndromes: ["Skin & Soft Tissue", "Granulomatous Infection"], concepts: ["Granulomatous mastitis", "16S rRNA sequencing", "Lipid-supplemented culture"] },
   },
+  {
+    title: "The Plaque Before the Storm",
+    slug: "balamuthia-gae",
+    description: "A facial skin lesion that foreshadowed a fatal encephalitis.",
+    enable: true,
+    tags: { organisms: ["Balamuthia mandrillaris"], syndromes: ["Neuroinfection", "Skin & Soft Tissue", "Parasitology"], concepts: ["Granulomatous amebic encephalitis", "Free-living ameba", "Miltefosine", "Cutaneous prodrome"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

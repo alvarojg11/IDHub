@@ -1,0 +1,373 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("balamuthia-gae");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Plaque Before the Storm
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 32-year-old man from Peru who immigrated to the United States 2 years ago presents
+    to the emergency department after a witnessed generalized tonic-clonic seizure. His
+    partner reports that he has had worsening daily headaches over the past 5 weeks,
+    along with progressive memory difficulties and uncharacteristic irritability. Over
+    the past 3 days he had become increasingly confused and difficult to rouse.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Approximately 3 months before this presentation, he developed a mildly indurated,
+    erythematous plaque over the bridge of his nose and left cheek. It was initially
+    painless and non-pruritic and he attributed it to sun exposure. He tried over-the-counter
+    hydrocortisone cream without improvement. A dermatology visit 6 weeks later led to a
+    diagnosis of rosacea; he was prescribed topical metronidazole gel and a low-potency
+    topical corticosteroid. The facial plaque did not resolve and appeared to enlarge slightly
+    over the following weeks. He is otherwise healthy with no prior medical history,
+    takes no medications, and does not use alcohol, tobacco, or drugs. He works in
+    landscaping.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.4&#176;C, blood pressure 128/78 mmHg, heart rate
+    102 bpm, and oxygen saturation 98% on room air. He is oriented to person only and
+    has marked psychomotor slowing. There is no nuchal rigidity or photophobia. Cranial
+    nerves are intact. An erythematous, indurated, non-ulcerated plaque measuring
+    approximately 4 &#215; 3 cm is present over the nasal bridge and left medial cheek.
+    The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    HIV-1/2 antigen-antibody combination test is negative. Basic metabolic panel and
+    complete blood count are within normal limits. MRI of the brain with gadolinium
+    shows multiple T2-hyperintense lesions with ring enhancement in the right parietal
+    and left temporal lobes with mild surrounding edema and no midline shift. Lumbar
+    puncture reveals an opening pressure of 28 cm H&#8322;O, WBC 118 cells/&#956;L (86%
+    lymphocytes, 14% monocytes), protein 104 mg/dL, and glucose 50 mg/dL with a serum
+    glucose of 102 mg/dL. CSF HSV-1 and HSV-2 PCR are negative. Cryptococcal antigen
+    is negative. Cytology shows no malignant cells. Serum Toxoplasma IgG is pending.
+    Brain biopsy is performed and H&amp;E staining reveals uninucleate trophozoites with
+    prominent central nucleoli distributed throughout the parenchyma with surrounding
+    granulomatous inflammation. Specific immunostaining is pending.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/balamuthia/balamuthia.png"
+        alt="Brain tissue stained with hematoxylin and eosin showing Balamuthia mandrillaris cysts in the neuropil with a thick outer wall and dense internal staining"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Brain tissue (H&amp;E stain): cyst with thick outer wall embedded in the neuropil.
+      Image courtesy of the Centers for Disease Control and Prevention (CDC).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-balamuthia-gae-q1"
+  title="Question 1"
+  prompt="Brain biopsy reveals uninucleate trophozoites with surrounding granulomatous inflammation; specific immunostaining is pending. Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Cryptococcal meningoencephalitis with cutaneous dissemination",
+      feedback:
+        "Incorrect. Cryptococcal disease is an important cause of subacute meningoencephalitis, particularly in immunocompromised hosts, and can involve the skin. However, this patient is HIV-negative with no known immunosuppression, the cryptococcal antigen is negative, and the facial plaque preceded neurologic symptoms by months in a pattern inconsistent with disseminated cryptococcosis.",
+    },
+    {
+      id: "B",
+      label: "Toxoplasma encephalitis with ring-enhancing lesions",
+      feedback:
+        "Incorrect. Toxoplasma encephalitis produces ring-enhancing lesions on MRI and should always be considered with this imaging pattern. However, this patient is HIV-negative, serum Toxoplasma IgG is negative (making reactivation disease extremely unlikely), and the clinical picture — subacute encephalitis with a preceding facial plaque — is not typical for toxoplasmosis.",
+    },
+    {
+      id: "C",
+      label: "Balamuthia mandrillaris granulomatous amebic encephalitis",
+      correct: true,
+      feedback:
+        "Correct. This case is a classic presentation of Balamuthia mandrillaris granulomatous amebic encephalitis (GAE). The combination of a subacute, non-ulcerated central facial plaque in a Latin American patient that preceded neurologic symptoms by months, along with ring-enhancing lesions on MRI, a lymphocytic pleocytosis, and H&E findings of uninucleate trophozoites confirmed by Balamuthia-specific immunostaining, is the defining picture of this rare and frequently fatal disease.",
+    },
+    {
+      id: "D",
+      label: "Primary CNS lymphoma with cutaneous involvement",
+      feedback:
+        "Incorrect. Primary CNS lymphoma can cause ring-enhancing lesions and subacute cognitive decline, particularly in immunocompromised patients. However, cytology was negative for malignant cells, the patient is immunocompetent, and biopsy demonstrated amebic trophozoites — not lymphomatous infiltrate. The facial plaque is also not explained by CNS lymphoma.",
+    },
+    {
+      id: "E",
+      label: "Herpes simplex encephalitis with temporal lobe involvement",
+      feedback:
+        "Incorrect. HSV encephalitis classically involves the temporal lobes and presents with fever, seizures, and behavioral change. However, CSF HSV PCR is negative, the course is too indolent for typical HSV encephalitis (which progresses over days, not weeks to months), and the preceding facial plaque is unexplained by this diagnosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-balamuthia-gae-q2"
+  title="Question 2"
+  prompt="Specific immunostaining from the CDC confirms the diagnosis. Which of the following is the most appropriate treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Intravenous amphotericin B deoxycholate monotherapy for 6 weeks",
+      feedback:
+        "Incorrect. Amphotericin B has limited activity against Balamuthia mandrillaris and monotherapy has not been associated with survival in reported cases. Effective treatment requires combination antimicrobial therapy, and miltefosine is now considered a cornerstone agent based on retrospective evidence.",
+    },
+    {
+      id: "B",
+      label: "Pyrimethamine, sulfadiazine, and leucovorin for 6 weeks",
+      feedback:
+        "Incorrect. This regimen is used for toxoplasma encephalitis, not for free-living amebic infection. It has no meaningful activity against Balamuthia mandrillaris and would result in progressive, fatal disease.",
+    },
+    {
+      id: "C",
+      label: "Intravenous acyclovir 10 mg/kg every 8 hours for 21 days",
+      feedback:
+        "Incorrect. Acyclovir is the treatment of choice for herpes simplex encephalitis. It has no activity against Balamuthia mandrillaris. Initiating acyclovir empirically while awaiting biopsy results is reasonable, but confirmed GAE requires targeted combination therapy.",
+    },
+    {
+      id: "D",
+      label: "Miltefosine combined with flucytosine and fluconazole, with surgical debulking of accessible lesions when feasible",
+      correct: true,
+      feedback:
+        "Correct. There is no FDA-approved regimen for Balamuthia GAE, and the evidence base consists entirely of case reports and retrospective series. Miltefosine, an alkylphosphocholine originally developed for leishmaniasis with proven amebicidal activity, is now considered a cornerstone of therapy. Most successful treatment regimens have been combination-based; commonly used partners include flucytosine, azoles (fluconazole, voriconazole, or itraconazole), and pentamidine. Surgical debulking of accessible lesions has contributed to survival in several reported cases. The CDC's Emergency Operations Center can assist with access to miltefosine.",
+    },
+    {
+      id: "E",
+      label: "Voriconazole monotherapy for 12 months",
+      feedback:
+        "Incorrect. Voriconazole has in vitro activity against Balamuthia and has been used as a component of successful combination regimens. However, monotherapy with any single agent has rarely, if ever, achieved cure in Balamuthia GAE. Combination therapy is the standard approach given the severity of this disease and the poor outcomes seen with inadequate treatment.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-balamuthia-gae-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Balamuthia mandrillaris</em> is a free-living ameba first isolated from the brain
+    of a mandrill baboon in 1986 and now recognized as an important, if rare, cause of
+    granulomatous amebic encephalitis (GAE) in humans. Unlike <em>Naegleria fowleri</em>,
+    which causes a fulminant primary amebic meningoencephalitis, Balamuthia GAE follows
+    a subacute to chronic course spanning weeks to months. Mortality exceeds 90% in
+    untreated or late-diagnosed cases.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A key epidemiologic distinction is that <em>Balamuthia</em> can cause disease in
+    both immunocompromised and immunocompetent hosts — unlike <em>Acanthamoeba</em> GAE,
+    which almost exclusively affects immunocompromised individuals. In the United States
+    and Japan, the most common presentation is subacute meningoencephalitis without a
+    preceding skin lesion. In South America and China, however, patients frequently
+    develop cutaneous disease first — typically an asymptomatic or mildly erythematous,
+    indurated plaque on the central face or extremities — which may precede CNS
+    involvement by weeks to months. This preceding skin lesion is a critical and
+    often-missed diagnostic clue.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    An important clinical trap is the administration of corticosteroids to the skin
+    lesion before the diagnosis is established. Topical and especially systemic
+    corticosteroids can cause rapid expansion of cutaneous Balamuthia lesions and
+    may accelerate CNS dissemination. In this case, the topical corticosteroid
+    prescribed for presumed rosacea likely contributed to plaque expansion.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Neuroimaging in Balamuthia GAE typically reveals multiple ring-enhancing lesions
+    with surrounding edema, often in the posterior fossa or cerebral hemispheres, that
+    can closely mimic toxoplasma encephalitis, primary CNS lymphoma, or metastatic
+    disease. CSF analysis usually shows a lymphocytic pleocytosis with elevated protein
+    and normal or mildly depressed glucose; however, CSF may be normal early in the
+    disease. Definitive diagnosis requires brain biopsy with histopathologic examination
+    and specific immunostaining, as <em>Balamuthia</em> trophozoites are
+    morphologically indistinguishable from <em>Acanthamoeba</em> spp. on H&amp;E alone.
+    The CDC Division of Parasitic Diseases can confirm the diagnosis and facilitate
+    access to treatment.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    No randomized controlled trials exist for Balamuthia GAE, and treatment is guided
+    entirely by case reports and retrospective series. Miltefosine, an alkylphosphocholine
+    with potent in vitro amebicidal activity, has emerged as the most important agent
+    in successful treatment regimens. Most survivors received combination therapy
+    incorporating miltefosine alongside flucytosine, azoles (fluconazole, voriconazole,
+    or itraconazole), pentamidine, or sulfadiazine. Surgical debulking of accessible
+    lesions has been a component of successful outcomes in several published cases.
+    Early diagnosis — before significant neurologic deterioration — appears to be the
+    strongest predictor of survival.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-balamuthia-gae-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Balamuthia mandrillaris</em> GAE is a subacute to chronic granulomatous
+      encephalitis that — unlike Acanthamoeba GAE — can affect both immunocompromised
+      and immunocompetent hosts, including children.
+    </li>
+    <li>
+      A preceding indolent, non-ulcerated cutaneous plaque on the central face or
+      extremities is a key diagnostic clue in Latin American and Asian patients;
+      this skin lesion typically heralds eventual CNS involvement if untreated.
+    </li>
+    <li>
+      Corticosteroids (topical or systemic) can cause rapid expansion of cutaneous
+      Balamuthia lesions and should be avoided once the diagnosis is suspected.
+    </li>
+    <li>
+      On H&amp;E staining, <em>Balamuthia</em> trophozoites cannot be reliably
+      distinguished from <em>Acanthamoeba</em> spp.; specific immunostaining or
+      PCR is required to confirm the species.
+    </li>
+    <li>
+      Treatment requires combination antimicrobial therapy; miltefosine is now
+      considered a cornerstone agent, typically combined with flucytosine, an azole,
+      and/or pentamidine. Surgical debulking of accessible lesions may improve outcomes.
+    </li>
+    <li>
+      The CDC Emergency Operations Center can assist with diagnosis confirmation and
+      access to miltefosine in suspected cases.
+    </li>
+    <li>
+      Mortality exceeds 90% without early recognition and treatment; prognosis is
+      directly tied to the speed of diagnosis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Visvesvara GS, Moura H, Schuster FL. Pathogenic and opportunistic free-living
+      amoebae: <em>Acanthamoeba</em> spp., <em>Balamuthia mandrillaris</em>,{" "}
+      <em>Naegleria fowleri</em>, and <em>Sappinia diploidea</em>.{" "}
+      <em>FEMS Immunology &amp; Medical Microbiology</em>. 2007;50(1):1-26.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/j.1574-695X.2007.00232.x"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/j.1574-695X.2007.00232.x
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Deetz TR, Sawyer MH, Billman G, Schuster FL, Visvesvara GS. Successful treatment of
+      Balamuthia amoebic encephalitis: presentation of 2 cases.{" "}
+      <em>Clinical Infectious Diseases</em>. 2003;37(10):1304-1312.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/379020"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/379020
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Mart&#237;nez DY, Seas C, Br&#225;vard M, et al. Successful miltefosine treatment
+      of <em>Balamuthia mandrillaris</em> granulomatous amebic encephalitis.{" "}
+      <em>Antimicrobial Agents and Chemotherapy</em>. 2010;54(10):4485-4487.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00332-10"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/AAC.00332-10
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bravo FG, Seas C. Balamuthia mandrillaris amoebic encephalitis: an emerging
+      parasitic infection. <em>Current Infectious Disease Reports</em>. 2012;14(4):391-396.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11908-012-0264-x"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s11908-012-0264-x
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Balamuthia mandrillaris: About Balamuthia.
+      National Center for Emerging and Zoonotic Infectious Diseases, Division of Parasitic
+      Diseases and Malaria. Accessed March 23, 2026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/balamuthia/about/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        https://www.cdc.gov/balamuthia/about/index.html
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
