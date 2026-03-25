@@ -288,6 +288,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Corynebacterium kroppenstedtii"], syndromes: ["Skin & Soft Tissue", "Granulomatous Infection"], concepts: ["Granulomatous mastitis", "16S rRNA sequencing", "Lipid-supplemented culture"] },
   },
   {
+    title: "The Fever That Would Not Wait",
+    slug: "tb-meningitis-hiv",
+    description: "TB meningitis in a newly diagnosed HIV patient — treatment timing and ART selection.",
+    enable: true,
+    tags: { organisms: ["Mycobacterium tuberculosis", "HIV-1"], syndromes: ["Neuroinfection", "HIV/ART", "Mycobacterial", "Meningitis"], concepts: ["TB meningitis", "ART timing", "Paradoxical IRIS", "Dolutegravir with rifampin", "Dexamethasone in TB", "INSPIRING trial"] },
+  },
+  {
     title: "The Plaque Before the Storm",
     slug: "balamuthia-gae",
     description: "A facial skin lesion that foreshadowed a fatal encephalitis.",

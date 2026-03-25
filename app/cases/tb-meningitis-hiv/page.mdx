@@ -1,0 +1,351 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("tb-meningitis-hiv");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Fever That Would Not Wait
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old man from rural Guatemala, living in the United States for three years
+    without documented medical care, is brought to the emergency department by his
+    roommate after three days of worsening confusion. His roommate reports that he has
+    had daily fevers, drenching night sweats, and an approximately 10-pound unintentional
+    weight loss over the preceding six weeks. He developed headaches about three weeks
+    ago, initially mild and positional, that have progressively worsened. He has no prior
+    medical history, takes no medications, and denies alcohol or drug use. He works in
+    agricultural labor.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.9&#176;C, blood pressure 108/68 mmHg, heart rate
+    114 bpm, and oxygen saturation 97% on room air. He is alert but disoriented to time
+    and place, with marked psychomotor slowing. There is mild nuchal rigidity. Fundoscopy
+    reveals bilateral papilledema. The remainder of the neurologic exam shows no focal
+    deficits. Oral examination reveals white plaques on the buccal mucosa. He appears
+    cachectic with bilateral posterior cervical and axillary lymphadenopathy, each node
+    approximately 1–2 cm, firm and non-tender. No hepatosplenomegaly is appreciated.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A fourth-generation HIV-1/2 antigen-antibody combination test returns positive; HIV-1
+    RNA viral load is 840,000 copies/mL and CD4 count is 28 cells/&#956;L. Complete
+    blood count shows hemoglobin 9.4 g/dL (normocytic), WBC 3,800 cells/&#956;L with
+    normal differential, and platelets 118,000/&#956;L. Comprehensive metabolic panel is
+    notable for albumin 2.6 g/dL. LDH is elevated at 410 U/L. Chest X-ray shows a
+    small right upper lobe infiltrate with ipsilateral hilar fullness. Serum cryptococcal
+    antigen is negative. MRI of the brain with gadolinium shows leptomeningeal
+    enhancement at the basal cisterns, mild communicating hydrocephalus, and no
+    ring-enhancing lesions. Lumbar puncture is performed with an opening pressure of
+    32 cm H&#8322;O. CSF analysis: WBC 88 cells/&#956;L (92% lymphocytes), protein
+    148 mg/dL, glucose 32 mg/dL (serum glucose 96 mg/dL). India ink is negative. CSF
+    cryptococcal antigen is negative. CSF <em>Mycobacterium tuberculosis</em> GeneXpert
+    PCR returns positive with no rifampin resistance detected. AFB smear of CSF is
+    positive.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-tb-meningitis-hiv-q1"
+  title="Question 1"
+  prompt="The diagnosis of tuberculous meningitis in a newly diagnosed HIV patient with a CD4 count of 28 cells/μL is confirmed. Which of the following best describes the most appropriate initial treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Start isoniazid, rifampin, pyrazinamide, and ethambutol (RIPE) plus dexamethasone; initiate ART simultaneously within 24 hours",
+      feedback:
+        "Incorrect. Starting RIPE plus dexamethasone is correct, but initiating ART simultaneously within 24 hours is not recommended for TB meningitis. Unlike pulmonary TB — where early ART at 2 weeks reduces mortality — TB meningitis carries a significantly elevated risk of fatal paradoxical IRIS with very early ART. Current guidelines recommend deferring ART for approximately 4 to 8 weeks after TB treatment initiation in CNS TB.",
+    },
+    {
+      id: "B",
+      label: "Start isoniazid, rifampin, pyrazinamide, and ethambutol (RIPE) plus dexamethasone; defer ART for approximately 4 to 8 weeks",
+      correct: true,
+      feedback:
+        "Correct. Tuberculous meningitis is treated with standard four-drug RIPE therapy plus adjunctive dexamethasone, which reduces mortality and severe disability regardless of HIV status. The critical nuance in HIV co-infection is the timing of ART: unlike pulmonary or extrapulmonary non-CNS TB where early ART at 2 weeks is beneficial, CNS TB warrants deferral of ART for 4 to 8 weeks given the substantially increased risk of fatal paradoxical IRIS. This recommendation is supported by a substudy of the ACTG 5349 trial and the Torok et al. landmark trial from Vietnam.",
+    },
+    {
+      id: "C",
+      label: "Start rifampin, pyrazinamide, and ethambutol (without isoniazid) plus dexamethasone; defer ART for 2 weeks",
+      feedback:
+        "Incorrect. Isoniazid is a cornerstone of TB treatment and should not be omitted without documented isoniazid resistance. Additionally, deferring ART for only 2 weeks follows the pulmonary TB paradigm, which does not apply to CNS TB. Premature ART initiation in TB meningitis increases the risk of fatal paradoxical IRIS.",
+    },
+    {
+      id: "D",
+      label: "Start isoniazid, rifampin, pyrazinamide, and ethambutol (RIPE) without dexamethasone; defer ART for 4 to 8 weeks",
+      feedback:
+        "Incorrect. ART deferral for 4 to 8 weeks is appropriate in CNS TB, but omitting dexamethasone is not. Adjunctive corticosteroids are a standard of care in TB meningitis regardless of HIV status, with data showing reduction in mortality and neurologic sequelae. Dexamethasone should be initiated concurrently with RIPE.",
+    },
+    {
+      id: "E",
+      label: "Defer all treatment until full susceptibility testing returns; initiate ART now given low CD4 count",
+      feedback:
+        "Incorrect. TB meningitis is a life-threatening emergency and empiric treatment must not be delayed pending susceptibility results, particularly with a positive GeneXpert and AFB smear. Furthermore, initiating ART immediately in the setting of active TB meningitis increases the risk of paradoxical IRIS, which can be fatal in CNS disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-tb-meningitis-hiv-q2"
+  title="Question 2"
+  prompt="The patient is started on RIPE therapy and dexamethasone. After an appropriate interval, he has improved neurologically and is tolerating therapy. ART is now ready to be initiated. Which ART regimen is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Efavirenz + tenofovir alafenamide + emtricitabine",
+      feedback:
+        "Incorrect. Efavirenz-based regimens are a historical option for TB-HIV co-treatment because efavirenz does not require dose adjustment with rifampin. However, efavirenz is no longer preferred in most settings given its CNS side effect profile (which can be difficult to distinguish from IRIS or TB meningitis-related neurologic changes) and the availability of superior integrase-based options.",
+    },
+    {
+      id: "B",
+      label: "Dolutegravir 50 mg twice daily + tenofovir alafenamide + emtricitabine",
+      correct: true,
+      feedback:
+        "Correct. Dolutegravir is the preferred integrase strand transfer inhibitor (INSTI) for patients receiving rifampin-based TB therapy. Rifampin is a potent CYP450 and UGT1A inducer that significantly reduces dolutegravir plasma levels; to overcome this, the dolutegravir dose is doubled to 50 mg twice daily. This approach is supported by pharmacokinetic data and the INSPIRING trial, which demonstrated virologic suppression rates comparable to efavirenz when dolutegravir was used twice daily with rifampin. Tenofovir alafenamide (or tenofovir disoproxil fumarate) plus emtricitabine serves as the backbone.",
+    },
+    {
+      id: "C",
+      label: "Bictegravir + tenofovir alafenamide + emtricitabine",
+      feedback:
+        "Incorrect. Bictegravir is co-formulated as a single-tablet regimen (Biktarvy) but is contraindicated with rifampin. Rifampin induces metabolism of bictegravir, drastically reducing drug levels, and unlike dolutegravir, there is no dose adjustment that overcomes this interaction. Bictegravir-based therapy should not be used in patients receiving rifampin.",
+    },
+    {
+      id: "D",
+      label: "Atazanavir + ritonavir + tenofovir alafenamide + emtricitabine",
+      feedback:
+        "Incorrect. Boosted protease inhibitors (PIs), including ritonavir-boosted atazanavir, are substantially impaired by rifampin, which induces CYP3A4 and reduces PI plasma levels to sub-therapeutic concentrations. Ritonavir boosting cannot overcome rifampin-mediated induction. Boosted PI-based regimens are contraindicated with rifampin-containing TB therapy.",
+    },
+    {
+      id: "E",
+      label: "Raltegravir 400 mg twice daily + tenofovir alafenamide + emtricitabine",
+      feedback:
+        "Incorrect. Raltegravir has been studied with rifampin, but it requires dose doubling to 800 mg twice daily to compensate for rifampin-induced glucuronidation. At standard doses of 400 mg twice daily, rifampin reduces raltegravir exposure significantly. Even with dose adjustment, raltegravir is now considered a less preferred option compared to twice-daily dolutegravir, which has more robust pharmacokinetic and clinical data in this setting.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-tb-meningitis-hiv-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Tuberculous meningitis (TBM) in the setting of advanced HIV co-infection is one of
+    the most complex and clinically demanding scenarios in infectious diseases. It requires
+    simultaneous mastery of two treatment paradigms — anti-TB therapy and ART — and a
+    nuanced understanding of how their interaction, particularly through immune
+    reconstitution inflammatory syndrome (IRIS), can be fatal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>Anti-TB therapy and adjunctive dexamethasone.</strong> Standard treatment for
+    TBM follows the same four-drug RIPE backbone (isoniazid, rifampin, pyrazinamide,
+    ethambutol) used for pulmonary TB, with an intensive phase of two months followed by
+    a continuation phase of seven to ten months. The critical addition in CNS disease is
+    adjunctive dexamethasone. The landmark Thwaites et al. trial demonstrated that
+    dexamethasone reduces mortality and severe disability in TBM, and this benefit
+    extends to HIV-infected patients. Dexamethasone is typically given at 0.4 mg/kg/day
+    for the first week, then tapered over approximately six weeks.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>ART timing: the CNS exception.</strong> The timing of ART initiation in
+    HIV-TB co-infection is one of the most evidence-driven and counterintuitive decisions
+    in ID. For pulmonary TB and most extrapulmonary forms, three pivotal trials — ACTG
+    5221 (STRIDE), SAPiT, and CAMELIA — established that early ART at approximately two
+    weeks significantly reduces mortality, particularly at very low CD4 counts. However,
+    this paradigm does not apply to TB meningitis. The Torok et al. randomized trial from
+    Vietnam demonstrated that immediate ART in TBM did not reduce mortality and was
+    associated with a higher rate of severe adverse events, likely driven by paradoxical
+    CNS IRIS. This finding was reinforced by a subgroup analysis of ACTG 5349. The
+    current OI guidelines from the Department of Health and Human Services (DHHS)
+    recommend deferring ART for 4 to 8 weeks in TBM. The CNS compartment is uniquely
+    vulnerable to IRIS: the blood-brain barrier concentrates inflammatory responses,
+    paradoxical worsening can manifest as cerebral edema, herniation, or new tuberculomas,
+    and mortality from CNS IRIS is substantially higher than from systemic IRIS.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>Drug interactions: rifampin and ART.</strong> Rifampin is a potent inducer of
+    cytochrome P450 enzymes (primarily CYP3A4) and uridine diphosphate
+    glucuronosyltransferases (UGT1A1), which substantially reduces plasma levels of most
+    ART agents. Boosted protease inhibitors are essentially contraindicated. Among
+    integrase inhibitors, bictegravir levels are severely reduced and dose adjustment is
+    not feasible; raltegravir requires dose doubling to 800 mg twice daily and is now
+    less preferred. Dolutegravir 50 mg twice daily effectively overcomes rifampin
+    induction and is the preferred INSTI, supported by pharmacokinetic studies and the
+    INSPIRING trial. Efavirenz-based therapy does not require dose adjustment with
+    rifampin but carries a higher pill burden, CNS side effects, and inferior
+    tolerability compared to dolutegravir. Doravirine is another NNRTI that is
+    contraindicated with rifampin.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-tb-meningitis-hiv-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      TB meningitis is treated with standard four-drug RIPE therapy; adjunctive
+      dexamethasone reduces mortality and severe disability and should be initiated
+      concurrently regardless of HIV status.
+    </li>
+    <li>
+      Unlike pulmonary TB (where early ART at ~2 weeks reduces mortality in advanced
+      HIV), TB meningitis warrants deferral of ART for 4 to 8 weeks due to the risk
+      of fatal paradoxical CNS IRIS.
+    </li>
+    <li>
+      This ART deferral recommendation is supported by the Torok et al. trial and ACTG
+      5349 subanalysis, and is reflected in DHHS OI guidelines — a critical exception
+      to the general principle of "treat HIV early."
+    </li>
+    <li>
+      Paradoxical CNS IRIS can manifest as cerebral edema, new tuberculomas, cranial
+      nerve palsies, or herniation; it carries substantially higher mortality than
+      systemic IRIS.
+    </li>
+    <li>
+      Rifampin is a potent CYP3A4/UGT1A1 inducer. Boosted protease inhibitors and
+      bictegravir are contraindicated. Dolutegravir 50 mg twice daily is the preferred
+      integrase inhibitor with rifampin-based TB therapy.
+    </li>
+    <li>
+      CSF GeneXpert MTB/RIF is the fastest diagnostic tool for TB meningitis and
+      simultaneously detects rifampin resistance, guiding early therapeutic decisions.
+    </li>
+    <li>
+      Oral candidiasis, very low CD4 (&lt;50), and constitutional symptoms in an
+      undiagnosed patient from an endemic region should prompt immediate HIV and TB
+      co-evaluation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Torok ME, Yen NT, Chau TT, et al. Timing of initiation of antiretroviral therapy
+      in human immunodeficiency virus (HIV) — associated tuberculous meningitis.{" "}
+      <em>Clinical Infectious Diseases</em>. 2011;52(11):1374-1383.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cir230"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cir230
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Thwaites GE, Nguyen DB, Nguyen HD, et al. Dexamethasone for the treatment of
+      tuberculous meningitis in adolescents and adults.{" "}
+      <em>New England Journal of Medicine</em>. 2004;351(17):1741-1751.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa040573"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa040573
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Havlir DV, Kendall MA, Ive P, et al. Timing of antiretroviral therapy for HIV-1
+      infection and tuberculosis. <em>New England Journal of Medicine</em>.
+      2011;365(16):1482-1491.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1013607"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa1013607
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dooley KE, Kaplan R, Mwelase N, et al. Dolutegravir-based antiretroviral therapy
+      for patients coinfected with tuberculosis and HIV-1: a multicenter, noncomparative,
+      open-label, randomized trial (INSPIRING).{" "}
+      <em>Clinical Infectious Diseases</em>. 2020;70(3):549-556.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciz207"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciz207
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Opportunistic Infections in Adults and Adolescents with HIV. Guidelines
+      for the Prevention and Treatment of Opportunistic Infections in Adults and
+      Adolescents with HIV: Mycobacterium tuberculosis. Department of Health and Human
+      Services. Accessed March 24, 2026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections/mycobacterium"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        clinicalinfo.hiv.gov — Mycobacterium tuberculosis OI Guidelines
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
