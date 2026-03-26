@@ -1,0 +1,336 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pres-tacrolimus");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Lights Out on Postoperative Day 21
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 47-year-old woman with end-stage renal disease secondary to hypertensive nephrosclerosis
+    underwent a deceased-donor kidney transplant 21 days ago from a CMV-seropositive donor
+    (CMV D+/R−). Her immunosuppressive regimen consists of tacrolimus, mycophenolate mofetil,
+    and prednisone. Her post-transplant course was initially unremarkable and she was discharged
+    on postoperative day 5 with stable graft function and a tacrolimus trough of 11.4 ng/mL.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She presents to the emergency department after a witnessed generalized tonic-clonic seizure
+    lasting approximately 90 seconds, with postictal confusion. Her husband reports that over
+    the preceding 48 hours she had developed a severe bifrontal headache and episodes of blurry
+    vision that progressed to near-total loss of vision in both eyes. She had no fever, neck
+    stiffness, or focal weakness. She had no prior history of seizures.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile, blood pressure 182/114 mmHg, heart rate 98 bpm, and oxygen
+    saturation 97% on room air. She is oriented to person only and slow to respond. Pupillary
+    reflexes are intact bilaterally. Visual acuity is severely reduced in both eyes. There is
+    no nuchal rigidity, papilledema, or focal motor deficit. The transplant incision is clean
+    and healing appropriately.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Tacrolimus trough level returns at 15.8 ng/mL. Serum creatinine is 1.6 mg/dL, up from
+    a nadir of 1.2 mg/dL at discharge. Complete blood count and metabolic panel are otherwise
+    unremarkable. Serum CMV NAT is pending. Serum cryptococcal antigen is negative. Serum
+    Toxoplasma IgG is negative. MRI of the brain with gadolinium reveals bilateral symmetric
+    T2-FLAIR hyperintensities predominantly involving the posterior parietal and occipital
+    white matter with no restricted diffusion on diffusion-weighted imaging and no
+    gadolinium enhancement. Lumbar puncture shows an opening pressure of 19 cm H&#8322;O,
+    WBC 3 cells/&#956;L, protein 41 mg/dL, and glucose 74 mg/dL with a serum glucose of
+    138 mg/dL. CSF cryptococcal antigen is negative. No organisms are seen on Gram stain.
+    CSF viral PCR studies including HSV-1, HSV-2, CMV, and HHV-6 are pending.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-pres-tacrolimus-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "CMV encephalitis",
+      feedback:
+        "Incorrect. CMV encephalitis is a legitimate concern in a CMV D+/R− transplant recipient and serum CMV NAT is still pending. However, CMV encephalitis typically occurs later in the post-transplant course, presents with a more inflammatory CSF, and shows periventricular T2 signal with enhancement on MRI — not the bilateral posterior pattern without restricted diffusion seen here. The clinical triad of hypertension, supratherapeutic tacrolimus, and posterior imaging is far more consistent with PRES.",
+    },
+    {
+      id: "B",
+      label: "Cryptococcal meningoencephalitis",
+      feedback:
+        "Incorrect. Cryptococcal meningoencephalitis is a serious concern in transplant recipients and can present with headache, altered sensorium, and elevated intracranial pressure. However, both serum and CSF cryptococcal antigens are negative, the CSF is non-inflammatory with normal pressure, and the MRI demonstrates a posterior white matter pattern without enhancement — all inconsistent with cryptococcal disease.",
+    },
+    {
+      id: "C",
+      label: "Posterior reversible encephalopathy syndrome (PRES)",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of PRES in a kidney transplant recipient. The triad of hypertension (182/114 mmHg), calcineurin inhibitor use (supratherapeutic tacrolimus at 15.8 ng/mL), and posterior-predominant T2-FLAIR hyperintensities on MRI without restricted diffusion is the defining picture. The near-total bilateral visual loss reflects cortical involvement of the occipital lobes. The CSF is near-normal, making CNS infection very unlikely. Absence of restricted diffusion on DWI distinguishes PRES from ischemic stroke.",
+    },
+    {
+      id: "D",
+      label: "HHV-6 encephalitis",
+      feedback:
+        "Incorrect. HHV-6 encephalitis is a real and important entity in transplant recipients — it classically causes limbic encephalitis with mesial temporal T2 signal, amnesia, and hyponatremia, typically in the first 4–6 weeks post-transplant. It deserves serious consideration here, especially given the CMV D+/R− serostatus which signals broad susceptibility to herpesvirus reactivation. However, the bilateral posterior parieto-occipital pattern without mesial temporal involvement, the absence of CSF pleocytosis, the severe hypertension, and the supratherapeutic tacrolimus level together point strongly toward PRES. CSF HHV-6 PCR is appropriately pending.",
+    },
+    {
+      id: "E",
+      label: "HSV encephalitis",
+      feedback:
+        "Incorrect. HSV encephalitis is a critical diagnosis to consider in any patient with encephalopathy and seizures. However, CSF HSV-1 and HSV-2 PCR are negative, the MRI does not show the temporal lobe predominance and restricted diffusion typical of HSV encephalitis, and the posterior symmetric pattern with a supratherapeutic tacrolimus level and severe hypertension strongly favor PRES over herpetic encephalitis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pres-tacrolimus-q2"
+  title="Question 2"
+  prompt="PRES is diagnosed. Which of the following is the most appropriate initial management?"
+  options={[
+    {
+      id: "A",
+      label: "Increase methylprednisolone to treat possible acute rejection",
+      feedback:
+        "Incorrect. This approach would be dangerous. High-dose steroids do not treat PRES and could worsen hypertension and fluid retention, exacerbating cerebral vasogenic edema. Increasing immunosuppression based on a mild creatinine rise — when the clinical picture is far better explained by PRES — risks accelerating neurologic deterioration. The diagnosis must drive management.",
+    },
+    {
+      id: "B",
+      label: "Reduce tacrolimus dose and treat hypertension aggressively",
+      correct: true,
+      feedback:
+        "Correct. The cornerstone of PRES management in this setting is removal or reduction of the offending calcineurin inhibitor combined with aggressive blood pressure control. Tacrolimus causes endothelial dysfunction and impairs cerebrovascular autoregulation, particularly at supratherapeutic levels — but PRES can also occur within the therapeutic range when hypertension is the dominant driver. Antihypertensive agents commonly used include IV labetalol or nicardipine for acute control. With prompt treatment, PRES is typically fully reversible within days to weeks. If ongoing CNI therapy is necessary, transition to a lower dose or an alternative agent (e.g., everolimus or belatacept) may be considered in consultation with transplant nephrology.",
+    },
+    {
+      id: "C",
+      label: "Start IV ganciclovir empirically for possible HHV-6 encephalitis",
+      feedback:
+        "Incorrect. HHV-6 encephalitis is treated with ganciclovir or foscarnet, and it is a reasonable concern in a CMV D+/R− transplant recipient with encephalopathy in the early post-transplant window. However, the clinical picture here — supratherapeutic tacrolimus, severe hypertension (182/114 mmHg), bilateral posterior FLAIR pattern without mesial temporal involvement, and non-inflammatory CSF — is the signature of PRES, not HHV-6 limbic encephalitis. Starting ganciclovir without addressing the tacrolimus level and blood pressure leaves the actual cause untreated and exposes the patient to unnecessary nephrotoxicity in a newly transplanted kidney.",
+    },
+    {
+      id: "D",
+      label: "Proceed with brain biopsy to exclude PTLD",
+      feedback:
+        "Incorrect. Post-transplant lymphoproliferative disorder (PTLD) is an important late complication of solid-organ transplantation but rarely presents 3 weeks post-transplant, and its imaging features — typically mass lesions with enhancement — do not match the bilateral symmetric posterior FLAIR pattern seen here. Brain biopsy carries significant risk and is not indicated when the clinical diagnosis is secure.",
+    },
+    {
+      id: "E",
+      label: "Start amphotericin B empirically for possible fungal CNS infection",
+      feedback:
+        "Incorrect. Empiric antifungal therapy is not warranted when both serum and CSF cryptococcal antigens are negative, the CSF is non-inflammatory, and the clinical picture is consistent with PRES. Amphotericin B carries significant nephrotoxicity, which is particularly hazardous in a newly transplanted kidney recipient.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-pres-tacrolimus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Posterior reversible encephalopathy syndrome (PRES) is a clinico-radiological syndrome
+    characterized by headache, seizures, altered consciousness, and visual disturbances in
+    association with bilateral posterior-predominant white matter changes on MRI. It is a
+    well-recognized complication of solid-organ transplantation, reported in 0.5–5% of
+    kidney transplant recipients, and tacrolimus is the most commonly implicated agent.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathophysiology centers on failure of cerebrovascular autoregulation. Under
+    physiologic conditions, cerebral arterioles constrict in response to rising mean
+    arterial pressure to maintain constant cerebral blood flow. When this autoregulatory
+    capacity is overwhelmed — by severe hypertension, calcineurin inhibitor–mediated
+    endothelial injury, or both — the result is forced dilatation of cerebral arterioles,
+    breakthrough hyperperfusion, and vasogenic edema. The posterior cerebral circulation
+    is disproportionately affected because it has sparser sympathetic innervation compared
+    to the anterior circulation, making it less able to mount a vasoconstrictive response.
+    This accounts for the characteristic posterior parieto-occipital distribution.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    From an infectious diseases perspective, the critical diagnostic task in this setting
+    is distinguishing PRES from CNS opportunistic infection. Both can present with
+    encephalopathy and seizures in an immunosuppressed transplant recipient. The key
+    features favoring PRES over infection are: (1) non-inflammatory CSF; (2) bilateral
+    posterior FLAIR hyperintensities without restricted diffusion; (3) severe hypertension;
+    (4) supratherapeutic or high-normal tacrolimus level; and (5) rapid onset (days rather
+    than weeks). Normal or near-normal CSF is the single most important feature arguing
+    against meningitis or encephalitis caused by CMV, Cryptococcus, HSV, or other organisms.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The absence of restricted diffusion on diffusion-weighted MRI is equally important.
+    Vasogenic edema — the hallmark of PRES — shows normal or elevated apparent diffusion
+    coefficient (ADC) values because water moves freely in the extracellular space.
+    Ischemic injury, by contrast, causes cytotoxic edema with restricted diffusion and
+    low ADC values. This distinction differentiates PRES from posterior circulation stroke,
+    which can present with similar visual loss and altered consciousness.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    An important clinical trap is attributing the mild creatinine rise to acute rejection
+    and responding with high-dose steroids. This would worsen hypertension, increase
+    fluid retention, and exacerbate the vasogenic edema driving PRES. In cases where
+    graft dysfunction and PRES coexist, transplant nephrology guidance is essential before
+    escalating immunosuppression. The tacrolimus level itself — supratherapeutic here at
+    15.8 ng/mL — mandates dose reduction or temporary discontinuation regardless of
+    whether rejection is suspected.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    With prompt treatment, the prognosis of PRES is generally favorable. MRI changes and
+    neurologic deficits are typically reversible within days to weeks. However, delayed
+    recognition — particularly when PRES progresses to ischemic infarction — can result
+    in permanent neurologic injury. Cortical blindness, as in this case, is usually fully
+    reversible with timely intervention.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pres-tacrolimus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      PRES is a well-recognized complication of solid-organ transplantation, most commonly
+      seen in association with calcineurin inhibitors (tacrolimus &gt; cyclosporine) and
+      hypertension; it can occur even at therapeutic drug levels.
+    </li>
+    <li>
+      The characteristic MRI finding is bilateral posterior-predominant T2-FLAIR
+      hyperintensities <em>without</em> restricted diffusion; restricted diffusion indicates
+      cytotoxic edema and should raise concern for ischemic infarction complicating PRES.
+    </li>
+    <li>
+      A non-inflammatory CSF is the key feature distinguishing PRES from CNS opportunistic
+      infection (CMV encephalitis, cryptococcal meningitis, HSV encephalitis) in the
+      immunosuppressed host.
+    </li>
+    <li>
+      The posterior circulation is disproportionately affected because it has less
+      sympathetic innervation and therefore less capacity for autoregulatory vasoconstriction
+      under hemodynamic stress.
+    </li>
+    <li>
+      Initial management: reduce or hold tacrolimus and treat hypertension aggressively
+      with IV labetalol or nicardipine; anti-seizure medication is indicated for seizure
+      control.
+    </li>
+    <li>
+      Increasing immunosuppression for presumed acute rejection is dangerous when PRES
+      is the correct diagnosis — high-dose steroids worsen hypertension and fluid retention,
+      exacerbating cerebral vasogenic edema.
+    </li>
+    <li>
+      PRES is typically fully reversible with prompt treatment; cortical blindness, one
+      of its most dramatic manifestations, usually resolves completely.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Fugate JE, Rabinstein AA. Posterior reversible encephalopathy syndrome: clinical
+      and radiological manifestations, pathophysiology, and outstanding questions.{" "}
+      <em>Lancet Neurology</em>. 2015;14(9):914-925.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1474-4422(15)00111-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1474-4422(15)00111-8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bartynski WS. Posterior reversible encephalopathy syndrome, part 1: fundamental
+      imaging and clinical features. <em>American Journal of Neuroradiology</em>.
+      2008;29(6):1036-1042.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3174/ajnr.A0928"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3174/ajnr.A0928
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Eidelman BH, Abu-Elmagd K, Wilson J, et al. Neurologic complications of FK 506.{" "}
+      <em>Transplantation Proceedings</em>. 1991;23(6):3175-3178.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://pubmed.ncbi.nlm.nih.gov/1721392/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        PMID: 1721392
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Legriel S, Schraub O, Azoulay E, et al. Determinants of recovery from severe
+      posterior reversible encephalopathy syndrome.{" "}
+      <em>PLOS ONE</em>. 2012;7(9):e44534.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pone.0044534"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1371/journal.pone.0044534
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

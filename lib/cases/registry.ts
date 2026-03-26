@@ -301,6 +301,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: ["Balamuthia mandrillaris"], syndromes: ["Neuroinfection", "Skin & Soft Tissue", "Parasitology"], concepts: ["Granulomatous amebic encephalitis", "Free-living ameba", "Miltefosine", "Cutaneous prodrome"] },
   },
+  {
+    title: "Lights Out on Postoperative Day 21",
+    slug: "pres-tacrolimus",
+    description: "Seizure and cortical blindness in a kidney transplant recipient on tacrolimus.",
+    enable: true,
+    tags: { organisms: [], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["PRES", "Tacrolimus neurotoxicity", "Cerebrovascular autoregulation", "Cortical blindness", "Calcineurin inhibitor toxicity"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
