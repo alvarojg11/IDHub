@@ -64,6 +64,54 @@ function PaginationLink({
   );
 }
 
+function CasesPagination({
+  className,
+  currentPage,
+  totalPages,
+  start,
+  end,
+  totalCases,
+  hasPrev,
+  hasNext,
+}: {
+  className?: string;
+  currentPage: number;
+  totalPages: number;
+  start: number;
+  end: number;
+  totalCases: number;
+  hasPrev: boolean;
+  hasNext: boolean;
+}) {
+  return (
+    <section className={className}>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-sm font-semibold text-[var(--foreground)]">
+            Cases {start + 1}-{end} of {totalCases}
+          </p>
+          <p className="text-sm text-[var(--muted)]">
+            Page {currentPage} of {totalPages}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <PaginationLink
+            href={pageHref(currentPage - 1)}
+            disabled={!hasPrev}
+            label="Previous"
+          />
+          <PaginationLink
+            href={pageHref(currentPage + 1)}
+            disabled={!hasNext}
+            label="Next"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default async function CasesPage({ searchParams }: CasesPageProps) {
   const params = (await searchParams) ?? {};
   const pageParam = Array.isArray(params.page) ? params.page[0] : params.page;
@@ -106,6 +154,19 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
         </aside>
       </header>
 
+      {totalPages > 1 ? (
+        <CasesPagination
+          className="mt-8"
+          currentPage={currentPage}
+          totalPages={totalPages}
+          start={start}
+          end={end}
+          totalCases={cases.length}
+          hasPrev={hasPrev}
+          hasNext={hasNext}
+        />
+      ) : null}
+
       <section className="mt-10">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
@@ -144,31 +205,16 @@ export default async function CasesPage({ searchParams }: CasesPageProps) {
       </section>
 
       {totalPages > 1 ? (
-        <section className="mt-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold text-[var(--foreground)]">
-                Cases {start + 1}-{end} of {cases.length}
-              </p>
-              <p className="text-sm text-[var(--muted)]">
-                Page {currentPage} of {totalPages}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2">
-              <PaginationLink
-                href={pageHref(currentPage - 1)}
-                disabled={!hasPrev}
-                label="Previous"
-              />
-              <PaginationLink
-                href={pageHref(currentPage + 1)}
-                disabled={!hasNext}
-                label="Next"
-              />
-            </div>
-          </div>
-        </section>
+        <CasesPagination
+          className="mt-6"
+          currentPage={currentPage}
+          totalPages={totalPages}
+          start={start}
+          end={end}
+          totalCases={cases.length}
+          hasPrev={hasPrev}
+          hasNext={hasNext}
+        />
       ) : null}
     </section>
   );
