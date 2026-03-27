@@ -12,6 +12,10 @@ type CaseDateEntry = {
 };
 
 const CASE_DATES: Record<string, CaseDateEntry> = {
+  "babesia": {
+    publishedAt: "2026-03-26T08:00:00-07:00",
+    modifiedAt: "2026-03-26T08:00:00-07:00",
+  },
   "pres-tacrolimus": {
     publishedAt: "2026-03-25T08:00:00-07:00",
     modifiedAt: "2026-03-25T08:00:00-07:00",

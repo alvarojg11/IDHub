@@ -308,6 +308,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: [], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["PRES", "Tacrolimus neurotoxicity", "Cerebrovascular autoregulation", "Cortical blindness", "Calcineurin inhibitor toxicity"] },
   },
+  {
+    title: "Two Continents, One Smear",
+    slug: "babesia",
+    description: "Fever, hemolysis, and intraerythrocytic ring forms in an asplenic traveler.",
+    enable: true,
+    tags: { organisms: ["Babesia microti"], syndromes: ["Hematology", "Travel Medicine", "Tick-Borne", "Parasitology"], concepts: ["Maltese cross tetrad", "Hemolytic anemia", "Asplenia", "Malaria mimic", "Exchange transfusion", "Atovaquone azithromycin"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

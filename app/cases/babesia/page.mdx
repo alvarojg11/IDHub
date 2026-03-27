@@ -1,0 +1,345 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("babesia");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Two Continents, One Smear
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 68-year-old man presents to the emergency department with one week of daily fevers,
+    drenching night sweats, fatigue, and dark urine. He has no prior history of similar
+    illness. His medical history is notable for a splenectomy performed 18 years ago
+    following a motor vehicle accident. He takes no regular medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He returned 10 days ago from a 2-week safari in Kenya, where he spent time in rural
+    areas including the Maasai Mara region. He did not take malaria chemoprophylaxis, as he
+    had received conflicting advice and ultimately did not fill the prescription. Three weeks
+    before his departure to Kenya, he had spent a long weekend camping and hiking on
+    Nantucket Island with family.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 39.1&#176;C, blood pressure 108/72 mmHg, heart rate
+    112 bpm, and oxygen saturation 96% on room air. He appears ill and mildly jaundiced.
+    There is no palpable spleen. The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hemoglobin is 8.4 g/dL, platelet count 68,000/&#956;L, and white blood cell count
+    5,200/&#956;L. LDH is 740 U/L, total bilirubin 3.8 mg/dL (indirect 3.1 mg/dL),
+    haptoglobin is undetectable, and reticulocyte count is elevated. Creatinine is
+    2.1 mg/dL. Direct antiglobulin test (DAT) is negative. Peripheral blood smear
+    reveals small intraerythrocytic ring forms with multiple parasites per erythrocyte,
+    occasional extracellular ring forms, and a parasitemia of approximately 8%.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/babesia/Screenshot 2026-03-26 at 9.20.31 PM.png"
+        alt="Peripheral blood smear showing small intraerythrocytic ring forms with multiple parasites per erythrocyte and extracellular ring forms consistent with Babesia microti"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Peripheral blood smear: intraerythrocytic ring forms
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-babesia-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Plasmodium falciparum malaria",
+      feedback:
+        "Incorrect — though this is the most important diagnosis to exclude. Kenya is highly endemic for P. falciparum, the patient took no chemoprophylaxis, and early P. falciparum infection can show small ring forms with multiple parasites per erythrocyte that closely resemble what is seen here. However, several features point away from malaria: extracellular ring forms are not a feature of Plasmodium spp., which complete their intraerythrocytic life cycle before lysing the cell; the Nantucket exposure 3 weeks prior places him in a hyperendemic area for Babesia microti; and the Maltese cross tetrad — pathognomonic for Babesia — would confirm the diagnosis if seen on smear. A malaria antigen test and PCR should still be sent to fully exclude co-infection.",
+    },
+    {
+      id: "B",
+      label: "Babesia microti",
+      correct: true,
+      feedback:
+        "Correct. This is babesiosis due to Babesia microti, the dominant species in the northeastern United States. The combination of Nantucket Island exposure (one of the highest-endemic areas in the country), asplenia, small intraerythrocytic ring forms with multiple parasites per erythrocyte, extracellular ring forms, and 8% parasitemia is the defining picture. Extracellular ring forms and the Maltese cross tetrad (a quadruple-budding form) are not seen in Plasmodium spp. and are pathognomonic for Babesia. The splenectomy dramatically increases the risk of high-grade parasitemia and severe disease.",
+    },
+    {
+      id: "C",
+      label: "Thrombotic thrombocytopenic purpura (TTP)",
+      feedback:
+        "Incorrect. TTP presents with microangiopathic hemolytic anemia and thrombocytopenia — the same laboratory constellation seen here — and is a critical diagnosis to consider whenever hemolysis and low platelets coexist. However, TTP causes schistocytes (fragmented red cells) on smear, not intraerythrocytic ring forms. The peripheral smear here is the key: identifying the specific morphology distinguishes a parasitic etiology from a thrombotic microangiopathy.",
+    },
+    {
+      id: "D",
+      label: "Visceral leishmaniasis",
+      feedback:
+        "Incorrect. Visceral leishmaniasis (kala-azar) is a legitimate consideration in a traveler returning from East Africa, where Leishmania donovani is endemic. It causes fever, weight loss, hepatosplenomegaly, and pancytopenia. However, visceral leishmaniasis does not produce intraerythrocytic parasites on peripheral smear — Leishmania amastigotes are found within macrophages in bone marrow, spleen, and liver. The smear finding here directs the diagnosis away from leishmaniasis.",
+    },
+    {
+      id: "E",
+      label: "Hemolytic uremic syndrome (HUS)",
+      feedback:
+        "Incorrect. HUS shares the hemolysis-thrombocytopenia-renal failure triad with the presentation described here, but — like TTP — it causes schistocytes on smear from microangiopathic red cell destruction, not intraerythrocytic ring forms. HUS typically follows a diarrheal prodrome caused by Shiga toxin-producing Escherichia coli or Shigella and would not be explained by the travel exposures in this case.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-babesia-q2"
+  title="Question 2"
+  prompt="The diagnosis of Babesia microti is confirmed by PCR. Which of the following is the most appropriate treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Atovaquone 750 mg orally Q12h plus azithromycin, with hospital admission and monitoring for exchange transfusion",
+      correct: true,
+      feedback:
+        "Correct. Atovaquone plus azithromycin is the preferred first-line regimen for babesiosis regardless of disease severity, including in high-risk patients such as this asplenic man. For hospitalized patients, azithromycin can be given intravenously (500 mg IV on day 1, then 250 mg IV/PO daily). Treatment duration is 7–10 days in immunocompetent patients. This patient warrants hospital admission given his asplenia, 8% parasitemia, acute kidney injury, and hemodynamic borderline instability. Exchange transfusion should be considered if parasitemia rises above 10% or if he develops severe hemolysis, pulmonary compromise, or worsening organ dysfunction — criteria that are not yet met but are being approached.",
+    },
+    {
+      id: "B",
+      label: "Clindamycin 600 mg Q8h plus quinine sulfate 650 mg Q8h for 7–10 days",
+      feedback:
+        "Incorrect — or at least, not first-line. Clindamycin plus quinine is an effective alternative regimen but is associated with more frequent and severe adverse effects (cinchonism, tinnitus, hypoglycemia) and is now reserved for cases where atovaquone plus azithromycin has failed or is not tolerated. The 2021 IDSA/AAN treatment guidelines confirm atovaquone plus azithromycin as the preferred initial regimen in all settings, including severe and high-risk disease.",
+    },
+    {
+      id: "C",
+      label: "Artemether-lumefantrine for 3 days",
+      feedback:
+        "Incorrect. Artemether-lumefantrine is a first-line treatment for uncomplicated Plasmodium falciparum malaria, the diagnosis this case is designed to exclude. Artemisinin-based combinations have no role in the treatment of babesiosis. Starting artemether-lumefantrine here would leave the babesiosis untreated while the parasitemia continues to rise in an asplenic host.",
+    },
+    {
+      id: "D",
+      label: "Doxycycline monotherapy for 14 days",
+      feedback:
+        "Incorrect. Doxycycline is highly effective against Anaplasma phagocytophilum — the agent of human granulocytic anaplasmosis, which is transmitted by the same Ixodes scapularis tick as Babesia microti and can co-infect the same patient. It has no meaningful activity against Babesia microti. In cases where anaplasmosis co-infection is suspected (leukopenia, elevated transaminases, intracytoplasmic inclusions in granulocytes), doxycycline can be added to the babesiosis regimen.",
+    },
+    {
+      id: "E",
+      label: "Immediate exchange transfusion followed by antimicrobial therapy",
+      feedback:
+        "Incorrect. Exchange transfusion is a valuable adjunct in severe babesiosis — it rapidly reduces parasitemia and removes toxic red cell debris and cytokines. The indications are parasitemia greater than 10%, or moderate-to-high parasitemia accompanied by severe hemolytic anemia, pulmonary compromise, renal failure, or hepatic dysfunction. At 8% parasitemia without meeting these thresholds, exchange transfusion is not yet indicated. Antimicrobial therapy should be started immediately; exchange transfusion can be arranged promptly if the clinical picture deteriorates.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-babesia-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Babesiosis is a tick-borne hemolytic disease caused by intraerythrocytic protozoa of
+    the genus <em>Babesia</em>. In the United States, <em>Babesia microti</em> is the
+    dominant species, transmitted by <em>Ixodes scapularis</em> — the same black-legged
+    tick that transmits Lyme disease and human granulocytic anaplasmosis. Endemic areas
+    include coastal New England (particularly Nantucket, Martha's Vineyard, Cape Cod, and
+    Block Island), the upper Midwest, and parts of the mid-Atlantic. Co-infection with
+    <em>Borrelia burgdorferi</em> or <em>Anaplasma phagocytophilum</em> occurs in up to
+    10–20% of babesiosis cases and should always be considered.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The central diagnostic challenge in this case is the peripheral blood smear. Both
+    <em>Babesia microti</em> and <em>Plasmodium falciparum</em> can produce small
+    intraerythrocytic ring forms that are morphologically similar. The features that
+    favor <em>Babesia</em> over <em>Plasmodium</em> are: (1) extracellular ring forms —
+    <em>Plasmodium</em> spp. complete their intraerythrocytic cycle before lysing the host
+    cell, while <em>Babesia</em> merozoites can be seen free in plasma; (2) the Maltese
+    cross or tetrad form — a four-cell budding structure that is pathognomonic for
+    <em>Babesia</em>; (3) absence of hemozoin (malaria pigment); and (4) absence of
+    banana-shaped gametocytes characteristic of <em>P. falciparum</em>. Malaria antigen
+    testing and PCR should nevertheless be sent, as co-infection with <em>Plasmodium</em>
+    is possible in a traveler with this exposure history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Asplenia is the most important host risk factor for severe babesiosis. The spleen
+    plays a critical role in clearing parasitized and ring-form erythrocytes; without
+    it, parasitemia escalates rapidly and severe hemolytic anemia, respiratory failure,
+    and death can follow within days. Other high-risk groups include patients over 50,
+    those with B-cell lymphoma, HIV infection with low CD4 counts, and recipients of
+    rituximab or other B-cell depleting therapies.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is with atovaquone plus azithromycin as the preferred first-line regimen
+    for all disease severities. For hospitalized patients, azithromycin can be
+    administered intravenously. Clindamycin plus quinine — historically considered
+    the regimen of choice for severe disease — is now reserved as an alternative when
+    first-line therapy fails, given its higher rate of adverse effects. Treatment
+    duration is 7–10 days in immunocompetent hosts; in immunocompromised patients,
+    treatment should continue for at least 6 consecutive weeks and for at least 2 weeks
+    after parasites are no longer detectable on smear, as relapse risk is high.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Exchange transfusion is indicated for parasitemia greater than 10%, or for
+    moderate-to-high parasitemia accompanied by severe hemolytic anemia, pulmonary
+    compromise, renal failure, or hepatic dysfunction. It rapidly reduces the burden
+    of parasitized erythrocytes and removes toxic byproducts of hemolysis. At 8%
+    parasitemia without clear evidence of end-organ failure, exchange transfusion
+    is not yet mandated but should be arranged on standby given this patient's
+    asplenia and trajectory.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-babesia-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Babesia microti</em> is transmitted by <em>Ixodes scapularis</em> in the
+      northeastern and upper midwestern United States; co-infection with Lyme disease
+      or anaplasmosis occurs in 10–20% of cases and should always be considered.
+    </li>
+    <li>
+      Key smear features distinguishing <em>Babesia</em> from <em>Plasmodium falciparum</em>:
+      extracellular ring forms, Maltese cross tetrad (pathognomonic), absence of hemozoin,
+      and absence of banana-shaped gametocytes.
+    </li>
+    <li>
+      Asplenia is the strongest risk factor for severe babesiosis — it removes the
+      primary clearance mechanism for parasitized erythrocytes and allows parasitemia
+      to escalate rapidly.
+    </li>
+    <li>
+      Atovaquone plus azithromycin is the preferred first-line regimen for all
+      severities of babesiosis, including hospitalized and high-risk patients.
+      Clindamycin plus quinine is an alternative reserved for treatment failure.
+    </li>
+    <li>
+      Exchange transfusion is indicated for parasitemia &gt;10%, or for moderate-to-high
+      parasitemia with severe hemolysis, pulmonary compromise, renal failure, or
+      hepatic dysfunction.
+    </li>
+    <li>
+      In immunocompromised hosts, treatment must continue for at least 6 weeks and
+      for 2 weeks after the smear clears — relapse is common with shorter courses.
+    </li>
+    <li>
+      Always send malaria antigen testing and PCR when the smear shows intraerythrocytic
+      ring forms — co-infection with <em>Plasmodium</em> is possible in returning
+      travelers, and the two infections can be morphologically indistinguishable.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sanchez E, Vannier E, Wormser GP, Hu LT. Diagnosis, treatment, and prevention
+      of Lyme disease, human granulocytic anaplasmosis, and babesiosis: a review.{" "}
+      <em>JAMA</em>. 2016;315(16):1767-1777.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.2016.2884"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jama.2016.2884
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Krause PJ, Auwaerter PG, Bannuru RR, et al. Clinical Practice Guidelines by
+      the Infectious Diseases Society of America (IDSA): 2020 Guideline on Diagnosis
+      and Management of Babesiosis.{" "}
+      <em>Clinical Infectious Diseases</em>. 2021;73(1):e1-e42.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciab050"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciab050
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Krause PJ, Auwaerter PG, Bannuru RR, et al. Correction to: Clinical Practice
+      Guidelines by the Infectious Diseases Society of America: 2020 Guideline on
+      Diagnosis and Management of Babesiosis.{" "}
+      <em>Clinical Infectious Diseases</em>. 2021;73(1):172.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciab216"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciab216
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Vannier EG, Diuk-Wasser MA, Ben Mamoun C, Krause PJ. Babesiosis.{" "}
+      <em>Infectious Disease Clinics of North America</em>. 2015;29(2):357-370.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.idc.2015.02.008"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.idc.2015.02.008
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
