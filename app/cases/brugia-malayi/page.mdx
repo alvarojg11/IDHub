@@ -1,0 +1,368 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("brugia-malayi");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Cellulitis That Kept Coming Back
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old woman from Sarawak, Malaysia who immigrated to the United States
+    5 years ago presents to the infectious diseases clinic for evaluation of recurrent
+    left lower leg swelling. Over the past 3 years she has had six to seven episodes
+    of painful, erythematous swelling of the left lower leg and foot accompanied by
+    fever and chills, each lasting 5 to 10 days. She was diagnosed with cellulitis
+    on each occasion and treated with antibiotics; symptoms improved partially but
+    the swelling between episodes never fully resolved.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Approximately 6 months ago she noticed a tender, rubbery nodule in the left
+    inguinal region. Over several weeks it enlarged, became fluctuant, and spontaneously
+    drained a small amount of clear fluid. It was not biopsied. The wound healed over
+    the following weeks, leaving a firm scar. She has no history of trauma, prior
+    surgery, or malignancy. She takes no medications. She grew up in a rural
+    agricultural area near Kuching and spent significant time outdoors near stagnant
+    water and rice fields before emigrating.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile with normal vital signs. There is non-pitting
+    edema of the left lower leg and foot extending from the ankle to just below the
+    knee; the thigh and remainder of the left leg are unaffected. The skin over the
+    affected area is thickened but without ulceration. There are enlarged, firm,
+    non-tender left inguinal lymph nodes and a well-healed scar in the left inguinal
+    crease. The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Complete blood count shows hemoglobin 12.8 g/dL, white blood cell count
+    9,200/&#956;L with an absolute eosinophil count of 1,100/&#956;L, and platelets
+    228,000/&#956;L. Comprehensive metabolic panel is within normal limits. A peripheral
+    blood smear obtained at 2 PM during the clinic visit reveals no microfilariae.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-brugia-malayi-q1"
+  title="Question 1"
+  prompt="Which of the following is the most appropriate next diagnostic step?"
+  options={[
+    {
+      id: "A",
+      label: "Repeat peripheral blood smear obtained between 10 PM and 2 AM",
+      correct: true,
+      feedback:
+        "Correct. The microfilariae of Brugia malayi — like those of Wuchereria bancrofti — exhibit nocturnal periodicity. They are present in the peripheral circulation at highest concentration between 10 PM and 2 AM, coinciding with the peak feeding time of their mosquito vectors. During the day, microfilariae sequester in the deep pulmonary vasculature and are largely absent from peripheral blood. A daytime smear is therefore expected to be negative even in active infection. Blood should be collected by fingerprick or venipuncture at night and examined as a thick film stained with Giemsa or hematoxylin for microfilariae.",
+    },
+    {
+      id: "B",
+      label: "Serum circulating filarial antigen (CFA) immunochromatographic test",
+      feedback:
+        "Incorrect — and an important trap. The commercially available rapid circulating filarial antigen test detects antigen released by adult Wuchereria bancrofti worms and is highly sensitive and specific for W. bancrofti infection. It does not detect Brugia malayi or Brugia timori. Ordering this test in a patient from Malaysia with suspected brugian filariasis will yield a false-negative result and delay the correct diagnosis. For Brugia, diagnosis relies on nocturnal blood smear, species-specific antibody assays (IgG4 against BmR1 antigen), or PCR.",
+    },
+    {
+      id: "C",
+      label: "Skin snip biopsy of the affected lower leg",
+      feedback:
+        "Incorrect. Skin snip biopsy is the diagnostic method for onchocerciasis (Onchocerca volvulus), in which microfilariae migrate through the dermis and are released from a superficial skin snip placed in saline. Lymphatic filariasis caused by Brugia malayi does not produce dermal microfilariae; the parasites reside in lymphatic vessels and their microfilariae circulate in blood. Skin snip biopsy would not identify Brugia infection.",
+    },
+    {
+      id: "D",
+      label: "Excisional biopsy of the inguinal lymph node",
+      feedback:
+        "Incorrect. Adult filarial worms can be found in lymphatic vessels and lymph nodes on pathologic examination, and ultrasound of the inguinal lymphatics may reveal the characteristic 'filaria dance sign' of motile adult worms. However, excisional biopsy is invasive and not the recommended first-line diagnostic approach. A nocturnal blood smear for microfilariae is a simpler, safer, and highly sensitive initial test and should be performed before considering tissue sampling.",
+    },
+    {
+      id: "E",
+      label: "Lower extremity venous duplex ultrasound",
+      feedback:
+        "Incorrect. Venous duplex ultrasound is an appropriate test when chronic venous insufficiency or deep vein thrombosis is suspected as the cause of lower extremity edema. However, the clinical picture here — recurrent episodic fevers with leg swelling, persistent non-pitting edema below the knee, an inguinal sterile abscess that healed with a scar, eosinophilia, and rural Southeast Asian exposure — is not explained by venous disease. The diagnostic priority is to evaluate for lymphatic filariasis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-brugia-malayi-q2"
+  title="Question 2"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Wuchereria bancrofti filariasis",
+      feedback:
+        "Incorrect. W. bancrofti is the most common cause of lymphatic filariasis globally and produces sheathed microfilariae — but its microfilariae do not have nuclei extending to the tip of the tail, whereas Brugia microfilariae do. Clinically, W. bancrofti causes lymphedema that can involve the entire limb (including the thigh and genitalia), and hydrocele is the most common chronic manifestation in men. In brugian filariasis, lymphedema is characteristically restricted to the distal extremities below the knee or elbow and urogenital disease does not occur. W. bancrofti is also not endemic in Malaysia.",
+    },
+    {
+      id: "B",
+      label: "Brugia malayi filariasis",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of Brugia malayi lymphatic filariasis. The combination of rural Southeast Asian exposure (Sarawak, Malaysian Borneo — a hyperendemic area), recurrent acute filarial lymphangitis (ADLA) misdiagnosed as cellulitis, distal non-pitting lymphedema restricted below the knee, a sterile inguinal abscess that spontaneously drained and healed with a scar (pathognomonic for brugian filariasis), eosinophilia, and sheathed nocturnal microfilariae with nuclei extending to the tail tip establishes the diagnosis. Unlike W. bancrofti, Brugia malayi lymphedema does not involve the upper leg or genitalia, and it does not produce hydrocele or chyluria.",
+    },
+    {
+      id: "C",
+      label: "Loa loa filariasis",
+      feedback:
+        "Incorrect. Loa loa is a filarial nematode endemic to the rainforest belt of Central and West Africa, transmitted by Chrysops (deerfly) species. It is not found in Southeast Asia. Loa loa microfilariae have a diurnal (daytime) periodicity — the opposite of Brugia — and classically cause migratory angioedema (Calabar swelling) and subconjunctival migration of adult worms (the 'eyeworm'). Lymphedema and sterile abscesses are not features of loiasis.",
+    },
+    {
+      id: "D",
+      label: "Mansonella perstans filariasis",
+      feedback:
+        "Incorrect. Mansonella perstans is found in sub-Saharan Africa and parts of South America and causes a generally mild infection with eosinophilia and occasional serositis. Its microfilariae are unsheathed with a blunt tail — readily distinguishable from the sheathed microfilariae of Brugia. Lymphedema and the acute lymphangitis-abscess syndrome described here are not features of M. perstans infection, and the species is not endemic in Malaysia.",
+    },
+    {
+      id: "E",
+      label: "Tropical pulmonary eosinophilia",
+      feedback:
+        "Incorrect. Tropical pulmonary eosinophilia (TPE) is a hypersensitivity manifestation of W. bancrofti or B. malayi infection characterized by paroxysmal nocturnal cough, wheezing, marked eosinophilia (>3,000/mm³), and elevated IgE — caused by microfilariae trapped in the pulmonary vasculature. It occurs in the context of filarial infection but as a pulmonary syndrome, not with chronic lower extremity lymphedema and sterile abscesses. Furthermore, peripheral microfilaremia is typically absent in TPE, which is the opposite of what is found here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-brugia-malayi-q3"
+  title="Question 3"
+  prompt="Which of the following best describes the most appropriate treatment approach for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline 200 mg daily for 8 weeks, targeting the Wolbachia endosymbiont",
+      correct: true,
+      feedback:
+        "Correct. An important characteristic of Brugia malayi — shared with W. bancrofti — is the presence of an obligate intracellular bacterial endosymbiont, Wolbachia, which supports essential biochemical pathways for parasite survival, embryogenesis, and molting. An 8-week course of doxycycline (200 mg daily) depletes Wolbachia and leads to long-term sterilization and eventual death of greater than 90% of adult worms. This macrofilaricidal effect is a major advantage over diethylcarbamazine (DEC) or ivermectin, which act primarily on microfilariae and do not reliably kill adult worms. Anti-Wolbachia therapy also reduces lymphatic pathology and improves lymphedema severity. Before treating with DEC or ivermectin, co-infections with Onchocerca volvulus and Loa loa must be excluded — however, these co-infections occur in West and Central Africa, not in Southeast Asia, so this patient can be safely treated. Doxycycline is contraindicated in pregnancy and in children under 9 years of age.",
+    },
+    {
+      id: "B",
+      label: "Diethylcarbamazine (DEC) 6 mg/kg/day for 12 days",
+      feedback:
+        "Incorrect — or at least incomplete. DEC is highly active against Brugia malayi microfilariae and has some adulticidal activity, but it does not reliably kill adult worms; it may permanently sterilize them at best. Adult worms can persist for years and continue to cause lymphatic damage. DEC alone without targeting Wolbachia leaves the root cause of ongoing lymphatic injury unaddressed. Additionally, DEC can cause significant adverse events (fever, malaise, lymphadenopathy, transient lymphedema) driven by rapid killing of microfilariae. Doxycycline targeting Wolbachia provides more durable macrofilaricidal activity.",
+    },
+    {
+      id: "C",
+      label: "Ivermectin 200 mcg/kg as a single dose",
+      feedback:
+        "Incorrect. Ivermectin is highly active against microfilariae and contributes to sterilization of adult worms but does not kill them. Like DEC, it suppresses microfilaremia but does not achieve macrofilaricidal activity on its own. Single-dose ivermectin is used primarily in mass drug administration (MDA) programs to reduce community microfilaria levels; for individual patient treatment, a more comprehensive approach targeting adult worms — including Wolbachia-directed therapy with doxycycline — is preferred.",
+    },
+    {
+      id: "D",
+      label: "Amoxicillin-clavulanate for 14 days for presumed resistant cellulitis",
+      feedback:
+        "Incorrect. The recurrent febrile episodes with leg swelling in this patient represent acute dermatolymphangioadenitis (ADLA) — a syndrome caused by bacterial superinfection of lymphatics already damaged by Brugia infection, not primary cellulitis. Repeated antibiotic courses without treating the underlying filarial infection will not prevent future episodes. While bacterial infections should be treated when they occur, definitive therapy targeting Brugia malayi and its Wolbachia endosymbiont is essential to interrupt the cycle of lymphatic damage.",
+    },
+    {
+      id: "E",
+      label: "Surgical excision of the affected inguinal lymph nodes",
+      feedback:
+        "Incorrect. Surgical excision of filarial lymph nodes does not address the adult worms residing throughout the lymphatic system and would not prevent further episodes of acute lymphangitis or progression of lymphedema. Surgery has no role as primary treatment for lymphatic filariasis. For patients with advanced lymphedema, lymphedema management techniques (limb hygiene, compression, elevation) can reduce filarial fevers and improve quality of life, but these are adjunctive measures alongside antiparasitic therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-brugia-malayi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Lymphatic filariasis caused by <em>Brugia malayi</em> is a mosquito-transmitted
+    nematode infection endemic to South and Southeast Asia, including India, Malaysia,
+    Indonesia, and the Philippines. It is transmitted primarily by <em>Mansonia</em>
+    species mosquitoes and, to a lesser extent, <em>Anopheles</em> species. Unlike
+    <em>Wuchereria bancrofti</em> — for which humans are the only natural reservoir —
+    <em>B. malayi</em> has feline and primate reservoirs, complicating elimination efforts.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical syndrome described in this case illustrates several features that
+    distinguish brugian from bancroftian filariasis. First, lymphedema in brugian
+    filariasis is characteristically restricted to the distal extremities below the
+    knee or elbow, in contrast to W. bancrofti, which can cause swelling of the entire
+    limb, genitalia, and breast. Second, urogenital manifestations — hydrocele,
+    epididymitis, chyluria — do not occur with Brugia infection. Third, the
+    adenolymphangitis of brugian filariasis is distinctive: a single sterile abscess
+    can form along the lymphatic tract, typically in the inguinal or axillary region,
+    which can suppurate, spontaneously drain lymph, and heal with a characteristic scar.
+    This abscess pattern is pathognomonic for brugian filariasis and was the key
+    clinical clue in this case.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The recurrent febrile episodes with leg swelling — repeatedly misdiagnosed as
+    bacterial cellulitis — represent acute dermatolymphangioadenitis (ADLA). Unlike
+    true filarial lymphangitis (AFL), which progresses distally along the lymphatic
+    vessel from the lymph node outward (retrograde), ADLA develops in a reticular
+    pattern and is caused by bacterial superinfection of small collecting lymphatics
+    in areas of existing lymphatic dysfunction. ADLA can last 3 to 15 days and is
+    frequently indistinguishable from bacterial cellulitis clinically. The absence
+    of response to antibiotics and the recurrent, stereotyped nature of episodes
+    should always raise suspicion for an underlying lymphatic cause.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Nocturnal periodicity of microfilaremia is a critical diagnostic concept.
+    <em>B. malayi</em> microfilariae circulate in peripheral blood at highest density
+    between 10 PM and 2 AM, sequestering in deep pulmonary vascular beds during
+    the day. A daytime blood smear is therefore expected to be negative even in
+    active infection. On Giemsa or hematoxylin-stained thick film, <em>B. malayi</em>
+    microfilariae can be distinguished from <em>W. bancrofti</em> by the presence of
+    nuclei extending to the tip of the tail — <em>W. bancrofti</em> microfilariae have
+    a clear, nucleus-free tail tip.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The Wolbachia endosymbiont is a defining feature of <em>W. bancrofti</em> and
+    <em>Brugia</em> species. This obligate intracellular bacterium supports essential
+    biochemical pathways for parasite embryogenesis, molting, and adult worm survival.
+    An 8-week course of doxycycline (200 mg daily) depletes Wolbachia and achieves
+    long-term sterilization and death of greater than 90% of adult worms —
+    macrofilaricidal activity that DEC and ivermectin cannot reliably provide.
+    Anti-Wolbachia therapy also reduces plasma VEGF-C and improves lymphatic pathology,
+    making it the preferred approach for individual patient treatment.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-brugia-malayi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Brugia malayi</em> lymphedema is characteristically restricted to the
+      distal extremities below the knee or elbow — unlike <em>W. bancrofti</em>,
+      which can involve the entire limb, genitalia, and breast.
+    </li>
+    <li>
+      A sterile abscess along the inguinal or axillary lymphatic tract that drains
+      clear fluid and heals with a scar is pathognomonic for brugian filariasis.
+    </li>
+    <li>
+      Microfilariae of <em>B. malayi</em> have nocturnal periodicity — blood must
+      be drawn between 10 PM and 2 AM for a diagnostic smear; a daytime draw is
+      expected to be negative.
+    </li>
+    <li>
+      The circulating filarial antigen (CFA) rapid test detects only
+      <em>W. bancrofti</em> and will be falsely negative in brugian filariasis —
+      a critical diagnostic trap.
+    </li>
+    <li>
+      Recurrent ADLA episodes are frequently misdiagnosed as bacterial cellulitis;
+      the lack of antibiotic response and the pattern of episodes should prompt
+      evaluation for underlying lymphatic disease.
+    </li>
+    <li>
+      <em>Brugia</em> spp. harbor <em>Wolbachia</em> endosymbionts required for
+      worm survival. Doxycycline 200 mg daily for 8 weeks depletes <em>Wolbachia</em>
+      and achieves macrofilaricidal activity — the only approach that reliably
+      kills adult worms.
+    </li>
+    <li>
+      Before using DEC or ivermectin, co-infections with <em>Onchocerca volvulus</em>
+      and <em>Loa loa</em> must be excluded — however, these occur in Africa, not
+      in Southeast Asia, so patients from Malaysia and Indonesia can be safely treated.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      King CL. Lymphatic Filariasis. In: Ryan ET, Hill DR, Solomon T, Aronson NE,
+      Endy TP, eds. <em>Hunter's Tropical Medicine and Emerging Infectious Diseases</em>.
+      10th ed. Elsevier; 2020:851-858.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Taylor MJ, Hoerauf A, Bockarie M. Lymphatic filariasis and onchocerciasis.{" "}
+      <em>Lancet</em>. 2010;376(9747):1175-1185.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(10)60586-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(10)60586-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Taylor MJ, Makunde WH, McGarry HF, et al. Macrofilaricidal activity after
+      doxycycline treatment of <em>Wuchereria bancrofti</em>: a double-blind,
+      randomised placebo-controlled trial. <em>Lancet</em>. 2005;365(9477):2116-2121.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(05)66591-9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(05)66591-9
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      King CL, Suamani J, Sanuku N, et al. A trial of triple drug treatment for
+      lymphatic filariasis. <em>New England Journal of Medicine</em>.
+      2018;379(19):1801-1810.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1706656"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa1706656
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

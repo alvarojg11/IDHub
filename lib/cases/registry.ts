@@ -309,6 +309,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: [], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["PRES", "Tacrolimus neurotoxicity", "Cerebrovascular autoregulation", "Cortical blindness", "Calcineurin inhibitor toxicity"] },
   },
   {
+    title: "The Cellulitis That Kept Coming Back",
+    slug: "brugia-malayi",
+    description: "Recurrent leg swelling, a healing inguinal scar, and a blood draw that had to wait until midnight.",
+    enable: true,
+    tags: { organisms: ["Brugia malayi", "Wolbachia"], syndromes: ["Travel Medicine", "Parasitology", "Lymphatic"], concepts: ["Nocturnal periodicity", "Lymphatic filariasis", "ADLA", "Sterile abscess", "Anti-Wolbachia therapy", "Doxycycline macrofilaricidal"] },
+  },
+  {
     title: "Two Continents, One Smear",
     slug: "babesia",
     description: "Fever, hemolysis, and intraerythrocytic ring forms in an asplenic traveler.",
