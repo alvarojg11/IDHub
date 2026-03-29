@@ -1,0 +1,357 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pji-management");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  After the Extraction
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 68-year-old man with a history of osteoarthritis presents to the emergency
+    department with 10 days of worsening right knee pain, warmth, and swelling. He
+    underwent an uncomplicated total right knee arthroplasty 4 years ago and had
+    been fully functional without any pain or instability until this episode. Three
+    weeks before presentation he underwent a routine molar extraction at his dentist's
+    office; he did not receive prophylactic antibiotics. He has no history of prior
+    joint infections and takes no immunosuppressive medications. His other medical
+    history includes hypertension and type 2 diabetes mellitus, well controlled on
+    metformin.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.7&#176;C, blood pressure 138/84 mmHg, heart
+    rate 96 bpm. The right knee is visibly swollen, warm to touch, and exquisitely
+    tender with passive range of motion. There is a moderate effusion. The overlying
+    skin is intact with no erythema tracking along the limb, no sinus tract, and no
+    wound drainage. The knee prosthesis feels stable on clinical examination.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 13,400/&#956;L with 88% neutrophils. ESR is 94 mm/hr
+    and CRP is 188 mg/L. Plain radiographs of the right knee show the prosthetic
+    components in good position with no radiolucency at the bone-cement interface
+    and no evidence of component loosening or periprosthetic fracture. Knee
+    arthrocentesis yields 65 mL of turbid yellow fluid. Synovial fluid analysis
+    shows 78,000 WBC/&#956;L (94% neutrophils), glucose 18 mg/dL (serum 112 mg/dL),
+    and LDH 890 U/L. Gram stain reveals gram-positive cocci in chains. Synovial
+    fluid culture grows <em>Streptococcus mitis</em> (viridans group streptococcus)
+    susceptible to penicillin (MIC 0.06 &#956;g/mL), amoxicillin, ceftriaxone,
+    and vancomycin. Two sets of blood cultures are also positive for <em>S. mitis</em>.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-pji-management-q1"
+  title="Question 1"
+  prompt="Which of the following is the most appropriate surgical management for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Two-stage exchange arthroplasty",
+      feedback:
+        "Incorrect for this clinical scenario — though two-stage exchange is the standard of care for chronic PJI and is the most common surgical approach used in North America overall. Two-stage exchange involves prosthesis removal, placement of an antibiotic-impregnated cement spacer, a prolonged antibiotic course, and delayed reimplantation. It is appropriate when DAIR criteria are not met: symptom duration greater than 3-4 weeks, unstable or loose implant, sinus tract formation, or a difficult-to-treat organism. This patient's 10-day symptom duration, stable implant, and intact skin make him a DAIR candidate — proceeding directly to two-stage exchange here would expose him to unnecessary operative risk and prolonged immobility.",
+    },
+    {
+      id: "B",
+      label: "Arthroscopic washout without open debridement",
+      feedback:
+        "Incorrect. Arthroscopic irrigation and debridement is insufficient for prosthetic joint infection. DAIR requires open surgical debridement to allow direct visualization, thorough synovectomy, removal of all necrotic and infected tissue, and exchange of modular components that harbor biofilm. Arthroscopic techniques do not permit adequate access to the posterior compartments of the knee or exchange of modular components. Studies have consistently shown higher failure rates with arthroscopic compared to open debridement in PJI, and current guidelines do not support its use.",
+    },
+    {
+      id: "C",
+      label: "Debridement, antibiotics, and implant retention (DAIR) with exchange of modular components",
+      correct: true,
+      feedback:
+        "Correct. This patient meets the IDSA criteria for DAIR: the prosthesis was placed more than 3 months ago but symptoms of infection began less than 3 weeks ago (acute hematogenous PJI), the implant is radiographically stable and well-fixed, there is no sinus tract, and the soft tissue envelope is intact. The organism is susceptible to agents with good oral bioavailability for the step-down phase. DAIR in this setting must include open surgical debridement — not arthroscopic — with thorough irrigation, synovectomy, and exchange of all modular components (tibial insert, patellar button if applicable) that can harbor biofilm on their surfaces. Implant retention is justified when these criteria are met, avoiding the morbidity of prosthesis removal and the prolonged functional disability of a two-stage exchange.",
+    },
+    {
+      id: "D",
+      label: "One-stage exchange arthroplasty",
+      feedback:
+        "Incorrect in this context. One-stage exchange — simultaneous prosthesis removal and reimplantation — is practiced more commonly in European centers and may be appropriate for selected patients with chronic PJI who have good soft tissue, a known susceptible organism, and no significant medical comorbidities. It avoids the two-step procedure but carries higher reinfection risk than two-stage exchange in many series. It is not appropriate here because DAIR criteria are met: this acute hematogenous presentation with a stable implant and short symptom duration does not require prosthesis removal at all.",
+    },
+    {
+      id: "E",
+      label: "Long-term oral suppressive antibiotics without surgical intervention",
+      feedback:
+        "Incorrect. Antibiotic suppression without surgery is never an appropriate primary treatment strategy for PJI when the patient is a surgical candidate. Biofilm-embedded bacteria on prosthetic surfaces are largely protected from antimicrobial killing and host immune clearance; antibiotic therapy alone without surgical debridement and modular component exchange will not achieve cure. Indefinite suppressive antibiotics may be considered only for patients who are poor surgical candidates and in whom palliation of symptoms — not eradication of infection — is the goal.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pji-management-q2"
+  title="Question 2"
+  prompt="The patient undergoes successful DAIR with modular component exchange. Blood cultures clear after 3 days. Which of the following antibiotic regimens is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "IV ceftriaxone plus rifampin, then oral ciprofloxacin plus rifampin to complete 3 months",
+      feedback:
+        "Incorrect. This is the regimen used for staphylococcal PJI — not streptococcal. Rifampin's specific role in PJI is its unique activity against biofilm-embedded, metabolically quiescent staphylococci; it does not have an established role in streptococcal PJI and is not part of guideline-recommended treatment for this organism. Adding rifampin here would expose the patient to significant drug interactions (rifampin is a potent CYP450 inducer) and potential adverse effects without therapeutic benefit. This is a common and important conceptual error: rifampin is not a universal biofilm agent for all PJI — it is organism-specific.",
+    },
+    {
+      id: "B",
+      label: "IV vancomycin for 6 weeks",
+      feedback:
+        "Incorrect. Vancomycin provides adequate coverage for penicillin-susceptible viridans streptococci and is a reasonable empiric agent, but for a fully susceptible organism (MIC 0.06 mcg/mL), a beta-lactam is the preferred definitive agent given superior bactericidal activity. Additionally, 6 weeks of IV-only therapy exceeds recommended duration for streptococcal PJI treated with DAIR and does not incorporate the oral step-down strategy supported by OVIVA trial evidence.",
+    },
+    {
+      id: "C",
+      label: "IV penicillin G for 4–6 weeks",
+      feedback:
+        "Incorrect by current evidence, though this approach reflects older pre-OVIVA guidelines. The IDSA 2013 guidelines recommended prolonged IV beta-lactam therapy for streptococcal PJI; however, the OVIVA trial (NEJM 2019) subsequently demonstrated that early transition to oral antibiotics is non-inferior to continued IV therapy for bone and joint infections in terms of treatment failure at 1 year. Prolonged IV therapy exposes patients to unnecessary risks of line complications, hospitalization, and decreased quality of life — without improving outcomes over high-dose oral amoxicillin in a stable patient with a susceptible organism.",
+    },
+    {
+      id: "D",
+      label: "Short IV course of penicillin or ceftriaxone followed by early transition to high-dose oral amoxicillin to complete 3 months total",
+      correct: true,
+      feedback:
+        "Correct. This approach reflects current evidence for streptococcal PJI. The OVIVA trial (NEJM 2019) demonstrated that oral antibiotics are non-inferior to continued IV therapy for bone and joint infections — including PJI — when initiated after an initial period of IV treatment. For penicillin-susceptible viridans streptococcal PJI, high-dose oral amoxicillin (500–1000 mg three times daily) achieves excellent bioavailability approaching 90% and provides adequate tissue concentrations. Transition to oral therapy is appropriate once the patient is clinically stable, bacteremia has cleared, and an oral agent with good activity exists — all of which are met here. Total duration for total knee PJI treated with DAIR is 3 months per IDSA guidelines.",
+    },
+    {
+      id: "E",
+      label: "Oral amoxicillin alone from day 1 without any initial IV phase",
+      feedback:
+        "Incorrect. While OVIVA supports early transition to oral therapy, it does not support bypassing an initial IV phase entirely in PJI. Patients enrolled in OVIVA received approximately one week of IV antibiotics before randomization to oral or continued IV. An initial IV phase is appropriate to ensure hemodynamic stability, confirm bacteremia clearance, allow adequate surgical source control, and verify susceptibility data before committing to an oral regimen. Oral monotherapy from day 1 is not supported by current evidence for PJI.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-pji-management-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Prosthetic joint infection (PJI) is classified by timing and mechanism of acquisition,
+    which directly determines surgical strategy. Early PJI occurs within 3 months of
+    implantation and is typically caused by organisms introduced at the time of surgery.
+    Delayed PJI occurs between 3 and 12 months and often reflects low-virulence organisms
+    such as coagulase-negative staphylococci or Cutibacterium acnes with an indolent
+    course. Late PJI, as in this case, occurs more than 12 months after implantation
+    and is usually the result of hematogenous seeding from a distant bacteremic source —
+    here, the dental extraction.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The critical surgical decision in acute PJI is whether DAIR — debridement,
+    antibiotics, and implant retention — is appropriate. IDSA guidelines support
+    DAIR when all of the following criteria are met: (1) symptom duration less than
+    3 weeks; (2) a well-fixed, stable implant without radiographic loosening; (3) no
+    sinus tract; (4) acceptable overlying soft tissue for closure; and (5) an organism
+    susceptible to agents available for oral step-down therapy. This patient meets all
+    criteria. DAIR must be performed as an open procedure — arthroscopic debridement
+    is inadequate — and must include exchange of all modular components, particularly
+    the polyethylene tibial insert, which harbors biofilm and cannot be adequately
+    decontaminated in situ.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Viridans group streptococci — including <em>S. mitis</em>, <em>S. sanguinis</em>,
+    and <em>S. oralis</em> — are normal oral flora that can cause transient bacteremia
+    during dental procedures, particularly extractions. They are recognized but
+    uncommon causes of hematogenous PJI. The association with dental work makes
+    the history of a recent extraction highly relevant and underscores why the American
+    Heart Association recommends pre-procedural antibiotic prophylaxis for patients
+    with prosthetic cardiac valves — though prophylaxis is not currently recommended
+    for prosthetic joint recipients before dental work in most guidelines.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For streptococcal PJI, beta-lactams are highly effective and rifampin plays no
+    role. This is a critical distinction from staphylococcal PJI, where rifampin is
+    the cornerstone of therapy due to its unique activity against biofilm-embedded,
+    metabolically quiescent staphylococci. Rifampin does not have an established
+    benefit for streptococcal biofilm in PJI, and adding it would expose the patient
+    to drug interactions (rifampin is a potent CYP3A4 inducer) without therapeutic
+    gain. For penicillin-susceptible streptococci, high-dose penicillin G or
+    ceftriaxone is the preferred IV agent; amoxicillin is the oral equivalent with
+    approximately 90% bioavailability.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The OVIVA trial (Li et al., NEJM 2019) was a landmark randomized controlled trial
+    enrolling 1,054 patients with bone and joint infections — including PJI — who
+    were randomized at approximately day 7 to continue IV antibiotics or transition
+    to oral therapy. Oral antibiotics were non-inferior to IV for treatment failure
+    at 1 year (14.6% vs 13.2%), with significantly fewer IV line complications in
+    the oral group. OVIVA enrolled a heterogeneous population including patients
+    with streptococcal, staphylococcal, and gram-negative PJI, provided an oral
+    agent with good activity was available. For streptococcal PJI, high-dose
+    amoxicillin satisfies this criterion. The implication is that prolonged IV therapy
+    in stable patients with susceptible organisms offers no advantage over early
+    oral step-down and exposes patients to unnecessary line-related risks.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pji-management-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Acute hematogenous PJI (symptom onset &lt;3 weeks, stable implant, no sinus
+      tract, susceptible organism) is managed with DAIR — open debridement with
+      exchange of all modular components — not prosthesis removal.
+    </li>
+    <li>
+      DAIR must be performed as an open procedure; arthroscopic washout is
+      inadequate for PJI and associated with higher failure rates.
+    </li>
+    <li>
+      Biofilm is the central pathophysiologic challenge in PJI: it protects organisms
+      from host immunity and most antibiotics by maintaining them in a metabolically
+      quiescent state.
+    </li>
+    <li>
+      For streptococcal PJI, rifampin is not indicated — its role in PJI is
+      organism-specific, targeting biofilm-embedded staphylococci. Applying rifampin
+      to streptococcal infections is a common conceptual error.
+    </li>
+    <li>
+      Penicillin-susceptible viridans streptococcal PJI is treated with a
+      beta-lactam (penicillin G or ceftriaxone IV; amoxicillin orally) — no
+      combination partner is required.
+    </li>
+    <li>
+      The OVIVA trial demonstrated that early transition to oral antibiotics is
+      non-inferior to continued IV therapy for bone and joint infections including
+      PJI, provided an oral agent with adequate activity is available.
+    </li>
+    <li>
+      High-dose oral amoxicillin (~90% bioavailability) is appropriate step-down
+      therapy for penicillin-susceptible streptococcal PJI following an initial
+      IV phase and clinical stabilization.
+    </li>
+    <li>
+      Total antibiotic duration per IDSA guidelines: 3 months for total knee PJI,
+      6 months for total hip PJI treated with DAIR.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Osmon DR, Berbari EF, Berendt AR, et al. Diagnosis and management of prosthetic
+      joint infection: clinical practice guidelines by the Infectious Diseases Society
+      of America. <em>Clinical Infectious Diseases</em>. 2013;56(1):e1-e25.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis803"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cis803
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Zimmerli W, Trampuz A, Ochsner PE. Prosthetic-joint infections.{" "}
+      <em>New England Journal of Medicine</em>. 2004;351(16):1645-1654.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra040181"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra040181
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Zimmerli W, Widmer AF, Blatter M, Frei R, Ochsner PE. Role of rifampin for
+      treatment of orthopedic implant-related staphylococcal infections: a randomized
+      controlled trial. <em>JAMA</em>. 1998;279(19):1537-1541.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.279.19.1537"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jama.279.19.1537
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Li HK, Rombach I, Zambellas R, et al. Oral versus intravenous antibiotics
+      for bone and joint infection. <em>New England Journal of Medicine</em>.
+      2019;380(5):425-436.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1710926"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa1710926
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Parvizi J, Zmistowski B, Berbari EF, et al. New definition for periprosthetic
+      joint infection: from the Workgroup of the Musculoskeletal Infection Society.{" "}
+      <em>Clinical Orthopaedics and Related Research</em>. 2011;469(11):2992-2994.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11999-011-2102-9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s11999-011-2102-9
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

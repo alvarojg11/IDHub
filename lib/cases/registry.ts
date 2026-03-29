@@ -309,6 +309,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: [], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["PRES", "Tacrolimus neurotoxicity", "Cerebrovascular autoregulation", "Cortical blindness", "Calcineurin inhibitor toxicity"] },
   },
   {
+    title: "After the Extraction",
+    slug: "pji-management",
+    description: "Acute knee pain in a patient with a prosthetic joint after a dental procedure.",
+    enable: true,
+    tags: { organisms: ["Streptococcus mitis", "Viridans streptococci"], syndromes: ["Orthopedic ID", "Bacteremia"], concepts: ["Prosthetic joint infection", "DAIR", "Biofilm", "OVIVA trial", "Oral step-down therapy", "Hematogenous seeding"] },
+  },
+  {
     title: "The Cellulitis That Kept Coming Back",
     slug: "brugia-malayi",
     description: "Recurrent leg swelling, a healing inguinal scar, and a blood draw that had to wait until midnight.",
