@@ -329,6 +329,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: ["Babesia microti"], syndromes: ["Hematology", "Travel Medicine", "Tick-Borne", "Parasitology"], concepts: ["Maltese cross tetrad", "Hemolytic anemia", "Asplenia", "Malaria mimic", "Exchange transfusion", "Atovaquone azithromycin"] },
   },
+  {
+    title: "The Watercress Fever",
+    slug: "fasciola-hepatica",
+    description: "A Bolivian immigrant with fever, eosinophilia, and hepatic migratory lesions.",
+    enable: true,
+    tags: { organisms: ["Fasciola hepatica"], syndromes: ["Travel Medicine", "Parasitology", "GI & Hepatic"], concepts: ["Hepatic fascioliasis", "Eosinophilic hepatitis", "Watercress exposure", "Triclabendazole", "Praziquantel resistance", "Migratory hepatic lesions"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

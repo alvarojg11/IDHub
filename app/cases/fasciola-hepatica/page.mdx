@@ -1,0 +1,375 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("fasciola-hepatica");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Watercress Fever
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 26-year-old woman from a rural community in the Bolivian altiplano near Oruro presents
+    to the emergency department with a 3-week history of fever, right upper quadrant pain,
+    malaise, and anorexia. She immigrated to the United States 6 weeks ago and has no prior
+    medical history. She takes no medications and denies alcohol use.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She grew up in a farming community near irrigation channels used for agriculture. She
+    reports that watercress (<em>berros</em>) gathered from these channels was a regular
+    part of her diet throughout her life. She denies recent travel, sick contacts, or
+    consumption of raw meat or freshwater fish or crustaceans in the United States.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is ill-appearing with a temperature of 38.9&#176;C, heart rate of
+    102 beats per minute, blood pressure 114/72 mmHg, and oxygen saturation 98% on room air.
+    There is right upper quadrant tenderness to palpation with hepatomegaly extending 4 cm
+    below the right costal margin. There is no jaundice, no scleral icterus, no splenomegaly,
+    and no ascites. The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Complete blood count shows white blood cell count 14,200/&#956;L with 32% eosinophils
+    (absolute eosinophil count 4,540/&#956;L), hemoglobin 12.4 g/dL, and platelets
+    310,000/&#956;L. Comprehensive metabolic panel shows ALT 178 U/L, AST 142 U/L, alkaline
+    phosphatase 312 U/L, and total bilirubin 1.1 mg/dL. Three stool ova and parasite
+    examinations performed on consecutive days return negative. Hepatitis A, B, and C
+    serologies are negative. A contrast-enhanced CT of the abdomen is obtained.
+  </p>
+</div>
+
+<figure className="my-12 text-center">
+  <div className="inline-block rounded-lg border border-gray-300 bg-transparent p-1">
+    <Image
+      src="/cases/fasciola/fasciola.png"
+      alt="Coronal CT abdomen showing hepatomegaly with hypodense migratory lesions in fascioliasis"
+      width={720}
+      height={460}
+      className="rounded-lg"
+    />
+  </div>
+
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    CT abdomen with contrast, coronal view. Hepatomegaly with multiple hypodense nodular
+    lesions and linear migratory tracts in the right hepatic lobe.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-fasciola-hepatica-q1"
+  title="Question 1"
+  prompt="Which of the following organisms is most likely responsible for this presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Echinococcus granulosus",
+      feedback:
+        "Incorrect. Cystic echinococcosis caused by Echinococcus granulosus is also endemic in parts of South America and can cause hepatic lesions, but it presents very differently. Echinococcal cysts are well-defined, fluid-filled, and slow-growing — typically discovered incidentally or after years of asymptomatic growth. Acute febrile illness with marked eosinophilia and hepatomegaly is not characteristic of echinococcosis. CT in echinococcosis classically shows unilocular or multilocular cysts, often with a double-wall sign or daughter cysts, not the hypodense nodular lesions with linear migratory tracts seen here.",
+    },
+    {
+      id: "B",
+      label: "Fasciola hepatica",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of acute fascioliasis. The combination of rural Bolivian origin, regular consumption of watercress from irrigation channels, acute febrile illness with right upper quadrant pain and hepatomegaly, striking eosinophilia, elevated hepatic transaminases with disproportionately elevated alkaline phosphatase, negative stool O&P examinations, and CT imaging showing hypodense hepatic lesions with linear migratory tracts in the right lobe is highly characteristic of the acute migratory phase of Fasciola hepatica infection. Bolivia has some of the highest rates of human fascioliasis in the world, with hyperendemic foci in the altiplano.",
+    },
+    {
+      id: "C",
+      label: "Entamoeba histolytica",
+      feedback:
+        "Incorrect. Entamoeba histolytica can cause amebic liver abscess, which presents with fever, right upper quadrant pain, and hepatomegaly — features that overlap with this case. However, several findings argue strongly against this diagnosis. Eosinophilia is not a feature of amebic liver abscess; tissue-invasive ameba infections do not trigger a significant eosinophilic response. CT in amebic abscess shows one or a few large, discrete, round fluid collections — not multiple small nodular lesions with linear migratory tracts. Serology for E. histolytica would be strongly positive in invasive disease. Additionally, she has no risk factors such as recent diarrheal illness, male sex, immunosuppression, or travel to a high-burden area for amebiasis in the classic epidemiological sense.",
+    },
+    {
+      id: "D",
+      label: "Clonorchis sinensis",
+      feedback:
+        "Incorrect. Clonorchis sinensis is a biliary fluke endemic to East and Southeast Asia, transmitted by consumption of raw or undercooked freshwater fish. It is not found in Bolivia or Latin America. Clinically, clonorchiasis typically presents in its chronic biliary phase with biliary obstruction, recurrent cholangitis, and — after years of infection — cholangiocarcinoma. It does not produce the acute febrile hepatitis with migratory hepatic lesions seen here. Stool O&P can detect Clonorchis eggs in the chronic phase, whereas this patient has negative stool examinations, consistent with an acute pre-patency phase — the window during which Fasciola larvae are migrating through liver parenchyma before reaching the bile ducts.",
+    },
+    {
+      id: "E",
+      label: "Ascaris lumbricoides",
+      feedback:
+        "Incorrect. Ascaris lumbricoides is the most prevalent intestinal helminth globally and can cause biliary disease when adult worms migrate into the common bile duct, producing biliary colic, cholangitis, or pancreatitis. However, this presentation is not consistent with biliary ascariasis: the CT does not show worms within the biliary tree, and the pattern of multiple hepatic migratory tracts is not a feature of Ascaris infection. While Ascaris larval migration through the lung (Löffler syndrome) can transiently cause eosinophilia, the hepatic phase and CT findings seen here are not produced by Ascaris.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-fasciola-hepatica-q2"
+  title="Question 2"
+  prompt="Which of the following is the most appropriate confirmatory diagnostic test at this stage of her illness?"
+  options={[
+    {
+      id: "A",
+      label: "Repeat stool ova and parasite examination ×3",
+      feedback:
+        "Incorrect — and an important trap. This patient has already had three negative stool O&P examinations, and repeating them will not help. Fasciola eggs are excreted in bile and appear in stool only after adult worms have established residence in the bile ducts — typically 3 to 4 months after infection. This patient is in the acute migratory phase, during which juvenile flukes are burrowing through the liver parenchyma and have not yet reached the biliary system. Stool O&P is reliably negative during this phase. Ordering more stool examinations delays the correct diagnosis without adding information.",
+    },
+    {
+      id: "B",
+      label: "Fasciola-specific serology (ELISA or Western blot for IgG)",
+      correct: true,
+      feedback:
+        "Correct. Serologic testing is the diagnostic method of choice for acute fascioliasis. ELISA targeting excretory-secretory antigens of Fasciola hepatica (including the recombinant FhSAP2 antigen) has sensitivity exceeding 95% in the acute phase and becomes positive within weeks of infection — well before eggs appear in stool. Western blot confirmation is available at reference laboratories. The CDC and the Pan American Health Organization recommend serology as first-line testing for suspected fascioliasis in non-endemic settings. A positive Fasciola IgG in the appropriate clinical and epidemiological context is sufficient to initiate treatment without awaiting stool confirmation.",
+    },
+    {
+      id: "C",
+      label: "Percutaneous CT-guided liver biopsy",
+      feedback:
+        "Incorrect. Liver biopsy is not the recommended diagnostic approach for fascioliasis. Histology can show eosinophilic necrotic tracts, granulomas, and occasionally the fluke itself or its eggs in resected tissue, but finding the organism on biopsy requires sampling an active lesion — a procedure that is both invasive and highly dependent on specimen localization. Serology is safer, less invasive, and more sensitive for acute disease. Biopsy should be reserved for cases where the diagnosis remains uncertain after serologic testing and the clinical picture warrants tissue sampling.",
+    },
+    {
+      id: "D",
+      label: "ERCP with biliary aspirate examination",
+      feedback:
+        "Incorrect. Endoscopic retrograde cholangiopancreatography (ERCP) with biliary aspirate can recover Fasciola eggs or even adult worms from the bile ducts, but this is a procedure reserved for the chronic biliary phase of disease — when adult worms are lodged in the biliary tree and causing obstruction, cholangitis, or cholelithiasis. In the acute migratory phase, the flukes have not yet reached the bile ducts, making biliary aspirate examination uninformative. ERCP also carries procedural risks (pancreatitis, bleeding, perforation) that are not justified as a diagnostic tool in the acute phase.",
+    },
+    {
+      id: "E",
+      label: "Peripheral blood smear for larval forms",
+      feedback:
+        "Incorrect. Fasciola hepatica does not produce microfilariae or any circulating larval forms detectable on peripheral blood smear. Blood smear examination is used for blood-borne parasites such as Plasmodium species (malaria), Babesia species, Trypanosoma species, and filarial microfilariae — none of which fit this clinical picture. This answer reflects a fundamental misconception about the life cycle and tissue tropism of Fasciola hepatica.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-fasciola-hepatica-q3"
+  title="Question 3"
+  prompt="Which of the following is the correct treatment for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Praziquantel 75 mg/kg/day in three divided doses for 1 day",
+      feedback:
+        "Incorrect — and the most important trap in this case. Praziquantel is the drug of choice for most trematode infections, including schistosomiasis, clonorchiasis, and paragonimiasis. However, Fasciola hepatica is intrinsically resistant to praziquantel. The biochemical basis of this resistance involves differences in tegumental membrane composition and drug uptake compared to praziquantel-sensitive flukes. Clinical trials have consistently shown praziquantel to be ineffective against Fasciola at any dose. Administering praziquantel to a patient with fascioliasis will not eradicate the infection and risks delaying curative therapy. This distinction — that praziquantel treats nearly all flukes except Fasciola — is one of the most clinically important points in helminth pharmacology.",
+    },
+    {
+      id: "B",
+      label: "Triclabendazole 10 mg/kg as a single oral dose with food",
+      correct: true,
+      feedback:
+        "Correct. Triclabendazole is the drug of choice for both acute and chronic fascioliasis and is active against all developmental stages of the parasite, including juvenile flukes migrating through the liver parenchyma. It is given as a single oral dose of 10 mg/kg with a fatty meal to enhance absorption; a second dose may be given for severe or refractory disease. WHO lists triclabendazole as an essential medicine for fascioliasis. It is available in the United States through the CDC Drug Service for compassionate use or can be obtained through commercial suppliers. Clinical response in the acute phase includes resolution of fever and eosinophilia within weeks, with gradual normalization of liver enzymes over months.",
+    },
+    {
+      id: "C",
+      label: "Albendazole 400 mg twice daily for 28 days",
+      feedback:
+        "Incorrect. Albendazole is used for larval cestode infections such as neurocysticercosis and cystic echinococcosis, as well as for some intestinal nematodes and tissue-invasive nematodes. It has limited activity against trematodes and is not effective against Fasciola hepatica. Several small studies have examined albendazole for fascioliasis without convincing efficacy data. It should not be used as an alternative when triclabendazole is available.",
+    },
+    {
+      id: "D",
+      label: "Metronidazole 500 mg three times daily for 10 days",
+      feedback:
+        "Incorrect. Metronidazole is a nitroimidazole antibiotic active against anaerobic bacteria and select protozoa, including Entamoeba histolytica, Giardia lamblia, and Trichomonas vaginalis. It has no activity against helminths, including Fasciola hepatica. This would be the treatment of choice if the diagnosis were amebic liver abscess, which was an important differential in this case, but the clinical, laboratory, and imaging features point clearly to fascioliasis rather than amebiasis.",
+    },
+    {
+      id: "E",
+      label: "Nitazoxanide 500 mg twice daily for 3 days",
+      feedback:
+        "Incorrect. Nitazoxanide has broad-spectrum antiparasitic activity against intestinal protozoa and some helminths, but it is not an established treatment for Fasciola hepatica. While a small number of case reports and in vitro studies have suggested possible activity, nitazoxanide has not been validated in clinical trials for fascioliasis and cannot be recommended as a substitute for triclabendazole.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-fasciola-hepatica-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Fasciola hepatica</em> is a large liver fluke (trematode) with a worldwide distribution,
+    causing disease primarily in cattle and sheep but with significant human infection in
+    endemic regions. Bolivia — particularly the altiplano surrounding Lake Titicaca and the
+    departments of Oruro, La Paz, and Potosí — has some of the highest rates of human
+    fascioliasis recorded globally, with community prevalence reaching 15 to 67% in some
+    hyperendemic villages. Peru, Ecuador, Egypt, and Iran are other high-burden regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The life cycle of <em>F. hepatica</em> depends on a freshwater snail intermediate host
+    (most commonly <em>Lymnaea</em> species) in which cercariae develop and are released
+    into the water, where they encyst as metacercariae on aquatic vegetation. Human infection
+    occurs almost exclusively through ingestion of metacercariae on raw watercress
+    (<em>berros</em>), other aquatic plants, or contaminated water. In Andean communities,
+    watercress gathered from irrigation channels shared with livestock is the dominant
+    transmission route.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Fascioliasis has two clinically distinct phases. In the <strong>acute (migratory) phase</strong>,
+    which begins within days to weeks of ingestion, excysted juvenile flukes penetrate the
+    intestinal wall, cross the peritoneal cavity, and bore through Glisson's capsule into the
+    liver parenchyma, where they tunnel through hepatic tissue toward the bile ducts. This
+    phase produces the febrile hepatitis syndrome seen in this patient: fever, right upper
+    quadrant pain, hepatomegaly, striking peripheral eosinophilia (often exceeding 30 to 50%),
+    and elevated liver enzymes with a disproportionate rise in alkaline phosphatase reflecting
+    biliary involvement. CT during this phase characteristically shows multiple hypodense
+    nodular lesions with linear branching or tunneling tracts in the hepatic parenchyma — the
+    radiographic footprint of larval migration.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In the <strong>chronic (biliary) phase</strong>, adult worms reach the intrahepatic and
+    common bile ducts, where they can survive for years. Symptoms shift to biliary colic,
+    recurrent cholangitis, cholelithiasis, and biliary obstruction. Eosinophilia may decrease
+    or normalize. Fasciola eggs first appear in the stool in this phase, typically 3 to 4 months
+    after initial infection — which explains why three consecutive stool O&P examinations were
+    negative in this patient who is still in the acute migratory phase.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The treatment landscape for fascioliasis is defined by one critical pharmacological fact:
+    <em>Fasciola hepatica</em> is intrinsically resistant to praziquantel. Unlike virtually
+    all other trematode infections — schistosomiasis, clonorchiasis, opisthorchiasis,
+    paragonimiasis — for which praziquantel is highly effective, <em>F. hepatica</em> does
+    not respond to praziquantel at any dose. The mechanism involves differences in the fluke's
+    tegument and reduced drug accumulation. Triclabendazole, a benzimidazole derivative, is
+    the only agent with proven efficacy against all developmental stages of <em>F. hepatica</em>.
+    A single oral dose of 10 mg/kg with food achieves cure rates exceeding 80 to 90% in most
+    series; a second dose is reserved for treatment failure or severe disease.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-fasciola-hepatica-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Bolivia has among the highest rates of human <em>Fasciola hepatica</em> infection in
+      the world; the altiplano is hyperendemic, with transmission driven by consumption of
+      watercress (<em>berros</em>) from irrigation channels shared with livestock.
+    </li>
+    <li>
+      Infection occurs by ingesting metacercariae on raw aquatic vegetation — primarily
+      watercress — not by contact with water, raw meat, or fish.
+    </li>
+    <li>
+      The acute migratory phase presents with fever, right upper quadrant pain, hepatomegaly,
+      striking eosinophilia, and elevated alkaline phosphatase; stool O&P is negative because
+      eggs are not shed until adult worms reach the bile ducts, 3 to 4 months after infection.
+    </li>
+    <li>
+      CT during the acute phase shows multiple hypodense hepatic lesions with linear migratory
+      tracts — the radiographic footprint of juvenile flukes tunneling through liver parenchyma.
+    </li>
+    <li>
+      Serology (ELISA or Western blot for <em>Fasciola</em> IgG) is the diagnostic test of
+      choice in the acute phase, with sensitivity exceeding 95% — far superior to stool
+      examination at this stage.
+    </li>
+    <li>
+      <strong><em>Fasciola hepatica</em> is intrinsically resistant to praziquantel</strong> —
+      the drug that treats nearly all other fluke infections. This is one of the most
+      important exceptions in antiparasitic pharmacology.
+    </li>
+    <li>
+      Triclabendazole 10 mg/kg orally with food (single dose) is the treatment of choice and
+      is active against both juvenile and adult <em>Fasciola</em> worms; in the United States
+      it is available through the CDC Drug Service.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Marcos LA, Terashima A, Gotuzzo E. Update on hepatobiliary flukes: fascioliasis,
+      opisthorchiasis and clonorchiasis. <em>Current Opinion in Infectious Diseases</em>.
+      2008;21(5):523-530.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/QCO.0b013e32830f9818"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/QCO.0b013e32830f9818
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Mas-Coma S, Valero MA, Bargues MD. Fasciola, lymnaeids and human fascioliasis, with
+      a global overview on disease transmission, epidemiology, evolutionary genetics,
+      molecular epidemiology and control. <em>Advances in Parasitology</em>.
+      2009;69:41-146.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0065-308X(09)69002-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0065-308X(09)69002-3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Keiser J, Utzinger J. Efficacy of current drugs against soil-transmitted helminth
+      infections: systematic review and meta-analysis. <em>JAMA</em>.
+      2008;299(16):1937-1948.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.299.16.1937"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jama.299.16.1937
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. Triclabendazole for the treatment of fascioliasis and
+      paragonimiasis. <em>WHO Model Formulary</em>. Geneva: WHO; 2019.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
