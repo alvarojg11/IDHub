@@ -1,0 +1,383 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("enterococcus-gallinarum");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Resistance by Default
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man with Child-Pugh B alcoholic cirrhosis and type 2 diabetes is admitted
+    with a 2-day history of fever, rigors, and progressive confusion. He has not been
+    hospitalized in over 8 months. He takes furosemide, spironolactone, and lactulose at home. He denies recent
+    antibiotic use, foreign travel, or new dietary changes.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.7&#176;C with a heart rate of 108 beats per minute
+    and blood pressure of 102/68 mmHg. He is jaundiced with scleral icterus, has mild
+    asterixis, and is oriented only to person. Abdominal examination reveals a distended
+    abdomen with shifting dullness and mild diffuse tenderness without peritoneal signs.
+    Spider angiomata are present on the chest. There is 2+ pitting edema of the lower
+    extremities bilaterally. No focal skin or soft tissue findings are identified.
+    Cardiopulmonary examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory data show white blood cell count 14,800/&#956;L with 82% neutrophils,
+    hemoglobin 10.2 g/dL, and platelets 88,000/&#956;L. Comprehensive metabolic panel
+    shows total bilirubin 4.2 mg/dL, ALT 58 U/L, AST 74 U/L, alkaline phosphatase 186
+    U/L, creatinine 1.6 mg/dL, and albumin 2.8 g/dL. INR is 1.9. Urinalysis is
+    unremarkable. Diagnostic paracentesis is performed and shows 180 white blood cells/mm&#179;
+    with 52% neutrophils.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two sets of blood cultures are drawn from separate peripheral sites. Both become positive
+    at 18 hours with gram-positive cocci in pairs and short chains. The organism is identified
+    as <em>Enterococcus gallinarum</em> by MALDI-TOF mass spectrometry. The automated
+    susceptibility system reports the following: ampicillin susceptible (MIC 0.5 &#956;g/mL),
+    vancomycin resistant (MIC 8 &#956;g/mL), teicoplanin susceptible (MIC 0.5 &#956;g/mL),
+    linezolid susceptible, and daptomycin susceptible. The laboratory automatically flags
+    the result as <strong>"vancomycin-resistant enterococcus (VRE)"</strong> and notifies the
+    infection control team. The covering team calls you, the infectious diseases fellow on
+    call, asking whether to start linezolid and initiate VRE contact precautions.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-enterococcus-gallinarum-q1"
+  title="Question 1"
+  prompt="Which of the following best describes the correct interpretation of the vancomycin resistance reported for this organism?"
+  options={[
+    {
+      id: "A",
+      label: "Intrinsic VanC-type resistance — low-level, chromosomally encoded, and not epidemiologically equivalent to acquired VRE",
+      correct: true,
+      feedback:
+        "Correct. Enterococcus gallinarum (along with E. casseliflavus and E. flavescens) carries the VanC gene cluster as a constitutive, chromosomally encoded feature of the species — not an acquired resistance element. VanC encodes a ligase that produces D-Ala-D-Ser peptidoglycan precursors instead of the standard D-Ala-D-Ala, resulting in reduced vancomycin binding affinity and low-level resistance (MIC typically 2–32 µg/mL). This resistance is intrinsic and non-transferable: the VanC gene cannot be horizontally transferred to other organisms on mobile genetic elements, in contrast to the VanA and VanB gene clusters that drive epidemiologically significant VRE outbreaks. The laboratory's automatic flag of 'VRE' is a reporting artifact that must not be equated with acquired vancomycin resistance in E. faecalis or E. faecium.",
+    },
+    {
+      id: "B",
+      label: "Acquired VanA-type resistance — high-level vancomycin resistance that is plasmid-mediated and horizontally transferable",
+      feedback:
+        "Incorrect. VanA-type resistance, the dominant mechanism behind clinically and epidemiologically significant VRE, produces high-level vancomycin resistance (MIC typically >64 µg/mL, often >256 µg/mL) and is encoded on transposable elements carried by conjugative plasmids. VanA strains are also resistant to teicoplanin. This patient's isolate has a vancomycin MIC of only 8 µg/mL and is teicoplanin-susceptible — a pattern inconsistent with VanA. Furthermore, VanA resistance is found in E. faecalis and E. faecium, not E. gallinarum. The species identification of E. gallinarum combined with low-level vancomycin resistance and teicoplanin susceptibility identifies VanC as the responsible mechanism.",
+    },
+    {
+      id: "C",
+      label: "Acquired VanB-type resistance — variable vancomycin resistance that is transferable but retains teicoplanin susceptibility",
+      feedback:
+        "Incorrect. VanB-type resistance is also an acquired, transferable mechanism found in E. faecalis and E. faecium. Like VanC, VanB strains are susceptible to teicoplanin — which can make VanB and VanC appear similar on susceptibility panels. However, the critical distinction is species identity: VanB resistance occurs in E. faecalis or E. faecium, not in E. gallinarum. Additionally, VanB vancomycin MICs can range widely (4 to >1000 µg/mL) and are generally higher than the MIC of 8 µg/mL seen here, which is typical of VanC. Correct species identification by MALDI-TOF — as performed in this case — is essential to make this distinction.",
+    },
+    {
+      id: "D",
+      label: "Laboratory error — Enterococcus species are universally vancomycin-susceptible and the result should be repeated",
+      feedback:
+        "Incorrect. While many clinically important Enterococcus species (particularly E. faecalis) are typically vancomycin-susceptible, the genus Enterococcus is not universally susceptible to vancomycin. E. gallinarum and E. casseliflavus carry constitutive VanC-type resistance as a species-defining trait. The reported MIC of 8 µg/mL and species identification of E. gallinarum by MALDI-TOF are consistent and do not represent a laboratory error. Requesting repeat testing would delay appropriate management without adding information.",
+    },
+    {
+      id: "E",
+      label: "Inducible resistance — vancomycin exposure has selected for resistance and isolates from non-antibiotic-exposed patients would be susceptible",
+      feedback:
+        "Incorrect. VanC resistance is constitutive, not inducible in the classical sense. It is a species-level characteristic of E. gallinarum that is present regardless of prior vancomycin exposure. This patient has no documented prior vancomycin use, further reinforcing that the resistance was not acquired through antibiotic selective pressure. This is a fundamental distinction from acquired resistance, where prior drug exposure is the key epidemiological risk factor.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enterococcus-gallinarum-q2"
+  title="Question 2"
+  prompt="Which of the following is the most appropriate antibiotic treatment for this patient's Enterococcus gallinarum bacteremia?"
+  options={[
+    {
+      id: "A",
+      label: "Linezolid 600 mg IV every 12 hours",
+      feedback:
+        "Incorrect. Linezolid is a bacteriostatic oxazolidinone active against enterococci and is an appropriate treatment for true VanA or VanB VRE bacteremia when ampicillin and vancomycin cannot be used. However, it is not indicated here. E. gallinarum is ampicillin-susceptible, and ampicillin is the preferred agent — it is bactericidal against ampicillin-susceptible enterococci (particularly in combination with an aminoglycoside for synergy), is less expensive, and avoids the myelosuppression and serotonin syndrome risks associated with prolonged linezolid use. Escalating to linezolid for VanC resistance is not supported by evidence and represents antibiotic overuse.",
+    },
+    {
+      id: "B",
+      label: "Daptomycin 6 mg/kg IV once daily",
+      feedback:
+        "Incorrect. Daptomycin is a lipopeptide antibiotic with bactericidal activity against gram-positive organisms including enterococci, and it is used for VRE bacteremia caused by VanA or VanB strains. However, as with linezolid, it is not indicated when a more targeted agent is available. E. gallinarum is ampicillin-susceptible in the majority of cases, and ampicillin remains the drug of choice. Using daptomycin for VanC enterococcal bacteremia represents unnecessary escalation. Additionally, daptomycin is inactivated by pulmonary surfactant and should not be used for pulmonary infections, though this is not the primary concern here.",
+    },
+    {
+      id: "C",
+      label: "Ampicillin 2 g IV every 4 hours",
+      correct: true,
+      feedback:
+        "Correct. E. gallinarum is nearly universally susceptible to ampicillin, and ampicillin is the treatment of choice for ampicillin-susceptible enterococcal bacteremia. This isolate has an ampicillin MIC of 0.5 µg/mL — well within the susceptible range. Ampicillin exerts bactericidal activity against enterococci through inhibition of cell wall synthesis and, in the setting of serious infection such as bacteremia or endocarditis, is typically combined with gentamicin or ceftriaxone for synergy. The vancomycin resistance of this organism is irrelevant to treatment selection once ampicillin susceptibility is confirmed — the VanC mechanism does not confer cross-resistance to beta-lactams. Duration of therapy should be guided by whether endocarditis is present, with uncomplicated bacteremia treated for 14 days and endocarditis for 4 to 6 weeks.",
+    },
+    {
+      id: "D",
+      label: "Vancomycin 25–30 mg/kg IV loading dose followed by continuous infusion targeting AUC/MIC 400–600",
+      feedback:
+        "Incorrect. Vancomycin cannot be used to treat this infection. The organism's VanC mechanism reduces vancomycin binding to peptidoglycan precursors, rendering the drug ineffective regardless of dosing strategy. Attempting to overcome VanC resistance with maximized vancomycin dosing would expose the patient to nephrotoxicity without therapeutic benefit. This is a critical point: once the susceptibility report confirms vancomycin resistance — even low-level — vancomycin should not be used. The correct pivot is to identify an active agent, which in this case is ampicillin.",
+    },
+    {
+      id: "E",
+      label: "Teicoplanin 6 mg/kg IV once daily after loading doses",
+      feedback:
+        "Incorrect. The isolate is teicoplanin-susceptible — a key feature that distinguishes VanC from VanA resistance — but teicoplanin is not the appropriate treatment choice when ampicillin susceptibility is confirmed. Teicoplanin is a glycopeptide with a mechanism similar to vancomycin and is not available in the United States. More importantly, ampicillin is the preferred agent for ampicillin-susceptible enterococcal bacteremia based on efficacy data, established dosing, and cost. Teicoplanin susceptibility is valuable diagnostically for distinguishing VanC from VanA, but it is not the treatment of choice here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enterococcus-gallinarum-q3"
+  title="Question 3"
+  prompt="Regarding infection control, which of the following is the most appropriate response to this organism?"
+  options={[
+    {
+      id: "A",
+      label: "Initiate standard VRE contact precautions — gown and gloves for all patient contact, dedicated equipment, and private room",
+      feedback:
+        "Incorrect. Standard VRE contact precautions are designed to prevent horizontal transmission of epidemiologically significant VRE — that is, E. faecalis or E. faecium harboring acquired VanA or VanB resistance on mobile genetic elements. E. gallinarum with VanC resistance does not require these precautions. The VanC gene is chromosomally encoded and cannot be transferred to other organisms via plasmids or transposons. Placing this patient in VRE contact precautions would waste resources, create unnecessary isolation burden, and potentially harm the patient through reduced nurse-patient contact — all without providing any public health benefit.",
+    },
+    {
+      id: "B",
+      label: "No VRE-specific contact precautions are required; standard precautions are appropriate",
+      correct: true,
+      feedback:
+        "Correct. E. gallinarum with VanC-type vancomycin resistance is not considered epidemiologically significant VRE. The VanC resistance genes are intrinsic, chromosomally encoded, and non-transferable — they cannot be horizontally transferred to other organisms. Unlike VanA and VanB, VanC does not pose a risk of institutional spread or patient-to-patient transmission of resistance. Major infection control guidelines, including those from CDC and SHEA, do not recommend VRE-specific contact precautions for patients colonized or infected with VanC-type enterococci. The infection control team should be informed of the species identification and VanC mechanism so the automatic VRE flag can be appropriately contextualized and contact precautions can be withheld.",
+    },
+    {
+      id: "C",
+      label: "Place the patient in a negative-pressure isolation room to prevent airborne spread",
+      feedback:
+        "Incorrect. Enterococcal infections are not transmitted via the airborne route. Negative-pressure rooms are reserved for organisms with airborne transmission, such as Mycobacterium tuberculosis, measles, and varicella. E. gallinarum, like all enterococci, is transmitted via direct or indirect contact — primarily through contaminated hands of healthcare workers. Negative-pressure isolation would provide no benefit and would consume a scarce resource unnecessarily.",
+    },
+    {
+      id: "D",
+      label: "Perform rectal surveillance swabs on all patients who shared the ward with this patient",
+      feedback:
+        "Incorrect. Active surveillance for VRE — typically using rectal or perirectal swabs — is a contact-precaution-era strategy designed to identify colonized patients and contain the spread of epidemiologically significant VRE (VanA or VanB in E. faecalis/faecium). Because E. gallinarum VanC resistance is intrinsic and non-transferable, there is no risk of ward-level spread of this resistance mechanism from this patient. Conducting surveillance swabs would generate misleading data, consume laboratory resources, and create unnecessary anxiety among patients and staff.",
+    },
+    {
+      id: "E",
+      label: "Report the case to the state health department as a notifiable VRE case",
+      feedback:
+        "Incorrect. Notifiable disease reporting for VRE is jurisdiction-specific, but in most states and contexts, VRE reporting requirements apply to epidemiologically significant acquired vancomycin resistance — VanA or VanB strains of E. faecalis or E. faecium — particularly in outbreak settings. E. gallinarum with constitutive VanC resistance does not fulfill these criteria. Reporting this case as a VRE event would create false signals in public health surveillance data and is not indicated.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-enterococcus-gallinarum-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Enterococcus gallinarum</em> is a motile enterococcal species that carries the VanC
+    resistance gene cluster as a constitutive, chromosomally encoded trait. Unlike
+    <em>E. faecalis</em> and <em>E. faecium</em> — which are the dominant clinical
+    enterococcal pathogens — <em>E. gallinarum</em>, <em>E. casseliflavus</em>, and
+    <em>E. flavescens</em> are intrinsically vancomycin-resistant at the species level.
+    This resistance is not acquired through antibiotic selective pressure or horizontal
+    gene transfer, and it carries fundamentally different clinical and epidemiological
+    implications than the acquired VanA and VanB resistance mechanisms responsible for
+    the global VRE problem.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The molecular basis of VanC resistance lies in the substitution of the terminal
+    D-alanine in peptidoglycan precursors with D-serine, producing D-Ala-D-Ser dipeptides
+    that bind vancomycin with approximately 100-fold lower affinity than the standard
+    D-Ala-D-Ala target. This results in low-level vancomycin resistance (MIC typically
+    2–32 &#956;g/mL) without cross-resistance to teicoplanin, another glycopeptide that
+    binds a different site on the acyl-D-Ala-D-Ala substrate. Teicoplanin susceptibility
+    is therefore a useful phenotypic discriminator: VanA strains are resistant to both
+    vancomycin and teicoplanin, VanB strains are vancomycin-resistant but teicoplanin-
+    susceptible (as is VanC), but species identification by MALDI-TOF or biochemical
+    testing is the definitive method to distinguish VanB from VanC when both are
+    teicoplanin-susceptible.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical significance of <em>E. gallinarum</em> bacteremia is increasingly
+    recognized in immunocompromised patients, those with structural gastrointestinal
+    disease, and patients with cirrhosis. The dysfunctional gut barrier and altered
+    mucosal immunity of advanced liver disease create conditions for enterococcal
+    translocation across the intestinal mucosa into the portal and systemic circulation.
+    Liver disease is among the most consistently identified risk factors for
+    <em>E. gallinarum</em> bacteremia. Identifying and treating an occult source —
+    such as biliary disease, primary peritonitis, or gastrointestinal mucosal injury —
+    is as important as selecting the correct antibiotic.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A critical pitfall in the management of <em>E. gallinarum</em> is over-escalation of
+    antibiotics triggered by the automated "VRE" flag in susceptibility reporting systems.
+    Because <em>E. gallinarum</em> is far less common than <em>E. faecalis</em> or
+    <em>E. faecium</em> in clinical microbiology laboratories, many automated reporting
+    systems are not configured to distinguish VanC from acquired vancomycin resistance,
+    leading to inappropriate initiation of linezolid or daptomycin when ampicillin
+    would be curative. Recognition of this reporting artifact, and the habit of always
+    confirming species identity alongside susceptibility results, is an essential
+    clinical skill.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    All enterococcal bacteremias warrant echocardiography to evaluate for endocarditis,
+    given the predilection of <em>Enterococcus</em> species for damaged or prosthetic
+    cardiac valves. In patients with cirrhosis, underlying valvulopathy may be present
+    and repeat blood cultures should confirm clearance. Uncomplicated <em>E. gallinarum</em>
+    bacteremia without endocarditis is treated with ampicillin for 14 days; confirmed
+    endocarditis requires 4 to 6 weeks of combination therapy, typically ampicillin plus
+    ceftriaxone or an aminoglycoside depending on gentamicin susceptibility.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-enterococcus-gallinarum-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Enterococcus gallinarum</em> carries <strong>intrinsic VanC-type vancomycin
+      resistance</strong> — constitutive, chromosomally encoded, and non-transferable.
+      It is a species-level trait, not an acquired resistance driven by antibiotic
+      pressure.
+    </li>
+    <li>
+      VanC resistance produces <strong>low-level vancomycin resistance</strong>
+      (MIC 2–32 &#956;g/mL) with preserved teicoplanin susceptibility. VanA produces
+      high-level resistance to both vancomycin and teicoplanin; VanB produces variable
+      vancomycin resistance with teicoplanin susceptibility — similar to VanC
+      phenotypically, but occurring in <em>E. faecalis/faecium</em> and
+      epidemiologically significant.
+    </li>
+    <li>
+      The automated laboratory flag <strong>"VRE" does not apply to <em>E. gallinarum</em></strong>:
+      always confirm species identity alongside susceptibility results. MALDI-TOF is
+      the standard method for species identification and reliably distinguishes
+      <em>E. gallinarum</em> from <em>E. faecalis</em> and <em>E. faecium</em>.
+    </li>
+    <li>
+      <em>E. gallinarum</em> is nearly universally <strong>ampicillin-susceptible</strong>.
+      Ampicillin is the drug of choice — there is no indication to escalate to
+      linezolid or daptomycin when the isolate is ampicillin-susceptible.
+    </li>
+    <li>
+      <strong>No VRE contact precautions are required</strong> for VanC-type enterococci.
+      The VanC gene is non-transferable and carries no epidemiological risk of
+      institutional spread. Implementing VRE isolation for these patients wastes
+      resources and harms patients through unnecessary isolation.
+    </li>
+    <li>
+      Cirrhosis is a recognized risk factor for <em>E. gallinarum</em> bacteremia
+      through gut barrier dysfunction and enterococcal translocation. Always evaluate
+      for an occult source in the GI or hepatobiliary tract.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Courvalin P. Vancomycin resistance in gram-positive cocci. <em>Clinical Infectious
+      Diseases</em>. 2006;42(Suppl 1):S25-S34.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/491711"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/491711
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Uttley AH, George RC, Davies J, et al. High-level vancomycin-resistant enterococci
+      causing hospital infections. <em>Epidemiology and Infection</em>.
+      1989;103(1):173-181.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1017/s0950268800030478"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1017/s0950268800030478
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Arias CA, Murray BE. The rise of the Enterococcus: beyond vancomycin resistance.
+      <em>Nature Reviews Microbiology</em>. 2012;10(4):266-278.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/nrmicro2761"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1038/nrmicro2761
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Recommendations for preventing the spread of vancomycin resistance: recommendations
+      of the Hospital Infection Control Practices Advisory Committee (HICPAC).
+      <em>Infection Control and Hospital Epidemiology</em>. 1995;16(2):105-113.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/647066"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/647066
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

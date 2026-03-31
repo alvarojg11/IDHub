@@ -336,6 +336,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: ["Fasciola hepatica"], syndromes: ["Travel Medicine", "Parasitology", "GI & Hepatic"], concepts: ["Hepatic fascioliasis", "Eosinophilic hepatitis", "Watercress exposure", "Triclabendazole", "Praziquantel resistance", "Migratory hepatic lesions"] },
   },
+  {
+    title: "Resistance by Default",
+    slug: "enterococcus-gallinarum",
+    description: "Not all vancomycin resistance is created equal.",
+    enable: true,
+    tags: { organisms: ["Enterococcus gallinarum"], syndromes: ["Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["VanC resistance", "Intrinsic vancomycin resistance", "VRE misidentification", "Ampicillin-susceptible enterococcus", "Infection control", "Cirrhosis bacteremia"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
