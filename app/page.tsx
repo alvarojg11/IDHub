@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import SiteFooter from "@/components/SiteFooter";
+import { CASES } from "@/lib/cases/registry";
 
 const BASE_URL = "https://infectiousdiseasehub.com";
 
@@ -68,7 +69,7 @@ const authorSchema = {
 
 const stats = [
   { value: "6+", label: "interactive tools" },
-  { value: "30+", label: "case-based learning modules" },
+  { value: `${CASES.length}+`, label: "case-based learning modules" },
   { value: "1", label: "home for ID reasoning" },
 ];
 
