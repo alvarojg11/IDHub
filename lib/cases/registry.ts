@@ -343,6 +343,13 @@ export const CASES: CaseMeta[] = [
     enable: true,
     tags: { organisms: ["Enterococcus gallinarum"], syndromes: ["Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["VanC resistance", "Intrinsic vancomycin resistance", "VRE misidentification", "Ampicillin-susceptible enterococcus", "Infection control", "Cirrhosis bacteremia"] },
   },
+  {
+    title: "The Viscous Clue",
+    slug: "klebsiella-endophthalmitis",
+    description: "A diabetic man with endophthalmitis whose blood cultures revealed more than an eye infection.",
+    enable: true,
+    tags: { organisms: ["Klebsiella pneumoniae"], syndromes: ["Ophthalmology", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Hypervirulent Klebsiella", "Endogenous endophthalmitis", "Pyogenic liver abscess", "String test", "Hypermucoviscosity", "Intravitreal antibiotics", "Metastatic infection"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
