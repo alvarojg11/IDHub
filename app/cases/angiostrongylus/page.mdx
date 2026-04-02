@@ -1,0 +1,358 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("angiostrongylus");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Paresthesias in Paradise
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 26-year-old previously healthy woman presents to the emergency department with
+    10 days of progressive, severe bifrontal headache and neck stiffness. She describes
+    the headache as the worst of her life, constant, and minimally responsive to
+    ibuprofen. Over the past 4 days she has developed intermittent painful tingling
+    and crawling sensations that migrate across her trunk, arms, and thighs, lasting
+    minutes to hours before shifting location. She has had no fever at home, no
+    photophobia, no rash, and no weakness.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She returned 12 days ago from a 10-day trip to Oahu, Hawaii, where she participated
+    in hiking tours and attended a farm-to-table dinner at an organic farm. She recalls
+    eating a large fresh salad with garden herbs, locally grown leafy vegetables, and
+    a homemade dressing. She did not eat any raw seafood or snails that she is aware
+    of. She takes oral contraceptives and has no allergies. She works as a graphic
+    designer and has no animal exposures.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile at 37.2&#176;C, blood pressure 118/72 mmHg, heart
+    rate 88 bpm, and oxygen saturation 99% on room air. She is uncomfortable and
+    appears distressed by the headache. There is moderate nuchal rigidity. Kernig and
+    Brudzinski signs are present. Cranial nerve examination is intact. There is no
+    papilledema on fundoscopy. Sensation is intact to all modalities at the time of
+    examination though she reports migratory paresthesias throughout the encounter.
+    No skin rash or lymphadenopathy is present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Complete blood count shows white blood cell count 10,800/&#956;L with absolute
+    eosinophil count 980/&#956;L (9% of differential). Hemoglobin and platelets are
+    normal. Comprehensive metabolic panel is unremarkable. MRI of the brain with and
+    without gadolinium shows mild leptomeningeal enhancement without mass lesions,
+    cerebral edema, or hydrocephalus. Lumbar puncture reveals an opening pressure of
+    31 cm H&#8322;O. CSF analysis: WBC 310 cells/&#956;L (42% eosinophils, 38%
+    lymphocytes, 20% monocytes), protein 92 mg/dL, glucose 44 mg/dL with a serum
+    glucose of 96 mg/dL. No organisms are seen on Gram stain. CSF bacterial cultures
+    are pending. CSF cryptococcal antigen is negative.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/angiostrongylus/angiostrongyloides.png"
+        alt="Susceptibility-weighted MRI showing multiple microbleeds as hypointense foci over bilateral cerebral and cerebellar hemispheres in a patient with Angiostrongylus cantonensis eosinophilic meningitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Susceptibility-weighted MRI: multiple microbleeds (arrows) over bilateral cerebral and cerebellar hemispheres.
+      Adapted from Graeff-Teixeira et al. <em>PLOS Neglected Tropical Diseases</em>, 2009 (PMID: 29187276).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-angiostrongylus-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Gnathostoma spinigerum eosinophilic meningoencephalitis",
+      feedback:
+        "Incorrect — though this is the most important mimic to know. Gnathostoma spinigerum causes eosinophilic meningitis with a clinical picture that can be nearly identical to Angiostrongylus, including CSF eosinophilia, severe headache, and migratory paresthesias. The critical distinction is geographic exposure: Gnathostoma is endemic to Southeast Asia (Thailand, Japan, China) and is acquired by eating raw or undercooked fish, shrimp, frogs, or poultry. Gnathostomatosis tends to be more severe — it causes hemorrhagic CSF more often and carries a higher risk of cranial nerve involvement and death. This patient's exposure was in Hawaii with contaminated produce, not raw meat in Southeast Asia.",
+    },
+    {
+      id: "B",
+      label: "Bacterial meningitis due to Neisseria meningitidis",
+      feedback:
+        "Incorrect. Bacterial meningitis is the most critical diagnosis to exclude in any patient presenting with headache, neck stiffness, and CSF pleocytosis. However, bacterial meningitis causes a neutrophilic (not eosinophilic) CSF pleocytosis, typically with markedly depressed glucose and a more acute, febrile course. This patient is afebrile, has a 10-day subacute course, and most strikingly has 42% eosinophils in the CSF — a finding essentially never seen in bacterial meningitis. CSF eosinophilia requires a different diagnostic framework entirely.",
+    },
+    {
+      id: "C",
+      label: "Angiostrongylus cantonensis eosinophilic meningitis",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of Angiostrongylus cantonensis eosinophilic meningitis — the most common cause of eosinophilic meningitis worldwide. The combination of Hawaii exposure, consumption of potentially contaminated fresh produce (slugs or their slime can contaminate garden vegetables without the host's knowledge), subacute severe headache, migratory painful paresthesias of the trunk and extremities, peripheral eosinophilia, and CSF with marked eosinophilic pleocytosis (42%) is the defining picture. Patients frequently do not recall eating snails or slugs — contaminated lettuce, herbs, or produce washed with slug-contaminated water are common and underappreciated sources.",
+    },
+    {
+      id: "D",
+      label: "Coccidioidal meningitis",
+      feedback:
+        "Incorrect. Coccidioides immitis can cause a chronic meningitis with CSF eosinophilia — one of the few non-parasitic causes of eosinophilic CSF pleocytosis — and should always be considered in patients from the endemic southwestern United States, Central America, or parts of South America. However, coccidioidal meningitis presents over weeks to months (rather than acutely), the degree of CSF eosinophilia is typically lower, and the clinical syndrome does not include migratory paresthesias. This patient's short incubation, dramatic CSF eosinophilia (42%), and Hawaii exposure point squarely toward a helminthic cause.",
+    },
+    {
+      id: "E",
+      label: "Baylisascaris procyonis meningoencephalitis",
+      feedback:
+        "Incorrect. Baylisascaris procyonis — the raccoon roundworm — is an important cause of eosinophilic meningoencephalitis in North America, particularly in young children with a history of geophagia or raccoon exposure. It typically causes a severe, rapidly progressive encephalitis with poor neurologic outcomes, rather than the subacute headache-dominated syndrome seen here. There is no raccoon exposure in this patient's history, and the geographic and epidemiologic context — Hawaii, fresh produce at a farm dinner — fits Angiostrongylus far better.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-angiostrongylus-q2"
+  title="Question 2"
+  prompt="The workup confirms eosinophilic meningitis in the context of a compatible exposure history. Which of the following is the most appropriate treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Albendazole 400 mg twice daily for 21 days",
+      feedback:
+        "Incorrect — and potentially harmful. This is the most common treatment error in eosinophilic meningitis. Anthelminthic therapy with albendazole or mebendazole is not recommended for Angiostrongylus cantonensis meningitis. When anthelminthics kill larvae within the CNS, massive antigen release from dying organisms triggers a robust inflammatory response that can dramatically worsen meningitis, increase intracranial pressure, and precipitate severe neurologic deterioration. The larvae in Angiostrongylus meningitis are destined to die on their own in an accidental human host — antigen-driven inflammation is the cause of injury, not the larvae themselves.",
+    },
+    {
+      id: "B",
+      label: "Albendazole plus corticosteroids",
+      feedback:
+        "Not the preferred approach. This combination has been evaluated in a randomized controlled trial (Chotmongkol et al., 2009) comparing prednisolone plus albendazole against prednisolone alone — and no additional benefit was found with the anthelminthic. Current evidence does not support adding albendazole to corticosteroid therapy. There are also theoretical concerns that anthelminthic-induced larval death could trigger an acute inflammatory response in the CNS, though this has been difficult to quantify clinically. Given the lack of proven benefit and potential for harm, corticosteroids alone — without an anthelminthic — is the evidence-based approach.",
+    },
+    {
+      id: "C",
+      label: "Supportive care with analgesics, corticosteroids, and serial lumbar punctures for elevated intracranial pressure",
+      correct: true,
+      feedback:
+        "Correct. Angiostrongylus cantonensis meningitis is a self-limited disease in immunocompetent hosts — larvae cannot complete their life cycle in humans and die spontaneously, with most patients recovering fully within 2 to 8 weeks. Treatment is supportive. Corticosteroids (prednisolone 60 mg/day or dexamethasone) reduce headache severity and duration, as shown in randomized controlled trial data from Thailand. Serial lumbar punctures effectively relieve elevated intracranial pressure and provide symptomatic relief. Analgesics are used for pain control. Anthelminthics are not recommended — their use risks worsening CNS inflammation from dying larval antigens.",
+    },
+    {
+      id: "D",
+      label: "Intravenous ceftriaxone and vancomycin pending culture results",
+      feedback:
+        "Incorrect as definitive therapy, though empiric bacterial meningitis coverage is often started before CSF results return and is reasonable until bacterial meningitis is excluded. Once the CSF shows marked eosinophilia (42%), bacterial meningitis is effectively ruled out — eosinophilic pleocytosis is not a feature of bacterial infection. Continuing antibiotics after a helminthic etiology is established provides no benefit and delays appropriate management with corticosteroids and supportive care.",
+    },
+    {
+      id: "E",
+      label: "Observation only without specific therapy",
+      feedback:
+        "Incorrect. While Angiostrongylus meningitis is self-limited, observation alone without corticosteroids leaves the patient without effective symptom management for what can be a profoundly debilitating headache syndrome. A randomized controlled trial demonstrated that prednisolone significantly reduces the duration and severity of headache compared to placebo. Corticosteroids also address the inflammatory pathophysiology of the disease. Serial lumbar punctures for elevated intracranial pressure (opening pressure 31 cm H₂O in this patient) provide additional symptomatic relief and should be performed as needed.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-angiostrongylus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Angiostrongylus cantonensis</em>, the rat lungworm, is the most common cause
+    of eosinophilic meningitis worldwide. Adult worms reside in the pulmonary arteries
+    of rats; larvae are shed in rat feces and ingested by intermediate hosts — primarily
+    snails and slugs. Humans are accidental dead-end hosts who acquire the infection
+    by eating raw or undercooked snails, slugs, freshwater shrimp, crabs, or frogs, or
+    by consuming produce contaminated with slug slime or larval-containing water. Slug
+    slime on unwashed lettuce and garden herbs is an underappreciated and common
+    transmission route that explains cases in patients who have no recollection of
+    eating mollusks. The disease is endemic in Hawaii, the Pacific Islands, Southeast
+    Asia, parts of the Caribbean, and increasingly in other tropical regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    After ingestion, third-stage larvae penetrate the gut wall, enter the circulation,
+    and migrate to the central nervous system. In the human CNS — an accidental host
+    — larvae cannot complete their development to adult worms. The inflammatory
+    response to larvae and their antigens drives the clinical syndrome. The defining
+    laboratory finding is eosinophilic pleocytosis in the CSF: more than 10 eosinophils
+    per mm³ or more than 10% eosinophils constitutes eosinophilic meningitis by
+    standard definition. Peripheral eosinophilia is present in the majority of cases.
+    The clinical picture of subacute severe headache, neck stiffness, and migratory
+    paresthesias of the trunk and extremities — caused by larval migration along
+    peripheral nerves — in a patient with appropriate geographic exposure and CSF
+    eosinophilia is essentially diagnostic.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The most important treatment principle — and the most common source of clinical
+    error — is that anthelminthic therapy is contraindicated. When albendazole or
+    mebendazole kill larvae within the subarachnoid space, the resulting antigen
+    release provokes an acute inflammatory cascade that dramatically worsens
+    meningitis and can precipitate life-threatening intracranial hypertension. Because
+    larvae in accidental human hosts die spontaneously over days to weeks, the disease
+    is self-limited and anthelminthics offer no benefit while incurring substantial
+    risk. A randomized controlled trial by Chotmongkol et al. demonstrated that
+    prednisolone (60 mg/day tapered over 2 weeks) significantly reduces headache
+    duration and severity compared to placebo, and this is the cornerstone of
+    pharmacologic management. Serial therapeutic lumbar punctures are effective for
+    symptomatic relief of elevated intracranial pressure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The differential diagnosis of eosinophilic meningitis is an important framework
+    for any ID clinician. The two leading helminthic causes are
+    <em>Angiostrongylus cantonensis</em> (contaminated produce or mollusks, Pacific/
+    Southeast Asia) and <em>Gnathostoma spinigerum</em> (raw fish or meat, Southeast
+    Asia) — distinguished primarily by geography and exposure history.
+    <em>Baylisascaris procyonis</em> (raccoon exposure, children) causes the most
+    severe helminthic eosinophilic meningoencephalitis in North America. Non-parasitic
+    causes of CSF eosinophilia include coccidioidal meningitis, neurosarcoidosis,
+    hypereosinophilic syndrome, and intrathecal drug administration. Among these,
+    Coccidioides is the most important to exclude given its overlap with travel to
+    endemic areas in the western hemisphere.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-angiostrongylus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Angiostrongylus cantonensis</em> is the most common cause of eosinophilic
+      meningitis worldwide; endemic in Hawaii, Pacific Islands, Southeast Asia, and
+      parts of the Caribbean.
+    </li>
+    <li>
+      Transmission is by ingestion of raw snails, slugs, or contaminated produce —
+      patients frequently do not recall eating mollusks. Slug slime on unwashed
+      garden vegetables is a common and underrecognized source.
+    </li>
+    <li>
+      The defining CSF finding is eosinophilic pleocytosis (&gt;10% or &gt;10
+      eosinophils/mm³). Migratory paresthesias of the trunk and extremities are a
+      characteristic clinical clue caused by larval migration along peripheral nerves.
+    </li>
+    <li>
+      Anthelminthic therapy (albendazole, mebendazole) is <strong>contraindicated</strong> —
+      dying larvae release antigens that provoke a severe inflammatory cascade,
+      worsening meningitis and intracranial pressure.
+    </li>
+    <li>
+      Treatment is supportive: corticosteroids (prednisolone 60 mg/day) reduce
+      headache duration and severity; serial lumbar punctures relieve elevated
+      intracranial pressure; analgesics for pain control.
+    </li>
+    <li>
+      The disease is self-limited in immunocompetent hosts — larvae die spontaneously
+      and most patients recover fully within 2 to 8 weeks.
+    </li>
+    <li>
+      Key differential for eosinophilic meningitis: <em>Gnathostoma</em> (Southeast Asia,
+      raw meat/fish, more severe), <em>Baylisascaris</em> (raccoon exposure, children,
+      devastating), <em>Coccidioides</em> (Southwest US/Latin America, chronic course).
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chotmongkol V, Sawanyawisuth K, Thavornpitak Y. Corticosteroid treatment of
+      eosinophilic meningitis. <em>Clinical Infectious Diseases</em>.
+      2000;31(3):660-662.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/313994"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/313994
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chotmongkol V, Kittimongkolma S, Niwattayakul K, Intapan PM, Thavornpitak Y.
+      Comparison of prednisolone plus albendazole with prednisolone alone for treatment
+      of patients with eosinophilic meningitis. <em>American Journal of Tropical
+      Medicine and Hygiene</em>. 2009;81(3):443-445.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4269/ajtmh.2009.81.443"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.4269/ajtmh.2009.81.443
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wang QP, Lai DH, Zhu XQ, Chen XG, Lun ZR. Human angiostrongyliasis.{" "}
+      <em>Lancet Infectious Diseases</em>. 2008;8(10):621-630.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(08)70229-9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(08)70229-9
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hochberg NS, Blackburn BG, Park SY, et al. Eosinophilic meningitis attributable
+      to <em>Angiostrongylus cantonensis</em> infection in Hawaii: clinical characteristics
+      and potential exposures. <em>American Journal of Tropical Medicine and Hygiene</em>.
+      2011;85(4):685-690.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4269/ajtmh.2011.11-0315"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.4269/ajtmh.2011.11-0315
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

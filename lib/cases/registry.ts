@@ -309,6 +309,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: [], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["PRES", "Tacrolimus neurotoxicity", "Cerebrovascular autoregulation", "Cortical blindness", "Calcineurin inhibitor toxicity"] },
   },
   {
+    title: "Paresthesias in Paradise",
+    slug: "angiostrongylus",
+    description: "Severe headache, migratory paresthesias, and a CSF full of eosinophils after a Hawaiian farm dinner.",
+    enable: true,
+    tags: { organisms: ["Angiostrongylus cantonensis"], syndromes: ["Neuroinfection", "Travel Medicine", "Parasitology"], concepts: ["Eosinophilic meningitis", "CSF eosinophilia", "Rat lungworm", "No anthelminthics", "Corticosteroids", "Serial lumbar punctures"] },
+  },
+  {
     title: "After the Extraction",
     slug: "pji-management",
     description: "Acute knee pain in a patient with a prosthetic joint after a dental procedure.",
