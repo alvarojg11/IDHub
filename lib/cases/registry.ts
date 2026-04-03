@@ -351,6 +351,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Enterococcus gallinarum"], syndromes: ["Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["VanC resistance", "Intrinsic vancomycin resistance", "VRE misidentification", "Ampicillin-susceptible enterococcus", "Infection control", "Cirrhosis bacteremia"] },
   },
   {
+    title: "Fever From the Forest",
+    slug: "orientia",
+    description: "Fever, rash, and a painless black-crusted ulcer after trekking in rural Nepal.",
+    enable: true,
+    tags: { organisms: ["Orientia tsutsugamushi"], syndromes: ["Travel Medicine", "Rickettsial", "Tick-Borne"], concepts: ["Scrub typhus", "Eschar", "Doxycycline", "Obligate intracellular", "Tsutsugamushi triangle"] },
+  },
+  {
     title: "The Viscous Clue",
     slug: "klebsiella-endophthalmitis",
     description: "A diabetic man with endophthalmitis whose blood cultures revealed more than an eye infection.",

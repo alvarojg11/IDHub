@@ -1,0 +1,319 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("orientia");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever From the Forest
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 32-year-old previously healthy man presents to a travel medicine clinic with
+    9 days of fever, severe headache, diffuse myalgias, and fatigue. He returned
+    2 weeks ago from a 12-day trekking expedition through the Annapurna region of
+    rural Nepal, where he hiked through forested trails, tall grass, and scrubby
+    riverside vegetation. He recalls multiple insect bites during the trip but
+    did not notice anything unusual at the time. He took no pre-travel
+    prophylaxis. He has no prior medical history and takes no medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 39.6&#176;C, blood pressure 106/68 mmHg,
+    heart rate 104 bpm, and oxygen saturation 97% on room air. He appears
+    systemically unwell. There is a non-pruritic maculopapular rash over the
+    trunk and proximal extremities. Mild hepatosplenomegaly is present.
+    Cervical and axillary lymphadenopathy is palpable bilaterally. On careful
+    inspection of the skin, including intertriginous areas, a single painless
+    lesion is found in the right axilla: a 12 mm punched-out ulcer with a
+    central black crust, surrounded by a rim of erythema, on otherwise
+    non-inflamed skin.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 4,200/&#956;L with a left shift. Platelet count
+    is 74,000/&#956;L. AST is 112 U/L and ALT is 98 U/L. Serum creatinine,
+    electrolytes, and bilirubin are normal. CRP is 186 mg/L.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/orientia/orientia.png"
+        alt="Scrub typhus eschar: a painless necrotic ulcer with a black crust and surrounding erythema at the site of chigger bite"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Characteristic eschar of scrub typhus: painless necrotic ulcer with central black crust.
+      Image courtesy of the Centers for Disease Control and Prevention (CDC).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-orientia-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Dengue fever",
+      feedback:
+        "Incorrect — though dengue is among the most important diagnoses to consider in any febrile traveler returning from Nepal and Southeast Asia, particularly given the thrombocytopenia, elevated transaminases, and maculopapular rash. Dengue can closely mimic scrub typhus in the first days of illness. However, the lesion found in the right axilla is not explained by dengue: the painless necrotic ulcer with a central black crust is an eschar — the pathognomonic cutaneous finding of scrub typhus caused by the chigger bite site. Dengue does not produce eschars. The eschar is the key discriminating feature.",
+    },
+    {
+      id: "B",
+      label: "Orientia tsutsugamushi (scrub typhus)",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of scrub typhus caused by Orientia tsutsugamushi, an obligate intracellular gram-negative bacterium transmitted by the bite of larval trombiculid mites (chiggers). The combination of trekking through scrubby forested vegetation in Nepal, an incubation period of 6 to 21 days, fever, headache, maculopapular rash, hepatosplenomegaly, lymphadenopathy, thrombocytopenia, elevated transaminases, and — critically — a painless eschar with a central black crust in the axilla establishes the diagnosis. The eschar forms at the site of the chigger bite and is present in 50 to 90% of cases depending on the geographic strain; it is frequently missed because it is painless and hidden in skin folds.",
+    },
+    {
+      id: "C",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis is an important consideration in travelers with fever, myalgia, hepatic involvement, and thrombocytopenia after rural exposure — particularly following contact with fresh water, soil, or vegetation in endemic regions. Nepal is an endemic area. However, leptospirosis does not cause eschars. The rash of leptospirosis, when present, is typically a transient macular or urticarial eruption quite different from the maculopapular exanthem seen here. The painless axillary eschar with a black crust is the finding that directs the diagnosis toward a rickettsial or related organism.",
+    },
+    {
+      id: "D",
+      label: "Murine typhus (Rickettsia typhi)",
+      feedback:
+        "Incorrect. Murine typhus is caused by Rickettsia typhi, transmitted by rat flea feces, and produces a febrile illness with rash and thrombocytopenia that can be clinically similar to scrub typhus. However, murine typhus does not cause an eschar — it belongs to the typhus group rickettsioses, which are not associated with inoculation eschar formation. Eschar formation is characteristic of the spotted fever group rickettsioses and, most notably, scrub typhus. Additionally, murine typhus is associated with rat/flea exposure rather than trekking through forested scrubby terrain.",
+    },
+    {
+      id: "E",
+      label: "Plasmodium vivax malaria",
+      feedback:
+        "Incorrect. Plasmodium vivax is endemic in Nepal and is the most common cause of malaria there; it is a critical diagnosis to exclude in any febrile traveler from this region. Vivax malaria causes fever, headache, myalgia, thrombocytopenia, and occasionally elevated transaminases. However, malaria does not produce an eschar, a maculopapular rash, or lymphadenopathy in the pattern described here. The axillary eschar with a black necrotic crust is not explained by any form of malaria and points unequivocally toward a rickettsial etiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-orientia-q2"
+  title="Question 2"
+  prompt="Which of the following is the most appropriate treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Amoxicillin-clavulanate 875/125 mg twice daily for 7 days",
+      feedback:
+        "Incorrect. Beta-lactam antibiotics have no activity against Orientia tsutsugamushi. The organism is an obligate intracellular pathogen that resides within the cytoplasm of host endothelial cells and macrophages; it lacks a conventional peptidoglycan cell wall, rendering beta-lactams — which target cell wall biosynthesis — entirely ineffective. This is a common and dangerous clinical error: initiating amoxicillin-clavulanate for a febrile returning traveler with what appears to be a soft tissue lesion while the eschar goes unrecognized.",
+    },
+    {
+      id: "B",
+      label: "Ciprofloxacin 500 mg twice daily for 7 days",
+      feedback:
+        "Incorrect. Fluoroquinolones have limited and inconsistent in vitro activity against Orientia tsutsugamushi and are not recommended for treatment of scrub typhus. Clinical evidence for fluoroquinolone efficacy in scrub typhus is insufficient, and fluoroquinolones should not be used as primary or empiric therapy. Doxycycline remains the treatment of choice and produces a dramatic clinical response — fever typically defervesces within 24 to 48 hours — that is itself diagnostically informative.",
+    },
+    {
+      id: "C",
+      label: "Doxycycline 100 mg twice daily for 7 days",
+      correct: true,
+      feedback:
+        "Correct. Doxycycline is the treatment of choice for scrub typhus. As a tetracycline, it achieves excellent intracellular penetration and is bacteriostatic against Orientia tsutsugamushi, which replicates within the cytoplasm of host cells. The clinical response to doxycycline is characteristically rapid and dramatic — fever defervesces within 24 to 48 hours, a feature that is diagnostically useful when serologic confirmation is pending. A 7-day course is standard for uncomplicated disease; longer courses are used for severe or complicated disease. The speed of defervescence with doxycycline is so characteristic that a delayed response should prompt reconsideration of the diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Azithromycin 500 mg once daily for 3 days",
+      feedback:
+        "Incorrect as first-line therapy in this clinical context — though azithromycin is a legitimate alternative for scrub typhus, particularly in pregnancy, in children under 8 years (in whom doxycycline is relatively contraindicated), or in regions with documented doxycycline-resistant strains. Resistance to doxycycline has been reported from parts of northern Thailand and South Korea but has not been established as a clinical concern in Nepal. In the absence of contraindications or geographic resistance concerns, doxycycline remains the preferred agent given its robust evidence base and predictable efficacy.",
+    },
+    {
+      id: "E",
+      label: "Supportive care with antipyretics and analgesics only",
+      feedback:
+        "Incorrect. Untreated scrub typhus carries a case fatality rate of up to 30% in historical series from hyperendemic regions. Without appropriate antibiotic therapy, the disease can progress to severe complications including meningoencephalitis, myocarditis, ARDS, acute kidney injury, and multiorgan failure. Doxycycline is highly effective and should be started promptly — empirically if necessary — once the diagnosis is suspected on clinical and epidemiologic grounds, without waiting for serologic confirmation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-orientia-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Scrub typhus is caused by <em>Orientia tsutsugamushi</em>, an obligate intracellular
+    gram-negative bacterium transmitted by the bite of larval trombiculid mites —
+    commonly called chiggers — of the genus <em>Leptotrombidium</em>. It is endemic
+    across the "tsutsugamushi triangle," a vast region spanning Japan and Korea in the
+    north to Australia in the south and Pakistan in the west, including Nepal, India,
+    Sri Lanka, Southeast Asia, and the western Pacific Islands. Scrub typhus is one
+    of the most common causes of undifferentiated febrile illness in rural Asia,
+    accounting for up to 20% of febrile hospitalizations in some hyperendemic regions.
+    Travelers who venture through scrubby vegetation, forest undergrowth, riverbanks,
+    and agricultural land are at risk.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The eschar is the clinical hallmark of scrub typhus and the most important physical
+    examination finding in any febrile patient with appropriate geographic exposure.
+    It forms at the site of the chigger bite as a painless papule that ulcerates and
+    develops a central black crust surrounded by an erythematous halo, typically
+    measuring 5 to 20 mm. Because the bite is painless, patients are almost universally
+    unaware of the lesion. It is found in skin folds and on concealed surfaces — the
+    axillae, groin, perineum, behind the ears, the scalp, and between the toes —
+    and will be missed without a deliberate and thorough full-body skin examination.
+    Eschar detection rates range from 50% to over 90% depending on the geographic
+    strain and examiner thoroughness.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical syndrome of fever, headache, maculopapular rash, hepatosplenomegaly,
+    lymphadenopathy, thrombocytopenia, and transaminitis in a patient returning from
+    endemic rural Asia has a broad differential that includes dengue, malaria,
+    leptospirosis, murine typhus, and enteric fever. In the early febrile phase,
+    dengue in particular can be clinically indistinguishable from scrub typhus.
+    The eschar is the discriminating finding — no other common travel-related febrile
+    illness produces it. In its absence, the diagnosis rests on the exposure history
+    and laboratory pattern, with confirmation by serology (immunofluorescence assay)
+    or PCR from eschar swabs or blood.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Doxycycline is the treatment of choice and should be started empirically when
+    the diagnosis is suspected clinically. <em>O. tsutsugamushi</em> is an obligate
+    intracellular organism that replicates free in the host cell cytoplasm — a
+    property that renders it intrinsically resistant to beta-lactams (which target
+    the outer cell wall) and poorly susceptible to fluoroquinolones. The rapid
+    defervescence within 24 to 48 hours of initiating doxycycline is itself a
+    diagnostically useful feature: failure to defervesce within this window should
+    prompt reconsideration of the diagnosis or evaluation for complications.
+    Azithromycin is an effective alternative in pregnancy and pediatric patients,
+    and is preferred in geographic areas with documented doxycycline resistance.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-orientia-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Scrub typhus is one of the most common causes of undifferentiated febrile illness
+      in rural Asia; always consider it in febrile travelers returning from the
+      "tsutsugamushi triangle."
+    </li>
+    <li>
+      The eschar — a painless necrotic ulcer with a central black crust — is the
+      pathognomonic finding. It is almost always missed without a deliberate full-body
+      skin examination including intertriginous areas, scalp, and genitalia.
+    </li>
+    <li>
+      In the early febrile phase, scrub typhus is clinically indistinguishable from
+      dengue. The eschar is the key discriminating feature — dengue does not produce
+      an eschar.
+    </li>
+    <li>
+      <em>Orientia tsutsugamushi</em> is an obligate intracellular pathogen that lacks
+      a conventional cell wall — beta-lactams are intrinsically ineffective and should
+      never be used.
+    </li>
+    <li>
+      Doxycycline 100 mg twice daily for 7 days is the treatment of choice. Fever
+      typically defervesces within 24 to 48 hours — failure to respond should prompt
+      reconsideration of the diagnosis.
+    </li>
+    <li>
+      Azithromycin is the preferred alternative in pregnancy, children under 8 years,
+      and in areas with documented doxycycline resistance.
+    </li>
+    <li>
+      Untreated scrub typhus can progress to meningoencephalitis, myocarditis, ARDS,
+      and multiorgan failure with historical case fatality rates up to 30%.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Xu G, Walker DH, Jupiter D, Melby PC, Arcari CM. A review of the global
+      epidemiology of scrub typhus. <em>PLOS Neglected Tropical Diseases</em>.
+      2017;11(11):e0006062.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pntd.0006062"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1371/journal.pntd.0006062
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rajapakse S, Rodrigo C, Fernando SD. Scrub typhus: pathophysiology,
+      clinical manifestations and prognosis. <em>Asian Pacific Journal of Tropical
+      Medicine</em>. 2012;5(4):261-264.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1995-7645(12)60036-5"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1995-7645(12)60036-5
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Scrub Typhus: About Scrub Typhus.
+      National Center for Emerging and Zoonotic Infectious Diseases. Accessed April 2, 2026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/typhus/about/scrub.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        https://www.cdc.gov/typhus/about/scrub.html
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
