@@ -277,6 +277,7 @@ export function buildCaseMetadata(slug: string): Metadata {
       siteName: "InfectiousDiseaseHub",
       title: seoTitle,
       description: entry.description,
+      images: [`${BASE_URL}/api/og/cases/${slug}`],
       publishedTime: entry.publishedAt,
       modifiedTime: entry.modifiedAt,
       authors: ["Alvaro Ayala"],
@@ -286,6 +287,7 @@ export function buildCaseMetadata(slug: string): Metadata {
       card: "summary_large_image",
       title: seoTitle,
       description: entry.description,
+      images: [`${BASE_URL}/api/og/cases/${slug}`],
     },
   };
 }
