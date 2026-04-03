@@ -6,18 +6,23 @@ import { CASES } from "@/lib/cases/registry";
 export const runtime = "edge";
 
 export async function GET(
-  _req: NextRequest,
-  { params }: { params: { slug: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const caseEntry = CASES.find((c) => c.slug === params.slug);
+  const { slug } = await params;
+  const caseEntry = CASES.find((c) => c.slug === slug);
 
-  const title = caseEntry?.title ?? params.slug;
+  const title = caseEntry?.title ?? slug;
   const description = caseEntry?.description ?? "";
-  const organisms = caseEntry?.tags?.organisms ?? [];
   const syndromes = caseEntry?.tags?.syndromes?.slice(0, 3) ?? [];
-
   const kicker = syndromes.join(" · ");
-  const organism = organisms[0] ?? "";
+
+  const ogImage = caseEntry?.ogImage;
+  const imageUrl = ogImage
+    ? `${new URL(req.url).origin}${ogImage}`
+    : null;
+
+  const hasImage = Boolean(imageUrl);
 
   return new ImageResponse(
     (
@@ -34,110 +39,80 @@ export async function GET(
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
             width: "100%",
             height: "100%",
             background: "rgba(255,255,255,0.92)",
             borderRadius: "24px",
             border: "1px solid rgba(18,53,41,0.12)",
             boxShadow: "0 28px 80px rgba(13,30,24,0.12)",
-            padding: "52px 56px",
-            justifyContent: "space-between",
+            overflow: "hidden",
           }}
         >
-          {/* Top section: kicker + title + description */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {kicker ? (
-              <div
-                style={{
-                  fontSize: 13,
-                  fontWeight: 700,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase" as const,
-                  color: "#145c47",
-                  marginBottom: "20px",
-                }}
-              >
-                {kicker}
-              </div>
-            ) : null}
-
-            <div
-              style={{
-                fontSize: title.length > 30 ? 52 : 62,
-                fontWeight: 700,
-                color: "#102019",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                maxWidth: "860px",
-              }}
-            >
-              {title}
-            </div>
-
-            {description ? (
-              <div
-                style={{
-                  fontSize: 22,
-                  color: "#53675f",
-                  marginTop: "20px",
-                  lineHeight: 1.5,
-                  maxWidth: "780px",
-                }}
-              >
-                {description}
-              </div>
-            ) : null}
-          </div>
-
-          {/* Bottom row: organism pill + IDHub branding */}
+          {/* Left: text */}
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               justifyContent: "space-between",
-              alignItems: "flex-end",
+              flex: 1,
+              padding: "52px 56px",
             }}
           >
-            {organism ? (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  background: "rgba(20,92,71,0.08)",
-                  borderRadius: "100px",
-                  padding: "10px 20px",
-                }}
-              >
+            {/* Top: kicker + title + description */}
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {kicker ? (
                 <div
                   style={{
-                    fontSize: 16,
-                    fontStyle: "italic",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase" as const,
                     color: "#145c47",
-                    fontWeight: 600,
+                    marginBottom: "20px",
                   }}
                 >
-                  {organism}
+                  {kicker}
                 </div>
-              </div>
-            ) : (
-              <div />
-            )}
+              ) : null}
 
+              <div
+                style={{
+                  fontSize: title.length > 30 ? 48 : 58,
+                  fontWeight: 700,
+                  color: "#102019",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                  maxWidth: hasImage ? "560px" : "860px",
+                }}
+              >
+                {title}
+              </div>
+
+              {description ? (
+                <div
+                  style={{
+                    fontSize: 20,
+                    color: "#53675f",
+                    marginTop: "20px",
+                    lineHeight: 1.5,
+                    maxWidth: hasImage ? "520px" : "780px",
+                  }}
+                >
+                  {description}
+                </div>
+              ) : null}
+            </div>
+
+            {/* Bottom: IDHub branding */}
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
                 gap: "2px",
               }}
             >
-              <div
-                style={{
-                  fontSize: 28,
-                  fontWeight: 700,
-                  color: "#102019",
-                }}
-              >
+              <div style={{ fontSize: 26, fontWeight: 700, color: "#102019" }}>
                 IDHub
               </div>
               <div
@@ -152,6 +127,27 @@ export async function GET(
               </div>
             </div>
           </div>
+
+          {/* Right: case image */}
+          {hasImage ? (
+            <div
+              style={{
+                display: "flex",
+                width: "340px",
+                flexShrink: 0,
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={imageUrl!}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     ),

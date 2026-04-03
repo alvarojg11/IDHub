@@ -11,6 +11,7 @@ export type CaseMeta = {
   subtitle?: string;    // optional
   enable?: boolean;     // optional: hide drafts
   tags?: CaseTag;       // SEO & index tags
+  ogImage?: string;     // public path to representative image for OG card
 };
 
 export const CASES: CaseMeta[] = [
@@ -19,6 +20,7 @@ export const CASES: CaseMeta[] = [
     slug: "gnathostomiasis",
     description: "Migratory edema after raw seafood exposure.",
     enable: true,
+    ogImage: "/cases/gnathostoma/gnathostoma.png",
     tags: { organisms: ["Gnathostoma spinigerum"], syndromes: ["Skin & Soft Tissue", "Travel Medicine", "Parasitology"], concepts: ["Migratory subcutaneous edema", "Eosinophilia", "Raw seafood exposure"] },
   },
   {
@@ -26,6 +28,7 @@ export const CASES: CaseMeta[] = [
     slug: "nocardia-brasiliensis",
     description: "Not your routine skin and soft tissue infection.",
     enable: true,
+    ogImage: "/cases/nocardia-brasiliensis/nocardia.png",
     tags: { organisms: ["Nocardia brasiliensis"], syndromes: ["Skin & Soft Tissue"], concepts: ["Sporotrichoid lymphangitis", "Lymphocutaneous syndrome"] },
   },
   {
@@ -33,6 +36,7 @@ export const CASES: CaseMeta[] = [
     slug: "aerococcus",
     description: "Beyond the obvious: Gram-positive clusters.",
     enable: true,
+    ogImage: "/cases/case-1/aerococcus.png",
     tags: { organisms: ["Aerococcus urinae"], syndromes: ["Endocarditis", "Urinary Tract Infection"], concepts: ["Culture-positive endocarditis", "Gram-positive cocci in clusters"] },
   },
   {
@@ -40,6 +44,7 @@ export const CASES: CaseMeta[] = [
     slug: "lobomycosis",
     description: "A returning traveler lesion.",
     enable: true,
+    ogImage: "/cases/lobomycosis/lacazia.png",
     tags: { organisms: ["Lacazia loboi"], syndromes: ["Skin & Soft Tissue", "Travel Medicine", "Mycology"], concepts: ["Keloid-like lesion", "Tropical fungal infection"] },
   },
   {
@@ -61,6 +66,7 @@ export const CASES: CaseMeta[] = [
     slug: "rhinoscleroma",
     description: "A chronic nasal lesion with a broad differential diagnosis.",
     enable: true,
+    ogImage: "/cases/krhino/krhinogram.png",
     tags: { organisms: ["Klebsiella rhinoscleromatis"], syndromes: ["ENT", "Granulomatous Infection"], concepts: ["Chronic nasal obstruction", "Mikulicz cells"] },
   },
   {
@@ -68,6 +74,7 @@ export const CASES: CaseMeta[] = [
     slug: "tungiasis",
     description: "Neglect, poverty, and a devastating skin disease.",
     enable: true,
+    ogImage: "/cases/tungiasis/tungiasis.png",
     tags: { organisms: ["Tunga penetrans"], syndromes: ["Skin & Soft Tissue", "Parasitology", "Neglected Tropical Disease"], concepts: ["Sand flea", "Embedded parasite"] },
   },
   {
@@ -75,6 +82,7 @@ export const CASES: CaseMeta[] = [
     slug: "spirochetosis",
     description: "An unexpected culprit.",
     enable: true,
+    ogImage: "/cases/spirochetosis/spirochetosis.jpg",
     tags: { organisms: ["Brachyspira aalborgi"], syndromes: ["GI & Diarrheal", "Travel Medicine"], concepts: ["Intestinal spirochetosis", "Bloody diarrhea differential"] },
   },
   {
@@ -89,6 +97,7 @@ export const CASES: CaseMeta[] = [
     slug: "talaromyces",
     description: "Another skin lesion...",
     enable: true,
+    ogImage: "/cases/talaromyces/talaromyces.png",
     tags: { organisms: ["Talaromyces marneffei"], syndromes: ["HIV/AIDS", "Mycology", "Skin & Soft Tissue"], concepts: ["Umbilicated papules", "Disseminated fungal infection", "Advanced HIV"] },
   },
   {
@@ -96,6 +105,7 @@ export const CASES: CaseMeta[] = [
     slug: "paragonimiasis",
     description: "When lung flukes mimic TB.",
     enable: true,
+    ogImage: "/cases/paragonimus/paragonimus.png",
     tags: { organisms: ["Paragonimus westermani"], syndromes: ["Pulmonary", "Parasitology", "Travel Medicine"], concepts: ["Lung fluke", "Hemoptysis differential", "TB mimic"] },
   },
   {
@@ -110,6 +120,7 @@ export const CASES: CaseMeta[] = [
     slug: "actinomycosis",
     description: "When a soft-tissue mass is an indolent infection.",
     enable: true,
+    ogImage: "/cases/actinomycosis/actino1.png",
     tags: { organisms: ["Actinomyces israelii"], syndromes: ["Skin & Soft Tissue", "Granulomatous Infection"], concepts: ["Sulfur granules", "Chronic indolent infection", "Mass mimic"] },
   },
   {
@@ -124,6 +135,7 @@ export const CASES: CaseMeta[] = [
     slug: "blastomycosis",
     description: "A verrucous arm lesion, diagnostic GMS stain, and right upper lobe pulmonary disease.",
     enable: true,
+    ogImage: "/cases/blastomycosis/blasto-lesion-arm.png",
     tags: { organisms: ["Blastomyces dermatitidis"], syndromes: ["Mycology", "Pulmonary", "Skin & Soft Tissue"], concepts: ["Verrucous lesions", "Broad-based budding yeast", "GMS stain"] },
   },
   {
@@ -138,6 +150,7 @@ export const CASES: CaseMeta[] = [
     slug: "hzo-hutchinson-sign",
     description: "A unilateral facial eruption with ocular risk and a misleading early course.",
     enable: true,
+    ogImage: "/cases/hzo-hutchinson-sign/hutchinson-sign.png",
     tags: { organisms: ["Varicella-zoster virus"], syndromes: ["Neuroinfection", "Ophthalmology"], concepts: ["Hutchinson sign", "Herpes zoster ophthalmicus", "V1 dermatome"] },
   },
   {
@@ -152,6 +165,7 @@ export const CASES: CaseMeta[] = [
     slug: "m-bovis",
     description: "Infectious differential for chronic diarrhea and edema.",
     enable: true,
+    ogImage: "/cases/m-bovis/abdominal-ct.png",
     tags: { organisms: ["Mycobacterium bovis"], syndromes: ["GI & Diarrheal", "Mycobacterial"], concepts: ["Abdominal tuberculosis", "Unpasteurized dairy", "Pyrazinamide resistance"] },
   },
   {
@@ -159,6 +173,7 @@ export const CASES: CaseMeta[] = [
     slug: "strongyloides-hyperinfection",
     description: "ICU shock, pulmonary infiltrates, and diarrhea after immunosuppression.",
     enable: true,
+    ogImage: "/cases/strongyloides-hyperinfection/strongy.png",
     tags: { organisms: ["Strongyloides stercoralis"], syndromes: ["Parasitology", "Transplant & Immunocompromised", "Sepsis & Bacteremia"], concepts: ["Hyperinfection syndrome", "Corticosteroid trigger", "Polymicrobial bacteremia"] },
   },
   {
@@ -166,6 +181,7 @@ export const CASES: CaseMeta[] = [
     slug: "brucella-endocarditis",
     description: "A culture-negative endocarditis clue hiding in the exposure history.",
     enable: true,
+    ogImage: "/cases/brucella-endocarditis/echo.png",
     tags: { organisms: ["Brucella melitensis"], syndromes: ["Endocarditis", "Zoonotic"], concepts: ["Culture-negative endocarditis", "Unpasteurized dairy exposure", "Valve abscess"] },
   },
   {
@@ -173,6 +189,7 @@ export const CASES: CaseMeta[] = [
     slug: "sancc",
     description: "Transient deficits, basal cistern lesions, and a hidden tropical diagnosis.",
     enable: true,
+    ogImage: "/cases/sancc/sancc_mri.png",
     tags: { organisms: ["Taenia solium"], syndromes: ["Neuroinfection", "Parasitology"], concepts: ["Subarachnoid neurocysticercosis", "Racemose cysts", "Basal cistern disease"] },
   },
   {
@@ -187,6 +204,7 @@ export const CASES: CaseMeta[] = [
     slug: "urogenital-schistosomiasis",
     description: "A tropical cause of bilateral obstructive uropathy and renal failure.",
     enable: true,
+    ogImage: "/cases/urogenital-schistosomiasis/hydro.png",
     tags: { organisms: ["Schistosoma haematobium"], syndromes: ["Parasitology", "Renal & Urologic", "Neglected Tropical Disease"], concepts: ["Obstructive uropathy", "Freshwater exposure", "Praziquantel"] },
   },
   {
@@ -208,6 +226,7 @@ export const CASES: CaseMeta[] = [
     slug: "listeria-rhombencephalitis",
     description: "A stroke-mimic presentation of postpartum brainstem infection.",
     enable: true,
+    ogImage: "/cases/listeria-rhombencephalitis/listeria.png",
     tags: { organisms: ["Listeria monocytogenes"], syndromes: ["Neuroinfection", "Meningitis"], concepts: ["Rhombencephalitis", "Brainstem infection", "Postpartum infection", "Stroke mimic"] },
   },
   {
@@ -222,6 +241,7 @@ export const CASES: CaseMeta[] = [
     slug: "giardiasis-india",
     description: "Greasy stools, bloating after dairy, and a classic travel-related cause of persistent diarrhea.",
     enable: true,
+    ogImage: "/cases/giardiasis-india/giardia.png",
     tags: { organisms: ["Giardia lamblia"], syndromes: ["GI & Diarrheal", "Parasitology", "Travel Medicine"], concepts: ["Malabsorption", "Steatorrhea", "Lactose intolerance post-infection"] },
   },
   {
@@ -243,6 +263,7 @@ export const CASES: CaseMeta[] = [
     slug: "trachoma",
     description: "Chronic conjunctivitis in a child from rural Ethiopia.",
     enable: true,
+    ogImage: "/cases/trachoma/trachoma.png",
     tags: { organisms: ["Chlamydia trachomatis"], syndromes: ["Ophthalmology", "Neglected Tropical Disease"], concepts: ["Trachoma", "Follicular conjunctivitis", "Preventable blindness"] },
   },
   {
@@ -299,6 +320,7 @@ export const CASES: CaseMeta[] = [
     slug: "balamuthia-gae",
     description: "A facial skin lesion that foreshadowed a fatal encephalitis.",
     enable: true,
+    ogImage: "/cases/balamuthia/balamuthia.png",
     tags: { organisms: ["Balamuthia mandrillaris"], syndromes: ["Neuroinfection", "Skin & Soft Tissue", "Parasitology"], concepts: ["Granulomatous amebic encephalitis", "Free-living ameba", "Miltefosine", "Cutaneous prodrome"] },
   },
   {
@@ -313,6 +335,7 @@ export const CASES: CaseMeta[] = [
     slug: "angiostrongylus",
     description: "Severe headache, migratory paresthesias, and a CSF full of eosinophils after a Hawaiian farm dinner.",
     enable: true,
+    ogImage: "/cases/angiostrongylus/angiostrongyloides.png",
     tags: { organisms: ["Angiostrongylus cantonensis"], syndromes: ["Neuroinfection", "Travel Medicine", "Parasitology"], concepts: ["Eosinophilic meningitis", "CSF eosinophilia", "Rat lungworm", "No anthelminthics", "Corticosteroids", "Serial lumbar punctures"] },
   },
   {
@@ -334,6 +357,7 @@ export const CASES: CaseMeta[] = [
     slug: "babesia",
     description: "Fever, hemolysis, and intraerythrocytic ring forms in an asplenic traveler.",
     enable: true,
+    ogImage: "/cases/babesia/babesia.png",
     tags: { organisms: ["Babesia microti"], syndromes: ["Hematology", "Travel Medicine", "Tick-Borne", "Parasitology"], concepts: ["Maltese cross tetrad", "Hemolytic anemia", "Asplenia", "Malaria mimic", "Exchange transfusion", "Atovaquone azithromycin"] },
   },
   {
@@ -341,6 +365,7 @@ export const CASES: CaseMeta[] = [
     slug: "fasciola-hepatica",
     description: "A Bolivian immigrant with fever, eosinophilia, and hepatic migratory lesions.",
     enable: true,
+    ogImage: "/cases/fasciola/fasciola.png",
     tags: { organisms: ["Fasciola hepatica"], syndromes: ["Travel Medicine", "Parasitology", "GI & Hepatic"], concepts: ["Hepatic fascioliasis", "Eosinophilic hepatitis", "Watercress exposure", "Triclabendazole", "Praziquantel resistance", "Migratory hepatic lesions"] },
   },
   {
@@ -355,6 +380,7 @@ export const CASES: CaseMeta[] = [
     slug: "orientia",
     description: "Fever, rash, and a painless black-crusted ulcer after trekking in rural Nepal.",
     enable: true,
+    ogImage: "/cases/orientia/orientia.png",
     tags: { organisms: ["Orientia tsutsugamushi"], syndromes: ["Travel Medicine", "Rickettsial", "Tick-Borne"], concepts: ["Scrub typhus", "Eschar", "Doxycycline", "Obligate intracellular", "Tsutsugamushi triangle"] },
   },
   {
