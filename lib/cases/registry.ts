@@ -386,8 +386,9 @@ export const CASES: CaseMeta[] = [
   {
     title: "The Loyal Companion",
     slug: "capnocytophaga",
-    description: "Septic shock and meningitis in an asplenic pattient",
+    description: "Septic shock and meningitis in an asplenic patient whose dog never bit her.",
     enable: true,
+    ogImage: "/cases/capnocytophaga/capnocytphaga.png",
     tags: { organisms: ["Capnocytophaga canimorsus"], syndromes: ["Sepsis & Bacteremia", "Neuroinfection", "Zoonoses"], concepts: ["Asplenia", "Dog bite", "Fusiform gram-negative rods", "Aztreonam resistance", "Fastidious organism", "Capnophilic", "OPSI"] },
   },
   {
