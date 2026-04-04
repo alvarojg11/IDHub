@@ -384,6 +384,13 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Orientia tsutsugamushi"], syndromes: ["Travel Medicine", "Rickettsial", "Tick-Borne"], concepts: ["Scrub typhus", "Eschar", "Doxycycline", "Obligate intracellular", "Tsutsugamushi triangle"] },
   },
   {
+    title: "The Loyal Companion",
+    slug: "capnocytophaga",
+    description: "Septic shock and meningitis in an asplenic pattient",
+    enable: true,
+    tags: { organisms: ["Capnocytophaga canimorsus"], syndromes: ["Sepsis & Bacteremia", "Neuroinfection", "Zoonoses"], concepts: ["Asplenia", "Dog bite", "Fusiform gram-negative rods", "Aztreonam resistance", "Fastidious organism", "Capnophilic", "OPSI"] },
+  },
+  {
     title: "The Viscous Clue",
     slug: "klebsiella-endophthalmitis",
     description: "A diabetic man with endophthalmitis whose blood cultures revealed more than an eye infection.",

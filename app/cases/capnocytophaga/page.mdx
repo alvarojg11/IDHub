@@ -1,0 +1,356 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("capnocytophaga");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Loyal Companion
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old woman is brought to the emergency department by her husband
+    after he found her confused and febrile at home. Over the preceding three
+    days she had developed worsening fever, chills, and fatigue; on the morning
+    of presentation she was difficult to rouse. Her medical history is notable
+    for a splenectomy performed 15 years earlier following a motor vehicle
+    accident, and rheumatoid arthritis managed with low-dose prednisone 5 mg
+    daily for the past four years. She received her pneumococcal, meningococcal,
+    and <em>Haemophilus influenzae</em> type b vaccines at the time of splenectomy
+    but has not had booster doses. She does not use alcohol or tobacco and takes
+    no other medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On review of systems her husband reports she has not been bitten by any
+    animal and has not traveled recently. She has a golden retriever that sleeps
+    in the bedroom; the dog frequently licks her hands and forearms. She has
+    mild eczema affecting both forearms with areas of excoriated, non-intact skin.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is febrile to 39.8&#176;C, blood pressure 82/50 mmHg,
+    heart rate 122 bpm, and respiratory rate 26 breaths per minute. She is
+    somnolent and oriented only to person. There is no nuchal rigidity on initial
+    assessment; no skin rash or petechiae are identified. The remainder of the
+    examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 18,400/&#956;L with 88% neutrophils and 14 bands.
+    Platelet count is 54,000/&#956;L. INR is 1.8. Serum lactate is 4.2 mmol/L.
+    Creatinine is 1.9 mg/dL. Lumbar puncture is performed after CT of the head:
+    opening pressure 28 cmH&#8322;O; CSF white cell count 2,400/&#956;L with
+    94% neutrophils; CSF protein 292 mg/dL; CSF glucose 26 mg/dL with serum
+    glucose 110 mg/dL. Empiric therapy with vancomycin, ceftriaxone, ampicillin,
+    and dexamethasone is started. Two sets of blood cultures are drawn prior to
+    antibiotics.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    At 72 hours, one blood culture bottle flags positive. The Gram stain shows
+    slender, elongated, fusiform gram-negative rods with tapered ends arranged
+    singly and in loose aggregates. The laboratory notes the organism is
+    fastidious, required CO&#8322;-enriched conditions to grow, and failed to
+    grow on MacConkey agar.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/capnocytophaga/capnocytphaga.png"
+        alt="Gram stain showing slender elongated fusiform gram-negative rods with tapered ends characteristic of Capnocytophaga canimorsus"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Gram stain from blood culture: slender, elongated, fusiform gram-negative rods with tapered ends.
+      Image from Sooter et al., <em>ASM Case Reports</em>, 2024 (DOI: 10.1128/asmcr.00085-24).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-capnocytophaga-q1"
+  title="Question 1"
+  prompt="Which of the following organisms is most consistent with this blood culture morphology and clinical presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Pasteurella multocida",
+      feedback:
+        "Incorrect. Pasteurella multocida is a gram-negative coccobacillus found in the oral flora of cats and dogs and is the most common pathogen isolated from animal bite wound infections. It is an important consideration in any febrile patient with animal contact, and dog licks to broken skin can transmit it. However, Pasteurella appears on Gram stain as a small, plump coccobacillus — not as slender, elongated, fusiform rods with tapered ends. Pasteurella also grows readily on standard media and does not require CO₂ enrichment. The distinctive fusiform morphology and fastidious growth requirements in this case are the key discriminating features.",
+    },
+    {
+      id: "B",
+      label: "Eikenella corrodens",
+      feedback:
+        "Incorrect. Eikenella corrodens is a gram-negative rod, a member of the HACEK group, and a classic pathogen associated with human bite wounds and infective endocarditis. It does have fastidious growth characteristics and is capnophilic — requiring CO₂ enrichment — which is a point of similarity with the organism in this case. However, Eikenella is associated with human rather than animal bite wounds and produces small, flat colonies with a characteristic bleach odor that pit the agar surface. The fusiform morphology with tapered ends and the dog exposure history point away from Eikenella.",
+    },
+    {
+      id: "C",
+      label: "Capnocytophaga canimorsus",
+      correct: true,
+      feedback:
+        "Correct. Capnocytophaga canimorsus is a slender, fusiform, gram-negative rod with tapered ends that constitutes part of the normal oral flora of dogs and cats. The organism is fastidious: it requires CO₂-enriched conditions for optimal growth (the genus name literally means 'carbon dioxide eater'), fails to grow on MacConkey agar, and can take 5 to 7 days to grow in blood culture bottles, though modern automated systems typically detect it earlier. This patient has the two defining risk factors for fulminant Capnocytophaga infection: asplenia and corticosteroid-mediated immunosuppression. The exposure — dog licking excoriated eczematous skin — is the classic route of inoculation without a formal bite, a history that patients and clinicians frequently underestimate.",
+    },
+    {
+      id: "D",
+      label: "Fusobacterium nucleatum",
+      feedback:
+        "Incorrect. Fusobacterium nucleatum is indeed a slender, elongated, fusiform gram-negative rod with tapered ends — and its morphology on Gram stain can appear nearly identical to Capnocytophaga. This is the most morphologically challenging distractor in this case. The critical distinguishing features are clinical context and growth characteristics: Fusobacterium is an obligate anaerobe found in human oral, gastrointestinal, and genitourinary flora. It is associated with periodontal disease, aspiration pneumonia, Lemierre syndrome, and colorectal carcinoma — not with dog contact or asplenic bacteremia. Fusobacterium would grow under anaerobic conditions, not in CO₂-enriched aerobic culture.",
+    },
+    {
+      id: "E",
+      label: "Haemophilus influenzae",
+      feedback:
+        "Incorrect. Haemophilus influenzae is a gram-negative coccobacillus that requires X and V factors (hemin and NAD) for growth and will not grow on standard blood agar without supplementation. While H. influenzae can cause bacteremia and meningitis — particularly in asplenic patients who lack opsonizing antibody — and shares the fastidious growth requirement of CO₂ enrichment, its morphology is a small coccobacillus, not the characteristic slender, elongated, fusiform rod with tapered ends seen in this culture. Additionally, the patient received her H. influenzae type b vaccine at the time of splenectomy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-capnocytophaga-q2"
+  title="Question 2"
+  prompt="Susceptibility testing returns: susceptible to ampicillin-sulbactam, meropenem, and clindamycin; resistant to aztreonam. What is the most appropriate next treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Narrow to aztreonam 2 g IV every 8 hours to complete a 14-day course",
+      feedback:
+        "Incorrect. Aztreonam is a monobactam antibiotic with activity limited to aerobic gram-negative bacteria. Crucially, Capnocytophaga canimorsus is intrinsically resistant to aztreonam — a consistent finding across clinical isolates, explicitly reflected in the susceptibility report here. Narrowing from a carbapenem or cephalosporin to aztreonam when managing gram-negative bacteremia is a familiar clinical reflex, particularly in patients with reported beta-lactam allergy, and in this organism it would result in treatment failure. This is the key resistance trap in Capnocytophaga management.",
+    },
+    {
+      id: "B",
+      label: "Transition to oral amoxicillin-clavulanate 875/125 mg twice daily to complete a 14-day course",
+      feedback:
+        "Premature. Amoxicillin-clavulanate has excellent activity against Capnocytophaga canimorsus and is the appropriate oral agent for step-down therapy in uncomplicated bacteremia after documented clinical improvement. However, this patient has bacterial meningitis with an active CNS infection — early oral transition is not supported. CNS infections require sustained therapeutic intravenous drug concentrations throughout the treatment course. Oral step-down is reasonable for mild-to-moderate infections without CNS involvement.",
+    },
+    {
+      id: "C",
+      label: "Continue ceftriaxone 2 g IV every 12 hours to complete a 14-day course",
+      feedback:
+        "Not the preferred choice. For non-CNS Capnocytophaga canimorsus infections — including bacteremia — beta-lactam/beta-lactamase inhibitor combinations are the agents of choice: ampicillin-sulbactam or piperacillin-tazobactam IV for inpatient treatment, and amoxicillin-clavulanate orally for step-down or outpatient completion. For CNS infections, meropenem is preferred because the beta-lactamase inhibitor component of combination agents (sulbactam, tazobactam) penetrates the blood-brain barrier poorly. Meropenem crosses the BBB intact and achieves therapeutic bactericidal concentrations in the CSF. Ceftriaxone is not the first-line agent in either the CNS or non-CNS setting for this organism.",
+    },
+    {
+      id: "D",
+      label: "Meropenem 2 g IV every 8 hours to complete a 14-day course",
+      correct: true,
+      feedback:
+        "Correct. Meropenem is the preferred beta-lactam for gram-negative bacterial meningitis, including Capnocytophaga canimorsus CNS infection. Its pharmacokinetic and pharmacodynamic properties — high CNS penetration, sustained bactericidal activity in the CSF, and stability against most beta-lactamases — make it the agent of choice when the infecting organism is susceptible. Capnocytophaga canimorsus is consistently susceptible to carbapenems. A 14-day course is standard for gram-negative bacterial meningitis. The susceptibility report must also be reviewed to confirm the absence of aztreonam susceptibility, as narrowing to aztreonam would represent a dangerous and incorrect de-escalation in this organism.",
+    },
+    {
+      id: "E",
+      label: "Switch to vancomycin 25 mg/kg IV loading dose, then weight-based dosing",
+      feedback:
+        "Incorrect. Vancomycin is a glycopeptide active against gram-positive organisms — it has no activity against gram-negative bacteria including Capnocytophaga canimorsus. Once gram-negative rods are identified on blood culture Gram stain, vancomycin monotherapy is never appropriate. Vancomycin was appropriately included in the empiric meningitis regimen to cover gram-positive pathogens (including drug-resistant Streptococcus pneumoniae and Staphylococcus aureus) before the culture result; it should now be discontinued in favor of targeted gram-negative therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-capnocytophaga-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Capnocytophaga canimorsus</em> is a slender, elongated, fusiform gram-negative
+    rod that colonizes the oral flora of dogs and, less commonly, cats. The genus name
+    encodes two of its defining laboratory characteristics: <em>capno-</em> (from the
+    Greek for smoke or vapor, referring to CO&#8322;) and <em>-cytophaga</em> (cell
+    eater, reflecting its gliding motility and ability to lyse erythrocytes). The
+    organism is a commensal that causes no disease in its animal hosts but can produce
+    fulminant infection in susceptible humans following dog bites, scratches, or even
+    salivary contact with non-intact skin or mucous membranes. Formal bites are
+    reported in only half of cases; licks to abraded or eczematous skin are a
+    frequently underappreciated route.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism is fastidious: it grows slowly (typically 5 to 7 days on solid media,
+    though blood culture systems may flag earlier), requires CO&#8322;-enriched
+    conditions, and fails to grow on MacConkey agar. These characteristics place it
+    among the group of clinically important gram-negative rods that laboratories may
+    struggle to identify without extended incubation and enhanced media. Matrix-assisted
+    laser desorption ionization time-of-flight mass spectrometry (MALDI-TOF) has
+    significantly improved species-level identification in clinical laboratories.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Asplenic patients are at disproportionate risk for fulminant <em>Capnocytophaga</em>
+    bacteremia. The spleen is critical for the opsonization and clearance of
+    encapsulated organisms; <em>C. canimorsus</em> possesses surface structures that
+    resist phagocytosis and complement-mediated killing in the absence of splenic
+    function. Mortality from <em>C. canimorsus</em> septicemia in asplenic patients
+    can exceed 30%, and the syndrome may include septic shock, disseminated
+    intravascular coagulation, purpura fulminans, and peripheral gangrene. Meningitis
+    is an established but less common manifestation. Additional risk factors include
+    alcohol use disorder, hematologic malignancy, and corticosteroid therapy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Beta-lactam antibiotics are the treatment of choice. <em>Capnocytophaga canimorsus</em>
+    is consistently susceptible to penicillin G, ampicillin-sulbactam, piperacillin-tazobactam,
+    cephalosporins, carbapenems, clindamycin, fluoroquinolones, and metronidazole.
+    For non-CNS infections (including bacteremia) beta-lactam/beta-lactamase inhibitor
+    combinations are preferred: ampicillin-sulbactam or piperacillin-tazobactam IV, with
+    oral amoxicillin-clavulanate for step-down or outpatient therapy. For CNS infections,
+    meropenem is preferred because the beta-lactamase inhibitor components of combination
+    agents (sulbactam, tazobactam) penetrate the blood-brain barrier poorly; meropenem
+    crosses the BBB intact and achieves therapeutic bactericidal concentrations in the CSF.
+    The critical resistance to recognize is intrinsic resistance to aztreonam, a monobactam
+    active against aerobic gram-negative rods but with no activity against
+    <em>Capnocytophaga</em>. Narrowing to aztreonam when de-escalating gram-negative
+    therapy is a familiar but dangerous error in this organism, and the susceptibility
+    report must be reviewed carefully before any adjustment.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-capnocytophaga-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Capnocytophaga canimorsus</em> is normal oral flora in dogs and cats.
+      Infection follows dog bites, scratches, or saliva contact with non-intact
+      skin. A formal bite is absent in up to half of cases — always ask about
+      dog licking excoriated or eczematous skin.
+    </li>
+    <li>
+      Asplenia is the most important risk factor for fulminant disease.
+      Corticosteroids, alcohol use disorder, and hematologic malignancy are
+      additional risk factors. Mortality in asplenic patients can exceed 30%.
+    </li>
+    <li>
+      The Gram stain is distinctive: slender, elongated, fusiform gram-negative
+      rods with tapered ends. Fusobacterium nucleatum shares this morphology but
+      is an obligate anaerobe from human oral flora with no association with
+      animal contact.
+    </li>
+    <li>
+      The organism is fastidious: capnophilic (requires CO&#8322; enrichment),
+      fails to grow on MacConkey agar, and may require extended incubation.
+      MALDI-TOF has improved identification.
+    </li>
+    <li>
+      <em>Capnocytophaga canimorsus</em> is intrinsically resistant to aztreonam.
+      Do not narrow to aztreonam when de-escalating therapy in gram-negative
+      bacteremia without confirming susceptibility — this is a potentially fatal
+      error.
+    </li>
+    <li>
+      For non-CNS infections (bacteremia), beta-lactam/beta-lactamase inhibitors
+      are preferred: ampicillin-sulbactam or piperacillin-tazobactam IV, with
+      amoxicillin-clavulanate orally for step-down. For CNS infections, meropenem
+      is preferred because the beta-lactamase inhibitor component (sulbactam,
+      tazobactam) penetrates the blood-brain barrier poorly; meropenem crosses
+      the BBB intact.
+    </li>
+    <li>
+      Asplenic patients with dog bites or dog exposure and fever should be
+      treated as a medical emergency and started on empiric beta-lactam therapy
+      promptly. Functional asplenia (e.g., sickle cell disease) carries the
+      same risk as surgical asplenia.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Westwell AJ, Kerr KG, Spencer MB, Hutchinson DN.
+      Capnocytophaga canimorsus septicaemia in an asplenic patient.
+      <em>Journal of Infection</em>. 1989;18(2):165-167.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pers C, Gahrn-Hansen B, Frederiksen W.
+      Capnocytophaga canimorsus septicemia in Denmark, 1982-1995: review of 39 cases.
+      <em>Clinical Infectious Diseases</em>. 1996;23(1):71-75.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/clinids/23.1.71"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/clinids/23.1.71
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lion C, Escande F, Burdin JC.
+      Capnocytophaga canimorsus infections in human: review of the literature and case report.
+      <em>European Journal of Epidemiology</em>. 1996;12(5):521-533.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/BF00144007"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/BF00144007
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sooter AJ, et al. Capnocytophaga canimorsus meningitis in an immunocompromised host.
+      <em>ASM Case Reports</em>. 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/asmcr.00085-24"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/asmcr.00085-24
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
