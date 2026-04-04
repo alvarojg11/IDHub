@@ -1,7 +1,7 @@
 import "./globals.css";
-import Link from "next/link";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import SiteHeader from "@/components/SiteHeader";
 
 import type { Metadata } from "next";
 
@@ -61,64 +61,7 @@ export default function RootLayout({
             gtag('config', '${GA_TRACKING_ID}');
           `}
         </Script>
-        <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-white/75 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <Link href="/" className="group flex min-w-0 flex-col">
-              <span className="idhub-kicker">Clinical Learning Platform</span>
-              <span className="mt-1 text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
-                IDHub
-              </span>
-            </Link>
-
-            <div className="flex flex-col gap-3 lg:items-end">
-              <nav className="flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
-                {primaryNav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-full border border-transparent px-3 py-1.5 hover:border-[var(--border)] hover:bg-white/80 hover:text-[var(--foreground)]"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <span className="group relative">
-                  <button
-                    type="button"
-                    className="rounded-full border border-transparent px-3 py-1.5 hover:border-[var(--border)] hover:bg-white/80 hover:text-[var(--foreground)]"
-                  >
-                    Tools ▾
-                  </button>
-                  <span className="pointer-events-none absolute right-0 top-full z-50 mt-1 flex min-w-[160px] flex-col rounded-2xl border border-[var(--border)] bg-white p-2 opacity-0 shadow-[var(--shadow-medium)] transition-opacity group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-                    {toolsNav.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-xl px-3 py-2 text-sm text-[var(--muted)] hover:bg-[var(--background-soft)] hover:text-[var(--foreground)]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </span>
-                </span>
-              </nav>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <Link
-                  href="/contact"
-                  className="rounded-full border border-[var(--border)] bg-white/80 px-4 py-2 text-sm font-semibold text-[var(--foreground)] shadow-[0_8px_24px_rgba(13,30,24,0.06)] hover:border-[var(--border-strong)] hover:bg-white"
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="/assistant"
-                  className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(20,92,71,0.28)] hover:bg-[var(--primary-strong)]"
-                >
-                  Open IDAssistant
-                </Link>
-              </div>
-            </div>
-          </div>
-        </header>
+        <SiteHeader primaryNav={primaryNav} toolsNav={toolsNav} />
 
         <main className="relative mx-auto max-w-7xl px-4 pb-10 pt-4 sm:px-6 lg:px-8">
           {children}
