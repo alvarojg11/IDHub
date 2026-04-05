@@ -1,0 +1,316 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("strep-anginosus");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Sweet Smell of Trouble
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 54-year-old man with no significant past medical history presents with
+    four weeks of low-grade fever, drenching night sweats, right upper quadrant
+    discomfort, and a 10-pound unintentional weight loss. He denies recent
+    travel, sick contacts, alcohol use, or any recent dental or surgical
+    procedures. He has not seen a physician in several years and is not up to
+    date on preventive health maintenance.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.9&#176;C, heart rate 98 bpm, blood
+    pressure 118/74 mmHg, and oxygen saturation 98% on room air. He appears
+    fatigued and has lost muscle mass. There is tenderness to palpation in
+    the right upper quadrant without peritoneal signs. The liver edge is
+    palpable 3 cm below the costal margin. No splenomegaly, jaundice, or
+    lymphadenopathy is present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 15,800/&#956;L with 86% neutrophils and 11
+    bands. Hemoglobin is 10.4 g/dL (normocytic). Platelet count is 512,000/&#956;L.
+    ESR is 118 mm/hr and CRP is 194 mg/L. Alkaline phosphatase is 312 U/L;
+    AST and ALT are mildly elevated. Total bilirubin is normal. Serum albumin
+    is 2.8 g/dL. CT of the abdomen with contrast reveals an 8 cm
+    multiloculated low-attenuation lesion in the right hepatic lobe with
+    peripheral enhancement and internal septations, consistent with a
+    pyogenic abscess. No pneumobilia is identified. Two sets of blood cultures
+    are drawn before antibiotics are started.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-strep-anginosus-q1"
+  title="Question 1"
+  prompt="Blood cultures flag positive at 36 hours. The microbiology technician notes pinpoint colonies (less than 0.5 mm) on sheep blood agar with a narrow zone of alpha hemolysis and comments on a distinctive sweet, butterscotch-like odor when the plate is uncapped. Gram stain shows gram-positive cocci in short chains and pairs. Which organism is most likely responsible?"
+  options={[
+    {
+      id: "A",
+      label: "Streptococcus pneumoniae",
+      feedback:
+        "Incorrect. Streptococcus pneumoniae is alpha-hemolytic and produces gram-positive cocci — but several features argue against it here. Pneumococcal colonies are larger (1 to 2 mm) and characteristically develop a central depression giving them a 'draughtsman' or 'checker' appearance as they autolyze. The organism is optochin-susceptible and bile-soluble, distinguishing it from other alpha-hemolytic streptococci. Critically, S. pneumoniae does not produce the butterscotch-caramel odor described, and a pyogenic liver abscess is not a typical pneumococcal presentation.",
+    },
+    {
+      id: "B",
+      label: "Streptococcus anginosus group",
+      correct: true,
+      feedback:
+        "Correct. The combination of pinpoint colonies (less than 0.5 mm), alpha hemolysis, and a distinctive butterscotch or caramel odor on blood agar is the classic laboratory signature of the Streptococcus anginosus group (formerly called the S. milleri group). The odor results from the production of diacetyl, a volatile compound that is virtually pathognomonic for this organism group among streptococci. S. anginosus group members — S. anginosus, S. intermedius, and S. constellatus — are uniquely associated with pyogenic abscess formation at virtually any anatomic site, including the liver, brain, lung, abdomen, and soft tissue. Among the alpha-hemolytic streptococci, this is the group that forms abscesses.",
+    },
+    {
+      id: "C",
+      label: "Gemella morbillorum",
+      feedback:
+        "Incorrect, though this is the most challenging distractor. Gemella morbillorum is an alpha-hemolytic gram-positive coccus that can cause bacteremia, endocarditis, and — rarely — pyogenic abscesses in immunocompromised hosts. Its colony morphology is small and it can appear superficially similar to viridans streptococci. However, Gemella does not produce the characteristic butterscotch odor that is the defining feature in this case. Gemella is also vancomycin-susceptible with distinct biochemical characteristics (catalase-negative, PYR-negative) and is a far less common cause of pyogenic liver abscess than the S. anginosus group.",
+    },
+    {
+      id: "D",
+      label: "Enterococcus faecalis",
+      feedback:
+        "Incorrect. Enterococcus faecalis typically appears as gamma-hemolytic (non-hemolytic) or occasionally alpha-hemolytic gram-positive cocci in pairs and short chains. Colonies are generally larger (0.5 to 1 mm or more) and more robust on standard blood agar. The organism grows in 6.5% NaCl and is PYR-positive, distinguishing it biochemically from streptococci. Enterococcus does not produce the butterscotch-caramel odor described here. While E. faecalis can cause hepatic abscesses, it is not associated with the distinctive plate findings described in this case.",
+    },
+    {
+      id: "E",
+      label: "Streptococcus mitis",
+      feedback:
+        "Incorrect. Streptococcus mitis is an alpha-hemolytic viridans streptococcus with small colonies that can appear similar to the S. anginosus group on initial inspection. However, S. mitis does not produce diacetyl and therefore lacks the characteristic butterscotch-caramel odor. S. mitis is primarily associated with infective endocarditis and bacteremia in neutropenic patients, not with pyogenic abscess formation. The combination of the distinctive odor and the large multiloculated liver abscess in this patient points specifically to the S. anginosus group.",
+    },
+  ]}
+/>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/anginosus/sanginosus.png"
+        alt="Blood agar plate showing pinpoint alpha-hemolytic colonies of Streptococcus anginosus group with characteristic narrow green halo"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Sheep blood agar: pinpoint alpha-hemolytic colonies with a narrow green zone,
+      characteristic of the <em>Streptococcus anginosus</em> group.
+    </figcaption>
+  </div>
+</figure>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-strep-anginosus-q2"
+  title="Question 2"
+  prompt="The organism is identified and susceptibility testing confirms penicillin MIC ≤ 0.12 µg/mL (susceptible). What is the most appropriate management?"
+  options={[
+    {
+      id: "A",
+      label: "Metronidazole 500 mg IV every 8 hours plus percutaneous drainage",
+      feedback:
+        "Incorrect. Source control through percutaneous drainage is correctly included here, but metronidazole is the wrong antibiotic for this organism. Metronidazole covers anaerobic bacteria and is the treatment of choice for amebic liver abscess caused by Entamoeba histolytica — a critical diagnosis to consider in any patient with a hepatic abscess, particularly with travel to an endemic region. However, this patient has no travel history, and the blood culture confirms a bacterial streptococcal etiology. Metronidazole has no clinically meaningful activity against Streptococcus anginosus group. The drainage component is correct; the antibiotic choice is not.",
+    },
+    {
+      id: "B",
+      label: "IV penicillin G 4 million units every 4 hours without drainage",
+      feedback:
+        "Incomplete. Penicillin G is the drug of choice for susceptible Streptococcus anginosus group infections — the organism is consistently penicillin-susceptible and beta-lactams achieve excellent activity against it. However, antibiotic therapy alone is insufficient for a large (8 cm) multiloculated pyogenic liver abscess. Source control through percutaneous catheter drainage or surgical drainage is an essential component of management. Antibiotics without drainage are associated with treatment failure, prolonged bacteremia, and high mortality in large pyogenic abscesses. The antibiotic choice is correct; the omission of drainage is the critical error.",
+    },
+    {
+      id: "C",
+      label: "IV vancomycin alone without drainage",
+      feedback:
+        "Incorrect. Vancomycin is a glycopeptide with activity against gram-positive organisms and could cover Streptococcus anginosus group in terms of spectrum. However, when the organism is susceptible to penicillin — as confirmed here — beta-lactam therapy is strongly preferred over vancomycin. Vancomycin is reserved for penicillin-allergic patients or organisms with beta-lactam resistance. More critically, vancomycin monotherapy without drainage is doubly incorrect: antibiotics alone cannot sterilize a large multiloculated pyogenic liver abscess, and source control is mandatory for treatment success.",
+    },
+    {
+      id: "D",
+      label: "IV penicillin G 4 million units every 4 hours plus percutaneous drainage",
+      correct: true,
+      feedback:
+        "Correct. Management of pyogenic liver abscess requires both targeted antibiotic therapy and source control. Penicillin G is the preferred agent for penicillin-susceptible Streptococcus anginosus group infections — beta-lactams are the treatment of choice, and the confirmed low MIC makes narrowing from broader empiric coverage appropriate. Percutaneous catheter drainage under ultrasound or CT guidance is essential: antibiotics alone are inadequate for large (greater than 3 to 4 cm) or multiloculated abscesses and are associated with treatment failure and relapse. IV therapy is continued for 2 to 4 weeks, followed by oral amoxicillin step-down to complete a total course of 4 to 6 weeks depending on clinical and radiographic response. Importantly, this case also mandates urgent colonoscopy: Streptococcus anginosus group bacteremia is strongly associated with colorectal neoplasia — the GI tract is the presumed portal of entry, and up to 20 to 30% of patients are found to have colorectal adenoma or carcinoma.",
+    },
+    {
+      id: "E",
+      label: "IV vancomycin plus percutaneous drainage",
+      feedback:
+        "Incorrect. Percutaneous drainage is correctly included and is an essential component of management for this large multiloculated abscess. However, vancomycin is not the preferred antibiotic when penicillin susceptibility has been confirmed. Vancomycin is a glycopeptide with activity against gram-positive organisms and can cover Streptococcus anginosus group, but it is reserved for patients with documented penicillin allergy or beta-lactam-resistant organisms. When the organism is penicillin-susceptible, penicillin G or ampicillin is strongly preferred — beta-lactams achieve superior bactericidal activity against streptococci and are the established standard of care. Vancomycin represents unnecessary escalation in this setting.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-strep-anginosus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The <em>Streptococcus anginosus</em> group (SAG), comprising <em>S. anginosus</em>,
+    <em> S. intermedius</em>, and <em>S. constellatus</em>, occupies a distinct
+    ecological and clinical niche among the streptococci. Unlike other viridans
+    streptococci, which are primarily associated with endocarditis and bacteremia,
+    SAG is uniquely pyogenic: its members produce hyaluronidase and other virulence
+    factors that promote tissue invasion and suppurative collections at virtually
+    any anatomic site. Pyogenic liver abscess, brain abscess, lung abscess,
+    peritonsillar and retropharyngeal abscess, and intraabdominal collections are
+    all classic SAG presentations. The clinician who isolates a viridans streptococcus
+    from a blood culture must recognize when the organism is SAG rather than
+    a non-pyogenic viridans species, as this distinction fundamentally changes
+    the clinical urgency.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The laboratory signature of SAG is highly specific: pinpoint colonies (less than
+    0.5 mm at 24 hours) with variable hemolysis (alpha, beta, or gamma depending
+    on species and strain) and a distinctive butterscotch or caramel odor produced
+    by diacetyl. This odor is detectable when the agar plate is opened and is
+    virtually pathognomonic among streptococci. Variable Lancefield grouping (A, C,
+    F, G, or non-groupable) can complicate automated identification, but the
+    characteristic morphology and odor combined with the clinical context of
+    an abscess should reliably direct the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    SAG bacteremia with a hepatic abscess carries an important non-infectious implication:
+    a strong and well-established association with colorectal neoplasia. The GI tract,
+    particularly the colon, is the presumed portal of entry, bacterial translocation
+    through a disrupted colonic mucosa (as seen with adenoma, carcinoma, or inflammatory
+    bowel disease) seeds the portal circulation and leads to hepatic seeding. Multiple
+    case series report colorectal adenoma or carcinoma in 20 to 30% of patients with
+    SAG bacteremia. Colonoscopy is recommended in all patients with SAG bacteremia,
+    regardless of age or prior screening history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires both antibiotic therapy and source control. SAG is uniformly
+    susceptible to penicillin; beta-lactams are the agents of choice and should be
+    de-escalated to penicillin G or ampicillin once susceptibility is confirmed.
+    Percutaneous catheter drainage under imaging guidance is the standard approach
+    for accessible abscesses greater than 3 to 4 cm; surgical drainage is reserved
+    for inaccessible collections or drainage failures. Duration of therapy is
+    typically 4 to 6 weeks total, with transition to oral amoxicillin after an
+    initial IV course of 2 to 4 weeks, guided by clinical and imaging response.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-strep-anginosus-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      The <em>Streptococcus anginosus</em> group is the only viridans streptococcal
+      group with a specific propensity for pyogenic abscess formation — liver,
+      brain, lung, and abdominal abscesses are all classic presentations.
+    </li>
+    <li>
+      The laboratory signature is distinctive: pinpoint colonies (less than 0.5 mm),
+      variable hemolysis, and a characteristic butterscotch-caramel odor from
+      diacetyl production — virtually pathognomonic among streptococci.
+    </li>
+    <li>
+      Source control is mandatory. Antibiotics alone are insufficient for large
+      or multiloculated pyogenic abscesses — percutaneous or surgical drainage
+      must accompany antibiotic therapy.
+    </li>
+    <li>
+      SAG is uniformly penicillin-susceptible. Beta-lactams (penicillin G IV,
+      step-down to oral amoxicillin) are the treatment of choice. Total duration
+      is 4 to 6 weeks depending on source control and clinical response.
+    </li>
+    <li>
+      SAG bacteremia mandates colonoscopy. Up to 20 to 30% of patients have
+      an underlying colorectal adenoma or carcinoma, the colon is the likely
+      portal of entry via bacterial translocation through disrupted mucosa.
+    </li>
+    <li>
+      Do not confuse SAG with other alpha-hemolytic viridans streptococci (e.g.,
+      <em> S. mitis</em>, <em>S. oralis</em>) — those organisms are associated
+      with endocarditis and neutropenic bacteremia, not abscess formation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Molina JM, Leport C, Bure A, Wolff M, Michon C, Vilde JL.
+      Clinical and bacterial features of infections caused by <em>Streptococcus milleri</em>.
+      <em> Scandinavian Journal of Infectious Diseases</em>. 1991;23(5):659-666.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3109/00365549109024295"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3109/00365549109024295
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bert F, Bariou-Lancelin M, Lambert-Zechovsky N.
+      Clinical significance of bacteremia involving the <em>Streptococcus milleri</em> group:
+      51 cases and review. <em>Clinical Infectious Diseases</em>. 1998;27(2):385-387.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/514680"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/514680
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Patel N, Lubinsky AS, Moskovitz M, Chokshi R.
+      Association between <em>Streptococcus anginosus</em> group bacteremia and
+      colorectal cancer: a systematic review. <em>Journal of Clinical Gastroenterology</em>.
+      2022;56(3):216-224.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Brewer SC, Wunderink RG, Jones CB, Leeper KV.
+      Ventilator-associated pneumonia due to <em>Pseudomonas aeruginosa</em>.
+      Kaplan SL. <em>Streptococcus anginosus</em> group infections. <em>UpToDate</em>.
+      Accessed April 2026.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -12,6 +12,7 @@ export type CaseMeta = {
   enable?: boolean;     // optional: hide drafts
   tags?: CaseTag;       // SEO & index tags
   ogImage?: string;     // public path to representative image for OG card
+  teaser?: string;      // 2-3 sentence clinical hook + closing question for Instagram
 };
 
 export const CASES: CaseMeta[] = [
@@ -350,6 +351,7 @@ export const CASES: CaseMeta[] = [
     slug: "brugia-malayi",
     description: "Recurrent leg swelling, a healing inguinal scar, and a blood draw that had to wait until midnight.",
     enable: true,
+    teaser: "A woman from Malaysia has had six episodes of febrile leg swelling diagnosed as cellulitis, with an inguinal abscess that healed on its own. A daytime blood smear is negative. What is the most appropriate next diagnostic step?",
     tags: { organisms: ["Brugia malayi", "Wolbachia"], syndromes: ["Travel Medicine", "Parasitology", "Lymphatic"], concepts: ["Nocturnal periodicity", "Lymphatic filariasis", "ADLA", "Sterile abscess", "Anti-Wolbachia therapy", "Doxycycline macrofilaricidal"] },
   },
   {
@@ -358,6 +360,7 @@ export const CASES: CaseMeta[] = [
     description: "Fever, hemolysis, and intraerythrocytic ring forms in an asplenic traveler.",
     enable: true,
     ogImage: "/cases/babesia/babesia.png",
+    teaser: "An asplenic traveler returns from Cape Cod with fever, hemolytic anemia, and intraerythrocytic ring forms on smear. Malaria RDT is negative. What is the diagnosis and how do you treat?",
     tags: { organisms: ["Babesia microti"], syndromes: ["Hematology", "Travel Medicine", "Tick-Borne", "Parasitology"], concepts: ["Maltese cross tetrad", "Hemolytic anemia", "Asplenia", "Malaria mimic", "Exchange transfusion", "Atovaquone azithromycin"] },
   },
   {
@@ -366,6 +369,7 @@ export const CASES: CaseMeta[] = [
     description: "A Bolivian immigrant with fever, eosinophilia, and hepatic migratory lesions.",
     enable: true,
     ogImage: "/cases/fasciola/fasciola.png",
+    teaser: "A 26-year-old woman from rural Bolivia presents with 3 weeks of fever, right upper quadrant pain, and an eosinophil count of 4,540. Three consecutive stool exams are negative. CT shows hypodense hepatic lesions. What test confirms the diagnosis?",
     tags: { organisms: ["Fasciola hepatica"], syndromes: ["Travel Medicine", "Parasitology", "GI & Hepatic"], concepts: ["Hepatic fascioliasis", "Eosinophilic hepatitis", "Watercress exposure", "Triclabendazole", "Praziquantel resistance", "Migratory hepatic lesions"] },
   },
   {
@@ -373,6 +377,7 @@ export const CASES: CaseMeta[] = [
     slug: "enterococcus-gallinarum",
     description: "Not all vancomycin resistance is created equal.",
     enable: true,
+    teaser: "Blood cultures in a cirrhotic patient grow Enterococcus gallinarum, automatically flagged as VRE. The infection control team wants to isolate. The team wants to start linezolid. Is this the right call?",
     tags: { organisms: ["Enterococcus gallinarum"], syndromes: ["Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["VanC resistance", "Intrinsic vancomycin resistance", "VRE misidentification", "Ampicillin-susceptible enterococcus", "Infection control", "Cirrhosis bacteremia"] },
   },
   {
@@ -382,6 +387,14 @@ export const CASES: CaseMeta[] = [
     enable: true,
     ogImage: "/cases/orientia/orientia.png",
     tags: { organisms: ["Orientia tsutsugamushi"], syndromes: ["Travel Medicine", "Rickettsial", "Tick-Borne"], concepts: ["Scrub typhus", "Eschar", "Doxycycline", "Obligate intracellular", "Tsutsugamushi triangle"] },
+  },
+  {
+    title: "The Sweet Smell of Trouble",
+    slug: "strep-anginosus",
+    description: "Fever, weight loss, and a multiloculated liver abscess — with a blood culture plate that smells like butterscotch.",
+    enable: true,
+    ogImage: "/cases/anginosus/sanginosus.png",
+    tags: { organisms: ["Streptococcus anginosus group", "Streptococcus anginosus", "Streptococcus intermedius", "Streptococcus constellatus"], syndromes: ["GI & Hepatic", "Sepsis & Bacteremia"], concepts: ["Pyogenic liver abscess", "Butterscotch odor", "Source control", "Colorectal cancer screening", "Viridans streptococci", "S. milleri group", "Diacetyl"] },
   },
   {
     title: "The Loyal Companion",
@@ -396,6 +409,7 @@ export const CASES: CaseMeta[] = [
     slug: "klebsiella-endophthalmitis",
     description: "A diabetic man with endophthalmitis whose blood cultures revealed more than an eye infection.",
     enable: true,
+    teaser: "A 54-year-old diabetic man presents with 3 days of right eye pain, light perception only, and a week of fever. Ophthalmology confirms endogenous endophthalmitis. Blood cultures are pending. What is the most important next diagnostic step?",
     tags: { organisms: ["Klebsiella pneumoniae"], syndromes: ["Ophthalmology", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Hypervirulent Klebsiella", "Endogenous endophthalmitis", "Pyogenic liver abscess", "String test", "Hypermucoviscosity", "Intravitreal antibiotics", "Metastatic infection"] },
   },
 ].filter((c) => c.enable !== false);
