@@ -412,6 +412,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 54-year-old diabetic man presents with 3 days of right eye pain, light perception only, and a week of fever. Ophthalmology confirms endogenous endophthalmitis. Blood cultures are pending. What is the most important next diagnostic step?",
     tags: { organisms: ["Klebsiella pneumoniae"], syndromes: ["Ophthalmology", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Hypervirulent Klebsiella", "Endogenous endophthalmitis", "Pyogenic liver abscess", "String test", "Hypermucoviscosity", "Intravitreal antibiotics", "Metastatic infection"] },
   },
+  {
+    title: "Positive, But Wrong",
+    slug: "trichosporon-asahii",
+    description: "A neutropenic BMT recipient with a positive CrAg and skin lesions that pointed elsewhere.",
+    enable: true,
+    ogImage: "/cases/trichosporon/trichosporon.png",
+    teaser: "A 44-year-old man on day 28 post-allogeneic BMT for AML has persistent fever, umbilicated skin papules, and a positive serum CrAg at 1:8. The team is about to start amphotericin B for cryptococcosis. What should happen first?",
+    tags: { organisms: ["Trichosporon asahii"], syndromes: ["Transplant & Immunocompromised", "Mycology"], concepts: ["CrAg false positive", "Glucuronoxylomannan cross-reactivity", "Echinocandin resistance", "Voriconazole", "Arthroconidia", "Disseminated trichosporonosis", "Neutropenia", "Allogeneic HSCT"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

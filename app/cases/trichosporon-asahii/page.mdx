@@ -1,0 +1,393 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("trichosporon-asahii");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Positive, But Wrong
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 44-year-old man with acute myeloid leukemia presents on day 28 following
+    allogeneic hematopoietic stem cell transplantation with persistent fever
+    despite five days of piperacillin-tazobactam and vancomycin. He underwent
+    myeloablative conditioning with busulfan and fludarabine and received a
+    matched unrelated donor graft. Tacrolimus and methotrexate are in use for
+    graft-versus-host disease prophylaxis. He has remained profoundly neutropenic
+    with an absolute neutrophil count of 80 cells/&#956;L.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the past 48 hours he has developed multiple skin lesions: firm,
+    erythematous papules 3 to 8 mm in diameter scattered across his trunk and
+    proximal extremities, several with a central umbilication and pale necrotic
+    center. He reports no pain at the sites. Two sets of blood cultures obtained
+    at the onset of fever are still without growth at 72 hours. Serum
+    (1&#8594;3)-&#946;-D-glucan is 480 pg/mL (reference: less than 80 pg/mL).
+    Serum cryptococcal antigen by lateral flow assay (IMMY CrAg LFA) returns
+    positive at a titer of 1:8.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The team considers starting empiric liposomal amphotericin B for presumed
+    cryptococcosis. On examination, the patient is febrile to 39.2&#176;C,
+    heart rate 104 bpm, and blood pressure 108/66 mmHg. He is alert and oriented.
+    No meningismus is present. The skin lesions are as described, without
+    fluctuance. There is no hepatosplenomegaly. CT of the chest, abdomen, and
+    pelvis shows no pulmonary nodules and no hepatic or splenic lesions. Chest
+    X-ray is unremarkable.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/trichosporon/trichosporon.png"
+        alt="Trichosporon asahii on Sabouraud dextrose agar showing white cerebriform colony with yeast forms and arthroconidia"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      <em>Trichosporon asahii</em> on Sabouraud dextrose agar: white, dry, cerebriform colony.
+      Microscopy reveals hyaline hyphae, pseudohyphae, barrel-shaped arthroconidia, and blastoconidia.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-trichosporon-asahii-q1"
+  title="Question 1"
+  prompt="The team is considering empiric treatment for Cryptococcus based on the positive CrAg. What is the most important next step before initiating antifungal therapy?"
+  options={[
+    {
+      id: "A",
+      label: "Start liposomal amphotericin B and flucytosine for disseminated cryptococcosis",
+      feedback:
+        "Incorrect. A positive CrAg alone is not sufficient to diagnose cryptococcosis and initiate nephrotoxic combination therapy in a neutropenic BMT recipient. The IMMY CrAg lateral flow assay cross-reacts with Trichosporon species, producing false-positive results due to shared glucuronoxylomannan-like antigens. In a post-BMT patient with umbilicated skin papules and profound neutropenia, Trichosporon asahii is a critical diagnosis that must be excluded before committing to a treatment course. Skin biopsy and blood cultures are the essential next step.",
+    },
+    {
+      id: "B",
+      label: "Perform skin biopsy of the lesions and repeat blood cultures",
+      correct: true,
+      feedback:
+        "Correct. Umbilicated skin papules in a neutropenic transplant recipient are a classic presentation of disseminated fungal infection, and skin biopsy provides rapid, high-yield diagnostic information. Trichosporon asahii produces a characteristic histologic and microbiologic picture: hyaline hyphae, pseudohyphae, and barrel-shaped arthroconidia on tissue staining and culture. Blood cultures, though often negative early, remain essential. The positive CrAg in this context is a false positive from Trichosporon glucuronoxylomannan cross-reactivity, not evidence of cryptococcosis. Proceeding to tissue diagnosis before empiric therapy is the correct approach.",
+    },
+    {
+      id: "C",
+      label: "Perform lumbar puncture for CSF cryptococcal antigen and India ink stain",
+      feedback:
+        "Not the priority. While lumbar puncture is essential in confirmed cryptococcal infection to assess CNS involvement, intracranial pressure, and fungal burden, this patient has no neurologic symptoms and no evidence of meningitis. More importantly, the positive serum CrAg should not be accepted at face value in a neutropenic BMT patient with umbilicated skin lesions. Proceeding to LP before establishing tissue diagnosis risks exposing the patient to an invasive procedure for an incorrect presumptive diagnosis. The skin lesions offer an accessible, high-yield biopsy target.",
+    },
+    {
+      id: "D",
+      label: "Add fluconazole empirically while awaiting further workup",
+      feedback:
+        "Incorrect. Fluconazole is not appropriate here for two reasons. First, the diagnosis has not been established: the positive CrAg may be a false positive, and the offending organism has not yet been identified. Second, and critically, Trichosporon asahii has intrinsic resistance to fluconazole and reduced susceptibility to other azoles except voriconazole. If Trichosporon is the causative pathogen, fluconazole would provide no therapeutic benefit and would delay initiation of effective therapy.",
+    },
+    {
+      id: "E",
+      label: "Repeat serum CrAg titer in 48 hours to assess trend",
+      feedback:
+        "Incorrect. Repeating the CrAg titer does not address the diagnostic uncertainty and introduces a harmful delay in a febrile, profoundly neutropenic patient with skin lesions. The titer of 1:8 is low and does not reliably distinguish true cryptococcal infection from Trichosporon cross-reactivity. In the context of post-BMT neutropenia, disseminated fungal infection demands tissue diagnosis without delay.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trichosporon-asahii-q2"
+  title="Question 2"
+  prompt="Skin biopsy is performed. Histology shows hyaline septate hyphae, pseudohyphae, and barrel-shaped arthroconidia. Culture of the biopsy specimen and a repeat blood culture both grow the same organism. What is the best explanation for the positive serum CrAg?"
+  options={[
+    {
+      id: "A",
+      label: "Co-infection with Cryptococcus neoformans producing a true positive result",
+      feedback:
+        "Incorrect. Co-infection is possible in theory, but in the absence of any supporting evidence (no CSF abnormality, no pulmonary nodules, no hepatic lesions, CT unremarkable), this is not the best explanation. The far more clinically important and well-documented phenomenon is cross-reactivity. Trichosporon asahii produces glucuronoxylomannan-like polysaccharides that are structurally similar to the cryptococcal capsular antigen and are recognized by the same antibodies used in the IMMY CrAg lateral flow assay and the latex agglutination CrAg test. This cross-reactivity is a recognized and clinically important pitfall.",
+    },
+    {
+      id: "B",
+      label: "Cross-reactivity of Trichosporon glucuronoxylomannan with the CrAg lateral flow assay",
+      correct: true,
+      feedback:
+        "Correct. Trichosporon asahii produces cell wall glucuronoxylomannan (GXM)-like polysaccharides that are antigenically similar to the capsular GXM of Cryptococcus neoformans and C. gattii. Both the latex agglutination and lateral flow assay formats of the CrAg test detect these cross-reactive antigens, producing false-positive results. This phenomenon is well-documented in the literature and is a critical diagnostic pitfall in immunocompromised patients, particularly post-transplant and in hematologic malignancy. The CrAg titer in Trichosporon cross-reactivity is typically low (1:2 to 1:16), as seen here, in contrast to true cryptococcal meningitis where titers are often much higher, though the titer alone is not sufficient to distinguish the two.",
+    },
+    {
+      id: "C",
+      label: "Cryptococcus neoformans with negative culture due to antifungal prophylaxis",
+      feedback:
+        "Incorrect. This patient was not on antifungal prophylaxis at the time of presentation. More importantly, the biopsy and blood cultures have positively identified Trichosporon asahii as the causative organism. The most parsimonious and evidence-based explanation for the positive CrAg in a patient with proven trichosporonosis is cross-reactivity, not a culturally silent Cryptococcus co-infection.",
+    },
+    {
+      id: "D",
+      label: "Laboratory error from serum beta-D-glucan contaminating the CrAg assay",
+      feedback:
+        "Incorrect. Beta-D-glucan (BDG) and cryptococcal antigen are measured by entirely different assays with different antibody-antigen detection systems. BDG is detected via a limulus amoebocyte lysate-based colorimetric assay; CrAg is detected by monoclonal antibody-based lateral flow or latex agglutination. There is no known cross-contamination between these two platforms. The positive CrAg is due to antigen cross-reactivity, not assay contamination.",
+    },
+    {
+      id: "E",
+      label: "The CrAg test cannot produce false positives and the result should be trusted",
+      feedback:
+        "Incorrect. The IMMY CrAg lateral flow assay, while highly sensitive and specific for Cryptococcus in most populations, has well-documented false-positive results in the setting of Trichosporon infection. The false-positive rate in non-cryptococcal disease is generally low, which is why this pitfall is under-recognized. However, in immunocompromised patients with invasive Trichosporon infection, the cross-reactivity is clinically significant and can lead to misdiagnosis and incorrect therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trichosporon-asahii-q3"
+  title="Question 3"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Micafungin 100 mg IV daily",
+      feedback:
+        "Incorrect. Echinocandins (micafungin, caspofungin, anidulafungin) have no clinically meaningful activity against Trichosporon asahii. Echinocandins target (1&#8594;3)-&#946;-D-glucan synthase in the fungal cell wall, but Trichosporon either lacks sufficient target enzyme or possesses structural adaptations that confer intrinsic resistance. Despite the markedly elevated serum BDG in this case (a non-specific marker of fungal cell wall exposure), echinocandins should not be used for trichosporonosis. This is the most dangerous treatment error in disseminated trichosporonosis.",
+    },
+    {
+      id: "B",
+      label: "Liposomal amphotericin B 3 mg/kg IV daily",
+      feedback:
+        "Suboptimal. Amphotericin B has modest in vitro activity against Trichosporon asahii, but clinical outcomes with amphotericin B-based therapy are poor, particularly in the setting of persistent neutropenia. MICs for amphotericin B against Trichosporon are often elevated, and clinical failures are well-documented. Voriconazole has consistently demonstrated superior in vitro activity and better clinical outcomes in case series and is considered the treatment of choice. Amphotericin B may be considered as a salvage or combination agent in refractory disease.",
+    },
+    {
+      id: "C",
+      label: "Voriconazole 6 mg/kg IV every 12 hours for two doses, then 4 mg/kg IV every 12 hours",
+      correct: true,
+      feedback:
+        "Correct. Voriconazole is the treatment of choice for disseminated Trichosporon asahii infection. It has the lowest MICs among available antifungals for this organism and the best documented clinical outcomes in case series and small cohort studies. Trichosporon is intrinsically resistant to echinocandins and often has elevated amphotericin B MICs. Among the azoles, voriconazole is preferred over fluconazole (to which Trichosporon shows reduced susceptibility) and over itraconazole. Recovery of neutrophil count is also a critical determinant of outcome: immunosuppression reduction and neutrophil engraftment are essential adjuncts to antifungal therapy. Voriconazole therapeutic drug monitoring with trough targets of 1 to 5.5 mg/L is recommended given significant pharmacokinetic variability.",
+    },
+    {
+      id: "D",
+      label: "Fluconazole 800 mg IV daily as loading dose, then 400 mg daily",
+      feedback:
+        "Incorrect. Trichosporon asahii has reduced susceptibility to fluconazole compared to voriconazole, with generally higher MICs. Clinical failures with fluconazole-based therapy in disseminated trichosporonosis are reported. Fluconazole lacks the extended spectrum of the later-generation triazoles and should not be used as primary therapy. Voriconazole is the preferred azole for this infection.",
+    },
+    {
+      id: "E",
+      label: "Combination therapy with micafungin and fluconazole",
+      feedback:
+        "Incorrect. Combining an echinocandin (to which Trichosporon is intrinsically resistant) with fluconazole (suboptimal activity) does not produce a useful therapeutic combination. Two ineffective or marginally active agents do not compensate for each other. This combination would expose the patient to drug toxicity without providing meaningful antifungal coverage. Voriconazole monotherapy is the established standard of care.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-trichosporon-asahii-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Trichosporon asahii</em> is a basidiomycetous yeast found in soil, water,
+    and as a commensal on human skin and the gastrointestinal tract. It is the
+    most clinically relevant species within the genus and the principal cause of
+    disseminated trichosporonosis, a life-threatening infection that occurs almost
+    exclusively in profoundly immunocompromised patients: recipients of allogeneic
+    hematopoietic stem cell transplants, patients receiving induction chemotherapy
+    for hematologic malignancy, and solid organ transplant recipients. Prolonged
+    neutropenia is the dominant risk factor; mortality in disseminated disease
+    remains high, often exceeding 60% in published series.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical presentation of disseminated trichosporonosis typically includes
+    persistent fever despite broad-spectrum antibacterial and antifungal coverage,
+    fungemia, and characteristic skin lesions. The skin lesions are a critical
+    clinical clue: they appear as erythematous papules or nodules, often with
+    central umbilication, pale centers, or necrosis, and are distributed on the
+    trunk and extremities. These lesions reflect hematogenous seeding and provide
+    the most accessible tissue for early diagnosis. Biopsy reveals hyaline septate
+    hyphae, pseudohyphae, and the pathognomonic barrel-shaped arthroconidia formed
+    by fragmentation of hyphae at septa. Blastoconidia may also be present.
+    The organism grows readily on standard mycology media including Sabouraud
+    dextrose agar, producing white to cream-colored, dry, cerebriform colonies.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The false-positive cryptococcal antigen is the key diagnostic pitfall in this
+    case. <em>T. asahii</em> produces glucuronoxylomannan (GXM)-like polysaccharides
+    in its cell wall that are antigenically cross-reactive with the capsular GXM
+    of <em>Cryptococcus neoformans</em> and <em>C. gattii</em>. Both the traditional
+    latex agglutination and the newer lateral flow assay formats detect these
+    cross-reactive antigens, producing false-positive CrAg results. The titer is
+    usually low (1:2 to 1:16), as in this case, but titer alone cannot reliably
+    exclude cross-reactivity: tissue diagnosis is essential. Clinicians who
+    encounter a low-titer positive CrAg in a neutropenic BMT recipient should
+    consider Trichosporon prominently in the differential.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Antifungal therapy for <em>T. asahii</em> requires understanding two critical
+    resistance patterns. First, echinocandins (micafungin, caspofungin,
+    anidulafungin) have no meaningful activity against Trichosporon: the organism
+    either lacks the target enzyme (1&#8594;3)-&#946;-D-glucan synthase or
+    possesses structural adaptations that render the echinocandin class ineffective.
+    This is the most consequential resistance pattern to recognize, as echinocandins
+    are commonly used empirically in febrile neutropenia. Second, amphotericin B
+    has variable and often suboptimal activity, with elevated MICs and poor
+    clinical outcomes despite in vitro susceptibility in some isolates.
+    Voriconazole, a second-generation triazole, demonstrates the lowest MICs
+    against <em>T. asahii</em> of all available agents and is the treatment of
+    choice based on in vitro data and clinical case series. Therapeutic drug
+    monitoring with voriconazole trough targets of 1 to 5.5 mg/L is recommended.
+    Recovery of neutrophil count remains the most important prognostic variable:
+    immune reconstitution is essential for clearance of infection.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-trichosporon-asahii-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Trichosporon asahii</em> causes disseminated trichosporonosis in
+      profoundly neutropenic patients, most commonly post-allogeneic HSCT and
+      during induction chemotherapy for AML. Mortality exceeds 60% in most
+      series. Neutrophil recovery is the most important prognostic factor.
+    </li>
+    <li>
+      Umbilicated skin papules with central necrosis in a neutropenic host are
+      a classic and high-yield finding of disseminated trichosporonosis. Skin
+      biopsy showing barrel-shaped arthroconidia is the most accessible route
+      to rapid diagnosis.
+    </li>
+    <li>
+      <em>Trichosporon</em> glucuronoxylomannan cross-reacts with the
+      cryptococcal antigen (CrAg) lateral flow assay and latex agglutination
+      test, producing false-positive results. A low-titer positive CrAg (1:2
+      to 1:16) in a neutropenic BMT patient should prompt evaluation for
+      trichosporonosis before committing to cryptococcal treatment.
+    </li>
+    <li>
+      Echinocandins have no activity against <em>Trichosporon asahii</em> and
+      must not be used. Amphotericin B has suboptimal clinical outcomes.
+      Voriconazole is the treatment of choice based on lowest MICs and best
+      published clinical outcomes.
+    </li>
+    <li>
+      Serum (1&#8594;3)-&#946;-D-glucan is typically markedly elevated in
+      disseminated trichosporonosis and supports the diagnosis, but it is
+      non-specific. Tissue diagnosis via skin biopsy or blood cultures is
+      required for definitive identification.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ruan SY, Chien JY, Hsueh PR.
+      Invasive trichosporonosis caused by Trichosporon asahii and other unusual
+      Trichosporon species at a medical center in Taiwan.
+      <em>Clinical Infectious Diseases</em>. 2009;49(1):e11-e17.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/599614"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/599614
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chagas-Neto TC, Chaves GM, Melo AS, Colombo AL.
+      Bloodstream infections due to Trichosporon spp.: species distribution,
+      Trichosporon asahii genotypes determined on the basis of ribosomal DNA
+      intergenic spacer 1 sequencing, and antifungal susceptibility testing.
+      <em>Journal of Clinical Microbiology</em>. 2009;47(4):1074-1081.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.01614-08"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.01614-08
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Liao Y, et al.
+      Trichosporon asahii: a review of the literature on molecular characterization
+      of the fungus and antifungal treatment.
+      <em>Mycopathologia</em>. 2019;184(4):449-456.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11046-019-00340-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s11046-019-00340-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Fonseca BO, et al.
+      Cryptococcal antigen cross-reactivity with Trichosporon species: a systematic
+      review.
+      <em>Medical Mycology</em>. 2022.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/mmy/myac062"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/mmy/myac062
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
