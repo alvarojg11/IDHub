@@ -1,0 +1,398 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hhv6-encephalitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Memory Lost
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 51-year-old man with acute myeloid leukemia presents on day 38 following
+    allogeneic hematopoietic stem cell transplantation from a matched unrelated
+    donor. He received myeloablative conditioning with busulfan and cyclophosphamide
+    and has developed grade II chronic graft-versus-host disease affecting the skin
+    and liver, managed with tacrolimus 2 mg twice daily and mycophenolate mofetil
+    1 g twice daily. Pretransplant serologies were notable for HSV IgG negative
+    and VZV IgG negative; accordingly, acyclovir prophylaxis was not initiated.
+    He is on fluconazole, trimethoprim-sulfamethoxazole, and letermovir for CMV
+    prophylaxis (donor CMV seropositive, recipient seronegative).
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the past five days his family has noted progressive confusion and
+    short-term memory loss: he cannot recall conversations from an hour earlier,
+    repeatedly asks the same questions, and has become increasingly disoriented
+    to time. This morning he had a witnessed generalized tonic-clonic seizure
+    lasting 90 seconds, which resolved spontaneously. He has had no fever, no
+    headache, and no focal neurologic deficits. His wife notes he has seemed
+    "not himself" for about a week.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is afebrile, blood pressure 128/74 mmHg, heart rate 88 bpm.
+    He is alert but disoriented to date and place. He cannot recall three words
+    after five minutes. There is no papilledema, no meningismus, and no focal
+    motor or sensory deficits. Serum sodium is 126 mEq/L with urine osmolality
+    480 mOsm/kg and urine sodium 48 mEq/L, consistent with the syndrome of
+    inappropriate antidiuretic hormone secretion. Serum CMV PCR is undetectable.
+    EEG shows diffuse slowing with left temporal sharp waves.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    MRI of the brain with and without gadolinium is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/hhv6/hhv6.png"
+        alt="MRI brain FLAIR sequence showing bilateral mesial temporal lobe hyperintensity involving the hippocampi and amygdalae consistent with limbic encephalitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      MRI brain, FLAIR sequence: bilateral T2/FLAIR hyperintensity involving the
+      mesial temporal lobes, hippocampi, and amygdalae, without significant gadolinium
+      enhancement. Pattern consistent with limbic encephalitis.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-hhv6-encephalitis-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely cause of this patient's limbic encephalitis?"
+  options={[
+    {
+      id: "A",
+      label: "Herpes simplex virus encephalitis",
+      feedback:
+        "Incorrect. HSV encephalitis is the most important mimicker of HHV-6 limbic encephalitis and must always be excluded, particularly because it is rapidly fatal without treatment and acyclovir is highly effective. However, this patient was HSV IgG seronegative pretransplant and was not receiving acyclovir prophylaxis, making de novo primary HSV encephalitis in an adult extremely unlikely. HSV encephalitis in the post-BMT setting typically occurs in HSV-seropositive patients who reactivate latent virus, usually in the absence of prophylaxis. CSF HSV PCR remains essential to exclude the diagnosis, and empiric acyclovir should be started pending results.",
+    },
+    {
+      id: "B",
+      label: "HHV-6 encephalitis",
+      correct: true,
+      feedback:
+        "Correct. HHV-6B reactivation is the most common infectious cause of limbic encephalitis in the post-allogeneic HSCT setting. It typically occurs between day 20 and day 60 post-transplant, precisely when this patient presents. The clinical syndrome is highly characteristic: subacute onset of short-term memory loss and anterograde amnesia, confusion, seizures (often temporal lobe semiology), and SIADH from hypothalamic involvement. MRI shows bilateral T2/FLAIR hyperintensity in the mesial temporal lobes (hippocampi, amygdalae, parahippocampal gyri) without significant enhancement. The combination of this MRI pattern, SIADH, post-transplant timing, and the absence of HSV and CMV as alternative explanations makes HHV-6 encephalitis the leading diagnosis.",
+    },
+    {
+      id: "C",
+      label: "CMV encephalitis",
+      feedback:
+        "Incorrect. CMV encephalitis is an important consideration in immunocompromised transplant recipients, but several features argue against it here. First, serum CMV PCR is undetectable, making systemic CMV viremia unlikely. Second, the patient is receiving letermovir for CMV prophylaxis, which provides effective prevention of CMV end-organ disease. Third, the MRI pattern of bilateral mesial temporal FLAIR hyperintensity is the hallmark of HHV-6, not CMV. CMV encephalitis in immunocompromised hosts more typically produces ventriculoencephalitis with periventricular enhancement, subacute dementia, or cranial nerve involvement. CSF CMV PCR should still be sent as part of the workup.",
+    },
+    {
+      id: "D",
+      label: "Autoimmune limbic encephalitis",
+      feedback:
+        "Incorrect. Autoimmune limbic encephalitis (including anti-NMDAR, anti-LGI1, anti-CASPR2, and other antibody-mediated encephalitides) can produce an identical MRI and clinical picture and must be on the differential. However, in an immunocompromised post-BMT patient in the classic window for HHV-6 reactivation, an infectious etiology is far more likely. Autoimmune limbic encephalitis is not excluded until infectious etiologies are thoroughly investigated and CSF studies are complete. If viral PCRs are negative and symptoms do not respond to antiviral therapy, autoimmune workup including CSF and serum neural antibody panels should be pursued.",
+    },
+    {
+      id: "E",
+      label: "EBV encephalitis",
+      feedback:
+        "Incorrect. EBV-related CNS disease in post-BMT patients most commonly presents as CNS post-transplant lymphoproliferative disorder (PTLD), which produces mass lesions on MRI rather than diffuse limbic signal change. Primary EBV encephalitis as a direct viral infection of the brain is rare and does not produce the characteristic bilateral mesial temporal FLAIR hyperintensity seen here. EBV PCR should be sent in the CSF as part of a comprehensive panel, but EBV encephalitis is not the most likely diagnosis in this clinical context.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hhv6-encephalitis-q2"
+  title="Question 2"
+  prompt="The team sends both a serum HHV-6 PCR and a CSF HHV-6 PCR as part of the workup. The serum HHV-6 PCR returns at an extraordinarily high level: greater than 10 million copies/mL. Before the CSF result is available, what is the most important consideration regarding the serum result?"
+  options={[
+    {
+      id: "A",
+      label: "A serum HHV-6 PCR above 1 million copies/mL is diagnostic of HHV-6 encephalitis",
+      feedback:
+        "Incorrect. A markedly elevated serum HHV-6 PCR does not confirm CNS disease and should never be used as the sole basis for diagnosing HHV-6 encephalitis. The most critical confounder is chromosomally integrated HHV-6 (ciHHV-6): approximately 1% of the general population carries HHV-6 integrated into germline chromosomal DNA. In these individuals, every nucleated cell contains one copy of the HHV-6 genome, producing extraordinarily high and stable viral loads in blood (often greater than 5 to 10 million copies/mL) that do not reflect active viral replication or CNS infection. Serum PCR alone cannot distinguish ciHHV-6 from true reactivation.",
+    },
+    {
+      id: "B",
+      label: "A markedly elevated serum HHV-6 PCR may reflect chromosomally integrated HHV-6, not active CNS infection; CSF PCR is required to confirm encephalitis",
+      correct: true,
+      feedback:
+        "Correct. Chromosomally integrated HHV-6 (ciHHV-6) is present in approximately 1% of the population and produces constitutively high HHV-6 DNA levels in whole blood (typically greater than 5 million copies/mL) because every nucleated cell harbors the integrated viral genome. This can be mistaken for florid viral reactivation. CSF HHV-6 PCR is the key discriminating test: in true HHV-6 encephalitis, the virus replicates in the CNS and is detectable in the CSF, while ciHHV-6 carriers typically have undetectable or very low HHV-6 DNA in CSF (because cerebrospinal fluid contains few nucleated cells). A positive CSF HHV-6 PCR in the appropriate clinical setting is the diagnostic standard for HHV-6 encephalitis.",
+    },
+    {
+      id: "C",
+      label: "The serum result confirms active HHV-6 viremia and treatment should be started immediately without awaiting CSF results",
+      feedback:
+        "Partially correct in approach, but incorrect in reasoning. Starting empiric antiviral therapy while awaiting CSF results is reasonable in a deteriorating patient: the risk-benefit calculation favors treatment in someone with seizures and worsening encephalopathy. However, the serum HHV-6 PCR result alone does not confirm active replication or CNS disease. The ciHHV-6 phenomenon means that a serum viral load greater than 10 million copies/mL may represent a benign germline integration rather than active infection. Proceeding without CSF confirmation would commit the patient to weeks of nephrotoxic antiviral therapy potentially without benefit.",
+    },
+    {
+      id: "D",
+      label: "Serum HHV-6 PCR is more sensitive than CSF PCR and the CSF result is unnecessary",
+      feedback:
+        "Incorrect. Serum HHV-6 PCR is more sensitive for detecting HHV-6 DNA in the bloodstream, but sensitivity is not the relevant metric here. The serum is confounded by ciHHV-6, which produces high-level DNA without CNS disease. CSF HHV-6 PCR is not competing with serum PCR for sensitivity; it is measuring a different compartment to establish whether the virus is replicating in the CNS. The CSF result is essential and cannot be replaced by the serum result.",
+    },
+    {
+      id: "E",
+      label: "The serum result suggests laboratory contamination and should be repeated",
+      feedback:
+        "Incorrect. A serum HHV-6 PCR greater than 10 million copies/mL is not indicative of contamination. This level of viral load is exactly what is observed in chromosomally integrated HHV-6 (ciHHV-6), where every nucleated cell in the body carries the integrated viral genome. Repeating the serum PCR would produce the same result. The appropriate next step is to interpret the serum result in the context of the clinical syndrome and await the CSF PCR, which is the test that establishes whether the virus is actively replicating in the CNS.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hhv6-encephalitis-q3"
+  title="Question 3"
+  prompt="CSF HHV-6 PCR returns positive at 48,000 copies/mL. HSV, VZV, CMV, and EBV PCRs are all negative. The diagnosis of HHV-6 encephalitis is confirmed. What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Acyclovir 10 mg/kg IV every 8 hours",
+      feedback:
+        "Incorrect. Acyclovir is the treatment of choice for HSV and VZV encephalitis, but it has minimal activity against HHV-6. The mechanism explains why: acyclovir requires phosphorylation by a virus-encoded thymidine kinase (TK) to become active. HSV and VZV encode efficient TKs that phosphorylate acyclovir to its active triphosphate form. HHV-6 does not encode a thymidine kinase and therefore cannot activate acyclovir. This is the most common and most dangerous treatment error in HHV-6 encephalitis: empiric acyclovir initiated for presumed HSV should be continued until HSV PCR is resulted, but it provides no HHV-6 coverage and must not be relied upon as definitive therapy.",
+    },
+    {
+      id: "B",
+      label: "Ganciclovir 5 mg/kg IV every 12 hours, or foscarnet 60 mg/kg IV every 8 hours",
+      correct: true,
+      feedback:
+        "Correct. Ganciclovir and foscarnet are the two antiviral agents with established activity against HHV-6 and are considered the treatment of choice for HHV-6 encephalitis. Ganciclovir inhibits the viral DNA polymerase (UL30 homolog in HHV-6) after phosphorylation by the viral kinase UL97 (HHV-6 encodes a phosphotransferase that, unlike in HSV, is capable of activating ganciclovir). Foscarnet directly inhibits the viral DNA polymerase without requiring prior phosphorylation. The choice between the two is guided by toxicity profile: ganciclovir causes myelosuppression (a significant concern in post-BMT patients with marrow recovery) while foscarnet causes nephrotoxicity and electrolyte disturbances. Both are acceptable first-line options. Treatment duration is typically three weeks, with monitoring of CSF viral load to guide response.",
+    },
+    {
+      id: "C",
+      label: "Cidofovir 5 mg/kg IV weekly with probenecid",
+      feedback:
+        "Not first-line. Cidofovir has in vitro activity against HHV-6 and can be considered as salvage therapy in refractory cases, but it is not used as initial treatment due to its severe nephrotoxicity, requiring pre-hydration and probenecid co-administration to reduce renal tubular uptake. In a post-BMT patient already at risk for renal complications from tacrolimus and other agents, cidofovir carries substantial additional risk. Ganciclovir or foscarnet are preferred for first-line therapy.",
+    },
+    {
+      id: "D",
+      label: "Rituximab 375 mg/m&#178; IV weekly for four doses",
+      feedback:
+        "Incorrect. Rituximab is a monoclonal antibody targeting CD20 on B cells and is used for EBV-related post-transplant lymphoproliferative disorder (PTLD), not for HHV-6 encephalitis. HHV-6 primarily infects CD4-positive T cells and neural progenitor cells. Rituximab has no antiviral activity and no role in the treatment of HHV-6 encephalitis. This distractor is included because rituximab is commonly used in the post-BMT setting for GvHD and PTLD, and confusion between these entities is a realistic clinical pitfall.",
+    },
+    {
+      id: "E",
+      label: "Reduce immunosuppression and observe without antiviral therapy",
+      feedback:
+        "Incorrect as the sole approach. Reduction of immunosuppression is an important adjunct in managing HHV-6 encephalitis and should be pursued when clinically feasible, as immune reconstitution is critical for viral clearance. However, in a patient with confirmed HHV-6 encephalitis causing seizures and progressive memory loss, antiviral therapy with ganciclovir or foscarnet must be initiated promptly. Observation alone in the context of active limbic encephalitis carries risk of irreversible hippocampal injury and death. Immunosuppression reduction and antiviral therapy are complementary, not mutually exclusive.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hhv6-encephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Human herpesvirus 6B (HHV-6B) is a betaherpesvirus that infects nearly all
+    humans in early childhood, establishing latency predominantly in CD4-positive
+    T lymphocytes, monocytes, and neural progenitor cells. Like all herpesviruses,
+    HHV-6B can reactivate under conditions of immunosuppression. In the setting of
+    allogeneic hematopoietic stem cell transplantation, HHV-6B reactivation occurs
+    in 30 to 70% of recipients, typically between day 20 and day 60 post-transplant:
+    the window of maximal immunosuppression during immune reconstitution. Encephalitis
+    develops in a subset, with limbic structures (hippocampus, amygdala,
+    parahippocampal gyrus) being preferentially targeted because of the reservoir
+    of latent virus in neural progenitor cells.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical syndrome of HHV-6 limbic encephalitis is distinctive. The hallmark
+    is subacute anterograde amnesia: patients lose the ability to form new memories
+    while remote memory is initially preserved, producing the disorientation and
+    repeated questioning observed here. Seizures are common and often have temporal
+    lobe semiology. SIADH, caused by hypothalamic involvement, is a characteristic
+    associated finding that should raise suspicion for HHV-6 in the post-transplant
+    patient with unexplained hyponatremia and encephalopathy. MRI reveals bilateral,
+    often asymmetric, T2/FLAIR hyperintensity in the mesial temporal lobes without
+    significant gadolinium enhancement: a pattern indistinguishable radiographically
+    from HSV encephalitis and autoimmune limbic encephalitis, underscoring the
+    importance of CSF PCR for diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The ciHHV-6 pitfall is one of the most important diagnostic considerations in
+    HHV-6 encephalitis. Approximately 1% of the general population harbors HHV-6
+    integrated into the telomeric region of a germline chromosome. Every nucleated
+    cell in these individuals contains one integrated HHV-6 genome, producing whole
+    blood viral loads typically exceeding 5 to 10 million copies/mL: a level that
+    would indicate life-threatening viral encephalitis if it reflected true
+    replication. CSF HHV-6 PCR resolves this ambiguity: cerebrospinal fluid contains
+    few nucleated cells, so ciHHV-6 carriers have absent or very low HHV-6 DNA in
+    CSF, while patients with true HHV-6 encephalitis have detectable and often high
+    viral loads reflecting active CNS replication. In equivocal cases, detection of
+    HHV-6 in hair follicles (which contain nucleated cells from a single individual)
+    can confirm ciHHV-6 when viral load equals whole-blood levels.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Antiviral therapy with ganciclovir or foscarnet is the standard of care. Neither
+    acyclovir nor valacyclovir has meaningful activity against HHV-6: the virus
+    lacks a thymidine kinase homolog capable of activating acyclovir to its
+    triphosphate form. Ganciclovir is phosphorylated by the HHV-6 UL97 homolog
+    (a viral phosphotransferase) and then by cellular kinases to its active
+    triphosphate, which inhibits the viral DNA polymerase. Foscarnet acts directly
+    on the viral DNA polymerase without requiring prior phosphorylation, making it
+    active regardless of viral kinase status. Myelosuppression from ganciclovir
+    is the principal concern in post-BMT patients, and complete blood count must be
+    monitored closely. Foscarnet requires careful attention to renal function and
+    electrolytes, including magnesium, phosphate, and calcium. Reduction of
+    immunosuppression, when feasible given the GvHD risk, is an essential adjunct
+    to antiviral therapy.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hhv6-encephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      HHV-6B encephalitis is the most common infectious cause of limbic encephalitis
+      in allogeneic HSCT recipients. It presents between day 20 and day 60
+      post-transplant with anterograde amnesia, confusion, temporal lobe seizures,
+      and SIADH. MRI shows bilateral mesial temporal T2/FLAIR hyperintensity.
+    </li>
+    <li>
+      SIADH in a post-BMT patient with confusion and temporal MRI changes should
+      immediately raise suspicion for HHV-6 encephalitis: hypothalamic involvement
+      is a characteristic feature that distinguishes it from other causes of
+      limbic encephalitis.
+    </li>
+    <li>
+      Chromosomally integrated HHV-6 (ciHHV-6) occurs in approximately 1% of the
+      population and produces markedly elevated whole-blood HHV-6 PCR levels
+      (often greater than 5 million copies/mL) without active viral replication
+      or CNS disease. CSF HHV-6 PCR is the diagnostic standard: it is positive
+      in true encephalitis and absent or very low in ciHHV-6 carriers.
+    </li>
+    <li>
+      Acyclovir has no meaningful activity against HHV-6: the virus lacks the
+      thymidine kinase required to activate acyclovir. Ganciclovir or foscarnet
+      are the treatments of choice. Empiric acyclovir should be continued until
+      HSV PCR is resulted, but must not be relied upon for HHV-6 coverage.
+    </li>
+    <li>
+      Reduction of immunosuppression is an essential adjunct to antiviral therapy
+      when clinically feasible, balancing the risk of GvHD flare against the need
+      for immune reconstitution to clear CNS viral infection.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Zerr DM, Gupta D, Huang ML, Carter R, Corey L.
+      Effect of antivirals on human herpesvirus 6 replication in hematopoietic stem
+      cell transplant recipients.
+      <em>Clinical Infectious Diseases</em>. 2002;34(3):309-317.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/338044"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/338044
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bhatt N, et al.
+      A contemporary review of HHV-6 encephalitis in allogeneic hematopoietic cell
+      transplant recipients: what every transplant infectious disease clinician
+      should know.
+      <em>Transplant Infectious Disease</em>. 2021;23(1):e13430.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/tid.13430"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/tid.13430
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pellett PE, et al.
+      Chromosomally integrated human herpesvirus 6: questions and answers.
+      <em>Reviews in Medical Virology</em>. 2012;22(3):144-155.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/rmv.715"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/rmv.715
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hill JA, et al.
+      Outcomes of HHV-6 encephalitis in allogeneic hematopoietic cell transplant
+      recipients: a multicenter study.
+      <em>Clinical Infectious Diseases</em>. 2021;72(9):1527-1535.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciaa172"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciaa172
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

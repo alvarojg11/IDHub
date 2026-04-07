@@ -413,6 +413,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Klebsiella pneumoniae"], syndromes: ["Ophthalmology", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Hypervirulent Klebsiella", "Endogenous endophthalmitis", "Pyogenic liver abscess", "String test", "Hypermucoviscosity", "Intravitreal antibiotics", "Metastatic infection"] },
   },
   {
+    title: "Memory Lost",
+    slug: "hhv6-encephalitis",
+    description: "A post-BMT patient with progressive amnesia, seizures, and a viral PCR result that demands a second look.",
+    enable: true,
+    ogImage: "/cases/hhv6/hhv6.png",
+    teaser: "A 51-year-old man on day 38 post-allogeneic BMT develops progressive short-term memory loss, a seizure, and hyponatremia. MRI shows bilateral mesial temporal FLAIR hyperintensity. He was HSV and VZV seronegative pretransplant and never received acyclovir. What is the most likely diagnosis?",
+    tags: { organisms: ["HHV-6B", "Human herpesvirus 6"], syndromes: ["Transplant & Immunocompromised", "Neuroinfection"], concepts: ["Limbic encephalitis", "Mesial temporal lobe", "Chromosomally integrated HHV-6", "ciHHV-6", "Ganciclovir", "Foscarnet", "Acyclovir ineffective", "SIADH", "Post-BMT encephalitis", "cGvHD"] },
+  },
+  {
     title: "Positive, But Wrong",
     slug: "trichosporon-asahii",
     description: "A neutropenic BMT recipient with a positive CrAg and skin lesions that pointed elsewhere.",
