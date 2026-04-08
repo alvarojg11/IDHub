@@ -1,0 +1,373 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hflu-meningitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Forgotten but Not Gone
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old man with alcohol use disorder is brought to the emergency
+    department by his roommate after being found confused and difficult to arouse.
+    His roommate reports he had complained of headache and neck stiffness for two
+    days and had been febrile and vomiting since the previous evening. He has no
+    significant medical history and takes no medications. His vaccination records
+    are unavailable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 39.9&#176;C, blood pressure 98/62 mmHg,
+    heart rate 118 bpm, and respiratory rate 22 breaths per minute. He is
+    somnolent and oriented only to person. There is severe nuchal rigidity and
+    a positive Kernig sign. No petechiae or purpuric lesions are identified.
+    Fundoscopic examination shows no papilledema. CT of the head without contrast
+    is obtained urgently and shows no mass lesion or midline shift.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Lumbar puncture is performed immediately. Opening pressure is 38 cmH&#8322;O.
+    CSF appears frankly turbid. CSF white cell count is 4,200/&#956;L with 94%
+    neutrophils; protein is 318 mg/dL; glucose is 18 mg/dL with simultaneous
+    serum glucose of 104 mg/dL. Two sets of blood cultures are drawn and empiric
+    therapy with vancomycin, ceftriaxone, ampicillin, and dexamethasone is
+    initiated immediately. The CSF Gram stain result revealed:
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/hflu/hflu.png"
+        alt="CSF Gram stain showing small pleomorphic gram-negative coccobacilli consistent with Haemophilus influenzae"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      CSF Gram stain: small, pleomorphic gram-negative coccobacilli, seen singly
+      and in pairs. The organisms range from coccoid to short rod forms.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-hflu-meningitis-q1"
+  title="Question 1"
+  prompt="Which organism is most consistent with this morphology and clinical presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Neisseria meningitidis",
+      feedback:
+        "Incorrect. Neisseria meningitidis is the most important consideration in any young adult with bacterial meningitis, and it must always be high on the differential before the Gram stain result. However, N. meningitidis appears on Gram stain as gram-negative diplococci (pairs of kidney-shaped cocci), often seen within neutrophils. The morphology described here: small, pleomorphic organisms ranging from coccoid to short rod forms, is characteristic of Haemophilus influenzae, not Neisseria. N. meningitidis meningitis is also frequently associated with a petechial or purpuric rash and rapid progression to shock, which are absent here. Empiric ceftriaxone covers both organisms.",
+    },
+    {
+      id: "B",
+      label: "Haemophilus influenzae",
+      correct: true,
+      feedback:
+        "Correct. Haemophilus influenzae is a small, pleomorphic gram-negative coccobacillus: its morphology ranges from tiny coccoid forms to short rods, and organisms may appear singly, in pairs, or in short chains. This pleomorphism is a defining feature that distinguishes it from the diplococci of Neisseria and the uniform rod morphology of Enterobacteriaceae. In the context of bacterial meningitis in an adult with unclear vaccination history and alcohol use disorder, H. influenzae type b (Hib) is the leading diagnosis. Hib meningitis in adults is uncommon in fully vaccinated populations but persists in those without protective immunity. The Gram stain morphology, together with the clinical setting, points directly to this organism.",
+    },
+    {
+      id: "C",
+      label: "Streptococcus pneumoniae",
+      feedback:
+        "Incorrect. Streptococcus pneumoniae is the most common cause of bacterial meningitis in adults and should always be at the top of the differential, particularly in patients with alcohol use disorder, who are at increased risk for pneumococcal disease. However, S. pneumoniae appears on Gram stain as gram-positive diplococci (lancet-shaped pairs), not gram-negative coccobacilli. The gram-negative staining of the organisms here excludes pneumococcus. That said, empiric vancomycin plus ceftriaxone is appropriate until susceptibilities are confirmed, as drug-resistant S. pneumoniae remains a concern even when another organism is suspected.",
+    },
+    {
+      id: "D",
+      label: "Listeria monocytogenes",
+      feedback:
+        "Incorrect. Listeria monocytogenes is a gram-positive short rod that causes meningitis in immunocompromised patients, pregnant women, neonates, and the elderly. Alcohol use disorder is a recognized risk factor for listeriosis through its effects on cell-mediated immunity. However, Listeria is gram-positive, not gram-negative, and appears as a short rod with a characteristic tumbling motility in culture. The gram-negative staining and coccobacillary morphology here are not consistent with Listeria. Ampicillin, included in the empiric regimen, provides coverage for Listeria, which is appropriately maintained until the organism is identified.",
+    },
+    {
+      id: "E",
+      label: "Escherichia coli K1",
+      feedback:
+        "Incorrect. Escherichia coli K1 is a common cause of gram-negative bacterial meningitis in neonates, where the K1 capsular polysaccharide confers virulence by resisting complement-mediated killing. In adults, gram-negative enteric meningitis occurs primarily in the setting of neurosurgical procedures, CSF shunts, or severe immunosuppression. E. coli appears on Gram stain as a gram-negative rod, typically larger and more uniform in shape than the pleomorphic coccobacilli seen here. The clinical setting (healthy young adult, community-acquired, no recent surgery) and morphology both argue against E. coli.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hflu-meningitis-q2"
+  title="Question 2"
+  prompt="What is the most appropriate antibiotic management at this point?"
+  options={[
+    {
+      id: "A",
+      label: "Narrow to ampicillin 2 g IV every 4 hours immediately",
+      feedback:
+        "Incorrect. Ampicillin has excellent activity against H. influenzae and is the preferred agent for susceptible isolates, but beta-lactamase production must be confirmed as negative before narrowing from ceftriaxone. Approximately 30 to 40% of H. influenzae isolates in the United States produce beta-lactamase, rendering them ampicillin-resistant. Beta-lactamase testing is rapid (typically available within hours) and should be confirmed before any de-escalation. Narrowing prematurely to ampicillin in a beta-lactamase-producing isolate would represent a serious treatment error in a patient with bacterial meningitis.",
+    },
+    {
+      id: "B",
+      label: "Continue ceftriaxone 2 g IV every 12 hours; de-escalate to ampicillin only if beta-lactamase negative",
+      correct: true,
+      feedback:
+        "Correct. Ceftriaxone is the empiric and definitive treatment of choice for H. influenzae meningitis regardless of beta-lactamase status, as third-generation cephalosporins are stable to H. influenzae beta-lactamase and achieve excellent CSF penetration. Beta-lactamase testing should be awaited before considering de-escalation to ampicillin. If the isolate is beta-lactamase negative and ampicillin-susceptible, narrowing to ampicillin 2 g IV every 4 hours is appropriate and reduces antibiotic spectrum. Dexamethasone, started with the first antibiotic dose, should be continued for four days: the evidence for corticosteroid benefit in bacterial meningitis is strongest for Hib, where it significantly reduces hearing loss and neurologic complications.",
+    },
+    {
+      id: "C",
+      label: "Add vancomycin to ceftriaxone for synergistic coverage",
+      feedback:
+        "Incorrect. Vancomycin is a glycopeptide active exclusively against gram-positive organisms. It has no activity against gram-negative bacteria including H. influenzae and should not be added for gram-negative coverage. Vancomycin was appropriately included in the empiric regimen to cover possible drug-resistant S. pneumoniae before the Gram stain and culture results were available. Now that H. influenzae type b has been confirmed, vancomycin should be discontinued: it contributes no benefit and adds unnecessary toxicity.",
+    },
+    {
+      id: "D",
+      label: "Switch to meropenem 2 g IV every 8 hours for broader gram-negative coverage",
+      feedback:
+        "Incorrect. Meropenem is not indicated here. Ceftriaxone provides excellent and well-established coverage for H. influenzae meningitis, including beta-lactamase-producing strains, and achieves bactericidal CSF concentrations at standard dosing. Escalating to a carbapenem provides no additional clinical benefit and represents unnecessary antibiotic broadening. Carbapenems are reserved for highly resistant gram-negative meningitis (e.g., ESBL-producing or carbapenem-susceptible Enterobacteriaceae in specific clinical contexts) or post-neurosurgical infections. There is no indication to escalate beyond ceftriaxone for this isolate.",
+    },
+    {
+      id: "E",
+      label: "Discontinue dexamethasone, as corticosteroids are only indicated in pneumococcal meningitis",
+      feedback:
+        "Incorrect. Dexamethasone is indicated in bacterial meningitis regardless of the causative organism when given before or with the first antibiotic dose. While the evidence for corticosteroid benefit is most robust for H. influenzae type b meningitis (where it significantly reduces the risk of hearing loss and other neurologic sequelae) and for S. pneumoniae meningitis in high-income settings, current guidelines recommend dexamethasone empirically in all adults with suspected bacterial meningitis. Since the diagnosis is now confirmed as Hib, dexamethasone should be continued for the full four-day course.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hflu-meningitis-q3"
+  title="Question 3"
+  prompt="The patient has a roommate and two household contacts who spent significant time with him in the week before admission. What is the appropriate management for close contacts?"
+  options={[
+    {
+      id: "A",
+      label: "No prophylaxis is needed; this organism is not transmitted person-to-person",
+      feedback:
+        "Incorrect. H. influenzae type b is transmitted via respiratory droplets and direct contact with nasopharyngeal secretions. Household and close contacts of a Hib index case are at increased risk for secondary invasive disease, particularly unvaccinated or incompletely vaccinated individuals. Chemoprophylaxis is indicated to eradicate nasopharyngeal carriage in exposed contacts and prevent secondary cases. This is a recognized public health intervention and should not be overlooked at the time of discharge.",
+    },
+    {
+      id: "B",
+      label: "Ciprofloxacin 500 mg orally as a single dose for all close contacts",
+      feedback:
+        "Incorrect. Ciprofloxacin single-dose prophylaxis is the recommended regimen for close contacts of Neisseria meningitidis, not Haemophilus influenzae type b. The two organisms cause similar clinical syndromes, and their prophylaxis regimens are frequently confused. For Hib, rifampin is the agent of choice for chemoprophylaxis; it achieves high nasopharyngeal concentrations and has been shown to eradicate Hib carriage and prevent secondary cases. Ciprofloxacin has no established role in Hib prophylaxis.",
+    },
+    {
+      id: "C",
+      label: "Rifampin 20 mg/kg/day (maximum 600 mg) orally once daily for 4 days for all close contacts, and reassess vaccination status",
+      correct: true,
+      feedback:
+        "Correct. Rifampin chemoprophylaxis is indicated for all close contacts (household members, childcare contacts, and others with prolonged close exposure) of an index case of invasive Hib disease when the household contains an unvaccinated or incompletely vaccinated child under four years old, or in other high-risk contact situations as defined by the CDC. The regimen is rifampin 20 mg/kg/day (maximum 600 mg) once daily for four days. Critically, the index patient should also receive rifampin before discharge: the antibiotics used to treat meningitis (ceftriaxone) do not reliably eradicate nasopharyngeal Hib carriage, and the patient can reintroduce the organism into the household after recovery. All contacts should also have their Hib vaccination status reviewed and be vaccinated if not up to date.",
+    },
+    {
+      id: "D",
+      label: "Amoxicillin-clavulanate 875/125 mg orally twice daily for 5 days for all close contacts",
+      feedback:
+        "Incorrect. Amoxicillin-clavulanate is not recommended for Hib chemoprophylaxis. Even though it covers many H. influenzae strains, it does not reliably achieve the nasopharyngeal concentrations needed to eradicate carriage. Rifampin penetrates respiratory secretions and achieves bactericidal concentrations in the nasopharynx at standard oral doses, making it the agent of choice for Hib eradication. Beta-lactam agents, including amoxicillin-clavulanate and ceftriaxone used therapeutically, do not eliminate carriage.",
+    },
+    {
+      id: "E",
+      label: "No prophylaxis is needed because the index patient was treated with ceftriaxone, which eliminates carriage",
+      feedback:
+        "Incorrect. Ceftriaxone is highly effective for treating invasive Hib disease but does not reliably eradicate nasopharyngeal carriage. Patients who recover from Hib meningitis treated with ceftriaxone can remain colonized and transmit the organism to susceptible household contacts after discharge. For this reason, all index patients with invasive Hib disease should receive rifampin before discharge (unless they were treated with a regimen already shown to eradicate carriage, which ceftriaxone is not). This is a commonly overlooked step in the transition-of-care planning for these patients.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hflu-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Haemophilus influenzae</em> is a small, pleomorphic gram-negative
+    coccobacillus that colonizes the human upper respiratory tract. Encapsulated
+    strains are classified into serotypes a through f based on their capsular
+    polysaccharides; type b (Hib) was historically the dominant cause of invasive
+    disease, including meningitis, epiglottitis, pneumonia, and septic arthritis
+    in children under five. The introduction of conjugate Hib vaccines in the late
+    1980s produced one of the most dramatic reductions in vaccine-preventable
+    disease ever recorded, reducing Hib invasive disease incidence by more than
+    99% in vaccinated populations. In adults, invasive Hib disease now occurs
+    almost exclusively in those without protective immunity: the unvaccinated,
+    those with waning immunity, and individuals with functional or anatomic asplenia,
+    hypogammaglobulinemia, complement deficiency, or alcohol use disorder.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The Gram stain is the critical early diagnostic clue in bacterial meningitis
+    and guides initial treatment narrowing before culture results are available.
+    <em>H. influenzae</em> has a characteristic pleomorphic appearance: organisms
+    range from tiny coccoid forms to short rods, often with a mix of shapes in
+    the same field. This contrasts with the uniform diplococci of <em>Neisseria
+    meningitidis</em>, the lancet-shaped diplococci of <em>Streptococcus
+    pneumoniae</em>, and the larger, more uniform rods of Enterobacteriaceae.
+    Recognizing this morphology narrows the differential significantly and supports
+    early targeted therapy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Antibiotic management requires attention to beta-lactamase status before
+    de-escalation. Approximately 30 to 40% of <em>H. influenzae</em> clinical
+    isolates in the United States produce beta-lactamase, conferring ampicillin
+    resistance. Ceftriaxone is stable to this mechanism and remains active against
+    all beta-lactamase-positive isolates, making it the definitive agent of choice
+    for Hib meningitis at standard meningitis dosing (2 g IV every 12 hours, or
+    every 24 hours in some protocols). De-escalation to ampicillin is appropriate
+    only when beta-lactamase testing confirms a negative result and the isolate is
+    susceptible. Adjunctive dexamethasone, started before or with the first
+    antibiotic dose, should be continued for four days: the evidence base for
+    corticosteroid reduction of neurologic sequelae (particularly hearing loss) is
+    strongest for Hib meningitis and represents a standard of care in this infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Rifampin chemoprophylaxis for close contacts is a critical and frequently
+    overlooked component of Hib meningitis management. <em>H. influenzae</em>
+    type b spreads via respiratory droplets; household and close contacts of index
+    cases are at increased risk for secondary invasive disease, particularly
+    unvaccinated children and immunocompromised adults. Rifampin 20 mg/kg/day
+    (maximum 600 mg) once daily for four days eradicates nasopharyngeal Hib
+    carriage and is the recommended prophylaxis regimen. All close contacts
+    should have their Hib vaccination status reviewed. Rifampin
+    prophylaxis is not required for all contact scenarios: current guidelines
+    recommend individualized assessment based on the vaccination status and age
+    of household contacts.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hflu-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Haemophilus influenzae</em> type b meningitis in adults occurs in those
+      without protective immunity: the unvaccinated, those with alcohol use
+      disorder, asplenia, hypogammaglobulinemia, or complement deficiency.
+      On Gram stain, look for small, pleomorphic gram-negative coccobacilli
+      ranging from coccoid to short rod forms.
+    </li>
+    <li>
+      Ceftriaxone is the treatment of choice for Hib meningitis. De-escalation
+      to ampicillin is appropriate only after beta-lactamase testing confirms a
+      negative result: approximately 30 to 40% of <em>H. influenzae</em> isolates
+      in the United States are beta-lactamase positive and ampicillin-resistant.
+    </li>
+    <li>
+      Adjunctive dexamethasone, given before or with the first antibiotic dose
+      and continued for four days, reduces neurologic sequelae (especially
+      hearing loss) in Hib meningitis. The evidence for corticosteroid benefit
+      is strongest for this organism.
+    </li>
+    <li>
+      Rifampin 20 mg/kg/day (maximum 600 mg) once daily for 4 days is the
+      recommended chemoprophylaxis for close contacts of invasive Hib disease.
+       Confusing Hib prophylaxis (rifampin) with meningococcal prophylaxis (ciprofloxacin or rifampin) is
+      a common error.
+    </li>
+    <li>
+      All contacts should have Hib vaccination status reviewed. Unvaccinated or
+      incompletely vaccinated household members should receive catch-up vaccination
+      in addition to rifampin prophylaxis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      van de Beek D, de Gans J, Tunkel AR, Wijdicks EF.
+      Community-acquired bacterial meningitis in adults.
+      <em>New England Journal of Medicine</em>. 2006;354(1):44-53.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra052116"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra052116
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      de Gans J, van de Beek D; European Dexamethasone in Adulthood Bacterial
+      Meningitis Study Investigators.
+      Dexamethasone in adults with bacterial meningitis.
+      <em>New England Journal of Medicine</em>. 2002;347(20):1549-1556.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa021334"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa021334
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention.
+      Haemophilus influenzae type b: prevention and control of Hib disease.
+      <em>MMWR Recommendations and Reports</em>. 2014.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tunkel AR, et al.
+      Practice guidelines for the management of bacterial meningitis.
+      <em>Clinical Infectious Diseases</em>. 2004;39(9):1267-1284.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/425368"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/425368
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

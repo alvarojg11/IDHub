@@ -413,6 +413,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Klebsiella pneumoniae"], syndromes: ["Ophthalmology", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Hypervirulent Klebsiella", "Endogenous endophthalmitis", "Pyogenic liver abscess", "String test", "Hypermucoviscosity", "Intravitreal antibiotics", "Metastatic infection"] },
   },
   {
+    title: "Forgotten but Not Gone",
+    slug: "hflu-meningitis",
+    description: "An unvaccinated adult with bacterial meningitis and a Gram stain that tells the whole story.",
+    enable: true,
+    ogImage: "/cases/hflu/hflu.png",
+    teaser: "A 38-year-old man with alcohol use disorder and unknown vaccination history presents with two days of headache, fever, and neck stiffness followed by confusion. CSF is turbid with 4,200 WBC and 94% neutrophils. The Gram stain is shown. What is the most likely organism?",
+    tags: { organisms: ["Haemophilus influenzae", "Haemophilus influenzae type b"], syndromes: ["Neuroinfection"], concepts: ["Bacterial meningitis", "Gram-negative coccobacilli", "Beta-lactamase", "Dexamethasone", "Rifampin prophylaxis", "Hib vaccine", "Nasopharyngeal carriage", "Contact prophylaxis"] },
+  },
+  {
     title: "Memory Lost",
     slug: "hhv6-encephalitis",
     description: "A post-BMT patient with progressive amnesia, seizures, and a viral PCR result that demands a second look.",
