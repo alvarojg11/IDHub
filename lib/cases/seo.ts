@@ -245,6 +245,7 @@ export function getCaseSeoEntry(slug: string) {
     title,
     description,
     tags: match?.tags,
+    ogImage: match?.ogImage ?? null,
     url: `${BASE_URL}/cases/${slug}`,
     publishedAt: dates?.publishedAt ?? undefined,
     modifiedAt: dates?.modifiedAt ?? dates?.publishedAt ?? undefined,
