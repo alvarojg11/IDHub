@@ -19,7 +19,7 @@ export async function GET(
 
   const ogImage = caseEntry?.ogImage;
   const imageUrl = ogImage
-    ? `${new URL(req.url).origin}${ogImage}`
+    ? `https://infectiousdiseasehub.com${ogImage}`
     : null;
 
   const hasImage = Boolean(imageUrl);
