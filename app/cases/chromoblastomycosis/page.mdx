@@ -1,0 +1,395 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chromoblastomycosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Copper Penny Sign
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 47-year-old male farmer from the state of Pará in northern Brazil presents
+    with a three-year history of a slowly enlarging skin lesion on his right lower
+    leg. The lesion began as a small, firm papule after a minor scratch from a
+    wooden fence post and has progressively enlarged over the years. He reports
+    no pain, fever, or systemic symptoms. He has not sought medical attention
+    previously, attributing the lesion to a chronic wound from his agricultural
+    work.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination the lesion occupies a 12 by 9 cm area of the right lower leg.
+    It is a raised, verrucous, cauliflower-like plaque with a hyperkeratotic
+    surface, irregular borders, and scattered crusted areas. The surface has a
+    dark gray-brown discoloration. There is no fluctuance, warmth, or significant
+    surrounding erythema. Regional lymph nodes are not enlarged. The remainder of
+    the examination is unremarkable; there are no pulmonary, hepatic, or neurologic
+    findings.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A punch biopsy of the lesion is performed. The tissue is sent for
+    histopathology and fungal culture on Sabouraud dextrose agar. The
+    histopathologic result is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/fonsecae/copper.png"
+        alt="Histopathology showing brown thick-walled muriform sclerotic bodies (Medlar bodies) within the dermis, the pathognomonic finding of chromoblastomycosis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Skin biopsy, hematoxylin and eosin stain: brown, thick-walled, spherical to
+      polyhedral muriform cells with transverse and longitudinal septa, seen in
+      clusters within the dermis and within giant cells.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-chromoblastomycosis-q1"
+  title="Question 1"
+  prompt="The biopsy shows brown, thick-walled muriform cells with transverse septa clustered within the dermis. What is this pathognomonic structure called, and what diagnosis does it confirm?"
+  options={[
+    {
+      id: "A",
+      label: "Spherules containing endospores, confirming coccidioidomycosis",
+      feedback:
+        "Incorrect. Spherules are the tissue form of Coccidioides immitis and C. posadasii: large, thick-walled structures (20 to 200 micrometers in diameter) filled with endospores that are released upon rupture. They are seen in pulmonary and disseminated coccidioidomycosis. While spherules can occasionally appear in cutaneous coccidioidomycosis, they are large, contain endospores, and are not melanized. The small, brown, muriform cells with transverse septa seen here are not spherules. Coccidioidomycosis also has a very different geographic distribution and clinical presentation.",
+    },
+    {
+      id: "B",
+      label: "Grains (granules) surrounded by a neutrophilic infiltrate, confirming eumycetoma",
+      feedback:
+        "Incorrect. Eumycetoma (fungal mycetoma) is another chronic subcutaneous mycosis that can produce verrucous, nodular lesions on the feet and legs of agricultural workers and must be high on the differential. Its tissue hallmark is the presence of grains: compact colonies of fungal hyphae or actinomycete filaments embedded in a cement-like matrix, surrounded by a neutrophilic and granulomatous infiltrate. Grains are not muriform cells. The absence of grain structures and the presence of individual, thick-walled melanized muriform cells confirm chromoblastomycosis rather than eumycetoma.",
+    },
+    {
+      id: "C",
+      label: "Medlar bodies (sclerotic bodies), confirming chromoblastomycosis",
+      correct: true,
+      feedback:
+        "Correct. Medlar bodies, also called sclerotic bodies or muriform cells, are the pathognomonic tissue form of chromoblastomycosis. They are brown to golden-brown, thick-walled, spherical to polyhedral cells measuring 5 to 12 micrometers in diameter, with characteristic transverse and longitudinal septation producing a multilocular (muriform) appearance. They are often described as resembling copper pennies in histologic sections, which gives this case its title. Their dark pigmentation reflects melanin in the cell wall, a feature shared by all dematiaceous (melanized) fungi responsible for chromoblastomycosis. Medlar bodies are the diagnostic sine qua non: their presence in tissue confirms the diagnosis of chromoblastomycosis regardless of culture result.",
+    },
+    {
+      id: "D",
+      label: "Asteroid bodies, confirming sporotrichosis",
+      feedback:
+        "Incorrect. Asteroid bodies are eosinophilic, star-shaped deposits of immunoglobulin and complement that surround yeast cells of Sporothrix schenckii in tissue sections, a manifestation of the Splendore-Hoeppli phenomenon. They are seen in cutaneous and lymphocutaneous sporotrichosis and are a helpful diagnostic clue. However, asteroid bodies are pale and eosinophilic, not brown and muriform, and sporotrichosis produces a different clinical picture: a nodular lymphangitic pattern tracking along lymphatics, rather than the verrucous cauliflower-like plaque seen here. The brown pigmentation of the cells in this biopsy is the key distinguishing feature.",
+    },
+    {
+      id: "E",
+      label: "Yeast cells with pseudohyphae, confirming cutaneous candidiasis",
+      feedback:
+        "Incorrect. Candida species produce oval, gram-positive budding yeast cells with pseudohyphae in tissue, staining with GMS or PAS as pale, non-melanized structures. Cutaneous candidiasis typically presents as erythematous, moist, intertriginous eruptions in immunocompromised or diabetic patients, not as a chronic verrucous plaque on the lower leg in a farmer with a history dating to a minor wound. The brown, muriform, septate cells seen here are entirely inconsistent with Candida.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Fungal culture of the biopsy on Sabouraud dextrose agar yields a slowly
+    growing colony over three weeks. The colony is dark olive-green to black,
+    with a velvety surface and a black reverse. Microscopic examination of the
+    culture is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/fonsecae/fonsecaea.png"
+        alt="Microscopic morphology of Fonsecaea pedrosoi showing dark brown septate hyphae with conidia produced by multiple conidiation types"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Lactophenol cotton blue preparation: dark brown, septate, loosely branching
+      hyphae with pale brown to olivaceous conidia. Multiple conidiation types
+      are present, including Rhinocladiella-type, Cladosporium-type, and
+      Phialophora-type patterns.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-chromoblastomycosis-q2"
+  title="Question 2"
+  prompt="Culture yields a slow-growing, dark olive-black colony with the microscopic morphology shown. Which organism is the most likely cause of this patient's chromoblastomycosis?"
+  options={[
+    {
+      id: "A",
+      label: "Aspergillus niger",
+      feedback:
+        "Incorrect. Aspergillus niger is a common mold with a dark colony due to the pigmentation of its conidia, but it is not a dematiaceous fungus in the classical sense and does not cause chromoblastomycosis. A. niger produces characteristic conidiophores with large, round vesicles and biseriate phialides bearing chains of rough-walled, globose conidia. It causes invasive pulmonary and rhinosinusitis disease in immunocompromised patients, otomycosis, and rarely cutaneous infection. The microscopic morphology described here, with dark septate hyphae and multiple conidiation types, is inconsistent with A. niger.",
+    },
+    {
+      id: "B",
+      label: "Cladophialophora bantiana",
+      feedback:
+        "Incorrect. Cladophialophora bantiana is a dematiaceous fungus that shares the same dark melanized morphology but has a marked neurotropism: it is the most common cause of cerebral phaeohyphomycosis, a devastating CNS infection in both immunocompetent and immunocompromised individuals. C. bantiana produces primarily Cladosporium-type conidiation (long, branching chains of conidia) and does not produce the mixed conidiation types (Rhinocladiella, Cladosporium, and Phialophora patterns) characteristic of Fonsecaea pedrosoi. Clinically, C. bantiana causes brain abscesses, not verrucous skin plaques, in the overwhelming majority of reported cases.",
+    },
+    {
+      id: "C",
+      label: "Lomentospora prolificans",
+      feedback:
+        "Incorrect. Lomentospora prolificans (formerly Scedosporium prolificans) is a dematiaceous-like fungus known for its intrinsic resistance to essentially all antifungal agents, making it one of the most feared molds in immunocompromised patients. It produces flask-shaped annellides with conidia that are swollen at the base, quite different from the mixed conidiation types of Fonsecaea. L. prolificans causes disseminated and pulmonary infections in profoundly immunocompromised hosts, not chronic subcutaneous verrucous lesions in immunocompetent agricultural workers.",
+    },
+    {
+      id: "D",
+      label: "Fonsecaea pedrosoi",
+      correct: true,
+      feedback:
+        "Correct. Fonsecaea pedrosoi is the most common cause of chromoblastomycosis worldwide, responsible for the majority of cases in Latin America, Asia, and Africa. It is a dematiaceous (melanized) fungus that grows slowly on Sabouraud agar as a dark olive-green to black, velvety colony. Its defining microscopic feature is polymorphic conidiation: it produces conidia by three distinct mechanisms simultaneously, including Rhinocladiella-type (conidia borne on denticles along the sides of conidiophores), Cladosporium-type (branching chains of conidia), and Phialophora-type (conidia produced from flask-shaped phialides). This combination of mixed conidiation types in a dematiaceous isolate from a verrucous skin lesion in a tropical agricultural worker is highly characteristic of F. pedrosoi.",
+    },
+    {
+      id: "E",
+      label: "Sporothrix schenckii",
+      feedback:
+        "Incorrect. Sporothrix schenckii is a thermally dimorphic fungus that causes sporotrichosis. At room temperature it grows as a pale to dark mold producing delicate hyphae with conidia arranged in a daisy-like pattern around the tips of conidiophores. It is not a dematiaceous (melanized) fungus and does not produce the dark, heavily pigmented, thick-walled hyphae seen here. Sporotrichosis classically presents as a nodular lymphangitic syndrome tracking along lymphatics, not as a verrucous plaque. The cultural and microscopic characteristics here are not consistent with Sporothrix.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chromoblastomycosis-q3"
+  title="Question 3"
+  prompt="The diagnosis of chromoblastomycosis is confirmed. What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Surgical excision of the entire lesion without antifungal therapy",
+      feedback:
+        "Partially correct for very small, early lesions, but not appropriate here. Surgical excision alone can be curative for small (less than 2 cm), well-defined, early lesions of chromoblastomycosis when complete excision with clear margins is achieved. However, in established, extensive lesions such as this one (12 by 9 cm, verrucous plaque of three years duration), surgery alone carries a high rate of recurrence due to incomplete excision and local tissue spread. Surgery may be used as an adjunct to antifungal therapy for localized lesions, but systemic itraconazole is required as the primary treatment for established disease.",
+    },
+    {
+      id: "B",
+      label: "Itraconazole 200 to 400 mg orally daily for at least 12 months",
+      correct: true,
+      feedback:
+        "Correct. Itraconazole is the treatment of choice for chromoblastomycosis and has the largest body of evidence supporting its use. The mechanism of action (inhibition of ergosterol synthesis via CYP51) is effective against Fonsecaea pedrosoi, which is consistently susceptible in vitro. Standard dosing is 200 to 400 mg daily, and treatment must be prolonged: most guidelines recommend at least 12 months, and extensive or recalcitrant lesions may require 18 to 24 months or longer. Response is monitored clinically and through repeated biopsy demonstrating reduction in Medlar body density. Terbinafine 250 to 500 mg daily is an alternative agent with comparable efficacy in clinical series and may be combined with itraconazole for severe or refractory cases. Thermotherapy (local application of heat) can be used as an adjunct, exploiting the temperature sensitivity of the organism.",
+    },
+    {
+      id: "C",
+      label: "Micafungin 150 mg IV daily for 3 months",
+      feedback:
+        "Incorrect. Echinocandins (micafungin, caspofungin, anidulafungin) have no meaningful activity against Fonsecaea pedrosoi or other agents of chromoblastomycosis. Echinocandins target (1&#8594;3)-&#946;-D-glucan synthase in susceptible fungi, but the target enzyme in dematiaceous fungi is poorly inhibited, and clinical and in vitro data consistently show lack of echinocandin efficacy against these organisms. Additionally, micafungin is an intravenous agent not suitable for the prolonged outpatient treatment required for this chronic infection.",
+    },
+    {
+      id: "D",
+      label: "Fluconazole 400 mg orally daily for 6 months",
+      feedback:
+        "Incorrect. Fluconazole has limited activity against dematiaceous fungi including Fonsecaea pedrosoi. It is a first-generation triazole with a narrower spectrum than itraconazole or voriconazole and lacks reliable in vitro or clinical activity against the causative agents of chromoblastomycosis. Clinical failure with fluconazole is well-documented in this disease. Itraconazole, which has broader activity against melanized fungi, is the established standard of care.",
+    },
+    {
+      id: "E",
+      label: "Liposomal amphotericin B 3 mg/kg IV daily for 6 weeks",
+      feedback:
+        "Incorrect. Amphotericin B has limited activity against Fonsecaea pedrosoi and other agents of chromoblastomycosis in clinical practice, despite in vitro susceptibility in some studies. Clinical outcomes with amphotericin B for chromoblastomycosis are poor, and it is not recommended as primary therapy. Additionally, chromoblastomycosis is a chronic subcutaneous infection without systemic dissemination in immunocompetent hosts: intravenous amphotericin B is not appropriate for a localized cutaneous disease managed in the outpatient setting. Itraconazole or terbinafine, taken orally for prolonged courses, are the appropriate agents.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-chromoblastomycosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chromoblastomycosis is a chronic, progressive subcutaneous mycosis caused by
+    melanized (dematiaceous) fungi of the order Chaetothyriales. The most common
+    causative species worldwide is <em>Fonsecaea pedrosoi</em>, followed by
+    <em>Cladophialophora carrionii</em> (more prevalent in arid regions),
+    <em>Phialophora verrucosa</em>, and <em>Rhinocladiella aquaspersa</em>.
+    The disease is endemic in tropical and subtropical regions with high rainfall
+    and abundant vegetation, including Brazil, Madagascar, India, and parts of
+    Asia. Agricultural workers with regular skin contact with soil, wood, and
+    decaying plant material are at highest risk. Infection follows traumatic
+    inoculation of fungal elements into the skin, usually through a minor wound
+    from thorns, splinters, or vegetable matter.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical evolution is characteristically slow: lesions evolve over months
+    to years from a small papule into verrucous, nodular, or plaque-type lesions
+    with a warty, cauliflower-like surface. The lower extremities are affected in
+    the majority of cases. Despite the striking appearance, systemic dissemination
+    is rare in immunocompetent hosts; the infection remains localized to the
+    subcutaneous tissues and skin. Secondary bacterial superinfection and
+    lymphedema are common complications in long-standing disease. There is a
+    well-established association between chromoblastomycosis and the development
+    of squamous cell carcinoma arising in chronic lesions, underscoring the
+    importance of treatment even in patients with slowly progressive disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathognomonic tissue finding is the Medlar body (also called sclerotic
+    body or muriform cell): a brown to golden-brown, thick-walled, spherical
+    to polyhedral cell measuring 5 to 12 micrometers, with transverse and
+    longitudinal internal septation producing a multilocular appearance. These
+    cells are often described as resembling copper pennies in hematoxylin and
+    eosin sections. They reproduce by septation rather than budding, a process
+    called muriform division, and represent the tissue parasitic form regardless
+    of which species is responsible. The presence of Medlar bodies in a skin
+    biopsy from a patient with verrucous lesions is diagnostic of chromoblastomycosis
+    and does not require culture confirmation for diagnosis, though culture is
+    performed to identify the causative species.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Fonsecaea pedrosoi</em> is distinguished in culture by its polymorphic
+    conidiation: it simultaneously produces conidia by three different mechanisms
+    (Rhinocladiella-type, Cladosporium-type, and Phialophora-type), a feature
+    that separates it from other dematiaceous fungi. Treatment is prolonged and
+    challenging. Itraconazole 200 to 400 mg daily for at least 12 months is the
+    standard of care, with terbinafine 250 to 500 mg daily as an alternative or
+    combination partner for severe disease. Voriconazole and posaconazole have
+    demonstrated activity in vitro and in case reports and may be considered for
+    refractory cases. Amphotericin B and fluconazole have limited clinical efficacy
+    and are not recommended. Local thermotherapy (application of heat pads to
+    raise tissue temperature, exploiting the thermal sensitivity of the organism)
+    can be used as an adjunct. Cure is defined as clinical resolution with negative
+    biopsy and culture, which may require years of treatment in extensive disease.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chromoblastomycosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Chromoblastomycosis is a chronic subcutaneous mycosis caused by dematiaceous
+      (melanized) fungi, most commonly <em>Fonsecaea pedrosoi</em>. It affects
+      agricultural workers in tropical regions following traumatic soil inoculation,
+      producing slowly progressive verrucous, cauliflower-like lesions over months
+      to years.
+    </li>
+    <li>
+      Medlar bodies (sclerotic bodies, "copper pennies") are the pathognomonic
+      tissue form: brown, thick-walled, muriform cells with transverse and
+      longitudinal septa seen in clusters within the dermis. Their presence
+      confirms chromoblastomycosis regardless of culture result.
+    </li>
+    <li>
+      <em>Fonsecaea pedrosoi</em> is identified in culture by its polymorphic
+      conidiation: it simultaneously produces conidia by three mechanisms
+      (Rhinocladiella-type, Cladosporium-type, and Phialophora-type), a defining
+      feature that distinguishes it from other dematiaceous fungi.
+    </li>
+    <li>
+      Itraconazole 200 to 400 mg daily for at least 12 months is the treatment of
+      choice. Terbinafine is an alternative with comparable efficacy. Amphotericin
+      B and fluconazole have limited activity and are not recommended. Echinocandins
+      have no activity against dematiaceous fungi.
+    </li>
+    <li>
+      Long-standing chromoblastomycosis lesions carry a risk of squamous cell
+      carcinoma transformation. Treatment is indicated even in slowly progressive
+      or minimally symptomatic disease.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Queiroz-Telles F, de Hoog S, Santos DW, et al.
+      Chromoblastomycosis.
+      <em>Clinical Microbiology Reviews</em>. 2017;30(1):233-276.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00032-16"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.00032-16
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Queiroz-Telles F, McGinnis MR, Salkin I, Graybill JR.
+      Subcutaneous mycoses.
+      <em>Infectious Disease Clinics of North America</em>. 2003;17(1):59-85.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/s0891-5520(02)00067-6"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/s0891-5520(02)00067-6
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Seyedmousavi S, et al.
+      Scope and challenges of emerging and uncommon fungal diseases in Europe:
+      leading clinicians from across Europe provide their view.
+      <em>Lancet Infectious Diseases</em>. 2018;18(11):e344-e352.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(18)30372-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(18)30372-8
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -439,6 +439,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 44-year-old man on day 28 post-allogeneic BMT for AML has persistent fever, umbilicated skin papules, and a positive serum CrAg at 1:8. The team is about to start amphotericin B for cryptococcosis. What should happen first?",
     tags: { organisms: ["Trichosporon asahii"], syndromes: ["Transplant & Immunocompromised", "Mycology"], concepts: ["CrAg false positive", "Glucuronoxylomannan cross-reactivity", "Echinocandin resistance", "Voriconazole", "Arthroconidia", "Disseminated trichosporonosis", "Neutropenia", "Allogeneic HSCT"] },
   },
+  {
+    slug: "chromoblastomycosis",
+    title: "The Copper Penny Sign",
+    description: "A Brazilian farmer with a 3-year verrucous plaque and a pathognomonic tissue finding.",
+    enable: true,
+    ogImage: "/cases/fonsecae/copper.png",
+    teaser: "A 47-year-old Brazilian farmer presents with a 3-year history of a slow-growing, verrucous cauliflower-like plaque on his right lower leg. Biopsy is obtained. What does the pathologist find that clinches the diagnosis?",
+    tags: { organisms: ["Fonsecaea pedrosoi"], syndromes: ["Skin & Soft Tissue", "Mycology", "Travel Medicine"], concepts: ["Chromoblastomycosis", "Medlar bodies", "Sclerotic bodies", "Copper penny sign", "Dematiaceous fungi", "Polymorphic conidiation", "Itraconazole", "Verrucous plaque"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
