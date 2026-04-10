@@ -1,0 +1,381 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("secondary-syphilis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Great Imitator
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 25-year-old man presents to urgent care with a two-week history of a
+    diffuse rash. It started as faint pink macules on his chest and back, then
+    spread to his arms and legs, and he now notices discrete papules on his
+    palms and the soles of his feet. He reports mild fatigue, low-grade fever,
+    and notices that the lymph nodes in his groin and neck are tender and
+    enlarged. He is otherwise healthy and takes no medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On further questioning, he recalls a painless sore on the shaft of his
+    penis approximately six weeks ago. It lasted about two weeks and resolved
+    on its own; he attributed it to a friction injury and did not seek care.
+    He is sexually active with multiple male partners and reports inconsistent
+    condom use. His last HIV test three months ago was negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.1°C. There is a generalized
+    maculopapular rash involving the trunk, extremities, and notably the palms
+    and soles. No mucosal lesions are seen. Bilateral inguinal and cervical
+    lymphadenopathy is present. The remainder of the examination is
+    unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The palmar rash is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/secondary-syphilis/secondary-syphilis.png"
+        alt="Palmar rash of secondary syphilis: discrete copper-colored maculopapular lesions on the palm"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Palmar rash demonstrating discrete, copper-colored maculopapular lesions.
+      Image from{" "}
+      <a
+        href="https://www.sciencedirect.com/book/9781416043904/hunters-tropical-medicine-and-emerging-infectious-diseases"
+        target="_blank"
+        rel="noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        Hunter's Tropical Medicine and Emerging Infectious Diseases
+      </a>.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-secondary-syphilis-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Rocky Mountain spotted fever",
+      feedback:
+        "Incorrect. Rocky Mountain spotted fever (RMSF), caused by Rickettsia rickettsii, can produce a petechial or maculopapular rash that spreads centripetally from the wrists and ankles to the palms and soles, and is one of the important conditions that involves the palms and soles. However, RMSF presents as an acute febrile illness with rapid progression, often following a tick bite in an endemic area, and without a prior history of a genital ulcer. The patient typically appears toxic and ill. The sequential history of a painless genital sore followed weeks later by a diffuse rash and lymphadenopathy is not consistent with RMSF.",
+    },
+    {
+      id: "B",
+      label: "Pityriasis rosea",
+      feedback:
+        "Incorrect. Pityriasis rosea is a self-limited exanthem that typically begins with a single herald patch (a large, oval, scaly plaque) followed one to two weeks later by smaller daughter lesions arranged in a Christmas tree pattern along skin tension lines on the trunk. It classically spares the palms and soles. Systemic symptoms are minimal. There is no associated history of a genital ulcer. The palmar involvement and prior genital sore in this case make pityriasis rosea very unlikely.",
+    },
+    {
+      id: "C",
+      label: "Secondary syphilis",
+      correct: true,
+      feedback:
+        "Correct. This presentation is classic for secondary syphilis. The timeline is characteristic: a painless primary chancre appears at the site of inoculation approximately three weeks after exposure, persists for two to six weeks, and resolves spontaneously, often without the patient seeking care. Secondary syphilis develops four to ten weeks after the primary chancre, as Treponema pallidum disseminates hematogenously. The hallmark is a diffuse maculopapular rash that involves the palms and soles, a feature that distinguishes it from most other rashes and should always prompt consideration of syphilis. Constitutional symptoms including fever, malaise, and generalized lymphadenopathy are common.",
+    },
+    {
+      id: "D",
+      label: "Reactive arthritis",
+      feedback:
+        "Incorrect. Reactive arthritis (formerly Reiter syndrome) is a post-infectious inflammatory condition that can produce keratoderma blenorrhagica, a hyperkeratotic pustular rash on the palms and soles that can resemble secondary syphilis histologically. It is triggered by certain infections (classically Chlamydia trachomatis or enteric pathogens) and is associated with the classic triad of arthritis, urethritis, and conjunctivitis. The patient here lacks joint symptoms, eye findings, and the keratoderma of reactive arthritis is more crusted and hyperkeratotic than the maculopapular rash of secondary syphilis. The history of a painless genital ulcer is not a feature of reactive arthritis.",
+    },
+    {
+      id: "E",
+      label: "Hand, foot, and mouth disease",
+      feedback:
+        "Incorrect. Hand, foot, and mouth disease (HFMD), caused by enteroviruses (most commonly Coxsackievirus A16 or Enterovirus 71), produces vesicular lesions on the hands, feet, and oral mucosa. It primarily affects young children, though adults can be infected. The lesions are typically vesicular and painful rather than maculopapular and asymptomatic, and oral involvement is characteristic. The history of a prior painless genital ulcer followed by a disseminated maculopapular rash with lymphadenopathy is not consistent with HFMD.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-secondary-syphilis-q2"
+  title="Question 2"
+  prompt="Which of the following best describes the appropriate workup?"
+  options={[
+    {
+      id: "A",
+      label: "Send an RPR alone; if positive, treat without further testing",
+      feedback:
+        "Incorrect. A reactive RPR (or VDRL) alone is not sufficient to confirm syphilis, because non-treponemal tests have a false-positive rate of one to two percent. False positives occur in autoimmune conditions (SLE, antiphospholipid syndrome), pregnancy, viral infections (HIV, EBV, hepatitis), injection drug use, and other conditions. A reactive non-treponemal test must always be confirmed with a treponemal-specific test (FTA-ABS, TP-PA, or an enzyme immunoassay) before a diagnosis of syphilis is established and treatment initiated.",
+    },
+    {
+      id: "B",
+      label: "Send a treponemal test (FTA-ABS) alone; a positive result confirms the diagnosis",
+      feedback:
+        "Incorrect. Treponemal tests (FTA-ABS, TP-PA, treponemal EIA) are specific for Treponema pallidum and remain reactive for life after successful treatment. They are used to confirm a reactive non-treponemal screening test, but they cannot be used alone to assess disease activity or monitor treatment response. Because they remain positive indefinitely, a positive treponemal test in isolation cannot distinguish active infection from previously treated disease. Non-treponemal titers (RPR/VDRL) are essential for monitoring the response to therapy, as they should decline fourfold or more following successful treatment.",
+    },
+    {
+      id: "C",
+      label: "Send an RPR with titer; if reactive, confirm with a treponemal test (FTA-ABS or TP-PA)",
+      correct: true,
+      feedback:
+        "Correct. The traditional serologic algorithm for syphilis begins with a non-treponemal test (RPR or VDRL) reported with a quantitative titer. If reactive, confirmation is performed with a treponemal-specific test (FTA-ABS, TP-PA, or treponemal EIA). The RPR titer is essential for two reasons: first, it correlates broadly with disease activity (secondary syphilis typically produces high titers, often 1:16 or greater); and second, it is used to monitor treatment response, with a fourfold decline in titer (e.g., from 1:32 to 1:8) expected within six to twelve months of successful therapy. An alternative reverse-sequence algorithm begins with a treponemal EIA, confirmed by RPR if reactive, and is increasingly used in high-throughput laboratory settings.",
+    },
+    {
+      id: "D",
+      label: "Perform darkfield microscopy of a skin lesion scraping; if spirochetes are seen, treat",
+      feedback:
+        "Incorrect. Darkfield microscopy can directly visualize T. pallidum spirochetes from active lesions such as a primary chancre or moist secondary lesions (condylomata lata), and is the only method that allows direct visualization of the organism. However, it requires specialized equipment, trained personnel, and immediate processing of fresh specimens, making it impractical in most clinical settings. It is not the standard of care for diagnosis. Serologic testing is the cornerstone of syphilis diagnosis in virtually all clinical environments, and darkfield microscopy is rarely available outside of reference laboratories or specialized STI clinics.",
+    },
+    {
+      id: "E",
+      label: "Send an HIV viral load and CD4 count; syphilis workup is not needed until HIV status is clarified",
+      feedback:
+        "Incorrect. Syphilis and HIV co-infection are common and each should be evaluated independently and simultaneously. A clinical presentation consistent with secondary syphilis requires syphilis serologic testing regardless of HIV status. Furthermore, syphilis and HIV have a bidirectional relationship: syphilis disrupts mucosal barriers and promotes immune activation, facilitating HIV acquisition and transmission, while HIV alters the serologic response to syphilis and may affect disease progression. Delaying syphilis workup pending HIV results is inappropriate and may delay treatment. Both should be ordered at the same time.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-secondary-syphilis-q3"
+  title="Question 3"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline 100 mg orally twice daily for 7 days",
+      feedback:
+        "Incorrect. Doxycycline is a recommended alternative for primary, secondary, and early latent syphilis in patients with a penicillin allergy, but the correct duration is 14 days, not 7 days. Seven days is insufficient and is associated with higher treatment failure rates. Doxycycline should never be used in pregnancy, where penicillin desensitization is required regardless of allergy history. For this patient without a penicillin allergy, benzathine penicillin G is the first-line agent.",
+    },
+    {
+      id: "B",
+      label: "Azithromycin 2 g orally as a single dose",
+      feedback:
+        "Incorrect. Azithromycin was previously studied as an alternative for syphilis treatment, but widespread macrolide resistance in T. pallidum (driven by the A2058G and A2059G mutations in the 23S rRNA gene) has been documented in the United States, Europe, and worldwide. The CDC explicitly does not recommend azithromycin for the treatment of syphilis. Treatment failures with azithromycin have been well-documented. It should not be used.",
+    },
+    {
+      id: "C",
+      label: "Benzathine penicillin G 2.4 million units intramuscularly once",
+      correct: true,
+      feedback:
+        "Correct. Benzathine penicillin G 2.4 million units IM as a single dose is the treatment of choice for primary, secondary, and early latent syphilis (defined as infection acquired within the past year). Treponema pallidum remains uniformly susceptible to penicillin, and no resistance has ever been documented. The long-acting formulation provides sustained treponemicidal levels over two to three weeks. Patients should be counseled about the Jarisch-Herxheimer reaction: a febrile, flu-like reaction occurring within the first 24 hours of treatment in up to 50 percent of patients with secondary syphilis, caused by the release of lipoproteins and cytokines from dying spirochetes. It is self-limited and managed with antipyretics. Repeat RPR titers should be checked at 6 and 12 months to confirm a fourfold decline.",
+    },
+    {
+      id: "D",
+      label: "Benzathine penicillin G 2.4 million units intramuscularly weekly for 3 doses",
+      feedback:
+        "Incorrect. Three weekly doses of benzathine penicillin G (7.2 million units total) are the recommended regimen for late latent syphilis (infection of more than one year's duration or unknown duration) and for tertiary syphilis (excluding neurosyphilis). For primary, secondary, and early latent syphilis, a single dose of 2.4 million units IM is sufficient. This patient's presentation is consistent with secondary syphilis, and a single dose is appropriate.",
+    },
+    {
+      id: "E",
+      label: "Aqueous penicillin G 18 to 24 million units IV daily for 10 to 14 days",
+      feedback:
+        "Incorrect. Aqueous crystalline penicillin G administered intravenously for 10 to 14 days is the treatment for neurosyphilis and ocular syphilis, where sustained high CSF penicillin levels are required. Benzathine penicillin G achieves inadequate CSF concentrations and should not be used for neurosyphilis. This patient has secondary syphilis without neurologic symptoms, and IV penicillin is not indicated. If CNS involvement were suspected based on symptoms (headache, vision changes, hearing loss, cranial nerve palsies), lumbar puncture would be performed before treatment decisions were made.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-secondary-syphilis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Syphilis is caused by <em>Treponema pallidum</em> subspecies
+    <em>pallidum</em>, a thin, motile spirochete that cannot be cultured on
+    artificial media. Transmission occurs through direct contact with an
+    infectious lesion during sexual activity. After an incubation period of
+    nine to 90 days (average three weeks), primary syphilis presents as a
+    painless, indurated genital ulcer (chancre) at the site of inoculation,
+    accompanied by regional lymphadenopathy. The chancre heals spontaneously
+    in two to six weeks, often without the patient seeking care, as occurred
+    in this case.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Secondary syphilis develops four to ten weeks after the primary chancre as
+    spirochetes disseminate hematogenously. The hallmark is a diffuse
+    maculopapular rash that classically involves the palms and soles, a
+    feature present in fewer than five percent of other dermatologic
+    conditions. The lesions are typically non-pruritic, copper-colored, and
+    may be subtle in patients with darker skin tones. Other manifestations
+    include condylomata lata (moist, flat, warty perianal or genital lesions),
+    mucous patches in the oropharynx, patchy alopecia ("moth-eaten" alopecia),
+    and constitutional symptoms including fever, malaise, pharyngitis, and
+    generalized lymphadenopathy. Secondary syphilis is the stage of highest
+    infectivity. If untreated, symptoms resolve spontaneously and the patient
+    enters the latent phase.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Syphilis is called "the great imitator" because
+    its manifestations across all stages can mimic a wide variety of
+    conditions, including viral exanthems, drug reactions, psoriasis,
+    pityriasis rosea, lichen planus, and Rocky Mountain spotted fever. A high
+    index of suspicion and a low threshold for serologic testing are essential,
+    particularly in populations at risk. The palmar and plantar rash is the
+    most distinctive feature of secondary syphilis and should prompt immediate
+    serologic evaluation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Serologic diagnosis relies on the combination of a non-treponemal test
+    (RPR or VDRL) with a treponemal-specific confirmatory test (FTA-ABS,
+    TP-PA). Non-treponemal titers correlate with disease activity and are the
+    standard tool for monitoring treatment response. A fourfold decline in
+    titer (two dilutions, e.g., from 1:32 to 1:8) at six to twelve months
+    after treatment indicates successful therapy. Failure to achieve this
+    decline warrants repeat evaluation for re-infection or treatment failure
+    and consideration of lumbar puncture. All patients diagnosed with syphilis
+    should be tested for HIV; co-infection is common and may alter serologic
+    responses and disease progression.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The Jarisch-Herxheimer reaction occurs in up to 50 percent of patients
+    with secondary syphilis within the first 24 hours of penicillin therapy,
+    caused by the sudden release of T. pallidum lipoproteins and the
+    subsequent cytokine surge. It manifests as fever, chills, myalgias,
+    headache, and transient worsening of the rash. It is self-limited and
+    managed with antipyretics. Importantly, it is not an allergic reaction to
+    penicillin and should not prompt discontinuation of therapy. In pregnant
+    patients, the Jarisch-Herxheimer reaction can precipitate preterm labor
+    and requires close monitoring.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-secondary-syphilis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Secondary syphilis develops four to ten weeks after the primary chancre
+      as <em>T. pallidum</em> disseminates hematogenously. The hallmark is a
+      diffuse maculopapular rash involving the palms and soles, a feature
+      present in very few other conditions and a reliable clinical clue.
+    </li>
+    <li>
+      Syphilis is "the great imitator": it mimics a wide range of
+      dermatologic and systemic conditions. Any diffuse rash with palmar or
+      plantar involvement in a sexually active patient warrants immediate
+      syphilis serologies.
+    </li>
+    <li>
+      Serologic workup requires both a non-treponemal test (RPR or VDRL) with
+      titer and a confirmatory treponemal test (FTA-ABS, TP-PA). The RPR
+      titer is used to monitor treatment response; a fourfold decline at six
+      to twelve months confirms success.
+    </li>
+    <li>
+      Treatment for primary, secondary, and early latent syphilis is
+      benzathine penicillin G 2.4 million units IM as a single dose.
+      Doxycycline 100 mg twice daily for 14 days is the alternative for
+      penicillin-allergic patients who are not pregnant. Azithromycin should
+      not be used due to documented macrolide resistance in <em>T. pallidum</em>.
+    </li>
+    <li>
+      Warn patients about the Jarisch-Herxheimer reaction: a self-limited
+      febrile reaction within 24 hours of treatment caused by spirochete lysis.
+      It is not a penicillin allergy and does not require stopping therapy.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Workowski KA, Bachmann LH, Chan PA, et al.
+      Sexually Transmitted Infections Treatment Guidelines, 2021.
+      <em>MMWR Recomm Rep</em>. 2021;70(4):1-187.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.15585/mmwr.rr7004a1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.15585/mmwr.rr7004a1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tuddenham S, Ghanem KG.
+      Emerging issues and updatesin STI management.
+      <em>Infectious Disease Clinics of North America</em>. 2023;37(2):291-311.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.idc.2023.02.007"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.idc.2023.02.007
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hook EW 3rd.
+      Syphilis.
+      <em>Lancet</em>. 2017;389(10078):1550-1557.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(16)32411-4"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(16)32411-4
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

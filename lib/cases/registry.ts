@@ -448,6 +448,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 47-year-old Brazilian farmer presents with a 3-year history of a slow-growing, verrucous cauliflower-like plaque on his right lower leg. Biopsy is obtained. What does the pathologist find that clinches the diagnosis?",
     tags: { organisms: ["Fonsecaea pedrosoi"], syndromes: ["Skin & Soft Tissue", "Mycology", "Travel Medicine"], concepts: ["Chromoblastomycosis", "Medlar bodies", "Sclerotic bodies", "Copper penny sign", "Dematiaceous fungi", "Polymorphic conidiation", "Itraconazole", "Verrucous plaque"] },
   },
+  {
+    slug: "secondary-syphilis",
+    title: "The Great Imitator",
+    description: "A rash that reaches the palms and a genital sore the patient thought had healed.",
+    enable: true,
+    ogImage: "/cases/secondary-syphilis/secondary-syphilis.png",
+    teaser: "A 25-year-old man presents with a two-week diffuse rash, fever, and lymphadenopathy. He recalls a painless genital sore six weeks ago that resolved on its own. Now the rash has spread to his palms and soles. What is the diagnosis?",
+    tags: { organisms: ["Treponema pallidum"], syndromes: ["Sexually Transmitted Infections", "Skin & Soft Tissue"], concepts: ["Secondary syphilis", "Palmar rash", "The great imitator", "RPR", "Benzathine penicillin", "Jarisch-Herxheimer reaction", "Non-treponemal testing", "Treponemal testing"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
