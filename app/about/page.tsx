@@ -72,6 +72,26 @@ const collaborators = [
       "Through IDHub, his goal is not only to contribute to ongoing learning in medical education, but also to help other early-career colleagues advance their research goals by collaborating with them and sharing his experience as a researcher.",
   },
   {
+    name: "Javier Pérez",
+    role: "Research Collaborator",
+    contribution: "Case Development",
+    imageSrc: "/images/JavierPerez.png",
+    imageAlt: "Javier Pérez",
+    bio: "Javier is a medical intern at Universidad de los Andes with a deep interest in clinical reasoning and medical decision-making. He has extensive experience as a teaching assistant and has been recognized for his ability to mentor peers and translate difficult concepts into language that learners can actually use.",
+    details:
+      "His research interests center on clinical reasoning, the development of point-of-care ultrasound in underserved settings, and the formal study of disease probability and treatment thresholds, areas where clearer thinking directly changes what happens to patients. Through IDHub, he has found a space to pursue those interests in practice building cases and educational tools that bring clinical reasoning, probability, and diagnostic thinking to life. Outside of medicine, he represents Colombia as a vallenato singer-songwriter and guitarist, a reminder that the skills of storytelling and clarity matter as much at the bedside as anywhere else.",
+  },
+  {
+    name: "Christian Echevarría Dupuy, MD",
+    role: "Research Collaborator",
+    contribution: "Clinical Cases",
+    imageSrc: "/images/christian.png",
+    imageAlt: "Christian Echevarría Dupuy, MD",
+    bio: "Christian is an Infectious Diseases resident in Lima, Peru, with a focused interest in diagnostically and therapeutically challenging infections, antimicrobial resistance, and the practical demands of clinical decision-making. He brings a perspective shaped by practicing Infectious Diseases in Peru, a setting where the breadth of pathogens, resource constraints, and epidemiological context add layers of complexity that enrich how the field is understood.",
+    details:
+      "He believes case-based learning is one of the most effective ways to make Infectious Diseases approachable and relevant — not just for specialists, but for trainees and clinicians at every stage. Through IDHub, he contributes cases that reflect the diagnostic and therapeutic complexity he encounters in practice, and is actively interested in developing research within the platform around his clinical interests, with an emphasis on reasoning that holds up across different settings and systems.",
+  },
+  {
     name: "Jorge Luis Salinas, MD",
     role: "Project Advisor",
     contribution: "Mentorship",
@@ -97,7 +117,7 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-start">
-        <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
+        <div className="idhub-panel-strong rounded-[1.75rem] px-6 py-8 sm:px-8">
           <p className="idhub-kicker">About IDHub</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             A shared home for Infectious Diseases learning
@@ -152,9 +172,9 @@ export default function AboutPage() {
         </div>
 
         <div className="grid gap-6">
-          <article className="idhub-panel-strong rounded-[1.9rem] p-5 sm:p-6">
+          <article className="idhub-panel-strong rounded-[1.75rem] p-5 sm:p-6">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-[240px_minmax(0,1fr)]">
-              <div className="relative min-h-[300px] overflow-hidden rounded-[1.4rem] border border-[var(--border)] bg-white">
+              <div className="relative min-h-[300px] overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-white">
                 <Image
                   src="/images/alvaro.png"
                   alt="Alvaro Ayala, MD"
@@ -198,9 +218,9 @@ export default function AboutPage() {
           </article>
 
           {collaborators.map((c) => (
-            <article key={c.name} className="idhub-panel rounded-[1.8rem] p-5 sm:p-6">
+            <article key={c.name} className="idhub-panel rounded-[1.75rem] p-5 sm:p-6">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-[220px_minmax(0,1fr)]">
-                <div className="relative min-h-[280px] overflow-hidden rounded-[1.35rem] border border-[var(--border)] bg-white">
+                <div className="relative min-h-[280px] overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-white">
                   <Image
                     src={c.imageSrc}
                     alt={c.imageAlt}
@@ -233,7 +253,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)]">
-        <article className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
+        <article className="idhub-panel rounded-[1.75rem] p-6 sm:p-7">
           <p className="idhub-kicker">Why The Tools Exist</p>
           <div className="mt-4 space-y-4 text-sm leading-8 text-[var(--muted)] sm:text-base">
             <p>
@@ -263,7 +283,7 @@ export default function AboutPage() {
           </div>
         </article>
 
-        <aside className="idhub-panel rounded-[1.8rem] p-6">
+        <aside className="idhub-panel rounded-[1.75rem] p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Research idea in mind?
           </p>
@@ -293,7 +313,7 @@ export default function AboutPage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              className="group rounded-[1.75rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
             >
               <h3 className="text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
                 {t.title}
