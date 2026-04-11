@@ -457,6 +457,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 25-year-old man presents with a two-week diffuse rash, fever, and lymphadenopathy. He recalls a painless genital sore six weeks ago that resolved on its own. Now the rash has spread to his palms and soles. What is the diagnosis?",
     tags: { organisms: ["Treponema pallidum"], syndromes: ["Sexually Transmitted Infections", "Skin & Soft Tissue"], concepts: ["Secondary syphilis", "Palmar rash", "The great imitator", "RPR", "Benzathine penicillin", "Jarisch-Herxheimer reaction", "Non-treponemal testing", "Treponemal testing"] },
   },
+  {
+    slug: "histoplasmosis-hiv",
+    title: "Hidden in Plain Sight",
+    description: "A patient with newly diagnosed HIV, a CD4 of 18, and a bone marrow that told the whole story.",
+    enable: true,
+    ogImage: "/cases/histoplasma/histoplasma.png",
+    teaser: "A 34-year-old man with newly diagnosed HIV and a CD4 of 18 presents with six weeks of fever, night sweats, pancytopenia, and massive hepatosplenomegaly. The answer was available with a single urine test. What is it?",
+    tags: { organisms: ["Histoplasma capsulatum"], syndromes: ["Transplant & Immunocompromised", "Mycology", "HIV & AIDS"], concepts: ["Disseminated histoplasmosis", "Urine Histoplasma antigen", "Liposomal amphotericin B", "Itraconazole", "Pancytopenia", "Bone marrow aspirate", "Intracellular yeast", "ART timing", "IRIS"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
