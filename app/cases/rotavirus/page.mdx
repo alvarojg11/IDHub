@@ -1,0 +1,358 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("rotavirus");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Wheel Turns
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 74-year-old woman with osteoarthritis is admitted for elective right
+    total knee replacement. The surgery is uncomplicated and she is transferred
+    to the orthopedic recovery ward. On postoperative day four she develops
+    sudden-onset profuse watery diarrhea with six to eight loose stools per
+    day, nausea, vomiting, and a temperature of 38.2°C. She has no abdominal
+    pain and no blood in the stool. She is not on antibiotics and has had no
+    recent antibiotic exposure. She is otherwise healthy and takes no
+    immunosuppressive medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the following 48 hours, three additional patients on the same ward
+    develop identical symptoms. The infection control team is notified. Stool
+    studies including Clostridioides difficile PCR return negative. An electron
+    micrograph of the stool sample is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/rotavirus/rotavirus.png"
+        alt="Electron micrograph of rotavirus particles showing classic wheel-like triple-layered capsid morphology"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Electron micrograph of stool sample demonstrating viral particles with
+      a characteristic wheel-like morphology. Image adapted from{" "}
+      <a
+        href="https://www.thelancet.com/journals/laninf/article/PIIS1473309904009284/fulltext"
+        target="_blank"
+        rel="noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        Parashar et al., Lancet Infectious Diseases, 2004.
+      </a>
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-rotavirus-q1"
+  title="Question 1"
+  prompt="What does the structure of this virus imply for infection control during this outbreak?"
+  options={[
+    {
+      id: "A",
+      label: "Single-stranded RNA virus with a lipid envelope; alcohol-based hand rub is the preferred hand hygiene method",
+      feedback:
+        "Incorrect. Rotavirus is not enveloped and does not contain a lipid membrane. Enveloped viruses (influenza, SARS-CoV-2, RSV, HIV) are readily inactivated by alcohol-based hand rubs because ethanol disrupts the lipid bilayer. Rotavirus is a non-enveloped virus with a protein-only outer capsid, which makes it intrinsically more resistant to alcohol. If rotavirus had a lipid envelope, alcohol hand rub would indeed be the preferred method, but this is not the case.",
+    },
+    {
+      id: "B",
+      label: "Double-stranded DNA virus with a protein capsid; airborne precautions with N95 respirators are required",
+      feedback:
+        "Incorrect on both counts. Rotavirus contains double-stranded RNA (not DNA), organized into 11 segments. It is transmitted via the fecal-oral route through direct contact with contaminated surfaces, hands, and fomites, not via airborne droplet nuclei. Airborne precautions (negative pressure room, N95 respirators) are appropriate for pathogens such as Mycobacterium tuberculosis, measles, and varicella, which remain suspended in the air over long distances. Rotavirus requires contact precautions, not airborne precautions.",
+    },
+    {
+      id: "C",
+      label: "Non-enveloped double-stranded RNA virus with a triple-layered protein capsid; alcohol-based hand rub has reduced efficacy and soap and water hand hygiene is preferred",
+      correct: true,
+      feedback:
+        "Correct. Rotavirus (family Reoviridae) is a non-enveloped, double-stranded RNA virus with a genome of 11 segments enclosed within a distinctive triple-layered icosahedral protein capsid: an inner core (VP2), an intermediate layer (VP6, the most abundant protein and the target of group antigen detection), and an outer capsid (VP7 and VP4 spike protein). The name rotavirus derives from the Latin rota (wheel), reflecting the wheel-like appearance of the complete virion on electron microscopy. Because rotavirus lacks a lipid envelope, alcohol-based hand sanitizers are significantly less effective against it than against enveloped viruses. The CDC and WHO recommend soap and water as the preferred hand hygiene method during rotavirus outbreaks; soap mechanically removes viral particles from the hands rather than chemically inactivating them. This distinction is a critical and often overlooked point in nosocomial outbreak management.",
+    },
+    {
+      id: "D",
+      label: "Single-stranded RNA virus with a protein capsid; contact and droplet precautions are required due to aerosol generation during vomiting",
+      feedback:
+        "Incorrect. Rotavirus contains double-stranded RNA, not single-stranded RNA. While vomiting can generate aerosols and contributes to environmental contamination, the primary transmission route of rotavirus is fecal-oral, not droplet. Droplet precautions (surgical mask within 3 feet) are designed for pathogens transmitted by large respiratory droplets such as influenza, pertussis, and meningococcus. For rotavirus, contact precautions (gloves and gown for all patient contact, dedicated equipment, cohorting) are the appropriate isolation category.",
+    },
+    {
+      id: "E",
+      label: "Non-enveloped double-stranded RNA virus; standard precautions with alcohol-based hand rub are sufficient as rotavirus is self-limited",
+      feedback:
+        "Incorrect. While rotavirus is indeed self-limited in immunocompetent adults, the self-limited nature of the illness has no bearing on the adequacy of infection control measures. In a hospital setting, failure to implement appropriate precautions during a rotavirus outbreak can result in rapid spread to vulnerable patients, including the elderly and immunocompromised, in whom dehydration and prolonged illness can cause significant morbidity. Standard precautions alone are insufficient: contact precautions with cohorting are required, and alcohol-based hand rub alone is not adequate because rotavirus, as a non-enveloped virus, is resistant to ethanol. Soap and water hand hygiene is essential.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rotavirus-q2"
+  title="Question 2"
+  prompt="What is the most appropriate treatment for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Ciprofloxacin 500 mg orally twice daily for 5 days",
+      feedback:
+        "Incorrect. Antibiotics have no role in the treatment of viral gastroenteritis and should not be prescribed for rotavirus infection. Empiric antibiotic therapy for undifferentiated diarrhea is appropriate only in specific clinical contexts: dysentery (bloody diarrhea with fever), severe traveler's diarrhea, or suspected bacterial infection with systemic toxicity. In this patient with watery (non-bloody) diarrhea, confirmed viral etiology, and no signs of bacterial sepsis, antibiotics are not indicated and may contribute to antimicrobial resistance and disruption of the gut microbiome.",
+    },
+    {
+      id: "B",
+      label: "Metronidazole 500 mg orally three times daily for 7 days",
+      feedback:
+        "Incorrect. Metronidazole has activity against anaerobic bacteria and certain protozoa (Giardia, Trichomonas, Entamoeba) but has no antiviral activity. C. difficile PCR in this patient was negative, ruling out the most common indication for empiric metronidazole in a hospitalized patient with new diarrhea. Rotavirus is a viral infection requiring supportive care, not antimicrobial therapy.",
+    },
+    {
+      id: "C",
+      label: "Loperamide 4 mg orally initially, then 2 mg after each loose stool",
+      feedback:
+        "Incorrect in this setting. Loperamide is an opioid receptor agonist that reduces intestinal motility and secretion, providing symptomatic relief for non-infectious diarrhea. It is generally avoided in infectious gastroenteritis because slowing intestinal transit may prolong pathogen clearance and, in bacterial infections, increase the risk of systemic invasion or toxin accumulation. In rotavirus specifically, the diarrhea is caused by enterotoxin-mediated secretion and villous damage; loperamide does not address the underlying pathophysiology and is not recommended. Oral rehydration is the cornerstone of management.",
+    },
+    {
+      id: "D",
+      label: "Nitazoxanide 500 mg orally twice daily for 3 days",
+      feedback:
+        "Incorrect for this patient, though the pharmacology is worth knowing. Nitazoxanide is a broad-spectrum antiparasitic and antiviral agent with demonstrated activity against rotavirus in vitro. Clinical trials in children and immunocompromised adults have shown modest benefit in reducing the duration of rotavirus diarrhea. However, nitazoxanide is not recommended as standard therapy for rotavirus gastroenteritis in immunocompetent adults, where the illness is self-limited and supportive care is curative. It may be considered in severely immunocompromised patients with prolonged or severe rotavirus infection.",
+    },
+    {
+      id: "E",
+      label: "Oral rehydration solution and supportive care; no antiviral therapy is indicated",
+      correct: true,
+      feedback:
+        "Correct. Treatment of rotavirus gastroenteritis in immunocompetent adults is entirely supportive. The cornerstone is fluid and electrolyte replacement: oral rehydration solution (ORS) containing glucose and electrolytes in appropriate concentrations is preferred for mild-to-moderate dehydration, as glucose-coupled sodium absorption remains intact even in the setting of rotavirus-induced villous damage. Intravenous fluids (normal saline or lactated Ringer's) are indicated for severe dehydration, vomiting that precludes oral intake, or hemodynamic compromise. There is no approved antiviral therapy for rotavirus in immunocompetent adults. The illness is typically self-limited, resolving within three to eight days. Monitoring for dehydration and electrolyte imbalances (particularly hyponatremia and hypokalemia) is important, especially in elderly patients who are more vulnerable to the consequences of volume depletion.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rotavirus-q3"
+  title="Question 3"
+  prompt="Four patients on the ward are now affected. Which of the following best describes the most appropriate infection control response?"
+  options={[
+    {
+      id: "A",
+      label: "Standard precautions only; rotavirus outbreaks in hospitals are self-limited and do not require enhanced isolation measures",
+      feedback:
+        "Incorrect. Standard precautions alone are entirely insufficient for managing a nosocomial rotavirus outbreak. Standard precautions are designed for routine care of all patients to prevent transmission of known and unknown pathogens, but they do not include the enhanced measures needed to contain an active outbreak. Without contact precautions, cohorting, and appropriate environmental decontamination, rotavirus spreads rapidly through a ward via contaminated hands, surfaces, and shared equipment. Elderly and immunocompromised patients are at significant risk for severe dehydration and prolonged illness. Outbreak containment requires active, escalated infection control measures.",
+    },
+    {
+      id: "B",
+      label: "Contact precautions with cohorting of affected patients, soap and water hand hygiene for all staff, and environmental disinfection with an EPA-registered disinfectant active against non-enveloped viruses",
+      correct: true,
+      feedback:
+        "Correct. Management of a nosocomial rotavirus outbreak requires a coordinated bundle of infection control measures. Contact precautions (gloves and gown for all patient contact) should be implemented immediately for affected patients. Cohorting, meaning grouping affected patients together and assigning dedicated staff to their care, limits cross-transmission between affected and unaffected zones. Hand hygiene with soap and water is essential: rotavirus is a non-enveloped virus and is significantly more resistant to alcohol-based hand rubs than enveloped viruses. Soap and water physically removes viral particles from the hands. Environmental disinfection requires an EPA-registered product with demonstrated activity against non-enveloped viruses; products containing bleach (sodium hypochlorite at appropriate concentrations) or accelerated hydrogen peroxide are effective. Standard quaternary ammonium compounds may have limited activity against non-enveloped viruses and should be used cautiously. Restricting new admissions to the affected cohort area may also be necessary during active outbreaks.",
+    },
+    {
+      id: "C",
+      label: "Airborne precautions with negative pressure rooms and N95 respirators for all staff entering patient rooms",
+      feedback:
+        "Incorrect. Rotavirus is transmitted via the fecal-oral route through direct contact with contaminated hands, surfaces, and fomites, and not through airborne droplet nuclei that remain suspended over long distances. Airborne precautions (negative pressure isolation, N95 or higher respirators) are indicated for pathogens such as Mycobacterium tuberculosis, measles virus, and varicella-zoster virus. While vomiting can generate transient aerosols that may contribute to short-range spread in some viral gastroenteritis outbreaks (notably norovirus), this does not require the full airborne precaution infrastructure. Contact precautions and diligent environmental decontamination are the appropriate and evidence-based response for rotavirus.",
+    },
+    {
+      id: "D",
+      label: "Administer oral rotavirus vaccine to all unaffected patients and staff on the ward as post-exposure prophylaxis",
+      feedback:
+        "Incorrect. Oral rotavirus vaccines (Rotarix and RotaTeq) are live attenuated vaccines approved for routine immunization of infants, administered at 2, 4, and optionally 6 months of age. They are not indicated for post-exposure prophylaxis in adults and are not licensed for use in the adult population. Vaccine-induced immunity requires weeks to develop and would not provide protection during an active outbreak. Adult rotavirus vaccines are an area of ongoing research but are not currently available. The response to a nosocomial rotavirus outbreak is infection control, not vaccination.",
+    },
+    {
+      id: "E",
+      label: "Alcohol-based hand rub before and after all patient contact is sufficient; no additional isolation measures are needed given the benign nature of the illness in adults",
+      feedback:
+        "Incorrect on two counts. First, alcohol-based hand rub alone has reduced efficacy against rotavirus because it is a non-enveloped virus: the protein capsid is more resistant to ethanol than a lipid envelope would be. Soap and water is the preferred hand hygiene modality during rotavirus outbreaks. Second, the clinical severity of rotavirus in any individual patient does not determine the need for infection control measures: the goal of isolation precautions is to prevent transmission to other patients, particularly the elderly and immunocompromised, in whom rotavirus can cause prolonged, severe, and occasionally fatal dehydration. Contact precautions and appropriate environmental disinfection are essential regardless of how mild the index case appears.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-rotavirus-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Rotavirus is a member of the family Reoviridae and is the leading cause
+    of severe dehydrating gastroenteritis in children under five worldwide,
+    responsible for an estimated 200,000 deaths annually before the
+    introduction of vaccines. In adults, rotavirus causes a milder but
+    clinically significant illness, and is increasingly recognized as an
+    important cause of nosocomial gastroenteritis outbreaks in hospitals and
+    long-term care facilities, particularly among the elderly. The name derives
+    from the Latin rota (wheel), reflecting the characteristic wheel-like
+    appearance of the triple-layered capsid on electron microscopy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Structurally, rotavirus is a non-enveloped, double-stranded RNA virus with
+    a genome of 11 segments encoding six structural (VP1-VP4, VP6, VP7) and
+    six non-structural proteins. The virion has three concentric protein
+    layers: the inner core (VP2), the intermediate layer (VP6, which carries
+    the group antigen used in rapid antigen tests), and the outer capsid
+    formed by VP7 (G antigen) and VP4 (P antigen spike protein). This
+    protein-only outer capsid, lacking any lipid membrane, is the key
+    structural feature with direct clinical relevance: non-enveloped viruses
+    are intrinsically more resistant to alcohol-based hand sanitizers than
+    enveloped viruses such as influenza or SARS-CoV-2, whose lipid membranes
+    are readily disrupted by ethanol. During rotavirus outbreaks, soap and
+    water hand hygiene is therefore preferred over alcohol-based hand rub.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Rotavirus infects mature enterocytes of the small intestinal villi,
+    causing villous blunting, malabsorptive diarrhea, and secretory diarrhea
+    mediated by the NSP4 enterotoxin. The incubation period is one to three
+    days, and the illness typically lasts three to eight days. Transmission is
+    via the fecal-oral route; rotavirus is highly infectious, with an estimated
+    infectious dose as low as 10 viral particles. The virus is environmentally
+    stable and can survive on hard surfaces for weeks. Hospital outbreaks are
+    common and can be difficult to control once established. Appropriate
+    measures include contact precautions, cohorting, soap and water hand
+    hygiene, and environmental disinfection with bleach-based or accelerated
+    hydrogen peroxide products effective against non-enveloped viruses.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Prevention in the community relies on oral live attenuated vaccines
+    (Rotarix, a monovalent G1P[8] vaccine; RotaTeq, a pentavalent
+    human-bovine reassortant vaccine), which have dramatically reduced
+    childhood rotavirus hospitalizations and deaths in countries with high
+    vaccine coverage. Adult rotavirus vaccines are under investigation but not
+    yet approved. Diagnosis in the clinical setting is typically made by stool
+    rapid antigen testing detecting VP6, with a sensitivity of 85 to 95
+    percent; RT-PCR is available for genotyping during outbreak investigations.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-rotavirus-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Rotavirus is a non-enveloped, double-stranded RNA virus (family
+      Reoviridae) with a triple-layered protein capsid. The wheel-like
+      appearance on electron microscopy gives it its name (Latin: rota = wheel).
+    </li>
+    <li>
+      The non-enveloped capsid is the key structural feature for infection
+      control: alcohol-based hand rubs have reduced efficacy against
+      non-enveloped viruses. Soap and water is the preferred hand hygiene
+      method during rotavirus outbreaks in healthcare settings.
+    </li>
+    <li>
+      Treatment is supportive: oral rehydration solution for mild-to-moderate
+      dehydration, IV fluids for severe cases. No antiviral is indicated in
+      immunocompetent adults. Nitazoxanide may be considered in
+      immunocompromised patients with prolonged disease.
+    </li>
+    <li>
+      Nosocomial rotavirus outbreaks require contact precautions, cohorting of
+      affected patients, soap and water hand hygiene, and environmental
+      disinfection with EPA-registered products active against non-enveloped
+      viruses (bleach-based or accelerated hydrogen peroxide).
+    </li>
+    <li>
+      Rotavirus is not only a pediatric disease. In elderly and
+      immunocompromised patients it can cause significant morbidity. Hospital
+      outbreaks are common and require active infection control escalation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Parashar UD, Hummelman EG, Bresee JS, Miller MA, Glass RI.
+      Global illness and deaths caused by rotavirus disease in children.
+      <em>Emerging Infectious Diseases</em>. 2003;9(5):565-572.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3201/eid0905.020562"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3201/eid0905.020562
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lopman BA, Reacher MH, Vipond IB, Sarangi J, Brown DW.
+      Clinical manifestation of norovirus gastroenteritis in health care
+      settings.
+      <em>Clinical Infectious Diseases</em>. 2004;39(3):318-324.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/422009"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/422009
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Desselberger U.
+      Rotaviruses.
+      <em>Virus Research</em>. 2014;190:75-96.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.virusres.2014.06.016"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.virusres.2014.06.016
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

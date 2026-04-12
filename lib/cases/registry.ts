@@ -466,6 +466,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old man with newly diagnosed HIV and a CD4 of 18 presents with six weeks of fever, night sweats, pancytopenia, and massive hepatosplenomegaly. The answer was available with a single urine test. What is it?",
     tags: { organisms: ["Histoplasma capsulatum"], syndromes: ["Transplant & Immunocompromised", "Mycology", "HIV & AIDS"], concepts: ["Disseminated histoplasmosis", "Urine Histoplasma antigen", "Liposomal amphotericin B", "Itraconazole", "Pancytopenia", "Bone marrow aspirate", "Intracellular yeast", "ART timing", "IRIS"] },
   },
+  {
+    slug: "rotavirus",
+    title: "The Wheel Turns",
+    description: "A nosocomial gastroenteritis outbreak on a surgical ward and a virus whose structure changes everything about how you contain it.",
+    enable: true,
+    ogImage: "/cases/rotavirus/rotavirus.png",
+    teaser: "Four patients on a surgical ward develop sudden-onset watery diarrhea and vomiting. C. diff is negative. The electron micrograph tells you exactly what you're dealing with — and why your usual hand hygiene routine isn't enough.",
+    tags: { organisms: ["Rotavirus"], syndromes: ["Gastroenteritis", "Infection Control", "Hospital Epidemiology"], concepts: ["Non-enveloped virus", "Alcohol hand rub resistance", "Contact precautions", "Nosocomial outbreak", "Oral rehydration", "Triple-layered capsid", "dsRNA virus", "Soap and water"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
