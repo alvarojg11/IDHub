@@ -1,0 +1,364 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("entamoeba-histolytica");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Quiet Invasion
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 45-year-old man born in Oaxaca, Mexico presents to the emergency
+    department with three weeks of progressive right upper quadrant pain,
+    fevers, and an unintentional weight loss of five kilograms. He immigrated
+    to the United States fifteen years ago and returns to visit family in rural
+    Oaxaca each summer; his most recent trip ended seven weeks ago. He reports
+    no significant diarrhea. He takes no medications and has no prior medical
+    history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.7°C, heart rate 98, blood pressure
+    118/74 mmHg. He appears chronically ill. There is marked tenderness to
+    palpation in the right upper quadrant and the liver edge is palpable
+    4 cm below the right costal margin. No jaundice. No splenomegaly. No
+    peritoneal signs.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: WBC 15.4 k/mcL with 88% neutrophils, hemoglobin
+    11.8 g/dL, platelets 388 k/mcL. Alkaline phosphatase 224 U/L, total
+    bilirubin 1.6 mg/dL, AST 58 U/L, ALT 64 U/L, albumin 2.9 g/dL.
+    Creatinine 0.9 mg/dL. Blood cultures are drawn and remain negative at
+    48 hours. CT of the abdomen with contrast reveals a single 9 cm
+    hypodense, rim-enhancing lesion in the right lobe of the liver. A
+    diagnostic aspirate is performed and the fluid is described as
+    chocolate-brown and odorless, with no organisms on Gram stain and
+    negative bacterial culture. The image below was obtained from the
+    lesion aspirate.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/entamoeba-histolytica/entamoeba-histolytica.png"
+        alt="Trophozoite of Entamoeba histolytica showing erythrophagocytosis — ingested red blood cells visible within the cytoplasm"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Microscopy of the hepatic aspirate: a large trophozoite with ingested
+      erythrocytes visible within the cytoplasm.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-entamoeba-histolytica-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Pyogenic liver abscess",
+      feedback:
+        "Incorrect, though this is the most important entity to exclude and the most common liver abscess overall. Pyogenic liver abscess is typically caused by enteric gram-negative bacteria, most often Klebsiella pneumoniae (particularly in Asian patients and diabetics, where it can cause a characteristic hypervirulent syndrome with metastatic spread to the eye and brain) and Escherichia coli. It usually arises from a biliary source, portal bacteremia, or direct spread. Key features that argue against pyogenic abscess here include the negative blood cultures, the negative Gram stain and bacterial culture of the aspirate fluid, the chocolate-brown and odorless quality of the aspirate (which is characteristic of amoebic abscess and reflects liquefied hepatic tissue, not frank pus), and the travel history to an endemic region. Pyogenic abscesses often produce frankly purulent aspirate with organisms on Gram stain. The epidemiologic profile (Mexican-born, rural Oaxaca travel, no biliary disease or prior abdominal surgery) is more consistent with amoebic abscess.",
+    },
+    {
+      id: "B",
+      label: "Echinococcal (hydatid) cyst",
+      feedback:
+        "Incorrect. Echinococcal cyst disease is caused by the larval stage of Echinococcus granulosus (cystic echinococcosis) or E. multilocularis (alveolar echinococcosis), acquired through ingestion of eggs shed in the feces of infected canids. It is endemic in sheep-raising regions of South America (particularly Patagonia), Central Asia, the Mediterranean, and parts of Africa. While Mexico has sporadic transmission, the overall exposure risk is lower than for E. histolytica in rural communities with inadequate sanitation. More importantly, echinococcal cysts have a characteristic imaging appearance: a well-defined cystic lesion, often with internal daughter cysts, a calcified rim, or a pathognomonic water lily sign on CT. They typically present as slowly growing, painless cysts, not as febrile illness with acute RUQ pain. Aspiration of a hydatid cyst carries risk of anaphylaxis and peritoneal seeding. The acute presentation, fever, and aspirate characteristics here are inconsistent with echinococcal disease.",
+    },
+    {
+      id: "C",
+      label: "Amoebic liver abscess",
+      correct: true,
+      feedback:
+        "Correct. Amoebic liver abscess is the most common extraintestinal manifestation of Entamoeba histolytica infection, affecting approximately 1 in 100 individuals with intestinal amoebiasis. It is caused by trophozoites that penetrate the intestinal mucosa, invade the portal circulation, and reach the liver, where they cause liquefactive necrosis of hepatic tissue. The resulting aspirate is classically described as chocolate-brown, anchovy-paste-like, and odorless (not purulent in the conventional sense, and Gram stain and bacterial culture are negative). The right lobe is involved in over 75% of cases, reflecting the predominant portal flow from the right colon where E. histolytica colonizes. The trophozoite seen in the image demonstrates erythrophagocytosis, the ingestion of host red blood cells, which is pathognomonic for E. histolytica and distinguishes it from the morphologically identical but non-invasive E. dispar. Critically, fewer than one-third of patients with amoebic liver abscess have concurrent dysentery at the time of presentation, so the absence of diarrhea does not exclude the diagnosis. The epidemiologic profile (rural Mexico travel, subacute fever and RUQ pain, negative bacterial cultures) is highly characteristic.",
+    },
+    {
+      id: "D",
+      label: "Hepatocellular carcinoma",
+      feedback:
+        "Incorrect. Hepatocellular carcinoma (HCC) is the most common primary liver malignancy and is associated with chronic hepatitis B or C infection, cirrhosis from any cause, and aflatoxin exposure. While HCC can present with RUQ pain and weight loss, it does not produce fever and leukocytosis as the primary presentation (unless superinfected), and it would not yield a chocolate-brown aspirate on aspiration. HCC typically appears on CT as an arterially enhancing mass with washout in the portal venous phase, often in the context of cirrhosis or known chronic liver disease. This patient has no history of liver disease, no hepatitis risk factors mentioned, and the imaging described (single hypodense, rim-enhancing lesion) with the clinical tempo (acute febrile illness over three weeks) is more consistent with an infectious process than a primary liver tumor.",
+    },
+    {
+      id: "E",
+      label: "Hepatic tuberculosis",
+      feedback:
+        "Incorrect. Hepatic tuberculosis can present as granulomatous hepatitis or, rarely, as one or more liver abscesses. It should be considered in immunocompromised patients or those from high-burden regions. However, hepatic TB is an uncommon cause of liver abscess and typically occurs in the context of disseminated TB with pulmonary involvement, systemic symptoms consistent with miliary disease, or known immunosuppression. Aspirate from TB abscesses does not classically produce the chocolate-brown, anchovy-paste fluid seen here. The absence of pulmonary findings, the negative bacterial culture (which would not grow mycobacteria on standard media, but the overall clinical picture does not suggest TB), and the characteristic trophozoite image with erythrophagocytosis point strongly away from hepatic tuberculosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-entamoeba-histolytica-q2"
+  title="Question 2"
+  prompt="Which test would most reliably confirm the diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Stool ova and parasite examination (three samples on consecutive days)",
+      feedback:
+        "Incorrect as the most reliable confirmatory test for liver abscess. Stool ova and parasite (O&P) examination is a mainstay of diagnosing intestinal amoebiasis but has poor sensitivity for amoebic liver abscess. Fewer than 15% of patients with amoebic liver abscess have detectable cysts or trophozoites in stool at the time of presentation. This is because the intestinal infection may have resolved or become subclinical by the time the hepatic complication develops. O&P also cannot distinguish E. histolytica from E. dispar or E. moshkovskii on morphology alone. A negative stool examination does not exclude amoebic liver abscess.",
+    },
+    {
+      id: "B",
+      label: "Needle aspiration with bacterial Gram stain and culture",
+      feedback:
+        "Incorrect as the primary diagnostic tool, though aspiration can be performed for therapeutic or diagnostic purposes in select cases. Needle aspiration has already been performed here and was unhelpful for bacteriology (negative Gram stain and culture), which is expected in amoebic abscess. Aspiration is not routinely required to confirm amoebic liver abscess when serology is available and the clinical picture is compatible. The WHO and IDSA do not recommend routine aspiration for diagnosis; it is reserved for cases with diagnostic uncertainty, risk of rupture (left lobe abscesses near the pericardium), or failure to respond to medical therapy within 72 hours.",
+    },
+    {
+      id: "C",
+      label: "Fecal antigen enzyme immunoassay for E. histolytica",
+      feedback:
+        "Incorrect as the most reliable test for liver abscess specifically. Stool antigen enzyme immunoassay (EIA) detects E. histolytica-specific antigens (typically the Gal/GalNAc lectin) with higher sensitivity and specificity than O&P, and can distinguish E. histolytica from E. dispar. It is an excellent test for intestinal amoebiasis. However, similar to O&P, stool antigen detection has suboptimal sensitivity for amoebic liver abscess because the intestinal colonization may be quiescent or cleared. Serum serology is far more sensitive in this extraintestinal context.",
+    },
+    {
+      id: "D",
+      label: "CT-guided core needle biopsy of the hepatic lesion",
+      feedback:
+        "Incorrect. Core needle biopsy of an amoebic liver abscess is not recommended and carries procedural risk without meaningful diagnostic benefit. Trophozoites in amoebic abscesses are concentrated at the periphery of the lesion, adjacent to viable hepatic tissue, not in the central liquefied cavity, making aspirated or biopsied material from the center of the lesion unlikely to yield the organism. Serology is the preferred confirmatory test and is non-invasive. Biopsy would be appropriate if hepatic malignancy were the primary concern.",
+    },
+    {
+      id: "E",
+      label: "Serum E. histolytica IgG antibody by enzyme-linked immunosorbent assay",
+      correct: true,
+      feedback:
+        "Correct. Serum E. histolytica IgG antibody by ELISA (or indirect hemagglutination) is positive in greater than 95% of patients with amoebic liver abscess at the time of presentation and is the most sensitive and specific diagnostic test for this condition. It detects the host immune response to invasive E. histolytica, reflecting the tissue-invasive nature of extraintestinal disease. Unlike stool-based tests, serology retains high sensitivity even when intestinal colonization has resolved. A positive serology in a patient with the appropriate clinical picture (hypodense hepatic lesion, endemic travel, chocolate-brown aspirate, negative bacterial cultures) is sufficient to confirm the diagnosis and initiate treatment. One important caveat: serology may remain positive for years after treated infection, limiting its utility in highly endemic populations where prior exposure is common; in those cases, clinical correlation and response to empiric therapy are used. Serology is also negative in the first week of acute illness in a small minority of patients, in which case repeating the test or initiating empiric therapy is warranted.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-entamoeba-histolytica-q3"
+  title="Question 3"
+  prompt="What is the recommended treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Metronidazole 500 mg orally three times daily for 10 days, with no additional agent",
+      feedback:
+        "Incorrect. Metronidazole alone at this dose is insufficient for two reasons. First, the standard dose for amoebic liver abscess is 750 mg (not 500 mg) three times daily. Second, and more importantly, metronidazole is a tissue-active agent that eradicates trophozoites from the liver and bloodstream but has poor luminal activity against intraluminal cysts residing in the colon. If a luminal agent is not added after completing metronidazole, viable cysts remain in the intestine, placing the patient at risk of relapse and continued transmission to household contacts. Metronidazole alone is never the complete treatment for E. histolytica infection, whether intestinal or extraintestinal.",
+    },
+    {
+      id: "B",
+      label: "Metronidazole 750 mg orally three times daily for 10 days, followed by paromomycin 500 mg orally three times daily for 7 days",
+      correct: true,
+      feedback:
+        "Correct. Treatment of amoebic liver abscess requires a two-phase approach: a tissue-active nitroimidazole to eradicate invasive trophozoites, followed by a luminal agent to eliminate intraluminal cysts in the colon and prevent relapse and transmission. Metronidazole 750 mg orally three times daily for 10 days (or tinidazole 2g once daily for 5 days, which has equivalent efficacy and better tolerability) is the standard tissue-active regimen. Upon completion, a luminal agent must be prescribed: paromomycin 500 mg orally three times daily for 7 days is first-line, as it is a non-absorbable aminoglycoside that acts within the intestinal lumen to clear residual cysts. Diloxanide furoate is an alternative luminal agent but is not commercially available in the United States. Iodoquinol is a second alternative. Clinical response to metronidazole is typically prompt, with fever resolving within 72 to 96 hours; failure to improve should prompt reconsideration of the diagnosis or evaluation for complications such as abscess rupture.",
+    },
+    {
+      id: "C",
+      label: "Ceftriaxone 2 g IV once daily plus metronidazole 500 mg IV three times daily for 14 days",
+      feedback:
+        "Incorrect. This regimen is appropriate for pyogenic liver abscess, where gram-negative enteric organisms (Klebsiella pneumoniae, E. coli, Streptococcus anginosus group) are the causative agents and broad-spectrum antibacterial coverage is needed. In amoebic liver abscess, bacteria play no primary role, and antibacterial agents do not treat E. histolytica. Adding broad-spectrum antibiotics to metronidazole does not improve outcomes in confirmed amoebic disease and exposes the patient to unnecessary toxicity and antibiotic selection pressure. In practice, when the diagnosis is uncertain, it is reasonable to start both regimens empirically; once amoebic liver abscess is confirmed by serology, antibacterial therapy can be discontinued.",
+    },
+    {
+      id: "D",
+      label: "Percutaneous catheter drainage followed by metronidazole 750 mg orally three times daily for 10 days",
+      feedback:
+        "Incorrect as the initial approach for uncomplicated amoebic liver abscess. The vast majority of amoebic liver abscesses respond completely to medical therapy alone; drainage is not required and is not recommended as routine initial management. Indications for drainage include: abscess greater than 10 cm with high risk of rupture, left lobe abscesses (proximity to pericardium raises risk of pericardial rupture), failure to improve after 72 hours of appropriate medical therapy, and diagnostic uncertainty after non-invasive workup. This patient's 9 cm right lobe abscess should first receive a trial of metronidazole; drainage can be reconsidered if there is no clinical response.",
+    },
+    {
+      id: "E",
+      label: "Albendazole 400 mg orally twice daily for 28 days",
+      feedback:
+        "Incorrect. Albendazole is the treatment of choice for echinococcal (hydatid) cyst disease, cystic neurocysticercosis, and several intestinal helminth infections, but it has no activity against Entamoeba histolytica. Metronidazole (or another nitroimidazole such as tinidazole) is required for tissue-invasive amoebiasis. Albendazole would be entirely ineffective against amoebic liver abscess.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-entamoeba-histolytica-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Entamoeba histolytica</em> is an intestinal protozoan parasite
+    transmitted via the fecal-oral route, most often through contaminated
+    water or food in regions with inadequate sanitation. It is estimated to
+    infect 40 to 50 million people worldwide and is responsible for
+    approximately 100,000 deaths annually, making it the third leading
+    parasitic cause of death globally after malaria and schistosomiasis.
+    In the United States, infection is almost exclusively seen in immigrants
+    from endemic regions (Latin America, South Asia, Sub-Saharan Africa)
+    and travelers. The infection cycle involves ingestion of
+    environmentally resistant cysts, which excyst in the small intestine
+    and colonize the colon as trophozoites.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Most individuals (approximately 90%) who ingest <em>E. histolytica</em>
+    remain asymptomatic carriers. Invasive disease occurs when trophozoites
+    penetrate the intestinal mucosal barrier, producing amoebic colitis
+    (characterized by bloody diarrhea, tenesmus, and abdominal cramps) or
+    extraintestinal spread. Liver abscess is the most common extraintestinal
+    complication, arising when trophozoites access the portal circulation
+    from the right colon and seed the liver. The right hepatic lobe is
+    preferentially affected in over 75% of cases, reflecting portal flow
+    patterns. A key clinical teaching point is that concurrent intestinal
+    symptoms are present in fewer than one-third of patients with amoebic
+    liver abscess at the time of presentation, so the absence of diarrhea
+    must never be used to exclude the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathognomonic microscopic finding is erythrophagocytosis: the
+    ingestion of host erythrocytes by trophozoites, visible as red blood
+    cells within the cytoplasm of the parasite. This feature distinguishes
+    <em>E. histolytica</em> from <em>E. dispar</em>, a morphologically
+    identical species that colonizes the intestinal lumen without invasion
+    and is non-pathogenic. Standard ova and parasite microscopy cannot
+    reliably distinguish the two species, which is why antigen-based or
+    serologic testing is preferred for diagnosis. Serum IgG serology is
+    greater than 95% sensitive for amoebic liver abscess and is the
+    cornerstone of confirmatory diagnosis. CT imaging classically shows a
+    hypodense, rim-enhancing lesion that is most often solitary and in the
+    right lobe. The aspirate, when obtained, is chocolate-brown or
+    anchovy-paste colored, odorless, and sterile on bacterial culture.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires a two-phase strategy. Metronidazole 750 mg orally
+    three times daily for 10 days (or tinidazole 2 g once daily for 5
+    days) eradicates the tissue-invasive trophozoites. However,
+    metronidazole has poor luminal activity and does not reliably clear
+    intestinal cysts. Failure to follow with a luminal agent risks
+    relapse, re-invasion, and ongoing transmission. Paromomycin 500 mg
+    orally three times daily for 7 days is the preferred luminal agent in
+    the United States. Drainage is not routinely needed for uncomplicated
+    amoebic liver abscess and most patients defervesce within 72 to 96
+    hours of starting metronidazole. Indications for aspiration include
+    large abscesses at risk of rupture, left lobe involvement, and
+    failure to respond to medical therapy.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-entamoeba-histolytica-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Amoebic liver abscess is caused by <em>Entamoeba histolytica</em>
+      trophozoites that invade the portal circulation from the right
+      colon. It presents with subacute fever, RUQ pain, and hepatomegaly;
+      concurrent diarrhea is absent in more than two-thirds of cases.
+    </li>
+    <li>
+      Erythrophagocytosis (ingestion of host red blood cells visible
+      within trophozoite cytoplasm) is pathognomonic for
+      <em>E. histolytica</em> and distinguishes it from the morphologically
+      identical but non-pathogenic <em>E. dispar</em>.
+    </li>
+    <li>
+      The aspirate is classically chocolate-brown, anchovy-paste-like,
+      and odorless, with a negative bacterial Gram stain and culture.
+      Serum <em>E. histolytica</em> IgG serology is greater than 95%
+      sensitive and is the preferred confirmatory test for liver abscess.
+    </li>
+    <li>
+      Treatment requires two phases: metronidazole 750 mg three times
+      daily for 10 days (tissue-active) followed by paromomycin 500 mg
+      three times daily for 7 days (luminal agent). Skipping the luminal
+      agent risks relapse and ongoing transmission from intestinal cysts.
+    </li>
+    <li>
+      Drainage is not routinely required. Indications include abscess
+      greater than 10 cm at risk of rupture, left lobe location
+      (pericardial proximity), or failure to improve within 72 hours
+      of metronidazole.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stanley SL Jr.
+      Amoebiasis.
+      <em>The Lancet</em>. 2003;361(9362):1025-1034.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(03)12830-9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(03)12830-9
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Leder K, Weller PF.
+      Amebiasis: Epidemiology, clinical manifestations, and diagnosis.
+      In: Calderwood SB, ed.
+      <em>UpToDate.</em>
+      Wolters Kluwer; 2024.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Haque R, Huston CD, Hughes M, Houpt E, Petri WA Jr.
+      Amebiasis.
+      <em>New England Journal of Medicine</em>. 2003;348(16):1565-1573.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra022710"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra022710
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

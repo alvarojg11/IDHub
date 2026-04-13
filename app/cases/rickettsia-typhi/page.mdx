@@ -1,0 +1,353 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("rickettsia-typhi");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Not the Cat's Fault
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old woman from Corpus Christi, Texas presents to her primary
+    care physician with a 10-day history of high fever, severe headache, and
+    diffuse myalgias. She noticed a rash on day five of her illness that began
+    as faint pink macules on her trunk and has since spread to her arms and
+    legs. She works from home, has not traveled recently, and spends most of
+    her time indoors with her three cats, which have outdoor access. She
+    reports no tick bites. She brings in a small insect she found crawling on
+    one of her cats, shown below.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 39.4°C, heart rate 102, blood pressure
+    114/72 mmHg. She appears fatigued and uncomfortable. There is a
+    maculopapular rash over the trunk and proximal extremities, sparing the
+    palms, soles, and face. No eschar is identified. No lymphadenopathy.
+    The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: WBC 3.8 k/mcL, hemoglobin 13.1 g/dL, platelets
+    94 k/mcL. AST 82 U/L, ALT 96 U/L, LDH 480 U/L. Creatinine 1.0 mg/dL.
+    Serum sodium 131 mEq/L. Blood cultures are pending.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/rickettsia-typhi/rtyphi.png"
+        alt="Microscopic image of a flea (Ctenocephalides felis), the cat flea and primary vector of Rickettsia typhi in Texas"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      The insect brought in by the patient: a flea recovered from one of her
+      cats, identified as <em>Ctenocephalides felis</em> (cat flea).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-rickettsia-typhi-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis in this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis is caused by pathogenic Leptospira species and acquired through contact with water or soil contaminated with the urine of infected animals (rodents, livestock, dogs). It can present with fever, headache, myalgias, and hepatitis, mimicking murine typhus. Classic features of leptospirosis that are absent here include conjunctival suffusion (a distinctive finding), an exposure history involving water or mud contact, and, in severe Weil's disease, jaundice, renal failure, and pulmonary hemorrhage. The flea exposure, cat contact, and South Texas location are more consistent with murine typhus, and no water exposure is described.",
+    },
+    {
+      id: "B",
+      label: "Scrub typhus",
+      feedback:
+        "Incorrect. Scrub typhus is caused by Orientia tsutsugamushi and transmitted by the bite of infected trombiculid mite larvae (chiggers). It is endemic to the Asia-Pacific region, including Japan, Korea, India, Southeast Asia, and northern Australia, and is extraordinarily rare in the continental United States. Its hallmark is an eschar at the mite bite site, a painless black necrotic lesion with a raised border and central crust, which is absent in this patient. There is no travel history to endemic regions. The cat flea vector and South Texas location strongly favor murine typhus.",
+    },
+    {
+      id: "C",
+      label: "Epidemic typhus",
+      feedback:
+        "Incorrect. Epidemic typhus is caused by Rickettsia prowazekii and transmitted by the human body louse (Pediculus humanus corporis). It is classically associated with crowded conditions, poverty, displacement, and poor hygiene, and was responsible for devastating epidemics during wartime. It is rare in the United States and virtually absent from South Texas in immunocompetent non-homeless individuals. A recrudescent form (Brill-Zinsser disease) can occur years to decades after primary infection. The vector here is a flea, not a louse, and the epidemiologic context does not support epidemic typhus.",
+    },
+    {
+      id: "D",
+      label: "Rocky Mountain spotted fever",
+      feedback:
+        "Incorrect, though this is the most important rickettsial disease to consider in the differential. Rocky Mountain spotted fever (RMSF) is caused by Rickettsia rickettsii and transmitted by Dermacentor tick species in the United States. It shares many features with murine typhus: fever, headache, myalgias, and a maculopapular rash. Key distinguishing features favor murine typhus here: the vector brought in is a flea, not a tick; the patient reports no tick bite; the rash in RMSF classically begins on the wrists and ankles and spreads centrally (centripetal), often involving the palms and soles, while the rash here began on the trunk and spares acral surfaces. RMSF is also generally more fulminant than murine typhus, with higher rates of severe complications. However, both diseases require empiric doxycycline without waiting for serologic confirmation.",
+    },
+    {
+      id: "E",
+      label: "Murine typhus",
+      correct: true,
+      feedback:
+        "Correct. Murine typhus is caused by Rickettsia typhi, an obligate intracellular gram-negative bacterium transmitted by infected flea feces. It is endemic in South Texas, where the cat flea (Ctenocephalides felis) is the primary vector, with cats, opossums, and rats serving as reservoir hosts. The classic triad is fever, severe headache, and maculopapular rash appearing on the trunk and spreading to the extremities while sparing the palms, soles, and face, typically emerging on days three to five of illness. Laboratory clues include thrombocytopenia, elevated transaminases, elevated LDH, and hyponatremia, all present in this patient. The flea found on her cat, the South Texas location, and the absence of tick exposure and eschar distinguish this from RMSF and scrub typhus respectively. Diagnosis is confirmed by Rickettsia-specific IgG serology (paired acute and convalescent titers) or PCR, but treatment must not await confirmation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rickettsia-typhi-q2"
+  title="Question 2"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline 100 mg orally twice daily for 7 to 14 days",
+      correct: true,
+      feedback:
+        "Correct. Doxycycline is the treatment of choice for all rickettsial diseases, including murine typhus, RMSF, epidemic typhus, and scrub typhus, in patients of all ages. Rickettsia typhi is an obligate intracellular bacterium that resides within the cytoplasm of host endothelial cells; doxycycline achieves high intracellular concentrations and is bacteriostatic against Rickettsia species, allowing immune clearance of infection. Treatment duration for murine typhus is typically 7 to 14 days, or at least three days after defervescence. Response is usually prompt: most patients defervesce within 24 to 72 hours of initiating doxycycline. An important and often misapplied clinical rule: doxycycline should not be withheld in pregnant patients with suspected rickettsial disease. Untreated RMSF and murine typhus carry mortality risk to both mother and fetus that far exceeds the risk of a short doxycycline course. Current guidelines support doxycycline use in pregnancy for life-threatening rickettsial infections.",
+    },
+    {
+      id: "B",
+      label: "Azithromycin 500 mg orally once daily for 5 days",
+      feedback:
+        "Incorrect as first-line therapy. Azithromycin has demonstrated in vitro activity against some Rickettsia species and has been used in limited clinical scenarios, most notably in pregnant patients where doxycycline has historically been avoided. However, azithromycin is not the treatment of choice for murine typhus and clinical data supporting its efficacy are limited compared to doxycycline. In life-threatening rickettsial infections, the superior clinical track record of doxycycline makes it the standard of care. Current guidelines, including IDSA and the CDC, recommend doxycycline as the first-line agent for all rickettsial diseases in adults and children.",
+    },
+    {
+      id: "C",
+      label: "Trimethoprim-sulfamethoxazole 160/800 mg orally twice daily for 7 days",
+      feedback:
+        "Incorrect. Trimethoprim-sulfamethoxazole (TMP-SMX) has no meaningful activity against Rickettsia species and should not be used for rickettsial infections. Rickettsia are obligate intracellular bacteria that replicate within the cytoplasm of endothelial cells and lack the folate synthesis pathway targeted by TMP-SMX in the same way as extracellular bacteria. There are case reports of clinical deterioration in patients with rickettsial disease treated with TMP-SMX. It is contraindicated as empiric therapy when rickettsial disease is suspected.",
+    },
+    {
+      id: "D",
+      label: "Chloramphenicol 500 mg orally four times daily for 7 days",
+      feedback:
+        "Incorrect as first-line therapy in 2026. Chloramphenicol was historically used for rickettsial diseases, particularly in pregnant patients and in settings where doxycycline was unavailable, and retains activity against Rickettsia species. However, it is no longer the preferred agent because it has inferior clinical outcomes compared to doxycycline in published studies of RMSF, and carries significant toxicity risks including aplastic anemia (rare but irreversible), gray baby syndrome in neonates, and bone marrow suppression. Chloramphenicol is not routinely available in many US pharmacies. Doxycycline, including during pregnancy when rickettsial disease is life-threatening, is now the universally recommended first-line agent.",
+    },
+    {
+      id: "E",
+      label: "Ciprofloxacin 500 mg orally twice daily for 7 days",
+      feedback:
+        "Incorrect. Fluoroquinolones have in vitro activity against some Rickettsia species but are not the standard of care for rickettsial diseases. Clinical outcomes with fluoroquinolones are inferior to doxycycline in published case series. They are not recommended by IDSA or CDC guidelines for murine typhus or any other rickettsial infection. Doxycycline remains the only agent with consistently proven clinical efficacy across all rickettsial diseases.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rickettsia-typhi-q3"
+  title="Question 3"
+  prompt="The patient asks how she got infected if she was never bitten by a tick and her cats seem healthy. Which of the following best explains the transmission of Rickettsia typhi?"
+  options={[
+    {
+      id: "A",
+      label: "R. typhi is injected directly into the bloodstream during the flea bite, similar to how Rickettsia rickettsii is transmitted by ticks",
+      feedback:
+        "Incorrect, and this is a critical distinction between flea-borne and tick-borne rickettsiae. Ticks transmit Rickettsia rickettsii by inoculating the organism directly from their salivary glands into the host during a prolonged blood meal, which requires attachment for hours. Fleas do not transmit R. typhi through their saliva or bite. The flea may feed on the host unnoticed, but infection does not occur at the moment of the bite. The actual transmission route involves flea feces, not the bite itself.",
+    },
+    {
+      id: "B",
+      label: "The patient's cats directly transmitted R. typhi through a scratch or bite that introduced bacteria into subcutaneous tissue",
+      feedback:
+        "Incorrect. Cats are reservoir hosts for Rickettsia typhi in the domestic cycle involving cat fleas, but they do not directly transmit the organism to humans through bites or scratches. Cat scratch disease, caused by Bartonella henselae, is the rickettsial-adjacent infection transmitted by cat scratches, but it is a distinct organism with an entirely different pathophysiology and clinical presentation. Cats infected with R. typhi are typically asymptomatic and serve as amplifying hosts for the flea population. The transmission chain requires the flea as an obligate intermediary: cat carries fleas, flea becomes infected from a rickettsemic host, flea defecates on a human, human is inoculated.",
+    },
+    {
+      id: "C",
+      label: "R. typhi is shed in cat urine and feces and aerosolized in the home environment, where it is inhaled by cohabitants",
+      feedback:
+        "Incorrect. Cats do not shed Rickettsia typhi in their urine or feces; they are reservoir hosts that maintain the organism in the flea population but do not excrete R. typhi themselves. This transmission route is characteristic of other zoonoses: Coxiella burnetii (Q fever) is aerosolized from placental products and feces of infected ruminants, Chlamydia psittaci is inhaled from dried psittacine bird feces, and hantavirus is acquired by inhaling aerosolized rodent urine. Rickettsia typhi requires a flea intermediary and transmission via flea feces inoculated into broken skin.",
+    },
+    {
+      id: "D",
+      label: "Infected fleas defecate while feeding on the host; R. typhi in the flea feces is inoculated into the skin when the host scratches the bite site",
+      correct: true,
+      feedback:
+        "Correct. Rickettsia typhi is transmitted via a mechanism entirely different from tick-borne rickettsiae. Infected fleas (Ctenocephalides felis or Xenopsylla cheopis) ingest a blood meal and defecate simultaneously or shortly after feeding, depositing rickettsiae-laden feces onto the host's skin. The flea bite is pruritic; when the host scratches, the feces are abraded into the wound or the bite site, inoculating R. typhi into the dermis. A second route is autoinoculation of the conjunctivae by contaminated fingers, and inhalation of aerosolized dried flea feces is also possible, particularly for laboratory personnel handling infected material. This fecal-contamination mechanism explains why the cats themselves are not directly responsible: the cats are reservoir hosts that maintain infected fleas, but the actual transmission event involves the flea's feces contacting broken skin, not a cat bite or scratch.",
+    },
+    {
+      id: "E",
+      label: "R. typhi is transmitted transovarially in cats and passed vertically to kittens, which shed the organism in saliva during grooming",
+      feedback:
+        "Incorrect. Transovarial transmission (vertical transmission from mother to offspring through the egg) does occur with some arthropod-borne pathogens, including Rickettsia rickettsii in ticks, maintaining the organism in tick populations between blood meals. However, cats are not the organism that undergoes transovarial transmission in the murine typhus cycle: it is the flea (Ctenocephalides felis or Xenopsylla cheopis) that can maintain R. typhi transovarially. Cats do not transmit R. typhi through saliva, grooming, or any direct route. Transmission to humans requires flea feces contacting abraded skin.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-rickettsia-typhi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Murine typhus is caused by <em>Rickettsia typhi</em>, an obligate
+    intracellular gram-negative bacterium of the typhus group (along with
+    <em>R. prowazekii</em>). It is endemic in warm coastal and periurban
+    areas worldwide, with South Texas representing one of the highest-burden
+    regions in the United States. The classic epidemiologic cycle involves
+    rats and the oriental rat flea (<em>Xenopsylla cheopis</em>), but the
+    domestic cycle in Texas increasingly implicates opossums and cats as
+    reservoir hosts, with the cat flea (<em>Ctenocephalides felis</em>)
+    as the principal vector. This explains why murine typhus is no longer
+    confined to seaports or impoverished areas and is now recognized as a
+    suburban and periurban disease affecting households with outdoor pets.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical presentation is characteristically subacute. After an
+    incubation period of one to two weeks, patients develop the classic triad
+    of fever, headache, and rash. The rash is maculopapular, begins on the
+    trunk, and spreads centrifugally to the extremities while sparing the
+    palms, soles, and face, a pattern opposite to that of RMSF (which spreads
+    centripetally from the distal extremities). The rash is absent in up to
+    half of patients and may be subtle, particularly in patients with darker
+    skin tones. Laboratory findings include thrombocytopenia, elevated
+    transaminases, elevated LDH, and hyponatremia, reflecting endothelial
+    infection and systemic inflammation. Severe complications including
+    neurologic involvement, renal failure, and respiratory failure occur
+    primarily in delayed or untreated cases.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is confirmed by Rickettsia-specific IgG serology using
+    indirect immunofluorescence assay (IFA), but acute-phase titers are
+    frequently negative in the first week of illness, as antibodies do not
+    rise until one to two weeks after symptom onset. Paired convalescent
+    titers (drawn two to four weeks later) showing a fourfold rise are
+    diagnostic. PCR on whole blood or eschar biopsy (when present) can
+    provide early confirmation. Treatment must never be delayed pending
+    serologic confirmation: empiric doxycycline should be started on
+    clinical suspicion. The response is typically rapid, with defervescence
+    within 24 to 72 hours. Failure to improve with doxycycline should
+    prompt reconsideration of the diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A common clinical error is withholding doxycycline in pregnant patients
+    out of concern for dental staining or fetal effects. In the setting of
+    a potentially life-threatening rickettsial infection, the risk of
+    untreated disease to both mother and fetus far outweighs the risk of
+    a short doxycycline course. Current IDSA and CDC guidelines explicitly
+    recommend doxycycline for rickettsial infections in pregnancy. Prevention
+    involves flea control in household pets and their environment, limiting
+    pet exposure to wildlife, and prompt removal of fleas from pets and
+    bedding.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-rickettsia-typhi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Murine typhus (<em>Rickettsia typhi</em>) is endemic in South Texas
+      and increasingly linked to cat fleas (<em>Ctenocephalides felis</em>)
+      and opossums as reservoir hosts. Consider it in any febrile patient
+      with headache, thrombocytopenia, and elevated LFTs who has cat or
+      opossum exposure, even without a tick bite.
+    </li>
+    <li>
+      Transmission is not through the flea bite itself. Infected fleas
+      defecate while feeding; <em>R. typhi</em> in the feces is inoculated
+      when the host scratches the bite site. The cats are reservoir hosts,
+      not direct transmitters.
+    </li>
+    <li>
+      The rash begins on the trunk and spreads to the extremities, sparing
+      the palms, soles, and face. This centrifugal pattern distinguishes
+      murine typhus from RMSF, which spreads centripetally from the wrists
+      and ankles and involves acral surfaces.
+    </li>
+    <li>
+      Treat with doxycycline 100 mg twice daily for 7 to 14 days. Do not
+      await serologic confirmation. Do not withhold doxycycline in pregnancy:
+      untreated rickettsial disease poses greater risk than a short
+      doxycycline course.
+    </li>
+    <li>
+      Acute-phase serology is frequently negative. Diagnose clinically and
+      treat empirically. Confirm retrospectively with paired convalescent
+      titers showing a fourfold rise in Rickettsia-specific IgG by IFA.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Blanton LS.
+      The Rickettsioses: A Practical Update.
+      <em>Infectious Disease Clinics of North America</em>. 2019;33(1):213-229.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.idc.2018.10.010"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.idc.2018.10.010
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Civen R, Ngo V.
+      Murine typhus: an unrecognized suburban vectorborne disease.
+      <em>Clinical Infectious Diseases</em>. 2008;46(6):913-918.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/527443"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/527443
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dumler JS, Walker DH.
+      Murine typhus.
+      In: Bennett JE, Dolin R, Blaser MJ, eds.
+      <em>Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases.</em>
+      9th ed. Elsevier; 2020:2326-2330.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -475,6 +475,24 @@ export const CASES: CaseMeta[] = [
     teaser: "Four patients on a surgical ward develop sudden-onset watery diarrhea and vomiting. C. diff is negative. The electron micrograph tells you exactly what you're dealing with — and why your usual hand hygiene routine isn't enough.",
     tags: { organisms: ["Rotavirus"], syndromes: ["Gastroenteritis", "Infection Control", "Hospital Epidemiology"], concepts: ["Non-enveloped virus", "Alcohol hand rub resistance", "Contact precautions", "Nosocomial outbreak", "Oral rehydration", "Triple-layered capsid", "dsRNA virus", "Soap and water"] },
   },
+  {
+    slug: "rickettsia-typhi",
+    title: "Not the Cat's Fault",
+    description: "A South Texas woman with cats, a flea, and a fever that didn't need a tick to get started.",
+    enable: true,
+    ogImage: "/cases/rickettsia-typhi/rtyphi.png",
+    teaser: "A 38-year-old woman from Corpus Christi with indoor-outdoor cats presents with 10 days of fever, headache, and a truncal rash. No tick bite. She brings in something she found on her cat. What is the diagnosis, and how did she actually get infected?",
+    tags: { organisms: ["Rickettsia typhi"], syndromes: ["Fever & Rash", "Travel Medicine", "Zoonoses"], concepts: ["Murine typhus", "Cat flea", "Ctenocephalides felis", "Flea feces transmission", "Doxycycline", "Thrombocytopenia", "South Texas", "Centrifugal rash"] },
+  },
+  {
+    slug: "entamoeba-histolytica",
+    title: "A Quiet Invasion",
+    description: "A returning traveler with RUQ pain, fever, and a hypodense hepatic lesion — and no culturable bacteria.",
+    enable: true,
+    ogImage: "/cases/entamoeba-histolytica/entamoeba-histolytica.png",
+    teaser: "A 45-year-old man born in Mexico presents with three weeks of right upper quadrant pain and fever after visiting family in rural Oaxaca. CT shows a large hypodense right hepatic lesion. Blood cultures are negative. What is quietly invading his liver?",
+    tags: { organisms: ["Entamoeba histolytica"], syndromes: ["Gastroenterology", "Travel Medicine", "Parasitology"], concepts: ["Amoebic liver abscess", "Erythrophagocytosis", "Serology", "Metronidazole", "Luminal agent", "Paromomycin", "Pyogenic abscess", "Travel medicine"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
