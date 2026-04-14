@@ -502,6 +502,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 68-year-old man with a known aortic aneurysm presents with two weeks of fever and back pain. Three weeks ago he had a brief diarrheal illness after a backyard cookout. His blood cultures are growing gram-negative rods. CT shows periaortic gas.",
     tags: { organisms: ["Salmonella enterica"], syndromes: ["Bacteremia", "Cardiovascular Infections", "Gastroenterology"], concepts: ["Infected aortic aneurysm", "Mycotic aneurysm", "Vascular seeding", "Periaortic gas", "Fluoroquinolone", "Surgical debridement", "Non-typhoidal Salmonella", "GNR bacteremia"] },
   },
+  {
+    slug: "trypanosoma-gambiense",
+    title: "The Long Way Home",
+    description: "A humanitarian aid worker returning from the DRC with progressive neuropsychiatric symptoms and a blood smear that tells the whole story.",
+    enable: true,
+    ogImage: "/cases/trypanosoma-gambiense/trypanosoma-gambiense.png",
+    teaser: "A 34-year-old aid worker returns from 18 months in the DRC with six weeks of fever and new personality changes. She barely remembers a skin lesion that resolved months ago. Her blood smear changes everything.",
+    tags: { organisms: ["Trypanosoma brucei gambiense"], syndromes: ["Neurologic Infections", "Travel Medicine", "Parasitology"], concepts: ["African sleeping sickness", "Winterbottom sign", "Trypanosomal chancre", "Hemolymphatic stage", "Meningoencephalitic stage", "Lumbar puncture staging", "Fexinidazole", "NECT", "Tsetse fly", "Sleep cycle inversion"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

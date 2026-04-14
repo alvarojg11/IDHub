@@ -1,0 +1,370 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("trypanosoma-gambiense");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Long Way Home
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old woman with no prior medical history presents to a travel
+    medicine clinic two weeks after returning from an 18-month deployment
+    as a humanitarian aid worker in the Democratic Republic of Congo, where
+    she worked in a rural area near the Kasai River. She reports six weeks
+    of intermittent fever, drenching sweats, generalized headache, and
+    profound fatigue. Over the past two weeks, her colleagues noticed
+    personality changes and increasing confusion. She describes sleeping
+    for much of the day and lying awake through the night. When prompted,
+    she recalls a painless, erythematous nodule on her left forearm that
+    appeared within the first month of her deployment, became mildly itchy,
+    and resolved spontaneously over two to three weeks. She took malaria
+    prophylaxis inconsistently.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.2°C, heart rate 96, blood pressure
+    112/70 mmHg. She is oriented to person and place but not to date.
+    There is bilateral, rubbery, non-tender posterior cervical
+    lymphadenopathy, more prominent on the left. No axillary or inguinal
+    lymphadenopathy. No skin lesions are present on examination. Mild
+    psychomotor slowing is noted. Neurological examination reveals no
+    focal deficits but her Mini-Mental State Examination score is 22 of 30.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: hemoglobin 10.2 g/dL, WBC 7.4 k/mcL, platelets
+    188 k/mcL. ESR 94 mm/hr. LFTs mildly elevated. Rapid malaria antigen test is negative. A thin peripheral
+    blood smear is prepared and the image below is obtained.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/trypanosoma-gambiense/trypanosoma-gambiense.png"
+        alt="Peripheral blood smear showing trypomastigotes among red blood cells"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Peripheral blood smear from the patient: an extracellular organism
+      is identified among red blood cells.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-trypanosoma-gambiense-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Plasmodium falciparum malaria",
+      feedback:
+        "Incorrect, though this must always be excluded first in any febrile returning traveler from sub-Saharan Africa. P. falciparum is the most common and most dangerous cause of imported malaria and can present with fever, headache, anemia, and altered mental status in severe disease. However, the rapid malaria antigen test is negative here, and the blood smear shows an extracellular, motile, elongated parasite with a visible undulating membrane and kinetoplast, morphologically inconsistent with Plasmodium species (which are intraerythrocytic ring forms, trophozoites, or schizonts). The posterior cervical lymphadenopathy, the recalled skin lesion resembling a trypanosomal chancre, the subacute neuropsychiatric progression, and the 18-month rural DRC exposure are not features of malaria.",
+    },
+    {
+      id: "B",
+      label: "Trypanosoma cruzi infection (Chagas disease)",
+      feedback:
+        "Incorrect. Trypanosoma cruzi causes American trypanosomiasis (Chagas disease) and is transmitted by triatomine (kissing) bugs endemic to Latin America, not sub-Saharan Africa. T. cruzi trypomastigotes are morphologically distinct from T. brucei: they are C-shaped or U-shaped with a large kinetoplast positioned at the posterior end, whereas T. brucei trypomastigotes are more slender and sinuous with a smaller subterminal kinetoplast. Chagas disease does not cause the encephalopathic syndrome seen here; acute Chagas can present with a unilateral periorbital swelling (Romaña sign) or a skin nodule (chagoma) at the bite site, and chronic disease is characterized by cardiomyopathy and megasyndromes, not sleeping sickness. The geographic exposure is entirely wrong.",
+    },
+    {
+      id: "C",
+      label: "Visceral leishmaniasis (kala-azar)",
+      feedback:
+        "Incorrect. Visceral leishmaniasis is caused by Leishmania donovani complex species (L. donovani, L. infantum, L. chagasi) transmitted by sandfly bites in endemic regions including East Africa (particularly Sudan, Ethiopia, and Kenya) and South Asia. It presents with prolonged fever, massive splenomegaly, hepatomegaly, weight loss, pancytopenia, and hypergammaglobulinemia. The IgM elevation and anemia overlap, but visceral leishmaniasis does not cause the neuropsychiatric syndrome, sleep cycle inversion, or posterior cervical lymphadenopathy seen here. Leishmania are obligate intracellular parasites found within macrophages as amastigotes on bone marrow or splenic aspirate — they do not appear as extracellular trypomastigotes on blood smear.",
+    },
+    {
+      id: "D",
+      label: "West African sleeping sickness (Trypanosoma brucei gambiense)",
+      correct: true,
+      feedback:
+        "Correct. The clinical picture is classic for West African human African trypanosomiasis (HAT) caused by Trypanosoma brucei gambiense, which accounts for over 95% of HAT cases worldwide and is endemic in the DRC, the country with the highest global burden of the disease. The sequence is textbook: a trypanosomal chancre (the self-resolving skin nodule at the tsetse fly bite site) appearing weeks after arrival, followed by the hemolymphatic stage (fever, headache, fatigue, posterior cervical lymphadenopathy, Winterbottom's sign), and then progressive meningoencephalitic stage involvement manifesting as personality change, confusion, and the pathognomonic sleep cycle inversion (hypersomnia by day, insomnia by night). Markedly elevated serum IgM is a characteristic laboratory finding. The blood smear shows slender trypomastigotes with an undulating membrane and subterminal kinetoplast, distinguishing T. brucei from T. cruzi. Urgent staging by lumbar puncture is required before treatment.",
+    },
+    {
+      id: "E",
+      label: "Borrelia recurrentis (louse-borne relapsing fever)",
+      feedback:
+        "Incorrect. Borrelia recurrentis causes louse-borne relapsing fever, transmitted by the human body louse (Pediculus humanus) and endemic in crowded, impoverished settings in the Horn of Africa (particularly Ethiopia and South Sudan) and among displaced populations. It presents with febrile episodes separated by afebrile intervals of several days, reflecting antigenic variation of Borrelia surface lipoproteins. Spirochetes can be seen on blood smear during febrile episodes. However, the organism on this smear is morphologically inconsistent with Borrelia (which are tightly coiled spirochetes), and the neuropsychiatric progression, posterior cervical lymphadenopathy, and prior chancre-like lesion are not features of relapsing fever. The DRC exposure and rural river setting are more consistent with tsetse fly transmission.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trypanosoma-gambiense-q2"
+  title="Question 2"
+  prompt="What is the most critical next step before initiating treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Brain MRI with gadolinium contrast",
+      feedback:
+        "Incorrect as the critical next step, though MRI may be performed as part of the workup. Brain MRI in stage 2 HAT can show white matter signal changes reflecting periventricular demyelination and edema, but it is neither sensitive nor specific enough to stage the disease, and findings are variable. Normal MRI does not exclude CNS involvement. The staging criterion that drives treatment decisions is CSF analysis, not neuroimaging. MRI does not replace lumbar puncture and should not delay it.",
+    },
+    {
+      id: "B",
+      label: "Lumbar puncture with CSF analysis for white cell count and trypanosome detection",
+      correct: true,
+      feedback:
+        "Correct. Lumbar puncture to stage the disease is the most critical step before treatment, because stage determines everything about drug selection. HAT is classified into two stages: stage 1 (hemolymphatic), in which parasites are confined to blood and lymphatics, and stage 2 (meningoencephalitic), in which the parasite crosses the blood-brain barrier and invades the CNS. Stage 2 is defined by CSF WBC greater than 5 cells per mcL or the presence of trypanosomes in CSF, regardless of cell count. Treating stage 2 disease with a stage 1 drug (pentamidine) is inadequate and will result in treatment failure and death from progressive encephalitis. Treating stage 1 disease with a CNS-penetrant drug exposes the patient to unnecessary toxicity. This patient's neuropsychiatric symptoms strongly suggest stage 2, but LP confirmation is mandatory before committing to a treatment regimen. In this patient, CSF shows 12 WBC/mcL and trypanosomes are detected, confirming stage 2 disease.",
+    },
+    {
+      id: "C",
+      label: "Card agglutination test for trypanosomiasis (CATT) serology",
+      feedback:
+        "Incorrect as the next step in this context. The CATT is a field-based screening test for T. brucei gambiense antibodies and is valuable in mass population screening programs in endemic regions. However, in a patient presenting with a compelling clinical syndrome and trypomastigotes identified on blood smear, the diagnosis is already established — serology does not add further value at this point. CATT is a screening, not a staging tool. The urgent priority is LP to determine CNS involvement and guide treatment selection.",
+    },
+    {
+      id: "D",
+      label: "Bone marrow aspirate to quantify parasite burden",
+      feedback:
+        "Incorrect. Bone marrow aspirate is not used to stage HAT and does not guide treatment decisions. Trypanosomes can occasionally be detected in bone marrow, but this finding provides no information about CNS involvement, which is the sole determinant of staging. Bone marrow sampling is invasive, adds no staging information, and would unnecessarily delay the LP that is urgently required.",
+    },
+    {
+      id: "E",
+      label: "Serum CXCL13 measurement as a CNS invasion biomarker",
+      feedback:
+        "Incorrect as the critical next step. CXCL13 is a B-cell chemoattractant that is elevated in the CSF and serum during stage 2 HAT and has been studied as a potential non-invasive staging biomarker. While promising in research settings, serum CXCL13 is not validated or available as a clinical staging tool and does not replace LP in current WHO guidelines. Lumbar puncture with CSF WBC count and trypanosome examination remains the standard of care for staging.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trypanosoma-gambiense-q3"
+  title="Question 3"
+  prompt="The lumbar puncture confirms stage 2 disease. What is the first-line treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Melarsoprol 2.2 mg/kg IV once daily for 10 days",
+      feedback:
+        "Incorrect as first-line therapy in 2026. Melarsoprol is an organoarsenic compound that was the only treatment for stage 2 T. brucei gambiense for decades and remains active against both T.b. gambiense and T.b. rhodesiense. However, it is no longer first-line for T.b. gambiense due to its severe toxicity profile: it causes a reactive encephalopathy in 5 to 10% of patients, with a case fatality rate of approximately 50% among those who develop this complication. In addition, widespread resistance to melarsoprol has been documented in T.b. gambiense populations in several DRC foci. Melarsoprol retains a role in T.b. rhodesiense stage 2 disease where fexinidazole and NECT are not indicated, but it should not be used for T.b. gambiense when safer alternatives are available.",
+    },
+    {
+      id: "B",
+      label: "Pentamidine 4 mg/kg IV once daily for 7 days",
+      feedback:
+        "Incorrect. Pentamidine is the first-line treatment for stage 1 T. brucei gambiense (hemolymphatic stage, no CNS involvement). It does not cross the blood-brain barrier at therapeutic concentrations and is therefore ineffective against stage 2 disease. Treating a patient with confirmed stage 2 HAT with pentamidine would result in treatment failure: the blood and lymphatic parasitemia may clear, but CNS disease will progress unchecked, leading to deepening coma and death. The staging LP that confirmed CSF WBC greater than 5 and trypanosomes in CSF definitively places this patient in stage 2, for which pentamidine is contraindicated.",
+    },
+    {
+      id: "C",
+      label: "Fexinidazole 1800 mg orally once daily for 4 days, then 1200 mg orally once daily for 6 days",
+      correct: true,
+      feedback:
+        "Correct. Fexinidazole is a nitroimidazole compound approved by the European Medicines Agency in 2018 and recommended by WHO as the first-line treatment for both stage 1 and stage 2 T. brucei gambiense HAT, provided the patient can swallow oral medication and is not deeply comatose. It is the first oral treatment for HAT and represents a major advance over IV regimens. The standard regimen is 1800 mg orally once daily with food for 4 days, followed by 1200 mg once daily for 6 days (10 days total). Fexinidazole achieves therapeutic concentrations in the CNS and has demonstrated non-inferiority to NECT in clinical trials for stage 2 disease, with a more favorable safety and administration profile. Its oral bioavailability makes it deployable in resource-limited settings without IV infrastructure. NECT (nifurtimox-eflornithine combination therapy) remains the alternative for patients who cannot tolerate or fail fexinidazole, or for severe stage 2 disease with impaired consciousness.",
+    },
+    {
+      id: "D",
+      label: "Suramin 1 g IV on days 1, 3, 7, 14, and 21",
+      feedback:
+        "Incorrect. Suramin is the first-line treatment for stage 1 T. brucei rhodesiense (East African sleeping sickness), not for T. brucei gambiense. Suramin does not cross the blood-brain barrier and is ineffective against stage 2 disease of either subspecies. It also has no activity against T.b. gambiense as a first-line agent (pentamidine is preferred for stage 1 gambiense). Confusing the treatment algorithms for T.b. gambiense and T.b. rhodesiense is a common error: the two subspecies differ not only in geography and clinical tempo but in their treatment protocols, and drugs active against one are often inappropriate for the other.",
+    },
+    {
+      id: "E",
+      label: "Nifurtimox-eflornithine combination therapy (NECT): eflornithine 400 mg/kg/day IV divided every 12 hours for 7 days plus nifurtimox 15 mg/kg/day orally in 3 doses for 10 days",
+      feedback:
+        "Incorrect as first-line, though NECT was the preferred stage 2 regimen before fexinidazole became available and remains an important alternative. NECT replaced melarsoprol as first-line for T.b. gambiense stage 2 following its WHO recommendation in 2009, and demonstrated superior safety to melarsoprol with good efficacy. However, it requires IV eflornithine infusion every 12 hours for 7 days, demanding significant nursing infrastructure and IV access that is often unavailable in endemic settings. Since fexinidazole demonstrated non-inferiority to NECT in the 2018 AMBITION trial and offers fully oral administration, fexinidazole is now the WHO-recommended first-line for stage 2 T.b. gambiense in patients who can take oral medication. NECT is reserved for patients who are deeply comatose, unable to swallow, or in whom fexinidazole is contraindicated.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-trypanosoma-gambiense-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Human African trypanosomiasis (HAT, sleeping sickness) is caused by
+    the protozoan parasite <em>Trypanosoma brucei</em>, transmitted through
+    the bite of infected tsetse flies (<em>Glossina</em> species) in
+    sub-Saharan Africa. Two subspecies cause human disease:
+    <em>T. brucei gambiense</em> (West and Central Africa, including the
+    DRC, which bears over 70% of the global burden) and <em>T. brucei
+    rhodesiense</em> (East Africa). T.b. gambiense causes a chronic,
+    insidious disease unfolding over months to years, while T.b. rhodesiense
+    causes a more acute, rapidly fatal illness over weeks. The DRC declared
+    HAT a public health emergency in the 1990s, when an estimated 300,000
+    people were infected annually; intensive control efforts have reduced
+    this to fewer than 1,000 reported cases per year, but the disease
+    remains a risk for aid workers and travelers with rural exposure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The disease proceeds in two stages. Stage 1 (hemolymphatic) begins
+    weeks after the tsetse bite: the inoculation site may develop a
+    trypanosomal chancre, a self-resolving painful or pruritic nodule
+    representing a local inflammatory response to the parasite. Systemic
+    invasion produces intermittent fever, headache, fatigue, weight loss,
+    and lymphadenopathy. The posterior cervical lymphadenopathy
+    (Winterbottom's sign) is a classic and relatively specific finding
+    for T.b. gambiense. Markedly elevated polyclonal IgM is a
+    characteristic laboratory finding, reflecting the parasite's continuous
+    antigenic variation. Stage 2 (meningoencephalitic) occurs when
+    trypanosomes cross the blood-brain barrier, producing neuropsychiatric
+    symptoms including personality change, behavioral disturbance,
+    hallucinations, and the pathognomonic disruption of the circadian
+    rhythm: daytime somnolence with nocturnal insomnia, the origin of the
+    disease's common name.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Staging by lumbar puncture is mandatory before treatment. Stage 2 is
+    defined by CSF WBC greater than 5 cells per mcL or the presence of
+    trypanosomes in the CSF regardless of cell count. This distinction
+    is not academic: stage 1 drugs (pentamidine for T.b. gambiense,
+    suramin for T.b. rhodesiense) do not penetrate the CNS and will fail
+    to treat established brain infection. Fexinidazole, approved in 2018,
+    is now the WHO-recommended first-line for both stages of T.b. gambiense,
+    provided the patient can swallow. Its oral formulation represents a
+    transformative advance for a disease endemic in settings with limited
+    IV capacity. NECT (eflornithine plus nifurtimox) remains available
+    for severe or refractory stage 2 cases. Melarsoprol, the historic
+    stage 2 drug, is no longer recommended for T.b. gambiense given its
+    5 to 10% rate of fatal reactive encephalopathy and documented
+    resistance, though it remains the only option for stage 2
+    T.b. rhodesiense.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-trypanosoma-gambiense-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      HAT progresses through two stages: hemolymphatic (stage 1) and
+      meningoencephalitic (stage 2). The pathognomonic feature of stage 2
+      is sleep cycle inversion (daytime somnolence, nighttime insomnia).
+      Posterior cervical lymphadenopathy (Winterbottom's sign) and a
+      history of a self-resolving skin nodule at the bite site
+      (trypanosomal chancre) are classic clues.
+    </li>
+    <li>
+      Lumbar puncture is mandatory before treatment. Stage 2 is defined
+      by CSF WBC greater than 5 cells per mcL or trypanosomes in the CSF.
+      Treating stage 2 with a stage 1 drug (pentamidine) is lethal: it
+      clears blood parasitemia but leaves CNS disease untreated.
+    </li>
+    <li>
+      Fexinidazole (oral, 10-day course) is the WHO-recommended first-line
+      for both stage 1 and stage 2 T.b. gambiense in patients able to
+      swallow. It replaced IV-dependent NECT as the preferred regimen
+      after the 2018 AMBITION trial. NECT is reserved for severe stage 2
+      or fexinidazole failure.
+    </li>
+    <li>
+      Melarsoprol is no longer first-line for T.b. gambiense due to a
+      5 to 10% rate of fatal reactive encephalopathy and widespread
+      resistance. It remains the only treatment for stage 2
+      T.b. rhodesiense (East African sleeping sickness).
+    </li>
+    <li>
+      Know your geography: T.b. gambiense (West and Central Africa,
+      chronic course) versus T.b. rhodesiense (East Africa, acute course).
+      The DRC has the world's highest HAT burden. Treatment algorithms
+      differ between subspecies.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lutje V, Seixas J, Kennedy A.
+      Chemotherapy for second-stage human African trypanosomiasis.
+      <em>Cochrane Database of Systematic Reviews</em>. 2013;(6):CD006201.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/14651858.CD006201.pub3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/14651858.CD006201.pub3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bisser S, Lumbala C, Nguertoum E, et al.
+      Sensitivity and specificity of a prototype rapid diagnostic test for
+      the detection of Trypanosoma brucei gambiense infection.
+      <em>PLOS Neglected Tropical Diseases</em>. 2016;10(4):e0004608.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pntd.0004608"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1371/journal.pntd.0004608
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lindner AK, Lejon V, Barrett MP, et al.
+      New WHO guidelines for treatment of gambiense human African
+      trypanosomiasis including fexinidazole: substantial changes for
+      clinical practice.
+      <em>The Lancet Infectious Diseases</em>. 2020;20(8):e227-e238.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(20)30202-6"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(20)30202-6
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
