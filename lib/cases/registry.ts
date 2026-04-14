@@ -493,6 +493,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 45-year-old man born in Mexico presents with three weeks of right upper quadrant pain and fever after visiting family in rural Oaxaca. CT shows a large hypodense right hepatic lesion. Blood cultures are negative. What is quietly invading his liver?",
     tags: { organisms: ["Entamoeba histolytica"], syndromes: ["Gastroenterology", "Travel Medicine", "Parasitology"], concepts: ["Amoebic liver abscess", "Erythrophagocytosis", "Serology", "Metronidazole", "Luminal agent", "Paromomycin", "Pyogenic abscess", "Travel medicine"] },
   },
+  {
+    slug: "salmonella-aortitis",
+    title: "A Dangerous Predilection",
+    description: "A man with a known aortic aneurysm, a forgotten diarrheal illness, and blood cultures that explain everything.",
+    enable: true,
+    ogImage: "/cases/salmonella/salmonella.png",
+    teaser: "A 68-year-old man with a known aortic aneurysm presents with two weeks of fever and back pain. Three weeks ago he had a brief diarrheal illness after a backyard cookout. His blood cultures are growing gram-negative rods. CT shows periaortic gas.",
+    tags: { organisms: ["Salmonella enterica"], syndromes: ["Bacteremia", "Cardiovascular Infections", "Gastroenterology"], concepts: ["Infected aortic aneurysm", "Mycotic aneurysm", "Vascular seeding", "Periaortic gas", "Fluoroquinolone", "Surgical debridement", "Non-typhoidal Salmonella", "GNR bacteremia"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

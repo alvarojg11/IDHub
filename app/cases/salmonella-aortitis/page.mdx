@@ -1,0 +1,374 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("salmonella-aortitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Dangerous Predilection
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 68-year-old man with hypertension, type 2 diabetes, and a known
+    4.8 cm infrarenal abdominal aortic aneurysm under surveillance presents
+    to the emergency department with two weeks of progressive low-grade
+    fever, drenching night sweats, and severe back and flank pain. He
+    initially attributed the back pain to a muscle strain from yard work.
+    Three weeks prior, he had four days of diarrhea, crampy abdominal pain,
+    and low-grade fever after a backyard cookout at which undercooked
+    chicken was served. The diarrheal illness resolved without treatment
+    and he did not seek medical care at that time.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.8°C, heart rate 104, blood pressure
+    136/82 mmHg. He appears ill and uncomfortable. Abdominal examination
+    reveals a pulsatile midline mass with periumbilical and back tenderness
+    on deep palpation. No peritoneal signs. No lower extremity pulses are
+    diminished. No skin findings.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: WBC 18.6 k/mcL with 92% neutrophils, hemoglobin
+    11.4 g/dL, platelets 410 k/mcL. CRP 186 mg/L, ESR 88 mm/hr. Creatinine
+    1.3 mg/dL, LFTs normal. Blood cultures are drawn and flagged positive
+    at 14 hours; the Gram stain is shown below. CT angiography of the
+    abdomen reveals an infrarenal abdominal aortic aneurysm now measuring
+    5.4 cm with marked periaortic fat stranding and multiple small foci of
+    gas within and immediately surrounding the aneurysm sac.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/salmonella/salmonella.png"
+        alt="Gram stain from blood culture showing gram-negative rods"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Gram stain from the patient's blood culture: gram-negative rods.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-salmonella-aortitis-q1"
+  title="Question 1"
+  prompt="Which organism is most likely growing in this patient's blood cultures?"
+  options={[
+    {
+      id: "A",
+      label: "Salmonella enterica",
+      correct: true,
+      feedback:
+        "Correct. Non-typhoidal Salmonella, most often Salmonella Typhimurium or Salmonella Enteritidis, is the leading cause of bacterial aortitis and infected aortic aneurysm in population-based case series, accounting for up to 40% of cases in some reports. The clinical triad is nearly pathognomonic: an older man with known atherosclerotic or aneurysmal aortic disease, a preceding gastroenteritis episode (often undercooked poultry or eggs, typically 2 to 6 weeks prior), and a febrile illness with back pain and gram-negative bacteremia. Salmonella is uniquely suited to vascular infection because it is a facultative intracellular pathogen with specific tropism for the macrophages and dysfunctional endothelium enriched at sites of atherosclerosis, aneurysmal wall inflammation, and intraluminal thrombus. The CT finding of periaortic gas is characteristic of an infected aneurysm and represents gas-forming bacterial infection within or around the aortic wall.",
+    },
+    {
+      id: "B",
+      label: "Escherichia coli",
+      feedback:
+        "Incorrect, though E. coli is the most common gram-negative cause of bacteremia overall. E. coli bacteremia typically arises from urinary, biliary, or gastrointestinal sources, and while it can seed vascular structures, it does so far less frequently than Salmonella. E. coli does not have the same intracellular tropism for atherosclerotic and aneurysmal vascular tissue that defines Salmonella's vascular predilection. The exposure history (undercooked chicken, preceding gastroenteritis) and the clinical syndrome of an infected aortic aneurysm in an older man with known aortic disease is far more characteristic of Salmonella aortitis than E. coli vascular infection.",
+    },
+    {
+      id: "C",
+      label: "Klebsiella pneumoniae",
+      feedback:
+        "Incorrect. Klebsiella pneumoniae is an important gram-negative cause of bacteremia, particularly in patients with diabetes (as in this patient) and in patients of East Asian descent, where hypervirulent strains cause a characteristic syndrome of primary liver abscess with metastatic spread to the eye, brain, and lungs. K. pneumoniae can cause aortic infection but it is not the classic organism for this presentation. The strong epidemiologic link to undercooked poultry, the preceding gastroenteritis, and the known aortic aneurysm make Salmonella the most likely organism by a wide margin. Klebsiella does not have Salmonella's specific vascular tropism mediated through intracellular invasion of plaque-associated macrophages.",
+    },
+    {
+      id: "D",
+      label: "Campylobacter jejuni",
+      feedback:
+        "Incorrect. Campylobacter jejuni is also a common cause of food-borne gastroenteritis from undercooked poultry and shares the exposure history here. However, Campylobacter bacteremia is uncommon in immunocompetent hosts and the organism does not share Salmonella's well-documented predilection for atherosclerotic vascular structures. Campylobacter is a curved gram-negative rod with a distinctive seagull or S-shape on Gram stain, rather than the straight rod morphology typical of Salmonella. Vascular infection with Campylobacter is exceptionally rare. Non-typhoidal Salmonella is responsible for the overwhelming majority of bacterial aortitis cases in Western case series.",
+    },
+    {
+      id: "E",
+      label: "Pseudomonas aeruginosa",
+      feedback:
+        "Incorrect. Pseudomonas aeruginosa causes bacteremia primarily in immunocompromised patients, those with burns, patients on prolonged broad-spectrum antibiotics, or those with indwelling catheters and devices. It does not have a food-borne transmission route and would not be expected to follow a gastroenteritis episode from undercooked poultry. While Pseudomonas can cause vascular graft infections, it lacks the specific predilection for native atherosclerotic and aneurysmal aortic disease that characterizes Salmonella. This patient has no clear risk factors for Pseudomonas bacteremia.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-salmonella-aortitis-q2"
+  title="Question 2"
+  prompt="Which best explains this organism predilection for atherosclerotic vascular structures?"
+  options={[
+    {
+      id: "A",
+      label: "Salmonella produces a vasculotoxic lipopolysaccharide that directly lyses arterial endothelium at sites of turbulent flow",
+      feedback:
+        "Incorrect. While Salmonella does possess lipopolysaccharide (LPS) as part of its gram-negative outer membrane, and LPS contributes to the systemic inflammatory response of bacteremia, LPS does not specifically lyse endothelium or preferentially target atherosclerotic vessels. The toxic effects of LPS are mediated systemically through Toll-like receptor 4 signaling and are not anatomically restricted to diseased aortic segments. If LPS-mediated toxicity were the mechanism, one would expect vascular complications at multiple sites rather than the focal predilection for aneurysmal and atherosclerotic aorta that characterizes Salmonella aortitis.",
+    },
+    {
+      id: "B",
+      label: "Salmonella possesses a polysaccharide Vi capsule that prevents complement-mediated clearance during bacteremia, allowing prolonged circulation sufficient to seed vascular endothelium",
+      feedback:
+        "Incorrect. The Vi capsule is expressed by Salmonella Typhi, the cause of typhoid fever, and by Salmonella Paratyphi C, not by the non-typhoidal serovars (Typhimurium, Enteritidis) responsible for the vast majority of Salmonella aortitis cases. Non-typhoidal Salmonella does not rely on Vi capsule for survival and vascular seeding. The tropism for atherosclerotic aortic tissue is independent of Vi antigen and is instead mediated by the organism's intracellular biology.",
+    },
+    {
+      id: "C",
+      label: "Salmonella is a facultative intracellular pathogen with tropism for macrophages and damaged endothelial cells, which are enriched within atherosclerotic plaques and aneurysmal aortic walls",
+      correct: true,
+      feedback:
+        "Correct. Non-typhoidal Salmonella is a facultative intracellular pathogen that survives and replicates within macrophages using the Salmonella-containing vacuole, a specialized intracellular compartment that resists lysosomal degradation via the SPI-2 type III secretion system. Atherosclerotic plaques and inflamed aneurysmal aortic walls are densely infiltrated with lipid-laden macrophages (foam cells) and activated endothelial cells, creating the precise intracellular niche in which Salmonella thrives. This explains why Salmonella targets diseased aorta rather than healthy vessels: the macrophage-rich microenvironment of atheroma and aneurysmal inflammation provides both entry points and a protected intracellular reservoir that evades systemic antibiotics. This also explains why antibiotic therapy alone is insufficient: intracellular bacteria within the aortic wall cannot be reliably eradicated without surgical debridement.",
+    },
+    {
+      id: "D",
+      label: "Salmonella causes a higher-grade and more sustained bacteremia than other Enterobacteriaceae, giving it more opportunity to seed vascular structures by sheer inoculum",
+      feedback:
+        "Incorrect. While Salmonella does cause bacteremia in a subset of patients with gastroenteritis (roughly 5% of non-typhoidal Salmonella infections), it does not consistently produce a higher-grade bacteremia than other gram-negative rods. E. coli and Klebsiella, which also commonly cause gram-negative bacteremia, seed native aortic tissue far less frequently than Salmonella despite similar or higher rates of bacteremia. This distribution cannot be explained by inoculum size alone; it reflects organism-specific virulence properties rather than simple bacterial burden.",
+    },
+    {
+      id: "E",
+      label: "Salmonella forms biofilm on calcified atherosclerotic plaques through surface adhesins, similar to the mechanism by which S. epidermidis colonizes prosthetic material",
+      feedback:
+        "Incorrect. Salmonella is not known for biofilm formation on calcified plaque as a primary mechanism of vascular seeding, and its vascular predilection does not parallel the prosthetic material tropism of coagulase-negative Staphylococci such as S. epidermidis. Staphylococcal prosthetic infections rely on surface adhesins like MSCRAMM proteins that bind fibronectin, collagen, and fibrinogen on implant surfaces. Salmonella's vascular predilection is instead driven by its behavior as an intracellular pathogen within the innate immune cells resident in diseased vessel walls.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-salmonella-aortitis-q3"
+  title="Question 3"
+  prompt="What is the recommended management?"
+  options={[
+    {
+      id: "A",
+      label: "Ciprofloxacin 400 mg IV twice daily for 6 weeks, with close imaging surveillance and surgery only if the aneurysm enlarges",
+      feedback:
+        "Incorrect. Medical therapy alone is associated with mortality rates exceeding 80% in Salmonella aortitis. The presence of periaortic gas indicates active infection within and around the aortic wall; this cannot be sterilized with antibiotics alone because Salmonella persists intracellularly within macrophages in the infected tissue, beyond the reach of systemic antibiotic concentrations. Antibiotic monotherapy without surgical source control is considered inadequate management and should not be used except in patients who are not surgical candidates, in whom it represents palliative rather than curative intent. Close surveillance alone in the setting of an infected aneurysm with periaortic gas is inappropriate.",
+    },
+    {
+      id: "B",
+      label: "Ceftriaxone 2 g IV once daily for 4 weeks followed by oral amoxicillin-clavulanate for 4 weeks, with repeat CT at 8 weeks",
+      feedback:
+        "Incorrect for two reasons. First, antibiotics alone without surgery are inadequate for Salmonella aortitis, as discussed. Second, amoxicillin-clavulanate is not an appropriate agent for non-typhoidal Salmonella, which commonly expresses AmpC beta-lactamases and may have reduced susceptibility to aminopenicillins. Appropriate oral step-down agents after initial IV therapy include ciprofloxacin or trimethoprim-sulfamethoxazole based on susceptibility testing. Critically, no antibiotic regimen substitutes for surgical source control in this setting.",
+    },
+    {
+      id: "C",
+      label: "Percutaneous CT-guided drainage of the periaortic collection followed by 6 weeks of ciprofloxacin",
+      feedback:
+        "Incorrect. Percutaneous drainage of a periaortic collection from an infected aortic aneurysm is not adequate source control. The source of infection is the infected aortic wall itself, not simply a drainable fluid collection, and drainage does not address the intramural bacterial burden. Furthermore, instrumentation of an infected aneurysm without definitive surgical repair carries risk of precipitating rupture. Percutaneous drainage has no established role as primary therapy for Salmonella aortitis. Surgical debridement and reconstruction is the required intervention.",
+    },
+    {
+      id: "D",
+      label: "Ampicillin-sulbactam 3 g IV every 6 hours pending speciation, transitioning to trimethoprim-sulfamethoxazole for 6 weeks once Salmonella is confirmed",
+      feedback:
+        "Incorrect on multiple levels. Antibiotics alone are not sufficient regardless of agent selection. Additionally, non-typhoidal Salmonella frequently demonstrates resistance to ampicillin through plasmid-mediated beta-lactamase production, making ampicillin-sulbactam an unreliable empiric choice. Trimethoprim-sulfamethoxazole retains activity against many Salmonella strains but susceptibility must be confirmed, and it is generally considered a second-line agent after fluoroquinolones and third-generation cephalosporins. Surgical source control is the non-negotiable element of management that this option omits.",
+    },
+    {
+      id: "E",
+      label: "Urgent surgical debridement with in-situ or extra-anatomic vascular reconstruction, plus prolonged antibiotic therapy with a fluoroquinolone or third-generation cephalosporin for at least 6 weeks",
+      correct: true,
+      feedback:
+        "Correct. Salmonella aortitis is a surgical emergency. The standard of care is urgent operative intervention combining surgical debridement of all infected aortic tissue with vascular reconstruction, typically either in-situ repair using rifampicin-soaked grafts or autologous vein, or extra-anatomic bypass (axillo-bifemoral), depending on the degree of contamination and patient physiology. Surgical debridement addresses the source that antibiotics cannot eradicate. Antimicrobial therapy is an essential adjunct: fluoroquinolones (ciprofloxacin) and third-generation cephalosporins (ceftriaxone) achieve good tissue penetration and maintain activity against Salmonella. Duration is typically at least 6 weeks, though many centers advocate indefinite oral suppression (ciprofloxacin 500 mg twice daily) given the high relapse rate after discontinuation. Treatment decisions should involve vascular surgery, infectious diseases, and where available, an endovascular team to assess suitability for EVAR as a bridge or definitive repair.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-salmonella-aortitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Salmonella aortitis and infected aortic aneurysm represent the most
+    feared complication of non-typhoidal Salmonella bacteremia. Non-typhoidal
+    Salmonella serovars, most commonly Typhimurium and Enteritidis, are
+    responsible for the majority of bacterial aortitis cases in Western
+    case series, accounting for 30 to 40% of reported cases. The classic
+    epidemiologic profile is an older man (median age 60 to 70 years)
+    with pre-existing aortic disease (aneurysm, atherosclerosis, or prior
+    aortic surgery) who experiences a gastroenteritis episode two to six
+    weeks prior to the vascular presentation. The GI illness is often mild
+    or self-limited and may not be volunteered without direct questioning.
+    Poultry and eggs remain the most common vehicles of non-typhoidal
+    Salmonella transmission in the United States.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathophysiology is rooted in Salmonella's identity as a facultative
+    intracellular pathogen. During bacteremia, Salmonella invades and
+    survives within macrophages using the Salmonella pathogenicity island
+    2 (SPI-2) type III secretion system, which remodels the
+    Salmonella-containing vacuole to evade lysosomal killing. Atherosclerotic
+    plaques and aneurysmal aortic walls are densely infiltrated with
+    macrophages (foam cells), activated endothelium, and intraluminal
+    thrombus, providing a uniquely permissive niche for intracellular
+    Salmonella replication. This intracellular sanctuary explains both
+    the organism's predilection for diseased vascular tissue and the
+    failure of antibiotic monotherapy: systemic drug concentrations do not
+    reliably eradicate bacteria sequestered within macrophages embedded in
+    infected aortic tissue.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnosis should be suspected in any patient with known aortic
+    disease who presents with fever and back or abdominal pain, even without
+    a recalled GI illness. CT angiography is the imaging modality of choice:
+    findings include periaortic fat stranding, soft tissue thickening around
+    the aorta, rapid aneurysm enlargement compared to prior imaging, and
+    periaortic or intramural gas. Periaortic gas is nearly pathognomonic of
+    bacterial aortitis and demands urgent surgical evaluation. Blood cultures
+    are positive in the majority of cases and should be drawn before
+    antibiotics. Serologic testing for Salmonella is unreliable in this
+    setting.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management is bimodal: surgical source control and prolonged antibiotic
+    therapy. Surgery involves debridement of all grossly infected aortic
+    tissue and vascular reconstruction. Options include in-situ repair
+    (rifampicin-soaked prosthetic graft or autologous femoral vein) or
+    extra-anatomic bypass. Endovascular aneurysm repair (EVAR) may serve
+    as a bridge to open repair in unstable patients but is not a definitive
+    solution given the persistent infected tissue. Antibiotic therapy should
+    be directed by susceptibilities: fluoroquinolones (ciprofloxacin) and
+    third-generation cephalosporins (ceftriaxone) are the preferred agents,
+    with good tissue penetration and reliable activity against susceptible
+    strains. Duration is at minimum 6 weeks, and many centers recommend
+    indefinite oral suppression given the relapse risk after discontinuation,
+    particularly in patients who received endovascular rather than open
+    repair.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-salmonella-aortitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Non-typhoidal Salmonella is the leading cause of bacterial aortitis.
+      The classic triad: older patient with aortic aneurysm or atherosclerosis,
+      a preceding gastroenteritis episode (often undercooked poultry, 2 to 6
+      weeks prior), and gram-negative bacteremia with back pain and fever.
+    </li>
+    <li>
+      Salmonella's vascular predilection is driven by its biology as a
+      facultative intracellular pathogen: it survives within macrophages
+      enriched in atherosclerotic plaques and aneurysmal aortic walls,
+      creating an intracellular reservoir that antibiotics cannot reliably
+      reach.
+    </li>
+    <li>
+      Periaortic gas on CT is nearly pathognomonic of an infected aortic
+      aneurysm and mandates urgent surgical evaluation. Do not mistake
+      back pain in a patient with a known aneurysm for a musculoskeletal
+      complaint without first ruling out vascular infection.
+    </li>
+    <li>
+      Antibiotic monotherapy carries mortality exceeding 80%. Management
+      requires urgent surgical debridement with vascular reconstruction
+      plus prolonged antibiotics (ciprofloxacin or ceftriaxone, at least
+      6 weeks; consider indefinite oral suppression given the high relapse
+      rate after stopping).
+    </li>
+    <li>
+      Always ask about a preceding GI illness in febrile patients with
+      aortic disease. Patients often do not volunteer a self-limited
+      diarrheal episode weeks earlier, and failure to elicit this history
+      delays the diagnosis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kyriakidis M, Skouteli E, Kolettis TM.
+      Non-typhoidal Salmonella aortitis: a literature review.
+      <em>European Journal of Internal Medicine</em>. 2009;20(5):447-454.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.ejim.2009.01.005"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.ejim.2009.01.005
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hsu RB, Tsay YG, Wang SS, Chu SH.
+      Risk factors for primary bacteremic infection and endovascular
+      infection of Salmonella.
+      <em>Journal of the American College of Surgeons</em>. 2003;196(1):1-6.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1072-7515(02)01495-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1072-7515(02)01495-8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Liang CW, Lin YC, Lin JH, et al.
+      Non-typhoidal Salmonella endovascular infection: a systematic review.
+      <em>Journal of Infection</em>. 2021;83(5):536-545.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jinf.2021.08.002"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.jinf.2021.08.002
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
