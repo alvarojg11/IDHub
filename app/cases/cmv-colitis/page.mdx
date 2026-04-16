@@ -1,0 +1,407 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cmv-colitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Stubborn Course
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man with end-stage renal disease from diabetic nephropathy
+    underwent deceased-donor kidney transplantation ten months ago. Pre-transplant
+    CMV serology showed a seropositive donor and seronegative recipient (D+/R−).
+    He received valganciclovir prophylaxis for six months post-transplant,
+    which was discontinued two months ago. His current immunosuppressive
+    regimen includes tacrolimus (trough 7.2 ng/mL), mycophenolate mofetil
+    1000 mg twice daily, and prednisone 5 mg daily. Three weeks ago, he
+    developed watery diarrhea with mild periumbilical cramping after a course
+    of amoxicillin for a dental abscess. Stool testing was positive for
+    Clostridioides difficile by PCR, and he completed a 10-day course of oral
+    vancomycin 125 mg four times daily.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He returns to the transplant clinic with two additional weeks of persistent
+    diarrhea — now four to six bloody stools per day — and crampy left lower
+    abdominal pain. He reports no fever. An unintentional weight loss of 5 kg
+    has occurred over the past month. He has not started any new medications.
+    A repeat stool C. difficile PCR and enzyme immunoassay are both negative.
+    His tacrolimus trough is 7.5 ng/mL, within the target range. Serum CMV
+    quantitative PCR is sent and returns at 800 IU/mL.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.3°C, heart rate 88, blood pressure
+    134/82 mmHg. The abdomen is soft with mild tenderness to deep palpation
+    in the left lower quadrant and no peritoneal signs. Laboratory studies:
+    WBC 6.1 k/mcL with lymphopenia (absolute lymphocyte count 0.4 k/mcL),
+    hemoglobin 10.1 g/dL (microcytic), serum creatinine 2.0 mg/dL (baseline
+    1.5 mg/dL). He is admitted and undergoes colonoscopy, which reveals
+    diffuse mucosal erythema, edema, and multiple linear ulcerations extending
+    from the cecum to the sigmoid colon. Biopsies are sent for histopathology
+    with immunohistochemistry. The result is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/cmv-colitis/cmv-colitis.png"
+        alt="Colonic mucosal biopsy immunohistochemistry showing enlarged cell with intranuclear inclusion"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Colonic mucosal biopsy immunohistochemistry: an enlarged cell with a
+      large intranuclear inclusion surrounded by a clear halo, staining
+      positive on anti-viral immunoperoxidase.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-cmv-colitis-q1"
+  title="Question 1"
+  prompt="What is the diagnosis based on the biopsy findings?"
+  options={[
+    {
+      id: "A",
+      label: "Mycophenolate mofetil-induced colitis",
+      feedback:
+        "Incorrect. Mycophenolate mofetil (MMF) colitis is an important consideration in transplant recipients with chronic diarrhea, as MMF can cause a spectrum of GI injury ranging from mild mucosal erythema to severe colitis that histologically mimics inflammatory bowel disease. Characteristic features include crypt architectural distortion, increased crypt apoptosis, and a mononuclear lamina propria infiltrate. However, MMF colitis does not produce the intranuclear viral inclusions with surrounding halo visible on immunohistochemistry, and anti-viral immunoperoxidase staining would be negative. The clinical course here, specifically the persistence of bloody diarrhea after C. difficile treatment, the colonoscopic ulcerations, and the IHC result, is inconsistent with isolated MMF toxicity.",
+    },
+    {
+      id: "B",
+      label: "Recurrent Clostridioides difficile colitis",
+      feedback:
+        "Incorrect. A negative repeat C. difficile PCR and enzyme immunoassay, combined with the immunohistochemistry findings, make recurrent C. difficile the wrong primary diagnosis. C. difficile colitis produces a pseudomembranous or hemorrhagic pattern of injury on colonoscopy and does not cause the intranuclear inclusions seen here. That said, it is important to recognize that co-infection with C. difficile and CMV is well-documented in transplant recipients and immunocompromised hosts. In this case, C. difficile was a real and appropriately treated preceding illness, but the IHC result directs us toward CMV as the active ongoing process. The key clinical lesson is to not anchor on C. difficile when a transplant patient fails to improve after adequate treatment.",
+    },
+    {
+      id: "C",
+      label: "CMV colitis",
+      correct: true,
+      feedback:
+        "Correct. The biopsy confirms CMV colitis. CMV is among the most clinically significant opportunistic pathogens in solid organ transplant recipients, and the colonic mucosa is one of its preferred targets. The hallmark histopathologic finding is the cytomegalic cell: a greatly enlarged endothelial, epithelial, or stromal cell containing a large intranuclear inclusion surrounded by a clear halo, producing the characteristic 'owl eye' appearance, along with smaller cytoplasmic inclusions. Immunohistochemistry using anti-CMV monoclonal antibodies, as shown, confirms the diagnosis with high sensitivity and specificity even when inclusions are sparse or atypical on standard H&E staining. This patient's epidemiologic profile is a textbook setup for late CMV disease: D+/R- serostatus (the highest-risk donor-recipient combination, with the recipient lacking pre-existing CMV-specific T-cell immunity), six months of prophylaxis completed two months prior (placing him in the vulnerable post-prophylaxis window), and ongoing triple immunosuppression. The preceding C. difficile illness and amoxicillin course likely triggered a period of heightened mucosal susceptibility and may have contributed to CMV reactivation through immune perturbation.",
+    },
+    {
+      id: "D",
+      label: "De novo inflammatory bowel disease",
+      feedback:
+        "Incorrect. De novo inflammatory bowel disease after solid organ transplantation is a recognized but uncommon complication, reported most often with calcineurin inhibitor use. It typically presents as a chronic, relapsing course with histologic features of chronic active colitis, crypt distortion, basal plasmacytosis, and occasionally granulomas in Crohn's disease. De novo IBD does not produce intranuclear viral inclusions, and anti-viral immunoperoxidase staining would be negative. An important clinical principle is that CMV must always be excluded before escalating immunosuppression for suspected IBD, because treating what is actually CMV colitis with increased immunosuppression can have catastrophic consequences.",
+    },
+    {
+      id: "E",
+      label: "Acute cellular rejection with intestinal involvement",
+      feedback:
+        "Incorrect. Acute rejection after kidney transplantation primarily manifests as impaired allograft function, rising creatinine, and decreased urine output — not as primary GI mucosal disease. While systemic inflammatory activation can produce GI symptoms, acute cellular rejection does not cause the viral inclusions seen on this biopsy, and anti-CMV immunohistochemistry would be negative. The creatinine elevation in this patient (from 1.5 to 2.0 mg/dL) likely reflects the systemic effects of active CMV infection rather than primary rejection, as CMV-associated nephritis and hemodynamic compromise from the GI illness can transiently impair allograft function.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cmv-colitis-q2"
+  title="Question 2"
+  prompt="Which statement best describes the role of serum CMV PCR in diagnosing GI CMV disease?"
+  options={[
+    {
+      id: "A",
+      label: "A serum CMV PCR below 1,000 IU/mL reliably excludes active GI CMV disease",
+      feedback:
+        "Incorrect. A low serum CMV PCR does not exclude GI CMV disease. Multiple studies have demonstrated that up to 30 to 50% of patients with biopsy-confirmed CMV colitis or enteritis have serum CMV viral loads that are low or even undetectable. This is because CMV GI disease can be predominantly localized to the mucosal compartment with limited systemic viremia, particularly in patients with partial immune function or residual prophylaxis-induced T-cell responses. Relying on serum PCR alone to exclude GI CMV disease will lead to missed diagnoses, delayed treatment, and worse outcomes in transplant recipients.",
+    },
+    {
+      id: "B",
+      label: "Tissue biopsy with immunohistochemistry is the gold standard; serum CMV PCR can be negative or low in localized GI CMV disease",
+      correct: true,
+      feedback:
+        "Correct. Tissue biopsy with histopathology and immunohistochemistry (IHC) remains the gold standard for diagnosing GI CMV disease. Anti-CMV IHC using monoclonal antibodies detects viral antigen in infected cells even when viral inclusions are sparse on H&E staining, providing superior sensitivity for mucosal tissue-invasive disease. Serum CMV quantitative PCR is an essential tool for monitoring treatment response and for screening high-risk patients during prophylaxis, but it is not equivalent to tissue diagnosis for GI disease. The ECMM/ESMyd International Guidelines on Management of Cytomegalovirus in Transplantation explicitly state that the diagnosis of CMV end-organ GI disease requires histopathologic confirmation, not PCR alone. In this patient, the serum CMV PCR of 800 IU/mL would have been insufficient to confirm the diagnosis — and in many patients with CMV colitis, the PCR would have been even lower or undetectable, making the colonoscopy and biopsy the definitive diagnostic step.",
+    },
+    {
+      id: "C",
+      label: "A serum CMV PCR above 1,000 IU/mL is required to confirm CMV colitis",
+      feedback:
+        "Incorrect. No serum CMV PCR threshold is required to confirm GI CMV disease. The diagnosis is established histologically by tissue biopsy, not by a specific viral load cutoff. International consensus guidelines (Kotton et al., Transplantation 2018) state that CMV end-organ disease is a clinical and histopathologic diagnosis. Conversely, patients with confirmed CMV colitis may have serum PCR levels well below any proposed threshold, and a rising PCR in a patient on treatment is more predictive of resistance than any absolute number is of primary diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Serum CMV PCR levels correlate directly with colonoscopic disease severity",
+      feedback:
+        "Incorrect. Serum CMV PCR does not reliably correlate with the extent or severity of colonoscopic or histopathologic GI disease. Patients with pancolitis and deep ulcerations can have minimal circulating viremia, while high viremia does not predict end-organ disease severity. Colonoscopic extent (pancolitis versus segmental), depth of ulceration, and density of viral inclusions on histopathology are more reflective of tissue disease burden than serum viral load. Serum PCR is most useful as a treatment monitoring tool, where a decline toward undetectable confirms adequate antiviral suppression.",
+    },
+    {
+      id: "E",
+      label: "A positive serum CMV PCR is sufficient to initiate IV ganciclovir without endoscopic evaluation",
+      feedback:
+        "Incorrect. A positive serum CMV PCR in a transplant patient with GI symptoms is an indication for further workup, not immediate empiric antiviral therapy without tissue confirmation. Beginning IV ganciclovir based solely on a positive PCR risks misattributing GI symptoms to CMV when another diagnosis — MMF colitis, recurrent C. difficile, de novo IBD, or a co-infection — may be responsible or contributing. Tissue confirmation also quantifies disease severity and provides a baseline for monitoring treatment response. Empiric ganciclovir without endoscopy is generally reserved for situations where colonoscopy cannot be safely performed due to clinical instability.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cmv-colitis-q3"
+  title="Question 3"
+  prompt="After three weeks of IV ganciclovir dosed by weight and adjusted for creatinine clearance, the patient continues to have bloody diarrhea. Serum CMV PCR has risen from 800 to 32,400 IU/mL. Repeat colonoscopy shows unchanged ulcerations. What is the most likely mechanism and next step?"
+  options={[
+    {
+      id: "A",
+      label: "Subtherapeutic ganciclovir dosing from renal underdosing — recheck creatinine clearance and recalculate",
+      feedback:
+        "Incorrect in this clinical scenario, though renal dosing errors are a legitimate and important cause of ganciclovir treatment failure that should always be verified early in the course. Ganciclovir is renally eliminated and requires dose reduction for creatinine clearance below 70 mL/min. Inadequate dosing due to missed renal adjustment leads to subtherapeutic plasma levels and failure to suppress viral replication. However, the scenario explicitly states that dosing has been appropriately weight-based and renal-adjusted. Rising CMV PCR despite confirmed therapeutic dosing after three weeks of treatment is the canonical clinical scenario for ganciclovir resistance and warrants genotypic resistance testing rather than further dose manipulation.",
+    },
+    {
+      id: "B",
+      label: "Reduce mycophenolate mofetil to restore CMV-specific immune function",
+      feedback:
+        "Partially correct but not the primary or sufficient intervention. Reducing or stopping mycophenolate mofetil to allow immune reconstitution is a recognized adjunctive management strategy in transplant recipients with CMV end-organ disease, supported by international guidelines. MMF, which inhibits lymphocyte proliferation via IMPDH inhibition, blunts the CMV-specific T-cell response that is critical for viral clearance. Dose reduction can augment antiviral immune reconstitution, particularly in patients with persistent disease. However, MMF reduction must be weighed against the risk of acute rejection, and — critically — it will not overcome pharmacologic ganciclovir resistance if a UL97 or UL54 mutation is present. In this patient with rising viremia on adequate ganciclovir, the primary intervention is antiviral switch, with immunosuppression adjustment as an important adjunct.",
+    },
+    {
+      id: "C",
+      label: "Add CMV intravenous immunoglobulin (CytoGam) to the current ganciclovir regimen",
+      feedback:
+        "Incorrect. CMV hyperimmune intravenous immunoglobulin (CytoGam) provides passive anti-CMV antibodies and may have a role as adjunctive therapy in selected high-risk scenarios (primary CMV disease in seronegative recipients, life-threatening CMV pneumonitis, CMV in lung transplant recipients). However, it is not a standard treatment for ganciclovir resistance and will not restore antiviral activity at the drug target. Adding CytoGam to a failing ganciclovir regimen does not address the underlying resistance mechanism, and its routine use in refractory CMV disease outside of lung transplant recipients is not supported by high-quality evidence.",
+    },
+    {
+      id: "D",
+      label: "Ganciclovir resistance from a UL97 kinase mutation — send genotypic resistance testing, switch to foscarnet",
+      correct: true,
+      feedback:
+        "Correct. Rising CMV PCR despite three weeks of properly dosed IV ganciclovir is the classic clinical presentation of ganciclovir resistance. Ganciclovir requires sequential phosphorylation to its active triphosphate form, with the first and rate-limiting step catalyzed by the viral UL97 serine-threonine kinase. Mutations in UL97 (most commonly at codons 460, 594, or 595) prevent this initial phosphorylation, leaving ganciclovir pharmacologically inert regardless of drug concentration. UL97 mutations account for 85 to 90% of clinical ganciclovir resistance; mutations in the viral DNA polymerase gene UL54 account for the remainder and confer broader cross-resistance to multiple antivirals. Genotypic resistance testing by PCR-based sequencing of UL97 and UL54 from plasma should be performed to confirm resistance and guide antiviral selection. The first-line treatment for UL97-mediated ganciclovir resistance is foscarnet (60 mg/kg IV every 8 hours or 90 mg/kg every 12 hours), which inhibits the viral DNA polymerase directly at the pyrophosphate binding site without requiring phosphorylation, thereby bypassing the UL97 resistance mechanism entirely. Cidofovir is an alternative but carries significant nephrotoxicity risk, particularly in kidney transplant recipients. Maribavir, a UL97 inhibitor approved by the FDA in 2021 for refractory or resistant CMV in transplant recipients, is an important newer option, though its activity against UL97-mutant strains depends on the specific mutation site and requires assessment against the identified mutation. Risk factors for resistance include D+/R- serostatus, prolonged antiviral exposure, high CMV viral loads prior to treatment, and intensified immunosuppression.",
+    },
+    {
+      id: "E",
+      label: "The rising CMV PCR reflects immune reconstitution — continue ganciclovir and monitor",
+      feedback:
+        "Incorrect. A rising CMV PCR after three weeks of appropriate antiviral therapy is not consistent with immune reconstitution inflammatory syndrome (IRIS) or expected virologic fluctuation. IRIS characteristically presents as paradoxical clinical worsening or new inflammatory findings in the context of improving immune function, typically seen in patients with HIV initiating ART or in hematopoietic stem cell transplant recipients recovering from neutropenia. In IRIS, rising viral load while on adequate antiviral therapy is not the expected finding. Attributing virologic failure to IRIS in this clinical context and continuing a failing regimen would represent a dangerous delay, as untreated ganciclovir-resistant CMV can progress to perforation, bleeding, disseminated disease, or death. Genotypic resistance testing and antiviral switch should not be deferred.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-cmv-colitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Cytomegalovirus is a beta-herpesvirus that establishes lifelong latency
+    in myeloid progenitor cells and monocytes after primary infection. In
+    immunocompetent hosts, CMV is controlled by robust CMV-specific CD4 and
+    CD8 T-cell responses. In solid organ transplant recipients, the combination
+    of pharmacologic immunosuppression, particularly calcineurin inhibitors
+    and mycophenolate, and the absence of pre-existing CMV-specific cellular
+    immunity in seronegative recipients creates a permissive environment for
+    viral reactivation and end-organ disease. The D+/R- serostatus, present
+    in this patient, carries the highest risk for CMV disease: the seropositive
+    donor organ introduces virus (including latently infected donor leukocytes)
+    into a recipient with no immunologic memory against CMV. Standard-of-care
+    valganciclovir prophylaxis for six months reduces but does not eliminate
+    this risk, and the post-prophylaxis period ("late CMV disease") has
+    emerged as a clinically important window as prophylaxis duration has
+    extended. Late CMV disease occurs in 15 to 35% of D+/R- solid organ
+    transplant recipients despite six months of prophylaxis, driven by the
+    failure to develop adequate CMV-specific T-cell immunity during the
+    period of viral suppression.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CMV colitis is the most common form of CMV GI end-organ disease in
+    solid organ transplant recipients. The colon is particularly susceptible
+    because of its high density of CMV-susceptible endothelial and stromal
+    cells and its exposure to microbial factors that may trigger CMV
+    reactivation. Clinically, CMV colitis presents as bloody diarrhea,
+    abdominal cramping, weight loss, and fever, often mimicking other
+    common diagnoses in transplant patients: C. difficile colitis, MMF-induced
+    colitis, and de novo IBD. This case illustrates a particularly treacherous
+    scenario: a preceding true C. difficile infection that was appropriately
+    treated, but whose resolution unmasked a concurrent CMV infection that
+    had been contributing to the GI syndrome from the outset. Co-infection
+    with C. difficile and CMV is well-documented and occurs in approximately
+    10 to 15% of CMV colitis cases in transplant series. The diagnostic
+    principle is clear: a transplant patient with persistent or worsening
+    GI disease after adequate C. difficile treatment requires endoscopy
+    with biopsies for histopathology and IHC, regardless of the serum CMV
+    viral load.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Ganciclovir resistance occurs in approximately 5 to 10% of transplant
+    recipients treated for CMV disease and is substantially more common
+    in D+/R- recipients after prolonged antiviral exposure. The molecular
+    basis is well-characterized: the UL97 kinase mutation (most commonly
+    at codons 460, 594, or 595) eliminates the initial phosphorylation step
+    required for ganciclovir activation, rendering the drug inactive
+    regardless of dose. UL54 mutations in the viral DNA polymerase confer
+    broader cross-resistance. Clinically, ganciclovir resistance should be
+    suspected whenever CMV PCR rises or fails to decline after two to three
+    weeks of properly dosed IV therapy. Genotypic resistance testing by
+    sequencing UL97 and UL54 from plasma is diagnostic and guides agent
+    selection. Foscarnet, acting directly on the viral DNA polymerase without
+    requiring UL97-mediated activation, is the primary treatment for
+    UL97-mediated resistance. Maribavir, a novel oral UL97 inhibitor
+    approved by the FDA in 2021, has demonstrated non-inferiority to
+    investigator-initiated therapy (foscarnet, cidofovir, or high-dose
+    ganciclovir) for refractory or resistant CMV in transplant recipients
+    in the SOLSTICE trial, with a more favorable tolerability profile and
+    the ability to be taken orally — a major practical advantage for
+    outpatient management.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cmv-colitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      D+/R− serostatus is the highest-risk CMV mismatch in solid organ
+      transplantation. Late CMV disease (occurring after prophylaxis
+      discontinuation) is a well-recognized clinical syndrome in this group,
+      reflecting failure to develop adequate CMV-specific T-cell immunity
+      during the prophylaxis period.
+    </li>
+    <li>
+      Tissue biopsy with immunohistochemistry is the gold standard for
+      diagnosing GI CMV disease. Serum CMV PCR can be low or undetectable
+      in localized mucosal infection — a negative or low PCR does not
+      exclude CMV colitis.
+    </li>
+    <li>
+      Do not anchor on C. difficile in a transplant patient with persistent
+      GI symptoms after adequate treatment. Co-infection with CMV is
+      common; colonoscopy with biopsies should follow failed C. difficile
+      therapy in an immunocompromised host.
+    </li>
+    <li>
+      Rising CMV PCR after 2 to 3 weeks of appropriately dosed IV ganciclovir
+      is ganciclovir resistance until proven otherwise. The most common
+      mechanism is a UL97 kinase mutation that prevents ganciclovir
+      activation. Send genotypic resistance testing (UL97/UL54 sequencing)
+      and switch to foscarnet.
+    </li>
+    <li>
+      Maribavir (oral UL97 inhibitor, FDA-approved 2021) is a newer option
+      for refractory or resistant CMV in transplant recipients, with
+      demonstrated non-inferiority to investigator-initiated therapy in the
+      SOLSTICE trial and a favorable oral formulation for outpatient
+      step-down therapy.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kotton CN, Kumar D, Caliendo AM, et al.
+      The Third International Consensus Guidelines on the Management of
+      Cytomegalovirus in Solid-organ Transplantation.
+      <em>Transplantation</em>. 2018;102(6):900-931.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/TP.0000000000002191"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/TP.0000000000002191
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Avery RK, Alain S, Alexander BD, et al.
+      Maribavir for Refractory Cytomegalovirus Infections with or without
+      Resistance Post-Transplant: Results from the Phase 3 Randomized
+      SOLSTICE Trial.
+      <em>Clinical Infectious Diseases</em>. 2022;75(4):690-701.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciac081"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciac081
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Drew WL.
+      Cytomegalovirus resistance testing: pitfalls and problems for the clinician.
+      <em>Clinical Infectious Diseases</em>. 2010;50(5):733-736.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/650445"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/650445
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ljungman P, Boeckh M, Hirsch HH, et al.
+      Definitions of Cytomegalovirus Infection and Disease in Transplant
+      Patients for Use in Clinical Trials.
+      <em>Clinical Infectious Diseases</em>. 2017;64(1):87-91.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw668"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciw668
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

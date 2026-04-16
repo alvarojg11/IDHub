@@ -1,0 +1,371 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("tularemia-oculoglandular");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Eye of the Rabbit
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 44-year-old previously healthy man from rural Arkansas presents to
+    an urgent care clinic with 7 days of worsening left eye pain, redness,
+    and discharge. Ten days prior, he was field-dressing a wild cottontail
+    rabbit he had shot during a hunting trip. He was not wearing gloves
+    and recalls rubbing his left eye with the back of his hand while
+    processing the carcass. Three days after the exposure, he developed
+    a foreign body sensation and mucopurulent discharge in the left eye,
+    which he attributed to pink eye. Over the following days, the
+    symptoms worsened to severe photophobia, a significant decrease in
+    vision, and intense periorbital pain. He also noticed a large, painful
+    lump in front of his left ear.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.5°C, heart rate 98, blood pressure
+    128/76 mmHg. The left eye has marked conjunctival injection, profuse
+    mucopurulent discharge, and severe photophobia. Slit-lamp biomicroscopy
+    reveals follicular conjunctivitis of the upper and lower tarsal
+    conjunctiva and the finding shown in the image below. A left
+    preauricular lymph node measuring 3 cm is palpable, tender, and
+    fluctuant. There is additional tender left anterior cervical
+    lymphadenopathy. The right eye is entirely normal.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: WBC 12.4 k/mcL with 78% neutrophils, CRP
+    84 mg/L, ESR 62 mm/hr. LFTs mildly elevated. Corneal scraping and
+    conjunctival swabs are sent to the laboratory. Gram stain of the
+    conjunctival swab shows no organisms. Standard bacterial cultures
+    are pending. The microbiology technician is alerted to the clinical
+    history before processing.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/tularemia-oculoglandular/oculoglandular-tularemia.png"
+        alt="Slit-lamp examination showing a central corneal ulcer with dense infiltrate and inferior hypopyon"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Slit-lamp examination of the left eye: a central corneal ulcer
+      with dense stromal infiltrate and an inferior hypopyon occupying
+      approximately 5% of the anterior chamber.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-tularemia-oculoglandular-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Bartonella henselae oculoglandular disease (cat scratch disease)",
+      feedback:
+        "Incorrect, though Bartonella henselae is the most important organism in the differential diagnosis of Parinaud's oculoglandular syndrome after tularemia. Cat scratch disease causes a unilateral follicular conjunctivitis with ipsilateral preauricular lymphadenopathy following direct ocular inoculation from cat saliva, claws, or fleas. The lymphadenopathy in cat scratch disease is typically less acute and less inflammatory than in tularemia, and corneal ulceration with hypopyon is not a recognized feature. Critically, the exposure here involves a wild cottontail rabbit, not a cat. The combination of rabbit exposure, rapid onset, corneal ulceration with hypopyon, and a large fluctuant preauricular node in a hunter from Arkansas is far more characteristic of oculoglandular tularemia.",
+    },
+    {
+      id: "B",
+      label: "Sporothrix schenckii oculoglandular sporotrichosis",
+      feedback:
+        "Incorrect. Sporothrix schenckii can cause oculoglandular disease (a recognized but rare cause of Parinaud's oculoglandular syndrome) following conjunctival inoculation from infected plant material, soil, or animal scratches, particularly from cats. The exposure route here — rabbit field-dressing — is not the typical source for Sporothrix. Furthermore, sporotrichosis tends to cause a subacute, less inflammatory lymphadenopathy and does not typically progress to corneal ulceration with hypopyon within days. Sporothrix should be considered when the exposure involves thorny plants, sphagnum moss, or cat scratches without a more compelling alternative.",
+    },
+    {
+      id: "C",
+      label: "Oculoglandular tularemia (Francisella tularensis)",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of oculoglandular tularemia, one of the six clinical syndromes caused by Francisella tularensis. The exposure history is pathognomonic: direct conjunctival inoculation during field-dressing of a wild cottontail rabbit (Sylvilagus floridanus) without gloves, with subsequent rubbing of the eye. Wild lagomorphs (rabbits and hares) are the primary reservoir of F. tularensis Type A (F. tularensis subsp. tularensis) in North America, and Arkansas is among the highest-burden states for tularemia in the United States. Oculoglandular tularemia accounts for 1 to 2% of tularemia cases and presents as the Parinaud's oculoglandular syndrome: unilateral follicular conjunctivitis with painful ipsilateral preauricular and/or submandibular lymphadenopathy. Corneal ulceration with hypopyon, as seen in this patient, is a sight-threatening complication of delayed diagnosis and represents deep ocular invasion. The laboratory clue — no organisms on Gram stain despite purulent conjunctivitis — reflects the fastidious, poorly Gram-staining nature of Francisella, a tiny gram-negative coccobacillus requiring cysteine-enriched media and biosafety precautions for growth.",
+    },
+    {
+      id: "D",
+      label: "Yersinia pestis oculoglandular plague",
+      feedback:
+        "Incorrect. Yersinia pestis can cause oculoglandular plague through direct conjunctival inoculation, producing a syndrome similar to oculoglandular tularemia with unilateral conjunctivitis and prominent lymphadenopathy. However, plague is endemic in the southwestern United States (New Mexico, Arizona, Colorado, California) and is associated with exposure to rodents (particularly ground squirrels, prairie dogs, and chipmunks) and their fleas, not with rabbits in Arkansas. Plague lymphadenopathy (buboes) tends to be dramatically large and extremely tender, and systemic septicemic or pneumonic spread carries high mortality. While plague must be considered in the right geographic and epidemiologic context, Arkansas and rabbit exposure point firmly to tularemia.",
+    },
+    {
+      id: "E",
+      label: "Adenoviral keratoconjunctivitis",
+      feedback:
+        "Incorrect. Adenoviral epidemic keratoconjunctivitis (EKC) is the most common cause of viral follicular conjunctivitis and can cause a pseudomembranous conjunctivitis with subepithelial corneal infiltrates. However, it does not cause hypopyon, it does not cause preauricular lymphadenopathy of the size and severity seen here, and it has no association with rabbit exposure. EKC spreads person-to-person or via contaminated fomites in healthcare and community settings. This patient's epidemiologic history, the corneal ulceration with hypopyon (indicating bacterial or severe ocular infection, not adenoviral disease), and the large fluctuant preauricular node are entirely inconsistent with adenoviral conjunctivitis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-tularemia-oculoglandular-q2"
+  title="Question 2"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline 100 mg orally twice daily for 14 to 21 days",
+      feedback:
+        "Not the preferred choice for this presentation, though doxycycline is a recognized treatment option for tularemia. CDC and IDSA guidelines list doxycycline as an acceptable alternative, particularly for mild to moderate ulceroglandular or glandular disease managed in the outpatient setting. The key mechanistic limitation is that doxycycline is bacteriostatic against Francisella — it inhibits protein synthesis and relies on host immune clearance rather than direct bacterial killing. For this patient with oculoglandular tularemia complicated by corneal ulceration, hypopyon, and a fluctuant preauricular bubo, the more reliably bactericidal activity of aminoglycosides makes them the preferred initial approach. Doxycycline is a reasonable step-down or alternative when IV therapy is not feasible.",
+    },
+    {
+      id: "B",
+      label: "Ciprofloxacin 500 mg orally twice daily for 14 days",
+      feedback:
+        "Not the preferred choice for this presentation, though fluoroquinolones are recognized alternative agents for tularemia. Ciprofloxacin and levofloxacin have good in vitro activity against Francisella and are particularly useful for post-exposure prophylaxis in a bioterrorism context, and for mild outpatient disease. At achievable tissue concentrations, however, fluoroquinolones tend to be bacteriostatic rather than bactericidal against Francisella — different from their behavior against many other gram-negatives. For a complicated presentation with corneal ulceration, hypopyon, and systemic features, initiating IV aminoglycosides is the preferred approach, with fluoroquinolones serving as a step-down option based on clinical response and susceptibility.",
+    },
+    {
+      id: "C",
+      label: "Amoxicillin-clavulanate 875/125 mg orally twice daily for 14 days",
+      feedback:
+        "Incorrect. Francisella tularensis is intrinsically resistant to beta-lactam antibiotics including amoxicillin and amoxicillin-clavulanate. The organism produces a constitutive beta-lactamase and lacks the target affinity for penicillins and most cephalosporins. Beta-lactam therapy for tularemia is not only ineffective but dangerous: clinical deterioration has been documented in patients treated empirically with amoxicillin for presumed bacterial conjunctivitis or sinusitis before the correct diagnosis was established. This case underscores why the exposure history must be elicited — a diagnosis of tularemia changes treatment entirely.",
+    },
+    {
+      id: "D",
+      label: "Azithromycin 500 mg orally once daily for 7 days",
+      feedback:
+        "Incorrect. Azithromycin has variable and generally limited in vitro activity against Francisella tularensis, and there are insufficient clinical data to support its use as primary therapy for oculoglandular or other forms of tularemia. It is not recommended by the CDC, IDSA, or the Working Group on Civilian Biodefense for any form of tularemia treatment. Azithromycin should not be used empirically when tularemia is suspected.",
+    },
+    {
+      id: "E",
+      label: "Gentamicin 5 mg/kg/day IV in divided doses for 10 days (or streptomycin 1 g IM twice daily for 10 days)",
+      correct: true,
+      feedback:
+        "Correct. Aminoglycosides are the preferred treatment for severe tularemia, including oculoglandular disease with corneal involvement, ulceroglandular disease with significant bubo formation, typhoidal tularemia, and pneumonic tularemia. While doxycycline and fluoroquinolones are recognized alternatives in guidelines and are appropriate for mild to moderate disease, aminoglycosides are favored for severe presentations on mechanistic grounds: Francisella tularensis is a facultative intracellular pathogen that replicates within macrophage phagosomes, and aminoglycosides achieve sufficient intracellular concentrations to exert bactericidal activity directly within that compartment. Doxycycline and fluoroquinolones are bacteriostatic against Francisella at achievable tissue concentrations, relying more heavily on host immune clearance. Streptomycin (1 g IM twice daily for 10 days) is the historical gold standard and the only FDA-approved treatment for tularemia, but gentamicin (5 mg/kg/day IV in divided doses for 10 days) is preferred in most US centers given availability and equivalent clinical efficacy. For this patient with corneal ulceration and hypopyon, IV gentamicin should be initiated promptly. Ophthalmology consultation is essential for topical management and monitoring for corneal perforation. The fluctuant preauricular bubo may require needle aspiration if it does not respond to antibiotics alone.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-tularemia-oculoglandular-q3"
+  title="Question 3"
+  prompt="Unilateral follicular conjunctivitis with ipsilateral preauricular lymphadenopathy defines Parinaud's oculoglandular syndrome. Which of the following is NOT a recognized cause?"
+  options={[
+    {
+      id: "A",
+      label: "Bartonella henselae",
+      feedback:
+        "Incorrect — Bartonella henselae IS a recognized cause and is actually the most common cause of Parinaud's oculoglandular syndrome in developed countries. Cat scratch disease causes oculoglandular disease when the organism is inoculated into the conjunctiva via direct contact with cat saliva, claws, or fleas, producing a unilateral follicular conjunctivitis with ipsilateral preauricular lymphadenopathy. The lymphadenopathy is typically less severe than in tularemia, corneal ulceration is uncommon, and the disease is usually self-limited over weeks to months. Doxycycline or azithromycin may hasten resolution in prolonged or systemic cases. Cat scratch disease should always be considered when the exposure history involves cats rather than rabbits or other lagomorphs.",
+    },
+    {
+      id: "B",
+      label: "Mycobacterium tuberculosis",
+      feedback:
+        "Incorrect — M. tuberculosis IS a recognized, though rare, cause of Parinaud's oculoglandular syndrome. Ocular tuberculosis can manifest as phlyctenular keratoconjunctivitis (a hypersensitivity reaction to mycobacterial antigens) or, rarely, as a primary ocular-glandular syndrome through direct conjunctival inoculation. It is seen predominantly in immunocompromised patients or in settings with high TB prevalence. Tuberculous oculoglandular disease typically has a more indolent course than tularemia or cat scratch disease, may be associated with systemic TB, and responds to standard anti-tuberculous therapy. It should be considered when other causes have been excluded, particularly in patients from endemic regions or with known TB exposure.",
+    },
+    {
+      id: "C",
+      label: "Yersinia pestis",
+      feedback:
+        "Incorrect — Yersinia pestis IS a recognized cause of Parinaud's oculoglandular syndrome. Oculoglandular plague, though rare, occurs via direct conjunctival inoculation of the organism, producing a severe unilateral conjunctivitis and ipsilateral preauricular lymphadenopathy (bubo). Given the extreme virulence and high mortality of Y. pestis, oculoglandular plague — like tularemia — requires urgent diagnosis and treatment. Plague must be considered in patients with the appropriate geographic exposure (southwestern United States, parts of Africa and Asia) and rodent contact. Both tularemia and plague are CDC Category A bioterrorism agents.",
+    },
+    {
+      id: "D",
+      label: "Toxoplasma gondii",
+      correct: true,
+      feedback:
+        "Correct — Toxoplasma gondii is NOT a cause of Parinaud's oculoglandular syndrome. Ocular toxoplasmosis causes posterior uveitis (chorioretinitis), characterized by vitreous inflammation overlying a white retinal lesion, often with an adjacent hyperpigmented scar from prior infection. It does not cause follicular conjunctivitis or preauricular lymphadenopathy — the defining features of Parinaud's syndrome. The confusion arises because Parinaud's syndrome is named in the same ophthalmologic tradition, but ocular toxoplasmosis is an entirely different anatomic compartment (posterior segment) and pathophysiologic process (reactivation of dormant cysts in the retina) from the anterior segment conjunctival disease of Parinaud's syndrome. The recognized causes of Parinaud's oculoglandular syndrome include Francisella tularensis, Bartonella henselae, Yersinia pestis, Mycobacterium tuberculosis, Sporothrix schenckii, and rarely EBV and other viruses.",
+    },
+    {
+      id: "E",
+      label: "Sporothrix schenckii",
+      feedback:
+        "Incorrect — Sporothrix schenckii IS a recognized cause of Parinaud's oculoglandular syndrome, though it is among the less common etiologies. Oculoglandular sporotrichosis occurs when the dimorphic fungus is inoculated directly into the conjunctiva, typically via contact with infected plant material (thorns, sphagnum moss) or animal scratches, particularly from cats. It produces a chronic, granulomatous follicular conjunctivitis with ipsilateral preauricular lymphadenopathy, often more indolent than the bacterial causes. The diagnosis requires a high index of suspicion and is confirmed by fungal culture or histopathology. Treatment is with itraconazole for several months.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-tularemia-oculoglandular-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Francisella tularensis is a tiny, gram-negative, aerobic coccobacillus
+    that is among the most infectious bacteria known, with an infectious
+    dose as low as 10 organisms by the aerosol route for Type A strains
+    (F. tularensis subsp. tularensis). It is a CDC Category A bioterrorism
+    agent, reflecting its potential for weaponization via aerosolization to
+    cause pneumonic tularemia, its extreme infectivity, and the severity of
+    disease it produces. In nature, tularemia is a zoonosis with a broad
+    host range, most prominently affecting lagomorphs (rabbits, hares) and
+    rodents in North America. Human infection occurs via tick bite (the most
+    common route in the United States), direct contact with infected animal
+    tissue, ingestion of contaminated water or food, or — in the oculoglandular
+    form — direct conjunctival inoculation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Six clinical syndromes are recognized: ulceroglandular (the most common,
+    a skin ulcer at the inoculation site plus regional lymphadenopathy),
+    glandular (lymphadenopathy without a skin ulcer), oculoglandular (1 to 2%
+    of cases), oropharyngeal (ingestion), typhoidal (systemic bacteremia
+    without localizing findings), and pneumonic (the most severe, from
+    inhalation). Oculoglandular tularemia produces the classic Parinaud's
+    oculoglandular syndrome: unilateral follicular or papillary conjunctivitis
+    with tender ipsilateral preauricular and submandibular lymphadenopathy.
+    The conjunctivitis can progress to nodular ulceration of the palpebral
+    conjunctiva and, as in this case, deep corneal involvement with ulceration
+    and hypopyon, representing a sight-threatening emergency requiring urgent
+    ophthalmologic co-management.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis requires a high clinical index of suspicion because standard
+    Gram stain and routine bacterial cultures are unreliable: Francisella
+    stains poorly and requires cysteine-supplemented media (chocolate agar
+    or buffered charcoal yeast extract) with extended incubation under
+    biosafety level 2 or 3 precautions. Serologic confirmation by
+    microagglutination (fourfold rise in titer between acute and convalescent
+    samples, or a single titer of 1:128 or greater) is the most common
+    diagnostic method. PCR of tissue or wound specimens is increasingly
+    available and provides rapid confirmation. Treatment should not await
+    microbiologic confirmation when the clinical and epidemiologic picture
+    is compelling. Aminoglycosides (gentamicin IV or streptomycin IM) are
+    the standard of care for severe disease, with relapse rates below 1%
+    compared to 5 to 15% for doxycycline or fluoroquinolones, reflecting
+    their superior bactericidal intracellular activity against this
+    obligate intracellular pathogen.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-tularemia-oculoglandular-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Oculoglandular tularemia presents as Parinaud's oculoglandular syndrome:
+      unilateral follicular conjunctivitis plus ipsilateral preauricular
+      lymphadenopathy. The classic exposure in North America is contact with
+      wild lagomorphs (rabbits, hares) during hunting or field-dressing,
+      without gloves.
+    </li>
+    <li>
+      Aminoglycosides (gentamicin 5 mg/kg/day IV or streptomycin 1 g IM
+      twice daily, 10 days) are the treatment of choice. They are bactericidal
+      and achieve sufficient intracellular concentrations to kill
+      <em>F. tularensis</em> within macrophages. Doxycycline and
+      fluoroquinolones are bacteriostatic against Francisella and carry
+      relapse rates of 5 to 15%.
+    </li>
+    <li>
+      Parinaud's oculoglandular syndrome differential: <em>Francisella
+      tularensis</em> (rabbit/tick exposure), <em>Bartonella henselae</em>
+      (cat exposure), <em>Yersinia pestis</em> (southwestern US rodents),
+      <em>Mycobacterium tuberculosis</em> (rare, indolent, endemic settings),
+      and <em>Sporothrix schenckii</em> (plant/cat inoculation).
+      Toxoplasma is NOT a cause — it causes posterior uveitis, not anterior
+      oculoglandular disease.
+    </li>
+    <li>
+      <em>F. tularensis</em> is a Category A bioterrorism agent with an
+      aerosol infectious dose of as few as 10 organisms. Alert the
+      microbiology laboratory before submitting specimens: the organism
+      requires cysteine-enriched media and biosafety level 2-3 handling.
+      Routine Gram stain and cultures are unreliable.
+    </li>
+    <li>
+      Corneal ulceration with hypopyon is a sight-threatening complication
+      of untreated oculoglandular tularemia. Ophthalmology consultation
+      is required. Fluctuant buboes may require needle aspiration if they
+      do not resolve with antibiotics alone.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dennis DT, Inglesby TV, Henderson DA, et al.
+      Tularemia as a biological weapon: medical and public health management.
+      <em>JAMA</em>. 2001;285(21):2763-2773.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.285.21.2763"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jama.285.21.2763
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Maurin M, Gyuranecz M.
+      Tularaemia: clinical aspects in Europe.
+      <em>The Lancet Infectious Diseases</em>. 2016;16(1):113-124.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(15)00355-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(15)00355-2
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tärnvik A, Chu MC.
+      New approaches to diagnosis and therapy of tularemia.
+      <em>Annals of the New York Academy of Sciences</em>. 2007;1105:378-404.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1196/annals.1409.017"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1196/annals.1409.017
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

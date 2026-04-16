@@ -1,0 +1,343 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("trachoma-follicular");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Blinding Cycle
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 28-year-old woman presents to a district health clinic in the Amhara
+    region of Ethiopia with a three-month history of bilateral eye irritation,
+    mucopurulent discharge, and photophobia. She works as a community health
+    worker in a rural village where access to clean water requires a two-hour
+    daily walk. She lives in a compound household with her parents, two
+    siblings, and four young children. Several of the children have had
+    similar eye symptoms for the past year. She reports no prior eye surgery
+    or trauma and no systemic symptoms.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, visual acuity is 20/25 bilaterally with no correction.
+    There is mild conjunctival injection and a scant mucopurulent discharge
+    in both eyes. Slit-lamp biomicroscopy of the everted upper eyelids
+    reveals the finding shown in the image below. The lower tarsal
+    conjunctiva and cornea are clear. There is no eyelid scarring, no
+    in-turned eyelashes, and no corneal opacity on this examination.
+    Regional lymphadenopathy and systemic examination are unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A survey conducted in this community three months ago found that 38%
+    of children aged 1 to 9 years had the same finding on upper tarsal
+    conjunctival examination. The district health officer is asking for
+    guidance on both individual management and community-level response.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/trachoma-follicular/trachoma_follicular.png"
+        alt="Slit-lamp image of everted upper eyelid showing follicles on the tarsal conjunctiva"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Slit-lamp biomicroscopy of the everted upper eyelid: multiple pale,
+      round elevations are visible on the tarsal conjunctiva.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-trachoma-follicular-q1"
+  title="Question 1"
+  prompt="Which organism is responsible for this condition?"
+  options={[
+    {
+      id: "A",
+      label: "Adenovirus",
+      feedback:
+        "Incorrect. Adenovirus is the most common cause of infectious conjunctivitis worldwide and can produce follicular conjunctivitis on the tarsal conjunctiva, making it a reasonable initial consideration. However, adenoviral conjunctivitis is typically acute (days, not months), highly contagious with epidemic spread, often accompanied by a prominent preauricular lymph node and pharyngitis (pharyngoconjunctival fever), and self-limiting. It does not cause the chronic, recurrent course seen in endemic communities in sub-Saharan Africa, nor does it carry the risk of progressive conjunctival scarring and blindness. The endemic rural setting, prolonged course, and household clustering in a water-scarce community are inconsistent with adenoviral disease and characteristic of trachoma.",
+    },
+    {
+      id: "B",
+      label: "Neisseria gonorrhoeae",
+      feedback:
+        "Incorrect. Gonococcal conjunctivitis causes a hyperacute, copiously purulent conjunctivitis with marked chemosis and lid edema, typically progressing rapidly over hours to days. It can cause corneal perforation if untreated and is most commonly seen in neonates (ophthalmia neonatorum) or sexually active adults with concomitant urogenital infection. The discharge in this patient is described as scant and mucopurulent, the course is subacute over months, and there is no corneal involvement. The endemic community pattern, rural Ethiopia setting, and follicular rather than papillary conjunctival reaction are not consistent with gonococcal conjunctivitis.",
+    },
+    {
+      id: "C",
+      label: "Chlamydia trachomatis serovars D through K",
+      feedback:
+        "Incorrect serovar group, though it is the same species. C. trachomatis serovars D through K cause inclusion conjunctivitis (adult inclusion conjunctivitis and neonatal conjunctivitis) as well as urogenital infections (cervicitis, urethritis, epididymitis, pelvic inflammatory disease). Inclusion conjunctivitis produces a follicular conjunctivitis that is clinically similar in appearance to trachoma but is transmitted sexually or perinatally, not by eye-to-eye or eye-to-hand-to-eye contact in communities with poor water access. It does not cause the progressive conjunctival scarring and blindness of trachoma. The organism responsible for endemic trachoma is specifically serovars A, B, Ba, and C, which are adapted to ocular-to-ocular transmission in endemic communities.",
+    },
+    {
+      id: "D",
+      label: "Haemophilus aegyptius",
+      feedback:
+        "Incorrect. Haemophilus aegyptius (formerly Koch-Weeks bacillus) is a gram-negative coccobacillus that causes acute bacterial conjunctivitis and, in Brazil, Brazilian purpuric fever (a fulminant invasive disease in children). It can cause epidemics of acute conjunctivitis in tropical settings but does not produce the chronic follicular conjunctivitis with risk of scarring and blindness that characterizes trachoma. Its clinical presentation is acute rather than chronic, and it does not cause the WHO-recognized grading stages (TF, TI, TS, TT, CO) that define trachomatous disease progression.",
+    },
+    {
+      id: "E",
+      label: "Chlamydia trachomatis serovars A, B, Ba, and C",
+      correct: true,
+      feedback:
+        "Correct. Trachoma is caused by ocular infection with Chlamydia trachomatis serovars A, B, Ba, and C — obligate intracellular gram-negative bacteria that infect conjunctival epithelial cells. It is the world's leading infectious cause of blindness and the leading cause of preventable blindness overall, with approximately 1.9 million people blind or visually impaired from trachomatous corneal opacity. The finding on slit-lamp of five or more follicles (each at least 0.5 mm in diameter) on the upper tarsal conjunctiva defines trachomatous follicular inflammation (TF), the active, potentially reversible stage of disease. Transmission occurs through direct eye-to-eye contact, eye-to-hand-to-eye contact, and via eye-seeking flies (Musca sorbens), facilitated by crowded living conditions and limited access to water for facial hygiene. Children aged 1 to 9 are the primary reservoir and the most heavily infected group. The community survey finding of 38% TF prevalence in children 1 to 9 far exceeds the WHO threshold of 5% that triggers mass drug administration.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trachoma-follicular-q2"
+  title="Question 2"
+  prompt="Given a community TF prevalence of 38% in children aged 1-9, what is the most appropriate response?"
+  options={[
+    {
+      id: "A",
+      label: "Treat only symptomatic individuals with oral doxycycline for 21 days and refer household contacts for evaluation",
+      feedback:
+        "Incorrect. Individual-based treatment with doxycycline does not address the community reservoir driving transmission. In endemic trachoma, the majority of infections are subclinical, and treating only symptomatic individuals leaves the vast majority of the infected community untreated and transmitting. Furthermore, doxycycline is not the preferred agent for trachoma — azithromycin single-dose is recommended because of its superior adherence profile, its activity after a single dose, and its suitability for mass administration. Individual treatment cannot interrupt transmission in a community with 38% prevalence.",
+    },
+    {
+      id: "B",
+      label: "Implement community-wide mass drug administration with azithromycin 1g orally as a single dose (20 mg/kg in children, maximum 1g)",
+      correct: true,
+      feedback:
+        "Correct. The WHO-recommended response to a community TF prevalence of 5% or greater in children aged 1 to 9 is mass drug administration (MDA) of the entire eligible community with azithromycin. The antibiotic component of the WHO SAFE strategy (Surgery, Antibiotics, Facial cleanliness, Environmental improvement) calls for community-wide MDA rather than individual treatment, because the goal is to reduce the community infection reservoir below the threshold that sustains transmission. Azithromycin is the preferred antibiotic for its single-dose oral regimen (maximizing adherence), its broad anti-chlamydial activity, and its demonstrated efficacy in reducing community trachoma prevalence in clinical trials. The standard dose is 1g orally once for adults and 20 mg/kg once for children (maximum 1g). MDA is repeated annually until TF prevalence in children falls below 5%, at which point surveillance continues. Tetracycline 1% eye ointment twice daily for 6 weeks is an alternative where azithromycin is unavailable. SAFE also requires non-antibiotic components: facial cleanliness (to reduce transmission via flies and contact) and environmental improvement (access to water, latrine construction, fly control) to prevent reinfection after MDA.",
+    },
+    {
+      id: "C",
+      label: "Distribute tetracycline 1% eye ointment to all children for self-administration twice daily for 6 weeks",
+      feedback:
+        "Incorrect as the primary community-level response. Tetracycline 1% eye ointment is a WHO-accepted alternative antibiotic for trachoma treatment when oral azithromycin is unavailable, but it requires twice-daily application for 6 weeks, making adherence at the community level extremely difficult compared to single-dose oral azithromycin. Field experience consistently shows that multi-week topical regimens cannot achieve the coverage needed for effective MDA. Additionally, eye ointment distribution to children without adult supervision is logistically impractical in the field. Azithromycin single-dose MDA is operationally superior and is the preferred WHO strategy.",
+    },
+    {
+      id: "D",
+      label: "Refer all affected individuals for surgical correction of trichiasis as the primary intervention",
+      feedback:
+        "Incorrect as the response to active follicular disease. Surgery (the S in SAFE) addresses trachomatous trichiasis (TT) — the stage at which in-turned eyelashes are actively abrading the cornea — not active follicular inflammation (TF). This patient and her community have TF, not TT. Performing trichiasis surgery in the absence of trichiasis provides no benefit. The correct intervention for a community with high TF prevalence is MDA to reduce active infection and interrupt transmission, alongside facial cleanliness and environmental improvement to reduce reinfection. Surgery is reserved for patients who have already progressed to TT to prevent corneal damage.",
+    },
+    {
+      id: "E",
+      label: "Conduct targeted household-level treatment of only those households with at least one confirmed trachoma case",
+      feedback:
+        "Incorrect. Household-targeted treatment is insufficient when community TF prevalence exceeds 5% in children aged 1 to 9. At 38% prevalence, the vast majority of households contain infected individuals, many of whom are asymptomatic. Targeted household treatment misses the reservoir of subclinical infections in untreated households and fails to interrupt community-level transmission. The WHO threshold of 5% was chosen precisely because below this level the infection may be self-limiting without mass intervention; above it, community-wide MDA is required to break the cycle.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-trachoma-follicular-q3"
+  title="Question 3"
+  prompt="If left untreated through repeated infections, what sequence of events leads to blindness?"
+  options={[
+    {
+      id: "A",
+      label: "C. trachomatis directly infects corneal endothelial cells, causing primary keratitis and central scarring independent of eyelid involvement",
+      feedback:
+        "Incorrect. Chlamydia trachomatis serovars A-C infect conjunctival epithelial cells on the tarsal surface of the eyelid, not the corneal endothelium primarily. The cornea is damaged secondarily, through a mechanical mechanism driven by eyelid structural changes rather than direct corneal infection. This distinction is clinically critical: the corneal opacity of trachoma is not an infectious keratitis but a traumatic one caused by repeated abrasion from in-turned lashes, which is why the S (surgery for trichiasis) in SAFE can prevent blindness even in the absence of further antibiotic treatment.",
+    },
+    {
+      id: "B",
+      label: "Recurrent bacteremia with C. trachomatis seeds the retinal vasculature, causing ischemic retinopathy and optic atrophy",
+      feedback:
+        "Incorrect. Chlamydia trachomatis serovars A-C do not cause bacteremia or hematogenous dissemination. These serovars are strictly ocular pathogens restricted to the conjunctival epithelium. Trachoma does not cause retinal disease, optic atrophy, or any intraocular pathology beyond the anterior segment. The mechanism of blindness in trachoma is entirely anterior: corneal opacity from repeated mechanical abrasion, not posterior segment or vascular disease.",
+    },
+    {
+      id: "C",
+      label: "Follicular hypertrophy progressively obstructs the visual axis as follicles coalesce across the corneal surface",
+      feedback:
+        "Incorrect. Follicles in trachoma form on the tarsal conjunctiva of the upper eyelid, not on the corneal surface. They do not migrate to the cornea and do not obstruct the visual axis directly. Pannus (superficial corneal vascularization) can develop at the superior limbus in heavy infection, but this is not the primary mechanism of vision loss. The follicles themselves resolve without scarring in mild disease; it is the conjunctival scar tissue deposited after repeated inflammatory episodes that drives the structural changes leading to blindness.",
+    },
+    {
+      id: "D",
+      label: "Repeated infections cause conjunctival scarring, which distorts the eyelid (trichiasis), causing lashes to abrade the cornea with every blink, leading to ulceration and corneal opacity",
+      correct: true,
+      feedback:
+        "Correct. The progression from trachomatous follicular inflammation to blindness follows a stepwise sequence that may unfold over decades. Repeated episodes of active infection (TF and TI) provoke a sustained inflammatory response in the tarsal conjunctiva. Over time, the healing response deposits collagen scar tissue (trachomatous scarring, TS), visible as white fibrous lines or sheets on the tarsal conjunctiva. Progressive scarring causes cicatricial contraction of the upper eyelid, resulting in entropion (inward rotation of the eyelid margin) and trichiasis (TT): one or more eyelashes turn inward and contact the globe with every blink. The unrelenting mechanical trauma of lashes abrading the corneal epithelium causes recurrent corneal ulceration, secondary bacterial infection, and ultimately corneal opacity (CO). Corneal opacity in the central visual axis produces irreversible vision loss or blindness. This is why the SAFE strategy addresses all four points in the cycle: Surgery interrupts trichiasis before corneal damage; Antibiotics reduce the active infection driving scarring; Facial cleanliness and Environmental improvement reduce reinfection that perpetuates the cycle.",
+    },
+    {
+      id: "E",
+      label: "C. trachomatis triggers molecular mimicry with uveal antigens, causing autoimmune uveitis that progressively destroys retinal photoreceptors",
+      feedback:
+        "Incorrect. Autoimmune uveitis is not a recognized complication of ocular trachoma (serovars A-C). Molecular mimicry between chlamydial heat shock proteins and host ocular tissues has been investigated in the pathogenesis of trachomatous scarring, but this refers to the conjunctival scarring process, not a uveal or retinal autoimmune syndrome. Trachoma does not cause uveitis, retinitis, or photoreceptor loss. The mechanism of blindness is entirely mechanical and anterior: corneal opacification from trichiasis-induced abrasion, not intraocular inflammation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-trachoma-follicular-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Trachoma is caused by ocular infection with <em>Chlamydia trachomatis</em>
+    serovars A, B, Ba, and C, obligate intracellular bacteria that infect
+    conjunctival epithelial cells. It is the world's leading infectious cause
+    of blindness, responsible for visual impairment in approximately 1.9 million
+    people and active infection in an estimated 125 million worldwide. It is
+    hyperendemic in sub-Saharan Africa, South Asia, and parts of the Middle
+    East and Latin America, concentrated in communities with poverty, crowding,
+    inadequate water access, and poor sanitation. Ethiopia bears one of the
+    highest national burdens globally. Transmission occurs by direct contact
+    with ocular or nasal discharge from infected individuals, via fomites, and
+    through the eye-seeking fly <em>Musca sorbens</em>, which is attracted to
+    ocular discharge in young children.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The WHO simplified grading system classifies trachoma into five signs:
+    trachomatous follicular inflammation (TF, five or more follicles on the
+    upper tarsal conjunctiva), trachomatous intense inflammation (TI, intense
+    inflammatory thickening obscuring more than half the deep tarsal vessels),
+    trachomatous conjunctival scarring (TS, fibrous white bands or sheets on
+    the tarsal conjunctiva), trachomatous trichiasis (TT, one or more lashes
+    touching the globe), and corneal opacity (CO, easily visible corneal
+    opacity over the pupil). TF and TI represent active, potentially
+    reversible infection; TS, TT, and CO represent the sequelae of repeated
+    infection. Children aged 1 to 9 are the primary infected reservoir;
+    women bear a disproportionate burden of trichiasis and blindness, likely
+    because of prolonged contact with infected children.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The WHO SAFE strategy provides a comprehensive framework for trachoma
+    elimination: Surgery for trichiasis (bilamellar tarsal rotation to
+    correct in-turned lashes before corneal damage occurs), Antibiotics
+    via community-wide MDA (azithromycin single oral dose annually until
+    TF prevalence in children 1 to 9 falls below 5%), Facial cleanliness
+    (reducing transmission via flies and contact), and Environmental
+    improvement (water, sanitation, and hygiene). Azithromycin MDA reduces
+    community infection prevalence, slows progression to scarring, and when
+    sustained over several rounds, can eliminate trachoma as a public health
+    problem. Countries including Morocco, Oman, and Ghana have achieved
+    WHO validation of trachoma elimination through sustained SAFE
+    implementation.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-trachoma-follicular-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Trachoma is caused by <em>C. trachomatis</em> serovars A, B, Ba, and C
+      (not D-K, which cause genital and inclusion conjunctivitis). It is the
+      world's leading infectious cause of blindness, hyperendemic in water-scarce
+      communities in sub-Saharan Africa and South Asia.
+    </li>
+    <li>
+      Active disease (TF: follicles on upper tarsal conjunctiva) is reversible.
+      Blindness occurs through a mechanical cascade: repeated infections
+      cause conjunctival scarring (TS) → cicatricial entropion → trichiasis
+      (TT) → corneal abrasion → corneal opacity (CO).
+    </li>
+    <li>
+      The WHO SAFE strategy: Surgery (trichiasis correction), Antibiotics
+      (azithromycin MDA), Facial cleanliness, Environmental improvement.
+      MDA is community-wide when TF prevalence in children 1-9 exceeds 5%.
+      Azithromycin 1g single dose (20 mg/kg in children) is the preferred agent.
+    </li>
+    <li>
+      Surgery for trichiasis is indicated even without active infection to
+      prevent corneal abrasion. Bilamellar tarsal rotation is the preferred
+      procedure and prevents progression to corneal opacity in most patients.
+    </li>
+    <li>
+      Children aged 1-9 are the primary reservoir. Women bear disproportionate
+      burden of trichiasis and blindness due to prolonged close contact with
+      infected children. Elimination has been achieved in Morocco, Oman, and
+      Ghana through sustained SAFE implementation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Burton MJ, Rajak SN, Bauer J, et al.
+      Conjunctival transcriptome in scarring trachoma.
+      <em>Infection and Immunity</em>. 2011;79(1):499-511.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/IAI.00888-10"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/IAI.00888-10
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization.
+      Trachoma: WHO simplified grading system.
+      Geneva: WHO; 1987. Reprinted 1993.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Keenan JD, Bailey RL, West SK, et al.
+      Azithromycin to reduce childhood mortality in sub-Saharan Africa.
+      <em>New England Journal of Medicine</em>. 2018;378(17):1583-1592.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1715474"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa1715474
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

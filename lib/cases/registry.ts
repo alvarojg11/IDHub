@@ -511,6 +511,33 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old aid worker returns from 18 months in the DRC with six weeks of fever and new personality changes. She barely remembers a skin lesion that resolved months ago. Her blood smear changes everything.",
     tags: { organisms: ["Trypanosoma brucei gambiense"], syndromes: ["Neurologic Infections", "Travel Medicine", "Parasitology"], concepts: ["African sleeping sickness", "Winterbottom sign", "Trypanosomal chancre", "Hemolymphatic stage", "Meningoencephalitic stage", "Lumbar puncture staging", "Fexinidazole", "NECT", "Tsetse fly", "Sleep cycle inversion"] },
   },
+  {
+    slug: "trachoma-follicular",
+    title: "The Blinding Cycle",
+    description: "A community health worker in rural Ethiopia with bilateral eye irritation and follicles on the upper tarsal conjunctiva — the world's leading infectious cause of blindness.",
+    enable: true,
+    ogImage: "/cases/trachoma-follicular/trachoma_follicular.png",
+    teaser: "A 28-year-old Ethiopian community health worker presents with three months of bilateral eye irritation and mucopurulent discharge. Slit-lamp reveals follicles on the upper tarsal conjunctiva. Without intervention, this cycle ends in blindness.",
+    tags: { organisms: ["Chlamydia trachomatis"], syndromes: ["Ophthalmologic Infections", "Neglected Tropical Diseases", "Travel Medicine"], concepts: ["Trachoma", "WHO SAFE strategy", "Azithromycin MDA", "Trichiasis", "Corneal opacity", "Serovars A-C", "Follicular conjunctivitis", "Mass drug administration"] },
+  },
+  {
+    slug: "tularemia-oculoglandular",
+    title: "The Eye of the Rabbit",
+    description: "A hunter from Arkansas who field-dressed a rabbit without gloves now has a red eye, a golf ball-sized preauricular node, and a corneal ulcer that is not pink eye.",
+    enable: true,
+    ogImage: "/cases/tularemia-oculoglandular/oculoglandular-tularemia.png",
+    teaser: "A 44-year-old hunter from Arkansas presents 10 days after field-dressing a wild rabbit without gloves. Left eye pain, photophobia, and a 3 cm tender preauricular mass. The slit-lamp tells you exactly what this is — and why it cannot wait.",
+    tags: { organisms: ["Francisella tularensis"], syndromes: ["Ophthalmologic Infections", "Zoonoses", "Bioterrorism"], concepts: ["Oculoglandular tularemia", "Parinaud's oculoglandular syndrome", "Type A tularemia", "Aminoglycosides", "Gentamicin", "Streptomycin", "Preauricular lymphadenopathy", "Corneal ulcer", "Hypopyon", "Category A bioterrorism agent"] },
+  },
+  {
+    slug: "cmv-colitis",
+    title: "A Stubborn Course",
+    description: "A kidney transplant recipient who completed C. diff treatment but keeps getting worse — the biopsy reveals who was really behind it.",
+    enable: true,
+    ogImage: "/cases/cmv-colitis/cmv-colitis.png",
+    teaser: "A D+/R- kidney transplant recipient completes oral vancomycin for C. diff but returns two weeks later with bloody diarrhea and weight loss. Repeat C. diff testing is negative. Colonoscopy shows linear ulcerations. What does the biopsy reveal?",
+    tags: { organisms: ["Cytomegalovirus", "CMV"], syndromes: ["Transplant & Immunocompromised", "Gastroenterology"], concepts: ["CMV colitis", "D+/R- serostatus", "Late CMV disease", "Post-prophylaxis CMV", "UL97 kinase mutation", "Ganciclovir resistance", "Foscarnet", "Maribavir", "SOLSTICE trial", "Tissue biopsy gold standard", "IHC", "Owl eye inclusion", "Co-infection C. diff"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
