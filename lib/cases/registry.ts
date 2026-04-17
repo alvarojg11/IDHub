@@ -530,6 +530,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Francisella tularensis"], syndromes: ["Ophthalmologic Infections", "Zoonoses", "Bioterrorism"], concepts: ["Oculoglandular tularemia", "Parinaud's oculoglandular syndrome", "Type A tularemia", "Aminoglycosides", "Gentamicin", "Streptomycin", "Preauricular lymphadenopathy", "Corneal ulcer", "Hypopyon", "Category A bioterrorism agent"] },
   },
   {
+    slug: "hiv-ltbi",
+    title: "The Indeterminate Answer",
+    description: "A man with newly diagnosed HIV and a CD4 of 118 whose household partner has pulmonary TB — and a QuantiFERON result that demands careful interpretation.",
+    enable: true,
+    ogImage: "/cases/hiv-ltbi/normal-xray.png",
+    teaser: "A 31-year-old man with newly diagnosed HIV (CD4 118) discloses that his household partner was recently diagnosed with smear-positive pulmonary TB. QuantiFERON-TB Gold Plus returns indeterminate. What does this result mean, and what do you do next?",
+    tags: { organisms: ["Mycobacterium tuberculosis", "HIV-1"], syndromes: ["HIV/AIDS", "Mycobacterial", "Transplant & Immunocompromised"], concepts: ["Latent TB infection", "LTBI", "Indeterminate IGRA", "QuantiFERON", "1HP", "BRIEF-TB trial", "Rifapentine", "Isoniazid", "Dolutegravir dose adjustment", "Rifamycin-ART interactions", "Bictegravir contraindication", "Pyridoxine", "Post-exposure prophylaxis"] },
+  },
+  {
     slug: "cmv-colitis",
     title: "A Stubborn Course",
     description: "A kidney transplant recipient who completed C. diff treatment but keeps getting worse — the biopsy reveals who was really behind it.",

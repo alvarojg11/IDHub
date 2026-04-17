@@ -1,0 +1,401 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hiv-ltbi");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Indeterminate Answer
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 31-year-old man presents to an HIV clinic after a new diagnosis of
+    HIV-1 infection confirmed by fourth-generation antigen/antibody
+    immunoassay and Western blot two weeks prior. He was referred from a
+    community health center following a routine sexual health screening. He
+    reports no prior HIV testing and denies any current symptoms. He has no
+    significant past medical history and takes no medications. CD4 count is
+    118 cells/mcL and HIV-1 RNA is 48,500 copies/mL. He is a nonsmoker and
+    reports no respiratory symptoms.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    During the social history, he discloses that his male domestic partner of
+    three years was diagnosed with pulmonary tuberculosis four weeks ago,
+    confirmed by positive sputum AFB smear and culture growing pan-susceptible
+    Mycobacterium tuberculosis. His partner has been on standard four-drug
+    therapy for three weeks. The patient shares a one-bedroom apartment with
+    his partner and reports no history of prior TB testing or treatment. He
+    has never lived outside the United States and reports no international
+    travel to TB-endemic regions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 36.9°C, heart rate 84, blood pressure
+    118/74 mmHg, oxygen saturation 98% on room air. The physical examination
+    is unremarkable. He specifically denies cough, hemoptysis, night sweats,
+    and unintentional weight loss. A QuantiFERON-TB Gold Plus (QFT-Plus) is
+    sent and the result returns indeterminate: the IFN-gamma response in the
+    mitogen control tube falls below the minimum threshold required for valid
+    interpretation, precluding a positive or negative classification. A
+    posterior-anterior chest radiograph is obtained and is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/hiv-ltbi/normal-xray.png"
+        alt="Posterior-anterior chest radiograph obtained at initial evaluation"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Posterior-anterior chest radiograph obtained at initial evaluation.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-hiv-ltbi-q1"
+  title="Question 1"
+  prompt="How should the indeterminate QuantiFERON result be interpreted, and what is the most appropriate next step?"
+  options={[
+    {
+      id: "A",
+      label: "The indeterminate result indicates a technical laboratory failure — repeat QuantiFERON-TB Gold Plus in four weeks",
+      feedback:
+        "Incorrect. While technical failures do occur with IGRA testing, an indeterminate result in a patient with a CD4 count of 118 cells/mcL is not primarily a laboratory error. The QuantiFERON-TB Gold Plus uses a mitogen control tube to confirm that the patient's T lymphocytes are capable of producing IFN-gamma when non-specifically stimulated. In patients with advanced immunosuppression, particularly those with CD4 counts below 200 cells/mcL, lymphocytes may be quantitatively and functionally impaired to the point that they cannot mount an adequate mitogen response. This results in a biologically indeterminate test — the assay is working correctly, but the immune system cannot provide the expected control signal. Repeating the test before ART-mediated immune reconstitution is likely to yield the same indeterminate result and does not change clinical management in a patient with a high-risk exposure.",
+    },
+    {
+      id: "B",
+      label: "In advanced HIV with high-risk TB exposure, an indeterminate QFT-Plus reflects immunosuppression rather than absence of infection; empiric LTBI treatment is indicated",
+      correct: true,
+      feedback:
+        "Correct. An indeterminate QuantiFERON result in a patient with HIV and a CD4 count of 118 cells/mcL should be interpreted in the context of the clinical and epidemiologic picture, not treated as equivalent to a negative result. Immunosuppression from advanced HIV blunts the IFN-gamma mitogen response that the assay requires to be interpretable, making indeterminate results common and expected at low CD4 counts. The CDC, DHHS, and WHO all recommend that HIV-infected persons with household or other close contact with infectious pulmonary TB be evaluated for LTBI treatment regardless of IGRA or TST result, once active TB has been excluded. In this patient, the chest radiograph shows no evidence of active pulmonary TB and he has no symptoms of active disease (no cough, no hemoptysis, no night sweats, no weight loss). The combination of a high-risk prolonged exposure (shared bedroom with smear-positive TB partner), advanced immunosuppression reducing assay validity, and an absence of active disease findings establishes the indication for LTBI treatment. The indeterminate QFT does not lower his pre-test probability; if anything, the same immunosuppression that produced the indeterminate result increases his susceptibility to progressive primary infection.",
+    },
+    {
+      id: "C",
+      label: "An indeterminate QFT result is functionally equivalent to a negative result in HIV; no LTBI treatment is warranted given the normal chest radiograph",
+      feedback:
+        "Incorrect. Equating an indeterminate result with a negative result in the setting of advanced HIV and high-risk TB exposure is a clinically dangerous error. A negative IGRA result requires that the mitogen control tube produces an adequate positive signal, confirming lymphocyte functional competence. An indeterminate result, by definition, cannot confirm that T cells are functioning sufficiently to produce a valid negative response, so the negative classification is not interpretable. A normal chest radiograph excludes active pulmonary disease but does not exclude latent TB infection. The CDC and DHHS explicitly advise against treating indeterminate IGRA results as negative in HIV-infected patients with significant TB exposure, and recommend LTBI treatment in such patients after ruling out active disease.",
+    },
+    {
+      id: "D",
+      label: "A tuberculin skin test should be placed; treatment is indicated only if the result is 5 mm or greater",
+      feedback:
+        "Incorrect for this clinical scenario. The tuberculin skin test (TST) uses a 5 mm positivity threshold in HIV-infected patients, which is more sensitive than the 10 to 15 mm thresholds used in immunocompetent hosts. However, the TST shares the fundamental limitation of all T-cell-based TB diagnostic tests in advanced HIV: it depends on intact cell-mediated immunity to produce a delayed-type hypersensitivity reaction. With a CD4 count of 118 cells/mcL, this patient is very likely to have a false-negative TST (anergy), as lymphopenic patients frequently cannot mount a palpable induration. Performing a TST that is expected to be falsely negative, and then using that negative result to withhold LTBI treatment in a high-risk patient, is not appropriate management. Guidelines support LTBI treatment in HIV patients with significant TB exposure even when both IGRA and TST are negative or indeterminate.",
+    },
+    {
+      id: "E",
+      label: "Defer LTBI testing and treatment decisions until ART is initiated and the CD4 rises above 200 cells/mcL",
+      feedback:
+        "Incorrect. Deferring LTBI treatment until immune reconstitution is achieved is not recommended. LTBI treatment should be initiated as soon as active TB is excluded and the clinical situation permits, regardless of current CD4 count. Waiting for immune reconstitution before treating latent infection exposes the patient to the risk of progression to active TB during the delay, particularly in the early ART period when immune reconstitution can paradoxically trigger inflammatory flares (TB-IRIS). Current DHHS Opportunistic Infections Guidelines recommend initiating LTBI treatment after active TB is excluded without requiring a specific CD4 threshold. The timing question most relevant in this patient is coordination between ART initiation and LTBI treatment, not deferral of one pending the other.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hiv-ltbi-q2"
+  title="Question 2"
+  prompt="You plan rifamycin-based treatment. Which ART regimen is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Bictegravir/tenofovir alafenamide/emtricitabine (Biktarvy)",
+      feedback:
+        "Incorrect. Bictegravir is contraindicated with both rifampin and rifapentine due to potent induction of CYP3A4 and P-glycoprotein by rifamycins, which reduces bictegravir AUC by approximately 75%. At these plasma levels, bictegravir cannot provide reliable viral suppression. Biktarvy should not be co-administered with any rifamycin-based regimen, including short-course LTBI therapy with rifapentine (3HP or 1HP) or rifampin (4R). This is an absolute contraindication listed in the prescribing information and in DHHS guidelines.",
+    },
+    {
+      id: "B",
+      label: "Elvitegravir/cobicistat/tenofovir alafenamide/emtricitabine (Genvoya)",
+      feedback:
+        "Incorrect. Any cobicistat-containing regimen is contraindicated with rifamycins. Cobicistat inhibits CYP3A4 to boost elvitegravir exposure, but rifamycins induce CYP3A4 so powerfully that they overwhelm cobicistat's inhibitory effect, resulting in net reduction of elvitegravir plasma levels to subtherapeutic concentrations. Rifampin reduces cobicistat-boosted elvitegravir AUC by more than 75%. Rifapentine has a similar effect. Cobicistat-containing regimens (Genvoya, Stribild, Symtuza, Evotaz, Prezcobix) are all contraindicated with rifampin and rifapentine.",
+    },
+    {
+      id: "C",
+      label: "Rilpivirine/tenofovir alafenamide/emtricitabine (Odefsey)",
+      feedback:
+        "Incorrect. Rilpivirine is contraindicated with rifampin, which reduces rilpivirine AUC by 46 to 52% through CYP3A4 induction, placing plasma levels below the minimum effective concentration. Rifapentine produces a clinically similar reduction. Rilpivirine-based regimens, including Odefsey, Complera, and Juluca, are contraindicated with both rifampin and rifapentine. Additionally, rilpivirine requires a CD4 count above 200 cells/mcL for initial use and has reduced efficacy at viral loads above 100,000 copies/mL, making it doubly inappropriate for this patient.",
+    },
+    {
+      id: "D",
+      label: "Dolutegravir 50 mg twice daily plus tenofovir alafenamide/emtricitabine",
+      correct: true,
+      feedback:
+        "Correct. Dolutegravir (DTG) is the preferred integrase strand transfer inhibitor when a rifamycin-based regimen is required, because its pharmacokinetic interaction is manageable rather than prohibitive. Rifampin and daily rifapentine (as used in 1HP) induce UGT1A1 and CYP3A4, reducing DTG trough concentrations by approximately 50 to 75%. The established strategy to compensate is to double the DTG dose to 50 mg twice daily when co-administered with rifampin or daily rifapentine. For weekly rifapentine (as used in 3HP), DHHS guidelines recommend the same dose increase to DTG 50 mg BID to maintain adequate trough levels. The DOLPHIN-1 and DOLPHIN-2 studies confirmed that DTG 50 mg BID maintains virologic efficacy and safety in patients receiving rifampicin-based TB therapy. Tenofovir alafenamide/emtricitabine as the backbone has no clinically significant rifamycin interactions and provides a potent and generally well-tolerated nucleoside backbone. Once LTBI treatment is completed and the rifamycin is discontinued, DTG should be returned to the standard 50 mg once daily dose.",
+    },
+    {
+      id: "E",
+      label: "Darunavir/ritonavir plus tenofovir alafenamide/emtricitabine",
+      feedback:
+        "Incorrect for a rifamycin-based LTBI regimen. Rifampin is contraindicated with ritonavir-boosted protease inhibitors: rifampin induces CYP3A4 so potently that it reduces darunavir plasma levels by more than 57% despite ritonavir boosting, rendering the protease inhibitor subtherapeutic. If a PI-based regimen were preferred for other clinical reasons, the standard approach for TB treatment (not LTBI) is to substitute rifabutin for rifampin at an adjusted rifabutin dose of 150 mg three times weekly, which is a weaker CYP inducer compatible with boosted PIs. However, rifabutin is not commonly used for LTBI regimens, which rely on rifampin or rifapentine. A DTG-based regimen with dose adjustment is the preferred approach when rifampin or rifapentine-based LTBI treatment is planned.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hiv-ltbi-q3"
+  title="Question 3"
+  prompt="The patient asks about completing LTBI treatment as quickly as possible. Which statement about 1HP is most accurate?"
+  options={[
+    {
+      id: "A",
+      label: "1HP (daily rifapentine 600 mg plus isoniazid 300 mg for 28 days) demonstrated non-inferiority to 9-month isoniazid in HIV-positive patients and is guideline-recommended, with dolutegravir dose increased to 50 mg twice daily",
+      correct: true,
+      feedback:
+        "Correct. 1HP was evaluated in the BRIEF-TB trial (ACTG A5279), a phase 3 randomized non-inferiority trial that enrolled approximately 3,000 HIV-positive persons across ten countries, comparing 1HP (rifapentine 600 mg plus isoniazid 300 mg daily for 28 days) to 9H (isoniazid 300 mg daily for 9 months). At 24 months of follow-up, 1HP demonstrated non-inferiority to 9H for the primary composite endpoint of TB disease and all-cause mortality. Tuberculosis incidence was 0.65% in the 1HP group versus 0.67% in the 9H group. Critically, 1HP was associated with significantly fewer Grade 3 or 4 adverse events and a lower rate of hepatotoxicity compared to 9H, likely because the shorter duration limits cumulative isoniazid hepatic exposure. Based on these results, both the DHHS Opportunistic Infections Guidelines and the WHO (2020 consolidated guidelines on tuberculosis) include 1HP as an acceptable and preferred option for LTBI treatment in HIV-positive persons. The primary ART compatibility consideration is that daily rifapentine is a moderate-to-strong CYP3A4 and UGT1A1 inducer: bictegravir is contraindicated, cobicistat-containing regimens are contraindicated, and dolutegravir requires dose increase to 50 mg twice daily during the 28-day course. Pyridoxine (vitamin B6) 25 to 50 mg daily should always be co-administered with isoniazid-containing regimens to prevent peripheral neuropathy, particularly in HIV-positive patients who are at higher baseline risk.",
+    },
+    {
+      id: "B",
+      label: "1HP is contraindicated in HIV-positive patients due to unacceptable reductions in ART plasma levels across all available regimens",
+      feedback:
+        "Incorrect. 1HP is not contraindicated in HIV-positive patients. Drug interactions with daily rifapentine require ART selection and dose adjustment, but these interactions are manageable rather than prohibitive. Dolutegravir 50 mg twice daily maintains therapeutic plasma levels during 1HP. Efavirenz-based regimens do not require dose changes with rifapentine, as efavirenz is itself a CYP inducer and plasma levels are not substantially affected. BRIEF-TB enrolled patients on a range of ART regimens and confirmed that 1HP is safe and effective in this population. The existence of drug interactions does not make a regimen contraindicated; it requires thoughtful ART selection before initiating LTBI therapy.",
+    },
+    {
+      id: "C",
+      label: "Bictegravir/tenofovir alafenamide/emtricitabine can be safely co-administered with 1HP without any dose adjustment",
+      feedback:
+        "Incorrect. Bictegravir is contraindicated with rifapentine. Daily rifapentine (as used in 1HP) induces CYP3A4 and P-glycoprotein, substantially reducing bictegravir plasma exposure and risking virologic failure. This is an absolute contraindication, not a situation requiring dose adjustment. There is no approved dose of bictegravir that compensates for rifapentine-mediated induction, and unlike dolutegravir, bictegravir does not have pharmacokinetic data supporting double-dosing with rifamycins.",
+    },
+    {
+      id: "D",
+      label: "1HP has only been studied in patients with CD4 above 350 cells/mcL and is not recommended for advanced immunosuppression",
+      feedback:
+        "Incorrect. BRIEF-TB enrolled HIV-positive patients with CD4 counts at or above 100 cells/mcL who were either already on ART or initiating ART within 30 days of enrollment. The trial was not restricted to patients with preserved CD4 counts, and 1HP demonstrated consistent efficacy and safety across CD4 strata including those with advanced immunosuppression. There is no CD4 threshold in guideline recommendations that precludes the use of 1HP. The patient in this case, with a CD4 of 118 cells/mcL, is within the range studied and is an appropriate candidate for 1HP once an ART-compatible regimen is selected.",
+    },
+    {
+      id: "E",
+      label: "All HIV-positive patients receiving 1HP must complete the regimen under directly observed therapy",
+      feedback:
+        "Incorrect. Self-administered therapy (SAT) is permissible with 1HP in HIV-positive patients. The relatively short 28-day course and daily (rather than weekly) dosing schedule make self-administration practical and is one of the cited advantages of 1HP over longer regimens. DHHS guidelines support SAT for 1HP in appropriate patients, with shared decision-making guiding the choice between SAT and DOT. Directly observed therapy is not universally mandated. Clinical judgement, patient reliability, and access to care infrastructure inform the decision in individual patients.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hiv-ltbi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Interferon-gamma release assays (IGRAs) such as the QuantiFERON-TB Gold
+    Plus measure the IFN-gamma response of CD4 T lymphocytes to
+    Mycobacterium tuberculosis-specific antigens (ESAT-6 and CFP-10) as
+    an indirect marker of TB infection. The assay requires two functional
+    elements: antigen-specific T cells sensitized by prior mycobacterial
+    exposure, and a competent lymphocyte pool capable of producing IFN-gamma
+    when stimulated. The mitogen control tube confirms the latter by
+    non-specifically activating T cells with a polyclonal mitogen. In
+    advanced HIV, both elements may be compromised. Low CD4 counts reduce
+    the absolute number of functional T cells capable of generating an
+    IFN-gamma signal, and even if TB-specific sensitized cells exist, the
+    mitogen control may fail because the total functional lymphocyte pool is
+    depleted. An indeterminate result therefore does not indicate absence of
+    TB infection; rather, it indicates that the immune response is too
+    impaired to be reliably interrogated. The pre-test probability of LTBI
+    in this patient is high: he shares a small apartment with a smear-positive
+    index case and has been exposed continuously for the weeks before his
+    partner's diagnosis was established.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Managing LTBI in a person with newly diagnosed HIV requires simultaneous
+    attention to ART initiation, drug interactions, and LTBI regimen
+    selection. Both ART and LTBI treatment should be started in close
+    temporal proximity, as advanced HIV-mediated immunosuppression increases
+    the risk of progression from latent to active TB. The most clinically
+    significant interaction is between rifamycins and integrase strand
+    transfer inhibitors (INSTIs). Rifampin and rifapentine are potent
+    inducers of CYP3A4 and UGT1A1, which are the primary metabolic pathways
+    for most INSTIs. Dolutegravir is the INSTI with the most evidence
+    supporting dose adjustment (50 mg twice daily) during rifamycin
+    co-administration, derived from pharmacokinetic studies and clinical
+    experience in TB-HIV co-treatment. Bictegravir lacks pharmacokinetic
+    data supporting dose escalation and is pharmacologically contraindicated.
+    Elvitegravir/cobicistat combinations are incompatible with rifamycins
+    due to cobicistat's inability to maintain adequate boosting in the
+    presence of potent induction. If no rifamycin-compatible INSTI can be
+    used, isoniazid monotherapy for 9 months (9H) carries no significant
+    ART interactions and remains a guideline-endorsed alternative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The landscape of LTBI treatment has shifted substantially with the
+    availability of short-course rifamycin-based regimens. The BRIEF-TB
+    trial established 1HP (28 days of daily rifapentine plus isoniazid) as
+    non-inferior to 9H in HIV-positive patients, with a superior safety
+    profile and markedly improved completion rates attributable to the
+    shorter duration. For patients in whom daily adherence for 28 days is
+    more achievable than 9 months, 1HP represents a practical advance.
+    The 3HP regimen (once-weekly rifapentine plus isoniazid for 12 weeks)
+    is another short-course alternative with strong evidence in HIV,
+    requiring similar ART adjustments (DTG 50 mg BID with weekly rifapentine
+    is recommended by DHHS, though some pharmacokinetic data suggest the
+    interaction is milder than with daily rifapentine). Pyridoxine
+    supplementation at 25 to 50 mg daily is essential with any
+    isoniazid-containing regimen to prevent peripheral neuropathy, which
+    is more common in HIV-positive patients due to baseline neural
+    vulnerability from the virus itself and its metabolic sequelae.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hiv-ltbi-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      An indeterminate IGRA in advanced HIV reflects immunosuppression, not
+      laboratory failure. The mitogen control tube fails because lymphocytes
+      are too depleted to respond. Treat it as a biologically uninformative
+      result, not as a negative. High-risk TB exposure warrants empiric LTBI
+      treatment after excluding active disease regardless of IGRA result.
+    </li>
+    <li>
+      LTBI diagnosis threshold in HIV: TST positivity is defined as 5 mm or
+      greater (not 10 to 15 mm). Both TST and IGRA are less sensitive in
+      advanced immunosuppression, and guidelines support treating high-risk
+      HIV patients even with negative or indeterminate results.
+    </li>
+    <li>
+      Rifamycin-ART interactions: bictegravir and cobicistat-containing
+      regimens are contraindicated with rifampin and rifapentine. Dolutegravir
+      requires dose increase to 50 mg twice daily during rifamycin
+      co-administration. Return to standard dosing once LTBI treatment
+      is complete. Isoniazid monotherapy (9H) carries no significant
+      INSTI interactions if rifamycins cannot be used.
+    </li>
+    <li>
+      1HP (rifapentine 600 mg plus isoniazid 300 mg daily for 28 days) is
+      non-inferior to 9H for LTBI prevention in HIV-positive patients
+      (BRIEF-TB trial), with fewer Grade 3 or 4 adverse events and lower
+      hepatotoxicity. Both DHHS and WHO guidelines endorse 1HP for HIV.
+    </li>
+    <li>
+      Always co-administer pyridoxine (vitamin B6) 25 to 50 mg daily with
+      any isoniazid-containing regimen in HIV-positive patients to prevent
+      peripheral neuropathy. Isoniazid depletes pyridoxine by competitive
+      inhibition, and HIV-associated neuropathy amplifies this risk.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Swindells S, Ramchandani R, Gupta A, et al.
+      One Month of Rifapentine plus Isoniazid to Prevent HIV-Related
+      Tuberculosis (BRIEF-TB/A5279).
+      <em>New England Journal of Medicine</em>. 2019;380(11):1001-1011.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1806808"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa1806808
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Opportunistic Infections in Adults and Adolescents with HIV.
+      Guidelines for the Prevention and Treatment of Opportunistic Infections
+      in Adults and Adolescents with HIV.
+      Department of Health and Human Services. 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        clinicalinfo.hiv.gov
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dooley KE, Savic R, Gupte A, et al.
+      Once-Daily Dolutegravir-Based Antiretroviral Therapy for HIV in
+      Rifampicin-Based Treatment for TB in Adults
+      (DOLPHIN-2): an open-label, randomised, non-inferiority trial.
+      <em>The Lancet HIV</em>. 2020;7(6):e381-e387.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S2352-3018(20)30013-1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S2352-3018(20)30013-1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sterling TR, Njie G, Zenner D, et al.
+      Guidelines for the Treatment of Latent Tuberculosis Infection:
+      Recommendations from the National Tuberculosis Controllers Association
+      and CDC.
+      <em>MMWR Recommendations and Reports</em>. 2020;69(1):1-11.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.15585/mmwr.rr6901a1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.15585/mmwr.rr6901a1
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
