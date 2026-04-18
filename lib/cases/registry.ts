@@ -547,6 +547,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A D+/R- kidney transplant recipient completes oral vancomycin for C. diff but returns two weeks later with bloody diarrhea and weight loss. Repeat C. diff testing is negative. Colonoscopy shows linear ulcerations. What does the biopsy reveal?",
     tags: { organisms: ["Cytomegalovirus", "CMV"], syndromes: ["Transplant & Immunocompromised", "Gastroenterology"], concepts: ["CMV colitis", "D+/R- serostatus", "Late CMV disease", "Post-prophylaxis CMV", "UL97 kinase mutation", "Ganciclovir resistance", "Foscarnet", "Maribavir", "SOLSTICE trial", "Tissue biopsy gold standard", "IHC", "Owl eye inclusion", "Co-infection C. diff"] },
   },
+  {
+    slug: "ptld-heart-transplant",
+    title: "The Mass at Twelve Months",
+    description: "A heart transplant recipient with fever, night sweats, and a left upper lobe mass one year after transplant.",
+    enable: true,
+    ogImage: "/cases/ptld/ptld.png",
+    teaser: "A 52-year-old man presents 12 months after heart transplant with six weeks of fever, night sweats, and a 9-pound weight loss. CT chest reveals a 4.2 cm left upper lobe mass with mediastinal adenopathy. His donor was EBV-seropositive; he was seronegative. What is the most likely diagnosis?",
+    tags: { organisms: ["Epstein-Barr virus", "EBV"], syndromes: ["Transplant & Immunocompromised", "Oncology", "Pulmonary"], concepts: ["Post-transplant lymphoproliferative disorder", "PTLD", "EBV serostatus mismatch", "Monomorphic PTLD", "Diffuse large B-cell lymphoma", "Rituximab", "Immunosuppression reduction", "EBER in situ hybridization", "CD20", "B symptoms", "Calcineurin inhibitor", "PTLD-1 trial"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

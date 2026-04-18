@@ -1,0 +1,358 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("ptld-heart-transplant");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Mass at Twelve Months
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Vignette</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man underwent orthotopic heart transplant 12 months ago for end-stage ischemic
+    cardiomyopathy. His donor was EBV IgG-seropositive; he was EBV IgG-seronegative at the time
+    of transplant. His immunosuppressive regimen consists of tacrolimus, mycophenolate mofetil,
+    and prednisone. His post-transplant course has been unremarkable, with stable allograft
+    function and no prior episodes of rejection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He now presents with a 6-week history of progressive fatigue, intermittent fevers, drenching
+    night sweats, and an unintentional 9-pound weight loss. He reports mild exertional dyspnea but
+    denies cough, hemoptysis, or pleuritic chest pain. There is no recent travel, no known
+    tuberculosis contacts, no construction or excavation exposure, and no sick contacts.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.3 C, heart rate 94 bpm, blood pressure 128/76 mmHg, and
+    oxygen saturation 95% on room air. Breath sounds are mildly diminished at the left apex.
+    There is no palpable lymphadenopathy. Cardiac and abdominal examinations are unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory data: hemoglobin 10.4 g/dL, WBC 7.6 x 10^9/L, platelets 138 x 10^9/L, LDH 418 U/L
+    (elevated), uric acid 7.2 mg/dL. Serum creatinine and tacrolimus trough are within target range.
+    CT of the chest with contrast reveals a 4.2 cm heterogeneous mass in the left upper lobe with
+    associated mediastinal lymphadenopathy.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/ptld/ptld.png"
+        alt="CT chest with contrast showing a 4.2 cm heterogeneous mass in the left upper lobe with mediastinal lymphadenopathy in a heart transplant recipient"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      CT chest with contrast: 4.2 cm heterogeneous left upper lobe mass with associated mediastinal
+      lymphadenopathy.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-ptld-heart-transplant-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Invasive pulmonary aspergillosis",
+      feedback:
+        "Incorrect. Invasive aspergillosis most commonly occurs in severely neutropenic patients or those on high-dose corticosteroids early after transplant. Classical CT findings include the halo sign or wedge-shaped infarcts, not a discrete mass with mediastinal adenopathy. At 12 months post-transplant on standard triple immunosuppression without neutropenia, this presentation is less consistent with Aspergillus than with a lymphoproliferative process driven by the EBV D+/R- serostatus mismatch.",
+    },
+    {
+      id: "B",
+      label: "Post-transplant lymphoproliferative disorder",
+      correct: true,
+      feedback:
+        "Correct. The EBV D+/R- serostatus mismatch, subacute B symptoms (fever, night sweats, weight loss), a discrete mass with mediastinal adenopathy, elevated LDH, and the 12-month post-transplant timeline are all characteristic of EBV-driven PTLD. Heart transplant recipients have among the highest PTLD rates of any solid organ group, and EBV-seronegative recipients who receive an EBV-positive organ carry the greatest individual risk.",
+    },
+    {
+      id: "C",
+      label: "Pulmonary tuberculosis",
+      feedback:
+        "Incorrect. TB reactivation is a legitimate concern in immunosuppressed transplant recipients, since calcineurin inhibitors impair T-cell-mediated immunity. However, this patient has no TB exposure history or endemic risk factors, and the combination of EBV D+/R- serostatus, B symptoms, mediastinal adenopathy, and elevated LDH is far more consistent with a lymphoproliferative process than with TB reactivation.",
+    },
+    {
+      id: "D",
+      label: "Pulmonary nocardiosis",
+      feedback:
+        "Incorrect. Nocardia causes nodular or cavitary lung disease in immunosuppressed hosts, presenting in a subacute fashion. Constitutional B symptoms of this severity are less characteristic, and Nocardia does not account for the mediastinal adenopathy, the elevated LDH, or the EBV D+/R- serostatus mismatch, all of which point toward a lymphoproliferative etiology.",
+    },
+    {
+      id: "E",
+      label: "Pulmonary cryptococcosis",
+      feedback:
+        "Incorrect. Cryptococcus can cause pulmonary cryptococcomas in solid organ transplant recipients, and solitary masses are recognized. However, cryptococcal pulmonary disease rarely produces B symptoms of this severity or mediastinal adenopathy. The EBV D+/R- serostatus mismatch is the dominant clue pointing toward PTLD over cryptococcosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-ptld-heart-transplant-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next step?"
+  options={[
+    {
+      id: "A",
+      label: "Start empiric rituximab without tissue confirmation",
+      feedback:
+        "Incorrect. Initiating rituximab before tissue diagnosis is inappropriate. Histologic classification determines treatment intensity: early lesions may respond to immunosuppression reduction alone, while monomorphic PTLD requires more aggressive therapy. Starting rituximab empirically risks treating the wrong diagnosis and forfeits the histologic and molecular data needed to guide the full treatment plan.",
+    },
+    {
+      id: "B",
+      label: "Serum EBV PCR alone is sufficient to confirm the diagnosis",
+      feedback:
+        "Incorrect. Serum EBV PCR supports clinical suspicion for EBV-driven PTLD but cannot replace tissue sampling. EBV viral load may be undetectable in EBV-negative PTLD (approximately 30% of cases) and does not provide histologic classification or CD20 expression data. A positive EBV PCR also does not distinguish PTLD from primary EBV infection or other EBV-associated states. Tissue biopsy is required.",
+    },
+    {
+      id: "C",
+      label: "PET-CT scan before any tissue sampling",
+      feedback:
+        "Incorrect. PET-CT is a valuable staging tool once PTLD is confirmed histologically, identifying extent of disease and guiding treatment stratification. However, performing PET-CT before obtaining tissue only delays the confirmatory step. The biopsy result drives the decision to stage and informs the staging workup itself.",
+    },
+    {
+      id: "D",
+      label: "CT-guided biopsy of the left upper lobe mass",
+      correct: true,
+      feedback:
+        "Correct. Tissue biopsy is the essential next step. Histologic classification (early lesion, polymorphic PTLD, monomorphic PTLD), immunophenotyping (CD20, CD3), and EBER in situ hybridization to confirm EBV involvement within tumor cells are all required to guide treatment decisions. Without tissue, the diagnosis remains presumptive and treatment cannot be rationally planned.",
+    },
+    {
+      id: "E",
+      label: "Reduce tacrolimus empirically and reassess with imaging in 4 weeks",
+      feedback:
+        "Incorrect. Empirically reducing immunosuppression before tissue diagnosis is premature. IS reduction carries a risk of allograft rejection, and without histologic confirmation the possibility of an alternative diagnosis cannot be excluded. IS reduction may be part of treatment after PTLD is confirmed, but it should not precede biopsy in a patient who is hemodynamically stable and amenable to tissue sampling.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-ptld-heart-transplant-q3"
+  title="Question 3"
+  prompt="Biopsy returns: monomorphic PTLD, diffuse large B-cell lymphoma type, CD20+, EBER+. EBV PCR is 52,000 IU/mL. What is the most appropriate initial management?"
+  options={[
+    {
+      id: "A",
+      label: "R-CHOP chemotherapy without prior immunosuppression reduction",
+      feedback:
+        "Incorrect. R-CHOP is effective for refractory or high-risk PTLD but should not be initiated upfront without first attempting immunosuppression reduction combined with rituximab. The sequential approach avoids unnecessary chemotherapy toxicity in patients who may respond to less intensive therapy. R-CHOP is reserved for disease refractory to the IS reduction plus rituximab strategy, or for high-risk presentations at diagnosis.",
+    },
+    {
+      id: "B",
+      label: "Antiviral therapy with valganciclovir targeting EBV replication",
+      feedback:
+        "Incorrect. Antivirals (ganciclovir, valganciclovir, acyclovir) inhibit EBV lytic replication but have no activity against the latent EBV infection that drives PTLD. Tumor cell proliferation is mediated by latently infected B cells, not lytic viral replication. Antivirals do not induce tumor regression and have no established role in PTLD treatment.",
+    },
+    {
+      id: "C",
+      label: "Reduction of immunosuppression combined with rituximab",
+      correct: true,
+      feedback:
+        "Correct. For newly diagnosed CD20-positive monomorphic PTLD, current guidelines recommend combining immunosuppression reduction with rituximab as initial therapy. IS reduction (typically reducing or holding mycophenolate and decreasing tacrolimus by 25 to 50%) partially restores EBV-specific T-cell immune surveillance and can achieve remission in a subset of patients. Rituximab targets CD20-expressing lymphoma cells directly. The PTLD-1 trial demonstrated that a sequential rituximab strategy with risk-stratified consolidation is effective and spares responding patients from routine exposure to chemotherapy. Close coordination with transplant cardiology is essential to balance IS reduction against rejection risk in a cardiac recipient.",
+    },
+    {
+      id: "D",
+      label: "External beam radiation to the left upper lobe mass alone",
+      feedback:
+        "Incorrect. Radiation is not the standard initial approach for systemic PTLD. Its role is limited to select CNS presentations and occasional consolidation in localized disease. For a patient with a lung mass and mediastinal adenopathy, radiation would address only the visible lesion while leaving systemic disease untreated.",
+    },
+    {
+      id: "E",
+      label: "Observation with serial imaging given a stable presentation",
+      feedback:
+        "Incorrect. Observation is not appropriate for monomorphic PTLD. Unlike indolent lymphomas, DLBCL-type PTLD is aggressive and can progress rapidly. A watchful waiting approach risks tumor progression and potential involvement of the cardiac allograft, further complicating management.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-ptld-heart-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Post-transplant lymphoproliferative disorder is a heterogeneous group of lymphoid proliferations
+    arising as a consequence of immunosuppression after solid organ transplantation. EBV plays a
+    central pathogenetic role in early-onset PTLD: calcineurin inhibitors (tacrolimus, cyclosporine)
+    suppress the EBV-specific cytotoxic T-lymphocyte response that normally limits EBV-infected
+    B-cell expansion. In EBV-seronegative recipients who receive an organ from an EBV-seropositive
+    donor (D+/R-), primary EBV infection occurs in the setting of profound immunosuppression, and
+    infected B cells can proliferate without effective immune control.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Heart and lung recipients have among the highest PTLD rates of any solid organ group (approximately
+    2 to 8%), reflecting the greater depth of immunosuppression required to prevent rejection in
+    thoracic transplants. The EBV D+/R- mismatch confers the highest individual risk, with PTLD
+    rates up to 10 to 20 times higher than in EBV-matched transplants. Constitutional B symptoms
+    (fever, night sweats, weight loss), a mass lesion with mediastinal adenopathy, and elevated LDH
+    in this clinical context are a red flag for PTLD. The lung is one of the most common sites of
+    extranodal PTLD involvement.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Tissue biopsy is the cornerstone of diagnosis. PTLD encompasses a histologic spectrum: from early
+    lesions (plasmacytic hyperplasia, infectious mononucleosis-like) to polymorphic PTLD to monomorphic
+    PTLD, which accounts for approximately 60 to 70% of cases in solid organ transplant recipients and
+    most commonly presents as diffuse large B-cell lymphoma. EBER in situ hybridization is the gold
+    standard for demonstrating EBV involvement within tumor cells; CD20 positivity confirms eligibility
+    for rituximab. These data can only come from tissue: serum EBV PCR supports clinical suspicion but
+    does not replace histologic classification or immunophenotyping.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For CD20-positive monomorphic PTLD, the current standard first-line approach is IS reduction
+    combined with rituximab. IS reduction (reducing or holding mycophenolate, decreasing tacrolimus
+    by 25 to 50%) partially restores EBV-specific cytotoxic T-cell surveillance and can achieve
+    complete remission in approximately 20 to 40% of patients with lower-risk disease. Rituximab
+    (anti-CD20 monoclonal antibody) targets the CD20-expressing lymphoma cells directly. The pivotal
+    PTLD-1 trial (Trappe et al., 2017) demonstrated that a sequential strategy of four cycles of
+    rituximab followed by risk-stratified consolidation (additional rituximab for responders, or
+    R-CHOP for non-responders) achieved event-free survival of 54% at three years. This sequential
+    approach avoids routine upfront chemotherapy while preserving the option to escalate. R-CHOP is
+    reserved for disease refractory to IS reduction plus rituximab, or for high-risk presentations
+    at diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In cardiac transplant recipients, IS reduction must be carefully balanced against the risk of
+    allograft rejection: the heart cannot be bridged or supported the way a kidney can if graft
+    function is lost. Close coordination with transplant cardiology is essential, and rejection
+    surveillance with endomyocardial biopsy may be warranted during the IS reduction period.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-ptld-heart-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      EBV D+/R- serostatus is the single highest-risk factor for early PTLD. Heart transplant
+      recipients carry PTLD rates of 2 to 8%, among the highest of any solid organ group, due to
+      the depth of immunosuppression required.
+    </li>
+    <li>
+      Constitutional B symptoms (fever, night sweats, weight loss), a mass with mediastinal
+      adenopathy, and elevated LDH in a transplant recipient should immediately raise PTLD above
+      infectious etiologies on the differential.
+    </li>
+    <li>
+      Tissue biopsy is mandatory before treatment. Histologic classification, CD20
+      immunophenotyping, and EBER in situ hybridization are required; serum EBV PCR alone is
+      insufficient and cannot replace tissue.
+    </li>
+    <li>
+      Monomorphic PTLD (DLBCL-type) is the most common subtype in solid organ transplant
+      recipients. CD20 positivity determines eligibility for rituximab.
+    </li>
+    <li>
+      The standard initial approach for CD20-positive monomorphic PTLD is IS reduction combined
+      with rituximab. R-CHOP is reserved for disease refractory to this strategy or for high-risk
+      presentations. Antivirals targeting EBV lytic replication have no role in PTLD treatment.
+    </li>
+    <li>
+      In cardiac recipients, IS reduction must be balanced against rejection risk. Coordinate
+      closely with transplant cardiology; consider endomyocardial biopsy surveillance during the
+      IS reduction period.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dierickx D, Habermann TM. Post-transplantation lymphoproliferative disorders in adults.{" "}
+      <em>New England Journal of Medicine</em>. 2018;378(6):549-562.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra1702693"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra1702693
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Trappe RU, Dierickx D, Zimmermann H, et al. Response to rituximab induction is a predictive
+      marker in B-cell post-transplant lymphoproliferative disorder and allows successful
+      stratification into rituximab or R-CHOP consolidation in an international, prospective,
+      multicenter Phase II trial. <em>Journal of Clinical Oncology</em>. 2017;35(5):536-543.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1200/JCO.2016.69.6278"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1200/JCO.2016.69.6278
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Allen UD, Preiksaitis JK; AST Infectious Diseases Community of Practice. Post-transplant
+      lymphoproliferative disorders, Epstein-Barr virus infection, and disease in solid organ
+      transplantation: Guidelines from the American Society of Transplantation Infectious Diseases
+      Community of Practice. <em>Clinical Transplantation</em>. 2019;33(9):e13652.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/ctr.13652"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/ctr.13652
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
