@@ -208,6 +208,14 @@ const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-03-02T22:24:46-08:00",
     modifiedAt: "2026-03-02T22:29:44-08:00",
   },
+  "diabetic-foot-osteomyelitis": {
+    publishedAt: "2026-04-17T08:00:00-07:00",
+    modifiedAt: "2026-04-17T08:00:00-07:00",
+  },
+  "pyogenic-brain-abscess": {
+    publishedAt: "2026-04-19T08:00:00-07:00",
+    modifiedAt: "2026-04-19T08:00:00-07:00",
+  },
 };
 
 const AUTHOR = {

@@ -17,6 +17,15 @@ export type CaseMeta = {
 
 export const CASES: CaseMeta[] = [
   {
+    title: "The Silent Swallow",
+    slug: "pyogenic-brain-abscess",
+    description: "When aspiration writes a prescription for the brain.",
+    enable: true,
+    ogImage: "/cases/brain-abscess/brain-abscess.png",
+    teaser: "A 78-year-old man with Parkinson's disease and recurrent aspiration events presents with 10 days of confusion and new left-sided weakness. CT shows a 3.2-cm ring-enhancing right parietal lesion with mass effect, and chest CT reveals a concurrent cavitary lung abscess. DWI MRI shows restricted diffusion. What infectious etiology explains both lesions, and how do you treat it?",
+    tags: { organisms: ["Streptococcus anginosus", "Prevotella melaninogenica"], syndromes: ["CNS Infection", "Pulmonary Infection"], concepts: ["Brain abscess", "Aspiration", "DWI restricted diffusion", "Ring-enhancing lesion", "Parkinson's disease dysphagia"] },
+  },
+  {
     title: "The Traveling Edema",
     slug: "gnathostomiasis",
     description: "Migratory edema after raw seafood exposure.",
@@ -555,6 +564,15 @@ export const CASES: CaseMeta[] = [
     ogImage: "/cases/ptld/ptld.png",
     teaser: "A 52-year-old man presents 12 months after heart transplant with six weeks of fever, night sweats, and a 9-pound weight loss. CT chest reveals a 4.2 cm left upper lobe mass with mediastinal adenopathy. His donor was EBV-seropositive; he was seronegative. What is the most likely diagnosis?",
     tags: { organisms: ["Epstein-Barr virus", "EBV"], syndromes: ["Transplant & Immunocompromised", "Oncology", "Pulmonary"], concepts: ["Post-transplant lymphoproliferative disorder", "PTLD", "EBV serostatus mismatch", "Monomorphic PTLD", "Diffuse large B-cell lymphoma", "Rituximab", "Immunosuppression reduction", "EBER in situ hybridization", "CD20", "B symptoms", "Calcineurin inhibitor", "PTLD-1 trial"] },
+  },
+  {
+    slug: "diabetic-foot-osteomyelitis",
+    title: "The Forgotten Toe",
+    description: "A diabetic foot ulcer that wouldn't heal, leading to osteomyelitis and amputation.",
+    enable: true,
+    ogImage: "/cases/DFI/om.png",
+    teaser: "A 62-year-old man with diabetes and peripheral arterial disease presents with a non-healing plantar ulcer exposing bone. X-ray shows osteomyelitis. What is the appropriate empiric antibiotic regimen?",
+    tags: { organisms: ["Staphylococcus aureus", "Streptococcus agalactiae"], syndromes: ["Skin & Soft Tissue", "Diabetes", "Orthopedic ID"], concepts: ["Diabetic foot osteomyelitis", "Transmetatarsal amputation", "Antibiotic duration", "IWGDF guidelines", "Oral step-down therapy"] },
   },
 ].filter((c) => c.enable !== false);
 

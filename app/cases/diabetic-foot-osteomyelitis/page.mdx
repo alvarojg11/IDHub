@@ -1,0 +1,324 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+import CaseQuestion from "@/components/caseQuestion";
+import CaseReveal from "@/components/CaseReveal";
+import Image from "next/image";
+
+export const metadata = buildCaseMetadata("diabetic-foot-osteomyelitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Forgotten Toe
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 62-year-old man with type 2 diabetes (HbA1c 9.8%), peripheral arterial disease
+    (ankle-brachial index 0.6 on right), and neuropathy presents with a 4-month history
+    of a non-healing plantar ulcer beneath his right first metatarsal head. The ulcer
+    began as a small blister after wearing new shoes and has progressively deepened,
+    now measuring 3 × 2 cm with a fibrinous base and exposed bone at the base. He reports
+    minimal pain due to neuropathy but endorses low-grade fevers over the past two weeks.
+    He has no history of recent antibiotics or hospitalizations.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.9°C, heart rate 92, blood pressure 148/86 mmHg.
+    Right foot examination reveals a deep plantar ulcer with surrounding erythema and
+    mild edema. A sterile probe reaches bone. Sensation is absent to 10-g monofilament
+    testing. Dorsalis pedis and posterior tibial pulses are faintly palpable with Doppler
+    assistance. No crepitus or fluctuance.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies: WBC 12.4 k/mcL with 78% neutrophils, hemoglobin 11.8 g/dL,
+    platelets 340 k/mcL. CRP 42 mg/L, ESR 58 mm/hr. Random glucose 284 mg/dL.
+    Plain radiographs show cortical erosion and periosteal reaction of the first
+    metatarsal. MRI confirms osteomyelitis with a 3-cm abscess tracking along the
+    plantar fascia. The patient undergoes transmetatarsal amputation with intraoperative
+    bone biopsy from the proximal margin, shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/DFI/om.png"
+        alt="Histopathology of proximal margin bone biopsy showing acute inflammation and osteomyelitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Proximal margin bone biopsy from transmetatarsal amputation: acute osteomyelitis
+      with inflammatory infiltrate and bone destruction.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-diabetic-foot-osteomyelitis-q1"
+  title="Question 1"
+  prompt="Which empiric antibiotic regimen is most appropriate while awaiting culture results from the bone biopsy?"
+  options={[
+    {
+      id: "A",
+      label: "Vancomycin + piperacillin-tazobactam",
+      feedback: "Incorrect. While this combination provides broad coverage including MRSA and Pseudomonas, routine anti-pseudomonal coverage is not recommended for typical diabetic foot infections unless specific risk factors are present (recent hospitalization, prior Pseudomonas isolation, severe infection in a warm climate with high Pseudomonas prevalence). Piperacillin-tazobactam is unnecessarily broad and increases risk of C. difficile and antimicrobial resistance.",
+    },
+    {
+      id: "B",
+      label: "Ceftriaxone + metronidazole",
+      feedback: "Incorrect. This regimen covers many gram-negative rods and anaerobes but lacks reliable MRSA coverage. MRSA should be covered empirically in patients with prior MRSA infection or colonization, recent antibiotics, or high local prevalence. Additionally, ceftriaxone has poor activity against Enterococcus, which is a common pathogen in diabetic foot infections.",
+    },
+    {
+      id: "C",
+      label: "Vancomycin + Ceftriaxone",
+      correct: true,
+      feedback: "Correct. This regimen provides appropriate coverage for the most likely pathogens in diabetic foot osteomyelitis: Staphylococcus aureus (including MRSA), Streptococcus species, Enterobacteriaceae, and Enterococcus. Cefetriaxone covers gram-negative rods, but the combination is more targeted than piperacillin-tazobactam. This aligns with IDSA/IWGDF guidelines which recommend coverage for S. aureus, streptococci, and gram-negative bacilli, with MRSA coverage based on individual risk factors.",
+    },
+    {
+      id: "D",
+      label: "Linezolid monotherapy",
+      feedback: "Incorrect. Linezolid has excellent activity against MRSA and streptococci but lacks reliable gram-negative coverage. Diabetic foot osteomyelitis often involves polymicrobial infections including gram-negative rods. Monotherapy with linezolid would leave significant pathogens uncovered and is not recommended as empiric therapy.",
+    },
+    {
+      id: "E",
+      label: "Ciprofloxacin + clindamycin",
+      feedback: "Incorrect. This combination has several shortcomings: ciprofloxacin has unreliable anti-streptococcal activity, clindamycin has poor gram-negative coverage, and neither provides optimal MRSA coverage (community-associated MRSA may be clindamycin-resistant). Additionally, fluoroquinolones have poor bone penetration and are associated with tendon rupture, making them suboptimal for osteomyelitis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-diabetic-foot-osteomyelitis-q2"
+  title="Question 2"
+  prompt="The bone biopsy grows MSSA susceptible to cefazolin. The surgical margins show acute osteomyelitis histologically. According to current guidelines, what is the recommended duration of antibiotic therapy?"
+  options={[
+    {
+      id: "C",
+      label: "2 weeks of IV antibiotics",
+      feedback: "Incorrect. Two weeks is insufficient for osteomyelitis, even with adequate surgical resection. While shorter courses may be considered for soft tissue infection alone, bone infection requires longer therapy to eradicate sequestered bacteria within bone matrix.",
+    },
+    {
+      id: "A",
+      label: "3 weeks total (1 week IV then 2 weeks oral)",
+      correct: true,
+      feedback: "Correct. According to IWGDF 2023 guidelines, when bone resection is performed but margins show acute osteomyelitis histologically and bone culture is positive, the recommended antibiotic duration is 3 weeks. This reflects that the infected bone has been surgically removed, and remaining infection at margins requires shorter therapy compared to unresected osteomyelitis.",
+    },
+    {
+      id: "B",
+      label: "4-6 weeks total (may start with IV and transition to oral)",
+      feedback: "Incorrect. While 4-6 weeks is appropriate for osteomyelitis without surgical resection, the IWGDF 2023 guidelines recommend 3 weeks when resection is performed even if margins show acute osteomyelitis. The surgical removal of infected bone reduces bacterial burden, permitting shorter antibiotic duration.",
+    },
+    {
+      id: "D",
+      label: "6 months of oral antibiotics",
+      feedback: "Incorrect. Six months is excessive for osteomyelitis with adequate surgical resection. Prolonged courses increase risk of adverse effects, C. difficile infection, and antimicrobial resistance without proven benefit. Extended therapy may be considered for residual infected bone or in patients who cannot undergo adequate debridement, but not when surgical resection has been performed.",
+    },
+    {
+      id: "E",
+      label: "Lifelong suppressive therapy",
+      feedback: "Incorrect. Lifelong suppression is reserved for scenarios where curative therapy is not possible (e.g., infected prosthetic material that cannot be removed, patient unfit for surgery). With adequate surgical resection and appropriate antibiotic therapy, the goal is cure, not suppression.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-diabetic-foot-osteomyelitis-q3"
+  title="Question 3"
+  prompt="Which monitoring approach is recommended to determine when antibiotic therapy can be stopped?"
+  options={[
+    {
+      id: "B",
+      label: "Stop after 3 weeks if clinical exam shows no evidence of persistent infection",
+      correct: true,
+      feedback: "Correct. With surgical resection of infected bone (even with margins showing osteomyelitis), the key determinant for stopping antibiotics is clinical evidence of response at 3 weeks. IWGDF guidelines recommend against routine imaging follow‑up when source control is adequate. Clinical assessment of wound healing, combined with dedicated wound care and optimization of comorbidities (diabetes, vascular insufficiency), is the recommended approach.",
+    },
+    {
+      id: "C",
+      label: "Follow serial inflammatory markers (CRP/ESR) weekly until normalized, then stop",
+      feedback: "Incorrect. While inflammatory markers can provide supportive evidence of response, normalization does not guarantee cure. Some patients may have persistently elevated markers due to other conditions (e.g., rheumatoid arthritis), while others may have normal markers despite persistent infection. Inflammatory markers should be used in conjunction with clinical assessment, not as the sole stopping criterion.",
+    },
+    {
+      id: "A",
+      label: "Repeat MRI at 6 weeks; if no residual osteomyelitis, stop antibiotics",
+      feedback: "Incorrect. Routine MRI is not recommended after surgical resection of infected bone. Imaging may be considered when source control is incomplete or when clinical response is equivocal, but it is not a standard monitoring approach for the scenario described.",
+    },
+    {
+      id: "D",
+      label: "Continue antibiotics for the full 6 weeks regardless of clinical status",
+      feedback: "Incorrect. While completing a full course is often appropriate, blind adherence to a predetermined duration without assessing response may lead to overtreatment. Current guidelines emphasize a tailored approach using clinical and imaging (MRI) criteria to determine optimal duration rather than fixed timelines.",
+    },
+    {
+      id: "E",
+      label: "Repeat bone biopsy at 4 weeks; if culture negative, stop antibiotics",
+      feedback: "Incorrect. Repeat bone biopsy is invasive and generally not required for monitoring treatment response. MRI provides non-invasive assessment of bone healing. Biopsy may be considered in treatment failures or unusual pathogens but is not routine for monitoring.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-diabetic-foot-osteomyelitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diabetic foot osteomyelitis (DFO) represents one of the most challenging
+    complications of diabetic foot ulcers, occurring in up to 20% of moderate to
+    severe infections. The diagnosis should be suspected when a probe-to-bone test
+    is positive or when plain radiographs show cortical erosion, periosteal reaction,
+    or bone destruction. MRI is the imaging modality of choice, with sensitivity
+    exceeding 90% for detecting osteomyelitis and defining anatomic extent.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Empiric antibiotic therapy must cover Staphylococcus aureus (including MRSA
+    in patients with risk factors), streptococci, Enterobacteriaceae, and
+    anaerobes. The IDSA/IWGDF 2024 guidelines recommend against routine
+    anti-pseudomonal coverage unless specific risk factors exist: recent
+    hospitalization, prior Pseudomonas isolation, or severe infection in a
+    warm climate with high Pseudomonas prevalence. A combination such as
+    vancomycin plus cefepime provides appropriate breadth without unnecessary
+    pseudomonal coverage.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Surgical debridement is indicated when there is extensive bone destruction,
+    abscess formation, or necrotic tissue. Transmetatarsal amputation with
+    resection of infected bone (even with margins showing osteomyelitis) permits shorter antibiotic duration (3 weeks)
+    compared to medical therapy alone or incomplete debridement (often ≥4-6 weeks).
+    The key principle is that adequate surgical source control reduces the
+    bacterial burden and permits shorter antimicrobial courses.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    After surgical resection of infected bone (even with margins showing osteomyelitis), monitoring focuses on clinical evidence of response rather than routine imaging. Inflammatory markers (CRP, ESR) may provide supportive information but should not be used as sole stopping criteria. The decision to stop antibiotics at 3 weeks is based on clinical assessment showing no evidence of persistent infection, combined with dedicated wound care and optimization of diabetes and vascular disease. MRI is not routinely indicated when source control is complete.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-diabetic-foot-osteomyelitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Diabetic foot osteomyelitis requires combined surgical and medical management.
+      Surgical resection of infected bone (even with margins showing osteomyelitis) permits shorter antibiotic duration (3 weeks) compared to medical therapy alone.
+    </li>
+    <li>
+      Empiric antibiotic coverage should target Staphylococcus aureus (including MRSA
+      based on risk factors), streptococci, Enterobacteriaceae, and anaerobes. Routine
+      anti-pseudomonal coverage is not recommended unless specific risk factors exist.
+    </li>
+    <li>
+      Oral antibiotic therapy with good bioavailability (e.g., cephalexin, cefadroxil, doxycycline for MSSA,
+      linezolid, TMP/SMX for MRSA) is appropriate after initial IV therapy and can complete
+      the 3-week course.
+    </li>
+    <li>
+      After surgical resection of infected bone (even with margins showing osteomyelitis), monitoring relies on clinical assessment rather than routine MRI. Clinical evidence of response at 3 weeks determines antibiotic discontinuation.
+    </li>
+    <li>
+      Multidisciplinary care involving infectious diseases, vascular surgery,
+      podiatry, and endocrinology is essential for optimal outcomes in diabetic
+      foot osteomyelitis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lipsky BA, Senneville É, Abbas ZG, et al.
+      Guidelines on the diagnosis and treatment of foot infection in persons with
+      diabetes (IWGDF 2023 update).
+      <em>Diabetes/Metabolism Research and Reviews</em>. 2024;40(1):e3643.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/dmrr.3643"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/dmrr.3643
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Berbari EF, Kanj SS, Kowalski TJ, et al.
+      2024 Infectious Diseases Society of America clinical practice guidelines
+      for the diagnosis and treatment of diabetic foot infections.
+      <em>Clinical Infectious Diseases</em>. 2024;ciae123.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciae123"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciae123
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tone A, Nguyen S, Devemy F, et al.
+      Six-week versus twelve-week antibiotic therapy for nonsurgically treated
+      diabetic foot osteomyelitis: a multicenter open-label controlled randomized study.
+      <em>Diabetes Care</em>. 2015;38(2):302-307.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.2337/dc14-1514"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.2337/dc14-1514
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

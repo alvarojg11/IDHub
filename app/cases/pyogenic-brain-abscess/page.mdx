@@ -1,0 +1,354 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+import CaseQuestion from "@/components/caseQuestion";
+import CaseReveal from "@/components/CaseReveal";
+import Image from "next/image";
+
+export const metadata = buildCaseMetadata("pyogenic-brain-abscess");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Silent Swallow
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 78-year-old man with Parkinson's disease, hypertension, and
+    gastroesophageal reflux disease, residing in a skilled nursing facility, is brought in by
+    nursing staff for 10 days of progressive confusion and new left-sided weakness. He has
+    baseline bradykinesia, rigidity, and postural instability, and was transitioned to pureed
+    food with thickened liquids 8 months ago due to worsening oropharyngeal dysphagia. Six
+    weeks prior, he was briefly hospitalized and treated with amoxicillin-clavulanate for a
+    right lower lobe infiltrate attributed to aspiration pneumonia. His current medications
+    include levodopa-carbidopa and pantoprazole.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.6°C, heart rate 98/min, and blood pressure 142/88 mmHg.
+    He is confused and disoriented to place and time, with a baseline MMSE of 26 now scoring
+    16 on reassessment. Neurologic examination reveals a new left facial droop, left arm
+    pronator drift, and mild dysarthria superimposed on his Parkinsonian hypophonia. Neck
+    is supple. Funduscopic examination shows no papilledema.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show WBC 14,200 cells/mcL with 82% neutrophils, CRP 68 mg/L, and
+    ESR 72 mm/hr. Blood cultures are drawn. CT brain with contrast reveals a 3.2-cm
+    ring-enhancing lesion in the right parietal lobe with surrounding vasogenic edema and
+    4 mm of midline shift. MRI with diffusion-weighted imaging confirms marked restricted
+    diffusion within the lesion, as shown below. Chest CT obtained to evaluate the prior
+    lung process reveals a 3.5-cm cavitary lesion in the posterior right lower lobe with
+    an air-fluid level consistent with lung abscess. HIV antigen-antibody test is negative.
+    Serum Cryptococcal antigen and Toxoplasma IgG are negative.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/brain-abscess/brain-abscess.png"
+      alt="Diffusion-weighted MRI showing restricted diffusion within a right parietal ring-enhancing lesion"
+      width={800}
+      height={600}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Diffusion-weighted MRI (DWI): restricted diffusion within a right parietal ring-enhancing lesion.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-pyogenic-brain-abscess-q1"
+  title="Question 1"
+  prompt="Which infectious etiology best explains this ring-enhancing lesion?"
+  options={[
+    {
+      id: "A",
+      label: "Cerebral toxoplasmosis",
+      feedback:
+        "Incorrect. Toxoplasma gondii is the most common cause of CNS mass lesions in HIV-positive patients with advanced immunosuppression (CD4 below 100 cells/mcL). It classically produces multiple ring-enhancing lesions with a predilection for the basal ganglia and thalamus. This patient is HIV-negative with a negative Toxoplasma IgG, making toxoplasmosis very unlikely.",
+    },
+    {
+      id: "B",
+      label: "Pyogenic brain abscess from oral anaerobes and Streptococcus anginosus",
+      correct: true,
+      feedback:
+        "Correct. Restricted diffusion on DWI (bright signal with dark ADC map) within a ring-enhancing cavity is pathognomonic for pyogenic abscess. Viscous pus restricts water molecule diffusion, producing this characteristic signal. The prior aspiration pneumonia, unresolved lung abscess, and polymicrobial oral flora (Streptococcus anginosus group and anaerobes) point to hematogenous seeding as the mechanism.",
+    },
+    {
+      id: "C",
+      label: "CNS tuberculoma",
+      feedback:
+        "Incorrect. Tuberculomas are granulomatous ring-enhancing lesions caused by Mycobacterium tuberculosis. They typically occur in patients with active or prior TB, often in high-burden settings, and produce concentric rings of caseous necrosis and fibrosis. Unlike pyogenic abscess, tuberculomas do not restrict diffusion and are not associated with an aspiration lung cavity with an air-fluid level.",
+    },
+    {
+      id: "D",
+      label: "Neurocysticercosis",
+      feedback:
+        "Incorrect. Neurocysticercosis (Taenia solium) produces ring-enhancing lesions in the vesicular and colloidal stages, classically with a visible scolex inside the cyst. It is associated with exposure to endemic regions, pork consumption, or fecal-oral transmission. The absence of travel history or epidemiologic risk factors, combined with the concurrent cavitary lung abscess and acute febrile syndrome, argues strongly against neurocysticercosis.",
+    },
+    {
+      id: "E",
+      label: "Aspergillus brain abscess",
+      feedback:
+        "Incorrect. Invasive CNS aspergillosis typically occurs in profoundly immunocompromised hosts (prolonged neutropenia, hematopoietic stem cell transplant, high-dose corticosteroids) and spreads hematogenously from pulmonary aspergillosis. The lung lesion in aspergillosis is a dense consolidation or halo sign, not a cavitary abscess with an air-fluid level. This patient lacks the immunocompromising conditions required for invasive aspergillosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pyogenic-brain-abscess-q2"
+  title="Question 2"
+  prompt="Which empiric antibiotic regimen is most appropriate while awaiting culture results from surgical aspiration?"
+  options={[
+    {
+      id: "A",
+      label: "Vancomycin + ceftriaxone",
+      feedback:
+        "Incorrect. This combination provides MRSA and gram-negative coverage but critically omits anaerobic coverage. Aspiration-source brain abscesses carry a heavy anaerobic burden (Prevotella, Fusobacterium, Peptostreptococcus), and metronidazole is essential. Without anaerobic coverage, the regimen will fail against a key component of the polymicrobial inoculum.",
+    },
+    {
+      id: "B",
+      label: "Meropenem + vancomycin",
+      feedback:
+        "Incorrect. Carbapenem-based broad-spectrum coverage is appropriate for healthcare-associated or post-neurosurgical brain abscesses, but is unnecessarily broad for a community-acquired aspiration-source abscess in an immunocompetent patient. It drives resistance and Clostridioides difficile risk without meaningful additional benefit over ceftriaxone-metronidazole in this scenario.",
+    },
+    {
+      id: "C",
+      label: "Ceftriaxone + metronidazole",
+      correct: true,
+      feedback:
+        "Correct. This combination targets the predominant organisms in aspiration-source brain abscess: Streptococcus anginosus group (ceftriaxone 2 g IV every 12 hours for CNS dosing) and oral anaerobes including Prevotella and Fusobacterium species (metronidazole 500 mg IV every 8 hours, which achieves excellent CNS penetration). Vancomycin is reserved for MRSA risk factors, which are absent here.",
+    },
+    {
+      id: "D",
+      label: "Ampicillin + ceftriaxone + metronidazole",
+      feedback:
+        "Incorrect. Adding ampicillin to ceftriaxone extends coverage for Listeria monocytogenes, which is the rationale for this triple regimen in bacterial meningitis in elderly patients. However, Listeria does not cause pyogenic brain abscess via the aspiration-lung pathway. The addition increases drug burden without benefit in this clinical context.",
+    },
+    {
+      id: "E",
+      label: "Pyrimethamine + sulfadiazine + leucovorin",
+      feedback:
+        "Incorrect. This regimen is the standard treatment for cerebral toxoplasmosis and is inappropriate here. The patient is HIV-negative with a negative Toxoplasma IgG, and the DWI finding with restricted diffusion confirms pyogenic abscess rather than toxoplasmosis, which typically shows facilitated diffusion in its ring-enhancing lesions.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pyogenic-brain-abscess-q3"
+  title="Question 3"
+  prompt="Neurosurgery is consulted. Which management approach is most appropriate for this abscess?"
+  options={[
+    {
+      id: "A",
+      label: "Medical management alone with serial MRI every 2 weeks",
+      feedback:
+        "Incorrect. Medical management alone is appropriate only for abscesses smaller than 2.5 cm without significant mass effect, or for multiple small inaccessible lesions. This 3.2-cm abscess with 4 mm of midline shift requires surgical intervention both to relieve mass effect and to obtain pus for culture and sensitivity, which is essential for guiding targeted therapy.",
+    },
+    {
+      id: "B",
+      label: "Open craniotomy with total excision of the abscess capsule",
+      feedback:
+        "Incorrect. Open craniotomy carries higher surgical morbidity and is reserved for specific indications: multiloculated abscesses refractory to aspiration, posterior fossa location with risk of brainstem compression, fungal or helminthic etiologies where the thick capsule resists aspiration, or cases of failed repeated stereotactic aspiration. A single accessible unilocular pyogenic abscess is not one of them.",
+    },
+    {
+      id: "C",
+      label: "Image-guided stereotactic aspiration combined with prolonged antibiotic therapy",
+      correct: true,
+      feedback:
+        "Correct. Stereotactic aspiration is the preferred surgical approach for most pyogenic brain abscesses. It provides pus for Gram stain and culture to direct targeted therapy, reduces intracranial pressure, and carries substantially lower morbidity than open excision. Following aspiration, antibiotic therapy is continued for 6 to 8 weeks with serial MRI every 2 to 4 weeks to confirm radiographic response.",
+    },
+    {
+      id: "D",
+      label: "Intraventricular antibiotic instillation via Ommaya reservoir",
+      feedback:
+        "Incorrect. Intraventricular antibiotic instillation is used for ventriculitis or refractory meningitis where CSF drug concentrations cannot be achieved systemically. It does not address the parenchymal abscess cavity, provides no microbiologic diagnosis, and does not relieve mass effect. Metronidazole and ceftriaxone already achieve adequate CNS tissue concentrations with systemic dosing.",
+    },
+    {
+      id: "E",
+      label: "Lumbar puncture to identify the causative organism before starting antibiotics",
+      feedback:
+        "Incorrect. Lumbar puncture is contraindicated in the setting of a space-occupying intracranial lesion with mass effect and midline shift, due to risk of transtentorial herniation. CSF culture is also unlikely to be diagnostic in brain abscess, as bacteremia is intermittent and the organism resides within the parenchymal cavity, not the subarachnoid space.",
+    },
+  ]}
+/>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+
+<CaseReveal pollId="case-pyogenic-brain-abscess-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Parkinson's disease causes progressive oropharyngeal dysphagia in up to 80% of patients,
+    driven by impaired pharyngeal coordination, reduced laryngeal elevation, and a blunted
+    cough reflex. Chronic microaspiration of saliva and food debris delivers a heavy inoculum
+    of oral flora into the lower respiratory tract. When aspiration pneumonia is incompletely
+    treated, it can evolve into a frank lung abscess. From there, bacteremia seeds the brain
+    hematogenously. The aspiration-to-lung abscess-to-brain pathway is the mechanism in this
+    case: the right lower lobe cavitary lesion with an air-fluid level is the proximate source,
+    itself a consequence of the undertreated aspiration event six weeks prior.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The anatomical basis of this pathway explains why pulmonary sources are uniquely efficient
+    at seeding the brain. Bacteria originating within an infected lung parenchyma enter the
+    pulmonary venous drainage directly: pulmonary veins empty into the left atrium, bypassing
+    the pulmonary capillary filter entirely. From the left atrium, bacteria travel to the left
+    ventricle, aorta, and cerebral circulation without interception. This contrasts with bacteremia
+    arising from extrapulmonary sources (for example, an intra-abdominal abscess), where bacteria
+    entering the systemic venous circulation must traverse the pulmonary capillary bed before
+    reaching the left heart, giving the lung a chance to filter the inoculum. Pulmonary AVMs in
+    hereditary hemorrhagic telangiectasia exploit the same anatomical shortcut and are a classic
+    cause of recurrent brain abscess in otherwise healthy patients.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The microbiology of aspiration-source brain abscess is polymicrobial in up to 60% of cases.
+    Streptococcus anginosus group (formerly called the Streptococcus milleri group, comprising
+    S. anginosus, S. constellatus, and S. intermedius) is the most commonly isolated organism.
+    These streptococci are uniquely abscess-prone: they produce hyaluronidase and other enzymes
+    that liquefy tissue and promote cavity formation. Oral anaerobes, particularly Prevotella
+    melaninogenica and Fusobacterium nucleatum, are frequent co-isolates reflecting the aspiration
+    source. The aspirated culture from this patient grew Streptococcus anginosus and Prevotella
+    melaninogenica, a classic pairing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Empiric antibiotic selection must cover both the streptococcal and anaerobic components.
+    Ceftriaxone at 2 g intravenously every 12 hours (CNS dosing) achieves adequate CSF and
+    brain parenchyma penetration against Streptococcus anginosus. Metronidazole at 500 mg
+    intravenously every 8 hours penetrates the blood-brain barrier reliably and reaches
+    bactericidal concentrations within abscess cavities: its CNS penetration approaches 100%
+    of serum levels, making it one of the most reliable agents for anaerobic CNS infection.
+    Vancomycin is reserved for MRSA risk (post-neurosurgical, nosocomial acquisition, prior
+    MRSA colonization), none of which apply here. Once culture and susceptibility data are
+    available, therapy is narrowed accordingly.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Total antibiotic duration is typically 6 to 8 weeks following surgical aspiration. Serial
+    MRI is performed every 2 to 4 weeks to assess radiographic response: a reduction in lesion
+    diameter of 50% or more by week 4 predicts a favorable outcome. Failure to achieve
+    radiographic improvement by 4 to 6 weeks should prompt repeat aspiration or open excision.
+    Addressing the pulmonary source is equally important: the lung abscess requires its own
+    antibiotic course, and swallowing re-evaluation with speech therapy and aspiration precautions
+    are essential to prevent recurrence in this Parkinson's patient.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pyogenic-brain-abscess-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Parkinson's disease dysphagia creates a hematogenous brain abscess pathway: aspiration
+      of oral flora seeds the lung, lung abscess causes bacteremia, and bacteremia seeds the brain.
+    </li>
+    <li>
+      Pulmonary sources are uniquely efficient at seeding the brain: bacteria from a lung abscess
+      enter pulmonary venous drainage directly into the left atrium, bypassing the pulmonary
+      capillary filter. Extrapulmonary sources must traverse the pulmonary capillaries first.
+      Pulmonary AVMs (hereditary hemorrhagic telangiectasia) exploit the same shortcut and are
+      a classic cause of recurrent brain abscess in young, otherwise healthy patients.
+    </li>
+    <li>
+      Restricted diffusion on DWI (bright signal, dark ADC) within a ring-enhancing cavity is
+      pathognomonic for pyogenic abscess and is the key imaging feature distinguishing it from
+      toxoplasmosis, tuberculoma, and neurocysticercosis.
+    </li>
+    <li>
+      Streptococcus anginosus group is the most common organism in pyogenic brain abscess; its
+      abscess-forming tropism is driven by hyaluronidase production. Oral anaerobes are frequent
+      polymicrobial co-isolates when the source is aspiration.
+    </li>
+    <li>
+      Empiric therapy: ceftriaxone (2 g IV every 12 hours) plus metronidazole (500 mg IV every
+      8 hours). Metronidazole achieves near-complete CNS penetration and is the cornerstone of
+      anaerobic coverage. Do not omit it.
+    </li>
+    <li>
+      Stereotactic aspiration is preferred over open excision for most pyogenic abscesses:
+      it provides microbiologic diagnosis and relieves mass effect with lower morbidity.
+      Lumbar puncture is contraindicated with significant mass effect and midline shift.
+    </li>
+    <li>
+      Treatment duration is 6 to 8 weeks; monitor with serial MRI.
+      Address the pulmonary source and aspiration risk to prevent recurrence.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Brouwer MC, Tunkel AR, McKhann GM 2nd, van de Beek D. Brain abscess.
+      <em> N Engl J Med</em>. 2014;371(5):447-456.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra1301635"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra1301635
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sonneville R, Ruimy R, Benzonana N, et al. An update on bacterial brain abscess in
+      immunocompetent patients.
+      <em> Clin Microbiol Infect</em>. 2017;23(9):614-620.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.cmi.2017.05.004"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.cmi.2017.05.004
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
