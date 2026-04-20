@@ -1,0 +1,318 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("leptospirosis-weil-disease");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever after Floodwaters
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 42-year-old previously healthy man presents to the emergency department with 5 days of high-grade fevers, severe myalgias, and progressive jaundice. He reports intense headache, photophobia, and nausea over the past 48 hours.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He works as a rice farmer in rural Thailand and recalls wading through floodwaters two weeks prior while repairing irrigation canals. He owns several dogs that roam freely around his property and notes that rodents are common in the fields. He has no recent travel outside his province, no sick contacts, and no history of blood transfusions or intravenous drug use.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he appears ill and jaundiced. Vital signs show temperature 39.2°C, heart rate 112 bpm, blood pressure 90/60 mmHg, respiratory rate 22/min, oxygen saturation 96% on room air. Notable findings include bilateral conjunctival suffusion without purulent discharge, mild neck stiffness, and tender hepatomegaly. There is no rash, lymphadenopathy, or focal neurologic deficits.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies reveal total bilirubin 8.5 mg/dL (direct 6.2 mg/dL), AST 120 U/L, ALT 95 U/L, alkaline phosphatase 210 U/L. Serum creatinine is 3.8 mg/dL (baseline 0.9 mg/dL), BUN 48 mg/dL. Complete blood count shows leukocytosis (14.2×10³/μL) with left shift, thrombocytopenia (85×10³/μL), and normocytic anemia. Creatine kinase is elevated at 850 U/L. Urinalysis demonstrates proteinuria (2+), granular casts, and microscopic hematuria. Cerebrospinal fluid analysis shows mild lymphocytic pleocytosis (25 cells/μL) with normal glucose and protein. Chest radiograph is unremarkable.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/leptospirosis-weil-disease/conjunctival-suffusion.png"
+      alt="Conjunctival suffusion in a patient with leptospirosis"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Conjunctival suffusion.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-leptospirosis-weil-disease-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Dengue virus",
+      feedback:
+        "Dengue can cause fever, thrombocytopenia, and myalgias, but typically does not cause conjunctival suffusion, jaundice, or renal failure. Severe dengue may present with hemorrhage and shock, but lacks the prominent hepatic and renal involvement seen here.",
+    },
+    {
+      id: "B",
+      label: "Rickettsia typhi",
+      feedback:
+        "Murine typhus caused by Rickettsia typhi can cause fever, headache, and rash, but conjunctival suffusion is uncommon. It rarely causes severe jaundice or renal failure. The absence of a rash and the presence of hepatorenal syndrome argue against rickettsial infection.",
+    },
+    {
+      id: "C",
+      label: "Leptospira interrogans",
+      correct: true,
+      feedback:
+        "Leptospirosis classically presents with fever, myalgia, conjunctival suffusion, jaundice, and renal failure (Weil's disease). Exposure to floodwater or animals (dogs, rodents) is a key risk factor. The combination of hepatorenal dysfunction and conjunctival suffusion is highly suggestive.",
+    },
+    {
+      id: "D",
+      label: "Hepatitis A virus",
+      feedback:
+        "Hepatitis A can cause fever, jaundice, and elevated transaminases, but renal failure and conjunctival suffusion are not typical. The presence of acute kidney injury, thrombocytopenia, and meningeal involvement points to a systemic infection rather than isolated viral hepatitis.",
+    },
+    {
+      id: "E",
+      label: "Hantavirus",
+      feedback:
+        "Hantavirus pulmonary syndrome presents with fever, myalgia, thrombocytopenia, and acute kidney injury, but prominent hepatic involvement and conjunctival suffusion are unusual. The primary syndrome is rapid respiratory failure, which is absent here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-leptospirosis-weil-disease-q2"
+  title="Question 2"
+  prompt="What is the most appropriate antimicrobial therapy for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline",
+      feedback:
+        "Doxycycline is effective for mild to moderate leptospirosis and can be used as an alternative to penicillin. However, in severe disease with renal failure and jaundice, intravenous penicillin G is preferred due to better tissue penetration and proven efficacy in severe cases.",
+    },
+    {
+      id: "B",
+      label: "Intravenous penicillin G",
+      correct: true,
+      feedback:
+        "Intravenous penicillin G is the treatment of choice for severe leptospirosis (Weil's disease) with renal failure, hepatic dysfunction, or meningitis. Ceftriaxone has equivalent efficacy and is often used as an alternative. Early antibiotic therapy reduces mortality and duration of illness. Penicillin is effective despite renal impairment, though dosage adjustment may be needed.",
+    },
+    {
+      id: "C",
+      label: "Intravenous ceftriaxone",
+      feedback:
+        "Ceftriaxone has equivalent efficacy to penicillin for severe leptospirosis and is recommended as an alternative first-line agent in many guidelines. It may be preferred in settings where penicillin allergy or dosing complexity is a concern. Both agents reduce mortality when given early in the disease course.",
+    },
+    {
+      id: "D",
+      label: "Oral azithromycin",
+      feedback:
+        "Azithromycin has activity against Leptospira in vitro but limited clinical data. It is not recommended as first-line therapy for severe leptospirosis. Penicillin or doxycycline are preferred based on robust evidence.",
+    },
+    {
+      id: "E",
+      label: "Supportive care only (no antibiotics)",
+      feedback:
+        "Antibiotic therapy is essential in leptospirosis and reduces mortality, especially when given early in the course. Supportive care alone is inadequate; antimicrobial therapy targeting Leptospira is required.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-leptospirosis-weil-disease-q3"
+  title="Question 3"
+  prompt="Which diagnostic test is most appropriate for confirming leptospirosis in this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Microscopic agglutination test (MAT)",
+      correct: true,
+      feedback: "MAT is the gold standard serologic test for leptospirosis, detecting agglutinating antibodies against live or formalin-fixed Leptospira antigens. It has high specificity and allows serovar identification. Paired sera showing a fourfold rise in titer confirm diagnosis.",
+    },
+    {
+      id: "B",
+      label: "Blood culture",
+      feedback: "Leptospira can be cultured from blood during the first week of illness, but growth is slow (up to 13 weeks) and requires special media (Ellinghausen-McCullough-Johnson-Harris medium). Culture is not practical for rapid diagnosis and has low sensitivity.",
+    },
+    {
+      id: "C",
+      label: "Urine PCR",
+      feedback: "PCR can detect Leptospira DNA in blood (early) or urine (later). It is rapid and sensitive but less widely available than serology. PCR is useful for early diagnosis before antibodies develop, but MAT remains the confirmatory test.",
+    },
+    {
+      id: "D",
+      label: "Darkfield microscopy of blood",
+      feedback: "Darkfield microscopy can visualize motile leptospires in blood during the leptospiremic phase, but sensitivity is low (<50%) and requires expertise. It is not recommended as a routine diagnostic method.",
+    },
+    {
+      id: "E",
+      label: "Serology for IgM antibodies",
+      feedback: "IgM ELISA is a sensitive screening test that detects IgM antibodies within the first week. However, it has lower specificity than MAT and may cross-react with other infections. Positive IgM results should be confirmed by MAT.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-leptospirosis-weil-disease-q4"
+  title="Question 4"
+  prompt="Which complication is most associated with mortality in severe leptospirosis?"
+  options={[
+    {
+      id: "A",
+      label: "Hepatic encephalopathy",
+      feedback: "Hepatic encephalopathy can occur in severe leptospirosis due to liver dysfunction, but it is not the most common cause of death. Jaundice and elevated bilirubin are typical, but fulminant hepatic failure is rare.",
+    },
+    {
+      id: "B",
+      label: "Pulmonary hemorrhage syndrome",
+      correct: true,
+      feedback: "Pulmonary hemorrhage syndrome occurs in 5-10% of severe leptospirosis cases and carries mortality rates up to 50%. It presents with hemoptysis, hypoxemia, and diffuse alveolar hemorrhage on imaging. Early recognition and intensive care support are critical.",
+    },
+    {
+      id: "C",
+      label: "Cerebral edema",
+      feedback: "Cerebral edema is not a typical complication of leptospirosis. While meningitis occurs, elevated intracranial pressure is uncommon. Headache and photophobia are more often due to meningeal inflammation.",
+    },
+    {
+      id: "D",
+      label: "Myocarditis",
+      feedback: "Myocardial involvement can occur in leptospirosis, manifesting as arrhythmias or heart failure, but it is less frequently fatal than pulmonary hemorrhage. Cardiac complications are seen in a minority of severe cases.",
+    },
+    {
+      id: "E",
+      label: "Disseminated intravascular coagulation",
+      feedback: "DIC may develop in severe sepsis from any cause, including leptospirosis, but it is not the most specific or common fatal complication. Thrombocytopenia is common, but fulminant DIC is less frequent than pulmonary hemorrhage.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-leptospirosis-weil-disease-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The combination of fever, jaundice, renal failure, and conjunctival suffusion is classic for leptospirosis (Weil's disease). Exposure to floodwater and animal reservoirs (dogs, rodents) provides the epidemiologic link. The presence of thrombocytopenia, elevated creatine kinase, and meningeal signs further supports systemic leptospirosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Key diagnostic tests include PCR (detectable in blood during first week, urine during second week) for early diagnosis and microscopic agglutination test (MAT) for confirmatory serology. Culture is slow and insensitive for acute management. Early antibiotic therapy with intravenous penicillin G (or ceftriaxone as an alternative) reduces mortality and shortens illness duration. Antibiotic therapy may trigger a Jarisch-Herxheimer reaction, characterized by fever and hypotension, which should be managed supportively. Supportive care includes hemodialysis for renal failure and monitoring for pulmonary hemorrhage syndrome, which carries high mortality, can progress to ARDS, and may require intensive care support.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Leptospirosis is a zoonosis with global distribution, especially in tropical regions. Rodents are the primary reservoir, but dogs, livestock, and other mammals can shed Leptospira in urine. Humans acquire infection through contact with contaminated water or soil. Prevention includes rodent control, animal vaccination, and use of protective equipment in high-risk occupations.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-leptospirosis-weil-disease-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Conjunctival suffusion is a classic physical exam finding in leptospirosis, present in up to 50% of cases. Its presence with hepatorenal dysfunction strongly suggests leptospirosis over other febrile illnesses.
+    </li>
+    <li>
+      Leptospirosis causes a spectrum of disease from mild self-limited fever to severe Weil's disease characterized by jaundice, renal failure, and hemorrhage. Severe disease carries mortality up to 10% without appropriate treatment.
+    </li>
+    <li>
+      Diagnosis relies on PCR (positive in blood during first week, urine during second week) for early detection and microscopic agglutination test (MAT) for confirmatory serology. Culture is slow and insensitive for acute diagnosis.
+    </li>
+    <li>
+      Pulmonary hemorrhage syndrome occurs in 5-10% of severe cases and is the most common cause of death, with mortality up to 50%. It presents with hemoptysis, hypoxemia, and diffuse alveolar hemorrhage that can progress to acute respiratory distress syndrome (ARDS), requiring intensive care support.
+    </li>
+    <li>
+      Exposure to contaminated water or animal urine is the key risk factor. Occupational groups include farmers, sewer workers, and veterinarians. Prevention focuses on rodent control, protective equipment, and chemoprophylaxis with doxycycline for high-risk exposures.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. Human leptospirosis: guidance for diagnosis, surveillance and control. Geneva: WHO; 2011.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://www.who.int/publications/i/item/human-leptospirosis-guidance-for-diagnosis-surveillance-and-control"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        WHO: https://www.who.int/publications/i/item/human-leptospirosis-guidance-for-diagnosis-surveillance-and-control
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Haake DA, Levett PN. Leptospirosis in humans. Curr Top Microbiol Immunol. 2015;387:65-97.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/978-3-662-45059-8_5"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1007/978-3-662-45059-8_5
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rajapakse S, Weeratunga P, Warnasekara J, et al. Antibiotics for the treatment of leptospirosis: systematic review and meta-analysis. Am J Trop Med Hyg. 2023;108(2):231-239.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4269/ajtmh.22-0525"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.4269/ajtmh.22-0525
+      </a>
+    </p>
+  </div>
+</div>

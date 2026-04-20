@@ -1,0 +1,282 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chagas-cardiomyopathy");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Heart Failure from the Andes
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man originally from rural Colombia presents to the emergency department with progressive shortness of breath and fatigue over the past 4 months. He reports worsening dyspnea on exertion, initially able to walk 2 blocks but now becoming breathless after climbing a single flight of stairs. He also notes bilateral leg swelling that has gradually increased, requiring larger shoes and difficulty wearing his usual pants.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The patient immigrated to the United States 20 years ago and works as a construction laborer. He reports no history of hypertension, diabetes, or coronary artery disease. He recalls spending childhood in a mud-walled home in the Santander region of Colombia where he was frequently bitten by "kissing bugs" (vinchucas) at night. He shows a picture of the insect (shown below) that he says would bite him and his family members. He has never received blood transfusions and does not use intravenous drugs. There is no family history of cardiomyopathy or sudden cardiac death.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, he appears comfortable at rest but becomes dyspneic when speaking in full sentences. Vital signs: temperature 36.8°C, heart rate 110 bpm (regular), blood pressure 102/68 mmHg, respiratory rate 22/min, oxygen saturation 94% on room air. Jugular venous pressure is elevated to 8 cm H₂O. Cardiac exam reveals diffuse apical impulse, S3 gallop, and a 2/6 holosystolic murmur at the apex radiating to the axilla. Lung exam shows bibasilar crackles. Abdomen is soft without hepatomegaly. Lower extremities have 2+ pitting edema bilaterally.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show normal complete blood count, comprehensive metabolic panel, and thyroid function tests. B-type natriuretic peptide (BNP) is elevated at 850 pg/mL. Electrocardiogram reveals sinus tachycardia, right bundle branch block, and frequent premature ventricular contractions. Echocardiogram demonstrates severe biventricular systolic dysfunction with left ventricular ejection fraction of 30%, apical aneurysm, and apical thrombus. Chest X-ray shows cardiomegaly with pulmonary vascular congestion.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/chagas-cardiomyopathy/triatomine-bug.png"
+      alt="Triatomine bug"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Triatomine bug (kissing bug).
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-chagas-cardiomyopathy-q1"
+  title="Question 1"
+  prompt="What is the most likely cause of this patient's cardiomyopathy?"
+  options={[
+    {
+      id: "A",
+      label: "Lyme carditis from Borrelia burgdorferi infection",
+      feedback:
+        "Lyme carditis can cause conduction abnormalities like atrioventricular block but typically does not cause dilated cardiomyopathy with apical aneurysm. The patient has no history of tick exposure or erythema migrans rash, and the characteristic ECG findings (right bundle branch block) and echocardiographic findings (apical aneurysm) are not typical of Lyme disease.",
+    },
+    {
+      id: "B",
+      label: "Ischemic cardiomyopathy from coronary artery disease",
+      feedback:
+        "Ischemic cardiomyopathy typically shows segmental wall motion abnormalities corresponding to coronary territories. The apical aneurysm with thrombus can occur in ischemic disease, but the combination with right bundle branch block, lack of cardiovascular risk factors, and exposure history strongly points toward an alternative etiology.",
+    },
+    {
+      id: "C",
+      label: "Viral myocarditis",
+      feedback:
+        "Viral myocarditis can present with heart failure and arrhythmias, but it typically has a more acute onset. The chronic progressive course over months, characteristic ECG findings, and specific echocardiographic features (apical aneurysm) are not typical of viral myocarditis.",
+    },
+    {
+      id: "D",
+      label: "Chagas cardiomyopathy from Trypanosoma cruzi infection",
+      correct: true,
+      feedback:
+        "Correct. This patient has classic features of Chagas cardiomyopathy: 1) origin from an endemic region (Colombia), 2) history of vector exposure (kissing bug bites), 3) characteristic ECG findings (right bundle branch block, PVCs), 4) echocardiographic findings (apical aneurysm with thrombus), and 5) absence of traditional cardiovascular risk factors. Chagas disease is a leading cause of non-ischemic cardiomyopathy in Latin America.",
+    },
+    {
+      id: "E",
+      label: "HIV-associated cardiomyopathy",
+      feedback:
+        "HIV can cause dilated cardiomyopathy, typically in advanced disease with low CD4 counts. This patient has no known HIV risk factors or symptoms of immunodeficiency. The specific findings (right bundle branch block, apical aneurysm) and exposure history point toward Chagas disease rather than HIV cardiomyopathy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chagas-cardiomyopathy-q2"
+  title="Question 2"
+  prompt="What is the most appropriate initial diagnostic test to confirm the suspected diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Blood cultures",
+      feedback:
+        "Blood cultures are useful for bacterial infections but have no role in diagnosing chronic Chagas disease. Trypanosoma cruzi is not typically detected in blood smears or cultures during the chronic phase.",
+    },
+    {
+      id: "B",
+      label: "Serological testing for Trypanosoma cruzi antibodies",
+      correct: true,
+      feedback:
+        "Correct. Serological testing with two different methods (usually ELISA and indirect immunofluorescence or chemiluminescence) is the standard for diagnosing chronic Chagas disease. PCR can be used but is less sensitive in chronic disease. The WHO recommends serology as the initial diagnostic approach.",
+    },
+    {
+      id: "C",
+      label: "Peripheral blood smear for trypomastigotes",
+      feedback:
+        "Peripheral blood smears can detect trypomastigotes during the acute phase of Chagas disease but have very low sensitivity in chronic disease. Microscopy is not recommended for diagnosing chronic Chagas cardiomyopathy.",
+    },
+    {
+      id: "D",
+      label: "Endomyocardial biopsy with PCR",
+      feedback:
+        "While endomyocardial biopsy with PCR can detect T. cruzi DNA in cardiac tissue, it is invasive and not recommended as an initial test. Serological testing is non-invasive and highly sensitive for chronic infection.",
+    },
+    {
+      id: "E",
+      label: "Xenodiagnosis",
+      feedback:
+        "Xenodiagnosis (feeding uninfected triatomine bugs on the patient and examining their feces for parasites) is a historical method that is labor-intensive, slow, and has low sensitivity. It is no longer used in clinical practice for diagnosing chronic Chagas disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chagas-cardiomyopathy-q3"
+  title="Question 3"
+  prompt="Which treatment is indicated for this patient's condition?"
+  options={[
+    {
+      id: "A",
+      label: "Benznidazole alone",
+      feedback:
+        "While benznidazole is indicated for Trypanosoma cruzi infection, it has limited efficacy in established cardiomyopathy and does not reverse existing cardiac damage. Antiparasitic treatment should be considered but must be combined with comprehensive heart failure management.",
+    },
+    {
+      id: "B",
+      label: "Comprehensive heart failure management (ACE inhibitor, beta-blocker, diuretic) plus consideration of benznidazole",
+      correct: true,
+      feedback:
+        "Correct. The cornerstone of management for Chagas cardiomyopathy is standard heart failure therapy: ACE inhibitors (or ARBs), beta-blockers, and diuretics as needed. Antiparasitic treatment (benznidazole or nifurtimox) may be considered but has limited evidence of benefit in established cardiomyopathy and carries risk of adverse effects. The decision requires shared decision-making weighing potential benefits against risks.",
+    },
+    {
+      id: "C",
+      label: "Heart transplantation as definitive therapy",
+      feedback:
+        "Heart transplantation is reserved for end-stage heart failure refractory to medical therapy. This patient has newly diagnosed cardiomyopathy and should first receive optimal medical management. Transplantation is complicated in Chagas disease by risk of reactivation requiring close monitoring.",
+    },
+    {
+      id: "D",
+      label: "Nifurtimox alone",
+      feedback:
+        "Nifurtimox is an alternative antiparasitic agent for Chagas disease but, like benznidazole, has limited efficacy in established cardiomyopathy and significant side effects. It should not be used as monotherapy without comprehensive heart failure management.",
+    },
+    {
+      id: "E",
+      label: "Implantable cardioverter-defibrillator (ICD) placement without medical therapy",
+      feedback:
+        "ICD placement may be considered for primary prevention of sudden cardiac death in Chagas cardiomyopathy with specific risk factors (e.g., sustained ventricular tachycardia, syncope, LVEF <30%). However, it is not first-line therapy and should be preceded by optimal medical management of heart failure.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-chagas-cardiomyopathy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case illustrates the importance of considering Chagas disease in patients from endemic regions presenting with cardiomyopathy. The clinical presentation combines classic features: 1) geographic origin (Colombia), 2) vector exposure history (kissing bug bites in childhood), 3) characteristic ECG findings (right bundle branch block with PVCs), and 4) echocardiographic findings (apical aneurysm with thrombus). Chagas cardiomyopathy typically presents 10-30 years after initial infection, explaining why this patient developed symptoms decades after immigration. The absence of traditional cardiovascular risk factors should raise suspicion for alternative etiologies.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic approach prioritizes serological testing, as recommended by WHO guidelines. Two different serological methods are required due to variability in test performance. PCR has lower sensitivity in chronic disease but may be useful in specific situations. Endomyocardial biopsy is invasive and rarely indicated. Importantly, a positive serology confirms infection but does not prove causality of cardiomyopathy; clinical correlation is essential, as many infected individuals never develop cardiac disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management focuses on comprehensive heart failure therapy with consideration of antiparasitic treatment. Evidence for benznidazole in established cardiomyopathy is limited (BENEFIT trial showed no improvement in cardiac outcomes), but it may be considered in select patients after shared decision-making. Cardiac complications of Chagas disease include heart failure, arrhythmias, thromboembolism (from apical thrombus), and sudden cardiac death. Apical aneurysm is pathognomonic and carries high thrombotic risk, often requiring anticoagulation.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chagas-cardiomyopathy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <strong>Chagas cardiomyopathy should be considered in patients from endemic regions presenting with heart failure,</strong> especially with right bundle branch block, apical aneurysm, or absence of traditional cardiovascular risk factors. Transmission occurs primarily through triatomine bug feces, with congenital, transfusion, and transplant routes also important.
+    </li>
+    <li>
+      <strong>Serological testing with two different methods is diagnostic for chronic Chagas disease.</strong> PCR has low sensitivity in chronic infection. Microscopic examination of blood smears is only useful in acute disease or reactivation in immunocompromised hosts.
+    </li>
+    <li>
+      <strong>Management prioritizes comprehensive heart failure therapy over antiparasitic treatment in established cardiomyopathy.</strong> The BENEFIT trial showed benznidazole did not improve cardiac outcomes in patients with established cardiomyopathy, though it may be considered in select cases after shared decision-making.
+    </li>
+    <li>
+      <strong>Apical aneurysm with thrombus is a pathognomonic finding in Chagas cardiomyopathy</strong> and carries high embolic risk. Anticoagulation should be strongly considered when thrombus is detected.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bern C, Montgomery SP, Herwaldt BL, et al. Evaluation and treatment of Chagas disease in the United States: a systematic review. JAMA. 2007;298(18):2171-2181.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.298.18.2171"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1001/jama.298.18.2171
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Morillo CA, Marin-Neto JA, Avezum A, et al. Randomized trial of benznidazole for chronic Chagas' cardiomyopathy. N Engl J Med. 2015;373(14):1295-1306.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1507574"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1056/NEJMoa1507574
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pérez-Molina JA, Molina I. Chagas disease. Lancet. 2018;391(10115):82-94.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(17)31612-4"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S0140-6736(17)31612-4
+      </a>
+    </p>
+  </div>
+</div>
