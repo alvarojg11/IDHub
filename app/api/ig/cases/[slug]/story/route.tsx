@@ -183,7 +183,7 @@ export async function GET(
                     marginBottom: "20px",
                   }}
                 >
-                  WHAT'S THE DIAGNOSIS?
+                  WHAT&apos;S THE DIAGNOSIS?
                 </div>
 
                 {/* All vignette paragraphs */}
