@@ -1,3 +1,4 @@
+
 export type CaseTag = {
   organisms: string[];
   syndromes: string[];
@@ -132,6 +133,14 @@ export const CASES: CaseMeta[] = [
     enable: true,
     ogImage: "/cases/actinomycosis/actino1.png",
     tags: { organisms: ["Actinomyces israelii"], syndromes: ["Skin & Soft Tissue", "Granulomatous Infection"], concepts: ["Sulfur granules", "Chronic indolent infection", "Mass mimic"] },
+  },
+  {
+    title: "The 5-Month Mystery",
+    slug: "cons-pve",
+    description: "A new murmur and persistent fevers follow heart surgery.",
+    enable: true,
+    ogImage: "/cases/cons-pve/cons.png",
+    tags: { organisms: ["Staphylococcus epidermidis"], syndromes: ["Cardiovascular", "Endocarditis"], concepts: ["Prosthetic valve endocarditis", "Coagulase-negative staphylococci", "Biofilm infection"] },
   },
   {
     title: "Symmetric Groin Plaques in a Man With Diabetes",

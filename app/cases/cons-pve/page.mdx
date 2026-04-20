@@ -1,0 +1,333 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cons-pve");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The 5-Month Mystery
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 62-year-old man with a history of severe aortic stenosis presents to the emergency department with 3 weeks of progressive illness. He initially developed low-grade fevers at home, which he attributed to "post-viral fatigue." Over the past week, he has noticed increasing fatigue, decreased exercise tolerance, and night sweats that soak through his pillow. He also reports decreased appetite and an unintentional 3-kg weight loss.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Five months prior, he underwent a successful surgical aortic valve replacement with a bioprosthetic valve for severe symptomatic aortic stenosis. His postoperative course was uncomplicated, and he has been in regular follow-up. He denies any recent dental procedures, surgery, invasive procedures, or catheterizations. His only medication is aspirin 81 mg daily.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On arrival, his temperature is 38.2°C, heart rate is 92/min, blood pressure 128/70 mmHg, respiratory rate 18/min, and oxygen saturation 98% on room air. Physical examination reveals a thin, somewhat diaphoretic man in mild distress. Cardiac auscultation demonstrates a new soft diastolic murmur at the right upper sternal border, different from his postoperative exam. He has no peripheral stigmata of endocarditis. No jugular venous distension or peripheral edema is noted.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory evaluation shows a white blood cell count of 11.2 x 10^9/L (neutrophils 78%, lymphocytes 12%, monocytes 8%), hemoglobin 10.8 g/dL, platelets 245 x 10^9/L, C-reactive protein 45 mg/dL, and erythrocyte sedimentation rate 68 mm/hour. Basic metabolic panel reveals creatinine 1.1 mg/dL, blood urea nitrogen 22 mg/dL, and normal electrolytes. Urinalysis shows trace protein but no hematuria or pyuria.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Three sets of blood cultures drawn more than 1 hour apart all grow gram-positive cocci in clusters after 48 hours of incubation. The laboratory performs a coagulase tube test, which shows the patient's isolate fails to clot plasma after 24 hours, confirming coagulase-negative staphylococci alongside a coagulase-positive control. Initial transthoracic echocardiography is limited by body habitus and prosthetic valve shadowing, with inconclusive findings for vegetation or abscess.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/cons-pve/cons.png"
+      alt="Coagulase tube test showing coagulase-negative staphylococcal isolate"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Coagulase tube test showing patient's isolate (negative) and control (positive)
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-cons-pve-q1"
+  title="Question"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus prosthetic valve endocarditis",
+      feedback:
+        "Incorrect. S. aureus is typically coagulase-positive and would show rapid clot formation in the coagulase tube test.",
+    },
+    {
+      id: "B",
+      label: "Enterococcus faecalis prosthetic valve endocarditis",
+      feedback:
+        "Incorrect. Enterococci are gram-positive cocci but are not staphylococci; they do not produce coagulase and appear as diplococci or chains.",
+    },
+    {
+      id: "C",
+      label: "Coagulase-negative staphylococcal prosthetic valve endocarditis",
+      correct: true,
+      feedback:
+        "Correct. Coagulase-negative staphylococci, especially S. epidermidis, are a leading cause of prosthetic valve endocarditis and consistent with the negative coagulase test.",
+    },
+    {
+      id: "D",
+      label: "Pacemaker lead infection",
+      feedback:
+        "Incorrect. The patient has no pacemaker; the infection is related to his recent aortic valve replacement.",
+    },
+    {
+      id: "E",
+      label: "Culture-negative endocarditis",
+      feedback:
+        "Incorrect. The blood cultures grew organisms, ruling out culture-negative endocarditis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cons-pve-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next imaging study?"
+  options={[
+    {
+      id: "A",
+      label: "Repeat transthoracic echocardiogram",
+      feedback:
+        "Incorrect. TTE is already limited and inconclusive; repeated TTE has similar sensitivity for prosthetic valve complications.",
+    },
+    {
+      id: "B",
+      label: "Transesophageal echocardiogram",
+      correct: true,
+      feedback:
+        "Correct. TEE is the imaging standard for prosthetic valve endocarditis and perivalvular complications, with superior sensitivity for detecting vegetations, abscesses, and pseudoaneurysms compared to TTE.",
+    },
+    {
+      id: "C",
+      label: "Chest CT without contrast",
+      feedback:
+        "Incorrect. CT can show valvular calcification or periannular changes but is less sensitive than TEE for vegetation detection and abscess characterization.",
+    },
+    {
+      id: "D",
+      label: "Cardiac MRI",
+      feedback:
+        "Incorrect. MRI has excellent tissue characterization but is not first-line for acute endocarditis evaluation; TEE has higher sensitivity for vegetations.",
+    },
+    {
+      id: "E",
+      label: "FDG-PET/CT",
+      feedback:
+        "Incorrect. PET/CT has utility for suspected device infections or when TEE is nondiagnostic, but TEE remains the initial test of choice.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cons-pve-q3"
+  title="Question 3"
+  prompt="Which clinical finding represents a Class I surgical indication?"
+  options={[
+    {
+      id: "A",
+      label: "New conduction delay",
+      feedback:
+        "Incorrect. While new conduction delay can suggest perivalvular extension, isolated first-degree AV block without higher-degree block is not an independent Class I indication.",
+    },
+    {
+      id: "B",
+      label: "Evidence of heart failure",
+      feedback:
+        "Incorrect. The vignette does not mention clinical heart failure (no dyspnea, pulmonary edema, or reduced ejection fraction); new murmur alone is insufficient.",
+    },
+    {
+      id: "C",
+      label: "Perivalvular abscess",
+      correct: true,
+      feedback:
+        "Correct. Perivalvular abscess is a Class I surgical indication in prosthetic valve endocarditis. The new conduction abnormality suggests perivalvular extension, creating a strong case for surgical evaluation.",
+    },
+    {
+      id: "D",
+      label: "Persistent fever despite 5 days of antibiotics",
+      feedback:
+        "Incorrect. Fever duration criteria are longer (≥5-7 days); 3 days is insufficient to meet surgical indications for persistent infection.",
+    },
+    {
+      id: "E",
+      label: "Elevated inflammatory markers",
+      feedback:
+        "Incorrect. Elevated CRP and ESR are expected but not standalone Class I surgical indications.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cons-pve-q4"
+  title="Question 4"
+  prompt="What is the initial antibiotic regimen of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Vancomycin monotherapy",
+      feedback:
+        "Incorrect. Vancomycin monotherapy selects for resistance; combination therapy including rifampin is required for biofilm penetration.",
+    },
+    {
+      id: "B",
+      label: "Nafcillin plus rifampin",
+      feedback:
+        "Incorrect. Nafcillin is only appropriate for methicillin-susceptible isolates; most coagulase-negative staphylococci are resistant.",
+    },
+    {
+      id: "C",
+      label: "Vancomycin plus ceftriaxone",
+      feedback:
+        "Incorrect. Ceftriaxone has poor penetration into biofilms on prosthetic material; rifampin is the agent of choice for biofilm penetration.",
+    },
+    {
+      id: "D",
+      label: "Vancomycin plus rifampin",
+      correct: true,
+      feedback:
+        "Correct. Vancomycin provides antistaphylococcal coverage, while rifampin penetrates biofilms; this combination is guideline-recommended for staphylococcal prosthetic valve endocarditis.",
+    },
+    {
+      id: "E",
+      label: "Cefazolin plus gentamicin",
+      feedback:
+        "Incorrect. Cefazolin is ineffective against most resistant coagulase-negative staphylococci; vancomycin is preferred for resistant isolates.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-cons-pve-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Coagulase-negative staphylococci, especially Staphylococcus epidermidis, are a leading cause of prosthetic valve endocarditis and should be treated as real pathogens when persistent across multiple separate blood culture sets. These organisms are common skin contaminants but frequently cause device-related infections due to their ability to form biofilms on prosthetic materials.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis requires careful clinical judgment. The combination of timing (≥60 days after valve surgery), persistent bacteremia from multiple sets, and new clinical findings (murmur, conduction abnormality) strongly supports true infection rather than contamination. The negative coagulase test distinguishes coagulase-negative staphylococci from S. aureus.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Imaging is critical for evaluation. While transthoracic echocardiography (TTE) is often the initial test, it has limited sensitivity for prosthetic valve complications due to acoustic shadowing. Transesophageal echocardiography (TEE) provides superior visualization and is the imaging standard for prosthetic valve endocarditis, detecting vegetations, abscesses, pseudoaneurysms, and dehiscence with high sensitivity.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Surgical management follows AHA guidelines. Class I indications for surgery in prosthetic valve endocarditis include: perivalvular abscess, persistent infection despite appropriate antibiotic therapy, heart failure, and severe valve dysfunction. The new first-degree AV block in this case suggests perivalvular extension, which along with the prosthetic valve infection creates a strong case for surgical evaluation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires combination therapy for at least 6 weeks. The backbone includes an antistaphylococcal agent (vancomycin for resistant isolates, nafcillin only if MSSA) plus rifampin for biofilm penetration. Rifampin is started only after bacteremia clears (typically 3 to 5 days) to avoid selecting resistance. Aminoglycoside addition is guideline-variable: 2015 AHA suggests gentamicin for 2 weeks, but recent reviews no longer routinely recommend it due to unclear benefit and nephrotoxicity.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cons-pve-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Coagulase-negative staphylococci, especially S. epidermidis, are a leading cause of prosthetic valve endocarditis and should be treated as real pathogens when persistent across multiple separate sets.
+    </li>
+    <li>
+      TEE is the imaging standard for prosthetic valve endocarditis and perivalvular complications; PET/CT or cardiac CT are adjuncts when TEE is inconclusive.
+    </li>
+    <li>
+      Perivalvular abscess, new high-grade AV block, heart failure, and uncontrolled infection are Class I surgical indications in prosthetic valve endocarditis.
+    </li>
+    <li>
+      Staphylococcal prosthetic valve endocarditis requires combination therapy: vancomycin (or nafcillin if methicillin-susceptible) plus rifampin. Rifampin is started after bacteremia clears and is never monotherapy. Routine addition of gentamicin is guideline-dependent and increasingly omitted due to toxicity without clear benefit.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Baddour LM, Wilson WR, Bayer AS, et al. Infective Endocarditis in Adults: Diagnosis, Antimicrobial Therapy, and Management of Complications: A Scientific Statement for Healthcare Professionals From the American Heart Association. Circulation. 2015;132(15):1435-1486.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1161/CIR.0000000000000703"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1161/CIR.0000000000000703
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Habib G, Lancelotti P, Antunes MJ, et al. 2015 ESC Guidelines for the management of infective endocarditis: The Task Force for the Management of Infective Endocarditis of the European Society of Cardiology (ESC). Endorsed by: European Association for Cardio-Thoracic Surgery (EACTS), the European Association of Nuclear Medicine (EANM). Eur Heart J. 2015;36(44):3075-3128.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/eurheartj/ehv319"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/eurheartj/ehv319
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nishimura RA, Otto CM, Bonow RO, et al. 2017 AHA/ACC Focused Update of the 2014 AHA/ACC Guideline for the Management of Patients With Valvular Heart Disease: A Report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines. J Am Coll Cardiol. 2017;70(2):252-289.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jacc.2017.03.011"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.jacc.2017.03.011
+      </a>
+    </p>
+  </div>
+</div>
