@@ -1,0 +1,319 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chikungunya-fever");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever and Arthralgia after Caribbean Travel
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <!-- PARAGRAPH 1: Initial presentation (age, gender, chief complaint, duration, severity) -->
+  <!-- Example: "A 58-year-old man originally from rural Colombia presents to the emergency department with progressive shortness of breath and fatigue over the past 4 months." -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 45-year-old woman presents to an urgent care clinic with 3 days of high fever, severe polyarthralgia, and a maculopapular rash. She returned 4 days ago from a 2-week vacation in the Dominican Republic where she stayed in a beachfront resort. The fever spikes to 39.5°C daily and is only partially responsive to acetaminophen. The arthralgia is symmetric, involves both small and large joints, and is most severe in the morning with associated stiffness lasting over an hour. The rash appeared on the second day of illness and is pruritic, spreading centrifugally from the trunk to the extremities. The joint pain is debilitating, affecting her wrists, fingers, ankles, and knees, limiting her ability to walk or grasp objects.
+  </p>
+
+  <!-- PARAGRAPH 2: Relevant history (past medical, medications, exposures, travel, social) -->
+  <!-- Example: "The patient immigrated to the United States 20 years ago and works as a construction laborer. He recalls spending childhood in a mud-walled home where he was frequently bitten by 'kissing bugs'..." -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She has no significant past medical history and takes no medications. She reports multiple mosquito bites during her trip despite using DEET-based repellent. She traveled to Punta Cana and Santo Domingo, with day trips to rural areas where she noted abundant standing water. She used DEET-based repellent during the day but was bitten frequently in the early morning and late afternoon. She recalls being bitten by mosquitoes with distinctive white markings similar to the one pictured. She slept in air-conditioned accommodations with screened windows but did not use a bed net. She did not take malaria chemoprophylaxis as the Dominican Republic is not a malaria-endemic area. Her travel companions are asymptomatic. She denies any history of arthritis, autoimmune disease, recent tick exposures, blood transfusions, tattoos, or intravenous drug use. She works as a graphic designer and has no occupational exposures to infectious diseases.
+  </p>
+
+  <!-- PARAGRAPH 3: Physical exam (vital signs, general appearance, key findings) -->
+  <!-- Example: "On examination, he appears comfortable at rest but becomes dyspneic when speaking in full sentences. Vital signs: temperature 36.8°C, heart rate 110 bpm..." -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, she appears uncomfortable and is holding her wrists and ankles gingerly. Vital signs: temperature 39.2°C, heart rate 102 bpm, blood pressure 118/76 mmHg, respiratory rate 16/min, oxygen saturation 98% on room air. Skin examination reveals a diffuse maculopapular rash on the trunk and extremities with sparing of the palms and soles; the rash is blanching, non-petechial, and consists of 2-5 mm erythematous macules and papules. Musculoskeletal exam demonstrates symmetric swelling and tenderness of the metacarpophalangeal joints, wrists, ankles, and knees with painful limited range of motion. There is mild periarticular edema and warmth over the affected joints without erythema. Passive movement elicits severe pain, but active range of motion is also limited by discomfort. There is no lymphadenopathy, hepatosplenomegaly, or meningeal signs.
+  </p>
+
+  <!-- PARAGRAPH 4: Laboratory and imaging results (CBC, chem, inflammatory markers, microbiology, imaging) -->
+  <!-- Example: "Laboratory studies show normal complete blood count, comprehensive metabolic panel. B-type natriuretic peptide (BNP) is elevated at 850 pg/mL. Electrocardiogram reveals sinus tachycardia, right bundle branch block..." -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show leukopenia (white blood cell count 2.8 × 10³/µL) with relative lymphopenia, thrombocytopenia (platelet count 112 × 10³/µL), and mild elevation of transaminases (AST 68 U/L, ALT 72 U/L). Serum creatinine and inflammatory markers (C-reactive protein 12 mg/L, erythrocyte sedimentation rate 18 mm/hr) are within normal limits. Rheumatoid factor and anti-cyclic citrullinated peptide antibodies are negative. Serum uric acid is 4.2 mg/dL. Rapid diagnostic tests for malaria (blood smear) and dengue (NS1 antigen) are negative. Blood cultures show no growth at 48 hours. Urinalysis is normal without proteinuria or hematuria. Reverse transcription polymerase chain reaction (RT-PCR) testing for arboviruses is pending. Plain radiographs of the affected joints show only soft tissue swelling without erosions or joint space narrowing. Chest radiograph is clear.
+  </p>
+</div>
+
+<!-- IMAGE: Clinical image with proper attribution and alt text -->
+<!-- Final image path: src="/cases/chikungunya-fever/mosquito.png" -->
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+src="/cases/chikungunya-fever/mosquito.png"
+       alt="Aedes aegypti mosquito with distinctive white markings"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+     Aedes aegypti mosquito, commonly found in tropical and subtropical regions. Photo courtesy of CDC.
+  </figcaption>
+</figure>
+
+<!-- QUESTION 1: Typically diagnosis question -->
+<!-- Keep prompts short: don't restate vignette, don't name diagnosis if Q1 already did -->
+<!-- Shuffle answer positions: correct answer should be different letter each question -->
+<CaseQuestion
+  pollId="case-chikungunya-fever-q1"
+  title="Question 1"
+  prompt="What is the most likely cause of this patient's illness?"
+  options={[
+    {
+      id: "A",
+      label: "Dengue virus",
+      feedback:
+        "Dengue virus is a plausible consideration given the travel history, fever, rash, and thrombocytopenia. However, the severity of polyarthralgia (debilitating joint pain) is more characteristic of chikungunya than dengue. Dengue typically presents with myalgia ('breakbone fever') rather than true arthritis, and severe thrombocytopenia (<100,000/µL) is more common in dengue.",
+    },
+    {
+      id: "B",
+      label: "Malaria (Plasmodium falciparum)",
+      feedback:
+        "Malaria is unlikely as the Dominican Republic is not a malaria-endemic area (CDC classification: no malaria transmission). The patient did not take chemoprophylaxis but had no travel to malaria-endemic regions. Clinical features such as symmetric polyarthritis and rash are not typical of malaria, which more commonly presents with fever, chills, and hemolytic anemia.",
+    },
+    {
+      id: "C",
+      label: "Chikungunya virus",
+      correct: true,
+      feedback:
+        "Correct. Chikungunya virus infection is the most likely diagnosis given the classic triad of high fever, severe symmetric polyarthralgia/arthritis, and maculopapular rash in a traveler from the Caribbean. The onset 4 days after return aligns with the 3-7 day incubation period. Leukopenia and thrombocytopenia are common but less severe than in dengue. The term 'chikungunya' means 'that which bends up' in the Makonde language, describing the stooped posture from severe joint pain.",
+    },
+    {
+      id: "D",
+      label: "Zika virus",
+      feedback:
+        "Zika virus infection can cause fever, rash, and arthralgia, but the joint symptoms are typically milder than chikungunya. Zika is more associated with conjunctivitis and, in pregnant women, congenital abnormalities. The geographic distribution overlaps, but the severity of arthritis points toward chikungunya. Zika virus testing would be considered if the patient were pregnant or planning pregnancy.",
+    },
+    {
+      id: "E",
+      label: "Acute rheumatoid arthritis",
+      feedback:
+        "Acute rheumatoid arthritis is unlikely given the acute febrile illness and travel history. While symmetric small joint involvement is seen in both, rheumatoid arthritis typically has a more insidious onset (weeks to months) rather than acute fever. The presence of leukopenia and thrombocytopenia would be unusual in rheumatoid arthritis unless related to medication or Felty syndrome, which requires long-standing disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<!-- QUESTION 2: Typically management, diagnostics, or complications -->
+<!-- Use different correct letter than Q1 -->
+<CaseQuestion
+  pollId="case-chikungunya-fever-q2"
+  title="Question 2"
+  prompt="Which test would provide definitive diagnosis at this stage of illness (day 3 of symptoms)?"
+  options={[
+    {
+      id: "A",
+      label: "Serum IgM antibodies",
+      feedback:
+        "IgM antibodies typically become detectable 4-7 days after symptom onset and peak at 2-3 weeks. Testing on day 3 of symptoms may yield false-negative results. IgM serology is useful after the first week but is less definitive than RT-PCR during acute viremia.",
+    },
+    {
+      id: "B",
+      label: "RT-PCR on serum",
+      correct: true,
+      feedback:
+        "Correct. Reverse transcription polymerase chain reaction (RT-PCR) on serum is the test of choice during the first week of illness when viremia is highest. Sensitivity is optimal within days 1-7. RT-PCR provides definitive diagnosis and can differentiate chikungunya from other arboviruses (dengue, Zika). The test is widely available through public health laboratories and commercial reference labs.",
+    },
+    {
+      id: "C",
+      label: "IgG serology",
+      feedback:
+        "IgG antibodies indicate past infection and typically appear 1-2 weeks after IgM. In primary infections, IgG may not be detectable during the first week. A four-fold rise in IgG titers between acute and convalescent sera (2-3 weeks apart) can confirm diagnosis but is not practical for acute management.",
+    },
+    {
+      id: "D",
+      label: "Viral culture",
+      feedback:
+        "Viral culture is not routinely available for clinical diagnosis due to biosafety level 3 requirements and slow turnaround time (several days to weeks). Culture is primarily used for research purposes or strain characterization by public health authorities.",
+    },
+    {
+      id: "E",
+      label: "Joint fluid analysis",
+      feedback:
+        "Synovial fluid analysis in chikungunya arthritis typically shows inflammatory changes (elevated white cell count, predominantly lymphocytes) but is nonspecific and not diagnostic. Arthrocentesis is rarely indicated unless septic arthritis is suspected. Diagnosis relies on specific virological or serological testing.",
+    },
+  ]}
+/>
+
+<!-- Add more questions as needed (typically 3-4 total) -->
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chikungunya-fever-q3"
+  title="Question 3"
+  prompt="What is the most appropriate management for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline",
+      feedback:
+        "Doxycycline is effective for rickettsial infections (e.g., Rocky Mountain spotted fever) but not for arboviral infections. There is no evidence supporting antibiotic therapy for chikungunya virus infection. Empiric doxycycline might be considered if rickettsiosis is suspected (e.g., eschar, tick exposure), which is not present here.",
+    },
+    {
+      id: "B",
+      label: "Hospitalization for intravenous acyclovir",
+      feedback:
+        "Acyclovir is used for herpesvirus infections (HSV, VZV) and has no activity against arboviruses. Hospitalization is not routinely required for chikungunya unless there are severe complications (encephalitis, myocarditis) or inability to maintain oral hydration. Most patients can be managed as outpatients.",
+    },
+    {
+      id: "C",
+      label: "Supportive care with NSAIDs and hydration",
+      correct: true,
+      feedback:
+        "Correct. Management of chikungunya fever is supportive: antipyretics (acetaminophen), anti-inflammatory agents (NSAIDs) for arthritis, and adequate hydration. Aspirin should be avoided due to risk of bleeding and Reye syndrome. Most patients recover within 1-2 weeks, though arthralgia may persist for months. There is no specific antiviral therapy approved for chikungunya.",
+    },
+    {
+      id: "D",
+      label: "Intravenous ceftriaxone",
+      feedback:
+        "Ceftriaxone is a broad-spectrum antibiotic used for bacterial infections (e.g., septic arthritis, meningitis). There is no role for antibiotics in uncomplicated arboviral illness unless bacterial superinfection is suspected. Unnecessary antibiotics contribute to antimicrobial resistance and adverse effects.",
+    },
+    {
+      id: "E",
+      label: "Oral hydroxychloroquine",
+      feedback:
+        "Hydroxychloroquine has been studied for chronic chikungunya arthritis but is not recommended for acute infection. Some small trials suggest benefit for persistent arthritis, but evidence is limited. Initiation during acute viremia is not supported by guidelines. NSAIDs are first-line for symptomatic relief.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-chikungunya-fever-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <!-- PARAGRAPH 1: Clinical reasoning and case approach -->
+  <!-- Explain how to approach the case, key findings, differential diagnosis -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case illustrates a classic presentation of chikungunya fever in a traveler returning from the Caribbean. The diagnostic approach begins with recognizing the triad of high fever, severe symmetric polyarthralgia, and maculopapular rash. Key epidemiological clues include travel to an endemic area (Dominican Republic) during peak transmission season and mosquito exposure. Laboratory findings of leukopenia and thrombocytopenia support viral etiology but are nonspecific. The differential diagnosis includes other arboviruses (dengue, Zika), rheumatological conditions, and other travel-associated infections. The severity of arthritis is the most distinguishing feature: chikungunya causes debilitating joint pain that often leads to a stooped posture ("that which bends up"), while dengue presents with myalgia ("breakbone fever") and more profound thrombocytopenia.
+  </p>
+
+  <!-- PARAGRAPH 2: Key diagnostic or management decision point -->
+  <!-- Highlight critical decision points, guidelines, evidence -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Definitive diagnosis requires specific virological or serological testing. RT-PCR on serum is the test of choice during the first week of illness when viremia is highest, with sensitivity exceeding 90% in days 1-5. After day 7, IgM serology becomes the primary diagnostic method, though false negatives may occur early. Testing should include dengue virus due to overlapping epidemiology and clinical features. Public health reporting is mandatory in most jurisdictions as chikungunya is a nationally notifiable disease. According to CDC guidelines, travelers with suspected chikungunya should be reported to local health departments to facilitate surveillance and outbreak detection.
+  </p>
+
+  <!-- PARAGRAPH 3: Additional clinical context or nuance -->
+  <!-- Discuss pitfalls, alternative approaches, special considerations -->
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management is supportive with antipyretics and NSAIDs for arthritis. Aspirin should be avoided due to bleeding risk, especially with thrombocytopenia. Most patients recover within 1-2 weeks, but approximately 30-40% develop chronic arthralgia lasting months to years. Risk factors for persistent arthritis include older age, high initial viral load, and pre-existing rheumatological disease. Serious complications are rare but include encephalitis, myocarditis, and Guillain-Barré syndrome.     Prevention focuses on mosquito avoidance (DEET, permethrin-treated clothing, screened accommodations) and elimination of breeding sites. A virus-like particle vaccine (VIMKUNYA) is approved in the United States for individuals aged 12 years and older. The CDC recommends vaccination for travelers to areas with chikungunya outbreaks and laboratory workers with potential exposure. For patients with chronic arthritis, rheumatology referral and trial of NSAIDs, corticosteroids, or disease-modifying antirheumatic drugs may be considered.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chikungunya-fever-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <!-- 3-4 key learning points connected to the case -->
+    <!-- Each point should be a complete thought with clinical application -->
+    <li>
+      <strong>Chikungunya fever is characterized by the triad of high fever, severe symmetric polyarthralgia, and maculopapular rash.</strong> The arthritis predominantly affects small joints (wrists, fingers, ankles) and can be debilitating. Differentiation from dengue is critical: dengue typically causes myalgia ("breakbone fever") with more severe thrombocytopenia and potential for hemorrhagic complications, while chikungunya arthritis is more pronounced.
+    </li>
+    <li>
+      <strong>Diagnostic testing depends on timing: RT-PCR is optimal during the first week of symptoms, while IgM serology becomes positive after day 4-7.</strong> RT-PCR sensitivity exceeds 90% in early infection. Co-testing for dengue virus is recommended due to overlapping epidemiology. Chikungunya is a nationally notifiable disease; positive results must be reported to public health authorities.
+    </li>
+    <li>
+      <strong>Management is supportive with NSAIDs and acetaminophen; aspirin should be avoided.</strong> No specific antiviral therapy exists. Approximately 30-40% of patients develop chronic arthralgia lasting months to years, which may require rheumatology referral. Severe complications (encephalitis, myocarditis) are rare but occur more frequently in neonates, older adults, and immunocompromised hosts.
+    </li>
+    <li>
+      <strong>Prevention focuses on mosquito bite avoidance and elimination of breeding sites.</strong> Personal protection includes DEET-based repellents, permethrin-treated clothing, and screened accommodations. Community control targets Aedes mosquito breeding in standing water containers. A virus-like particle vaccine (VIMKUNYA) is approved for individuals aged 12 years and older, recommended for travelers to outbreak areas and laboratory workers. Vaccination should be considered for extended travel to endemic regions.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <!-- Include 2-3 key references (guidelines, landmark trials, authoritative reviews) -->
+  <!-- Use current references (within 10 years unless landmark) -->
+  <!-- Include DOI links -->
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Weaver SC, Lecuit M. Chikungunya Virus and the Global Spread of a Mosquito-Borne Disease. N Engl J Med. 2015;372(13):1231-1239.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra1406035"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1056/NEJMra1406035
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rodriguez-Morales AJ, Cardona-Ospina JA, Fernanda Urbano-Garzón S, Sebastian Hurtado-Zapata J. Prevalence of Post-Chikungunya Infection Chronic Inflammatory Arthritis: A Systematic Review and Meta-Analysis. Arthritis Care Res (Hoboken). 2016;68(12):1849-1858.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/acr.22900"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1002/acr.22900
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Silva JVJ, Ludwig-Begall LF, de Oliveira-Filho EF, et al. Chikungunya Fever: Epidemiology, Clinical Syndrome, and Management. Viruses. 2021;13(7):1207.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/v13071207"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3390/v13071207
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Chikungunya Vaccine. Updated January 23, 2026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/chikungunya/vaccines/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: https://www.cdc.gov/chikungunya/vaccines/index.html
+      </a>
+    </p>
+  </div>
+</div>
+
