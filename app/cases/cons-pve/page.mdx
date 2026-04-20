@@ -28,7 +28,7 @@ export const metadata = buildCaseMetadata("cons-pve");
   </p>
 
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
-    Three sets of blood cultures drawn more than 1 hour apart all grow gram-positive cocci in clusters after 48 hours of incubation. The laboratory performs a coagulase tube test, which shows the patient's isolate fails to clot plasma after 24 hours, confirming coagulase-negative staphylococci alongside a coagulase-positive control. Initial transthoracic echocardiography is limited by body habitus and prosthetic valve shadowing, with inconclusive findings for vegetation or abscess.
+    Three sets of blood cultures drawn more than 1 hour apart all grow gram-positive cocci in clusters after 48 hours of incubation. The laboratory performs a coagulase tube test, which shows the patient's isolate fails to clot plasma after 24 hours (negative), while a control staphylococcal isolate shows clot formation within 4 hours (positive). Gram stain confirms gram-positive cocci in clusters. Oxacillin susceptibility testing is pending, but the isolate is presumed methicillin-resistant pending full susceptibilities. Initial transthoracic echocardiography is limited by body habitus and prosthetic valve shadowing, with inconclusive findings for vegetation or abscess.
   </p>
 </div>
 
@@ -51,38 +51,38 @@ export const metadata = buildCaseMetadata("cons-pve");
 <CaseQuestion
   pollId="case-cons-pve-q1"
   title="Question"
-  prompt="What is the most likely diagnosis?"
+  prompt="Based on gram-positive cocci in clusters with negative coagulase testing, what is the most likely organism?"
   options={[
     {
       id: "A",
-      label: "Staphylococcus aureus prosthetic valve endocarditis",
+      label: "Staphylococcus aureus",
       feedback:
-        "Incorrect. S. aureus is typically coagulase-positive and would show rapid clot formation in the coagulase tube test.",
+        "Incorrect. S. aureus is coagulase-positive and would show rapid clot formation within 4 hours.",
     },
     {
       id: "B",
-      label: "Enterococcus faecalis prosthetic valve endocarditis",
+      label: "Leuconostoc species",
       feedback:
-        "Incorrect. Enterococci are gram-positive cocci but are not staphylococci; they do not produce coagulase and appear as diplococci or chains.",
+        "Incorrect. Leuconostoc are gram-positive cocci but appear as chains or pairs, not clusters. They are also vancomycin-resistant and would have different biochemical profiles.",
     },
     {
       id: "C",
-      label: "Coagulase-negative staphylococcal prosthetic valve endocarditis",
+      label: "Coagulase-negative staphylococci (S. epidermidis or S. saprophyticus)",
       correct: true,
       feedback:
-        "Correct. Coagulase-negative staphylococci, especially S. epidermidis, are a leading cause of prosthetic valve endocarditis and consistent with the negative coagulase test.",
+        "Correct. CoNS are gram-positive cocci in clusters that are coagulase-negative, making them the leading cause of prosthetic device infections including prosthetic valve endocarditis.",
     },
     {
       id: "D",
-      label: "Pacemaker lead infection",
+      label: "Corynebacterium species",
       feedback:
-        "Incorrect. The patient has no pacemaker; the infection is related to his recent aortic valve replacement.",
+        "Incorrect. Corynebacterium are gram-positive rods (not cocci) and typically appear as pleomorphic bacilli or 'Chinese letters' on Gram stain.",
     },
     {
       id: "E",
-      label: "Culture-negative endocarditis",
+      label: "Enterococcus faecalis",
       feedback:
-        "Incorrect. The blood cultures grew organisms, ruling out culture-negative endocarditis.",
+        "Incorrect. Enterococci are gram-positive cocci but characteristically appear as diplococci or short chains, not clusters. Additionally, enterococci do not produce coagulase.",
     },
   ]}
 />
@@ -137,38 +137,38 @@ export const metadata = buildCaseMetadata("cons-pve");
 <CaseQuestion
   pollId="case-cons-pve-q3"
   title="Question 3"
-  prompt="Which clinical finding represents a Class I surgical indication?"
+  prompt="Which of the following findings would represent a Class I indication for surgery in prosthetic valve endocarditis?"
   options={[
     {
       id: "A",
-      label: "New conduction delay",
+      label: "Persistent low-grade fevers despite appropriate antibiotics for 3 days",
       feedback:
-        "Incorrect. While new conduction delay can suggest perivalvular extension, isolated first-degree AV block without higher-degree block is not an independent Class I indication.",
+        "Incorrect. Early fever during appropriate therapy does not indicate surgical failure. Class I indications for surgery require imaging findings or severe complications, not fever duration alone.",
     },
     {
       id: "B",
-      label: "Evidence of heart failure",
+      label: "Perivalvular abscess on imaging",
+      correct: true,
       feedback:
-        "Incorrect. The vignette does not mention clinical heart failure (no dyspnea, pulmonary edema, or reduced ejection fraction); new murmur alone is insufficient.",
+        "Correct. Perivalvular abscess is an absolute (Class I) indication for surgery in prosthetic valve endocarditis. Abscesses indicate aggressive local spread and cannot be adequately treated with antibiotics alone.",
     },
     {
       id: "C",
-      label: "Perivalvular abscess",
-      correct: true,
+      label: "Elevated C-reactive protein >40 mg/dL",
       feedback:
-        "Correct. Perivalvular abscess is a Class I surgical indication in prosthetic valve endocarditis. The new conduction abnormality suggests perivalvular extension, creating a strong case for surgical evaluation.",
+        "Incorrect. Elevated inflammatory markers indicate infection but do not themselves indicate surgical failure. Imaging findings and hemodynamic compromise are required for Class I indications.",
     },
     {
       id: "D",
-      label: "Persistent fever despite 5 days of antibiotics",
+      label: "New diastolic murmur consistent with aortic regurgitation",
       feedback:
-        "Incorrect. Fever duration criteria are longer (≥5-7 days); 3 days is insufficient to meet surgical indications for persistent infection.",
+        "Incorrect. A new murmur indicates valvular involvement but alone does not mandate surgery. Severe regurgitation with hemodynamic compromise or uncontrolled infection would drive surgical decisions.",
     },
     {
       id: "E",
-      label: "Elevated inflammatory markers",
+      label: "Positive blood cultures on initial draw",
       feedback:
-        "Incorrect. Elevated CRP and ESR are expected but not standalone Class I surgical indications.",
+        "Incorrect. Positive cultures confirm infection but do not themselves indicate surgical failure. Surgery is reserved for structural complications or uncontrolled infection despite appropriate therapy.",
     },
   ]}
 />
@@ -180,38 +180,38 @@ export const metadata = buildCaseMetadata("cons-pve");
 <CaseQuestion
   pollId="case-cons-pve-q4"
   title="Question 4"
-  prompt="What is the initial antibiotic regimen of choice?"
+  prompt="What is the initial antibiotic regimen of choice for coagulase-negative staphylococcal prosthetic valve endocarditis?"
   options={[
     {
       id: "A",
-      label: "Vancomycin monotherapy",
+      label: "IV vancomycin plus oral rifampin started immediately",
       feedback:
-        "Incorrect. Vancomycin monotherapy selects for resistance; combination therapy including rifampin is required for biofilm penetration.",
+        "Incorrect. Rifampin should NOT be started immediately. Rifampin is added only after blood cultures clear (typically 3–5 days) to avoid selecting for resistance during persistent bacteremia.",
     },
     {
       id: "B",
-      label: "Nafcillin plus rifampin",
+      label: "IV vancomycin monotherapy for 6 weeks",
       feedback:
-        "Incorrect. Nafcillin is only appropriate for methicillin-susceptible isolates; most coagulase-negative staphylococci are resistant.",
+        "Incorrect. Vancomycin monotherapy is inadequate; combination therapy with rifampin is essential for penetration into biofilms on prosthetic material.",
     },
     {
       id: "C",
-      label: "Vancomycin plus ceftriaxone",
+      label: "IV vancomycin, then add IV/oral rifampin after bacteremia clears",
+      correct: true,
       feedback:
-        "Incorrect. Ceftriaxone has poor penetration into biofilms on prosthetic material; rifampin is the agent of choice for biofilm penetration.",
+        "Correct. Start IV vancomycin immediately (15–20 mg/kg IV q8–12h, goal trough 15–20 μg/mL). Add rifampin (300–600 mg IV/oral q8h) only after bacteremia clears (typically 3–5 days) to avoid resistance selection. Continue combination therapy for at least 6 weeks.",
     },
     {
       id: "D",
-      label: "Vancomycin plus rifampin",
-      correct: true,
+      label: "Nafcillin plus gentamicin for 2 weeks, then monotherapy",
       feedback:
-        "Correct. Vancomycin provides antistaphylococcal coverage, while rifampin penetrates biofilms; this combination is guideline-recommended for staphylococcal prosthetic valve endocarditis.",
+        "Incorrect. Nafcillin is only for methicillin-susceptible S. aureus; most coagulase-negative staphylococci are methicillin-resistant and require vancomycin.",
     },
     {
       id: "E",
-      label: "Cefazolin plus gentamicin",
+      label: "Cefazolin plus ceftriaxone",
       feedback:
-        "Incorrect. Cefazolin is ineffective against most resistant coagulase-negative staphylococci; vancomycin is preferred for resistant isolates.",
+        "Incorrect. Cephalosporins are ineffective against resistant coagulase-negative staphylococci and lack biofilm penetration. Vancomycin plus rifampin is the standard regimen.",
     },
   ]}
 />
