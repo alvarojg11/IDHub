@@ -716,59 +716,6 @@ export const CASES: CaseMeta[] = [
   
     },
   },
-  {
-    slug: "chikungunya-fever",
-  
-  
-    title: "Fever and Arthralgia after Caribbean Travel",
-  
-  
-    description: "A traveler returning from the Dominican Republic presents with fever, severe polyarthralgia, and rash. Diagnose and manage this arboviral infection.",
-  
-  
-    enable: true,
-  
-  
-    ogImage: "/cases/chikungunya-fever/mosquito.png",
-  
-  
-  
-  
-  
-  
-  
-  
-    teaser: "A 45-year-old woman presents with 3 days of high fever, severe polyarthralgia, and a maculopapular rash after returning from the Dominican Republic. What is the most likely cause of her illness?",
-  
-  
-  
-    tags: {
-      organisms: [
-        "Chikungunya virus",
-      ],
-  
-  
-  
-      syndromes: [
-        "Travel Medicine",
-        "Viral Arthritis",
-        "Arboviral Infection",
-      ],
-  
-  
-  
-  
-      concepts: [
-        "Symmetric polyarthralgia",
-        "RT-PCR diagnosis",
-        "Supportive management",
-        "Mosquito-borne prevention",
-      ],
-  
-  
-  
-    },
-  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {
