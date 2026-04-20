@@ -11,33 +11,33 @@ export const metadata = buildCaseMetadata("chikungunya-fever");
 </h2>
 
 <div className="mx-auto max-w-5xl">
-  <!-- PARAGRAPH 1: Initial presentation (age, gender, chief complaint, duration, severity) -->
-  <!-- Example: "A 58-year-old man originally from rural Colombia presents to the emergency department with progressive shortness of breath and fatigue over the past 4 months." -->
+  {/* PARAGRAPH 1: Initial presentation (age, gender, chief complaint, duration, severity) */}
+  {/* Example: "A 58-year-old man originally from rural Colombia presents to the emergency department with progressive shortness of breath and fatigue over the past 4 months." */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     A 45-year-old woman presents to an urgent care clinic with 3 days of high fever, severe polyarthralgia, and a maculopapular rash. She returned 4 days ago from a 2-week vacation in the Dominican Republic where she stayed in a beachfront resort. The fever spikes to 39.5°C daily and is only partially responsive to acetaminophen. The arthralgia is symmetric, involves both small and large joints, and is most severe in the morning with associated stiffness lasting over an hour. The rash appeared on the second day of illness and is pruritic, spreading centrifugally from the trunk to the extremities. The joint pain is debilitating, affecting her wrists, fingers, ankles, and knees, limiting her ability to walk or grasp objects.
   </p>
 
-  <!-- PARAGRAPH 2: Relevant history (past medical, medications, exposures, travel, social) -->
-  <!-- Example: "The patient immigrated to the United States 20 years ago and works as a construction laborer. He recalls spending childhood in a mud-walled home where he was frequently bitten by 'kissing bugs'..." -->
+  {/* PARAGRAPH 2: Relevant history (past medical, medications, exposures, travel, social) */}
+  {/* Example: "The patient immigrated to the United States 20 years ago and works as a construction laborer. He recalls spending childhood in a mud-walled home where he was frequently bitten by 'kissing bugs'..." */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     She has no significant past medical history and takes no medications. She reports multiple mosquito bites during her trip despite using DEET-based repellent. She traveled to Punta Cana and Santo Domingo, with day trips to rural areas where she noted abundant standing water. She used DEET-based repellent during the day but was bitten frequently in the early morning and late afternoon. She recalls being bitten by mosquitoes with distinctive white markings similar to the one pictured. She slept in air-conditioned accommodations with screened windows but did not use a bed net. She did not take malaria chemoprophylaxis as the Dominican Republic is not a malaria-endemic area. Her travel companions are asymptomatic. She denies any history of arthritis, autoimmune disease, recent tick exposures, blood transfusions, tattoos, or intravenous drug use. She works as a graphic designer and has no occupational exposures to infectious diseases.
   </p>
 
-  <!-- PARAGRAPH 3: Physical exam (vital signs, general appearance, key findings) -->
-  <!-- Example: "On examination, he appears comfortable at rest but becomes dyspneic when speaking in full sentences. Vital signs: temperature 36.8°C, heart rate 110 bpm..." -->
+  {/* PARAGRAPH 3: Physical exam (vital signs, general appearance, key findings) */}
+  {/* Example: "On examination, he appears comfortable at rest but becomes dyspneic when speaking in full sentences. Vital signs: temperature 36.8°C, heart rate 110 bpm..." */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     On examination, she appears uncomfortable and is holding her wrists and ankles gingerly. Vital signs: temperature 39.2°C, heart rate 102 bpm, blood pressure 118/76 mmHg, respiratory rate 16/min, oxygen saturation 98% on room air. Skin examination reveals a diffuse maculopapular rash on the trunk and extremities with sparing of the palms and soles; the rash is blanching, non-petechial, and consists of 2-5 mm erythematous macules and papules. Musculoskeletal exam demonstrates symmetric swelling and tenderness of the metacarpophalangeal joints, wrists, ankles, and knees with painful limited range of motion. There is mild periarticular edema and warmth over the affected joints without erythema. Passive movement elicits severe pain, but active range of motion is also limited by discomfort. There is no lymphadenopathy, hepatosplenomegaly, or meningeal signs.
   </p>
 
-  <!-- PARAGRAPH 4: Laboratory and imaging results (CBC, chem, inflammatory markers, microbiology, imaging) -->
-  <!-- Example: "Laboratory studies show normal complete blood count, comprehensive metabolic panel. B-type natriuretic peptide (BNP) is elevated at 850 pg/mL. Electrocardiogram reveals sinus tachycardia, right bundle branch block..." -->
+  {/* PARAGRAPH 4: Laboratory and imaging results (CBC, chem, inflammatory markers, microbiology, imaging) */}
+  {/* Example: "Laboratory studies show normal complete blood count, comprehensive metabolic panel. B-type natriuretic peptide (BNP) is elevated at 850 pg/mL. Electrocardiogram reveals sinus tachycardia, right bundle branch block..." */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     Laboratory studies show leukopenia (white blood cell count 2.8 × 10³/µL) with relative lymphopenia, thrombocytopenia (platelet count 112 × 10³/µL), and mild elevation of transaminases (AST 68 U/L, ALT 72 U/L). Serum creatinine and inflammatory markers (C-reactive protein 12 mg/L, erythrocyte sedimentation rate 18 mm/hr) are within normal limits. Rheumatoid factor and anti-cyclic citrullinated peptide antibodies are negative. Serum uric acid is 4.2 mg/dL. Rapid diagnostic tests for malaria (blood smear) and dengue (NS1 antigen) are negative. Blood cultures show no growth at 48 hours. Urinalysis is normal without proteinuria or hematuria. Reverse transcription polymerase chain reaction (RT-PCR) testing for arboviruses is pending. Plain radiographs of the affected joints show only soft tissue swelling without erosions or joint space narrowing. Chest radiograph is clear.
   </p>
 </div>
 
-<!-- IMAGE: Clinical image with proper attribution and alt text -->
-<!-- Final image path: src="/cases/chikungunya-fever/mosquito.png" -->
+{/* IMAGE: Clinical image with proper attribution and alt text */}
+{/* Final image path: src="/cases/chikungunya-fever/mosquito.png" */}
 <figure className="my-12">
   <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
     <Image
@@ -54,9 +54,9 @@ src="/cases/chikungunya-fever/mosquito.png"
   </figcaption>
 </figure>
 
-<!-- QUESTION 1: Typically diagnosis question -->
-<!-- Keep prompts short: don't restate vignette, don't name diagnosis if Q1 already did -->
-<!-- Shuffle answer positions: correct answer should be different letter each question -->
+{/* QUESTION 1: Typically diagnosis question */}
+{/* Keep prompts short: don't restate vignette, don't name diagnosis if Q1 already did */}
+{/* Shuffle answer positions: correct answer should be different letter each question */}
 <CaseQuestion
   pollId="case-chikungunya-fever-q1"
   title="Question 1"
@@ -100,8 +100,8 @@ src="/cases/chikungunya-fever/mosquito.png"
 <hr className="border-gray-200" />
 <div className="my-6" />
 
-<!-- QUESTION 2: Typically management, diagnostics, or complications -->
-<!-- Use different correct letter than Q1 -->
+{/* QUESTION 2: Typically management, diagnostics, or complications */}
+{/* Use different correct letter than Q1 */}
 <CaseQuestion
   pollId="case-chikungunya-fever-q2"
   title="Question 2"
@@ -141,7 +141,7 @@ src="/cases/chikungunya-fever/mosquito.png"
   ]}
 />
 
-<!-- Add more questions as needed (typically 3-4 total) -->
+{/* Add more questions as needed (typically 3-4 total) */}
 <div className="my-6" />
 <hr className="border-gray-200" />
 <div className="my-6" />
@@ -191,20 +191,20 @@ src="/cases/chikungunya-fever/mosquito.png"
 </h2>
 
 <div className="mx-auto max-w-5xl">
-  <!-- PARAGRAPH 1: Clinical reasoning and case approach -->
-  <!-- Explain how to approach the case, key findings, differential diagnosis -->
+  {/* PARAGRAPH 1: Clinical reasoning and case approach */}
+  {/* Explain how to approach the case, key findings, differential diagnosis */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     This case illustrates a classic presentation of chikungunya fever in a traveler returning from the Caribbean. The diagnostic approach begins with recognizing the triad of high fever, severe symmetric polyarthralgia, and maculopapular rash. Key epidemiological clues include travel to an endemic area (Dominican Republic) during peak transmission season and mosquito exposure. Laboratory findings of leukopenia and thrombocytopenia support viral etiology but are nonspecific. The differential diagnosis includes other arboviruses (dengue, Zika), rheumatological conditions, and other travel-associated infections. The severity of arthritis is the most distinguishing feature: chikungunya causes debilitating joint pain that often leads to a stooped posture ("that which bends up"), while dengue presents with myalgia ("breakbone fever") and more profound thrombocytopenia.
   </p>
 
-  <!-- PARAGRAPH 2: Key diagnostic or management decision point -->
-  <!-- Highlight critical decision points, guidelines, evidence -->
+  {/* PARAGRAPH 2: Key diagnostic or management decision point */}
+  {/* Highlight critical decision points, guidelines, evidence */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     Definitive diagnosis requires specific virological or serological testing. RT-PCR on serum is the test of choice during the first week of illness when viremia is highest, with sensitivity exceeding 90% in days 1-5. After day 7, IgM serology becomes the primary diagnostic method, though false negatives may occur early. Testing should include dengue virus due to overlapping epidemiology and clinical features. Public health reporting is mandatory in most jurisdictions as chikungunya is a nationally notifiable disease. According to CDC guidelines, travelers with suspected chikungunya should be reported to local health departments to facilitate surveillance and outbreak detection.
   </p>
 
-  <!-- PARAGRAPH 3: Additional clinical context or nuance -->
-  <!-- Discuss pitfalls, alternative approaches, special considerations -->
+  {/* PARAGRAPH 3: Additional clinical context or nuance */}
+  {/* Discuss pitfalls, alternative approaches, special considerations */}
   <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
     Management is supportive with antipyretics and NSAIDs for arthritis. Aspirin should be avoided due to bleeding risk, especially with thrombocytopenia. Most patients recover within 1-2 weeks, but approximately 30-40% develop chronic arthralgia lasting months to years. Risk factors for persistent arthritis include older age, high initial viral load, and pre-existing rheumatological disease. Serious complications are rare but include encephalitis, myocarditis, and Guillain-Barré syndrome.     Prevention focuses on mosquito avoidance (DEET, permethrin-treated clothing, screened accommodations) and elimination of breeding sites. A virus-like particle vaccine (VIMKUNYA) is approved in the United States for individuals aged 12 years and older. The CDC recommends vaccination for travelers to areas with chikungunya outbreaks and laboratory workers with potential exposure. For patients with chronic arthritis, rheumatology referral and trial of NSAIDs, corticosteroids, or disease-modifying antirheumatic drugs may be considered.
   </p>
@@ -222,8 +222,8 @@ src="/cases/chikungunya-fever/mosquito.png"
 
 <div className="mx-auto max-w-5xl">
   <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
-    <!-- 3-4 key learning points connected to the case -->
-    <!-- Each point should be a complete thought with clinical application -->
+    {/* 3-4 key learning points connected to the case */}
+    {/* Each point should be a complete thought with clinical application */}
     <li>
       <strong>Chikungunya fever is characterized by the triad of high fever, severe symmetric polyarthralgia, and maculopapular rash.</strong> The arthritis predominantly affects small joints (wrists, fingers, ankles) and can be debilitating. Differentiation from dengue is critical: dengue typically causes myalgia ("breakbone fever") with more severe thrombocytopenia and potential for hemorrhagic complications, while chikungunya arthritis is more pronounced.
     </li>
@@ -249,9 +249,9 @@ src="/cases/chikungunya-fever/mosquito.png"
 </h2>
 
 <div className="mx-auto max-w-5xl space-y-10">
-  <!-- Include 2-3 key references (guidelines, landmark trials, authoritative reviews) -->
-  <!-- Use current references (within 10 years unless landmark) -->
-  <!-- Include DOI links -->
+  {/* Include 2-3 key references (guidelines, landmark trials, authoritative reviews) */}
+  {/* Use current references (within 10 years unless landmark) */}
+  {/* Include DOI links */}
   <div>
     <p className="text-lg leading-6 text-gray-800 text-justify">
       Weaver SC, Lecuit M. Chikungunya Virus and the Global Spread of a Mosquito-Borne Disease. N Engl J Med. 2015;372(13):1231-1239.
