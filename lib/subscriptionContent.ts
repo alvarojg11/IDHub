@@ -42,7 +42,7 @@ function normalizeText(input: string, max = 700) {
 }
 
 function extractEmbeddedHtml(raw: string) {
-  const match = raw.match(/dangerouslySetInnerHTML\s*=\s*\{\{\s*__html:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/s);
+  const match = raw.match(/dangerouslySetInnerHTML[\s\S]*?__html:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/);
   if (!match) return null;
 
   const literal = match[1];
