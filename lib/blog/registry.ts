@@ -107,6 +107,7 @@ function extractSummary(raw: string) {
 
   const withoutExports = raw
     .replace(/export\s+const\s+\w+\s*=\s*\{[\s\S]*?\}\s*;/g, "")
+    .replace(/^export\s+const\s+.+$/gm, "")
     .replace(/^import\s+.+$/gm, "")
     .replace(/^<\/?.+>$/gm, "")
     .trim();
