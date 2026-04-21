@@ -737,6 +737,64 @@ export const CASES: CaseMeta[] = [
   
     },
   },
+  {
+    slug: "pml-iris",
+  
+  
+    title: "After the Headaches Faded",
+  
+  
+    description: "A patient with advanced HIV develops worsening focal deficits and a left frontal white matter lesion with midline shift after ART initiation.",
+  
+  
+    enable: true,
+  
+  
+    ogImage: "/cases/pml-iris/pml-iris.png",
+  
+  
+  
+  
+  
+  
+  
+  
+    teaser: "A 39-year-old man with advanced HIV develops aphasia, right-sided weakness, and seizures 10 months after cryptococcal meningitis and several months after starting ART. Brain MRI shows a large left frontal white matter lesion with midline shift and subfalcine herniation. What is the most likely explanation for this worsening lesion?",
+  
+  
+  
+  
+  
+  
+  
+  
+    tags: {
+      organisms: [
+        "JC polyomavirus",
+      ],
+  
+  
+  
+      syndromes: [
+        "Neuroinfection",
+        "HIV/AIDS",
+        "Immune Reconstitution Inflammatory Syndrome",
+      ],
+  
+  
+  
+  
+      concepts: [
+        "PML-IRIS",
+        "JC virus PCR",
+        "MRI mass effect",
+        "Continue ART",
+      ],
+  
+  
+  
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

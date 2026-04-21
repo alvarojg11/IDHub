@@ -686,6 +686,57 @@ export const CASES: CaseMeta[] = [
   
     },
   },
+  {
+    slug: "cutibacterium-acnes-shoulder-prosthetic-joint-infection",
+  
+  
+    title: "The Shoulder That Wouldn't Heal",
+  
+  
+    description: "Subtle signs and a revealing gram stain lead to the diagnosis of an unusual shoulder infection. Master the key learning points for managing similar cases.",
+  
+  
+    enable: true,
+    ogImage: "/cases/cutibacterium-acnes-shoulder-prosthetic-joint-infection/cacnes.png",
+  
+  
+  
+  
+    teaser: "A 68-year-old man presents with persistent right shoulder pain 8 months after total shoulder arthroplasty. Examination reveals limited range of motion and mild swelling, with synovial fluid showing gram-positive rods. What organism is most likely responsible and what is the appropriate management?",
+  
+  
+  
+  
+  
+  
+  
+  
+    tags: {
+      organisms: [
+        "Cutibacterium acnes",
+      ],
+  
+  
+  
+      syndromes: [
+        "Prosthetic Joint Infection",
+        "Orthopedic Infection",
+      ],
+  
+  
+  
+  
+      concepts: [
+        "Biofilm infection",
+        "Indolent infection",
+        "Shoulder arthroplasty",
+        "Culture‑negative infection",
+      ],
+  
+  
+  
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getPrevNext(slug: string) {

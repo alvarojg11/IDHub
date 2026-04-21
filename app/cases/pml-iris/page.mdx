@@ -1,0 +1,312 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pml-iris");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  After the Headaches Faded
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 39-year-old man with advanced HIV presents with 3 weeks of progressive right arm weakness, word-finding difficulty, and new focal seizures. Ten months earlier he was hospitalized with cryptococcal meningitis, treated with liposomal amphotericin B plus flucytosine followed by high-dose fluconazole, and subsequently started antiretroviral therapy 5 weeks after antifungal induction. His headaches from cryptococcosis had improved, but over the past month his family noticed increasing apathy, slowed speech, and clumsiness of the right hand. On the day of admission he developed a generalized tonic-clonic seizure preceded by right facial twitching.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He reports excellent adherence to bictegravir, emtricitabine, and tenofovir alafenamide as well as fluconazole consolidation therapy and trimethoprim-sulfamethoxazole prophylaxis. His HIV RNA has fallen from 640,000 copies/mL at diagnosis to 84 copies/mL, but his CD4 count has risen only from 24 cells/mm3 to 86 cells/mm3. He has had no recent travel, no tuberculosis exposure, and no known malignancy. He denies fever, photophobia, or recurrent severe headache. There has been no interruption in ART, and he has not received systemic corticosteroids. Because of the prior cryptococcal meningitis, the emergency team is initially concerned about relapse or another opportunistic CNS process.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.1 C, heart rate 96/min, blood pressure 132/78 mmHg, respiratory rate 18/min, and oxygen saturation 99% on room air. He is awake but slowed, with nonfluent speech and mild expressive aphasia. Cranial nerves are intact. Strength is 4/5 in the right upper extremity and 4+/5 in the right leg with a pronator drift. Hyperreflexia is present on the right with an extensor plantar response. There is no meningismus, papilledema, or retinal lesion. The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cell count 4.8 x 10^3/uL, hemoglobin 11.2 g/dL, platelet count 211 x 10^3/uL, and creatinine 0.9 mg/dL. Serum cryptococcal antigen remains positive at a low unchanged titer. Lumbar puncture reveals opening pressure 18 cm H2O, 4 white blood cells/uL, protein 61 mg/dL, glucose 58 mg/dL, negative fungal culture, and negative CSF cryptococcal antigen by lateral flow assay. CSF toxoplasma PCR is negative, Epstein-Barr virus DNA is not detected, and JC virus PCR is positive at low level. Brain MRI demonstrates a large asymmetric left frontal subcortical T2 hyperintense lesion. 
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/pml-iris/pml-iris.png"
+      alt="Axial T2-weighted brain MRI showing a large left frontal white matter lesion with surrounding edema, leftward midline shift, and subfalcine herniation"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Axial T2-weighted brain MRI demonstrates an expansile left frontal white matter lesion with mass effect, leftward midline shift, and subfalcine herniation.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-pml-iris-q1"
+  title="Question 1"
+  prompt="What is the most likely explanation for this patient's worsening brain lesion?"
+  options={[
+    {
+      id: "A",
+      label: "Relapsed cryptococcal meningitis with uncontrolled intracranial hypertension",
+      feedback:
+        "Relapsed cryptococcal meningitis would be more likely to cause recurrent headache, elevated opening pressure, positive CSF cryptococcal studies, and meningeal or gelatinous pseudocyst findings rather than an asymmetric frontal white matter lesion involving U-fibers. The CSF profile here argues against microbiologic relapse.",
+    },
+    {
+      id: "B",
+      label: "Primary CNS lymphoma related to Epstein-Barr virus",
+      feedback:
+        "Primary CNS lymphoma usually presents with enhancing mass lesions, often periventricular, and EBV DNA is frequently detectable in CSF in advanced HIV. The low-level JC virus PCR and the subcortical demyelinating pattern make lymphoma less likely.",
+    },
+    {
+      id: "C",
+      label: "Cerebral toxoplasmosis despite trimethoprim-sulfamethoxazole prophylaxis",
+      feedback:
+        "Toxoplasmosis usually causes multiple ring-enhancing lesions with prominent vasogenic edema, most often in the basal ganglia or corticomedullary junction. It remains in the differential for advanced HIV, but the MRI pattern and positive CSF JC virus PCR point elsewhere.",
+    },
+    {
+      id: "D",
+      label: "Paradoxical PML with immune reconstitution inflammatory syndrome",
+      correct: true,
+      feedback:
+        "Correct. PML-IRIS is suggested by progressive focal deficits after ART initiation, virologic suppression with partial immune recovery, a JC virus positive CSF, and MRI findings of a subcortical white matter lesion with enhancement and mass effect. Classic PML usually has little or no enhancement and limited mass effect, so midline shift and subfalcine herniation strongly suggest an inflammatory component.",
+    },
+    {
+      id: "E",
+      label: "HIV-associated ischemic stroke",
+      feedback:
+        "Stroke would not explain the progressive evolution over weeks, multifocal demyelinating imaging pattern, or positive JC virus PCR. Patchy diffusion restriction can occur at the advancing edge of PML lesions and should not be mistaken for acute infarction.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pml-iris-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next management step?"
+  options={[
+    {
+      id: "A",
+      label: "Stop ART to reduce the inflammatory response",
+      feedback:
+        "Interrupting ART is generally not recommended in HIV-associated PML or PML-IRIS because immune restoration is the main effective therapy against JC virus. Stopping ART can worsen viral control and compromise survival.",
+    },
+    {
+      id: "B",
+      label: "Continue ART and give corticosteroids because of life-threatening mass effect",
+      correct: true,
+      feedback:
+        "Correct. The cornerstone of PML treatment is continued immune reconstitution with ART. In PML-IRIS, corticosteroids are reserved for severe inflammatory disease such as marked edema, enhancement, mass effect, or herniation risk. This patient has midline shift and subfalcine herniation, so anti-inflammatory therapy is reasonable while maintaining ART.",
+    },
+    {
+      id: "C",
+      label: "Escalate fluconazole and repeat amphotericin B for presumed cryptococcal relapse",
+      feedback:
+        "There is no microbiologic evidence of recurrent cryptococcosis. Escalating antifungal therapy would delay appropriate treatment of inflammatory PML and expose the patient to unnecessary toxicity.",
+    },
+    {
+      id: "D",
+      label: "Start whole-brain radiation for presumed lymphoma",
+      feedback:
+        "Radiation has no role in PML-IRIS and should not be started without evidence of lymphoma. The CSF and MRI pattern do not support this diagnosis.",
+    },
+    {
+      id: "E",
+      label: "Add cidofovir for targeted anti-JC virus therapy",
+      feedback:
+        "No antiviral agent has shown consistent clinical benefit for JC virus in HIV-associated PML. Historical therapies such as cidofovir or cytarabine are not standard management; immune restoration remains the key intervention.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pml-iris-q3"
+  title="Question 3"
+  prompt="If CSF JC virus PCR were negative, which interpretation would be most accurate?"
+  options={[
+    {
+      id: "A",
+      label: "A negative test excludes PML, so another diagnosis must be present",
+      feedback:
+        "A negative CSF JC virus PCR does not exclude PML, especially early disease or inflammatory PML-IRIS where viral burden may be low. Clinical and radiographic context still matters.",
+    },
+    {
+      id: "B",
+      label: "The diagnosis would become cryptococcal IRIS until proven otherwise",
+      feedback:
+        "Prior cryptococcal disease complicates the differential, but a negative JC virus PCR alone does not establish cryptococcal IRIS. The CSF profile, imaging pattern, and microbiology would still need to support that diagnosis.",
+    },
+    {
+      id: "C",
+      label: "Negative PCR is expected once ART has been started, so no further testing is needed",
+      feedback:
+        "ART can lower JC viral burden, but dismissing the diagnosis on that basis is unsafe. Persistently suspicious cases require repeat testing with a sensitive assay or tissue diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Brain biopsy should be avoided because it cannot distinguish PML from IRIS",
+      feedback:
+        "Brain biopsy can help when CSF is nondiagnostic and suspicion remains high. Histopathology may demonstrate demyelination, JC virus infected cells, and the inflammatory infiltrates that support PML-IRIS.",
+    },
+    {
+      id: "E",
+      label: "PML-IRIS can still be present, and repeat ultrasensitive CSF testing or biopsy may be required",
+      correct: true,
+      feedback:
+        "Correct. CSF JC virus PCR sensitivity is imperfect, and inflammatory PML may have low viral copy numbers. When MRI and clinical course strongly suggest PML-IRIS, clinicians should pursue repeat CSF testing with a sensitive assay or brain biopsy rather than abandoning the diagnosis.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-pml-iris-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The central diagnostic problem in this case is distinguishing recurrent cryptococcal disease from a new or evolving white matter process in a patient with advanced HIV who has recently reconstituted immunity on ART. The MRI pattern is the key clue. PML classically produces asymmetric subcortical white matter lesions that involve the U-fibers and are hyperintense on T2 and FLAIR sequences. In contrast, cryptococcal relapse more often produces meningeal disease, hydrocephalus, or gelatinous pseudocysts rather than a destructive frontal white matter lesion. Toxoplasmosis and primary CNS lymphoma remain important alternative diagnoses in advanced HIV, but their radiographic patterns are usually more nodular and mass-like.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    What makes this case specifically inflammatory PML is the timing after ART and the presence of enhancement and mass effect. Classic PML often has minimal enhancement and little edema. Once immune recovery begins, however, inflammatory infiltration can make lesions enlarge rapidly and even produce midline shift or herniation. A low-level positive JC virus PCR supports the diagnosis, but clinicians should remember that CSF PCR sensitivity is incomplete, particularly in early disease and PML-IRIS. In patients with convincing clinical and imaging features, a negative test should prompt repeat CSF analysis with a sensitive assay or consideration of brain biopsy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management centers on maintaining ART because immune reconstitution is the only intervention consistently associated with improved survival in HIV-related PML. The literature on corticosteroids in PML-IRIS is limited to case reports, case series, and retrospective cohorts, with mixed results and no proven survival benefit overall. Even so, most reviews support using steroids selectively when the inflammatory response is causing severe edema, enhancement, declining neurologic status, or mass effect. This patient has subfalcine herniation, so the immediate priority is to control the inflammatory swelling while continuing ART and standard supportive neurologic care such as seizure management. The prior history of cryptococcal meningitis is an important distractor, but the normal opening pressure, negative fungal studies, and incompatible MRI pattern argue against relapse as the driver of his current deterioration.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pml-iris-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <strong>PML-IRIS should be suspected when focal neurologic deficits worsen after ART initiation in a patient whose HIV viremia is improving.</strong> Enhancement, edema, and mass effect are atypical for classic PML and should raise concern for an inflammatory form rather than pure viral progression.
+    </li>
+    <li>
+      <strong>The MRI pattern helps separate PML from other advanced HIV brain lesions.</strong> Asymmetric subcortical white matter disease involving U-fibers favors PML, whereas recurrent cryptococcosis is more often meningeal and toxoplasmosis or lymphoma usually produce more nodular enhancing masses.
+    </li>
+    <li>
+      <strong>CSF JC virus PCR is helpful but not perfectly sensitive.</strong> A negative result does not exclude PML-IRIS when imaging and clinical course are strongly suggestive; repeat testing with a more sensitive assay or brain biopsy may be necessary.
+    </li>
+    <li>
+      <strong>ART should usually be continued in HIV-associated PML.</strong> Corticosteroids are reserved for severe inflammatory PML with edema, enhancement, mass effect, or impending herniation, not as routine therapy for every case, because available steroid data are observational and have not shown clear overall outcome benefit.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Fournier A, Martin-Blondel G, Lechapt-Zalcman E, et al. Immune Reconstitution Inflammatory Syndrome Unmasking or Worsening AIDS-Related Progressive Multifocal Leukoencephalopathy: A Literature Review. Front Immunol. 2017;8:577.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fimmu.2017.00577"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3389/fimmu.2017.00577
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Moulignier A, Lecler A. Neurological complications of JC virus infection: A review. Rev Med Interne. 2021;42(3):177-185.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.revmed.2020.08.021"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.revmed.2020.08.021
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Mori K, Kurokawa M, Harada M, et al. Overview of MRI findings in progressive multifocal leukoencephalopathy. Jpn J Radiol. 2025;43(12):1908-1925.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11604-025-01837-y"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1007/s11604-025-01837-y
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sainz-de-la-Maza S, Casado JL, Perez-Elias MJ, et al. Incidence and prognosis of immune reconstitution inflammatory syndrome in HIV-associated progressive multifocal leucoencephalopathy. Eur J Neurol. 2016;23(5):919-925.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/ene.12963"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1111/ene.12963
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Santana MN, Ferrari R, Macedo AC, et al. Acquired immunodeficiency syndrome-related progressive multifocal leukoencephalopathy-immune reconstitution inflammatory syndrome: prevalence, main characteristics, and outcomes in a Brazilian center. Arq Neuropsiquiatr. 2023;81(10):883-890.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1055/s-0043-1772831"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1055/s-0043-1772831
+      </a>
+    </p>
+  </div>
+</div>
