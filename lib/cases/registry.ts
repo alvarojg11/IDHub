@@ -697,6 +697,7 @@ export const CASES: CaseMeta[] = [
   
   
     enable: true,
+    ogImage: "/cases/cutibacterium-acnes-shoulder-prosthetic-joint-infection/cacnes.png",
   
   
   
