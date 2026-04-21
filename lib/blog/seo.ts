@@ -11,6 +11,7 @@ type BlogMetaInput = {
 export function buildBlogMetadata(slug: string, post: BlogMetaInput): Metadata {
   const url = `${BASE_URL}/blog/${slug}`;
   const seoTitle = `${post.title} | IDHub Blog`;
+  const ogImageUrl = `${BASE_URL}/api/og/blog/${slug}`;
 
   return {
     title: { absolute: seoTitle },
@@ -22,13 +23,15 @@ export function buildBlogMetadata(slug: string, post: BlogMetaInput): Metadata {
       siteName: "InfectiousDiseaseHub",
       title: seoTitle,
       description: post.description,
+      images: [ogImageUrl],
       publishedTime: post.publishedAt,
       authors: ["Alvaro Ayala"],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: seoTitle,
       description: post.description,
+      images: [ogImageUrl],
     },
   };
 }

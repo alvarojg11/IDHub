@@ -18,12 +18,14 @@ export const metadata: Metadata = {
     title: "Blog — Infectious Diseases Teaching Essays | IDHub",
     description:
       "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+    images: [`${BASE_URL}/api/og/blog/index`],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Blog — Infectious Diseases Teaching Essays | IDHub",
     description:
       "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+    images: [`${BASE_URL}/api/og/blog/index`],
   },
 };
 

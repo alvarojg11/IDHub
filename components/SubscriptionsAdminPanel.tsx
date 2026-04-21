@@ -40,6 +40,16 @@ type NotifyResponse = {
   failures?: Array<{ email: string; contentId: string; reason: string }>;
 };
 
+type PreviewResponse = {
+  ok: boolean;
+  error?: string;
+  contentId?: string;
+  title?: string;
+  subject?: string;
+  html?: string;
+  text?: string;
+};
+
 const SECRET_KEY = "idhub-admin-secret";
 
 function fmtDate(value: string | null) {
@@ -80,8 +90,12 @@ export default function SubscriptionsAdminPanel() {
   const [notifyResult, setNotifyResult] = useState<NotifyResponse | null>(null);
   const [notifyError, setNotifyError] = useState<string | null>(null);
   const [mode, setMode] = useState<"new" | "targeted" | "backfill">("targeted");
-  const [caseSlug, setCaseSlug] = useState("carrions-disease");
+  const [targetKind, setTargetKind] = useState<"case" | "blog">("case");
+  const [targetSlug, setTargetSlug] = useState("carrions-disease");
   const [dryRun, setDryRun] = useState(true);
+  const [previewLoading, setPreviewLoading] = useState(false);
+  const [previewError, setPreviewError] = useState<string | null>(null);
+  const [preview, setPreview] = useState<PreviewResponse | null>(null);
 
   const hasSecret = secret.trim().length > 0;
 
@@ -132,8 +146,8 @@ export default function SubscriptionsAdminPanel() {
       setNotifyError("Enter your admin secret first.");
       return;
     }
-    if (mode === "targeted" && !caseSlug.trim()) {
-      setNotifyError("Enter a case slug for targeted send.");
+    if (mode === "targeted" && !targetSlug.trim()) {
+      setNotifyError(`Enter a ${targetKind} slug for targeted send.`);
       return;
     }
 
@@ -142,7 +156,9 @@ export default function SubscriptionsAdminPanel() {
     setNotifyResult(null);
     try {
       const payload: Record<string, unknown> = { dryRun };
-      if (mode === "targeted") payload.caseSlug = caseSlug.trim();
+      if (mode === "targeted") {
+        payload[targetKind === "case" ? "caseSlug" : "blogSlug"] = targetSlug.trim();
+      }
       if (mode === "backfill") payload.backfill = true;
 
       const res = await fetch("/api/subscriptions/notify", {
@@ -168,6 +184,44 @@ export default function SubscriptionsAdminPanel() {
       setNotifyError(e instanceof Error ? e.message : "Failed to send notification.");
     } finally {
       setNotifyLoading(false);
+    }
+  }
+
+  async function loadPreview() {
+    if (!secret.trim()) {
+      setPreviewError("Enter your admin secret first.");
+      return;
+    }
+    if (!targetSlug.trim()) {
+      setPreviewError(`Enter a ${targetKind} slug to preview.`);
+      return;
+    }
+
+    setPreviewLoading(true);
+    setPreviewError(null);
+    setPreview(null);
+    try {
+      const query = new URLSearchParams({ kind: targetKind, slug: targetSlug.trim() });
+      const res = await fetch(`/api/subscriptions/preview?${query.toString()}`, {
+        headers: {
+          "x-notify-secret": secret.trim(),
+        },
+        cache: "no-store",
+      });
+      const body = await readJsonSafely<PreviewResponse>(res);
+      if (!res.ok || !body?.ok) {
+        throw new Error(
+          requestErrorMessage(res, body, "Server returned an empty or invalid response")
+        );
+      }
+      setPreview(body);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(SECRET_KEY, secret.trim());
+      }
+    } catch (e) {
+      setPreviewError(e instanceof Error ? e.message : "Failed to load preview.");
+    } finally {
+      setPreviewLoading(false);
     }
   }
 
@@ -291,7 +345,7 @@ export default function SubscriptionsAdminPanel() {
               checked={mode === "targeted"}
               onChange={() => setMode("targeted")}
             />
-            Targeted case
+            Targeted content
           </label>
           <label className="flex items-center gap-2 rounded-lg border border-[var(--border)] bg-white p-3 text-sm">
             <input type="radio" checked={mode === "new"} onChange={() => setMode("new")} />
@@ -308,18 +362,39 @@ export default function SubscriptionsAdminPanel() {
         </div>
 
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <select
+            value={targetKind}
+            onChange={(e) => setTargetKind(e.target.value as "case" | "blog")}
+            disabled={mode !== "targeted"}
+            className="rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] disabled:opacity-50"
+          >
+            <option value="case">Case</option>
+            <option value="blog">Blog</option>
+          </select>
           <input
             type="text"
-            value={caseSlug}
-            onChange={(e) => setCaseSlug(e.target.value)}
+            value={targetSlug}
+            onChange={(e) => setTargetSlug(e.target.value)}
             disabled={mode !== "targeted"}
-            placeholder="case slug, e.g. carrions-disease"
+            placeholder={
+              targetKind === "case"
+                ? "case slug, e.g. carrions-disease"
+                : "blog slug, e.g. new-hardware-old-infection"
+            }
             className="w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--foreground)] disabled:opacity-50"
           />
           <label className="inline-flex items-center gap-2 text-sm text-[var(--foreground)]">
             <input type="checkbox" checked={dryRun} onChange={(e) => setDryRun(e.target.checked)} />
             Dry run
           </label>
+          <button
+            type="button"
+            onClick={loadPreview}
+            disabled={previewLoading || !hasSecret}
+            className="rounded-lg border border-[var(--border)] bg-white px-4 py-2 text-sm font-medium text-[var(--foreground)] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {previewLoading ? "Loading Preview..." : "Preview Email"}
+          </button>
           <button
             type="button"
             onClick={sendNotification}
@@ -331,10 +406,26 @@ export default function SubscriptionsAdminPanel() {
         </div>
 
         {notifyError ? <p className="mt-3 text-sm text-red-700">{notifyError}</p> : null}
+        {previewError ? <p className="mt-3 text-sm text-red-700">{previewError}</p> : null}
         {notifyResult ? (
           <pre className="mt-3 overflow-x-auto rounded-lg border border-[var(--border)] bg-white p-3 text-xs text-[var(--foreground)]">
             {JSON.stringify(notifyResult, null, 2)}
           </pre>
+        ) : null}
+        {preview?.html ? (
+          <div className="mt-4 space-y-3 rounded-lg border border-[var(--border)] bg-white p-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+                Preview Subject
+              </p>
+              <p className="mt-1 text-sm text-[var(--foreground)]">{preview.subject}</p>
+            </div>
+            <iframe
+              title="Email preview"
+              srcDoc={preview.html}
+              className="h-[720px] w-full rounded-lg border border-[var(--border)] bg-[var(--background)]"
+            />
+          </div>
         ) : null}
       </div>
     </section>

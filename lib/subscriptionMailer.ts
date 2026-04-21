@@ -35,6 +35,16 @@ type MailInput = {
   replyTo?: string;
 };
 
+type ContentUpdateEmailInput = {
+  title: string;
+  url: string;
+  kind: "case" | "blog";
+  summary?: string | null;
+  firstQuestion?: string | null;
+  imageUrl?: string | null;
+  unsubscribeToken: string;
+};
+
 async function sendViaResend(input: MailInput) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL;
@@ -74,6 +84,15 @@ export async function sendContentUpdateEmail(args: {
   imageUrl?: string | null;
   unsubscribeToken: string;
 }) {
+  const email = buildContentUpdateEmail(args);
+
+  if (!canSendEmail()) {
+    return { ok: false as const, reason: "provider_not_configured" as const };
+  }
+  return sendViaResend({ to: args.to, subject: email.subject, html: email.html, text: email.text });
+}
+
+export function buildContentUpdateEmail(args: ContentUpdateEmailInput) {
   const baseUrl = getAppBaseUrl();
   const unsubscribeUrl = `${baseUrl}/subscribe/unsubscribe?token=${encodeURIComponent(args.unsubscribeToken)}`;
   const kindLabel = args.kind === "case" ? "Case" : "Blog Post";
@@ -89,7 +108,7 @@ export async function sendContentUpdateEmail(args: {
     `A new IDHub ${kindLabel.toLowerCase()} is available:`,
     `${args.title}`,
   ];
-  if (summary && args.kind === "case") {
+  if (summary) {
     textParts.push("", `Preview: ${args.summary?.trim() ?? ""}`);
   }
   if (firstQuestion && args.kind === "case") {
@@ -101,11 +120,12 @@ export async function sendContentUpdateEmail(args: {
   textParts.push("", args.url, "", `Unsubscribe: ${unsubscribeUrl}`);
   const text = textParts.join("\n");
 
-  const casePreviewHtml =
-    args.kind === "case" && summary
+  const summaryHtml =
+    summary
       ? `
           <div style="margin: 0 0 16px; border: 1px solid #dde5e2; border-radius: 12px; background: #ffffff; padding: 16px;">
-            <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #102019;">${summary}</p>
+            <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #145c47; letter-spacing: 0.12em; text-transform: uppercase;">${args.kind === "case" ? "Preview" : "Opening Lines"}</p>
+            <p style="margin: 0; font-size: ${args.kind === "case" ? "14px" : "16px"}; line-height: ${args.kind === "case" ? "1.7" : "1.75"}; color: #102019;${args.kind === "blog" ? " font-style: italic;" : ""}">${summary}</p>
           </div>
         `
       : "";
@@ -133,6 +153,8 @@ export async function sendContentUpdateEmail(args: {
         `
       : "";
 
+  const ctaLabel = args.kind === "blog" ? "Read the full post" : `Read ${kindLabel}`;
+
   const html = `
     <div style="margin: 0; padding: 32px 16px; background: #f3f7f6; font-family: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #102019;">
       <div style="max-width: 600px; margin: 0 auto;">
@@ -150,11 +172,11 @@ export async function sendContentUpdateEmail(args: {
 
           <div style="padding: 0 28px 28px;">
             ${imageHtml}
-            ${casePreviewHtml}
+            ${summaryHtml}
             ${firstQuestionHtml}
 
             <div style="text-align: center; margin: 8px 0 0;">
-              <a href="${args.url}" style="display: inline-block; padding: 12px 28px; border-radius: 999px; background: #145c47; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 12px 28px rgba(20, 92, 71, 0.22);">Read ${kindLabel}</a>
+              <a href="${args.url}" style="display: inline-block; padding: 12px 28px; border-radius: 999px; background: #145c47; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 12px 28px rgba(20, 92, 71, 0.22);">${ctaLabel}</a>
             </div>
           </div>
 
@@ -171,10 +193,7 @@ export async function sendContentUpdateEmail(args: {
     </div>
   `;
 
-  if (!canSendEmail()) {
-    return { ok: false as const, reason: "provider_not_configured" as const };
-  }
-  return sendViaResend({ to: args.to, subject, html, text });
+  return { subject, html, text };
 }
 
 export async function sendWelcomeEmail(args: {

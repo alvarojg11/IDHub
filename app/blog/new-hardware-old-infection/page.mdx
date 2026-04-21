@@ -1,0 +1,127 @@
+import BlogPostShell from "@/components/BlogPostShell";
+import { buildBlogMetadata } from "@/lib/blog/seo";
+
+export const post = {
+  title: "New Hardware, Old Infection: When Should We Suppress After Endocarditis Surgery?",
+  description: "A bedside question about prosthetic valve endocarditis, aortic root abscess, new hardware in an infected field, and when suppressive therapy actually fits after surgery.",
+  publishedAt: "2026-04-20",
+};
+
+export const metadata = buildBlogMetadata("new-hardware-old-infection", post);
+
+<BlogPostShell title={post.title} description={post.description} slug={"new-hardware-old-infection"} publishedAt={post.publishedAt}>
+
+One of the last questions that stayed with me from service was not which antibiotic to choose, but when to stop choosing antibiotics at all.
+
+I recently had a case of prosthetic valve endocarditis with a large aortic root abscess that ultimately required aortic root and aortic valve replacement. When we were discussing the case with my attending, a classic question came up: once this patient completes the usual at least 6 weeks of curative therapy, do we offer suppressive antibiotics?
+
+My instinct was no. The infected tissue had been removed. The abscess had been debrided. Reconstruction had been performed. In other words, source control seemed to have been achieved. But my attending offered a different frame: new hardware had just been placed into an infected field, so perhaps we should assume that the new prosthetic material was contaminated and suppress indefinitely.
+
+That exchange sent me into the literature, because this is exactly the kind of question that often gets answered on rounds with more certainty than the evidence deserves.
+
+### First, what do we mean by suppressive antibiotic therapy?
+
+Suppressive antibiotic therapy, or SAT, is not the same thing as standard curative treatment. It usually refers to prolonged, sometimes life-long, antimicrobial therapy given after an initial full treatment course, with the goal of reducing relapse risk when cure is uncertain or source control is incomplete. In other words, SAT is usually a secondary prevention strategy, not the main curative phase.
+
+This concept is familiar in some parts of ID. We accept long-term therapy much more comfortably in diseases such as coccidioidal meningitis, and the prosthetic joint infection literature has built a much clearer space for suppressive therapy when infected hardware cannot be removed. But infective endocarditis is different. Here, the traditional goal is cure, and cure usually rests on two pillars: adequate bactericidal therapy and source control when source control is needed.
+
+### The endocarditis guidelines are much quieter than many of us think
+
+This was the first important finding: modern endocarditis guidance does not give strong, broad recommendations for chronic suppressive therapy after routine infective endocarditis treatment.
+
+In the study by Beaumont et al., the SATIE observational cohort, the authors also summarized this landscape well. In their review of contemporary guidance, they noted that the 2023 ESC endocarditis guidelines by Delgado et al. clearly recommend suppressive therapy for fungal endocarditis, mention it as a possible salvage option when patients with infective endocarditis do not undergo indicated surgery, and discuss it in cardiac device infection when complete device removal is not possible. But they also emphasized what many of us sense in practice: there are no clear protocols, no high-quality comparative data, and no well-defined indications for most infective endocarditis scenarios.
+
+That is a very different statement from saying, "new prosthetic material in an infected field always requires lifelong suppression."
+
+### Where suppressive therapy seems most defensible in endocarditis
+
+In the SATIE cohort, 42 patients with infective endocarditis received long-term oral suppressive therapy. Most had prosthetic material or cardiac devices. As expected, the most common reason was not surgery after successful source control, but the opposite: surgery was indicated and not performed. Other reasons included incomplete removal of prosthetic material, uncontrolled infection source, or persistent abnormal uptake on nuclear imaging. That is an important pattern. SAT was mostly being used as salvage or palliation in patients left with some sort of residual material or residual focus that could still plausibly remain infected.
+
+Their outcomes were acceptable given how fragile this population was, but hardly reassuring enough to make suppression sound routine. At one year, survival without recurrence was about 74%, adverse events occurred in 12%, and breakthrough second endocarditis episodes also occurred in 12%. The authors were appropriately cautious: this remains an empirical practice, and prospective comparative studies are needed.
+
+To me, that last point really summarizes this whole discussion. SAT comes across as an imperfect solution when surgery is not possible, source control is incomplete, or something infected is still being left behind. But it becomes much less clear in the case where surgery was actually pursued and source control seems to have been achieved.
+
+### What about surgery? Does new valve material automatically mean chronic suppression?
+
+This is the part that most changed my thinking.
+
+There is older but still very relevant literature showing that relapse after valve surgery for active infective endocarditis is uncommon when patients receive an appropriate curative course and surgery achieves control of the infected focus. In a large retrospective series by Morris and colleagues, relapse after surgery occurred in only 3 of 358 operations, about 0.8%, and it was not associated with longer postoperative antibiotic duration, positive valve cultures, Gram stain positivity, or perivalvular infection. Their conclusion was strikingly practical: it was unnecessary to automatically restart an arbitrary new 4-6 week postoperative clock after surgery, and simply completing the planned treatment course was usually enough.
+
+That paper does not directly answer every modern prosthetic valve question, but it does push against the reflex that surgery in an infected field automatically converts the patient into someone who needs indefinite suppressive therapy.
+
+If surgery has removed infected tissue, drained the abscess, and reconstructed the anatomy, then the logic of management should still begin with cure, not default suppression. Otherwise, we are implicitly saying that every prosthetic reconstruction for active endocarditis is permanently infected, and the literature does not support that as a universal rule.
+
+### Why this feels so different in vascular graft and other endovascular infections
+
+Once I moved outside classic valvular endocarditis, I started to understand where some of this clinical instinct comes from.
+
+The vascular graft and endograft literature is far more comfortable with long-term or lifelong antibiotics, especially when complete removal or debridement is not possible. The 2016 AHA scientific statement on vascular graft infections explicitly allows suppressive therapy in selected complex cases, including poor surgical candidates and difficult organisms, even if the evidence level is low. More importantly, the conceptual model is different: residual infected prosthetic material is often the rule rather than the exception.
+
+Even the diagnostic frameworks reflect that mindset. In the paper by Lyons et al., which proposed the MAGIC definition for aortic graft infection, MAGIC stands for Management of Aortic Graft Infection Collaboration. In that framework, deployment of an endovascular stent graft into an infected field is treated as part of the clinical-surgical logic of graft infection itself. In practical terms, if you place a graft into tissue that is already infected, such as a mycotic aneurysm or another clearly contaminated operative field, the new prosthetic material is not being introduced into a sterile environment. That means the possibility of ongoing prosthetic infection is built into the problem from the start. In other words, in vascular surgery, placing prosthetic material into an infected environment often means knowingly accepting ongoing prosthetic infection risk because the infected tissue cannot always be fully removed or sterilized first.
+
+A recent systematic review of infective native aortic aneurysm surgery makes this even clearer. Across 42 studies, long-term antibiotics were associated with lower vascular graft infection rates after open repair, and lifelong antibiotics showed a favorable trend after endovascular intervention. The authors concluded that after open repair with synthetic grafts or after endovascular aortic repair, antimicrobial therapy should continue for at least 3 to 6 months and in selected cases be lifelong.
+
+That is not the same clinical world as complete excision of infected valve tissue with valve and root reconstruction. The analogy is understandable, but imperfect.
+
+### So what should we do with the patient who has prosthetic valve endocarditis, root abscess, and then major reconstruction?
+
+This is where I think the discussion becomes much more nuanced. If the infection involves not only the valve but also the aortic root or adjacent aortic tissue, then some extrapolation from the vascular graft literature becomes reasonable, because part of the reconstruction is no longer purely valvular but also prosthetic repair of previously infected aortic tissue. Looking at the systematic review by Wu et al., `long-term` antibiotics meant more than 4 to 6 weeks total after surgery, counting both intravenous and oral therapy, whereas `lifelong` meant indefinite oral treatment after discharge. In the open-surgery studies, postoperative strategies were heterogeneous: some used only 4 to 6 weeks, others treated for around 3 months, some reported median durations such as 8.5 or 16 weeks, and some cohorts continued lifelong oral therapy. In their subgroup analysis, open repair was associated with lower graft infection rates when long-term antibiotics were used, 2.7% compared with 8.3% without long-term therapy. However, within that same open-repair group, lifelong therapy did not clearly outperform non-lifelong long-term therapy, 1.5% versus 3.0%. So to me, those data do support taking the aortic root component seriously, but they still do not clearly prove that every patient who undergoes curative surgery with root reconstruction should automatically be committed to lifelong suppressive antibiotics.
+
+By contrast, I would think much harder about SAT if any of the following remain true: source control is incomplete, some infected prosthetic material could not be removed, there is another uncontrolled source, postoperative imaging remains worrisome, the patient has repeated relapses, or the whole course feels more like containment than cure.
+
+That may sound obvious, but it is actually the central lesson from reading this literature: suppressive therapy is most defensible when there is something concrete left to suppress.
+
+### The real problem may be that we are often treating uncertainty
+
+Part of why this topic is so interesting is that it exposes how nuanced ID decision-making can be, and how deeply these choices are often anchored in the details of the specific case rather than in a single general rule.
+
+A patient with prosthetic valve endocarditis and a root abscess makes everyone uneasy. We know the stakes are high. We know relapse would be catastrophic. We know redo surgery may be difficult or impossible. In that setting, it is very understandable that continuing some form of suppressive therapy can feel like the safer option, especially when we do not know with certainty how much residual risk is still there.
+
+But the fact that a decision reduces our anxiety, especially when antibiotics are being considered as "lifelong," does not necessarily mean it reduces the patient's risk.
+
+Suppressive therapy has real costs: adverse effects, drug interactions, pill burden, microbiome disruption, selective pressure, and diagnostic confusion later on. Lau and colleagues made this point years ago in their review of life-long antimicrobial therapy: we often inherit these practices with more confidence than evidence.
+
+That does not mean SAT is wrong. It means we should name it honestly. In many endovascular infections it is reasonable. In some endocarditis cases it is the best available option. But after apparently successful surgical source control for endocarditis, it should feel like a carefully justified exception, not an automatic reflex.
+
+### My take after reading the literature
+
+I came away from this question less dogmatic than when I started, but more convinced that the way we frame the question really matters.
+
+For infective endocarditis, my tendency would be to offer the usual 6-week curative treatment when curative surgery has been performed. I would think much more seriously about suppressive therapy in cases where surgery cannot be done, source control is incomplete, infected material remains, or relapse risk stays unacceptably high because of something tangible and unresolved.
+
+In the original case that prompted all of this, I think the answer depends on how much weight we give to the aortic root component of the infection, how confident we are that source control was truly achieved, and whether we believe the residual risk looks more like cured endocarditis or more like reconstructed infected aortic tissue. That is exactly where the literature becomes thin and where judgment matters.
+
+The more honest answer is that this decision is rarely simple. It depends on how we assess the true extent of infection, which structures were affected, how much source control was actually achieved, what residual material remains, what the patient's overall prognosis is, and what costs we are accepting if we decide to continue therapy for months or even for life. In the end, the question is not just whether suppressive therapy is good or bad, but whether it makes sense in that specific clinical context. And to me, that is exactly why ID is so interesting: the answer lives in the details.
+
+## Practical Takeaways
+
+- Suppressive antibiotic therapy is usually a secondary prevention or salvage strategy, not part of routine curative treatment for infective endocarditis.
+- In infective endocarditis, the literature most strongly supports SAT when surgery is not feasible, infected prosthetic material cannot be fully removed, or another infection source remains uncontrolled.
+- Current endocarditis guidance is limited: outside fungal endocarditis and some nonextractable cardiac device infections, recommendations are sparse and based on low-level evidence.
+- The SATIE cohort suggests SAT can be useful in selected high-risk patients, but relapse, reinfection, adverse events, and mortality remain substantial.
+- Older surgical endocarditis data suggest that after successful operative source control, relapse is uncommon and arbitrary prolongation of postoperative antibiotics is not clearly beneficial.
+- Once the infection extends beyond the valve into the aortic root or adjacent aortic tissue, the vascular graft literature becomes more relevant, but it still does not translate neatly into an automatic lifelong-suppression rule.
+- In the open-repair vascular literature, long-term usually means more than 4 to 6 weeks total therapy, often extending into months, while lifelong therapy is a separate and much less clearly supported step.
+- Before prescribing lifelong suppression, the key question is not just whether prosthetic material was reimplanted, but what residual infected nidus, if any, is actually being left behind.
+
+## Musical Coda
+
+Sometimes the hardest part is deciding whether the next prescription is treatment, or just a way to quiet uncertainty.
+
+<div className="youtube-wrap">
+  <div className="youtube-inner">
+    <iframe src="https://www.youtube-nocookie.com/embed/7hx4gdlfamo?rel=0&autoplay=0&showinfo=0&enablejsapi=0" title="YouTube video player for New Hardware, Old Infection: When Should We Suppress After Endocarditis Surgery?" frameBorder="0" loading="lazy" allow="autoplay; fullscreen" allowFullScreen width="728" height="409" />
+  </div>
+</div>
+
+## References
+
+1. Beaumont AL, Mestre F, Decaux S, et al. Long-term Oral Suppressive Antimicrobial Therapy in Infective Endocarditis (SATIE Study): An Observational Study. *Open Forum Infect Dis*. 2024;11(5):ofae194. doi:10.1093/ofid/ofae194.
+2. Lau JSY, Korman TM, Woolley I. Life-long antimicrobial therapy: where is the evidence? *J Antimicrob Chemother*. 2018;73(10):2601-2612. doi:10.1093/jac/dky174.
+3. Morris AJ, Drinkovic D, Pottumarthy S, et al. Bacteriological outcome after valve surgery for active infective endocarditis: implications for duration of treatment after surgery. *Clin Infect Dis*. 2005;41(2):187-194. doi:10.1086/430908.
+4. Wilson WR, Bower TC, Creager MA, et al. Vascular Graft Infections, Mycotic Aneurysms, and Endovascular Infections: A Scientific Statement From the American Heart Association. *Circulation*. 2016;134(20):e412-e460. doi:10.1161/CIR.0000000000000457.
+5. Lyons OTA, Baguneid M, Barwick TD, et al. Diagnosis of Aortic Graft Infection: A Case Definition by the Management of Aortic Graft Infection Collaboration (MAGIC). *Eur J Vasc Endovasc Surg*. 2016;52(6):758-763. doi:10.1016/j.ejvs.2016.09.007.
+6. Wu SJ, Sun S, Tan YH, Chien CY. Analysis of antibiotic strategies to prevent vascular graft or endograft infection after surgical treatment for infective native aortic aneurysms: a systematic review. *Antimicrob Resist Infect Control*. 2024;13(1):116. doi:10.1186/s13756-024-01477-3.
+7. Delgado V, Ajmone Marsan N, de Waha S, et al. 2023 ESC Guidelines for the management of endocarditis. *Eur Heart J*. 2023;44(39):3948-4042. doi:10.1093/eurheartj/ehad193.
+
+</BlogPostShell>
