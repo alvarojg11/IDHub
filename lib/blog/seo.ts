@@ -12,6 +12,12 @@ export function buildBlogMetadata(slug: string, post: BlogMetaInput): Metadata {
   const url = `${BASE_URL}/blog/${slug}`;
   const seoTitle = `${post.title} | IDHub Blog`;
   const ogImageUrl = `${BASE_URL}/api/og/blog/${slug}`;
+  const image = {
+    url: ogImageUrl,
+    width: 1200,
+    height: 630,
+    alt: `${post.title} | IDHub Blog`,
+  };
 
   return {
     title: { absolute: seoTitle },
@@ -23,7 +29,7 @@ export function buildBlogMetadata(slug: string, post: BlogMetaInput): Metadata {
       siteName: "InfectiousDiseaseHub",
       title: seoTitle,
       description: post.description,
-      images: [ogImageUrl],
+      images: [image],
       publishedTime: post.publishedAt,
       authors: ["Alvaro Ayala"],
     },
