@@ -634,36 +634,6 @@ export const CASES: CaseMeta[] = [
     },
   },
   {
-    slug: "migration-test-case",
-  
-    title: "Migration Test Case",
-  
-    description: "A test case for migration automation testing.",
-  
-    enable: true,
-  
-    ogImage: "/cases/migration-test-case/test-image.png",
-  
-    teaser: "A 45-year-old woman presents with fever and cough for 5 days. Examination reveals crackles in the right lower lobe and chest X-ray shows consolidation. What is the most likely causative organism and appropriate empiric treatment?",
-  
-    tags: {
-      organisms: [
-        "Streptococcus pneumoniae",
-      ],
-  
-      syndromes: [
-        "Pulmonary Infection",
-        "Community-acquired Infection",
-      ],
-  
-      concepts: [
-        "Community-acquired pneumonia",
-        "Empiric antibiotic therapy",
-        "Blood cultures",
-      ],
-    },
-  },
-  {
     slug: "chikungunya-fever",
   
   

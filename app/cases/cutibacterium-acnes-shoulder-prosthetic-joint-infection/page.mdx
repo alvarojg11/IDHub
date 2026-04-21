@@ -1,0 +1,239 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cutibacterium-acnes-shoulder-prosthetic-joint-infection");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+The Shoulder That Wouldn't Heal
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 68-year-old man presents with persistent, dull right shoulder pain and stiffness 8 months after right total shoulder arthroplasty. He reports gradual onset over the past 3 months, initially attributed to physical therapy, but the pain has progressively worsened despite conservative measures including acetaminophen and nonsteroidal anti-inflammatory drugs.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is a retired mechanic with no history of trauma, fever, or chills. He denies systemic symptoms but notes occasional night pain that disrupts sleep. His shoulder arthroplasty was performed for advanced osteoarthritis and was reportedly uncomplicated; he received standard perioperative antibiotics. He has a history of moderate acne during his youth. He has no other joint replacements and takes no immunosuppressive medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Vital signs are normal. Examination of the right shoulder reveals mild swelling and warmth over the anterior joint line with tenderness to palpation. Active range of motion is limited to 90° forward flexion (compared to 160° on the left) and 30° external rotation. Passive range is similarly restricted and reproduces pain. There is no overlying erythema, drainage, or sinus tract. Neurovascular examination is intact.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show erythrocyte sedimentation rate (ESR) 22 mm/hr (normal &lt;20), C‑reactive protein (CRP) 1.2 mg/dL (normal &lt;0.8), and normal white blood cell count. Shoulder radiographs demonstrate well‑positioned components without evidence of loosening, osteolysis, or periosteal reaction. Ultrasound reveals a moderate joint effusion. Arthrocentesis yields 15 mL of turbid synovial fluid with white blood cell count 3,200/μL (70% neutrophils). Gram stain shows rare gram‑positive rods.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/placeholder.png"
+      alt="Gram stain of synovial fluid showing gram‑positive rods"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+Gram stain of synovial fluid aspirate demonstrating scattered gram‑positive rods.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-cutibacterium-acnes-shoulder-prosthetic-joint-infection-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this prosthetic joint infection?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus",
+      feedback:
+        "Staphylococcus aureus typically causes more acute PJI with prominent systemic symptoms, fever, and marked inflammation. This indolent presentation with gram‑positive rods is not characteristic.",
+    },
+    {
+      id: "B",
+      label: "Coagulase‑negative staphylococci",
+      feedback:
+        "Coagulase‑negative staphylococci are common in prosthetic joint infections but usually present with subacute pain and inflammation; they appear as gram‑positive cocci in clusters, not rods.",
+    },
+    {
+      id: "C",
+      label: "Cutibacterium acnes",
+      correct: true,
+      feedback:
+        "Cutibacterium acnes is a gram‑positive rod that causes indolent prosthetic joint infections, especially after shoulder arthroplasty. Risk factors include male sex, prior acne, and shoulder location. Growth often requires prolonged culture (10–14 days).",
+    },
+    {
+      id: "D",
+      label: "Streptococcus viridans",
+      feedback:
+        "Streptococcus viridans can cause subacute endocarditis but is an uncommon cause of prosthetic joint infection. It appears as gram‑positive cocci in chains, not rods.",
+    },
+    {
+      id: "E",
+      label: "Pseudomonas aeruginosa",
+      feedback:
+        "Pseudomonas aeruginosa is a gram‑negative rod that typically causes acute, aggressive infections often associated with water exposure or healthcare contact. It would not appear as gram‑positive rods.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cutibacterium-acnes-shoulder-prosthetic-joint-infection-q2"
+  title="Question 2"
+  prompt="What is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline for 6 weeks",
+      feedback:
+        "Antibiotic therapy alone is inadequate for established prosthetic joint infection. Surgical intervention is required for source control and removal of biofilm.",
+    },
+    {
+      id: "B",
+      label: "Surgical consultation for one‑stage exchange arthroplasty",
+      correct: true,
+      feedback:
+        "Chronic prosthetic joint infection requires surgical management. For selected patients with adequate bone stock and soft tissue, one‑stage exchange with implant removal, thorough debridement, and immediate reimplantation is a valid option, especially for Cutibacterium acnes.",
+    },
+    {
+      id: "C",
+      label: "Intravenous vancomycin for 4–6 weeks",
+      feedback:
+        "Vancomycin is not the first‑line antibiotic for Cutibacterium acnes, which is usually susceptible to penicillin or ceftriaxone. Moreover, antibiotics alone without surgical intervention have high failure rates.",
+    },
+    {
+      id: "D",
+      label: "Observation with repeat synovial fluid aspiration in 4 weeks",
+      feedback:
+        "Observation is inappropriate for confirmed prosthetic joint infection. Delaying definitive management increases the risk of chronic infection, bone loss, and worse outcomes.",
+    },
+    {
+      id: "E",
+      label: "Intra‑articular corticosteroid injection",
+      feedback:
+        "Corticosteroid injection is contraindicated in the setting of infection and can worsen the inflammatory response and promote microbial persistence.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-cutibacterium-acnes-shoulder-prosthetic-joint-infection-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case illustrates an indolent prosthetic joint infection (PJI) following shoulder arthroplasty. The subtle presentation with persistent pain, minimal systemic symptoms, and only mild elevation of inflammatory markers is classic for Cutibacterium acnes, a slow‑growing gram‑positive rod that colonizes sebaceous glands. Shoulder PJI is disproportionately caused by this organism, especially in male patients with a history of acne.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis requires a high index of suspicion and appropriate microbiologic techniques. Synovial fluid culture should be incubated for at least 14 days to allow growth of this fastidious organism. Histopathology from intraoperative tissue samples showing acute inflammation supports the diagnosis. Management hinges on surgical intervention: either one‑stage or two‑stage exchange arthroplasty, combined with prolonged antibiotic therapy tailored to susceptibility.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Cutibacterium acnes is often susceptible to penicillin, ceftriaxone, clindamycin, and doxycycline. Biofilm formation on prosthetic material necessitates implant removal for cure. The IDSA guidelines recommend surgical debridement with implant retention only for acute PJI (&lt;30 days symptoms); chronic infections like this one require exchange arthroplasty.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cutibacterium-acnes-shoulder-prosthetic-joint-infection-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <strong>Cutibacterium acnes is a leading cause of indolent prosthetic joint infection after shoulder arthroplasty.</strong> This gram‑positive rod, part of the skin flora, enters deep tissues during surgery and can cause low‑grade infection with pain, stiffness, and minimal systemic signs months to years later.
+    </li>
+    <li>
+      <strong>Diagnosis requires prolonged culture incubation and a high index of suspicion.</strong> Synovial fluid and tissue cultures should be held for 10–14 days. Inflammatory markers (ESR, CRP) may be only mildly elevated. Histopathology showing acute inflammation supports infection even with negative cultures.
+    </li>
+    <li>
+      <strong>Surgical management is essential for cure.</strong> Chronic PJI requires implant removal with one‑stage or two‑stage exchange arthroplasty. Antibiotic therapy alone has high failure rates due to biofilm formation. The choice of exchange depends on bone stock, soft‑tissue quality, and surgeon expertise.
+    </li>
+    <li>
+      <strong>Antibiotic therapy should be guided by susceptibility testing.</strong> Cutibacterium acnes is typically susceptible to penicillin, ceftriaxone, clindamycin, and doxycycline. Treatment duration is usually 4–6 weeks after exchange arthroplasty, with some experts recommending additional oral suppression.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Osmon DR, Berbari EF, Berendt AR, et al. Diagnosis and management of prosthetic joint infection: clinical practice guidelines by the Infectious Diseases Society of America. Clin Infect Dis. 2013;56(1):e1‑e25.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis803"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/cis803
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Portillo ME, Corvec S, Borens O, Trampuz A. Cutibacterium acnes: an underestimated pathogen in prosthetic joint infection. J Clin Microbiol. 2013;51(7):2248‑2253.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.00405-13"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/JCM.00405-13
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Patel A, Calfee RP, Plante M, Fischer SA, Green A. Cutibacterium acnes colonization of the human shoulder. J Shoulder Elbow Surg. 2009;18(6):897‑902.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jse.2009.01.023"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.jse.2009.01.023
+      </a>
+    </p>
+  </div>
+</div>
