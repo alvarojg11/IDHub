@@ -70,9 +70,45 @@ function cleanText(input: string) {
     .trim();
 }
 
+function extractEmbeddedHtml(raw: string) {
+  const match = raw.match(/dangerouslySetInnerHTML\s*=\s*\{\{\s*__html:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/s);
+  if (!match) return null;
+
+  const literal = match[1];
+  if (literal.startsWith('"')) {
+    try {
+      return JSON.parse(literal);
+    } catch {
+      return null;
+    }
+  }
+
+  return literal
+    .slice(1, -1)
+    .replace(/\\'/g, "'")
+    .replace(/\\\\/g, "\\");
+}
+
+function extractFirstParagraphFromHtml(html: string) {
+  const paragraphs = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)];
+  for (const [, paragraph] of paragraphs) {
+    const text = cleanText(paragraph);
+    if (text.length >= 30 && !/thanks for reading/i.test(text)) {
+      return text.length > 220 ? `${text.slice(0, 219).trim()}...` : text;
+    }
+  }
+  return null;
+}
+
 function extractSummary(raw: string) {
+  const embeddedHtml = extractEmbeddedHtml(raw);
+  const embeddedParagraph = embeddedHtml ? extractFirstParagraphFromHtml(embeddedHtml) : null;
+  if (embeddedParagraph) return embeddedParagraph;
+
   const withoutExports = raw
     .replace(/export\s+const\s+\w+\s*=\s*\{[\s\S]*?\}\s*;/g, "")
+    .replace(/^import\s+.+$/gm, "")
+    .replace(/^<\/?.+>$/gm, "")
     .trim();
   const blocks = withoutExports.split(/\n\s*\n/);
 
@@ -81,6 +117,8 @@ function extractSummary(raw: string) {
     if (!line) continue;
     if (line.startsWith("#")) continue;
     if (line.startsWith("```")) continue;
+    if (line.startsWith("import ")) continue;
+    if (line.startsWith("<BlogPostShell") || line === "</BlogPostShell>") continue;
     if (line.includes("dangerouslySetInnerHTML")) continue;
 
     const text = cleanText(line);

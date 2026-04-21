@@ -41,6 +41,34 @@ function normalizeText(input: string, max = 700) {
   return `${text.slice(0, max - 1).trim()}...`;
 }
 
+function extractEmbeddedHtml(raw: string) {
+  const match = raw.match(/dangerouslySetInnerHTML\s*=\s*\{\{\s*__html:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/s);
+  if (!match) return null;
+
+  const literal = match[1];
+  if (literal.startsWith('"')) {
+    try {
+      return JSON.parse(literal);
+    } catch {
+      return null;
+    }
+  }
+
+  return literal
+    .slice(1, -1)
+    .replace(/\\'/g, "'")
+    .replace(/\\\\/g, "\\");
+}
+
+function extractFirstParagraphFromHtml(html: string) {
+  const paragraphs = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)];
+  for (const [, paragraph] of paragraphs) {
+    const text = normalizeText(paragraph, 900);
+    if (text.length >= 40 && !/thanks for reading/i.test(text)) return text;
+  }
+  return null;
+}
+
 async function extractCaseEmailPreview(slug: string): Promise<{
   summary: string | null;
   firstQuestion: string | null;
@@ -72,14 +100,22 @@ async function extractBlogEmailPreview(slug: string): Promise<string | null> {
   const file = path.join(process.cwd(), "app", "blog", slug, "page.mdx");
   try {
     const raw = await fs.readFile(file, "utf8");
+    const embeddedHtml = extractEmbeddedHtml(raw);
+    const embeddedParagraph = embeddedHtml ? extractFirstParagraphFromHtml(embeddedHtml) : null;
+    if (embeddedParagraph) return embeddedParagraph;
+
     const withoutExports = raw
       .replace(/export\s+const\s+\w+\s*=\s*\{[\s\S]*?\}\s*;/g, "")
+      .replace(/^import\s+.+$/gm, "")
+      .replace(/^<\/?.+>$/gm, "")
       .trim();
     const blocks = withoutExports.split(/\n\s*\n/);
 
     for (const block of blocks) {
       const line = block.trim();
       if (!line || line.startsWith("#") || line.startsWith("```")) continue;
+      if (line.startsWith("import ")) continue;
+      if (line.startsWith("<BlogPostShell") || line === "</BlogPostShell>") continue;
       if (line.includes("dangerouslySetInnerHTML")) continue;
       const text = normalizeText(line, 900);
       if (text.length >= 40) return text;
