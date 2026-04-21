@@ -5,7 +5,7 @@ import path from "path";
 
 import { getBlogPosts } from "@/lib/blog/registry";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 function normalizeText(input: string, max = 260) {
   const text = input
