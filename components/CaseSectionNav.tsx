@@ -181,28 +181,28 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
   return (
     <>
       {showMobile ? (
-        <div className="sticky top-20 z-20 mb-4 flex justify-end lg:hidden">
-          <div className="relative w-full max-w-[17rem]">
+        <div className="pointer-events-none fixed bottom-5 right-4 z-30 lg:hidden">
+          <div className="pointer-events-auto relative w-[min(18rem,calc(100vw-2rem))]">
             <button
               type="button"
               onClick={() => setIsMobileOpen((open) => !open)}
-              className="flex w-full items-center justify-between gap-3 rounded-full border border-[var(--border)] bg-white/88 px-4 py-2.5 text-left shadow-[0_8px_24px_rgba(13,30,24,0.05)] backdrop-blur"
+              className="ml-auto flex items-center justify-between gap-3 rounded-full border border-[var(--border)] bg-white/92 px-3.5 py-2 text-left shadow-[0_8px_22px_rgba(13,30,24,0.08)] backdrop-blur"
               aria-expanded={isMobileOpen}
               aria-label="Open case section navigation"
             >
-              <div className="min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--muted-soft)]">
-                  Jump to
-                </p>
-                <p className="truncate text-sm font-semibold text-[var(--foreground)]">{activeLabel}</p>
-              </div>
-              <span className="shrink-0 text-sm font-semibold text-[var(--primary)]">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
+                Jump
+              </span>
+              <span className="max-w-[9rem] truncate text-sm font-medium text-[var(--foreground)]">
+                {activeLabel}
+              </span>
+              <span className="shrink-0 text-xs font-semibold text-[var(--primary)]">
                 {isMobileOpen ? "↑" : "↓"}
               </span>
             </button>
 
             {isMobileOpen ? (
-              <div className="absolute right-0 top-full mt-2 w-full overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,245,0.97))] p-3 shadow-[var(--shadow-soft)] backdrop-blur">
+              <div className="absolute bottom-full right-0 mb-2 w-full overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,245,0.97))] p-3 shadow-[var(--shadow-soft)] backdrop-blur">
                 <p className="px-1 pb-2 text-[11px] font-medium text-[var(--muted)]">
                   {sectionCount} jump points in this case
                 </p>
