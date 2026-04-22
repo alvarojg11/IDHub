@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
+import { getPrevNext } from "@/lib/cases/registry";
+
 type SectionLink = {
   id: string;
   label: string;
@@ -78,6 +80,13 @@ function collectSections() {
   }
 
   return items;
+}
+
+function slugFromPath(pathname: string) {
+  const parts = pathname.split("/").filter(Boolean);
+  const casesIndex = parts.indexOf("cases");
+  if (casesIndex === -1) return null;
+  return parts[casesIndex + 1] ?? null;
 }
 
 export default function CaseSectionNav({ variant = "both" }: Props) {
@@ -159,6 +168,8 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
     return sections.find((item) => item.id === activeId)?.label ?? "This case";
   }, [activeId, sections]);
   const sectionCount = sections.length;
+  const slug = pathname ? slugFromPath(pathname) : null;
+  const nextCase = slug ? getPrevNext(slug, "newest").next : null;
 
   if (!pathname?.startsWith("/cases/") || sections.length === 0) {
     return null;
@@ -170,44 +181,63 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
   return (
     <>
       {showMobile ? (
-        <div className="sticky top-20 z-20 mb-6 lg:hidden">
-          <div className="rounded-[1.3rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.96))] p-4 shadow-[var(--shadow-soft)] backdrop-blur">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-                  Navigate
+        <div className="sticky top-20 z-20 mb-4 flex justify-end lg:hidden">
+          <div className="relative w-full max-w-[17rem]">
+            <button
+              type="button"
+              onClick={() => setIsMobileOpen((open) => !open)}
+              className="flex w-full items-center justify-between gap-3 rounded-full border border-[var(--border)] bg-white/88 px-4 py-2.5 text-left shadow-[0_8px_24px_rgba(13,30,24,0.05)] backdrop-blur"
+              aria-expanded={isMobileOpen}
+              aria-label="Open case section navigation"
+            >
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--muted-soft)]">
+                  Jump to
                 </p>
-                <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">{activeLabel}</p>
-                <p className="mt-1 text-xs text-[var(--muted)]">{sectionCount} jump points in this case</p>
+                <p className="truncate text-sm font-semibold text-[var(--foreground)]">{activeLabel}</p>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsMobileOpen((open) => !open)}
-                className="idhub-button-secondary px-4 py-2 text-sm font-semibold"
-              >
-                {isMobileOpen ? "Hide" : "Jump to"}
-              </button>
-            </div>
+              <span className="shrink-0 text-sm font-semibold text-[var(--primary)]">
+                {isMobileOpen ? "↑" : "↓"}
+              </span>
+            </button>
 
             {isMobileOpen ? (
-              <div className="mt-4 grid max-h-[60vh] gap-2 overflow-y-auto pr-1">
-                <Link href="/cases" className="rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--foreground)]">
-                  Back to all cases
-                </Link>
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
+              <div className="absolute right-0 top-full mt-2 w-full overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,245,0.97))] p-3 shadow-[var(--shadow-soft)] backdrop-blur">
+                <p className="px-1 pb-2 text-[11px] font-medium text-[var(--muted)]">
+                  {sectionCount} jump points in this case
+                </p>
+                <div className="grid max-h-[60vh] gap-2 overflow-y-auto pr-1">
+                  <Link
+                    href="/cases"
                     onClick={() => setIsMobileOpen(false)}
-                    className={`rounded-2xl border px-4 py-3 text-sm font-medium ${
-                      section.id === activeId
-                        ? "border-[var(--primary)] bg-[var(--primary-soft)] text-[var(--primary)]"
-                        : "border-[var(--border)] bg-white/80 text-[var(--muted)]"
-                    }`}
+                    className="rounded-2xl border border-[var(--border)] bg-white/85 px-4 py-3 text-sm font-semibold text-[var(--foreground)]"
                   >
-                    {section.label}
-                  </a>
-                ))}
+                    Back to all cases
+                  </Link>
+                  {sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      onClick={() => setIsMobileOpen(false)}
+                      className={`rounded-2xl border px-4 py-3 text-sm font-medium ${
+                        section.id === activeId
+                          ? "border-[var(--primary)] bg-[var(--primary-soft)] text-[var(--primary)]"
+                          : "border-[var(--border)] bg-white/85 text-[var(--muted)]"
+                      }`}
+                    >
+                      {section.label}
+                    </a>
+                  ))}
+                  {nextCase ? (
+                    <Link
+                      href={`/cases/${nextCase.slug}`}
+                      onClick={() => setIsMobileOpen(false)}
+                      className="rounded-2xl border border-[var(--primary)] bg-[var(--primary-soft)] px-4 py-3 text-sm font-semibold text-[var(--primary)]"
+                    >
+                      Next case: {nextCase.title}
+                    </Link>
+                  ) : null}
+                </div>
               </div>
             ) : null}
           </div>
@@ -248,6 +278,20 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
                   {section.label}
                 </a>
               ))}
+
+              {nextCase ? (
+                <div className="mt-2 border-t border-[var(--border)] pt-4">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+                    After references
+                  </p>
+                  <Link
+                    href={`/cases/${nextCase.slug}`}
+                    className="block rounded-2xl border border-[var(--primary)] bg-[var(--primary-soft)] px-4 py-3 text-sm font-semibold text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
+                  >
+                    Next case: {nextCase.title}
+                  </Link>
+                </div>
+              ) : null}
             </div>
           </div>
         </aside>
