@@ -8,7 +8,7 @@ import { getAllCaseSyndromes, getCaseDirectoryEntries } from "@/lib/cases/direct
 const BASE_URL = "https://infectiousdiseasehub.com";
 
 export const metadata: Metadata = {
-  title: "Cases — Infectious Diseases Board Review Cases | IDHub",
+  title: "Cases — Infectious Diseases Board Review Cases",
   description:
     "Master Infectious Diseases boards through clinical cases, diagnostic reasoning, and high-yield syndrome review. Explore free ID board-style cases for clinicians and trainees.",
   alternates: { canonical: `${BASE_URL}/cases` },

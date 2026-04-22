@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { getPrevNext } from "@/lib/cases/registry";
 
@@ -94,6 +94,7 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
   const [sections, setSections] = useState<SectionLink[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!pathname?.startsWith("/cases/")) {
@@ -164,6 +165,32 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
     };
   }, [sections]);
 
+  useEffect(() => {
+    if (!isMobileOpen) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!mobileMenuRef.current?.contains(event.target as Node)) {
+        setIsMobileOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMobileOpen]);
+
   const activeLabel = useMemo(() => {
     return sections.find((item) => item.id === activeId)?.label ?? "This case";
   }, [activeId, sections]);
@@ -182,7 +209,10 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
     <>
       {showMobile ? (
         <div className="pointer-events-none fixed bottom-5 right-4 z-30 lg:hidden">
-          <div className="pointer-events-auto relative w-[min(18rem,calc(100vw-2rem))]">
+          <div
+            ref={mobileMenuRef}
+            className="pointer-events-auto relative w-[min(18rem,calc(100vw-2rem))]"
+          >
             <button
               type="button"
               onClick={() => setIsMobileOpen((open) => !open)}
