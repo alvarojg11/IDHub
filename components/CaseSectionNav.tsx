@@ -190,8 +190,18 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
               aria-expanded={isMobileOpen}
               aria-label="Open case section navigation"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
-                Jump
+              <span
+                aria-hidden="true"
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--primary-soft)] text-[var(--primary)]"
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="3" cy="4" r="1" fill="currentColor" />
+                  <circle cx="3" cy="8" r="1" fill="currentColor" />
+                  <circle cx="3" cy="12" r="1" fill="currentColor" />
+                  <path d="M6 4H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                  <path d="M6 8H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                  <path d="M6 12H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
               </span>
               <span className="max-w-[9rem] truncate text-sm font-medium text-[var(--foreground)]">
                 {activeLabel}
