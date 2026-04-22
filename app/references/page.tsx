@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { CASES } from "@/lib/cases/registry";
+import { getAllCaseSyndromes, getCaseDirectoryEntries } from "@/lib/cases/directory";
 
 import SiteFooter from "@/components/SiteFooter";
 import ReferenceIndex from "@/components/ReferenceIndex";
@@ -51,20 +51,8 @@ const structuredData = {
 };
 
 export default function ReferencesPage() {
-  // Build serializable case data for the client component
-  const cases = CASES.map((c) => ({
-    slug: c.slug,
-    title: c.title,
-    description: c.description ?? "",
-    organisms: c.tags?.organisms ?? [],
-    syndromes: c.tags?.syndromes ?? [],
-    concepts: c.tags?.concepts ?? [],
-  }));
-
-  // Collect all unique syndromes for the filter
-  const allSyndromes = [
-    ...new Set(CASES.flatMap((c) => c.tags?.syndromes ?? [])),
-  ].sort();
+  const cases = getCaseDirectoryEntries();
+  const allSyndromes = getAllCaseSyndromes();
 
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">

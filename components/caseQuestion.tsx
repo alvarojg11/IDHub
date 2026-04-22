@@ -36,6 +36,15 @@ function getClientId(): string | null {
   }
 }
 
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 export default function CaseQuestion({
   title = "Question",
   prompt,
@@ -197,9 +206,20 @@ export default function CaseQuestion({
   const isCorrect =
     selectedId && correctId ? selectedId === correctId : false;
   const showResults = showPoll && !!selectedId;
+  const sectionId = useMemo(() => {
+    if (pollId) {
+      return `question-${slugify(pollId)}`;
+    }
+
+    return `question-${slugify(`${title}-${prompt}`)}`;
+  }, [pollId, prompt, title]);
 
   return (
-    <section className="mt-10 rounded-[1.6rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,249,247,0.95))] p-6 shadow-[var(--shadow-soft)]">
+    <section
+      id={sectionId}
+      data-case-question="true"
+      className="mt-10 rounded-[1.6rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,249,247,0.95))] p-6 shadow-[var(--shadow-soft)]"
+    >
       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
         {title}
       </p>

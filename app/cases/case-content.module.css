@@ -9,6 +9,7 @@
   font-family: var(--font-sans) !important;
   color: var(--foreground);
   letter-spacing: -0.03em;
+  scroll-margin-top: 7.5rem;
 }
 
 .caseContent :global(h1:first-child) {
@@ -129,4 +130,8 @@
 
 .caseContent :global(figure) :global(.bg-transparent) {
   background: transparent !important;
+}
+
+.caseContent :global([data-case-question]) {
+  scroll-margin-top: 7.5rem;
 }

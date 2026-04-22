@@ -7,24 +7,24 @@ import { getBlogPosts } from "@/lib/blog/registry";
 const BASE_URL = "https://infectiousdiseasehub.com";
 
 export const metadata: Metadata = {
-  title: "Blog — Infectious Diseases Teaching Essays",
+  title: "Blog — Infectious Diseases Insights and Teaching Essays",
   description:
-    "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases. Teaching essays from an ID fellow at Stanford.",
+    "Curious about the art of Infectious Diseases? Explore diagnostics, syndromes, antimicrobials, and the clinical uncertainty that makes ID so compelling.",
   alternates: { canonical: `${BASE_URL}/blog` },
   openGraph: {
     type: "website",
     url: `${BASE_URL}/blog`,
     siteName: "InfectiousDiseaseHub",
-    title: "Blog — Infectious Diseases Teaching Essays | IDHub",
+    title: "Blog — Infectious Diseases Insights and Teaching Essays | IDHub",
     description:
-      "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+      "Curious about the art of Infectious Diseases? Explore diagnostics, syndromes, antimicrobials, and the clinical uncertainty that makes ID so compelling.",
     images: [`${BASE_URL}/api/og/blog/index`],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Infectious Diseases Teaching Essays | IDHub",
+    title: "Blog — Infectious Diseases Insights and Teaching Essays | IDHub",
     description:
-      "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+      "Curious about the art of Infectious Diseases? Explore diagnostics, syndromes, antimicrobials, and the clinical uncertainty that makes ID so compelling.",
     images: [`${BASE_URL}/api/og/blog/index`],
   },
 };
@@ -41,9 +41,8 @@ export default async function BlogPage() {
             Blog
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            Practical reflections on diagnostics, antimicrobials, and clinical uncertainty in
-            Infectious Diseases. Posts now live directly inside IDHub so the writing feels like part
-            of the same learning system as the tools and cases.
+            Curious about the art of Infectious Diseases? Explore diagnostics, syndromes,
+            antimicrobials, and the clinical uncertainty that makes ID so compelling.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">

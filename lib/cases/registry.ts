@@ -1,4 +1,6 @@
 
+import { getCasePublishedTimestamp } from "@/lib/cases/dates";
+
 export type CaseTag = {
   organisms: string[];
   syndromes: string[];
@@ -797,12 +799,94 @@ export const CASES: CaseMeta[] = [
   },
 ].filter((c) => c.enable !== false);
 
-export function getPrevNext(slug: string) {
-  const idx = CASES.findIndex((c) => c.slug === slug);
+export function getCaseBySlug(slug: string) {
+  return CASES.find((item) => item.slug === slug) ?? null;
+}
+
+export function getCasesOrdered(order: "newest" | "alphabetical" = "newest") {
+  const indexedCases = CASES.map((item, index) => ({ item, index }));
+
+  indexedCases.sort((a, b) => {
+    if (order === "alphabetical") {
+      return a.item.title.localeCompare(b.item.title);
+    }
+
+    const publishedDelta = getCasePublishedTimestamp(b.item.slug) - getCasePublishedTimestamp(a.item.slug);
+    if (publishedDelta !== 0) {
+      return publishedDelta;
+    }
+
+    return a.index - b.index;
+  });
+
+  return indexedCases.map(({ item }) => item);
+}
+
+export function getPrevNext(slug: string, order: "newest" | "alphabetical" = "newest") {
+  const orderedCases = getCasesOrdered(order);
+  const idx = orderedCases.findIndex((item) => item.slug === slug);
   if (idx === -1) return { prev: null, next: null };
 
   return {
-    prev: idx > 0 ? CASES[idx - 1] : null,
-    next: idx < CASES.length - 1 ? CASES[idx + 1] : null,
+    prev: idx > 0 ? orderedCases[idx - 1] : null,
+    next: idx < orderedCases.length - 1 ? orderedCases[idx + 1] : null,
   };
+}
+
+export function getRelatedCases(slug: string, limit = 3) {
+  const currentCase = getCaseBySlug(slug);
+  if (!currentCase) return [];
+
+  const currentTags = currentCase.tags ?? { organisms: [], syndromes: [], concepts: [] };
+  const currentTagSets = {
+    organisms: new Set(currentTags.organisms),
+    syndromes: new Set(currentTags.syndromes),
+    concepts: new Set(currentTags.concepts),
+  };
+
+  const { prev, next } = getPrevNext(slug, "newest");
+  const excludedSlugs = new Set([slug, prev?.slug, next?.slug].filter(Boolean));
+
+  const scoredCases = CASES.filter((item) => !excludedSlugs.has(item.slug))
+    .map((item) => {
+      const tags = item.tags ?? { organisms: [], syndromes: [], concepts: [] };
+      const sharedSyndromes = tags.syndromes.filter((value) => currentTagSets.syndromes.has(value)).length;
+      const sharedOrganisms = tags.organisms.filter((value) => currentTagSets.organisms.has(value)).length;
+      const sharedConcepts = tags.concepts.filter((value) => currentTagSets.concepts.has(value)).length;
+      const score = sharedSyndromes * 5 + sharedOrganisms * 3 + sharedConcepts;
+
+      return { item, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => {
+      if (a.score !== b.score) {
+        return b.score - a.score;
+      }
+
+      const publishedDelta = getCasePublishedTimestamp(b.item.slug) - getCasePublishedTimestamp(a.item.slug);
+      if (publishedDelta !== 0) {
+        return publishedDelta;
+      }
+
+      return a.item.title.localeCompare(b.item.title);
+    })
+    .map((entry) => entry.item);
+
+  if (scoredCases.length >= limit) {
+    return scoredCases.slice(0, limit);
+  }
+
+  const fallbacks = getCasesOrdered("newest").filter((item) => !excludedSlugs.has(item.slug));
+  for (const item of fallbacks) {
+    if (scoredCases.some((entry) => entry.slug === item.slug)) {
+      continue;
+    }
+
+    scoredCases.push(item);
+    if (scoredCases.length === limit) {
+      break;
+    }
+  }
+
+  return scoredCases.slice(0, limit);
 }
