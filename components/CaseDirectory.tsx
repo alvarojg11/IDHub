@@ -12,6 +12,11 @@ type Props = {
   syndromes: string[];
   defaultSort?: SortMode;
   emptyMessage?: string;
+  cardVariant?: "simple" | "detailed";
+  showPublishedDate?: boolean;
+  showOrganisms?: boolean;
+  showSyndromeTags?: boolean;
+  syndromeFilterStyle?: "pills" | "select";
 };
 
 function compareAlphabetical(a: CaseDirectoryEntry, b: CaseDirectoryEntry) {
@@ -48,6 +53,11 @@ export default function CaseDirectory({
   syndromes,
   defaultSort = "newest",
   emptyMessage = "No cases match your search. Try a different organism, syndrome, or keyword.",
+  cardVariant = "detailed",
+  showPublishedDate = true,
+  showOrganisms = true,
+  showSyndromeTags = true,
+  syndromeFilterStyle = "pills",
 }: Props) {
   const [query, setQuery] = useState("");
   const [activeSyndrome, setActiveSyndrome] = useState<string | null>(null);
@@ -130,42 +140,73 @@ export default function CaseDirectory({
         </div>
 
         <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setActiveSyndrome(null)}
-              className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                activeSyndrome === null
-                  ? "border-[var(--primary)] bg-[var(--primary)] text-white"
-                  : "border-[var(--border)] bg-white/80 text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)]"
-              }`}
-            >
-              All syndromes
-            </button>
-            {syndromes.map((syndrome) => (
+          {syndromeFilterStyle === "select" ? (
+            <div className="grid gap-3 sm:grid-cols-[minmax(0,260px)_auto] sm:items-end sm:justify-between">
+              <label className="block">
+                <span className="text-sm font-semibold text-[var(--foreground)]">Filter by syndrome</span>
+                <select
+                  aria-label="Filter cases by syndrome"
+                  value={activeSyndrome ?? ""}
+                  onChange={(event) => setActiveSyndrome(event.target.value || null)}
+                  className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-white/90 px-4 py-3.5 text-sm text-[var(--foreground)] shadow-[0_10px_24px_rgba(13,30,24,0.04)] outline-none focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-soft)]"
+                >
+                  <option value="">All syndromes</option>
+                  {syndromes.map((syndrome) => (
+                    <option key={syndrome} value={syndrome}>
+                      {syndrome}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              {hasActiveFilters ? (
+                <button
+                  type="button"
+                  onClick={resetFilters}
+                  className="justify-self-start rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold text-[var(--primary)] hover:border-[var(--border)] hover:bg-white/80 sm:justify-self-end"
+                >
+                  Reset all
+                </button>
+              ) : null}
+            </div>
+          ) : (
+            <div className="flex flex-wrap items-center gap-2">
               <button
-                key={syndrome}
                 type="button"
-                onClick={() => setActiveSyndrome(activeSyndrome === syndrome ? null : syndrome)}
+                onClick={() => setActiveSyndrome(null)}
                 className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                  activeSyndrome === syndrome
+                  activeSyndrome === null
                     ? "border-[var(--primary)] bg-[var(--primary)] text-white"
                     : "border-[var(--border)] bg-white/80 text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)]"
                 }`}
               >
-                {syndrome}
+                All syndromes
               </button>
-            ))}
-            {hasActiveFilters ? (
-              <button
-                type="button"
-                onClick={resetFilters}
-                className="rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold text-[var(--primary)] hover:border-[var(--border)] hover:bg-white/80"
-              >
-                Reset all
-              </button>
-            ) : null}
-          </div>
+              {syndromes.map((syndrome) => (
+                <button
+                  key={syndrome}
+                  type="button"
+                  onClick={() => setActiveSyndrome(activeSyndrome === syndrome ? null : syndrome)}
+                  className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+                    activeSyndrome === syndrome
+                      ? "border-[var(--primary)] bg-[var(--primary)] text-white"
+                      : "border-[var(--border)] bg-white/80 text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  {syndrome}
+                </button>
+              ))}
+              {hasActiveFilters ? (
+                <button
+                  type="button"
+                  onClick={resetFilters}
+                  className="rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold text-[var(--primary)] hover:border-[var(--border)] hover:bg-white/80"
+                >
+                  Reset all
+                </button>
+              ) : null}
+            </div>
+          )}
         </div>
       </div>
 
@@ -206,24 +247,28 @@ export default function CaseDirectory({
               <Link
                 key={item.slug}
                 href={`/cases/${item.slug}`}
-                className="group flex h-full flex-col rounded-[1.65rem] border border-[var(--border)] bg-white p-5 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-medium)]"
+                className={`group flex h-full flex-col rounded-[1.65rem] border border-[var(--border)] bg-white shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-medium)] ${
+                  cardVariant === "simple" ? "p-6" : "p-5"
+                }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
                     Case
                   </p>
-                  {publishedLabel ? (
+                  {showPublishedDate && publishedLabel ? (
                     <p className="rounded-full bg-[var(--background-soft)] px-2.5 py-1 text-[11px] font-medium text-[var(--muted)]">
                       {publishedLabel}
                     </p>
                   ) : null}
                 </div>
 
-                <h2 className="mt-3 text-2xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                <h2 className={`mt-3 font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)] ${
+                  cardVariant === "simple" ? "text-3xl" : "text-2xl"
+                }`}>
                   {item.title}
                 </h2>
 
-                {item.organisms.length > 0 ? (
+                {showOrganisms && item.organisms.length > 0 ? (
                   <p className="mt-3 text-sm font-medium text-[var(--primary)]">
                     {item.organisms.join(", ")}
                   </p>
@@ -233,16 +278,18 @@ export default function CaseDirectory({
                   <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
                 ) : null}
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {item.syndromes.slice(0, 3).map((syndrome) => (
-                    <span
-                      key={syndrome}
-                      className="rounded-full bg-[var(--primary-soft)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--primary)]"
-                    >
-                      {syndrome}
-                    </span>
-                  ))}
-                </div>
+                {showSyndromeTags ? (
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {item.syndromes.slice(0, 3).map((syndrome) => (
+                      <span
+                        key={syndrome}
+                        className="rounded-full bg-[var(--primary-soft)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--primary)]"
+                      >
+                        {syndrome}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
 
                 <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[var(--primary)]">
                   Open case

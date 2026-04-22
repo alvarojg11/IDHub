@@ -38,23 +38,22 @@ export default function CasesPage() {
         <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
           <p className="idhub-kicker">ID Cases</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
-            Browse cases with less friction
+            Cases
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            Search by syndrome, organism, or teaching concept, then jump directly into the case you
-            want. The latest cases appear first, and you can switch to an A-Z view whenever it is
-            more useful.
+            Master Infectious Diseases boards through clinical cases, diagnostic reasoning, and
+            high-yield syndrome review.
           </p>
         </div>
 
         <aside className="idhub-panel rounded-[1.75rem] p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-            Navigate faster
+            What to expect
           </p>
           <ul className="mt-4 space-y-4 text-sm leading-7 text-[var(--muted)]">
-            <li>Search by title, organism, syndrome, or key teaching concept.</li>
-            <li>Filter quickly when you want a narrower clinical pattern.</li>
-            <li>{cases.length} published cases across {syndromes.length} syndrome categories.</li>
+            <li>Stepwise cases grounded in bedside questions and uncertainty.</li>
+            <li>Teaching-oriented cases that pair well with the interactive tools.</li>
+            <li>{cases.length} published cases and growing.</li>
           </ul>
         </aside>
       </header>
@@ -62,15 +61,24 @@ export default function CasesPage() {
       <section className="mt-10">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="idhub-kicker">Case Directory</p>
+            <p className="idhub-kicker">Latest Cases</p>
             <h2 className="mt-2 text-3xl font-semibold text-[var(--foreground)]">
-              Move from one case to the next
+              Recent cases from IDHub
             </h2>
           </div>
         </div>
 
         <div className="idhub-panel rounded-[1.8rem] p-5 sm:p-6">
-          <CaseDirectory cases={cases} syndromes={syndromes} defaultSort="newest" />
+          <CaseDirectory
+            cases={cases}
+            syndromes={syndromes}
+            defaultSort="newest"
+            cardVariant="simple"
+            showPublishedDate={false}
+            showOrganisms={false}
+            showSyndromeTags={false}
+            syndromeFilterStyle="select"
+          />
         </div>
       </section>
 
