@@ -1,0 +1,101 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "pasteurs-rabies-gamble",
+  title: "Pasteur's Rabies Gamble",
+  description:
+    "In 1885, Pasteur's rabies vaccine turned prevention after exposure into a race against incubation time.",
+  publishedAt: "2026-04-23",
+  historicalDateLabel: "1885",
+  historicalYearSort: 1885,
+  categories: ["diagnostics-vaccines", "people-illness"],
+  tags: ["Rabies", "Louis Pasteur", "Post-exposure prophylaxis", "Vaccines", "Joseph Meister"],
+  hook:
+    "A 9-year-old boy arrived after a brutal dog attack at a time when rabies was almost a death sentence. Pasteur decided to move before the virus did.",
+  takeaway:
+    "Rabies still teaches one of ID's cleanest lessons: sometimes timing is the treatment, and the whole game is to act before the virus reaches the brain.",
+  heroImage: "/historid/pasteurs-rabies-gamble/hero.jpg",
+  heroImageAlt: "Portrait of Louis Pasteur in later life.",
+  heroImageCredit: "Louis Pasteur, photograph by Paul Nadar.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Louis_Pasteur,_foto_av_Paul_Nadar.jpg",
+  heroImageLicense: "Public domain via Wikimedia Commons",
+  socialHeadline: "The First Rabies PEP",
+  socialDek: "Rabies was almost always fatal once symptoms began, so Pasteur tried to beat the virus to the nervous system.",
+  socialFacts: [
+    "Pasteur was not a licensed physician when Joseph Meister was brought to him in 1885.",
+    "Rabies was usually fatal once neurologic symptoms began, which made delay the real enemy.",
+    "The early inoculations used rabbit spinal cords dried for different lengths of time to weaken virulence.",
+    "The whole strategy depended on incubation time: raise immunity before the virus reached the brain.",
+    "Modern rabies prophylaxis still follows the same basic logic, just with safer tools and better standardization.",
+  ],
+  featured: true,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In July 1885, Joseph Meister, 9 years old, was brought to Louis Pasteur after being mauled
+    by a dog thought to have rabies. At that point rabies was not a disease you treated. It was
+    a disease you feared and then watched unfold. Once hydrophobia and neurologic symptoms
+    started, almost nobody survived. Pasteur was not a physician, and what he was about to do
+    was still experimental.
+  </p>
+
+  <h2>Historical Scene</h2>
+  <p>
+    Pasteur had already shown that weakened microbes could protect animals, but rabies was a
+    different kind of problem. It did not behave like the bacterial infections that had made germ
+    theory feel newly conquerable. It could not be handled on an ordinary culture plate, and it
+    came with a cruel clock: a bite might be followed by days or weeks of apparent calm before the
+    nervous system became involved. That delay created a narrow opening. If immunity could be
+    pushed fast enough, maybe the disease could be stopped before symptoms appeared.
+  </p>
+
+  <h2>What Happened</h2>
+  <p>
+    Meister received a sequence of inoculations prepared from the spinal cords of infected
+    rabbits, with the least virulent material given first and stronger preparations later. The
+    logic was bold and a little terrifying: teach the body to respond before the virus reached
+    the brain. Meister survived. So did another early patient, Jean-Baptiste Jupille, and the
+    result was hard for the medical world to ignore. Pasteur had not simply treated rabies. He
+    had changed when treatment could begin.
+  </p>
+
+  <h2>Why It Changed Infectious Diseases</h2>
+  <p>
+    This is why the story belongs in Infectious Diseases history. Pasteur's rabies work helped
+    define post-exposure prophylaxis as a real medical strategy. The key idea was not just
+    vaccination. It was pathogenesis plus timing. If a pathogen moves slowly enough, and if the
+    immune response can be accelerated quickly enough, exposure does not have to mean disease.
+    That logic later shaped how clinicians think about other exposure-driven decisions, from HIV
+    prophylaxis to varicella prevention in high-risk hosts.
+  </p>
+
+  <h2>Why It Still Matters Now</h2>
+  <p>
+    Modern rabies prophylaxis is safer, standardized, and paired with wound care, vaccine, and
+    often rabies immune globulin, but it still depends on the same race against neuroinvasion.
+    In practice, that means the critical question after a suspected exposure is not whether
+    rabies is bad. Everyone already knows that. The real question is whether there is still time
+    to interrupt the course before symptoms start. Few historical stories make the ID habit of
+    thinking in timelines feel this concrete.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      Pasteur L. Methode pour prevenir la rage apres morsure. <em>Comptes rendus de l'Academie
+      des sciences</em>. 1885.
+    </li>
+    <li>
+      Jackson AC. Human rabies: a 2016 update. <em>Curr Infect Dis Rep</em>. 2016;18(11):38.
+    </li>
+    <li>
+      World Health Organization. Rabies vaccines: WHO position paper. <em>Wkly Epidemiol Rec</em>.
+      2018;93(16):201-220.
+    </li>
+  </ol>
+</HistorIDShell>

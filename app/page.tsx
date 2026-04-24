@@ -112,6 +112,11 @@ const librarySections = [
     desc: "Short essays and teaching pieces on diagnostics, antimicrobial therapy, and uncertainty.",
   },
   {
+    href: "/historid",
+    title: "HistorID",
+    desc: "Historical facts and brief teaching stories on pathogens, antibiotics, outbreaks, and the people who shaped ID.",
+  },
+  {
     href: "/tools/spectrum",
     title: "Spectrum",
     desc: "Searchable antimicrobial spectrum of activity chart for common organisms and antibiotics.",

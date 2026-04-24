@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 const primaryNav = [
   { href: "/blog", label: "Blog" },
+  { href: "/historid", label: "HistorID" },
   { href: "/cases", label: "Cases" },
   { href: "/references", label: "Index" },
   { href: "/research", label: "Research" },

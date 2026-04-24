@@ -1,0 +1,110 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-medical-student-who-became-the-experiment",
+  title: "The Medical Student Who Became the Experiment",
+  description:
+    "In 1885, Daniel Alcides Carrion inoculated himself to prove that Oroya fever and verruga peruana were two phases of the same disease.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1885",
+  historicalYearSort: 1885,
+  categories: ["people-illness", "organisms"],
+  tags: [
+    "Daniel Alcides Carrion",
+    "Bartonella bacilliformis",
+    "Carrion's disease",
+    "Oroya fever",
+    "Verruga peruana",
+    "Self-experimentation",
+  ],
+  hook:
+    "A Peruvian medical student did not just study a disease. He inoculated himself with it, kept notes as the fever took hold, and settled one of the central questions in Andean medicine with his own body.",
+  takeaway:
+    "The story still lands because it joins microbiology, clinical observation, and risk in one brutal lesson: sometimes a diagnostic link is won only because someone was willing to cross an ethical line medicine would no longer accept.",
+  heroImage: "/historid/the-medical-student-who-became-the-experiment/hero.jpg",
+  heroImageAlt: "Portrait of Daniel Alcides Carrion.",
+  heroImageCredit: "Portrait of Daniel Alcides Carrion.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Daniel_Alcides_Carr%C3%ADon_Garc%C3%ADa.jpg",
+  heroImageLicense: "Public domain via Wikimedia Commons",
+  socialHeadline: "The Student Who Became the Experiment",
+  socialDek:
+    "Carrion let infected blood be inoculated into his own skin to prove that a deadly fever and a strange eruptive illness were the same disease.",
+  socialFacts: [
+    "In 1885, Carrion had blood from a verruga peruana lesion inoculated into himself.",
+    "He wanted to prove that verruga peruana and the deadly anemia of Oroya fever were two phases of one illness.",
+    "He developed the acute febrile, hemolytic syndrome himself and documented it as it progressed.",
+    "The disease would later be linked to Bartonella bacilliformis, transmitted in Andean valleys by sand flies.",
+    "Peru later turned Carrion into a national medical martyr, but his experiment still reads as both courageous and unsettling.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In Lima in 1885, Daniel Alcides Carrion was still a medical student, not an established
+    physician or laboratory celebrity. What drew him into history was a question that had not yet
+    been settled: was the violent febrile anemia known as Oroya fever actually related to the
+    later eruptive skin disease called verruga peruana, or were they separate illnesses that only
+    happened to share a geography? Carrion decided to answer that question by turning himself
+    into the experiment.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The disease belonged to the Andes. Railroad workers in Peru had already given Oroya fever a
+    grim reputation, and the later eruptive lesions of verruga peruana were well known locally.
+    What was missing was the link. This was late-19th-century medicine, a moment when careful
+    bedside description, pathology, and bold inference still sat much closer together than they do
+    now. If you wanted proof, you sometimes had to create it.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Carrion arranged to have material from a patient's verruga lesion inoculated into himself.
+    For a short time, nothing dramatic happened. Then fever, malaise, and progressive illness set
+    in. He developed the syndrome recognized as the acute phase of the disease and continued to
+    document it until he became too ill to do so. He died weeks later. The experiment gave the
+    medical community something it had not had before: a human bridge between the eruptive phase
+    and the acute blood-borne illness.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The importance of the story is not just that it was dramatic. It helped consolidate the idea
+    that Oroya fever and verruga peruana belonged to the same disease spectrum, what would later be
+    called Carrion's disease. That mattered clinically because it turned scattered observations
+    into one pathogen-centered story: one infection, different phases, different presentations,
+    one epidemiology. Long before Bartonella bacilliformis was fully characterized, the clinical
+    logic was already tightening around a single organism.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    Carrion's experiment still matters because it captures two things ID never really escapes.
+    First, diseases often look unrelated until someone pays enough attention to timing and phase.
+    Second, medicine has a long history of discovery through self-experimentation that reads very
+    differently once you step back from the heroism. The case is memorable because it is both
+    brilliant and uncomfortable. It reminds us that sharp clinical insight can come wrapped in a
+    method we would now reject.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      Gomes C, Ruiz J. Carrion's disease: the sound of silence. <em>Clin Microbiol Rev</em>.
+      2018;31(1):e00056-17.
+    </li>
+    <li>
+      Maguina C, Garcia PJ, Gotuzzo E, Cordero L, Spach DH. Bartonellosis (Carrion's disease) in
+      the modern era. <em>Clin Infect Dis</em>. 2001;33(6):772-779.
+    </li>
+    <li>
+      Altman LK. <em>Who Goes First? The Story of Self-Experimentation in Medicine</em>.
+      University of California Press; 1987.
+    </li>
+  </ol>
+</HistorIDShell>

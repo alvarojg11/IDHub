@@ -6,6 +6,7 @@ import type { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog/registry";
 import { getCaseSeoEntry } from "@/lib/cases/seo";
 import { CASES } from "@/lib/cases/registry";
+import { getHistoridEntries } from "@/lib/historid/registry";
 
 const APP_DIR = path.join(process.cwd(), "app");
 const PAGE_FILE_RE = /^page\.(tsx|mdx)$/;
@@ -81,10 +82,10 @@ function isIncludedRoute(route: string) {
 
 function getPriority(route: string) {
   if (route === "/") return 1;
-  if (["/blog", "/cases", "/tools/immunoid", "/tools/doseid", "/probid", "/mechid", "/references", "/tools/spectrum"].includes(route)) {
+  if (["/blog", "/historid", "/cases", "/tools/immunoid", "/tools/doseid", "/probid", "/mechid", "/references", "/tools/spectrum"].includes(route)) {
     return 0.9;
   }
-  if (route.startsWith("/blog/") || route.startsWith("/cases/")) return 0.8;
+  if (route.startsWith("/blog/") || route.startsWith("/historid/") || route.startsWith("/cases/")) return 0.8;
   return 0.7;
 }
 
@@ -106,6 +107,13 @@ async function buildDateMap(): Promise<Record<string, Date>> {
     }
   }
 
+  const historidEntries = await getHistoridEntries();
+  for (const entry of historidEntries) {
+    if (entry.publishedAt) {
+      dates[`/historid/${entry.slug}`] = new Date(entry.publishedAt);
+    }
+  }
+
   return dates;
 }
 
@@ -121,7 +129,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: dateMap[route] ?? new Date(),
-    changeFrequency: route.startsWith("/blog/") ? "monthly" as const : "weekly" as const,
+    changeFrequency:
+      route.startsWith("/blog/") || route.startsWith("/historid/")
+        ? "monthly" as const
+        : "weekly" as const,
     priority: getPriority(route),
   }));
 }

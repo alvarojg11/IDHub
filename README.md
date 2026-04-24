@@ -189,3 +189,57 @@ Admin moderation:
 - UI: `/admin/comments`
 - API: `GET /api/blog/comments/admin` and `PATCH /api/blog/comments/admin`
 - Auth: pass `x-notify-secret: $SUBSCRIPTIONS_NOTIFY_SECRET`
+
+## Social Asset Export
+
+IDHub can export generated social assets directly into the local Google Drive sync folder used for publishing.
+
+Examples:
+
+```bash
+npm run export:social -- case ptld-heart-transplant
+npm run export:social -- historid pasteurs-rabies-gamble
+npm run publish:historid -- pasteurs-rabies-gamble
+```
+
+Defaults:
+
+- Base URL: `http://localhost:3000`
+- Drive root: `/Users/alvaroayala/Library/CloudStorage/GoogleDrive-alvaro.ayala@infectiousdiseasehub.com/My Drive/Media`
+
+Useful flags:
+
+```bash
+npm run export:social -- historid pasteurs-rabies-gamble --skip-og
+npm run export:social -- case ptld-heart-transplant --base-url=http://localhost:3001
+npm run export:social -- historid pasteurs-rabies-gamble --drive-root="/custom/media/root"
+```
+
+Export locations:
+
+- Cases Instagram: `Media/Instagram/<slug>/`
+- Cases OG: `Media/OG/<slug>/`
+- HistorID Instagram: `Media/Instagram/HistorID/<slug>/`
+- HistorID OG: `Media/OG/HistorID/<slug>/`
+
+HistorID Instagram export set:
+
+- `hook.png`
+- `teaching.png`
+- `cta.png`
+- `story.png`
+
+### One-step HistorID publish export
+
+Use this when a HistorID brief already exists locally and the local app is running:
+
+```bash
+npm run publish:historid -- pasteurs-rabies-gamble
+```
+
+This command:
+
+- verifies the MDX entry exists
+- verifies the hero image exists at `public/historid/<slug>/hero.jpg`
+- checks the page, OG, and Instagram routes
+- exports the generated files into Google Drive

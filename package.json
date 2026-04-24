@@ -7,7 +7,9 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "import:substack": "node scripts/import-substack.mjs"
+    "import:substack": "node scripts/import-substack.mjs",
+    "export:social": "node scripts/export-social-assets.mjs",
+    "publish:historid": "node scripts/publish-historid.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
