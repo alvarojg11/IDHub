@@ -1,0 +1,121 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-disease-reached-the-inca-first",
+  title: "When Disease Reached the Inca First",
+  description:
+    "Old World epidemics likely destabilized the Inca world before many Spaniards ever entered its political center.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1520s",
+  historicalYearSort: 1527,
+  categories: ["wars-outbreaks", "people-illness"],
+  tags: [
+    "Inca Empire",
+    "Huayna Capac",
+    "Smallpox",
+    "Old World disease",
+    "Colonial epidemics",
+    "Atahualpa",
+  ],
+  hook:
+    "By the time the Spanish pushed deeper into the Andes, the Inca world may already have been hit by epidemics that arrived ahead of them. Disease could move faster than conquest.",
+  takeaway:
+    "This history corrects a lazy historical instinct. Empires do not fall to microbes alone, but epidemics can shatter succession, trust, and political timing before the invaders fully arrive.",
+  heroImage: "/historid/when-disease-reached-the-inca-first/hero.jpg",
+  heroImageAlt: "Historical illustration of Huayna Capac by Guaman Poma de Ayala.",
+  heroImageCredit: "Huayna Capac illustrated by Felipe Guaman Poma de Ayala.",
+  heroImageSourceUrl: "https://www.kb.dk/permalink/2006/poma/112/en/text/",
+  heroImageLicense: "Public domain via Royal Danish Library",
+  socialHeadline: "When Disease Reached the Inca First",
+  socialDek:
+    "The Spanish did not need to be everywhere at once. Their pathogens could move through trade, travel, and political networks before direct conquest caught up.",
+  socialFacts: [
+    "Huayna Capac died in 1527, possibly from an Old World epidemic often labeled smallpox, though historians still debate the exact illness.",
+    "His death, and the death of likely heir Ninan Cuyochi, helped destabilize imperial succession.",
+    "The resulting struggle between Huascar and Atahualpa left the empire fractured when the Spanish arrived.",
+    "This is one of the clearest examples of epidemic shock acting before full military takeover.",
+    "The key historical lesson is not that microbes explain everything, but that disease can reshape the battlefield before the armies even meet.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The fall of the Inca Empire is often told as a story of steel, cavalry, and audacity. Those
+    mattered, but they were not the whole story. Before Spanish power was fully established in the
+    Andean political center, epidemic disease may already have moved through the empire, hitting
+    succession and stability first. That is what makes this history feel so modern: the first blow
+    may not have been military.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The Inca world under Huayna Capac was large, administratively dense, and deeply connected. That
+    kind of connectivity helps states govern, but it also gives pathogens routes. Old World
+    infections introduced into the Americas did not need a conquistador physically present in every
+    province to begin their damage. Trade, movement, and human networks could carry them onward.
+    By the late 1520s, the empire was facing not just succession stress, but epidemiologic shock.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Huayna Capac died in 1527, and some sources have long identified smallpox as the likely cause,
+    while others caution that the exact disease cannot be proven with confidence. What is much
+    harder to dispute is the effect of epidemic mortality around the succession. Huayna Capac and
+    the likely heir, Ninan Cuyochi, were both gone, and the resulting contest between Huascar and
+    Atahualpa turned into civil war. When the Spanish entered that fractured landscape, they were
+    not confronting the empire at its most stable.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    This history matters in ID because it shows epidemic disease acting at the level of state
+    structure, not just individual mortality. Infection can remove rulers, destabilize succession,
+    intensify internal conflict, and change the timing of conquest without ever being the sole cause
+    of collapse. That is a more useful lesson than the oversimplified line that "smallpox destroyed
+    the Inca." The reality is harsher and more interesting: disease changed the conditions under
+    which the conquest unfolded.
+  </p>
+
+  <h2>Why epidemics reorder power</h2>
+  <p>
+    We keep relearning the same principle: epidemics are political stress tests as much as clinical
+    events. They expose who can adapt, who can govern, and what breaks first. In the Inca case, the
+    central question is not whether one pathogen "caused" the fall, but how epidemic disruption
+    changed the empire before the decisive encounters even occurred.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        McCaa R, Nimlos A, Hampe Martinez T. Why blame smallpox? The death of the Inca Huayna Capac
+        and the demographic destruction of Tawantinsuyu.
+      </p>
+      <p>
+        <a href="https://scholar.google.com/scholar?q=%22Why+blame+smallpox%3F+The+death+of+the+Inca+Huayna+Capac+and+the+demographic+destruction+of+Tawantinsuyu%22" target="_blank" rel="noreferrer">
+          Link: Search source
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>D'Altroy TN. <em>The Incas</em>. Wiley-Blackwell; 2014.</p>
+      <p>
+        <a href="https://books.google.com/books?q=The+Incas+Terence+N.+D%27Altroy" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Huayna Capac and Inca imperial collapse. Royal Danish Library source and historical summaries.</p>
+      <p>
+        <a href="https://www.kb.dk/permalink/2006/poma/112/en/text/" target="_blank" rel="noreferrer">
+          Link: Royal Danish Library
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

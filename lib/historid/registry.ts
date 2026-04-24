@@ -34,6 +34,7 @@ export type HistorIDMeta = {
   socialHeadline?: string;
   socialDek?: string;
   socialFacts?: string[];
+  hookImageFit?: "cover" | "contain";
   featured?: boolean;
 };
 
@@ -106,6 +107,11 @@ function readObjectBooleanProp(source: string, key: string) {
   return match[1] === "true";
 }
 
+function readObjectEnumProp<T extends string>(source: string, key: string, allowed: readonly T[]) {
+  const value = readObjectStringProp(source, key);
+  return value && allowed.includes(value as T) ? (value as T) : undefined;
+}
+
 function sanitizeCategories(categories: string[]) {
   return categories.filter((category): category is HistorIDCategory => category in HISTORID_CATEGORY_LABELS);
 }
@@ -139,6 +145,7 @@ async function readHistoridEntry(slug: string): Promise<HistorIDEntry | null> {
       socialHeadline: readObjectStringProp(factObject, "socialHeadline") ?? undefined,
       socialDek: readObjectStringProp(factObject, "socialDek") ?? undefined,
       socialFacts: readObjectStringArrayProp(factObject, "socialFacts"),
+      hookImageFit: readObjectEnumProp(factObject, "hookImageFit", ["cover", "contain"] as const),
       featured: readObjectBooleanProp(factObject, "featured") ?? false,
       url: `/historid/${slug}`,
     };

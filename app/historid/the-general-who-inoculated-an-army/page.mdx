@@ -1,0 +1,122 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-general-who-inoculated-an-army",
+  title: "The General Who Inoculated an Army",
+  description:
+    "George Washington's decision to inoculate Continental troops against smallpox may have been one of the most important medical orders of the Revolution.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1776-1777",
+  historicalYearSort: 1776,
+  categories: ["people-illness", "diagnostics-vaccines"],
+  tags: [
+    "George Washington",
+    "Smallpox",
+    "American Revolution",
+    "Inoculation",
+    "Variolation",
+    "Continental Army",
+  ],
+  hook:
+    "Washington worried that smallpox could do what the British might not: break the army without winning a battle. His answer was a military medical gamble as much as a strategic one.",
+  takeaway:
+    "Washington's inoculation order framed infection control as command responsibility. He was not just protecting individual soldiers; he was protecting force survival.",
+  heroImage: "/historid/the-general-who-inoculated-an-army/hero.jpg",
+  heroImageAlt: "Portrait of George Washington by Gilbert Stuart.",
+  heroImageCredit: "Portrait of George Washington by Gilbert Stuart.",
+  heroImageSourceUrl:
+    "https://www.clarkart.edu/ArtPiece/Detail/George-Washington",
+  heroImageLicense: "Public domain via Clark Art Institute",
+  socialHeadline: "The General Who Inoculated an Army",
+  socialDek:
+    "Washington had survived smallpox himself, and by 1777 he feared the virus more than many British maneuvers.",
+  socialFacts: [
+    "Washington caught smallpox in Barbados in 1751, which likely left him immune for life.",
+    "He later warned that smallpox could be more dangerous to the Continental Army than the enemy's sword.",
+    "Mass inoculation was risky because variolation itself temporarily made soldiers ill and contagious.",
+    "Washington still ordered a controlled inoculation program because an uncontrolled epidemic was worse.",
+    "It became one of the clearest early examples of military leadership shaped by infectious-disease risk.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Washington's Revolutionary War is usually told through retreats, crossings, and battles. But
+    one of his most consequential decisions was medical. Smallpox stalked the colonies, and unlike
+    the British army, many American recruits had never been exposed. That meant the Continental
+    Army did not just face an enemy across the field. It carried a large reservoir of
+    susceptibility inside its own camp.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Eighteenth-century Americans outside major port cities often reached adulthood without ever
+    encountering smallpox. The disease could therefore hit new military recruits hard, especially
+    when men were crowded together and moving between regions. Washington understood the danger in
+    a personal way: he had survived smallpox as a young man after a trip to Barbados. By the time
+    he commanded the Continental Army, he knew exactly what an outbreak could do to a force that
+    was already short on discipline, supplies, and trained replacements.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    At first Washington tried to keep the disease out through quarantine and strict vigilance. But
+    smallpox kept threatening the army, and the failed campaign in Quebec had already shown how
+    destructive the infection could be. He eventually authorized a broader inoculation program,
+    using variolation under controlled circumstances so troops would recover before joining active
+    operations. It was not a clean or safe modern vaccination campaign. It was an organized choice
+    to accept short-term illness in order to avoid a larger disaster.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The importance of the story is that it treats infection as a strategic variable, not a
+    background hazard. Washington's decision showed that infectious disease could alter military
+    readiness, campaign timing, and political survival. Long before modern military preventive
+    medicine, he recognized that susceptibility itself was operational weakness. That idea now feels
+    obvious, but it was not obvious in an era when contagion, immunity, and prevention were still
+    medically unsettled and politically controversial.
+  </p>
+
+  <h2>Why prevention became strategy</h2>
+  <p>
+    That tension never really left. Protect a force too early and you disrupt operations; wait too
+    long and the outbreak sets the timetable for you. Washington's campaign belongs in ID history
+    because it shows prevention operating at the level of strategy, not just bedside care.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>Smallpox. George Washington's Mount Vernon Digital Encyclopedia.</p>
+      <p>
+        <a href="https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/smallpox/" target="_blank" rel="noreferrer">
+          Link: Mount Vernon Digital Encyclopedia
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Fenn EA. <em>Pox Americana: The Great Smallpox Epidemic of 1775-82</em>. Hill and Wang;
+        2001.
+      </p>
+      <p>
+        <a href="https://books.google.com/books?q=Pox+Americana:+The+Great+Smallpox+Epidemic+of+1775-82" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Becker A, Moran M. Smallpox and the American Revolution. <em>J Mil Hist</em>. 2004.</p>
+      <p>
+        <a href="https://scholar.google.com/scholar?q=%22Smallpox+and+the+American+Revolution%22+Becker+Moran" target="_blank" rel="noreferrer">
+          Link: Search source
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

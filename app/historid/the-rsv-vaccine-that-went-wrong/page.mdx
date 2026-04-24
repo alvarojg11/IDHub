@@ -1,0 +1,126 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-rsv-vaccine-that-went-wrong",
+  title: "The RSV Vaccine That Went Wrong",
+  description:
+    "The formalin-inactivated RSV vaccine of the 1960s became one of the most important cautionary stories in modern vaccinology.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1960s",
+  historicalYearSort: 1966,
+  categories: ["diagnostics-vaccines", "people-illness"],
+  tags: [
+    "RSV",
+    "Formalin-inactivated RSV vaccine",
+    "Vaccine-enhanced disease",
+    "Pediatrics",
+    "Immunopathogenesis",
+    "Respiratory syncytial virus",
+  ],
+  hook:
+    "The first major RSV vaccine disaster did not fail because it did nothing. It failed because it seemed to prime children for worse disease when the real virus arrived.",
+  takeaway:
+    "That episode still shapes vaccine design because it taught researchers that an immune response can look strong on paper and still be biologically wrong in the host.",
+  heroImage: "/historid/the-rsv-vaccine-that-went-wrong/hero.jpg",
+  heroImageAlt: "Illustrated rendering of respiratory syncytial virus.",
+  heroImageCredit: "Human Respiratory Syncytial Virus (RSV), NIAID.",
+  heroImageSourceUrl:
+    "https://www.flickr.com/photos/niaid/52456711008/",
+  heroImageLicense: "CC BY 2.0 via NIAID Flickr",
+  socialHeadline: "The RSV Vaccine That Went Wrong",
+  socialDek:
+    "In the 1960s, a formalin-inactivated RSV vaccine generated binding antibodies but failed to protect and was linked to vaccine-enhanced disease in RSV-naive children.",
+  socialFacts: [
+    "The formalin-inactivated RSV vaccine induced antibodies, but they were poor at neutralizing the virus effectively.",
+    "During later natural RSV exposure, some vaccinated children developed unusually severe disease.",
+    "Most famously, about 80% of vaccinated infants in one key study were hospitalized after natural infection, compared with far fewer controls, and two vaccinated children died.",
+    "The episode became a defining example of vaccine-enhanced disease rather than ordinary vaccine failure.",
+    "Modern RSV vaccine development has had to work in the shadow of that event ever since.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    RSV is now familiar enough that it can sound routine, especially outside pediatrics. But the
+    virus has one of the most sobering vaccine histories in modern infectious diseases. In the
+    1960s, a formalin-inactivated RSV vaccine seemed like a rational path forward. Instead, it
+    became the case everyone still cites when they need to explain why immunogenicity alone is not
+    enough.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    RSV was already recognized as a major cause of bronchiolitis and pneumonia in infants, and the
+    incentive to develop a vaccine was obvious. A non-live, inactivated product looked safer and
+    easier to deploy in young children. On paper, the approach made sense. In practice, the immune
+    response it generated turned out to be dangerously incomplete.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Children who received the formalin-inactivated RSV vaccine later encountered natural RSV in the
+    community. Instead of being protected, some developed unusually severe lower respiratory disease.
+    The vaccine had induced strong binding antibody responses but poor neutralizing activity, and
+    later work suggested an imbalanced immune response that contributed to enhanced pulmonary
+    pathology. The result was not just disappointment. It was harm, including hospitalizations and
+    deaths.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The FI-RSV episode changed vaccine science by forcing a harder question: what kind of immunity
+    are you creating, and what will it do when the host meets the real pathogen? That question now
+    sits at the center of RSV vaccine development and echoes across other viral vaccine programs as
+    well. The lesson was not simply "be careful with RSV." It was that a vaccine can fail by
+    misdirecting the immune system rather than by failing to stimulate it.
+  </p>
+
+  <h2>What vaccine science carried forward</h2>
+  <p>
+    Modern RSV prevention was built under the shadow of this failure. Every candidate had to answer
+    the same fear: could it prime for enhanced disease again? That is why the 1960s episode keeps
+    its force. It is one of vaccinology's clearest warnings that the immune response you measure is
+    not always the immunity you want.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Openshaw PJ, Culley FJ, Olszewska W. Immunopathogenesis of vaccine-enhanced RSV disease.
+        <em>Vaccine</em>. 2001;20 Suppl 1:S27-S31.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0264-410X(01)00301-2" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0264-410X(01)00301-2
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Collins PL, Fearns R, Graham BS. Respiratory syncytial virus: virology, reverse genetics, and
+        pathogenesis of disease. <em>Curr Top Microbiol Immunol</em>. 2013;372:3-38.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1007/978-3-642-38919-1_1" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1007/978-3-642-38919-1_1
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Kim HW, Canchola JG, Brandt CD, et al. Respiratory syncytial virus disease in infants despite
+        prior administration of antigenic inactivated vaccine. <em>Am J Epidemiol</em>. 1969;89(4):422-434.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/4305198/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

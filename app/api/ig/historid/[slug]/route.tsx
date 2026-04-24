@@ -19,6 +19,7 @@ export async function GET(
   const category = entry?.categories[0] ? HISTORID_CATEGORY_LABELS[entry.categories[0]] : "HistorID";
   const heroImageUrl = entry?.heroImage ? `${new URL(req.url).origin}${entry.heroImage}` : null;
   const imageHeight = 690;
+  const hookImageFit = entry?.hookImageFit ?? "cover";
 
   return new ImageResponse(
     (
@@ -48,7 +49,43 @@ export async function GET(
           <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%" }}>
             <div style={{ display: "flex", width: "100%", height: `${imageHeight}px`, flexShrink: 0 }}>
               {heroImageUrl ? (
-                <img src={heroImageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                hookImageFit === "contain" ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      height: "100%",
+                      padding: "22px",
+                      background: "#e7efeb",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "100%",
+                        height: "100%",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "22px",
+                        overflow: "hidden",
+                        background: "#f8fbf9",
+                      }}
+                    >
+                      <img
+                        src={heroImageUrl}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          objectPosition: "center center",
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <img src={heroImageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                )
               ) : (
                 <div style={{ display: "flex", width: "100%", height: "100%", background: "linear-gradient(160deg, #184d3c 0%, #215f49 100%)" }} />
               )}

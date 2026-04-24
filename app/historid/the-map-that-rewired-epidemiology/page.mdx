@@ -1,0 +1,127 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-map-that-rewired-epidemiology",
+  title: "The Map That Rewired Epidemiology",
+  description:
+    "John Snow's cholera work did not end cholera in London overnight, but it changed how disease could be investigated.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1854",
+  historicalYearSort: 1854,
+  categories: ["diagnostics-vaccines", "wars-outbreaks"],
+  tags: [
+    "John Snow",
+    "Cholera",
+    "Broad Street",
+    "Epidemiology",
+    "Waterborne disease",
+    "Public health",
+  ],
+  hook:
+    "When cholera ripped through Soho in 1854, John Snow did not have a microscope result that could settle the argument. He had addresses, deaths, a water pump, and a stubborn idea that the disease was moving through water rather than air.",
+  takeaway:
+    "Snow's cholera work showed that careful pattern recognition can outrun incomplete microbiology. In ID, a strong field hypothesis can arrive before the lab catches up.",
+  heroImage: "/historid/the-map-that-rewired-epidemiology/hero.jpg",
+  heroImageAlt: "Portrait of John Snow.",
+  heroImageCredit: "John Snow.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:John_Snow.jpg",
+  heroImageLicense: "Public domain via Wikimedia Commons",
+  socialHeadline: "The Map That Rewired Epidemiology",
+  socialDek:
+    "Snow could not yet prove cholera's microbe, but he could show that the pattern of deaths pointed to water, not miasma.",
+  socialFacts: [
+    "The Broad Street outbreak killed more than 600 people in Soho in 1854.",
+    "Snow's famous map was persuasive because it linked deaths to one pump more clearly than the air theory could.",
+    "A nearby brewery became part of the story because workers mostly drank beer rather than pump water.",
+    "Snow also compared water companies and showed much higher cholera mortality in homes supplied by dirtier Thames water.",
+    "He did not have the final bacteriologic proof, but his method changed how outbreaks could be argued from evidence.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    John Snow's cholera work is famous enough that it sometimes turns into a fable: one doctor,
+    one map, one pump handle, problem solved. The real story is better. Snow was working in a city
+    thick with sewage, competing theories, and institutional resistance. He did not yet have the
+    bacterium in hand. What he had was a better way of asking where disease was moving and what it
+    was moving through.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Mid-19th-century London was crowded, foul, and badly served by sanitation. Cholera moved
+    through districts that already smelled terrible, which made miasma theory feel plausible to
+    many officials and physicians. Snow doubted that explanation. He suspected that the critical
+    exposure was swallowed, not inhaled, and that water had to be taken more seriously as the
+    vehicle of disease.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    During the 1854 outbreak near Broad Street in Soho, Snow gathered addresses and deaths and
+    mapped where cases clustered. The pattern pointed sharply toward one public pump. He also paid
+    attention to exceptions: people who lived nearby but did not drink from the pump, and settings
+    like the brewery where workers consumed beer instead of local water. Snow brought the evidence
+    to local authorities, who removed the pump handle. The outbreak was already declining, but the
+    argument had been made in a way people could not easily dismiss.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Snow's work changed ID history because it showed that outbreak investigation could be built
+    from geography, exposure patterns, and denominator thinking rather than from symptoms alone.
+    He also compared water companies and demonstrated a stark mortality difference tied to water
+    source, which made the logic larger than one Soho street. This was not just an anecdote about a
+    pump. It was a method for turning scattered illness into an argument about transmission.
+  </p>
+
+  <h2>Why Snow's method endures</h2>
+  <p>
+    Outbreak teams still work in that same gap between suspicion and proof. Pattern, clustering,
+    exposure contrast, and the right comparison group can move action forward before the lab
+    finishes the argument. The Broad Street map was not a ceremonial origin story; it was a working
+    template.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Snow J. <em>On the Mode of Communication of Cholera</em>. 2nd ed. London: John Churchill;
+        1855.
+      </p>
+      <p>
+        <a href="https://books.google.com/books?q=On+the+Mode+of+Communication+of+Cholera+John+Snow+1855" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Brody H, Rip MR, Vinten-Johansen P, Paneth N, Rachman S. Map-making and myth-making in Broad
+        Street: the London cholera epidemic, 1854. <em>Lancet</em>. 2000;356(9223):64-68.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0140-6736(00)02442-9" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0140-6736(00)02442-9
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Paneth N, Vinten-Johansen P, Brody H, Rip M. A rivalry of foulness: official and unofficial
+        investigations of the London cholera epidemic of 1854. <em>Am J Public Health</em>.
+        1998;88(10):1545-1553.
+      </p>
+      <p>
+        <a href="https://doi.org/10.2105/AJPH.88.10.1545" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.2105/AJPH.88.10.1545
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

@@ -1,0 +1,124 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-mold-that-went-to-war",
+  title: "The Mold That Went to War",
+  description:
+    "Penicillin mattered in 1928, but war is what turned it from a laboratory curiosity into a drug that could be made at scale.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1928-1945",
+  historicalYearSort: 1928,
+  categories: ["antibiotics", "wars-outbreaks"],
+  tags: [
+    "Penicillin",
+    "Alexander Fleming",
+    "Howard Florey",
+    "Ernst Chain",
+    "Norman Heatley",
+    "World War II",
+  ],
+  hook:
+    "Fleming noticed the mold in 1928. That was the famous part. The harder part was turning a fragile laboratory finding into enough drug to matter on a battlefield.",
+  takeaway:
+    "Penicillin still teaches a humbling lesson: discovery alone does not change medicine. Purification, manufacturing, and distribution are what turn a scientific clue into survival.",
+  heroImage: "/historid/the-mold-that-went-to-war/hero.jpg",
+  heroImageAlt: "Glass vial of British Standard penicillin.",
+  heroImageCredit: "Glass phial of British Standard penicillin.",
+  heroImageSourceUrl:
+    "https://web.archive.org/web/20210118164948/https://wellcomecollection.org/works/xkbnmutd",
+  heroImageLicense: "CC BY 4.0 via Wellcome Collection",
+  socialHeadline: "The Mold That Went to War",
+  socialDek:
+    "World War II forced penicillin to move from a contaminated culture plate to an industrial product measured in lives saved.",
+  socialFacts: [
+    "Fleming saw the antibacterial effect of Penicillium in 1928, but he did not have a way to turn it into a stable therapy.",
+    "The Oxford team later had so little penicillin that they recovered it from patients' urine to reuse it.",
+    "Mass production depended on chemistry, fermentation, engineering, and transatlantic wartime collaboration, not just one discovery moment.",
+    "Deep-tank fermentation in the United States changed penicillin from a scarce lab product into something that could move with armies.",
+    "By the end of the war, penicillin had become one of the clearest proofs that antimicrobial therapy could change the fate of severe bacterial infection.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The penicillin story gets flattened too easily into one lucky culture plate and one brilliant
+    observer. Fleming deserves his place in it, but the fuller story is messier and more useful.
+    The real transformation happened when an unstable antibacterial substance had to be purified,
+    tested, manufactured, and delivered in the middle of a world war. That is when penicillin
+    stopped being a laboratory curiosity and became medical infrastructure.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Fleming's 1928 observation was important, but for years penicillin remained chemically awkward
+    and hard to scale. The Oxford group led by Howard Florey and Ernst Chain, with crucial work by
+    Norman Heatley and others, turned back to it in the late 1930s. This was not elegant bench
+    science alone. It was bowls, vessels, extraction tricks, freeze-drying, assay work, and a lot
+    of improvisation. Early supplies were so scarce that every milligram felt strategic.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Once penicillin showed real activity in animals and then in desperate human infections, the
+    bottleneck became production. War changed the urgency. British and American teams pushed on
+    cultivation methods, strain selection, purification, and deep-tank fermentation until the drug
+    could be made at a scale the clinic and the battlefield could actually use. The story is often
+    told as discovery followed by triumph, but the more honest version is discovery followed by an
+    industrial sprint.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Penicillin helped prove that bacterial infection could be attacked with a targeted drug strong
+    enough to change outcomes in conditions that had often been lethal. It also reset expectations.
+    Before antibiotics, clinicians managed many severe infections with drainage, supportive care,
+    and hope. After penicillin, there was a new standard: a pathogen might not just be described or
+    endured, but directly suppressed. That changed bedside medicine, military medicine, and the
+    entire future of antimicrobial discovery.
+  </p>
+
+  <h2>Why translation beats discovery alone</h2>
+  <p>
+    Penicillin corrects a common myth about medical breakthroughs. Discovery is only the first
+    hill; translation is the mountain. A molecule changes care only when purification,
+    standardization, manufacturing, and distribution are strong enough to carry it.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Fleming A. On the antibacterial action of cultures of a Penicillium, with special reference
+        to their use in the isolation of B. influenzae. <em>Br J Exp Pathol</em>. 1929;10(3):226-236.
+      </p>
+      <p>
+        <a href="https://scholar.google.com/scholar?q=%22On+the+antibacterial+action+of+cultures+of+a+Penicillium%22" target="_blank" rel="noreferrer">
+          Link: Search source
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Chain E, Florey HW, Gardner AD, et al. Penicillin as a chemotherapeutic agent.
+        <em>Lancet</em>. 1940;236(6104):226-228.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0140-6736(01)08728-1" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0140-6736(01)08728-1
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Bud R. <em>Penicillin: Triumph and Tragedy</em>. Oxford University Press; 2007.</p>
+      <p>
+        <a href="https://books.google.com/books?q=Penicillin:+Triumph+and+Tragedy+Bud" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

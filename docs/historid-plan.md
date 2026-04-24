@@ -28,6 +28,8 @@ Core editorial idea:
 - Each entry has one required hero image.
 - Additional images can be added inline inside the MDX file when useful.
 - Prefer public-domain historical images whenever possible.
+- Prefer direct institutional or archival image sources when possible: Library of Congress, CDC, NIH/NIAID, NLM, Wellcome Collection, National Archives, museum collections.
+- Wikimedia Commons is acceptable as a fallback or discovery layer, but HistorID should not depend on Wikipedia article pages as the preferred image source.
 
 ## Current Implementation
 
@@ -77,6 +79,7 @@ type HistorIDMeta = {
   socialHeadline?: string;
   socialDek?: string;
   socialFacts?: string[];
+  hookImageFit?: "cover" | "contain";
   featured?: boolean;
 };
 ```
@@ -100,6 +103,14 @@ Recommended section order for each brief:
 5. Why It Still Matters Now
 6. References
 
+Reference formatting standard:
+
+- every HistorID reference should include a second line with a clickable DOI or direct source URL
+- prefer DOI links for journal articles when available
+- when no DOI exists, include a stable direct URL to the publisher, archive, library, guideline, or institutional source
+- for books without DOI, include a publisher, archive, library, or Google Books/Open Library link rather than leaving the citation unlinked
+- avoid placeholder references without an outbound link
+
 The shell already displays:
 
 - HistorID label
@@ -117,6 +128,12 @@ Hero image path convention:
 
 - `public/historid/<slug>/hero.jpg`
 
+Supported alternatives for the publish workflow:
+
+- `public/historid/<slug>/hero.jpeg`
+- `public/historid/<slug>/hero.png`
+- `public/historid/<slug>/hero.webp`
+
 Optional supporting image convention:
 
 - `public/historid/<slug>/figure-1.jpg`
@@ -127,6 +144,27 @@ Current expectation:
 - `hero.jpg` is required for each HistorID entry
 - the same hero image powers the page, card grid, OG image, and Instagram assets
 - extra images are optional and should be placed directly in the MDX body
+
+Source metadata expectation:
+
+- `heroImageSourceUrl` should point to the original archive, museum, library, agency, or institutional record page whenever possible
+- if an image is first discovered on Wikimedia Commons, treat Commons as a discovery layer and replace `heroImageSourceUrl` with the underlying institutional source before publishing when that source can be verified
+- if no reliable direct source can be verified, Wikimedia Commons is an acceptable fallback, but it should be treated as temporary rather than preferred
+
+Preferred source hierarchy:
+
+- Library of Congress
+- CDC / PHIL / CDC Museum
+- NIH / NIAID / NLM / PubChem
+- Wellcome Collection
+- National Archives
+- museum and university digital collections
+- Wikimedia Commons only as fallback
+
+License metadata expectation:
+
+- `heroImageLicense` should match the source actually being cited, not the discovery layer used to find it
+- when the source URL is updated from Commons to a direct institutional record, update the credit and license text if needed so they stay accurate
 
 ## Social Asset Workflow
 
@@ -180,6 +218,12 @@ Optional vertical asset:
 
 - `story.png`
 
+Hook image treatment:
+
+- default `hook.png` hero treatment is `cover`
+- use `hookImageFit: "contain"` for portrait paintings, posters, engravings, or any art where cropping removes the important historical content
+- keep `cover` for wider photos or images that benefit from a tighter, more cinematic crop
+
 Notes:
 
 - the local app must be running when export commands are used
@@ -228,6 +272,7 @@ Additional launch candidates:
 3. Write the first draft using the `historid-writer` skill standard.
 4. Run a cleanup pass using the `humanizer` skill standard.
 5. Add `hero.jpg` under `public/historid/<slug>/`.
+   Accepted alternatives: `hero.jpeg`, `hero.png`, `hero.webp`.
 6. Write or revise the MDX brief with the final copy.
 7. Review page rendering locally.
 8. Run `npm run publish:historid -- <slug>`.

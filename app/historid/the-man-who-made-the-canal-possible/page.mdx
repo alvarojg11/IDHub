@@ -1,0 +1,120 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-man-who-made-the-canal-possible",
+  title: "The Man Who Made the Canal Possible",
+  description:
+    "The Panama Canal is usually told as an engineering triumph, but yellow fever and malaria had to be beaten first.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1904-1914",
+  historicalYearSort: 1904,
+  categories: ["wars-outbreaks", "diagnostics-vaccines"],
+  tags: [
+    "Yellow fever",
+    "Panama Canal",
+    "William C. Gorgas",
+    "Mosquito control",
+    "Malaria",
+    "Vector-borne disease",
+  ],
+  hook:
+    "The canal had engineers, explosives, and political backing. What it did not have, at first, was a way to stop mosquitoes from killing the workforce faster than the excavation could move.",
+  takeaway:
+    "Panama showed that public works and infectious-disease control can be the same project. Without vector control, the canal was a medical problem before it was an engineering one.",
+  heroImage: "/historid/the-man-who-made-the-canal-possible/hero.jpg",
+  heroImageAlt: "Portrait of William C. Gorgas.",
+  heroImageCredit: "William C. Gorgas.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:William_C._Gorgas.jpg",
+  heroImageLicense: "Public domain via U.S. Army / Wikimedia Commons",
+  socialHeadline: "The Man Who Made the Canal Possible",
+  socialDek:
+    "Before the canal could be dug, yellow fever and malaria had to be driven out of the work zone mosquito by mosquito.",
+  socialFacts: [
+    "The earlier French canal effort was devastated in part by mosquito-borne disease.",
+    "William Gorgas applied mosquito-control measures built on the work of Carlos Finlay and Walter Reed.",
+    "Drainage, screening, fumigation, and water management were not cosmetic hygiene; they were survival infrastructure.",
+    "Yellow fever transmission was halted in the Canal Zone, making large-scale work possible again.",
+    "The canal became one of the clearest historical proofs that vector control can change geopolitics.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The Panama Canal is often remembered as a feat of engineering, but that version skips the real
+    opening move. Before locks, excavation, and logistics could succeed, the Canal Zone had to stop
+    functioning as a machine for producing yellow fever and malaria. Workers were not just facing
+    mud, heat, and landslides. They were entering one of the most efficient transmission settings
+    imaginable.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The French effort in Panama had already shown what happens when disease control fails in the
+    tropics. Thousands of workers fell ill, and yellow fever in particular carried a terrifying
+    reputation because it seemed to strike unpredictably and kill decisively. By the time William
+    C. Gorgas arrived under U.S. authority, the scientific groundwork had changed. Mosquito
+    transmission was no longer just speculation. The question was whether that knowledge could be
+    turned into daily operational control.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Gorgas and his teams attacked the mosquito habitat with the same seriousness that engineers
+    brought to rock and earth. Standing water was drained or treated, homes and wards were
+    screened, breeding sites were hunted, and fumigation became routine. The result was not just a
+    cleaner zone. It was a transformed epidemiology. Yellow fever transmission was interrupted, and
+    the workforce could function at a scale that had previously looked impossible.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Panama helped make vector control look like serious statecraft instead of local sanitation. It
+    was a visible demonstration that transmission ecology could be manipulated, and that doing so
+    could determine whether a massive geopolitical project lived or died. In ID terms, the lesson
+    was simple and huge at the same time: if you understand the vector, the breeding habitat, and
+    the chain of exposure, you can change outcomes before the patient ever becomes a case.
+  </p>
+
+  <h2>Why infrastructure is still medicine</h2>
+  <p>
+    Panama keeps public health from looking ornamental. Mosquito control is easy to underrate when
+    it works and impossible to ignore when it fails. The canal is a reminder that infrastructure,
+    water management, and disease prevention often sit inside the same system. In vector-borne
+    disease, the environment is often the intervention.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>McCullough D. <em>The Path Between the Seas</em>. Simon & Schuster; 1977.</p>
+      <p>
+        <a href="https://books.google.com/books?q=The+Path+Between+the+Seas+McCullough" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>William C. Gorgas. Encyclopaedia and archival biographical sources.</p>
+      <p>
+        <a href="https://www.britannica.com/biography/William-C-Gorgas" target="_blank" rel="noreferrer">
+          Link: Encyclopaedia Britannica
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Health measures during the construction of the Panama Canal. Historical public-health
+        archives.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/malaria/about/history/" target="_blank" rel="noreferrer">
+          Link: CDC malaria history
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

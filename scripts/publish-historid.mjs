@@ -41,6 +41,22 @@ async function assertFileExists(filePath, label) {
   }
 }
 
+async function findHistoridHeroImage(slug) {
+  const candidates = ["hero.jpg", "hero.jpeg", "hero.png", "hero.webp"];
+
+  for (const fileName of candidates) {
+    const filePath = path.join(process.cwd(), "public", "historid", slug, fileName);
+    try {
+      await access(filePath);
+      return filePath;
+    } catch {
+      continue;
+    }
+  }
+
+  return null;
+}
+
 async function assertImageResponse(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -65,10 +81,14 @@ async function assertPageResponse(url) {
 
 async function verifyHistoridSlug(slug, baseUrl) {
   const mdxPath = path.join(process.cwd(), "app", "historid", slug, "page.mdx");
-  const heroImagePath = path.join(process.cwd(), "public", "historid", slug, "hero.jpg");
+  const heroImagePath = await findHistoridHeroImage(slug);
 
   await assertFileExists(mdxPath, "HistorID entry");
-  await assertFileExists(heroImagePath, "HistorID hero image");
+  if (!heroImagePath) {
+    throw new Error(
+      `HistorID hero image not found for ${slug}. Expected one of: hero.jpg, hero.jpeg, hero.png, hero.webp`
+    );
+  }
 
   const normalizedBaseUrl = baseUrl.replace(/\/+$/, "");
   await assertPageResponse(`${normalizedBaseUrl}/historid/${slug}`);

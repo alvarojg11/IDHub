@@ -1,0 +1,117 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-disease-that-changed-its-passport",
+  title: "The Disease That Changed Its Passport",
+  description:
+    "Syphilis spread through Europe with so much fear and blame that nearly every nation tried to make it someone else's disease.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1490s onward",
+  historicalYearSort: 1495,
+  categories: ["people-illness", "wars-outbreaks"],
+  tags: [
+    "Syphilis",
+    "Treponema pallidum",
+    "Stigma",
+    "Mercury",
+    "Venereal disease",
+    "History of medicine",
+  ],
+  hook:
+    "Syphilis moved through Europe so fast, and with so much fear, that nations started renaming it after one another. The disease kept changing passports because nobody wanted to claim it.",
+  takeaway:
+    "Syphilis exposed how quickly medicine, morality, and xenophobia can merge. Once a disease becomes a story about blame, patients start carrying more than the pathogen.",
+  heroImage: "/historid/the-disease-that-changed-its-passport/hero.png",
+  heroImageAlt: "1930s public-health poster urging syphilis testing and warning against shame.",
+  heroImageCredit: "Syphilis False Shame and Fear May Destroy Your Future.",
+  heroImageSourceUrl:
+    "https://www.loc.gov/pictures/item/98514501/",
+  heroImageLicense: "Public domain via Library of Congress",
+  socialHeadline: "The Disease That Changed Its Passport",
+  socialDek:
+    "For centuries, syphilis was repeatedly labeled as foreign, immoral, or shameful, which made it easier to fear and harder to treat honestly.",
+  hookImageFit: "contain",
+  socialFacts: [
+    "Early modern Europeans often named syphilis after rival peoples: the French disease, the Neapolitan disease, the Polish disease, and more.",
+    "The naming game was really an exercise in blame disguised as epidemiology.",
+    "Mercury became one of the most famous historical treatments, and its toxicity is part of why syphilis medicine carried so much dread.",
+    "Syphilis earned the label the great imitator because late disease could mimic many other clinical syndromes.",
+    "Even 20th-century public-health posters had to fight not just infection, but the shame that kept people from getting tested.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Syphilis is one of the clearest examples of a disease becoming a cultural accusation. The
+    infection itself was real enough, but so was the panic around where it came from and what kind
+    of person was imagined to carry it. That combination made syphilis medically consequential and
+    socially explosive in a way few diseases have matched.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    By the late 15th and early 16th centuries, syphilis had acquired a reputation for rapid spread,
+    disfiguring manifestations, and moral contamination. Different populations kept renaming it
+    after one another, usually according to who they disliked or distrusted. In that sense, the
+    disease traveled through language as aggressively as it traveled through bodies. Its history is
+    full of border anxiety, sexual policing, and the attempt to push illness outward onto an enemy.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Syphilis became embedded in medicine through its staged course, its protean presentations, and
+    the suffering associated with both disease and treatment. Mercury therapy became notorious, not
+    because it was elegant, but because it was miserable. By the time bacteriology and serologic
+    testing improved the picture, syphilis had already spent centuries accumulating metaphors of
+    dirt, secrecy, punishment, and sexual danger.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Syphilis forced medicine to grapple with latency, staged disease, neurologic complication, and
+    the problem of an infection that could imitate many other conditions. It also helped show how a
+    pathogen can become inseparable from moral judgment. That matters in ID history because stigma
+    is not a side effect. It changes who gets examined, who gets tested, who gets believed, and who
+    gets treated late.
+  </p>
+
+  <h2>Why the naming lesson persists</h2>
+  <p>
+    That warning has not aged out. When disease naming, sexual shame, and public fear fuse
+    together, patients disappear from care and diagnosis gets delayed by stigma. Syphilis history is
+    useful not only for what it says about one spirochete, but for how quickly blame can start
+    masquerading as epidemiology.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>Quetel C. <em>History of Syphilis</em>. Johns Hopkins University Press; 1990.</p>
+      <p>
+        <a href="https://www.press.jhu.edu/books/title/2970/history-syphilis" target="_blank" rel="noreferrer">
+          Link: Johns Hopkins University Press
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Syphilis. Historical overview and public-health source summaries.</p>
+      <p>
+        <a href="https://www.cdc.gov/syphilis/about/" target="_blank" rel="noreferrer">
+          Link: CDC syphilis overview
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Oriel JD. <em>The Scars of Venus: A History of Venereology</em>. Springer; 1994.</p>
+      <p>
+        <a href="https://link.springer.com/search?query=The+Scars+of+Venus+A+History+of+Venereology" target="_blank" rel="noreferrer">
+          Link: Springer search
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

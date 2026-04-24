@@ -1,0 +1,119 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-consumption-looked-beautiful",
+  title: "When Consumption Looked Beautiful",
+  description:
+    "In the 19th century, tuberculosis was not just feared. In some circles it was aestheticized, romanticized, and woven into ideals of beauty and artistic sensitivity.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1800s",
+  historicalYearSort: 1850,
+  categories: ["people-illness", "organisms"],
+  tags: [
+    "Tuberculosis",
+    "Consumption",
+    "Romanticism",
+    "Beauty ideals",
+    "19th century",
+    "Sanatorium",
+  ],
+  hook:
+    "Tuberculosis killed millions, but in parts of the 19th century it also acquired an eerie glamour. Pale skin, thinness, flushed cheeks, and fragility could be read not as illness, but as beauty.",
+  takeaway:
+    "This story shows how culture can distort disease perception. Tuberculosis was not only a pathogen; it became an aesthetic and moral narrative that made suffering easier to romanticize and harder to confront honestly.",
+  heroImage: "/historid/when-consumption-looked-beautiful/hero.jpg",
+  heroImageAlt: "1891 illustration related to tuberculosis treatment.",
+  heroImageCredit: "Tuberculose, L'Illustration, 1891.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Tuberculose_L%27Illustration_1891.jpg",
+  heroImageLicense: "Public domain via Wikimedia Commons",
+  socialHeadline: "When Consumption Looked Beautiful",
+  socialDek:
+    "For a time, tuberculosis was wrapped in the language of refinement, sensitivity, and beauty, which tells you as much about society as it does about the disease.",
+  socialFacts: [
+    "In the 19th century, tuberculosis was often called consumption and was devastatingly common in Europe.",
+    "Its visible signs, weight loss, pallor, bright eyes, and flushed cheeks, were sometimes folded into fashionable ideals of delicacy.",
+    "Writers and artists helped attach consumption to genius, passion, and doomed romance.",
+    "The sanatorium era tried to medicalize the disease, but the romantic image lingered long after the body count was obvious.",
+    "It is a striking example of how societies can aestheticize an illness instead of seeing it clearly.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Tuberculosis was one of the great killers of the 19th century, but it was not always spoken of
+    in the language we now expect for a lethal airborne infection. It was often called
+    <em>consumption</em>, a name that already sounded slower, sadder, and more literary. That shift
+    mattered. It let society turn a brutal disease into an atmosphere.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    In Europe and North America, tuberculosis became common enough to shape everyday expectations of
+    illness and death. At the same time, romantic culture was busy elevating fragility, melancholy,
+    and artistic suffering. The visual signs of TB, thinness, pallor, bright eyes, intermittent
+    flushing, weakness, could be mistaken, or deliberately recast, as elegance. In that setting,
+    the disease did not just move through lungs. It moved through fashion, novels, opera, and the
+    way people learned to read a body.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Consumption became attached to a whole cultural script. It could suggest refinement, emotional
+    depth, and even heightened creativity. Figures in literature and performance helped reinforce
+    the idea that wasting away might look almost luminous. That did not mean people were unaware of
+    its danger. It meant danger and desirability had been allowed to coexist in the same image.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    TB's cultural life matters because it shows that infectious disease is never interpreted by
+    microbiology alone. Long before antibiotics, societies were already deciding which illnesses
+    looked shameful, which looked noble, and which could be made into metaphors. Tuberculosis was a
+    masterclass in that distortion. It was airborne, contagious, and deadly, yet it was repeatedly
+    softened into style, temperament, or tragic refinement.
+  </p>
+
+  <h2>Why disease narratives matter</h2>
+  <p>
+    Modern medicine still fights narratives as well as pathogens. Some diseases get minimized
+    because they look familiar, others get stigmatized because of who carries them, and others get
+    wrapped in stories that blur the real harm. Tuberculosis is a warning that culture can
+    romanticize an illness while the organism keeps killing.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>Sontag S. <em>Illness as Metaphor</em>. Farrar, Straus and Giroux; 1978.</p>
+      <p>
+        <a href="https://books.google.com/books?q=Illness+as+Metaphor+Susan+Sontag" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Tuberculosis. Historical and society-and-culture sections. Centers for Disease Control and Prevention.</p>
+      <p>
+        <a href="https://www.cdc.gov/tb/" target="_blank" rel="noreferrer">
+          Link: CDC tuberculosis overview
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Lawlor C. <em>Consumption and Literature: The Making of the Romantic Disease</em>. Palgrave
+        Macmillan; 2006.
+      </p>
+      <p>
+        <a href="https://books.google.com/books?q=Consumption+and+Literature:+The+Making+of+the+Romantic+Disease" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

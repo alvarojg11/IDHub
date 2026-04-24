@@ -45,8 +45,39 @@ export async function GET(
           }}
         >
           {heroImageUrl ? (
-            <div style={{ display: "flex", width: "100%", height: "720px", flexShrink: 0 }}>
-              <img src={heroImageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "760px",
+                flexShrink: 0,
+                padding: "28px",
+                background: "#e7efeb",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "26px",
+                  overflow: "hidden",
+                  background: "#f8fbf9",
+                }}
+              >
+                <img
+                  src={heroImageUrl}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center center",
+                  }}
+                />
+              </div>
             </div>
           ) : null}
 

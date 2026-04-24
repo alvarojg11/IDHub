@@ -1,0 +1,125 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-plague-taught-ports-to-wait",
+  title: "When Plague Taught Ports to Wait",
+  description:
+    "Plague did not just kill. It changed how cities thought about movement, delay, and quarantine.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1300s onward",
+  historicalYearSort: 1348,
+  categories: ["wars-outbreaks", "organisms"],
+  tags: [
+    "Plague",
+    "Yersinia pestis",
+    "Black Death",
+    "Quarantine",
+    "Caffa",
+    "Public health",
+  ],
+  hook:
+    "Plague forced cities to treat time itself as a medical tool. If a ship, a merchant, or a body might carry death, waiting became policy.",
+  takeaway:
+    "Plague pushed surveillance, exclusion, and quarantine from improvised fear into recognizable public-health practice.",
+  heroImage: "/historid/when-plague-taught-ports-to-wait/hero.jpg",
+  heroImageAlt: "1656 engraving of a plague doctor in beaked protective attire.",
+  heroImageCredit: "Doktor Schnabel von Rom, Rome, 1656.",
+  heroImageSourceUrl: "http://www.art-bin.com/art/medhistorypix/omedicalimages19.html",
+  heroImageLicense: "Public domain scan via Imagery From the History of Medicine",
+  socialHeadline: "When Plague Taught Ports to Wait",
+  socialDek:
+    "Plague taught cities that a delayed arrival could be safer than a quick welcome, and that insight helped shape quarantine long before bacteriology.",
+  hookImageFit: "contain",
+  socialFacts: [
+    "Plague is caused by Yersinia pestis and became infamous in Europe during the Black Death.",
+    "Medieval and early modern ports learned that controlling arrival could matter as much as treating the sick.",
+    "The very logic of quarantine grew out of trying to separate possible infection from the city for a fixed period.",
+    "Plague doctors became iconic, but the bigger historical story was administrative: watch, isolate, delay, document.",
+    "Plague helped turn epidemic response into something governments could organize instead of merely fear.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Plague is often reduced to one overwhelming image: mass death. That image is deserved, but it
+    hides another part of the story that matters just as much for Infectious Diseases history.
+    Plague forced cities to experiment with control. The question was no longer only how to pray,
+    flee, or bury. It was how to slow movement, inspect arrivals, and buy time before a pathogen
+    entered the urban core.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The Black Death hit a world tied together by trade routes, port cities, armies, and fear.
+    People did not know about <em>Yersinia pestis</em>, fleas, or rodent reservoirs, but they knew
+    that disease followed contact and travel in ways that were hard to ignore. Across the
+    Mediterranean and beyond, authorities started building responses around ships, passengers,
+    merchandise, and delay. In other words, they began to govern exposure before they understood the
+    microbe.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    In plague-era port systems, incoming travelers and goods could be held outside the city for a
+    fixed period before entry. That logic, which would later be formalized as quarantine, did not
+    solve plague completely and was often inconsistently applied. But it changed the structure of
+    response. Inspection, waiting, cordons, and documentation became part of epidemic life. The
+    plague doctor costume became famous, but the larger innovation was administrative: cities were
+    learning that movement itself was a public-health variable.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Plague helped make epidemic control legible at the level of policy. Instead of responding only
+    to visible illness, authorities began acting on the possibility of transmission. That shift is
+    foundational for ID thinking. It marks the beginning of a recognizably modern instinct: if you
+    cannot yet cure a disease, you may still alter its path by interrupting who or what gets to
+    move.
+  </p>
+
+  <h2>Why quarantine keeps returning</h2>
+  <p>
+    Quarantine is one of the bluntest and most contested tools in public health. Every border
+    screen, isolation order, and travel restriction replays some version of the same old argument:
+    how long do you wait, whom do you restrict, and what does the delay cost? Plague did not answer
+    those questions, but it forced governments to start asking them in administrative terms.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>About Plague. Centers for Disease Control and Prevention.</p>
+      <p>
+        <a href="https://www.cdc.gov/plague/" target="_blank" rel="noreferrer">
+          Link: CDC plague overview
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wheelis M. Biological warfare at the 1346 siege of Caffa. <em>Emerg Infect Dis</em>.
+        2002;8(9):971-975.
+      </p>
+      <p>
+        <a href="https://doi.org/10.3201/eid0809.010536" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.3201/eid0809.010536
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Slack P. Responses to plague in early modern Europe. In: <em>Time of Plague</em>. New York
+        University Press; 1991.
+      </p>
+      <p>
+        <a href="https://books.google.com/books?q=Time+of+Plague+New+York+University+Press+1991+Slack" target="_blank" rel="noreferrer">
+          Link: Google Books
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

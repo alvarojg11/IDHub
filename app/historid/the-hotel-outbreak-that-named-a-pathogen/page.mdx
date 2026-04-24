@@ -1,0 +1,132 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-hotel-outbreak-that-named-a-pathogen",
+  title: "The Hotel Outbreak That Named a Pathogen",
+  description:
+    "In 1976, a lethal pneumonia outbreak at a Philadelphia hotel revealed a bacterium hiding in modern water systems.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1976-1977",
+  historicalYearSort: 1976,
+  categories: ["organisms", "wars-outbreaks"],
+  tags: [
+    "Legionella pneumophila",
+    "Legionnaires' disease",
+    "Philadelphia",
+    "Bellevue-Stratford Hotel",
+    "Cooling towers",
+    "Water systems",
+  ],
+  hook:
+    "A convention of American Legion members checked into a grand Philadelphia hotel, and some never made it home. The illness looked like severe pneumonia, but for months nobody could say what had caused it.",
+  takeaway:
+    "Legionella changed outbreak medicine by making one point impossible to ignore: the built environment can behave like a reservoir, and a hotel cooling system can matter as much as any exposure history at the bedside.",
+  heroImage: "/historid/the-hotel-outbreak-that-named-a-pathogen/hero.jpg",
+  heroImageAlt:
+    "Glass jug of cooling-system water from the Bellevue-Stratford Hotel displayed at the CDC museum.",
+  heroImageCredit:
+    "Cooling-system water collected during the Bellevue-Stratford outbreak investigation.",
+  heroImageSourceUrl:
+    "https://www.cdc.gov/museum/online/story-of-cdc/legionnaires/index.html",
+  heroImageLicense: "Public domain via CDC",
+  socialHeadline: "The Hotel Outbreak That Named a Pathogen",
+  socialDek:
+    "The 1976 Philadelphia outbreak did not just reveal a new bacterium. It exposed how modern buildings could manufacture exposure.",
+  socialFacts: [
+    "The 1976 American Legion convention in Philadelphia led to 182 recognized cases and 29 deaths.",
+    "Investigators spent months chasing possibilities before the culprit was isolated in January 1977.",
+    "The new organism was named Legionella pneumophila, linking the bacterium to the outbreak it announced itself through.",
+    "Legionella thrives in warm water, biofilms, and amoebae, which helps it persist inside human-built water systems.",
+    "The outbreak permanently changed how hospitals, hotels, and public-health teams think about cooling towers and plumbing.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In July 1976, members of the American Legion gathered at the Bellevue-Stratford Hotel in
+    Philadelphia. Soon after the convention, people started showing up with high fever,
+    respiratory failure, and a pneumonia bad enough to scare clinicians and public-health teams at
+    the same time. The victims were mostly older men, many of them veterans, which only made the
+    story more visible and more unsettling.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    This was the post-Vietnam, post-Watergate United States, a moment when suspicion came easily.
+    The outbreak landed in the middle of a national bicentennial summer and quickly became a media
+    obsession. Toxic exposure, swine flu vaccine fallout, bioterror, and cover-up theories all had
+    room to grow because the obvious answer was missing: no known pathogen fit cleanly, and the
+    hotel itself looked more like a setting for diplomacy than for a new infectious disease.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Investigators eventually traced the cluster to the hotel environment and, after months of
+    work, isolated a previously unrecognized bacterium from clinical and environmental material.
+    The organism was later named <em>Legionella pneumophila</em>. What made the story especially
+    important was not just that a new bacterium had been found. It was where it had been living:
+    in warm water systems tied to aerosol generation. The modern building itself had become the
+    exposure source.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Legionnaires' disease pushed outbreak thinking beyond people, food, and animals and deeper
+    into infrastructure. Water systems, cooling towers, plumbing design, and aerosolized mist had
+    to be taken seriously as infectious-disease terrain. The outbreak also helped show why some
+    pathogens keep slipping past routine culture logic: <em>Legionella</em> was fastidious,
+    intracellular, and environmentally adapted. Once it entered the picture, clinicians had to add
+    travel, hotels, hospitals, and built-water exposure to the pneumonia history in a much more
+    deliberate way.
+  </p>
+
+  <h2>Why buildings still make outbreaks</h2>
+  <p>
+    <em>Legionella</em> keeps this outbreak from becoming museum history. Severe pneumonia linked to
+    cooling towers, plumbing systems, hospitals, cruise ships, and travel settings still forces the
+    same question: not only who is sick, but what piece of the environment is doing the
+    transmitting.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Fraser DW, Tsai TR, Orenstein W, et al. Legionnaires' disease: description of an epidemic of
+        pneumonia. <em>N Engl J Med</em>. 1977;297(22):1189-1197.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1056/NEJM197712012972201" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1056/NEJM197712012972201
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        McDade JE, Shepard CC, Fraser DW, Tsai TR, Redus MA, Dowdle WR. Legionnaires' disease:
+        isolation of a bacterium and demonstration of its role in other respiratory disease.
+        <em>N Engl J Med</em>. 1977;297(22):1197-1203.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1056/NEJM197712012972202" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1056/NEJM197712012972202
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Viasus D, Gaia V, Manzur-Barbur C, Carratala J. Legionnaires' disease: update on diagnosis
+        and treatment. <em>Infect Dis Ther</em>. 2022;11(3):973-986.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Legionnaires%27+disease%3A+update+on+diagnosis+and+treatment" target="_blank" rel="noreferrer">
+          Link: PubMed search
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
