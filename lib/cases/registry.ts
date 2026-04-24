@@ -797,6 +797,74 @@ export const CASES: CaseMeta[] = [
   
     },
   },
+  {
+    slug: "pulmonary-mucormycosis-dka",
+
+    title: "The Ring in the Right Upper Lobe",
+
+    description: "A patient with uncontrolled diabetes and diabetic ketoacidosis has a right upper lobe reverse halo sign on chest CT.",
+
+    enable: true,
+
+    ogImage: "/cases/pulmonary-mucormycosis-dka/mucor.png",
+
+    teaser: "A 56-year-old man with uncontrolled type 2 diabetes presents with fever, pleuritic chest pain, dyspnea, and diabetic ketoacidosis. Chest CT shows a reverse halo sign in the right upper lobe, and bronchoalveolar lavage later grows Rhizopus arrhizus. What is the most likely diagnosis?",
+
+    tags: {
+      organisms: [
+        "Rhizopus arrhizus",
+      ],
+
+      syndromes: [
+        "Invasive Fungal Infection",
+        "Pulmonary Infection",
+        "Diabetes Mellitus",
+      ],
+
+      concepts: [
+        "Diabetic ketoacidosis",
+        "Reverse halo sign",
+        "Pulmonary mucormycosis",
+        "Liposomal amphotericin B",
+        "Angioinvasive mold infection",
+      ],
+
+    },
+  },
+  {
+    slug: "faecium-bacteremia",
+
+    title: "When Ceftriaxone Fails",
+
+    description: "A cirrhotic patient develops persistent VRE bacteremia despite standard ceftriaxone prophylaxis, illustrating why Enterococcus faecium must be interpreted differently from Enterococcus faecalis.",
+
+    enable: true,
+
+    ogImage: "/cases/faecium-bacteremia/agar-plate.png",
+
+    teaser: "A 58-year-old man with decompensated cirrhosis becomes septic on ceftriaxone after a variceal bleed admission. Blood and ascitic fluid grow Enterococcus faecium with vanA-mediated vancomycin resistance, and cultures stay positive after catheter removal. Why does the species call matter, what does vanA add, and what should happen next?",
+
+    tags: {
+      organisms: [
+        "Enterococcus faecium",
+      ],
+
+      syndromes: [
+        "Bacteremia",
+        "Spontaneous bacterial peritonitis",
+        "Cirrhosis",
+      ],
+
+      concepts: [
+        "Vancomycin-resistant enterococci",
+        "vanA",
+        "vanB",
+        "Ampicillin resistance",
+        "Healthcare-associated infection",
+      ],
+
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
