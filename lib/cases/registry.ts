@@ -865,6 +865,54 @@ export const CASES: CaseMeta[] = [
 
     },
   },
+  {
+    slug: "bcg-spondylodiscitis",
+  
+  
+    title: "When the Back Pain Came Late",
+  
+  
+    description: "A man develops delayed lumbar pain and constitutional symptoms long after intravesical BCG for urothelial carcinoma. Biopsy reveals granulomatous vertebral infection, and the next step depends on reading the clues correctly.",
+  
+  
+    enable: true,
+  
+  
+    ogImage: "/cases/bcg-spondylodiscitis/mri-l2-l3-spine.png",
+  
+  
+    teaser: "A 74-year-old man develops weeks of worsening low back pain, night sweats, and weight loss 18 months after intravesical BCG for non-muscle-invasive urothelial carcinoma. MRI shows L2-L3 vertebral infection with an adjacent paravertebral abscess, and biopsy reveals necrotizing granulomatous inflammation. What is the most likely diagnosis?",
+  
+  
+  
+    tags: {
+      organisms: [
+        "Mycobacterium bovis",
+      ],
+  
+  
+  
+      syndromes: [
+        "Vertebral osteomyelitis",
+        "Healthcare-associated infection",
+        "Urologic oncology",
+      ],
+  
+  
+  
+  
+      concepts: [
+        "Intravesical BCG complication",
+        "Pyrazinamide resistance",
+        "Interferon-gamma release assay",
+        "Spondylodiscitis",
+        "Mycobacterium tuberculosis complex",
+      ],
+  
+  
+  
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

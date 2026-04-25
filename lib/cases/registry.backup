@@ -831,6 +831,40 @@ export const CASES: CaseMeta[] = [
 
     },
   },
+  {
+    slug: "faecium-bacteremia",
+
+    title: "When Ceftriaxone Fails",
+
+    description: "A cirrhotic patient develops persistent VRE bacteremia despite standard ceftriaxone prophylaxis, illustrating why Enterococcus faecium must be interpreted differently from Enterococcus faecalis.",
+
+    enable: true,
+
+    ogImage: "/cases/faecium-bacteremia/agar-plate.png",
+
+    teaser: "A 58-year-old man with decompensated cirrhosis becomes septic on ceftriaxone after a variceal bleed admission. Blood and ascitic fluid grow Enterococcus faecium with vanA-mediated vancomycin resistance, and cultures stay positive after catheter removal. Why does the species call matter, what does vanA add, and what should happen next?",
+
+    tags: {
+      organisms: [
+        "Enterococcus faecium",
+      ],
+
+      syndromes: [
+        "Bacteremia",
+        "Spontaneous bacterial peritonitis",
+        "Cirrhosis",
+      ],
+
+      concepts: [
+        "Vancomycin-resistant enterococci",
+        "vanA",
+        "vanB",
+        "Ampicillin resistance",
+        "Healthcare-associated infection",
+      ],
+
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

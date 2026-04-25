@@ -836,13 +836,13 @@ export const CASES: CaseMeta[] = [
 
     title: "When Ceftriaxone Fails",
 
-    description: "Persistent bacteremia complicates a decompensated cirrhosis admission and forces reconsideration of standard assumptions about spontaneous bacterial peritonitis.",
+    description: "A cirrhotic patient develops persistent VRE bacteremia despite standard ceftriaxone prophylaxis, illustrating why Enterococcus faecium must be interpreted differently from Enterococcus faecalis.",
 
     enable: true,
 
     ogImage: "/cases/faecium-bacteremia/agar-plate.png",
 
-    teaser: "A 58-year-old man with decompensated cirrhosis develops infected ascites and persistent enterococcal bacteremia despite standard ceftriaxone prophylaxis during a variceal bleed admission. The isolate proves multidrug resistant, repeat cultures remain positive after catheter removal, and transthoracic echocardiography is nondiagnostic. Why does species identification matter here, and what should happen next?",
+    teaser: "A 58-year-old man with decompensated cirrhosis becomes septic on ceftriaxone after a variceal bleed admission. Blood and ascitic fluid grow Enterococcus faecium with vanA-mediated vancomycin resistance, and cultures stay positive after catheter removal. Why does the species call matter, what does vanA add, and what should happen next?",
 
     tags: {
       organisms: [

@@ -1,0 +1,295 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("bcg-spondylodiscitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  When the Back Pain Came Late
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 74-year-old man presents with 6 weeks of worsening low back pain, night sweats, fatigue, and 8 pounds of unintentional weight loss. The pain is deep, constant, worse at night, and now limits walking.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Eighteen months earlier he underwent transurethral resection of high-grade non-muscle-invasive urothelial carcinoma followed by induction and maintenance intravesical Bacillus Calmette-Guerin therapy. Several instillations were traumatic and associated with transient gross hematuria. He has diabetes and hypertension, but no HIV, transplant, biologic therapy, or known tuberculosis exposure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is afebrile and hemodynamically stable. Examination shows focal tenderness over the upper lumbar spine and pain with extension, but no weakness, sensory loss, saddle anesthesia, or bowel or bladder dysfunction.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hemoglobin is 10.8 g/dL, erythrocyte sedimentation rate 86 mm/hour, and C-reactive protein 11.4 mg/dL. MRI shows L2-L3 discitis and osteomyelitis with an adjacent paravertebral abscess. CT-guided biopsy shows necrotizing granulomatous inflammation. Routine cultures remain sterile, and mycobacterial studies are sent from the biopsy specimen.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/bcg-spondylodiscitis/mri-l2-l3-spine.png"
+      alt="Sagittal lumbar spine MRI showing abnormal signal centered at L2-L3 with surrounding inflammatory change and an adjacent paravertebral collection"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Lumbar spine MRI showing destructive changes centered at L2-L3 with an adjacent paravertebral fluid collection.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-bcg-spondylodiscitis-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus vertebral osteomyelitis after occult bacteremia",
+      feedback:
+        "Pyogenic vertebral osteomyelitis is common, but this case is more indolent and the biopsy shows necrotizing granulomatous inflammation with growth of Mycobacterium tuberculosis complex rather than a typical bacterial pathogen.",
+    },
+    {
+      id: "B",
+      label: "Metastatic urothelial carcinoma to the thoracic spine",
+      feedback:
+        "Malignancy can cause destructive vertebral lesions, but it would not explain granulomatous inflammation on biopsy together with growth of Mycobacterium tuberculosis complex.",
+    },
+    {
+      id: "C",
+      label: "Mycobacterium bovis BCG spondylodiscitis related to prior intravesical therapy",
+      correct: true,
+      feedback:
+        "Correct. Delayed vertebral infection after intravesical BCG, especially when prior instillations were traumatic, is a classic setup for hematogenous seeding by the BCG strain of Mycobacterium bovis. The clinical course is indolent, biopsy shows granulomatous inflammation, and culture grows Mycobacterium tuberculosis complex rather than an ordinary pyogenic pathogen.",
+    },
+    {
+      id: "D",
+      label: "Reactivation Mycobacterium tuberculosis Pott disease",
+      feedback:
+        "Tuberculous spondylitis is part of the differential, but this case has a more specific epidemiologic clue: prior intravesical BCG with traumatic instillations and a delayed vertebral infection pattern.",
+    },
+    {
+      id: "E",
+      label: "Reactive arthritis triggered by prior BCG instillations",
+      feedback:
+        "Reactive osteoarticular complications after BCG do occur, but they do not cause destructive vertebral osteomyelitis with biopsy-proven mycobacterial infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-bcg-spondylodiscitis-q2"
+  title="Question 2"
+  prompt="Which additional result best supports the species identification?"
+  options={[
+    {
+      id: "A",
+      label: "Pyrazinamide susceptibility after growth of Mycobacterium tuberculosis complex",
+      feedback:
+        "That would argue against Mycobacterium bovis. M. bovis is intrinsically resistant to pyrazinamide, so pyrazinamide susceptibility would make BCG-related infection less likely.",
+    },
+    {
+      id: "B",
+      label: "A positive interferon-gamma release assay with upper-lobe cavitation",
+      feedback:
+        "That pattern would favor Mycobacterium tuberculosis rather than BCG strain disease. BCG strains lack the RD1 antigens used in interferon-gamma release assays, so those tests are often negative in BCG infection.",
+    },
+    {
+      id: "C",
+      label: "Sterile routine bacterial cultures from the biopsy specimen",
+      feedback:
+        "Sterile bacterial cultures simply make routine pyogenic osteomyelitis less likely. They do not distinguish Mycobacterium bovis BCG from Mycobacterium tuberculosis.",
+    },
+    {
+      id: "D",
+      label: "Transient hematuria after prior bladder instillations",
+      feedback:
+        "Traumatic catheterization and mucosal injury are useful epidemiologic clues because they increase the chance of systemic BCG seeding, but they do not establish species on their own.",
+    },
+    {
+      id: "E",
+      label: "Mycobacterium tuberculosis complex plus pyrazinamide resistance and a negative interferon-gamma release assay",
+      correct: true,
+      feedback:
+        "Correct. In the right clinical setting, this is the classic laboratory pattern for Mycobacterium bovis BCG. The organism belongs to the Mycobacterium tuberculosis complex, is intrinsically pyrazinamide resistant, and often yields a negative interferon-gamma release assay because BCG strains lack ESAT-6 and CFP-10.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-bcg-spondylodiscitis-q3"
+  title="Question 3"
+  prompt="Which regimen is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Standard four-drug tuberculosis therapy with isoniazid, rifampin, pyrazinamide, and ethambutol",
+      feedback:
+        "This is the usual empiric regimen for drug-susceptible tuberculosis, but it is not the best targeted regimen once Mycobacterium bovis is suspected or confirmed because M. bovis is intrinsically resistant to pyrazinamide.",
+    },
+    {
+      id: "B",
+      label: "Isoniazid, rifampin, and ethambutol with prolonged therapy plus surgical evaluation if instability or neurologic compromise develops",
+      correct: true,
+      feedback:
+        "Correct. Targeted therapy for BCG-related Mycobacterium bovis vertebral infection generally uses isoniazid, rifampin, and ethambutol, commonly for 6 to 12 months depending on response and source control needs. Pyrazinamide should be omitted, and spine surgery is reserved for instability, neurologic compromise, large abscesses, or failure of medical therapy.",
+    },
+    {
+      id: "C",
+      label: "Azithromycin and levofloxacin for presumed nontuberculous mycobacterial disease",
+      feedback:
+        "The isolate belongs to the Mycobacterium tuberculosis complex, not a rapid-growing nontuberculous mycobacterium. This regimen misses the actual pathogen and would be inadequate.",
+    },
+    {
+      id: "D",
+      label: "Corticosteroids alone because osteoarticular complications of BCG are usually inflammatory",
+      feedback:
+        "This patient has true infection, not a sterile inflammatory complication. Corticosteroids alone would risk progression of vertebral infection and epidural extension.",
+    },
+    {
+      id: "E",
+      label: "Pyrazinamide monotherapy after debridement because the organism burden is low",
+      feedback:
+        "Pyrazinamide should not be used as monotherapy for any mycobacterial vertebral infection, and Mycobacterium bovis is intrinsically resistant to it.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-bcg-spondylodiscitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This is vertebral infection caused by the BCG strain of <em>Mycobacterium bovis</em> after intravesical therapy for non-muscle-invasive urothelial carcinoma. The presentation is classically delayed and indolent, often emerging many months after bladder instillation with progressive back pain, constitutional symptoms, elevated inflammatory markers, and destructive vertebral imaging findings. Because routine pyogenic cultures may be sterile and symptoms are often attributed to degenerative disease or malignancy, diagnosis is commonly delayed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The key diagnostic step is obtaining tissue for pathology and mycobacterial studies. Growth of Mycobacterium tuberculosis complex does not by itself distinguish <em>Mycobacterium tuberculosis</em> from <em>Mycobacterium bovis</em>, but pyrazinamide resistance is a major clue because <em>M. bovis</em> is intrinsically resistant. A negative interferon-gamma release assay adds further support in this setting because BCG strains lack the RD1 antigens that drive those assays. The history of prior intravesical BCG, especially with traumatic catheterization or mucosal bleeding, provides the critical epidemiologic link.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management differs from standard drug-susceptible tuberculosis because pyrazinamide should be omitted, as <em>Mycobacterium bovis</em> is usually intrinsically resistant to it. Most patients are treated with isoniazid, rifampin, and ethambutol for a prolonged course, often 6 to 12 months, adjusted to clinical, radiographic, and microbiologic response. Surgical consultation is important when there is spinal instability, cord compression, progressive neurologic deficit, or failure of medical therapy. Because BCG vertebral osteomyelitis can coexist with psoas abscess or mycotic aortic involvement, clinicians should keep a low threshold for broader imaging when pain is severe or anatomy suggests contiguous extension.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-bcg-spondylodiscitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Delayed back pain after intravesical BCG should not be dismissed as a reactive complication alone; destructive vertebral lesions require evaluation for true <em>Mycobacterium bovis</em> BCG infection.
+    </li>
+    <li>
+      Tissue diagnosis is essential. A report of Mycobacterium tuberculosis complex from biopsy must be interpreted in context because pyrazinamide resistance can point to <em>M. bovis</em> rather than <em>M. tuberculosis</em>.
+    </li>
+    <li>
+      Interferon-gamma release assays are often negative in BCG strain infection because the relevant RD1 antigens are absent from BCG strains.
+    </li>
+    <li>
+      Targeted therapy generally uses isoniazid, rifampin, and ethambutol, not pyrazinamide, because <em>Mycobacterium bovis</em> is usually intrinsically resistant to pyrazinamide; surgery is guided by instability, neurologic compromise, abscess burden, or failure of medical therapy.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Cadiou S, Al Tabaa O, Nguyen CD, et al. Back pain following instillations of BCG for superficial bladder cancer is not a reactive complication: review of 30 Mycobacterium bovis BCG vertebral osteomyelitis cases. Clin Rheumatol. 2019;38(6):1773-1783.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s10067-019-04500-w"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1007/s10067-019-04500-w
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Broekx S, Buelens E. Tuberculous spondylitis following intravesical bcg-instillation in the treatment of transitional cell carcinoma: Case report and systematic review. Clin Neurol Neurosurg. 2020;194:105944.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.clineuro.2020.105944"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.clineuro.2020.105944
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Carrega G, Riccio G, Vallerga D, et al. A severe Bacillus Calmette-Guerin vertebral osteomyelitis requiring spinal stabilization: a clinical and microbiological investigation. J Microbiol Immunol Infect. 2023;56(3):641-643.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jmii.2022.09.007"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.jmii.2022.09.007
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Leon P, Levi LI, Depaquit TL, et al. Guidelines from the cancer (CCAFU) and infection disease (CI-AFU) committees of the French association of Urology for the management of adverse events and complications of BCG. Fr J Urol. 2026:103105.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.fjurol.2026.103105"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.fjurol.2026.103105
+      </a>
+    </p>
+  </div>
+</div>
