@@ -1,0 +1,126 @@
+{
+  "query": "\"a substance exhibiting antibiotic activity against gram-positive and gram-negative bacteria\"",
+  "count": 10,
+  "results": [
+    {
+      "pmid": "41932469",
+      "doi": "10.1016/j.ijbiomac.2026.151744",
+      "title": "Chitosan modified polyacrylonitrile fiber as adsorbent for removal of sulfosalicylic acid and Congo red.",
+      "authors": "Zhao, Erhui and Dai, Kailu and Han, Runping and Qu, Lingbo and Shi, Weimin",
+      "journal": "International journal of biological macromolecules",
+      "year": "2026",
+      "volume": "358",
+      "issue": "",
+      "pages": "151744",
+      "abstract": "In this study, one novel CS/PAO composite was synthesized by modifying amidoximated polyacrylonitrile (PAO) fibers with chitosan (CS). The composite exhibited excellent adsorption performance for sulfosalicylic acid (SSA) and Congo red (CR). The maximum adsorption capacities reached 63.5\u00a0mg\u00b7g"
+    },
+    {
+      "pmid": "41720416",
+      "doi": "10.1016/j.phytochem.2026.114838",
+      "title": "Prenylated dihydrostilbenoid derivatives from the aerial parts of Glycyrrhiza uralensis and their potent antibacterial activity against drug-resistant clinical isolates.",
+      "authors": "Zhong, Yuxuan and Zhou, Junfei and Hu, Shanwei and Wang, Mengting and Liu, Jingyu and Du, Jicong and Duan, Jin-Ao and Bi, Hongkai and Zhao, Ming and Che, Chun-Tao",
+      "journal": "Phytochemistry",
+      "year": "2026",
+      "volume": "247",
+      "issue": "",
+      "pages": "114838",
+      "abstract": "A phytochemical investigation of the aerial parts of Glycyrrhiza uralensis led to the isolation of thirteen previously undescribed compounds (1-13), comprising one dihydrophenanthrene, prenyluralensol A, and twelve dihydrostilbenoids, prenyluralensols B-M, together with seven known analogues (14-20). Their structures were established by extensive spectroscopic analyses and electronic circular dichroism calculations. Compound 1 is noteworthy as the first example of a dihydrophenanthrene derivative incorporating three pyran rings. The antimicrobial evaluation showed that seven compounds (3, 7, 8, 12, 13, 17, and 18) exhibited activity against clinically relevant drug-resistant bacteria, including vancomycin-resistant Enterococcus faecium 36235, methicillin-resistant Staphylococcus aureus USA300, and multidrug-resistant Helicobacter pylori Hp159, with minimum inhibitory concentration (MIC) values of 2-4\u00a0\u03bcg/mL. Among them, 7 displayed inhibitory activity against both Gram-positive and Gram-negative resistant strains. A preliminary analysis of structure-activity relationships suggested that antibacterial activity is influenced by substitution at the C-3' position and may be enhanced by the presence of a C-5-linked prenyloxy group. This study expands the chemical diversity of naturally occurring prenylated dihydrostilbenoids and provides insights into structural features relevant to antibacterial activity."
+    },
+    {
+      "pmid": "41604082",
+      "doi": "10.1007/s42770-025-01865-w",
+      "title": "Characterization and antibacterial activity of a Bacteriocin-like Inhibitory Substance (BLIS) produced by Levilactobacillus brevis.",
+      "authors": "Wang, Jiayue and Wang, Xinyu and Zheng, Yuhang and Yang, Lirong and Chen, Rongjie and Yan, Man and Sha, Wanli and Yin, Baishuang and Dong, Wenlong",
+      "journal": "Brazilian journal of microbiology : [publication of the Brazilian Society for Microbiology]",
+      "year": "2026",
+      "volume": "57",
+      "issue": "1",
+      "pages": "42",
+      "abstract": "The rise of multidrug-resistant Gram-negative pathogens, for which few treatment options remain, poses a serious and growing global public health threat. This study investigates the antimicrobial activity, characteristics, and mode of action of a bacteriocin-like inhibitory substance produced by "
+    },
+    {
+      "pmid": "41565308",
+      "doi": "10.1111/1462-2920.70244",
+      "title": "Gems From the Caves: Genomic Insights Into the Biosynthetic Potential of Antimicrobial-Producing Bacteria Associated With Tropical Cave-Dwelling Sponges.",
+      "authors": "Dias, Gabriel Rodrigues and de Oliveira, Bruno Francesco Rodrigues and Sandes, Joana and Muricy, Guilherme and Laport, Marinella Silva",
+      "journal": "Environmental microbiology",
+      "year": "2026",
+      "volume": "28",
+      "issue": "1",
+      "pages": "e70244",
+      "abstract": "Submarine caves are promising frontiers for novel biomolecules active against multidrug-resistant bacteria. These habitats harbour rich communities of marine sponges, whose microbiomes produce diverse bioactive metabolites. The present study investigates the potential of bacteria isolated from cave-dwelling marine sponges of the class Demospongiae of a tropical archipelago for the production of antimicrobial substances and reveals their biosynthetic diversity by genomic analyses. Ten out of the 89 antimicrobial-producing strains showed inhibitory activity against Gram-positive and Gram-negative bacteria, encompassing strains with multidrug-resistant phenotypes. Biosynthetic gene clusters (BGCs) encoding antimicrobial-active metabolites were predicted in these sponge-derived pseudomonads. Most BGCs exhibited low similarity (<\u200980%) with known clusters, indicating potential for novel metabolite discovery. Comparative genomics across Pseudomonadaceae genomes revealed both species-specific and shared BGCs, including conserved clusters encoding for koreenceine and bokeelamides biosynthesis. Some cryptic BGCs encoded antimicrobial peptides (AMPs) together with proteins associated with maturation, regulation, immunity and export, suggesting roles in observed bioactivity. Altogether, this work expands the genomic and biosynthetic landscape of sponge-associated Pseudomonadaceae and uncovers promising gene clusters for the biotechnological exploration of novel antimicrobials."
+    },
+    {
+      "pmid": "41524379",
+      "doi": "10.1039/d5tb02325d",
+      "title": "Visible-light-responsive supramolecular enzyme mimics for combating antimicrobial resistance.",
+      "authors": "Mahashaya, Rahul and Pandey, Rishab and Kamra, Alisha and Mazumdar, Ashish and Rana, Subinoy and Rajamalli, P",
+      "journal": "Journal of materials chemistry. B",
+      "year": "2026",
+      "volume": "14",
+      "issue": "4",
+      "pages": "1409-1417",
+      "abstract": "The global rise of antimicrobial resistance has created an urgent need for alternative strategies that can overcome the limitations of conventional drug-resistance mechanisms. Light-assisted antimicrobial therapy, particularly photodynamic inactivation, offers spatial and temporal control while minimizing the likelihood of resistance. Since biomedical applications demand visible-light-responsive catalysts that enable deeper tissue penetration and minimize photodamage, designing systems that avoid reliance on UV excitation is essential. This work reports a supramolecular oxidase mimic \"suprazyme\" based on benzohydrazide aggregation-induced emission luminogens (AIEgens) with systematic \u03c0-extension that act as efficient metal-free photo-responsive antimicrobial agents. By extending the aromatic core from benzene (G"
+    },
+    {
+      "pmid": "41471759",
+      "doi": "10.3390/molecules30244736",
+      "title": "The Effect of the Extraction Method on the Content of Bioactive Compounds and the Biological Activity of ",
+      "authors": "Gwiazdowski, Romuald and Ju\u015b, Krzysztof and Kubiak, Krzysztof and Biega\u0144ska-Marecik, R\u00f3\u017ca and Wa\u015bkiewicz, Agnieszka and Gwiazdowska, Daniela",
+      "journal": "Molecules (Basel, Switzerland)",
+      "year": "2025",
+      "volume": "30",
+      "issue": "24",
+      "pages": "",
+      "abstract": "Ensuring food safety and consumer health are crucial elements of sustainable food safety management, requiring the use of substances that inhibit the growth of undesirable microorganisms at various stages of production. The negative impact of many of these on human health and the environment has led to increased interest in alternative solutions, such as plant extracts. The aim of this study was to determine the biological activity of extracts obtained from "
+    },
+    {
+      "pmid": "40960307",
+      "doi": "10.1128/spectrum.00717-25",
+      "title": "",
+      "authors": "Huang, Dan and Tan, Jinli and Liao, Jingyang and Zhu, Liuchong and Zhang, Xiang and Feng, Donghua and Liu, Wenbin and Jin, Xiaobao",
+      "journal": "Microbiology spectrum",
+      "year": "2025",
+      "volume": "13",
+      "issue": "10",
+      "pages": "e0071725",
+      "abstract": ""
+    },
+    {
+      "pmid": "40946997",
+      "doi": "10.1016/j.ijbiomac.2025.147615",
+      "title": "The polycaprolactone/chitosan (PCL/CS) spun membranes loaded with astragalus polysaccharide by emulsion spinning technology for anti-infective wound dressings.",
+      "authors": "Feng, Xiaomin and Xu, Huijin and Bai, Lingling and Yang, Jiyuan and Yang, Wenge and Hu, Yonghong",
+      "journal": "International journal of biological macromolecules",
+      "year": "2025",
+      "volume": "329",
+      "issue": "Pt 1",
+      "pages": "147615",
+      "abstract": "In this study, astragalus polysaccharide / hydroxypropyl-\u03b2-cyclodextrin (APS@HP-\u03b2-CD) was efficiently loaded into polycaprolactone/chitosan (PCL/CS) by electrospinning and encapsulation techniques. Then, using Span80 as an emulsifier, PCL/CS/APS@HP-\u03b2-CD nanofibers were produced through electrospinning of water-in-oil emulsions. The physicochemical and antimicrobial properties of the nanofibrous materials were subsequently evaluated in vitro. Compared with the PCL/CS nanofiber membranes (PC membrane) without added active substances, the tensile test showed that the flexibility of the PCL/CS/APS@HP-\u03b2-CD nanofiber membrane (PCA membrane) was significantly enhanced. The thermodynamic test results show that the thermal stability of the PCA membrane is enhanced. The results of "
+    },
+    {
+      "pmid": "40818517",
+      "doi": "10.1016/j.jep.2025.120434",
+      "title": "Potent antimicrobial and anti-biofilm effects of Uvaria chamae on Staphylococcus aureus strains via potential cell wall interference and lack of resistance induction.",
+      "authors": "Reigada, In\u00e9s and Togbe, Eskyl and Sovegnon, Toussaint and Yl\u00e4talo, Maarit and Kapp, Karmen and Zore, Matej and Sipari, Nina and Legba, Boris and Dougnon, Victorien and Hanski, Leena",
+      "journal": "Journal of ethnopharmacology",
+      "year": "2025",
+      "volume": "353",
+      "issue": "Pt B",
+      "pages": "120434",
+      "abstract": "Antimicrobial resistance (AMR) is a critical global health issue, particularly in sub-Saharan Africa. Traditional remedies, such as Uvaria chamae, are commonly used in West Africa to treat bacterial infections."
+    },
+    {
+      "pmid": "40764529",
+      "doi": "10.1186/s12866-025-04123-z",
+      "title": "Inhibitory efficacy, production dynamics, and characterization of postbiotics of lactic acid bacteria.",
+      "authors": "Rahman, Md Moklesur and Sazili, Awis Qurni and Ahmad, Siti Aqlima and Khalil, Khalilah Abdul and Ismail-Fitry, Mohammad Rashedi and Sarker, Md Sazedul Karim",
+      "journal": "BMC microbiology",
+      "year": "2025",
+      "volume": "25",
+      "issue": "1",
+      "pages": "485",
+      "abstract": "Antimicrobial resistance (AMR) poses a significant threat to human health and food safety. Lactic acid bacteria (LAB) produce bioactive compounds, known as postbiotics, that act as promising natural preservatives with broad-spectrum antimicrobial activity. This study aimed to evaluate the antimicrobial spectrum, production dynamics, and physicochemical properties of postbiotics derived from five LAB strains: Lactobacillus plantarum NBRC 3070, Lactobacillus acidophilus ATCC 4356, Lactobacillus casei ATCC 393, Lactobacillus rhamnosus GG ATCC 53103, and Bifidobacterium animalis subsp. lactis ATCC 27673. The antimicrobial activity of these postbiotics was assessed against several Gram-positive and Gram-negative pathogens. A crude bacteriocin-like inhibitory substance (BLIS), a postbiotic component, was partially purified using ammonium sulfate purification and characterized enzymatically. Its molecular weight was estimated by SDS-PAGE. The results showed that postbiotics, particularly those from L. plantarum and L. acidophilus, exhibited strong antimicrobial activity. The inhibitory effect was most pronounced against Escherichia coli, Salmonella Typhimurium, and Staphylococcus aureus after a 16-h exposure. The postbiotics production peaked between 24 and 36\u00a0h of incubation, achieving 85.71-89.28% inhibition. These postbiotics remained stable at high temperatures (up to 121\u00a0\u00b0C), across a wide pH range (3-5 and 9-11), and under varying salt concentrations. Neutralized cell-free supernatants from L. plantarum, L. acidophilus, L. casei, and L. rhamnosus GG retained antimicrobial activity, and enzyme treatments confirmed the proteinaceous nature of the BLIS. SDS-PAGE revealed diffuse protein bands between\u2009<\u20093.3 and 6.5\u00a0kDa. Lyophilization enhanced the concentration and stability of antibacterial compounds by reducing water content. In addition to BLIS, LAB strains produced other antimicrobial metabolites, including lactic acid, acetic acid, hydrogen peroxide, fatty acids, and notably, oleic acid. These postbiotic components remained effective after one month of storage at 4\u00a0\u00b0C and 20\u00a0\u00b0C for one month. The novelty of this study lies in its comprehensive characterization of postbiotics from well-established LAB strains across multiple functional parameters. Overall, the findings suggest that these LAB-derived postbiotics are stable, effective, and hold potential as natural antimicrobial agents in food preservation."
+    }
+  ]
+}

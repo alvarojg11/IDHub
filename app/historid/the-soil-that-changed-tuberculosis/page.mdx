@@ -1,0 +1,153 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-soil-that-changed-tuberculosis",
+  title: "The Soil That Changed Tuberculosis",
+  description:
+    "In 1943, a soil organism from a Rutgers lab yielded streptomycin, the first antibiotic that could strike tuberculosis directly.",
+  publishedAt: "2026-04-24",
+  historicalDateLabel: "1943-1948",
+  historicalYearSort: 1943,
+  categories: ["antibiotics", "organisms"],
+  tags: [
+    "Streptomycin",
+    "Tuberculosis",
+    "Albert Schatz",
+    "Selman Waksman",
+    "Streptomyces griseus",
+    "Rutgers",
+  ],
+  hook:
+    "Before streptomycin, tuberculosis care meant sanatoria, collapse therapy, and long stretches of hope that usually ran out before the disease did. Then a soil microbe from New Jersey gave medicine its first real antibiotic shot at TB.",
+  takeaway:
+    "Streptomycin changed ID history twice: it made tuberculosis pharmacologically treatable, and it showed almost immediately how fast resistance can spoil a breakthrough when a single drug has to carry the whole burden.",
+  heroImage: "/historid/the-soil-that-changed-tuberculosis/hero.jpg",
+  heroImageAlt:
+    "Black-and-white photograph of a scientist performing a streptomycin assay at Rutgers University.",
+  heroImageCredit: "National Cancer Institute Visuals Online, 'Streptomycin Assay'.",
+  heroImageSourceUrl: "https://visualsonline.cancer.gov/details.cfm?imageid=1826",
+  heroImageLicense: "Public domain via National Cancer Institute / NIH",
+  socialHeadline: "The Soil That Changed Tuberculosis",
+  socialDek:
+    "Before streptomycin, TB care relied on air, time, and surgery more than chemistry. Then a soil organism produced the first antibiotic that could hit the disease directly.",
+  socialFacts: [
+    "Streptomycin came from Streptomyces griseus, a soil actinomycete isolated in a Rutgers lab.",
+    "It was the first antibiotic with real activity against tuberculosis.",
+    "Albert Schatz isolated streptomycin in Selman Waksman's lab in 1943, and the credit fight followed almost as quickly as the acclaim.",
+    "The 1948 British Medical Research Council streptomycin trial became one of the most famous early randomized clinical trials.",
+    "Resistance appeared quickly when streptomycin was used alone, which helped push TB treatment toward combination therapy.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    By the early 1940s, tuberculosis was still the bacterial disease that medicine could name,
+    isolate, and dread, but not yet reliably stop. Patients were sent to sanatoria for rest,
+    structure, food, and fresh air. Surgeons sometimes tried to "rest" diseased lungs with
+    collapse therapy. None of it felt like a clean answer. Then a Rutgers lab pulled
+    streptomycin out of a soil organism, and for the first time TB faced an antibiotic that could
+    fight back.
+  </p>
+
+  <h2>Historical Scene</h2>
+  <p>
+    This was an awkward moment in antibiotic history. Penicillin had already electrified medicine,
+    but it was not the answer to everything, and it was not the answer to tuberculosis. Meanwhile,
+    soil microbiology, once easier to dismiss than celebrate, was becoming newly interesting.
+    Selman Waksman's group at Rutgers had been systematically screening actinomycetes, especially
+    <em>Streptomyces</em>, for antibacterial compounds. The idea was simple enough to sound almost
+    crude: go to the dirt and see what microbes were already using against their neighbors.
+  </p>
+
+  <h2>What Happened</h2>
+  <p>
+    In 1943, Albert Schatz, a graduate student working in Waksman's lab, isolated streptomycin
+    from <em>Streptomyces griseus</em>. Early reports showed activity against gram-negative bacteria,
+    which already made the compound notable in the penicillin era. What made it historic was its
+    activity against <em>Mycobacterium tuberculosis</em>. It moved from lab bench toward patients
+    quickly because the need was brutal and obvious. The credit fight came later. Waksman received
+    the Nobel Prize, Schatz fought for recognition, and the dispute never really left the story.
+    Still, the medical fact stayed the same: streptomycin emerged from that Rutgers discovery
+    system and changed the direction of TB care.
+  </p>
+
+  <h2>Why It Changed Infectious Diseases</h2>
+  <p>
+    Streptomycin mattered because it did something earlier antibiotics could not: it gave clinicians
+    a drug that could directly attack tuberculosis. That would have been enough to make it historic.
+    But the story widened fast. In 1948, the British Medical Research Council trial of streptomycin
+    for pulmonary tuberculosis became one of the best-known landmarks in early randomized clinical
+    trial design. The drug did not just reshape therapy for a feared pathogen. It also helped push
+    medicine toward a tougher standard for proving that treatment actually worked.
+  </p>
+
+  <h2>Why It Still Matters Now</h2>
+  <p>
+    The story does not end with a cure and applause. Resistance to streptomycin appeared quickly
+    when the drug was used alone, and that lesson helped push tuberculosis care toward combination
+    therapy instead of faith in a single miracle agent. That still feels familiar. Antimicrobial
+    discovery can change the game, but the microbe gets a vote, and it does not take long for that
+    vote to show up.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Schatz A, Bugie E, Waksman SA. Streptomycin, a substance exhibiting antibiotic activity
+        against gram-positive and gram-negative bacteria. <em>Proc Soc Exp Biol Med</em>.
+        1944;55(1):66-69.
+      </p>
+      <p>
+        <a
+          href="https://scholar.google.com/scholar?q=Schatz+Bugie+Waksman+Streptomycin,+a+substance+exhibiting+antibiotic+activity+against+gram-positive+and+gram-negative+bacteria"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: Search source
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Jones D, Metzger HJ, Schatz A, Waksman SA. Control of gram-negative bacteria in
+        experimental animals by streptomycin. <em>Science</em>. 1944;100(2588):103-105.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1126/science.100.2588.103" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1126/science.100.2588.103
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Medical Research Council. Streptomycin treatment of pulmonary tuberculosis.
+        <em>Br Med J</em>. 1948;2(4582):769-782.
+      </p>
+      <p>
+        <a
+          href="https://scholar.google.com/scholar?q=Medical+Research+Council+Streptomycin+treatment+of+pulmonary+tuberculosis+1948"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: Search source
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Comroe JH. Pay dirt: the story of streptomycin. Part I. From Waksman to Waksman.
+        <em>Am Rev Respir Dis</em>. 1978;117(4):773-781.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1164/arrd.1978.117.4.773" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1164/arrd.1978.117.4.773
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

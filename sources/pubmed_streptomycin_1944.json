@@ -1,0 +1,18 @@
+{
+  "query": "\"streptomycin\"[Title] AND 1944[Publication Date]",
+  "count": 1,
+  "results": [
+    {
+      "pmid": "17788929",
+      "doi": "10.1126/science.100.2588.103",
+      "title": "CONTROL OF GRAM-NEGATIVE BACTERIA IN EXPERIMENTAL ANIMALS BY STREPTOMYCIN.",
+      "authors": "Jones, D and Metzger, H J and Schatz, A and Waksman, S A",
+      "journal": "Science (New York, N.Y.)",
+      "year": "1944",
+      "volume": "100",
+      "issue": "2588",
+      "pages": "103-5",
+      "abstract": ""
+    }
+  ]
+}

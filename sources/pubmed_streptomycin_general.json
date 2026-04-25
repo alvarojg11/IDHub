@@ -1,0 +1,42 @@
+{
+  "query": "streptomycin streptomyces griseus tuberculosis",
+  "count": 3,
+  "results": [
+    {
+      "pmid": "36350431",
+      "doi": "10.1007/s11274-022-03445-8",
+      "title": "A mini-review: environmental and metabolic factors affecting aminoglycoside efficacy.",
+      "authors": "Webster, Calum M and Shepherd, Mark",
+      "journal": "World journal of microbiology & biotechnology",
+      "year": "2022",
+      "volume": "39",
+      "issue": "1",
+      "pages": "7",
+      "abstract": "Following the discovery of streptomycin from Streptomyces griseus in the 1940s by Selman Waksman and colleagues, aminoglycosides were first used to treat tuberculosis and then numerous derivatives have since been used to combat a wide variety of bacterial infections. These bactericidal antibiotics were used as first-line treatments for several decades but were largely replaced by \u00df-lactams and fluoroquinolones in the 1980s, although widespread emergence of antibiotic-resistance has led to renewed interest in aminoglycosides. The primary site of action for aminoglycosides is the 30\u00a0S ribosomal subunit where they disrupt protein translation, which contributes to widespread cellular damage through a number of secondary effects including rapid uptake of aminoglycosides via elevated proton-motive force (PMF), membrane damage and breakdown, oxidative stress, and hyperpolarisation of the membrane. Several factors associated with aminoglycoside entry have been shown to impact upon bacterial killing, and more recent work has revealed a complex relationship between metabolic states and the efficacy of different aminoglycosides. Hence, it is imperative to consider the environmental conditions and bacterial physiology and how this can impact upon aminoglycoside entry and potency. This mini-review seeks to discuss recent advances in this area and how this might affect the future use of aminoglycosides."
+    },
+    {
+      "pmid": "17531152",
+      "doi": null,
+      "title": "Cloning and expression of streptomycin inactivating enzymes APH(6)-Ia and APH(6)-Id.",
+      "authors": "Collins, A C and Ashenafi, M and Saunders, A A and Byrnes, W M",
+      "journal": "Cellular and molecular biology (Noisy-le-Grand, France)",
+      "year": "2007",
+      "volume": "53",
+      "issue": "3",
+      "pages": "74-9",
+      "abstract": "Discovered in the 1940s by Selman Waksman, the aminoglycoside antibiotic streptomycin is clinically important in the treatment of tuberculosis worldwide. However, strains of Mycobacterium tuberculosis and other pathogenic bacteria have become resistant to streptomycin. One mechanism by which this can occur is through the action of phosphotransferases that attach a phosphate group to position 6 of the streptidine ring of streptomycin, thereby inactivating it. Two such phosphotransferases are APH(6)-Ia from producer strain Streptomyces griseus, and APH(6)-Id found in animal, plant and human pathogenic isolates. Here, we report the subcloning and expression in Escherichia coli of soluble recombinant APH(6)-Ia and Id enzymes. Sequencing of aph(6)-Ia revealed a one-nucleotide disagreement with the published sequence, such that the amino acid at position 262 is an alanine instead of a serine. The sequence of aph(6)-Id is identical to that of the gene found in transposon Tn5393 of plant pathogen Erwinia amylovora. The successful expression of soluble forms of these enzymes now paves the way for experiments to study their structure and function by using site-directed mutagenesis."
+    },
+    {
+      "pmid": "417651",
+      "doi": "10.1164/arrd.1978.117.4.773",
+      "title": "Pay dirt: the story of streptomycin. Part I. From Waksman to Waksman.",
+      "authors": "Comroe, J H",
+      "journal": "The American review of respiratory disease",
+      "year": "1978",
+      "volume": "117",
+      "issue": "4",
+      "pages": "773-81",
+      "abstract": ""
+    }
+  ]
+}

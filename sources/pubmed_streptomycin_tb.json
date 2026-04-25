@@ -1,0 +1,66 @@
+{
+  "query": "streptomycin tuberculosis Medical Research Council 1948",
+  "count": 5,
+  "results": [
+    {
+      "pmid": "33865473",
+      "doi": "10.1016/S2214-109X(20)30539-8",
+      "title": "Urgently seeking efficiency and sustainability of clinical trials in global health.",
+      "authors": "Park, Jay J H and Grais, Rebecca F and Taljaard, Monica and Nakimuli-Mpungu, Etheldreda and Jehan, Fyezah and Nachega, Jean B and Ford, Nathan and Xavier, Denis and Kengne, Andre P and Ashorn, Per and Socias, Maria Eugenia and Bhutta, Zulfiqar A and Mills, Edward J",
+      "journal": "The Lancet. Global health",
+      "year": "2021",
+      "volume": "9",
+      "issue": "5",
+      "pages": "e681-e690",
+      "abstract": "This paper shows the scale of global health research and the context in which we frame the subsequent papers in the Series. In this Series paper, we provide a historical perspective on clinical trial research by revisiting the 1948 streptomycin trial for pulmonary tuberculosis, which was the first documented randomised clinical trial in the English language, and we discuss its close connection with global health. We describe the current state of clinical trial research globally by providing an overview of clinical trials that have been registered in the WHO International Clinical Trial Registry since 2010. We discuss challenges with current trial planning and designs that are often used in clinical trial research undertaken in low-income and middle-income countries, as an overview of the global health trials landscape. Finally, we discuss the importance of collaborative work in global health research towards generating sustainable and culturally appropriate research environments."
+    },
+    {
+      "pmid": "15366341",
+      "doi": null,
+      "title": "Tuberculosis: a long fight against it and its current resurgence.",
+      "authors": "Conti, A A and Lippi, D and Gensini, G F",
+      "journal": "Monaldi archives for chest disease = Archivio Monaldi per le malattie del torace",
+      "year": "2004",
+      "volume": "61",
+      "issue": "1",
+      "pages": "71-4",
+      "abstract": "Unlike the discovery of penicillin in 1928 by A. Fleming, largely due to fortuitous circumstances, the isolation of streptomycin by S.A. Waksman was the result of a systematic research project carried out by a number of workers. In 1952, Waksman received the Nobel Prize in Medicine for having produced the first useful drug against tuberculosis. Before the tubercle bacillus was recognised as the causative agent of the disease, various sanatoria had been set up, as the only remedy for sufferers of tuberculosis. Between 1880 and 1930 sanatoria spread across Europe and North America, and they were partially effective against the ever worsening diffusion of tuberculosis: therefore in the United Kingdom a government-funded agency, the Medical Research Council (MRC), was created in 1913. In 1947 streptomycin was put on the market, opening a new era in the history of modern medicine. Indeed, the first published report of the results of an (individually) randomised clinical trial was the 1948 paper by Bradford Hill and co-workers of the MRC's trial on the use of streptomycin. Streptomycin still represents a first-line agent in the recommended therapy of tuberculosis, whose burden is far higher in low-income countries. The current aim of any global intervention against tuberculosis should be the elimination of the pathology itself, an effort that will need both financial investments in scientific research and the targeted use of the fruits of that research to develop new, effective, preventive and therapeutic tools, such a tool as streptomycin proved to be more than fifty years ago."
+    },
+    {
+      "pmid": "15286114",
+      "doi": "10.1177/154405910408301s02",
+      "title": "The classic caries clinical trial: constraints and opportunities.",
+      "authors": "Stamm, J W",
+      "journal": "Journal of dental research",
+      "year": "2004",
+      "volume": "83 Spec No C",
+      "issue": "",
+      "pages": "C6-14",
+      "abstract": "The history of clinical trials would include events in 1747 on board the Salisbury, a British Navy vessel at sea with 12 seamen critically ill with scurvy. Involving these 12 sailors in a study, an officer on board by the name of Lind evaluated six potential treatments for scurvy, and rapidly reached the conclusion that daily consumption of citrus fruits returned the men fit for duty in approximately six days (Bull, 1959). The concept of experimental randomization was first developed by Sir R.A. Fisher (1925, 1926), and the method was introduced to medical research via a study of tuberculosis treatment by Amberson and co-workers (1931), who randomized 24 TB patients into two groups, one to receive the experimental therapy, the other serving as the control. Amberson et al. also incorporated the concept of blinding into their study. Sir Austin Bradford Hill codified and built on the principles of scientific experimentation developed by Fisher, and introduced the use of random numbers in the allocation of patients in the British Medical Research Council (1948) study of the effect of streptomycin in the treatment of tuberculosis (Daniels and Hill, 1952; Hill, 1952). The first applications of clinical trial methodology for testing interventions on dental, oral, and maxillofacial diseases and conditions are more difficult to determine. For dental caries prevention, however, Chilton and Fertig (1958) and Slack and Martin (1964) were certainly among the early caries clinical trial pioneers. As clinical trials have come into the mainstream of clinical research in medicine and dentistry, a great deal of developmental work has focused on their methodological enhancement. The most successful of these efforts have come from fruitful, ongoing collaborations among clinician investigators, biostatisticians, data management specialists, biomedical ethicists, and others with an academic interest in clinical trial design and utilization. During the past 25 years, the emergence of systematic reviews and the evidence-based medicine (EBM) movement have also contributed significantly to the increasing reliance on randomized clinical trial outcomes for the advancement of better clinical practice (Richards et al., 1997; Straus and Sackett, 1998; www.cochrane.org/cochrane/ccbroch.htm#BDL, 2002)."
+    },
+    {
+      "pmid": "15082623",
+      "doi": "10.1093/ije/dyh162",
+      "title": "Commentary: the 1944 patulin trial: the first properly controlled multicentre trial conducted under the aegis of the British Medical Research Council.",
+      "authors": "Chalmers, Iain and Clarke, Mike",
+      "journal": "International journal of epidemiology",
+      "year": "2004",
+      "volume": "33",
+      "issue": "2",
+      "pages": "253-60",
+      "abstract": "The 1948 report of the British Medical Research Council's randomized trial of streptomycin for pulmonary tuberculosis is widely regarded as marking the beginning of the modern history of controlled clinical trials. Four years earlier, however, a methodologically sophisticated multicentre trial conducted under the aegis of the Medical Research Council was reported, which assessed the effects of the antibiotic patulin on the course of common colds. Philip D'Arcy Hart and Joan Faulkner (later Joan Doll) were the secretary and assistant secretary, respectively, to the committee overseeing the trial, and they clearly recognized the importance of preventing foreknowledge of allocations from those admitting patients to the study. To do this and to 'muddle people up', they and Ruth D'Arcy Hart devised a scheme involving the use of two patulin groups and two placebo groups, allocating patients to one of these four groups using strict rotation. Philip D'Arcy Hart believes that this study has been overshadowed by the celebrated streptomycin trial (for which he was also secretary to the oversight committee) because no beneficial effect of patulin was detected, and because the report of the streptomycin trial referred to the use of random sampling numbers to generate the allocation schedule. This article makes clear why we agree with Philip D'Arcy Hart that the 1944 patulin trial deserves wider recognition as the first well controlled, multicentre clinical trial to have been conducted under the aegis of the British Medical Research Council. This status is reflected in the International Journal of Epidemiology's reproduction of the full text of the trial report in this issue of the journal."
+    },
+    {
+      "pmid": "11689539",
+      "doi": "10.1093/ije/30.5.1156",
+      "title": "Comparing like with like: some historical milestones in the evolution of methods to create unbiased comparison groups in therapeutic experiments.",
+      "authors": "Chalmers, I",
+      "journal": "International journal of epidemiology",
+      "year": "2001",
+      "volume": "30",
+      "issue": "5",
+      "pages": "1156-64",
+      "abstract": "Histories of clinical trials have recorded and analysed the development of quantification in therapeutic evaluation, the emergence of probabilistic thinking, the application of statistical methods and theory, and the sociology, ethics and politics of clinical trials; but it is surprising that they only rarely identify as a distinct theme the development of efforts to control biases. An exception is Kaptchuk's recent account of the history of blinding and placebos for reducing observer biases. In this complementary paper I introduce and discuss some milestones between 1662 and 1948 in the development of methods to control selection biases when assembling therapeutic comparison groups, to ensure, as far as possible, that 'like is compared with like'. In the paper I note (i) that treatment allocation based on strict alternation abolishes selection bias as effectively as treatment allocation based on strict random allocation; (ii) that use of schedules based on random numbers is more likely to prevent foreknowledge of allocation schedules, and thus the risk of introducing selection bias at the point of recruitment to trials; (iii) that a concern to conceal allocation schedules was the rationale for using schedules based on random numbers in the Medical Research Council trials of vaccination for whooping cough and streptomycin for pulmonary tuberculosis; and (iv) that the introduction of allocation concealment more than half a century ago remains the most recent substantive milestone in the history of efforts to control selection biases in therapeutic experiments."
+    }
+  ]
+}
