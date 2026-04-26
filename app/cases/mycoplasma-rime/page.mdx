@@ -1,0 +1,291 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("mycoplasma-rime");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Painful Mouth and the Quiet Lungs
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 24-year-old woman is admitted with 6 days of fever, dry cough, malaise, and worsening oral pain. During the last 72 hours she has developed severe odynophagia, bleeding lip crusts, and inability to tolerate food or liquids. She reports pleuritic chest discomfort but no dyspnea.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Ten days before presentation, she completed trimethoprim-sulfamethoxazole for culture-confirmed Escherichia coli pyelonephritis, and her urinary symptoms resolved. She is sexually active with multiple male partners, returned from Acapulco 3 weeks ago, and has no history of recurrent oral ulcers, autoimmune disease, or chronic immunosuppression.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She appears uncomfortable and dehydrated. Temperature is 38.6 C, heart rate 108/min, blood pressure 104/68 mmHg, respiratory rate 18/min, and oxygen saturation 97% on room air. The lips have hemorrhagic crusting with shallow erosions of the buccal mucosa, tongue, and soft palate. A few targetoid papules and small vesiculobullous lesions are present on the upper trunk and forearms, involving less than 3% of body surface area. There is no epidermal detachment.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 7.6 x 10^3/uL with an absolute lymphocyte count of 0.8 x 10^3/uL; creatinine is 0.9 mg/dL, AST 41 U/L, ALT 36 U/L, and C-reactive protein 54 mg/L. HIV antigen-antibody testing, rapid plasma reagin, oral herpes simplex virus polymerase chain reaction, respiratory viral panel, and blood cultures are negative. Chest radiograph shows faint patchy interstitial infiltrates.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/mycoplasma-rime/oral-mucositis.png"
+      alt="Oral mucositis with hemorrhagic lip crusting in a patient with reactive infectious mucocutaneous eruption"
+      width={1884}
+      height={930}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Oral mucositis with hemorrhagic lip crusting.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-mycoplasma-rime-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Primary herpes simplex virus gingivostomatitis",
+      feedback:
+        "Primary herpes simplex virus infection can cause painful oral ulceration and fever, but it does not explain the respiratory prodrome, faint pulmonary infiltrates, and scattered targetoid or vesiculobullous lesions. The negative oral herpes simplex virus polymerase chain reaction also makes this diagnosis less likely.",
+    },
+    {
+      id: "B",
+      label: "Reactive infectious mucocutaneous eruption",
+      correct: true,
+      feedback:
+        "Correct. Reactive infectious mucocutaneous eruption (RIME) is characterized by prominent erosive mucositis with limited skin involvement, usually after a respiratory infection. The combination of fever, dry cough, faint interstitial infiltrates, severe oral mucositis, and only a few scattered cutaneous lesions is classic. The recent sulfonamide exposure is an important trap, but the clinical pattern is more consistent with RIME than with Stevens-Johnson syndrome or toxic epidermal necrolysis.",
+    },
+    {
+      id: "C",
+      label: "Behcet syndrome",
+      feedback:
+        "Behcet syndrome can cause recurrent oral ulceration and multisystem disease, but the lesions are usually recurrent rather than acute after a febrile respiratory prodrome. The associated cough and chest radiographic infiltrates also argue against Behcet syndrome as the unifying diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Stevens-Johnson syndrome",
+      feedback:
+        "Stevens-Johnson syndrome is a major distractor because of the recent trimethoprim-sulfamethoxazole exposure and mucosal involvement. However, this patient has severe mucositis out of proportion to sparse skin findings, a preceding respiratory illness, and minimal body surface area involvement, which favor RIME rather than classic drug-induced Stevens-Johnson syndrome.",
+    },
+    {
+      id: "E",
+      label: "Erythema multiforme major",
+      feedback:
+        "Erythema multiforme major can involve mucosa and targetoid lesions, often in the setting of herpes simplex virus infection. In this case, the mucositis is much more prominent than the skin disease, the respiratory prodrome is more suggestive of Mycoplasma-associated disease, and the overall presentation fits RIME better than erythema multiforme major.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-mycoplasma-rime-q2"
+  title="Question 2"
+  prompt="What is the best next treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline",
+      feedback:
+        "Doxycycline is active against Mycoplasma pneumoniae and would be a reasonable oral option in many patients. It is less appropriate here because the patient is hospitalized and cannot reliably tolerate oral medications due to severe oral mucositis and dehydration.",
+    },
+    {
+      id: "B",
+      label: "Intravenous ceftriaxone",
+      feedback:
+        "Ceftriaxone provides no reliable coverage for Mycoplasma pneumoniae because the organism lacks a cell wall. It could be useful in typical bacterial pneumonia, but it does not fit the mucocutaneous syndrome and atypical respiratory pattern seen here.",
+    },
+    {
+      id: "C",
+      label: "Discontinue trimethoprim-sulfamethoxazole and provide supportive care only",
+      feedback:
+        "Stopping trimethoprim-sulfamethoxazole is reasonable while the differential remains broad, but supportive care alone does not address the likely infectious trigger. In a hospitalized patient with oral intolerance and radiographic evidence of atypical pneumonia, antimicrobial therapy directed at Mycoplasma pneumoniae is appropriate.",
+    },
+    {
+      id: "D",
+      label: "Intravenous acyclovir",
+      feedback:
+        "Intravenous acyclovir would be appropriate for severe herpes simplex virus or varicella-zoster virus infection, but the negative oral herpes simplex virus polymerase chain reaction, respiratory prodrome, and chest imaging make herpesvirus infection less likely. Acyclovir does not treat Mycoplasma pneumoniae.",
+    },
+    {
+      id: "E",
+      label: "Intravenous azithromycin",
+      correct: true,
+      feedback:
+        "Correct. Intravenous azithromycin is the best choice because it treats presumed Mycoplasma pneumoniae infection and is practical in a hospitalized patient with severe odynophagia and poor oral intake. Supportive care remains essential, but antibiotic therapy directed at the associated atypical respiratory infection is appropriate while confirmatory testing is pending.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-mycoplasma-rime-q3"
+  title="Question 3"
+  prompt="Which feature most strongly favors RIME over Stevens-Johnson syndrome or toxic epidermal necrolysis?"
+  options={[
+    {
+      id: "A",
+      label: "Recent trimethoprim-sulfamethoxazole exposure",
+      feedback:
+        "Recent sulfonamide exposure raises concern for Stevens-Johnson syndrome and toxic epidermal necrolysis, but it does not favor RIME. In fact, it is the major confounder in this vignette and should not outweigh the mucosa-predominant pattern after a respiratory prodrome.",
+    },
+    {
+      id: "B",
+      label: "Young adult age",
+      feedback:
+        "RIME often affects children and young adults, but age alone is not sufficiently specific to distinguish it from Stevens-Johnson syndrome or toxic epidermal necrolysis. The morphology and distribution of mucosal and skin findings are more important.",
+    },
+    {
+      id: "C",
+      label: "Severe mucositis with limited cutaneous involvement after a respiratory prodrome",
+      correct: true,
+      feedback:
+        "Correct. RIME classically presents with prominent mucositis and relatively sparse skin disease, often after a respiratory infection such as Mycoplasma pneumoniae. That pattern is the key discriminator in this case and is more informative than the medication history alone.",
+    },
+    {
+      id: "D",
+      label: "Need for hospital admission because of poor oral intake",
+      feedback:
+        "Hospitalization reflects illness severity and the need for intravenous fluids, analgesia, and airway monitoring, but it does not distinguish RIME from Stevens-Johnson syndrome or toxic epidermal necrolysis. Both syndromes may require admission when mucosal disease is severe.",
+    },
+    {
+      id: "E",
+      label: "Presence of a few targetoid lesions on the forearms",
+      feedback:
+        "A few targetoid lesions can be seen in several mucocutaneous syndromes, including erythema multiforme and RIME. The more useful clue is not the presence of isolated targetoid lesions, but rather how limited the overall skin involvement is compared with the severity of mucositis.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-mycoplasma-rime-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The key clinical clue is severe erosive mucositis out of proportion to the degree of cutaneous involvement after a febrile respiratory prodrome. Recent trimethoprim-sulfamethoxazole use appropriately raises concern for Stevens-Johnson syndrome, but classic drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis usually features more extensive epidermal injury and broader skin involvement. In this patient, the faint pulmonary findings, limited body surface area involvement, and mucosa-predominant presentation favor reactive infectious mucocutaneous eruption.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Respiratory multiplex polymerase chain reaction later detected Mycoplasma pneumoniae, supporting Mycoplasma-associated RIME. Management centers on aggressive supportive care, including intravenous fluids, pain control, topical oral care, and nutritional support, along with treatment of the associated atypical respiratory infection. Because this patient was hospitalized and unable to tolerate oral medications, intravenous azithromycin was the most appropriate antimicrobial choice. Oral doxycycline is also active against Mycoplasma pneumoniae, but route matters in a patient with severe odynophagia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The term RIME broadened the older Mycoplasma-induced rash and mucositis concept to include similar mucositis-predominant eruptions triggered by several infections. For board purposes, you should recognize Mycoplasma pneumoniae as the classic trigger and distinguish RIME from Stevens-Johnson syndrome or toxic epidermal necrolysis by its respiratory prodrome, sparse cutaneous disease, and prominent mucositis. Other extrapulmonary manifestations of Mycoplasma pneumoniae include hemolytic anemia, neurologic syndromes such as encephalitis, and cardiac complications such as myocarditis.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-mycoplasma-rime-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <strong>Reactive infectious mucocutaneous eruption is a mucositis-predominant syndrome with relatively limited skin disease.</strong> Patients typically present with painful oral, ocular, or urogenital mucosal involvement, while cutaneous lesions may be sparse or even absent.
+    </li>
+    <li>
+      <strong>Mycoplasma pneumoniae remains the classic trigger and should be actively sought when RIME follows a respiratory prodrome.</strong> Confirmatory testing often follows the bedside diagnosis, so recognition of the syndrome should not wait for microbiology to return.
+    </li>
+    <li>
+      <strong>The modern term RIME is broader than the older Mycoplasma-induced rash and mucositis label.</strong> It captures mucositis-predominant parainfectious eruptions triggered by several pathogens, although Mycoplasma pneumoniae remains the best known board-relevant association.
+    </li>
+    <li>
+      <strong>Management combines aggressive supportive care with treatment of the associated atypical pneumonia when Mycoplasma pneumoniae is suspected.</strong> Intravenous azithromycin is a practical inpatient option when oral intake is poor, while hydration, analgesia, and careful airway monitoring remain essential.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ramien ML. Reactive infectious mucocutaneous eruption: Mycoplasma pneumoniae-induced rash and mucositis and other parainfectious eruptions. Clin Exp Dermatol. 2021;46(3):420-429.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/ced.14404"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1111/ced.14404
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Canavan TN, Mathes EF, Frieden I, Shinkai K. Mycoplasma pneumoniae-induced rash and mucositis as a syndrome distinct from Stevens-Johnson syndrome and erythema multiforme: a systematic review. J Am Acad Dermatol. 2015;72(2):239-245.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jaad.2014.06.026"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/j.jaad.2014.06.026
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Narita M. Classification of extrapulmonary manifestations due to Mycoplasma pneumoniae infection on the basis of possible pathogenesis. Front Microbiol. 2016;7:23.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fmicb.2016.00023"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.3389/fmicb.2016.00023
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Metlay JP, Waterer GW, Long AC, et al. Diagnosis and treatment of adults with community-acquired pneumonia. An official clinical practice guideline of the American Thoracic Society and Infectious Diseases Society of America. Am J Respir Crit Care Med. 2019;200(7):e45-e67.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1164/rccm.201908-1581ST"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1164/rccm.201908-1581ST
+      </a>
+    </p>
+  </div>
+</div>

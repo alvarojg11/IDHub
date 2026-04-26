@@ -913,6 +913,15 @@ export const CASES: CaseMeta[] = [
   
     },
   },
+  {
+    slug: "mycoplasma-rime",
+    title: "The Painful Mouth and the Quiet Lungs",
+    description: "A young woman with severe oral mucositis, minimal skin disease, and subtle pulmonary findings.",
+    enable: true,
+    ogImage: "/cases/mycoplasma-rime/oral-mucositis.png",
+    teaser: "A 24-year-old woman is hospitalized with fever, dry cough, severe oral mucositis, and only a few scattered targetoid lesions. She recently completed TMP-SMX for pyelonephritis, but chest radiograph shows subtle patchy infiltrates. What is the most likely diagnosis, and what treatment should happen next?",
+    tags: { organisms: ["Mycoplasma pneumoniae"], syndromes: ["Atypical Pneumonia", "Mucocutaneous Infection", "Dermatologic Infectious Diseases"], concepts: ["RIME", "SJS/TEN mimic", "Mucositis", "Macrolide therapy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

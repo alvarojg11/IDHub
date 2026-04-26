@@ -20,6 +20,7 @@ export async function GET(
   const takeaway = entry?.takeaway ?? "Read the full historical brief on IDHub.";
   const category = entry?.categories[0] ? HISTORID_CATEGORY_LABELS[entry.categories[0]] : "HistorID";
   const heroImageUrl = entry?.heroImage ? `${new URL(req.url).origin}${entry.heroImage}` : null;
+  const facts = (entry?.socialFacts ?? []).slice(0, 2);
 
   return new ImageResponse(
     (
@@ -94,6 +95,43 @@ export async function GET(
             <div style={{ display: "flex", marginTop: "22px", padding: "24px 28px", borderRadius: "22px", background: "#f1f6f4", border: "1px solid #dde5e2", fontSize: 24, color: "#102019", lineHeight: 1.5 }}>
               {takeaway}
             </div>
+
+            {facts.length ? (
+              <div style={{ display: "flex", flexDirection: "column", marginTop: "22px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    color: "#145c47",
+                    textTransform: "uppercase",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Quick facts
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {facts.map((fact, index) => (
+                    <div
+                      key={fact}
+                      style={{
+                        display: "flex",
+                        padding: "16px 18px",
+                        borderRadius: "18px",
+                        background: index === 0 ? "#fbfdfc" : "#f7faf8",
+                        border: "1px solid #e1e8e4",
+                        fontSize: 19,
+                        color: "#274239",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {fact}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
             <div style={{ display: "flex", marginTop: "auto", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ display: "flex", fontSize: 22, fontWeight: 800, color: "#145c47" }}>IDHub</div>

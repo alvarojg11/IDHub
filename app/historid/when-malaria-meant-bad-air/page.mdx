@@ -1,0 +1,148 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-malaria-meant-bad-air",
+  title: "When Malaria Meant Bad Air",
+  description:
+    "Before malaria had a parasite or a mosquito, people in and around Rome gave the fever a name that blamed the air rising off the marshes.",
+  publishedAt: "2026-04-25",
+  historicalDateLabel: "1740-1897",
+  historicalYearSort: 1740,
+  categories: ["people-illness", "organisms"],
+  tags: [
+    "Malaria",
+    "Plasmodium",
+    "Anopheles",
+    "Rome",
+    "Pontine Marshes",
+    "Miasma theory",
+    "Mal'aria",
+  ],
+  hook:
+    "Summer near Rome had a reputation long before anyone could see a parasite in blood. People blamed the fever on bad air rising off the marshes, and the name they gave that threat stuck: malaria.",
+  takeaway:
+    "Malaria's name is a fossil from the miasma era. It preserved the wrong mechanism but a real epidemiologic clue: the dangerous places were marshy, mosquito-rich landscapes.",
+  heroImage: "/historid/when-malaria-meant-bad-air/hero.jpg",
+  heroImageAlt:
+    "Photograph of tools used in malaria control at the anti-malaria school in Nettuno, Italy.",
+  heroImageCredit:
+    "The anti-malaria school, Nettuno, Italy: tools used in malaria control. Photograph, 1918-1937 (?).",
+  heroImageSourceUrl: "https://wellcomecollection.org/works/hgc8zxjd",
+  heroImageLicense: "Public Domain Mark via Wellcome Collection",
+  socialHeadline: "When Malaria Meant Bad Air",
+  socialDek:
+    "Long before parasites and mosquitoes entered the story, people tied Rome's summer fevers to bad marsh air, and the name stuck.",
+  socialFacts: [
+    "Malaria comes from the Italian mal'aria: bad air.",
+    "In 1740, Horace Walpole called malaria a horrid thing that came to Rome every summer.",
+    "The name was in circulation before Laveran saw the parasite in 1880 and before Ross clarified mosquito transmission in 1897.",
+    "Miasma theory got the mechanism wrong but the map partly right: marshes often meant mosquitoes.",
+    "Older malaria language included Roman fever, ague, and paludism.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Before microscopy and vector biology, malaria was a landscape before it was a life cycle.
+    Travelers, physicians, and locals around Rome learned to fear certain places at certain times:
+    low ground, marsh edges, stagnant water, and summer evenings when the air felt heavy. They
+    were wrong about what exactly was attacking them, but not wrong that the danger lived in the
+    environment. The name they gave it, <em>mal'aria</em>, still carries that older map.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    For centuries, the Roman Campagna and the Pontine marshes had a grim reputation. Fever seemed
+    to rise with the season. Rural zones near standing water could look beautiful by day and feel
+    ominous by dusk. Long before anyone knew about <em>Plasmodium</em> or <em>Anopheles</em>, people
+    built an explanation from what they could observe: the sick clustered around wet ground, heat,
+    and evening air. In Italian, that became <em>mala aria</em>, bad air, a phrase that hardened into
+    the disease name itself.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The word traveled before the mechanism did. By the 18th century, English travelers were using
+    <em>malaria</em> as a recognizable term for the deadly seasonal fevers associated with Rome.
+    Horace Walpole wrote in 1740 of "a horrid thing called the malaria" that came every summer and
+    killed people. The name made sense inside miasma theory, which treated foul air from marshes as
+    the cause. What changed later was not the geography but the biology. In 1880, Alphonse Laveran
+    identified the malaria parasite in blood. In 1897, Ronald Ross helped establish mosquito
+    transmission. The air was acquitted. The marshes, in a way, were not.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Malaria's name is useful ID history because it captures a moment when epidemiology outran
+    mechanism. People had noticed habitat, seasonality, and exposure pattern before microbiology
+    could explain them. That is not a trivial lesson. Infectious-disease reasoning often begins with
+    place, timing, and ecology before it reaches the lab. The old name also shows how clinical
+    language can outlive the theory that produced it. Even after parasites and vectors replaced
+    miasma, the word stayed.
+  </p>
+
+  <h2>Why the naming lesson still matters</h2>
+  <p>
+    Malaria is a reminder to be careful with old explanations without being smug about them. A bad
+    theory can still contain a sharp observation. In this case, the observation was that wetlands,
+    heat, housing, and evening exposure mattered because mosquitoes were doing the transmitting.
+    Modern ID still works in that same tension. We want mechanism, but we also need the field eye
+    that notices where disease is happening before the full explanation arrives.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Treccani. <em>Malaria</em>. Italian vocabulary entry tracing <em>malaria</em> to{' '}
+        <em>mal'aria</em>, or <em>mala aria</em>.
+      </p>
+      <p>
+        <a href="https://www.treccani.it/vocabolario/malaria/" target="_blank" rel="noreferrer">
+          Link: Treccani vocabulary entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Walpole H. Letter to Henry Seymour Conway, July 5, 1740, describing "a horrid thing called
+        the malaria" in Rome. In: <em>Letters of Horace Walpole</em>.
+      </p>
+      <p>
+        <a href="https://www.gutenberg.org/cache/epub/12073/pg12073.html" target="_blank" rel="noreferrer">
+          Link: Project Gutenberg text
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        World Health Organization. <em>Terminology of Malaria and of Malaria Eradication</em>.
+        Geneva: WHO; 1963.
+      </p>
+      <p>
+        <a
+          href="https://iris.who.int/bitstream/handle/10665/39007/9241540141.pdf?sequence=1"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: WHO PDF
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Neghina R, Neghina AM, Marincu I, Iacobiciu I. Malaria, a journey in time: in search of the
+        lost myths and forgotten stories. <em>Am J Med Sci</em>. 2010;340(6):492-498.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1097/MAJ.0b013e3181e7fe6c" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1097/MAJ.0b013e3181e7fe6c
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
