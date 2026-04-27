@@ -1,0 +1,130 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-man-behind-cruzi",
+  title: "The Man Behind cruzi",
+  description:
+    "Before Carlos Chagas named Trypanosoma cruzi, Oswaldo Cruz had turned Rio de Janeiro's epidemics into a test of modern public health.",
+  publishedAt: "2026-04-27",
+  historicalDateLabel: "1903-1909",
+  historicalYearSort: 1903,
+  categories: ["people-illness", "wars-outbreaks", "diagnostics-vaccines"],
+  tags: [
+    "Oswaldo Cruz",
+    "Carlos Chagas",
+    "Trypanosoma cruzi",
+    "Yellow fever",
+    "Smallpox",
+    "Plague",
+    "Fiocruz",
+  ],
+  hook:
+    "Carlos Chagas gave a new parasite Oswaldo Cruz's name, but that tribute only makes sense if you know the Rio physician who fought mosquitoes, rats, smallpox, and public rage at the same time.",
+  takeaway:
+    "Oswaldo Cruz still matters because he treated epidemics as systems: vectors, housing, ports, laboratories, vaccines, politics, and trust all had to be handled together.",
+  heroImage: "/historid/the-man-behind-cruzi/hero.jpg",
+  heroImageAlt: "Archival portrait of Brazilian physician and public health leader Oswaldo Cruz.",
+  heroImageCredit: "Oswaldo Cruz archival image via Casa de Oswaldo Cruz / Fiocruz.",
+  heroImageSourceUrl: "https://portal.fiocruz.br/en/oswaldo-cruz",
+  heroImageLicense: "Fiocruz portal content policy; non-commercial reuse with attribution",
+  socialHeadline: "The Man Behind cruzi",
+  socialDek:
+    "Chagas named Trypanosoma cruzi for Oswaldo Cruz, the physician who turned epidemic Rio into a proving ground for laboratory public health.",
+  socialFacts: [
+    "Carlos Chagas named Trypanosoma cruzi in honor of Oswaldo Cruz.",
+    "Cruz led campaigns in Rio de Janeiro against yellow fever, plague, and smallpox.",
+    "His teams targeted Aedes aegypti mosquitoes when yellow fever control was still a public experiment.",
+    "Smallpox vaccination helped spark the 1904 Vaccine Revolt, showing that good science can still fail in public if trust collapses.",
+    "The institute at Manguinhos became the scientific home that helped make Chagas's field discovery possible.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In the Carlos Chagas HistorID story, one name passed by quickly. Chagas found a new parasite in
+    a wall-dwelling bug and called it <em>Trypanosoma cruzi</em>. The name was not decorative. It was
+    a salute to Oswaldo Cruz, the Brazilian physician who had already made infectious diseases a
+    public fight in Rio de Janeiro.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    At the start of the 20th century, Rio was a capital city with a port problem, a mosquito
+    problem, a rat problem, and a trust problem. Yellow fever frightened travelers and damaged
+    commerce. Plague brought attention to rats and fleas. Smallpox still moved through the city.
+    Cruz, trained in the Pasteurian world of microbes and laboratories, was asked to make public
+    health work in streets where people did not always welcome inspectors at the door.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Cruz became Brazil's director of public health in 1903 and pushed campaigns that treated
+    infection as something built into the city itself. Yellow fever control meant attacking
+    <em>Aedes aegypti</em> breeding sites. Plague control meant rats, sanitation, and the port. For
+    smallpox, the state leaned on vaccination, and the pressure helped ignite the 1904 Vaccine
+    Revolt. Cruz was not fighting a single organism in a quiet laboratory. He was trying to move
+    laboratory logic into alleys, homes, ships, and newspapers.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Cruz helped make tropical medicine in Brazil practical. The point was not only to identify a
+    microbe under glass. The harder task was to connect the microbe to insects, animals, housing,
+    city services, and public action. That is the world Chagas later worked in at Manguinhos and in
+    the field. When Chagas named <em>T. cruzi</em> for Cruz, he was naming a scientific lineage as
+    much as a mentor.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    Cruz's story feels current because outbreak control still breaks when biology and public trust
+    are treated as separate problems. Vector control depends on households, water storage, waste,
+    surveillance, and follow-through. Vaccination depends on confidence as well as supply. Chagas
+    gave Cruz's name to a parasite. Infectious diseases kept Cruz's larger lesson: knowing the
+    pathogen is only the beginning of control.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>Fundacao Oswaldo Cruz. Quem foi Oswaldo Cruz.</p>
+      <p>
+        <a href="https://portal.fiocruz.br/en/oswaldo-cruz" target="_blank" rel="noreferrer">
+          Link: Fiocruz biography and image archive
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Hochman G. Vaccination, smallpox, and a culture of immunization in Brazil.
+        <em>Cien Saude Colet</em>. 2011;16(2):375-386.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1590/s1413-81232011000200002" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1590/s1413-81232011000200002
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Centers for Disease Control and Prevention. About Yellow Fever. Updated 2024.</p>
+      <p>
+        <a href="https://www.cdc.gov/yellow-fever/about/index.html" target="_blank" rel="noreferrer">
+          Link: CDC yellow fever overview
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>World Health Organization. Yellow fever. Fact sheet. Updated 2025.</p>
+      <p>
+        <a href="https://www.who.int/news-room/fact-sheets/detail/yellow-fever" target="_blank" rel="noreferrer">
+          Link: WHO yellow fever fact sheet
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
