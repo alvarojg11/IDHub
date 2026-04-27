@@ -1,0 +1,137 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-doctor-who-found-a-disease-in-the-walls",
+  title: "The Doctor Who Found a Disease in the Walls",
+  description:
+    "In 1909, Carlos Chagas linked a wall-dwelling triatomine bug, a new parasite, and a child in Lassance into the first full description of Chagas disease.",
+  publishedAt: "2026-04-26",
+  historicalDateLabel: "1909",
+  historicalYearSort: 1909,
+  categories: ["people-illness", "organisms"],
+  tags: [
+    "Carlos Chagas",
+    "Trypanosoma cruzi",
+    "Chagas disease",
+    "Lassance",
+    "Berenice",
+    "Triatomine bug",
+  ],
+  hook:
+    "Carlos Chagas was not chasing a famous epidemic. He was following a bug that lived in the cracks of rural walls, and it led him to one of infectious diseases' strangest discoveries.",
+  takeaway:
+    "The Chagas story still matters because it joined entomology, parasitology, and bedside medicine in one chain of transmission, then left behind a chronic infection that can stay quiet for years before it reaches the heart.",
+  heroImage: "/historid/the-doctor-who-found-a-disease-in-the-walls/hero.jpg",
+  heroImageAlt:
+    "Archival Fiocruz photograph showing Carlos Chagas, seated at right, in a clinical setting.",
+  heroImageCredit: "Carlos Chagas archive photograph via Casa de Oswaldo Cruz / Fiocruz.",
+  heroImageSourceUrl:
+    "https://fiocruz.br/en/news/2025/04/carlos-chagas-archive-registered-international-register-unesco",
+  heroImageLicense: "Fiocruz portal content policy; non-commercial reuse with attribution",
+  socialHeadline: "The Disease in the Walls",
+  socialDek:
+    "In Lassance, Carlos Chagas followed a wall-dwelling kissing bug to a new parasite, a child's blood smear, and a disease that still shows up decades later in the heart.",
+  socialFacts: [
+    "Chagas first examined the insect before the disease had a settled clinical identity.",
+    "He named the parasite Trypanosoma cruzi after Oswaldo Cruz.",
+    "The first human case he announced came from Lassance on April 14, 1909.",
+    "The bug that carried the parasite hid in the cracks of mud-walled rural houses and fed at night.",
+    "Chagas disease can stay silent for years before it appears as cardiomyopathy, arrhythmias, or digestive megasyndromes.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In 1909, Carlos Chagas was working in Lassance, a rail town in Minas Gerais, when reports of
+    night-biting insects in mud-walled houses caught his attention. What looked like a local
+    nuisance became something much bigger. From one wall-dwelling bug, Chagas worked outward to a
+    new parasite, a human infection, and eventually a disease that would carry his name.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Brazil was still building tropical medicine in the field, not only in the lecture hall.
+    Lassance was tied to railroad expansion, rural poverty, and housing that made insect exposure
+    routine. Triatomine bugs, known locally as barbeiros, hid in wall cracks by day and fed by
+    night. Chagas was doing the kind of medicine that required a microscope, long travel, and close
+    attention to how people actually lived.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Chagas examined the insect and found a previously undescribed trypanosome, which he named
+    <em>Trypanosoma cruzi</em> in honor of Oswaldo Cruz. Then, on April 14, 1909, he identified the
+    parasite in the blood of a child in Lassance named Berenice and announced a new human disease.
+    The striking part was the sequence. He did not start with a textbook syndrome and work
+    backward. He moved from vector to parasite to patient and stitched the whole story together.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    This was a rare moment when vector biology, clinical observation, and parasitology all locked
+    into place at once. Chagas disease showed that understanding where an insect lives and how it
+    feeds can matter as much as describing what happens after infection. It also widened the ID
+    imagination: a tropical infection could begin in a wall crack, pass quietly through blood and
+    tissue, and declare itself years later as cardiomyopathy or digestive disease.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    Chagas disease never stayed in 1909. Millions of people still live with <em>T. cruzi</em>
+    infection, many without knowing it, and migration turned a rural Latin American disease into a
+    problem that shows up in cardiology clinics, blood-bank screening, transplant programs, and
+    pregnancy care far from Lassance. About 20-30% of infected people develop serious chronic
+    complications, especially cardiac disease. If the exposure story is missed early, the diagnosis
+    may not appear until decades later.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Lewinsohn R. Carlos Chagas (1879-1934): the discovery of <em>Trypanosoma cruzi</em> and of
+        American trypanosomiasis (foot-notes to the history of Chagas's disease).
+        <em>Trans R Soc Trop Med Hyg</em>. 1979;73(5):513-523.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/0035-9203(79)90042-7" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/0035-9203(79)90042-7
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Casa de Oswaldo Cruz / Fiocruz. Animation about Carlos Chagas gets an English version.
+        2020.
+      </p>
+      <p>
+        <a href="https://fiocruz.br/en/noticia/2020/05/animation-about-carlos-chagas-gets-english-version" target="_blank" rel="noreferrer">
+          Link: Fiocruz article
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Perez-Molina JA, Molina I. Chagas disease. <em>Lancet</em>. 2018;391(10115):82-94.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0140-6736(17)31612-4" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0140-6736(17)31612-4
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>Centers for Disease Control and Prevention. About Chagas disease. Updated 2024.</p>
+      <p>
+        <a href="https://www.cdc.gov/chagas/about/index.html" target="_blank" rel="noreferrer">
+          Link: CDC overview
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

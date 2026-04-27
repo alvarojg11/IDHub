@@ -45,6 +45,14 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Nocardia brasiliensis"], syndromes: ["Skin & Soft Tissue"], concepts: ["Sporotrichoid lymphangitis", "Lymphocutaneous syndrome"] },
   },
   {
+    title: "The Gardener's Finger",
+    slug: "sporotrichosis",
+    description: "A gardening injury that did not behave like routine cellulitis.",
+    enable: true,
+    ogImage: "/cases/sporotrichosis/sporotricosis.png",
+    tags: { organisms: ["Sporothrix schenckii complex"], syndromes: ["Skin & Soft Tissue", "Mycology"], concepts: ["Gardening exposure", "Nodular lymphangitis", "Subacute inoculation infection"] },
+  },
+  {
     title: "Fever, Urinary Symptoms, and a Heart Murmur",
     slug: "aerococcus",
     description: "Beyond the obvious: Gram-positive clusters.",

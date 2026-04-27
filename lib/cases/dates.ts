@@ -4,6 +4,10 @@ export type CaseDateEntry = {
 };
 
 export const CASE_DATES: Record<string, CaseDateEntry> = {
+  "sporotrichosis": {
+    publishedAt: "2026-04-26T10:00:00-07:00",
+    modifiedAt: "2026-04-26T10:00:00-07:00",
+  },
   "angiostrongylus": {
     publishedAt: "2026-04-01T08:00:00-07:00",
     modifiedAt: "2026-04-01T08:00:00-07:00",
