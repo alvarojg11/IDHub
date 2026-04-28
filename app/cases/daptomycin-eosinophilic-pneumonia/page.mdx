@@ -1,0 +1,299 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("daptomycin-eosinophilic-pneumonia");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The New Infiltrates on Week Three
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 67-year-old man returns to the emergency department with 5 days of fever, dry cough, progressive dyspnea, and fatigue. Three weeks earlier, he was discharged on outpatient parenteral antimicrobial therapy for methicillin-resistant <em>Staphylococcus aureus</em> bacteremia complicated by L3-L4 vertebral osteomyelitis. His blood cultures had cleared before discharge, transesophageal echocardiography showed no vegetation, and he has been receiving daily intravenous daptomycin through a tunneled catheter.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He reports strict adherence to therapy and denies aspiration, sick contacts, new travel, animal exposures, vaping, or occupational inhalational exposures. His back pain has improved, and there is no drainage or tenderness at the catheter site. He has chronic kidney disease, type 2 diabetes mellitus, and hypertension. His outpatient medications are unchanged except for daptomycin, which was started 19 days before this presentation. He has no known history of asthma, chronic lung disease, or eosinophilic disorder.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.3 C, heart rate 104/min, blood pressure 126/72 mmHg, respiratory rate 24/min, and oxygen saturation 86% on room air, improving to 94% with 4 L/min nasal cannula. He appears uncomfortable but is not in shock. Lung examination reveals bilateral inspiratory crackles without wheezing. The tunneled catheter site is clean, the spine is mildly tender over the lower lumbar region without new focal neurologic deficits, and there are no rashes, mucosal lesions, peripheral edema, or stigmata of endocarditis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cell count 12.6 x 10^3/uL with 14% eosinophils, absolute eosinophil count 1.8 x 10^3/uL, creatinine 1.6 mg/dL near baseline, creatine kinase 78 U/L, and C-reactive protein 84 mg/L. Two sets of blood cultures remain negative, respiratory viral polymerase chain reaction testing is negative, sputum Gram stain shows mixed upper respiratory flora, and serum beta-D-glucan is not detected. Chest CT demonstrates new bilateral peripheral ground-glass and consolidative opacities. Bronchoscopy is performed because of worsening hypoxemia despite empiric cefepime and vancomycin; bronchoalveolar lavage cultures are negative, and the lavage differential shows 32% eosinophils.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/daptomycin-eosinophilic-pneumonia/ct-chest.png"
+      alt="Axial CT chest showing bilateral peripheral ground-glass and consolidative opacities"
+      width={1240}
+      height={837}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    CT chest demonstrating new bilateral ground-glass and consolidative pulmonary opacities.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-daptomycin-eosinophilic-pneumonia-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Breakthrough MRSA pneumonia while receiving daptomycin",
+      feedback:
+        "Incorrect. Daptomycin is not used for primary pneumonia because pulmonary surfactant inhibits its activity, so this is a tempting distractor. However, the timing after drug exposure, peripheral eosinophilia, bilateral infiltrates, negative cultures, and BAL eosinophilia point to a drug-induced lung process rather than breakthrough MRSA pneumonia.",
+    },
+    {
+      id: "B",
+      label: "Septic pulmonary emboli from relapsed MRSA bacteremia",
+      feedback:
+        "Incorrect. Septic pulmonary emboli can cause fever, dyspnea, pleuritic symptoms, and pulmonary nodules or cavitation in patients with endovascular infection. This patient has negative repeat blood cultures, no catheter-site findings, no echocardiographic vegetation from the initial evaluation, and diffuse ground-glass or consolidative opacities with BAL eosinophilia rather than a nodular embolic pattern.",
+    },
+    {
+      id: "C",
+      label: "Daptomycin-induced eosinophilic pneumonia",
+      correct: true,
+      feedback:
+        "Correct. This patient developed fever, hypoxemia, new bilateral infiltrates, peripheral eosinophilia, and BAL eosinophilia after nearly 3 weeks of daptomycin exposure. Negative infectious studies and the compatible timing make daptomycin-induced eosinophilic pneumonia the most likely diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Pneumocystis jirovecii pneumonia",
+      feedback:
+        "Incorrect. Pneumocystis pneumonia can cause hypoxemia and diffuse ground-glass opacities, but this patient lacks a typical immunocompromising condition, has an undetectable beta-D-glucan, and has a BAL profile dominated by eosinophils in the setting of a high-risk medication exposure.",
+    },
+    {
+      id: "E",
+      label: "Strongyloides stercoralis pulmonary hyperinfection",
+      feedback:
+        "Incorrect. Strongyloides hyperinfection can cause cough, dyspnea, diffuse pulmonary infiltrates, and gram-negative bacteremia or meningitis from larval translocation. However, it is classically triggered by corticosteroids or other immunosuppression, eosinophilia may be absent in severe disease, and this patient has a tight temporal relationship to daptomycin with BAL eosinophilia and negative microbiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-daptomycin-eosinophilic-pneumonia-q2"
+  title="Question 2"
+  prompt="What is the best next treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Continue daptomycin and add cefepime for healthcare-associated pneumonia",
+      feedback:
+        "Incorrect. Broadening antibacterial therapy without stopping the offending drug misses the central management step. Cultures are negative, and the BAL eosinophilia supports drug-induced eosinophilic pneumonia rather than untreated gram-negative pneumonia.",
+    },
+    {
+      id: "B",
+      label: "Increase the daptomycin dose because pulmonary surfactant lowers activity",
+      feedback:
+        "Incorrect. Daptomycin should not be escalated in this syndrome. Pulmonary surfactant inhibition explains why daptomycin is ineffective for primary pneumonia, but this patient's problem is most consistent with daptomycin-associated lung toxicity.",
+    },
+    {
+      id: "C",
+      label: "Add voriconazole while continuing daptomycin until fungal cultures finalize",
+      feedback:
+        "Incorrect. Empiric antifungal therapy is not the best response to this pattern. The negative beta-D-glucan, negative early microbiology, peripheral eosinophilia, and BAL eosinophilia after daptomycin exposure favor a medication-induced process.",
+    },
+    {
+      id: "D",
+      label: "Stop daptomycin, consider systemic corticosteroids, and choose an alternative MRSA-active regimen",
+      correct: true,
+      feedback:
+        "Correct. The key treatment is immediate discontinuation of daptomycin. Systemic corticosteroids should be considered when hypoxemia or significant pulmonary involvement is present, and the original MRSA vertebral osteomyelitis still requires an alternative active antimicrobial plan.",
+    },
+    {
+      id: "E",
+      label: "Hold all antimicrobials and observe because cultures are negative",
+      feedback:
+        "Incorrect. Stopping daptomycin is appropriate, but the patient still has a recent deep MRSA infection that requires continued targeted therapy with a non-daptomycin option. Observation alone would undertreat the vertebral osteomyelitis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-daptomycin-eosinophilic-pneumonia-q3"
+  title="Question 3"
+  prompt="Which finding most strongly supports this diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Normal creatine kinase during therapy",
+      feedback:
+        "Incorrect. Normal creatine kinase argues against daptomycin-associated myopathy, but it does not support eosinophilic pneumonia. Pulmonary toxicity can occur even when creatine kinase is normal.",
+    },
+    {
+      id: "B",
+      label: "Bronchoalveolar lavage eosinophilia greater than 25% after compatible drug exposure",
+      correct: true,
+      feedback:
+        "Correct. A compatible exposure timeline, fever, dyspnea with hypoxemia, new infiltrates, exclusion of common infectious causes, and BAL eosinophilia greater than 25% strongly support daptomycin-induced eosinophilic pneumonia. Peripheral eosinophilia is helpful but may be absent early.",
+    },
+    {
+      id: "C",
+      label: "Persistent fever despite broad-spectrum antibacterial therapy",
+      feedback:
+        "Incorrect. Persistent fever is nonspecific and can occur with infection, drug fever, inflammatory disease, or inadequate source control. It becomes meaningful here only when paired with eosinophilia, lung infiltrates, and the daptomycin timeline.",
+    },
+    {
+      id: "D",
+      label: "Peripheral ground-glass opacities on CT chest",
+      feedback:
+        "Incorrect. Peripheral ground-glass and consolidative opacities are compatible with eosinophilic pneumonia, but they are not specific. Organizing pneumonia, viral infection, pulmonary edema, and other inflammatory lung diseases can have overlapping CT patterns.",
+    },
+    {
+      id: "E",
+      label: "Negative repeat blood cultures after prior MRSA bacteremia",
+      feedback:
+        "Incorrect. Negative blood cultures make relapsed bacteremia less likely, but they do not establish eosinophilic pneumonia. The BAL eosinophilia in the correct temporal setting is the stronger diagnostic clue.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-daptomycin-eosinophilic-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Daptomycin-associated eosinophilic pneumonia is an uncommon but clinically important drug-induced lung disease. Most reported cases occur in patients receiving prolonged therapy for deep gram-positive infections such as osteomyelitis, bacteremia, endocarditis, or prosthetic material infections. The syndrome typically emerges after 2 to 4 weeks of exposure, although earlier and later presentations have been described. Older age, higher cumulative exposure, and reduced renal clearance have been proposed as risk factors, but the diagnosis remains primarily clinical because no single laboratory test establishes causality.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The proposed mechanism is an immune-mediated pulmonary reaction after daptomycin accumulates in the alveolar space and interacts with pulmonary surfactant. This is distinct from the pharmacologic reason daptomycin is not used for primary pneumonia: surfactant inhibits its antibacterial activity. In eosinophilic pneumonia, the clinical phenotype is inflammatory rather than microbiologic failure, with fever, dyspnea, hypoxemia, diffuse or peripheral opacities on chest imaging, and eosinophilic inflammation in the airspaces. CT findings are variable and can include ground-glass opacities, consolidations, reticular changes, and occasionally pleural effusions, so imaging alone is supportive but not diagnostic.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnostic criteria commonly used in the literature include current daptomycin exposure, fever, dyspnea with increased oxygen requirement, new pulmonary infiltrates, bronchoalveolar lavage eosinophilia greater than 25%, exclusion of alternative causes, and clinical improvement after daptomycin withdrawal. Peripheral eosinophilia is helpful when present but may be delayed or absent early. The differential diagnosis includes breakthrough bacterial pneumonia, septic pulmonary emboli, Pneumocystis pneumonia, organizing pneumonia, acute eosinophilic pneumonia from other exposures, and parasitic pulmonary syndromes such as Strongyloides hyperinfection. BAL eosinophilia and the temporal relationship to daptomycin are the central discriminators.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment centers on stopping daptomycin and avoiding rechallenge. Systemic corticosteroids are frequently used for patients with hypoxemia, extensive radiographic disease, or slow improvement after withdrawal, but the evidence base is derived largely from case reports and observational summaries rather than randomized trials. Clinical improvement often begins within days after discontinuation, with radiographic resolution occurring more gradually. Because daptomycin is usually being used for a serious gram-positive infection, management must also include selection of an alternative active regimen based on the original syndrome, susceptibility profile, renal function, and need for outpatient feasibility.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-daptomycin-eosinophilic-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Daptomycin-associated eosinophilic pneumonia most often appears after 2 to 4 weeks of therapy and is classically reported during prolonged treatment for deep gram-positive infections such as osteomyelitis, bacteremia, or endocarditis.
+    </li>
+    <li>
+      The syndrome reflects inflammatory lung toxicity, not simply antimicrobial failure. Daptomycin is inactivated by pulmonary surfactant for treatment of primary pneumonia, but eosinophilic pneumonia is a distinct immune-mediated adverse reaction associated with alveolar eosinophilic inflammation.
+    </li>
+    <li>
+      Bronchoalveolar lavage eosinophilia greater than 25% is a key diagnostic criterion. Peripheral eosinophilia is supportive but not mandatory, especially early in the course, and CT findings are compatible rather than specific.
+    </li>
+    <li>
+      Management requires daptomycin discontinuation and avoidance of rechallenge. Systemic corticosteroids should be considered for hypoxemia or extensive disease, while the original gram-positive infection must still be treated with an alternative active regimen.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kim PW, Sorbello AF, Wassel RT, Pham TM, Tonning JM, Nambiar S. Eosinophilic pneumonia in patients treated with daptomycin: review of the literature and US FDA adverse event reporting system reports. Clin Infect Dis. 2012;54(10):e97-e106.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis220"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/cis220
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Uppal P, LaPlante KL, Gaitanis MM, Jankowich MD, Ward KE. Daptomycin-induced eosinophilic pneumonia: a systematic review. Antimicrob Resist Infect Control. 2016;5:55.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1186/s13756-016-0158-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1186/s13756-016-0158-8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Solomon J, Schwarz M. Drug-, toxin-, and radiation therapy-induced eosinophilic pneumonia. Semin Respir Crit Care Med. 2006;27(2):192-197.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1055/s-2006-939522"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1055/s-2006-939522
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      U.S. Food and Drug Administration. FDA Drug Safety Communication: eosinophilic pneumonia associated with the use of Cubicin (daptomycin). Updated July 29, 2010.
+    </p>
+
+    <p className="mt-3">
+      <a
+        href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-eosinophilic-pneumonia-associated-use-cubicin-daptomycin"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        FDA safety communication
+      </a>
+    </p>
+  </div>
+</div>

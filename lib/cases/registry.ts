@@ -922,6 +922,15 @@ export const CASES: CaseMeta[] = [
     },
   },
   {
+    slug: "daptomycin-eosinophilic-pneumonia",
+    title: "The New Infiltrates on Week Three",
+    description: "A patient receiving outpatient therapy for MRSA bacteremia returns with fever, hypoxemia, and new bilateral pulmonary infiltrates.",
+    enable: true,
+    ogImage: "/cases/daptomycin-eosinophilic-pneumonia/ct-chest.png",
+    teaser: "A 67-year-old man receiving outpatient daptomycin for MRSA vertebral osteomyelitis returns during week 3 of therapy with fever, dry cough, dyspnea, and a new oxygen requirement. CT chest shows bilateral ground-glass and consolidative opacities, while cultures and respiratory viral testing are unrevealing. What diagnosis should be considered before simply broadening antibiotics?",
+    tags: { organisms: ["Staphylococcus aureus"], syndromes: ["Pulmonary Infection", "Drug Toxicity", "Antimicrobial Adverse Effects"], concepts: ["Daptomycin", "Eosinophilic pneumonia", "BAL eosinophilia", "MRSA therapy", "Pulmonary surfactant"] },
+  },
+  {
     slug: "mycoplasma-rime",
     title: "The Painful Mouth and the Quiet Lungs",
     description: "A young woman with severe oral mucositis, minimal skin disease, and subtle pulmonary findings.",
