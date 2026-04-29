@@ -922,6 +922,15 @@ export const CASES: CaseMeta[] = [
     },
   },
   {
+    slug: "acyclovir-resistant-hsv",
+    title: "The Ulcers That Would Not Heal",
+    description: "A stem cell transplant recipient develops progressive mucocutaneous ulceration despite standard antiviral therapy.",
+    enable: true,
+    ogImage: "/cases/acyclovir-resistant-hsv/electron-microscopy.png",
+    teaser: "A 44-year-old woman on day 64 after allogeneic stem cell transplantation develops painful oral and perianal ulcers. Lesion testing detects herpes simplex virus type 1, but the ulcers enlarge despite appropriately dosed intravenous acyclovir. What diagnosis should be considered when HSV lesions progress during adequate therapy?",
+    tags: { organisms: ["Herpes simplex virus type 1"], syndromes: ["Transplant & Immunocompromised", "Mucocutaneous Infection", "Antiviral Resistance"], concepts: ["Acyclovir resistance", "HSV thymidine kinase", "UL23", "Foscarnet", "Hematopoietic stem cell transplantation"] },
+  },
+  {
     slug: "daptomycin-eosinophilic-pneumonia",
     title: "The New Infiltrates on Week Three",
     description: "A patient receiving outpatient therapy for MRSA bacteremia returns with fever, hypoxemia, and new bilateral pulmonary infiltrates.",

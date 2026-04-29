@@ -1,0 +1,150 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-fever-looked-like-smoke",
+  title: "When Fever Looked Like Smoke",
+  description:
+    "The word typhus began as a description of the mind under fever: smoky, clouded, and stunned before lice or rickettsiae entered the story.",
+  publishedAt: "2026-04-29",
+  historicalDateLabel: "Ancient term, modern split",
+  historicalYearSort: 1760,
+  categories: ["organisms", "people-illness", "wars-outbreaks"],
+  tags: [
+    "Typhus",
+    "Typhoid fever",
+    "Rickettsia prowazekii",
+    "Rickettsia typhi",
+    "Body lice",
+    "Etymology",
+    "Enteric fever",
+  ],
+  hook:
+    "Before typhus had a louse, it had a look: a fever patient sunk into a smoky stupor, too ill and clouded to describe what was happening.",
+  takeaway:
+    "Typhus is a name from bedside observation before microbiology. It preserved the mental fog of severe fever, then medicine slowly split that old word into distinct diseases with different pathogens, vectors, and routes of transmission.",
+  heroImage: "/historid/when-fever-looked-like-smoke/hero.jpg",
+  heroImageAlt: "Historical photograph of a typhus ward in Grace Hospital, Warsaw, Poland.",
+  heroImageCredit: "Polish Typhus Relief Commission: Typhus ward in Grace Hospital, Warsaw, Poland.",
+  heroImageSourceUrl: "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101395239-img",
+  heroImageLicense: "Public Domain Mark via National Library of Medicine",
+  hookImageFit: "contain",
+  socialHeadline: "When Fever Looked Like Smoke",
+  socialDek:
+    "Typhus first named the haze of severe fever, long before physicians separated lice, fleas, rickettsiae, and Salmonella into different stories.",
+  socialFacts: [
+    "Typhus comes from Greek typhos, meaning smoke, mist, or feverish stupor.",
+    "Before modern microbiology, typhus could be called jail fever, camp fever, hospital fever, or ship fever.",
+    "Typhoid originally meant typhus-like, which helped lock two very different diseases into confusingly similar names.",
+    "Epidemic typhus is louse-borne and caused by Rickettsia prowazekii; typhoid fever is fecal-oral and caused by Salmonella Typhi.",
+    "The word is a fossil of clinical observation: doctors noticed the fog before they knew the vector.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Before typhus had a bacterium, a vector, or a public-health program, it had a face.
+    A patient with high fever lay prostrate, rash spreading, mind dulled into delirium. The room did
+    not need a microscope to know something was wrong. The old word reached for the image people
+    could see: <em>typhos</em>, a smoky haze over the intellect.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The Greek word <em>typhos</em> carried the sense of smoke, mist, fog, or stupor. In medicine it
+    became a way to name the clouded mental state that came with severe fever. That mattered because
+    early physicians were sorting illness by what the body did in front of them: heat, rash,
+    prostration, delirium, bleeding, diarrhea, season, crowding, and place. Long before anyone could
+    culture <em>Salmonella</em> or recognize <em>Rickettsia</em>, the patient's mental fog was one of
+    the disease's most memorable features.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The word hardened into a disease label in European medicine. By the 18th century, physicians were
+    using typhus for severe epidemic fevers marked by prostration, delirium, and rash. Older names
+    were more geographic or social than microbiologic: jail fever, camp fever, hospital fever, and
+    ship fever. Those names were not poetic extras. They pointed to the places where typhus thrived:
+    crowded rooms, dirty clothing, war, famine, prisons, and armies moving faster than hygiene.
+  </p>
+
+  <p>
+    Then came a second confusion. <em>Typhoid</em> meant typhus-like. The name was applied to another
+    prolonged fever with stupor and systemic illness, even though it was a different disease. For a
+    long stretch of medical history, typhus and typhoid were tangled by language because the bedside
+    appearances overlapped before the causes were known. Later clinical-pathologic work and
+    microbiology pulled them apart. Epidemic typhus became a louse-borne rickettsial disease.
+    Typhoid fever became an enteric infection spread through food and water contaminated with human
+    waste.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Typhus is a useful word because it shows how ID language often begins before ID mechanism. The
+    name captured a syndrome first: fever, rash, prostration, and mental clouding. Epidemiology then
+    added its own clues: crowding, clothing, body lice, military campaigns, prisons, and refugee
+    conditions. Microbiology arrived later and made the story sharper. Epidemic typhus is caused by
+    <em> Rickettsia prowazekii</em> and transmitted by infected body lice. Flea-borne or murine
+    typhus is caused by <em>Rickettsia typhi</em> and involves fleas and animal reservoirs. Typhoid
+    fever is caused by <em>Salmonella enterica</em> serovar Typhi and travels by the fecal-oral route.
+  </p>
+
+  <h2>Why the word still matters</h2>
+  <p>
+    The modern use of typhus is precise, but the older word still teaches a useful habit. Disease
+    names can preserve what clinicians noticed before they knew why it was happening. Sometimes that
+    old observation is wrong about cause but right about pattern. In typhus, the smoke was not in the
+    air. It was in the patient's sensorium. The louse, the flea, the rickettsia, and the waterborne
+    enteric fever came later, after medicine learned to split one feverish haze into different
+    transmission stories.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Harper D. <em>Typhus</em>. Online Etymology Dictionary. Entry tracing typhus to Greek
+        <em> typhos</em>, meaning feverish stupor and literally smoke.
+      </p>
+      <p>
+        <a href="https://www.etymonline.com/word/typhus" target="_blank" rel="noreferrer">
+          Link: Online Etymology Dictionary
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Centers for Disease Control and Prevention. About epidemic typhus. CDC; 2024.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/typhus/about/epidemic.html" target="_blank" rel="noreferrer">
+          Link: CDC epidemic typhus
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Centers for Disease Control and Prevention. About flea-borne typhus. CDC; 2025.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/typhus/about/murine.html" target="_blank" rel="noreferrer">
+          Link: CDC flea-borne typhus
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Centers for Disease Control and Prevention. About typhoid fever and paratyphoid fever. CDC;
+        2024.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/typhoid-fever/about/index.html" target="_blank" rel="noreferrer">
+          Link: CDC typhoid fever
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
