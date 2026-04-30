@@ -1,0 +1,275 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("legionella");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Negative Test and the Worsening Lungs
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 68-year-old man is admitted with 6 days of fever, progressive dyspnea, dry cough, watery diarrhea, and new confusion. He has rheumatoid arthritis treated with prednisone 15 mg daily and adalimumab. Ten days before presentation, his apartment building had several days of plumbing repairs after hot-water outages; he remembers running the shower for several minutes each morning because the water was rusty and sputtered when it returned.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On arrival, temperature is 39.2 C, heart rate 112/min, blood pressure 104/64 mmHg, respiratory rate 28/min, and oxygen saturation 87% on room air, improving to 94% with 5 L/min nasal cannula. He appears ill and mildly disoriented. Lung examination reveals crackles over the right upper and left lower lung fields. There is no neck stiffness, rash, abdominal tenderness, or peripheral edema.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cell count 13.8 x 10^3/uL, sodium 125 mEq/L, creatinine 1.7 mg/dL from a baseline of 1.0 mg/dL, AST 96 U/L, ALT 82 U/L, and C-reactive protein 218 mg/L. Chest radiograph shows multifocal airspace opacities involving more than one lobe. Respiratory viral polymerase chain reaction testing is negative, blood cultures are pending, and sputum Gram stain shows few neutrophils with mixed upper respiratory flora.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He is started on ceftriaxone and vancomycin. After 48 hours, he remains febrile, his oxygen requirement rises to high-flow nasal cannula, and repeat imaging shows progression of multilobar pneumonia. A urine antigen test for Legionella is reported as negative.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/legionella/xray.png"
+      alt="Chest radiograph showing multilobar pneumonia"
+      width={1158}
+      height={1028}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Chest radiograph demonstrating multifocal multilobar airspace opacities.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-legionella-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Severe pneumococcal pneumonia",
+      feedback:
+        "Incorrect. Streptococcus pneumoniae can cause severe lobar or multilobar pneumonia, but this patient has several atypical clues: watery diarrhea, confusion, marked hyponatremia, transaminitis, possible water-system exposure, and progression despite a beta-lactam-containing regimen.",
+    },
+    {
+      id: "B",
+      label: "Legionella pneumonia",
+      correct: true,
+      feedback:
+        "Correct. Severe pneumonia with diarrhea, confusion, hyponatremia, transaminitis, renal injury, possible aerosolized water exposure, and poor response to beta-lactam therapy should keep Legionella high on the differential even when the urine antigen is negative.",
+    },
+    {
+      id: "C",
+      label: "Pneumocystis jirovecii pneumonia",
+      feedback:
+        "Incorrect. Pneumocystis pneumonia can occur with immunosuppression and causes hypoxemia, but the abrupt febrile illness with diarrhea, hyponatremia, transaminitis, and multilobar consolidative opacities after a plumbing exposure is more suggestive of Legionella. Pneumocystis also would not explain beta-lactam failure as neatly.",
+    },
+    {
+      id: "D",
+      label: "Aspiration pneumonia",
+      feedback:
+        "Incorrect. Aspiration can cause multilobar dependent infiltrates, especially in patients with altered mental status. Here, confusion appears to be part of the systemic illness rather than a preceding aspiration event, and the gastrointestinal symptoms, hyponatremia, transaminitis, and water-system exposure point elsewhere.",
+    },
+    {
+      id: "E",
+      label: "Influenza pneumonia with bacterial superinfection",
+      feedback:
+        "Incorrect. Viral pneumonia with bacterial superinfection can worsen quickly, but respiratory viral testing is negative and the combination of diarrhea, neurologic symptoms, hyponatremia, transaminitis, and recent plumbing disruption better fits Legionella pneumonia.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-legionella-q2"
+  title="Question 2"
+  prompt="Why does the negative urine antigen test not exclude this diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "The test is only reliable after 14 days of symptoms",
+      feedback:
+        "Incorrect. Legionella urinary antigen can become positive early in illness and is valued because it is rapid. The limitation in this case is not that testing was done too early, but that many assays primarily detect one serogroup.",
+    },
+    {
+      id: "B",
+      label: "Prior ceftriaxone sterilizes the urine antigen",
+      feedback:
+        "Incorrect. Ceftriaxone does not reliably treat Legionella because the organism is intracellular and lacks dependable beta-lactam susceptibility in vivo. Antibiotic exposure is not the key explanation for a negative urine antigen.",
+    },
+    {
+      id: "C",
+      label: "Urine antigen primarily detects Legionella pneumophila serogroup 1",
+      correct: true,
+      feedback:
+        "Correct. Common Legionella urinary antigen assays primarily detect L. pneumophila serogroup 1. They may miss other L. pneumophila serogroups and non-pneumophila Legionella species, so a negative result does not rule out disease when clinical suspicion remains high.",
+    },
+    {
+      id: "D",
+      label: "Immunosuppression prevents urinary antigen excretion",
+      feedback:
+        "Incorrect. Immunosuppression increases the risk of severe Legionella infection, but it is not the main reason urine antigen testing is negative. The assay's organism and serogroup coverage is the more important limitation.",
+    },
+    {
+      id: "E",
+      label: "Urine antigen is only positive with Legionella bacteremia",
+      feedback:
+        "Incorrect. Legionella is not usually diagnosed by bacteremia, and urine antigen testing does not require bloodstream infection. It detects soluble antigen from infection, mainly from L. pneumophila serogroup 1.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-legionella-q3"
+  title="Question 3"
+  prompt="What is the best next diagnostic and treatment step?"
+  options={[
+    {
+      id: "A",
+      label: "Continue ceftriaxone and vancomycin while waiting for blood cultures",
+      feedback:
+        "Incorrect. This approach misses the likely intracellular atypical pathogen. Blood cultures are usually not helpful for Legionella, and the patient is worsening on a regimen without reliable Legionella activity.",
+    },
+    {
+      id: "B",
+      label: "Repeat urine antigen testing in 48 hours and defer atypical coverage",
+      feedback:
+        "Incorrect. Repeating the same limited test does not address the possibility of non-serogroup 1 or non-pneumophila Legionella. In severe pneumonia with high suspicion, treatment should not wait for repeat urine antigen testing.",
+    },
+    {
+      id: "C",
+      label: "Send lower respiratory Legionella PCR and culture on BCYE agar, and start levofloxacin",
+      correct: true,
+      feedback:
+        "Correct. Lower respiratory PCR and culture should be pursued when Legionella remains likely despite a negative urine antigen. Culture on buffered charcoal yeast extract agar can identify species and serogroup and is important for outbreak investigation. Levofloxacin is an appropriate treatment choice for severe Legionella pneumonia.",
+    },
+    {
+      id: "D",
+      label: "Start trimethoprim-sulfamethoxazole and send serum beta-D-glucan",
+      feedback:
+        "Incorrect. This would target Pneumocystis pneumonia, which is a consideration in some immunosuppressed patients. The exposure history, gastrointestinal and neurologic symptoms, hyponatremia, transaminitis, and beta-lactam failure make Legionella the stronger diagnosis.",
+    },
+    {
+      id: "E",
+      label: "Add oseltamivir and obtain a repeat respiratory viral panel",
+      feedback:
+        "Incorrect. Empiric influenza treatment may be appropriate in selected seasonal presentations, but it does not address this patient's dominant Legionella pattern or the negative viral testing already obtained.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-legionella-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Legionella pneumonia often announces itself through features that do not quite fit routine community-acquired pneumonia. Severe fever, multilobar involvement, diarrhea, confusion, hyponatremia, transaminitis, renal injury, and poor response to beta-lactam therapy should prompt concern for an intracellular atypical pathogen. The plumbing disruption is not a throwaway detail: Legionella persists in warm water systems and biofilms, and aerosolized water from showers, cooling systems, fountains, or health care plumbing can seed infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The negative urine antigen is the central trap. Legionella urinary antigen testing is rapid and useful, but most commonly used assays primarily detect <em>Legionella pneumophila</em> serogroup 1. A negative result does not exclude infection from other <em>L. pneumophila</em> serogroups or other Legionella species. This matters most when the patient is severely ill, immunocompromised, linked to a possible water-system exposure, or part of a potential cluster where public health investigation may depend on identifying the organism.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    When suspicion remains high, lower respiratory tract testing should be pursued. Polymerase chain reaction can detect Legionella beyond the scope of many urine antigen assays, while culture on buffered charcoal yeast extract agar allows species and serogroup identification and supports outbreak investigation. Because Legionella is intracellular, treatment requires an agent with reliable intracellular activity. Azithromycin or a respiratory fluoroquinolone is appropriate; in this severe immunosuppressed case, levofloxacin is a strong best answer.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-legionella-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Severe Legionella pneumonia can present with multilobar infiltrates, diarrhea, confusion, hyponatremia, transaminitis, acute kidney injury, and progression despite beta-lactam therapy.
+    </li>
+    <li>
+      Legionella urinary antigen testing is rapid but incomplete. Most assays primarily detect <em>L. pneumophila</em> serogroup 1 and may miss other serogroups or species.
+    </li>
+    <li>
+      In severe disease, immunocompromised hosts, or possible outbreak-linked exposures, send lower respiratory Legionella PCR and culture on BCYE agar even if urine antigen testing is negative.
+    </li>
+    <li>
+      Treatment requires intracellular activity. Levofloxacin or azithromycin are preferred options; levofloxacin is a strong choice for severe pneumonia in an immunocompromised patient.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Metlay JP, Waterer GW, Long AC, et al. Diagnosis and treatment of adults with community-acquired pneumonia. An official clinical practice guideline of the American Thoracic Society and Infectious Diseases Society of America. Am J Respir Crit Care Med. 2019;200(7):e45-e67.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1164/rccm.201908-1581ST"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1164/rccm.201908-1581ST
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Mercante JW, Winchell JM. Current and emerging Legionella diagnostics for laboratory and outbreak investigations. Clin Microbiol Rev. 2015;28(1):95-133.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00029-14"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/CMR.00029-14
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Cunha BA, Burillo A, Bouza E. Legionnaires' disease. Lancet. 2016;387(10016):376-385.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(15)60078-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S0140-6736(15)60078-2
+      </a>
+    </p>
+  </div>
+</div>

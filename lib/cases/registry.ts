@@ -948,6 +948,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 24-year-old woman is hospitalized with fever, dry cough, severe oral mucositis, and only a few scattered targetoid lesions. She recently completed TMP-SMX for pyelonephritis, but chest radiograph shows subtle patchy infiltrates. What is the most likely diagnosis, and what treatment should happen next?",
     tags: { organisms: ["Mycoplasma pneumoniae"], syndromes: ["Atypical Pneumonia", "Mucocutaneous Infection", "Dermatologic Infectious Diseases"], concepts: ["RIME", "SJS/TEN mimic", "Mucositis", "Macrolide therapy"] },
   },
+  {
+    slug: "legionella",
+    title: "The Negative Test and the Worsening Lungs",
+    description: "An immunosuppressed patient develops progressive multilobar pneumonia despite standard therapy and an initially reassuring test result.",
+    enable: true,
+    ogImage: "/cases/legionella/xray.png",
+    teaser: "A 68-year-old man receiving prednisone and a TNF-alpha inhibitor presents with fever, dyspnea, watery diarrhea, mild confusion, hyponatremia, and multilobar pneumonia after recent plumbing disruption in his apartment building. He worsens despite ceftriaxone and vancomycin, and the urine antigen test is negative. What diagnosis should still be pursued, what test should be sent next, and how should he be treated?",
+    tags: { organisms: ["Legionella pneumophila", "Legionella species"], syndromes: ["Pulmonary Infection", "Atypical Pneumonia", "Immunocompromised Host"], concepts: ["Negative urine antigen", "BCYE agar", "Legionella PCR", "Water-system exposure", "Fluoroquinolone therapy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
