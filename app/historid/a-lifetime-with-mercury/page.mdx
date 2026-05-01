@@ -1,0 +1,170 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "a-lifetime-with-mercury",
+  title: "A Lifetime with Mercury",
+  description:
+    "For centuries, syphilis treatment meant mercury: ointments, pills, baths, fumigation, and a dangerous faith that toxicity could mean cure.",
+  publishedAt: "2026-04-30",
+  historicalDateLabel: "1490s-1940s",
+  historicalYearSort: 1495,
+  categories: ["people-illness", "antibiotics"],
+  tags: [
+    "Syphilis",
+    "Mercury",
+    "Treponema pallidum",
+    "Great Pox",
+    "Salvarsan",
+    "Penicillin",
+  ],
+  hook:
+    "A night with Venus, a lifetime with Mercury. The line survived because, for generations, syphilis treatment could be nearly as memorable as the disease.",
+  takeaway:
+    "Mercury treatment for syphilis is a lesson in therapeutic illusion: when an infection relapses and remits, a toxic intervention can look effective unless cure is measured carefully.",
+  heroImage: "/historid/a-lifetime-with-mercury/hero.jpg",
+  heroImageAlt:
+    "Title page of an 1852 pamphlet on employing mercury by fumigation, including syphilitic affections.",
+  heroImageCredit:
+    "Jonathan Green, An improved mode of employing mercury by fumigation to the whole body, London, 1852.",
+  heroImageSourceUrl: "https://wellcomecollection.org/works/cx6khgg9",
+  heroImageLicense: "Public Domain Mark via Wellcome Collection / Royal College of Physicians Edinburgh",
+  hookImageFit: "contain",
+  socialHeadline: "A Lifetime with Mercury",
+  socialDek:
+    "Before penicillin, syphilis treatment often meant mercury, and the side effects could be mistaken for proof that the cure was working.",
+  socialFacts: [
+    "The phrase 'A night with Venus, a lifetime with Mercury' captured the old link between syphilis and mercury treatment.",
+    "Mercury was used as ointments, pills, baths, and fumigation for patients with syphilis.",
+    "Physicians often tried to induce salivation, believing it helped purge disease.",
+    "Syphilis can relapse and remit, which made toxic treatments look more effective than they were.",
+    "The treatment story moved from mercury to Salvarsan to penicillin.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    "A night with Venus, a lifetime with Mercury" was not just a joke about sexual risk. It was a
+    clinical summary of an era. Long before <em>Treponema pallidum</em> had a name, patients with
+    syphilis were rubbed with mercury, given mercury pills, placed in mercury baths, or shut into
+    fumigation boxes where the drug reached the skin as vapor. The treatment could inflame the
+    gums, loosen teeth, provoke salivation, injure the kidneys, and poison the nervous system. For
+    centuries, that toxicity was part of the therapeutic plan.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Syphilis arrived in European medical writing near the end of the 15th century as the "great
+    pox," a frightening illness associated with genital ulcers, rash, bone pain, disfigurement, and
+    later neurologic disease. Physicians had no spirochete, no serology, and no way to distinguish
+    microbial cure from temporary clinical improvement. They worked with the medical logic they had:
+    corrupted humors, visible lesions, purging, and the belief that a powerful disease required a
+    powerful counterforce.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Mercury fit that world. It had been used for some skin conditions, and syphilis often announced
+    itself on the skin and mucous membranes. Treatment took many forms. Inunction meant rubbing
+    mercury-containing ointment into the skin for days or weeks. Other patients received oral
+    preparations or sat in heated cabinets where mercury vapor was directed over the body. The aim
+    was often not subtle symptom relief but a visible physiologic reaction, especially heavy
+    salivation. A patient who drooled, developed gingivitis, or felt unmistakably altered by the
+    drug could be read as someone in whom treatment was "working."
+  </p>
+
+  <h2>Why physicians believed it worked</h2>
+  <p>
+    Syphilis made mercury look better than it was. Primary chancres can heal, secondary rashes can
+    fade, and symptoms can retreat for long intervals even when the infection persists. A toxic
+    treatment given during a naturally changing disease can inherit credit for the remission. The
+    problem was not that every physician was careless or foolish. The problem was that the disease's
+    tempo made clinical impression unreliable. Without a microbial target or durable outcome
+    measure, intensity could masquerade as efficacy.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The history of syphilis treatment traces a larger turn in infectious diseases: from purging the
+    patient to targeting the pathogen. Mercury belonged to the older therapeutic world. In 1905,
+    Schaudinn and Hoffmann identified <em>Treponema pallidum</em>. A few years later, Paul Ehrlich's
+    laboratory developed arsphenamine, marketed as Salvarsan, an arsenical compound meant to attack
+    the organism more directly. It was imperfect and still toxic, but the ambition had changed. The
+    target was no longer a polluted body in need of evacuation. It was an identifiable microbe.
+  </p>
+
+  <h2>Why penicillin ended the argument</h2>
+  <p>
+    Penicillin changed syphilis care because it offered what mercury never could: reliable,
+    microbiologically grounded cure with far less toxicity. By the 1940s, penicillin treatment made
+    the older mercury regimens look like artifacts from a different medical language. The shift was
+    not simply from a bad drug to a better drug. It was a shift from visible suffering as evidence
+    of treatment to measurable eradication of infection as the goal.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    Mercury therapy is useful ID history because it warns against therapeutic illusion. Chronic
+    infections, relapsing syndromes, and diseases with fluctuating symptoms can make interventions
+    appear effective when the natural history is doing the work. Modern clinicians have better tools,
+    but the cognitive trap is old: if a patient changes after treatment, we want to believe the
+    treatment caused the change. Syphilis forced medicine to learn a harder standard. Cure has to be
+    more than a dramatic reaction. It has to last, and it has to reach the pathogen.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Green J. <em>An improved mode of employing mercury by fumigation to the whole body,
+        exemplified by cases of its success... especially in syphilitic affections</em>. London:
+        Hippolyte Bailliere; 1852.
+      </p>
+      <p>
+        <a href="https://wellcomecollection.org/works/cx6khgg9" target="_blank" rel="noreferrer">
+          Link: Wellcome Collection
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Frith J. Syphilis: its early history and treatment until penicillin, and the debate on its
+        origins. <em>J Mil Veterans Health</em>. 2012;20(4):49-58.
+      </p>
+      <p>
+        <a
+          href="https://jmvh.org/article/syphilis-its-early-history-and-treatment-until-penicillin-and-the-debate-on-its-origins/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: Journal of Military and Veterans' Health
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Tampa M, Sarbu I, Matei C, Benea V, Georgescu SR. Brief history of syphilis. <em>J Med Life</em>.
+        2014;7(1):4-10.
+      </p>
+      <p>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3956094/" target="_blank" rel="noreferrer">
+          Link: PubMed Central
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Mahoney JF, Arnold RC, Harris A. Penicillin treatment of early syphilis: a preliminary
+        report. <em>Am J Public Health Nations Health</em>. 1943;33(12):1387-1391.
+      </p>
+      <p>
+        <a href="https://doi.org/10.2105/AJPH.33.12.1387" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.2105/AJPH.33.12.1387
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

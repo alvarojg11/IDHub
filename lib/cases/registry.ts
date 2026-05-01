@@ -957,6 +957,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 68-year-old man receiving prednisone and a TNF-alpha inhibitor presents with fever, dyspnea, watery diarrhea, mild confusion, hyponatremia, and multilobar pneumonia after recent plumbing disruption in his apartment building. He worsens despite ceftriaxone and vancomycin, and the urine antigen test is negative. What diagnosis should still be pursued, what test should be sent next, and how should he be treated?",
     tags: { organisms: ["Legionella pneumophila", "Legionella species"], syndromes: ["Pulmonary Infection", "Atypical Pneumonia", "Immunocompromised Host"], concepts: ["Negative urine antigen", "BCYE agar", "Legionella PCR", "Water-system exposure", "Fluoroquinolone therapy"] },
   },
+  {
+    slug: "yellow-fever-tolima",
+    title: "Fever after the Coffee Farms",
+    description: "A traveler returning from coffee farms in Tolima, Colombia develops fever, early jaundice, thrombocytopenia, and transaminitis.",
+    enable: true,
+    ogImage: "/cases/yellow-fever-tolima/aedes.png",
+    teaser: "A 32-year-old unvaccinated traveler returns from coffee farms in rural Tolima, Colombia with fever, headache, myalgias, mild jaundice, thrombocytopenia, and AST-predominant hepatitis. Dengue and malaria testing are negative. What is the most likely diagnosis, what test should be sent now, and how should he be treated?",
+    tags: { organisms: ["Yellow fever virus"], syndromes: ["Travel Medicine", "Arboviral Infection", "Viral Hemorrhagic Fever"], concepts: ["Aedes aegypti", "Sylvatic transmission", "RT-PCR diagnosis", "Supportive care", "17D vaccine", "Public health notification"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

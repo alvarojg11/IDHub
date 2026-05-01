@@ -1,0 +1,324 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("yellow-fever-tolima");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Fever after the Coffee Farms
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 32-year-old man presents to an emergency department in Florida with 3 days of fever, chills, headache, diffuse myalgias, nausea, and poor oral intake. He returned 5 days ago from Colombia, where he spent 2 weeks visiting relatives and touring coffee farms in rural Tolima. He recalls frequent daytime mosquito bites while walking through shaded farm areas and nearby villages. He did not receive pre-travel vaccines because the trip was arranged on short notice.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He has no major medical history and takes no medications. He denies freshwater swimming, animal bites, unpasteurized dairy intake, new sexual exposures, injection drug use, or sick contacts. He took acetaminophen with partial relief. He has not taken aspirin or ibuprofen. On review of systems, he notes mild right upper quadrant discomfort and dark urine this morning, but no diarrhea, cough, rash, conjunctivitis, or bleeding.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.8 C, heart rate 96/min, blood pressure 118/72 mmHg, respiratory rate 16/min, and oxygen saturation 99% on room air. He appears tired but alert. There is faint scleral icterus and mild right upper quadrant tenderness without guarding. There is no hepatosplenomegaly, rash, lymphadenopathy, meningismus, conjunctival suffusion, or petechiae.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 2.7 x 10^3/uL, platelets 108 x 10^3/uL, hemoglobin 14.9 g/dL, creatinine 1.1 mg/dL, total bilirubin 2.1 mg/dL, AST 312 U/L, ALT 196 U/L, alkaline phosphatase 94 U/L, and INR 1.2. Malaria thick and thin smears are negative. Dengue NS1 antigen and dengue IgM are negative. Hepatitis A IgM, hepatitis B surface antigen, hepatitis B core IgM, and hepatitis C antibody are negative. Blood cultures are pending.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/yellow-fever-tolima/aedes.png"
+      alt="Aedes aegypti mosquito"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Aedes aegypti.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-yellow-fever-tolima-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Dengue fever",
+      feedback:
+        "Incorrect. Dengue remains an important consideration in a returning traveler with fever, leukopenia, thrombocytopenia, and transaminitis. However, the early jaundice, dark urine, AST-predominant hepatitis, travel to a yellow fever risk area, lack of vaccination, and negative dengue testing make yellow fever the better fit.",
+    },
+    {
+      id: "B",
+      label: "Yellow fever",
+      correct: true,
+      feedback:
+        "Correct. Yellow fever should be considered in an unvaccinated traveler returning from an at-risk region of South America with acute fever, headache, myalgias, leukopenia, thrombocytopenia, and early hepatic injury. The presentation can be subtle early, before classic hemorrhage or shock develops.",
+    },
+    {
+      id: "C",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis can cause fever, jaundice, thrombocytopenia, renal injury, and conjunctival suffusion. This patient lacks freshwater or animal urine exposure, conjunctival suffusion, and kidney injury, and the mosquito-borne travel context points more strongly toward yellow fever.",
+    },
+    {
+      id: "D",
+      label: "Acute hepatitis A",
+      feedback:
+        "Incorrect. Hepatitis A can cause fever, nausea, dark urine, jaundice, and aminotransferase elevation, but leukopenia and thrombocytopenia with intense mosquito exposure in a yellow fever risk region are less typical. Hepatitis A IgM is also negative.",
+    },
+    {
+      id: "E",
+      label: "Chikungunya fever",
+      feedback:
+        "Incorrect. Chikungunya can cause abrupt fever after Aedes exposure, but severe symmetric polyarthralgia is usually the dominant clue. Early jaundice and AST-predominant hepatic injury make yellow fever more likely here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-yellow-fever-tolima-q2"
+  title="Question 2"
+  prompt="What diagnostic test should be sent now?"
+  options={[
+    {
+      id: "A",
+      label: "Yellow fever virus RT-PCR on serum through public health testing",
+      correct: true,
+      feedback:
+        "Correct. During the first several days of illness, yellow fever virus RNA may be detectable in serum. Testing should be coordinated with the state health department or CDC because suspected yellow fever has public health implications and specialized confirmatory testing may be needed.",
+    },
+    {
+      id: "B",
+      label: "Yellow fever IgG alone",
+      feedback:
+        "Incorrect. IgG alone is not the best acute diagnostic test and may reflect prior vaccination or remote flavivirus exposure. Acute diagnosis requires timing-aware virologic or serologic testing, often with public health laboratory involvement.",
+    },
+    {
+      id: "C",
+      label: "Blood culture on routine bacterial media",
+      feedback:
+        "Incorrect. Routine blood cultures may be reasonable in an undifferentiated febrile traveler, but they do not diagnose yellow fever virus infection.",
+    },
+    {
+      id: "D",
+      label: "Repeat dengue NS1 antigen in 2 weeks",
+      feedback:
+        "Incorrect. Repeating dengue antigen testing later does not address the leading concern. Dengue serology can be considered when clinically appropriate, but this patient's syndrome and exposure require yellow fever testing now.",
+    },
+    {
+      id: "E",
+      label: "Liver biopsy for viral inclusion bodies",
+      feedback:
+        "Incorrect. Liver biopsy is not the routine diagnostic step in a living patient with suspected yellow fever and may be unsafe if coagulopathy or thrombocytopenia worsens. Molecular and serologic testing through public health channels is preferred.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-yellow-fever-tolima-q3"
+  title="Question 3"
+  prompt="What is the best treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Ribavirin plus high-dose corticosteroids",
+      feedback:
+        "Incorrect. There is no established antiviral or corticosteroid regimen for yellow fever. Management focuses on careful supportive care and monitoring for hepatic, renal, hemorrhagic, and shock complications.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline and outpatient follow-up",
+      feedback:
+        "Incorrect. Doxycycline would treat rickettsial disease and leptospirosis, but it does not treat yellow fever. Outpatient follow-up alone is too casual for a patient with early jaundice, thrombocytopenia, and hepatitis from possible yellow fever.",
+    },
+    {
+      id: "C",
+      label: "Immediate yellow fever vaccination as post-exposure treatment",
+      feedback:
+        "Incorrect. Yellow fever vaccine prevents future infection but is not treatment for symptomatic yellow fever. Vaccination status should be reviewed for contacts and future travelers, but the patient needs supportive care.",
+    },
+    {
+      id: "D",
+      label: "Supportive care, avoid NSAIDs, monitor organ function, and notify public health",
+      correct: true,
+      feedback:
+        "Correct. Yellow fever has no approved specific antiviral therapy. Care is supportive: monitor hemodynamics, glucose, renal function, liver injury, coagulation, and bleeding; use acetaminophen cautiously; avoid aspirin and NSAIDs; and notify public health authorities for testing coordination and surveillance.",
+    },
+    {
+      id: "E",
+      label: "Oseltamivir and discharge if respiratory viral testing is negative",
+      feedback:
+        "Incorrect. Influenza therapy does not address the travel-associated syndrome of fever, cytopenias, early jaundice, and hepatitis after mosquito exposure in Colombia.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-yellow-fever-tolima-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Yellow fever is a mosquito-borne flavivirus infection that can begin like many other tropical febrile illnesses. Early symptoms are nonspecific: fever, chills, headache, back pain, myalgias, nausea, and fatigue. The diagnostic clue in this case is the combination of recent travel to rural Tolima, no yellow fever vaccination, daytime mosquito exposure, leukopenia, thrombocytopenia, and early hepatic injury with jaundice. Severe yellow fever is famous for hemorrhage, renal failure, shock, and marked jaundice, but waiting for those features misses the opportunity to recognize the disease early.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The differential diagnosis includes dengue, malaria, leptospirosis, acute viral hepatitis, chikungunya, Zika, rickettsioses, and enteric fever. Dengue is especially tempting because it shares Aedes transmission, fever, cytopenias, and transaminitis. The early bilirubin rise and AST-predominant hepatitis after travel to a yellow fever risk area should push yellow fever higher on the list, particularly in an unvaccinated traveler.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Testing depends on timing. In the first few days of illness, serum RT-PCR can detect yellow fever virus RNA. Later, IgM antibody testing becomes more useful, but flavivirus serology can cross-react after dengue, Zika, Japanese encephalitis, West Nile virus infection, or vaccination. Plaque reduction neutralization testing may be needed to confirm the diagnosis. Suspected cases should be coordinated with public health authorities, both for diagnostic access and for surveillance.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is supportive. Patients with suspected yellow fever and laboratory evidence of hepatic involvement should be monitored closely for hypoglycemia, worsening hepatitis, coagulopathy, bleeding, renal injury, encephalopathy, and shock. Aspirin and NSAIDs should be avoided because of bleeding risk. Prevention remains the key intervention: yellow fever vaccination is highly effective for appropriate travelers and residents of at-risk areas.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-yellow-fever-tolima-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Pathogen Notes
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Yellow fever virus is an enveloped, positive-sense, single-stranded RNA virus in the genus <em>Flavivirus</em>, the same genus that includes dengue, Zika, West Nile, and Japanese encephalitis viruses. That family relationship explains why the clinical syndromes can overlap and why antibody tests can cross-react. The virus is not spread person to person by routine contact; transmission requires an infected mosquito vector.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Transmission occurs in three overlapping cycles. In the sylvatic, or jungle, cycle, mosquitoes transmit virus between nonhuman primates and can infect humans who enter forested or rural areas. This is the major concern for many travelers in endemic parts of South America. In the intermediate, or savannah, cycle, mosquitoes transmit virus between monkeys and humans in areas where people live or work near forest edges. In the urban cycle, <em>Aedes aegypti</em> transmits virus from viremic humans to other humans and can drive explosive outbreaks in cities with low vaccination coverage.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The reservoir and amplifying hosts depend on the cycle. Nonhuman primates are the main reservoir/amplifying hosts in sylvatic transmission, while humans become the key amplifying host in urban transmission. In South America, sylvatic vectors include <em>Haemagogus</em> and <em>Sabethes</em> mosquitoes; <em>Aedes aegypti</em> is the classic urban vector and is a useful visual clue because it also transmits dengue, Zika, and chikungunya.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The vaccine is a live-attenuated 17D yellow fever vaccine and is one of the most effective vaccines used in travel medicine. A single dose provides long-lasting protection for most immunocompetent people and is recommended for many travelers to areas with yellow fever risk. It is also required for entry into some countries, depending on itinerary. Because it is live, it is contraindicated or requires careful risk-benefit review in selected patients, including some immunocompromised people, infants younger than 6 months, and people with severe allergy to vaccine components.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two vaccine safety points matter clinically. First, yellow fever vaccine-associated neurologic disease is rare but can occur, especially in very young infants and older adults. Second, yellow fever vaccine-associated viscerotropic disease is very rare but severe and resembles wild-type yellow fever with multiorgan involvement. These risks are why clinicians should match vaccine decisions to the actual itinerary, outbreak risk, immune status, age, and contraindications rather than treating yellow fever vaccine as a routine add-on for every traveler.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-yellow-fever-tolima-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Consider yellow fever in an unvaccinated traveler returning from an at-risk region with fever, leukopenia, thrombocytopenia, and early hepatic injury.
+    </li>
+    <li>
+      Early yellow fever can be subtle and can mimic dengue, malaria, leptospirosis, chikungunya, or acute viral hepatitis.
+    </li>
+    <li>
+      Send serum RT-PCR early in illness; use IgM serology later, with confirmatory neutralization testing when flavivirus cross-reactivity is a concern.
+    </li>
+    <li>
+      There is no approved specific antiviral therapy. Treatment is supportive, with careful monitoring for hepatic, renal, hemorrhagic, metabolic, and shock complications.
+    </li>
+    <li>
+      Suspected yellow fever should prompt public health notification and reinforcement of prevention through vaccination and mosquito avoidance.
+    </li>
+    <li>
+      Yellow fever virus is an enveloped positive-sense RNA flavivirus. Nonhuman primates amplify sylvatic transmission, while humans amplify urban transmission through <em>Aedes aegypti</em>.
+    </li>
+    <li>
+      The live-attenuated 17D vaccine provides long-lasting protection for most immunocompetent recipients, but contraindications and rare serious adverse events must be considered before vaccination.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Yellow Fever. In: CDC Yellow Book 2026: Health Information for International Travel. Oxford University Press; 2026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://wwwnc.cdc.gov/travel/yellowbook/2026/infections-diseases/yellow-fever"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC Yellow Book: Yellow Fever
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Yellow Fever: Clinical Testing and Diagnosis.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/yellow-fever/hcp/diagnosis-testing/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Clinical Testing and Diagnosis
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. Yellow fever fact sheet.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.who.int/news-room/fact-sheets/detail/yellow-fever"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        WHO: Yellow Fever
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
