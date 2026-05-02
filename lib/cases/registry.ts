@@ -975,6 +975,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old camper returns from the Sierra Nevada with abrupt fever, severe malaise, and an exquisitely tender inguinal lymph node near a small ankle papule. Routine cellulitis is the wrong frame. What is the diagnosis, what test should be sent, and how should he be treated?",
     tags: { organisms: ["Yersinia pestis"], syndromes: ["Zoonoses", "Travel Medicine", "Lymphadenitis", "Vector-borne Infection"], concepts: ["Bubonic plague", "Flea-borne transmission", "Ground squirrel exposure", "Bubo aspirate", "Gentamicin", "Public health notification"] },
   },
+  {
+    slug: "pjp",
+    title: "The Normal Lung Exam",
+    description: "A young patient develops progressive breathlessness with little to hear on lung exam.",
+    enable: true,
+    ogImage: "/cases/pjp/pjp-bal.png",
+    teaser: "A 29-year-old man with no known medical history presents with 3 weeks of dry cough, fatigue, low-grade fever, and progressive dyspnea. His lungs are nearly clear, but a short walk causes marked desaturation and chest CT changes the differential. What is the diagnosis, what test should be sent, and how should he be treated?",
+    tags: { organisms: ["Pneumocystis jirovecii"], syndromes: ["Pulmonary Infection", "Opportunistic Infection", "HIV/AIDS", "Immunocompromised Host"], concepts: ["Pneumocystis pneumonia", "Ground-glass opacities", "Beta-D-glucan", "Bronchoalveolar lavage", "TMP-SMX", "Adjunctive corticosteroids", "PJP prophylaxis"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

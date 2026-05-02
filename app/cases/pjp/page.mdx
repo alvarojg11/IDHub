@@ -1,0 +1,303 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pjp");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Normal Lung Exam
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 29-year-old man presents to urgent care with 3 weeks of progressive shortness of breath, dry cough, fatigue, and intermittent low-grade fevers. He first noticed dyspnea while climbing stairs, but now becomes winded walking from his apartment to the parking lot. He has no known medical conditions, takes no daily medications, and has not seen a physician in several years. He does not smoke or vape. He works from home, has no recent travel, no animal exposures, and no known sick contacts.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He was given azithromycin at a retail clinic 6 days ago for presumed atypical pneumonia, but his symptoms continued to worsen. He reports poor appetite and says his clothes feel looser than usual, though he has not weighed himself. He denies hemoptysis, pleuritic chest pain, wheezing, leg swelling, night sweats, diarrhea, rash, joint pain, or new occupational exposures.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.9 C, heart rate 108/min, blood pressure 116/74 mmHg, respiratory rate 24/min, and oxygen saturation 92% on room air at rest. After a short hallway walk, oxygen saturation falls to 83% and he must stop to catch his breath. He appears uncomfortable but speaks in full sentences. Lung examination is surprisingly quiet, with no focal crackles, wheezing, or egophony. There is no cervical lymphadenopathy, oral lesion, rash, clubbing, edema, or murmur.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 3.2 x 10^3/uL with absolute lymphocyte count 0.5 x 10^3/uL, hemoglobin 12.7 g/dL, platelets 172 x 10^3/uL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 38 U/L, lactate dehydrogenase 468 U/L, C-reactive protein 76 mg/L, and procalcitonin 0.06 ng/mL. Respiratory viral PCR testing, including SARS-CoV-2 and influenza, is negative. Chest radiograph shows only faint bilateral interstitial haziness. CT pulmonary angiography shows no pulmonary embolism but demonstrates diffuse bilateral ground-glass opacities without pleural effusion, cavitation, or focal lobar consolidation.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/pjp/pjp-bal.png"
+      alt="PAS-stained bronchoalveolar lavage specimen"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    PAS-stained bronchoalveolar lavage specimen from this patient.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-pjp-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Atypical pneumonia due to Mycoplasma pneumoniae",
+      feedback:
+        "Incorrect. Mycoplasma can cause subacute dry cough and a relatively unimpressive lung exam, but marked exertional hypoxemia, diffuse ground-glass opacities, low procalcitonin, lymphopenia, elevated LDH, and failure to improve with azithromycin should push the differential toward an opportunistic process.",
+    },
+    {
+      id: "B",
+      label: "Pneumocystis jirovecii pneumonia",
+      correct: true,
+      feedback:
+        "Correct. Subacute progressive dyspnea, dry cough, hypoxemia out of proportion to a quiet lung exam, elevated LDH, and diffuse bilateral ground-glass opacities are classic for Pneumocystis pneumonia, even when the underlying immunocompromising condition is not yet known.",
+    },
+    {
+      id: "C",
+      label: "Acute eosinophilic pneumonia",
+      feedback:
+        "Incorrect. Acute eosinophilic pneumonia can cause fever, hypoxemia, and bilateral infiltrates, often after new smoking, vaping, drug exposure, or inhalational exposure. The subacute course, lymphopenia, elevated LDH, and diffuse ground-glass pattern without an exposure trigger are more consistent with Pneumocystis.",
+    },
+    {
+      id: "D",
+      label: "Pulmonary tuberculosis",
+      feedback:
+        "Incorrect. Tuberculosis remains an important consideration in a patient with weight loss and pulmonary symptoms, but the CT pattern lacks cavitation, tree-in-bud nodules, miliary nodules, or upper-lobe-predominant disease. The severe exertional desaturation with diffuse ground-glass opacities points more strongly toward Pneumocystis.",
+    },
+    {
+      id: "E",
+      label: "Hypersensitivity pneumonitis",
+      feedback:
+        "Incorrect. Hypersensitivity pneumonitis can cause dyspnea, cough, and ground-glass opacities, but the history lacks a clear antigen exposure, and the lymphopenia, elevated LDH, low procalcitonin, and opportunistic-infection pattern make Pneumocystis the better diagnosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pjp-q2"
+  title="Question 2"
+  prompt="What diagnostic step is most appropriate now?"
+  options={[
+    {
+      id: "A",
+      label: "Serum beta-D-glucan alone, with no respiratory sampling if positive",
+      feedback:
+        "Incorrect. Serum beta-D-glucan is often positive in Pneumocystis pneumonia and can support the diagnosis, but it is nonspecific and does not identify the organism. Respiratory specimen testing is still needed when feasible.",
+    },
+    {
+      id: "B",
+      label: "Induced sputum or bronchoscopy with BAL for Pneumocystis stain or PCR, plus immune evaluation",
+      correct: true,
+      feedback:
+        "Correct. Pneumocystis is diagnosed from respiratory specimens using methods such as direct fluorescent antibody staining, GMS staining, or PCR. Serum beta-D-glucan can be supportive, and HIV antigen/antibody testing with CD4 count should be sent because the presentation suggests impaired cellular immunity.",
+    },
+    {
+      id: "C",
+      label: "Routine sputum bacterial culture only",
+      feedback:
+        "Incorrect. Routine bacterial culture does not diagnose Pneumocystis and is often low yield in a patient with dry cough. The correct diagnostic strategy requires Pneumocystis-specific testing on induced sputum or BAL fluid.",
+    },
+    {
+      id: "D",
+      label: "Mycoplasma IgM serology",
+      feedback:
+        "Incorrect. Mycoplasma serology is not the best test for this syndrome and would not explain the diffuse ground-glass opacities with disproportionate hypoxemia and lymphopenia. The diagnostic target should be Pneumocystis.",
+    },
+    {
+      id: "E",
+      label: "Tuberculin skin test as the only diagnostic test",
+      feedback:
+        "Incorrect. TB testing may be appropriate depending on the broader evaluation, but a tuberculin skin test does not diagnose this acute pulmonary process and may be falsely negative in severe cellular immunodeficiency.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pjp-q3"
+  title="Question 3"
+  prompt="What is the best treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Trimethoprim-sulfamethoxazole, with adjunctive corticosteroids if moderate-to-severe hypoxemia is present",
+      correct: true,
+      feedback:
+        "Correct. TMP-SMX is first-line therapy for Pneumocystis pneumonia. Adjunctive corticosteroids are indicated when room-air PaO2 is less than 70 mmHg or the alveolar-arterial oxygen gradient is at least 35 mmHg. HIV-associated disease is typically treated for 21 days.",
+    },
+    {
+      id: "B",
+      label: "Ceftriaxone plus azithromycin for 5 days",
+      feedback:
+        "Incorrect. Community-acquired pneumonia therapy does not treat Pneumocystis. The subacute syndrome, diffuse ground-glass opacities, and disproportionate hypoxemia require anti-Pneumocystis therapy.",
+    },
+    {
+      id: "C",
+      label: "Fluconazole monotherapy",
+      feedback:
+        "Incorrect. Pneumocystis is a fungus, but fluconazole has no role in treating Pneumocystis pneumonia. TMP-SMX is the preferred therapy.",
+    },
+    {
+      id: "D",
+      label: "Oseltamivir and outpatient pulse oximetry monitoring",
+      feedback:
+        "Incorrect. Respiratory viral PCR testing is negative, and the imaging/laboratory pattern does not suggest influenza. This patient has significant exertional hypoxemia and needs inpatient evaluation and treatment.",
+    },
+    {
+      id: "E",
+      label: "Isoniazid, rifampin, pyrazinamide, and ethambutol as empiric monotherapy for the CT findings",
+      feedback:
+        "Incorrect. Empiric tuberculosis therapy may be necessary in some patients, but this CT pattern and physiology are more characteristic of Pneumocystis. TB therapy alone would leave the likely diagnosis untreated.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-pjp-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical pattern is Pneumocystis pneumonia: slowly progressive dyspnea, dry cough, exertional hypoxemia out of proportion to a quiet lung exam, elevated LDH, and diffuse bilateral ground-glass opacities. The hidden clue is impaired cellular immunity. In this case, HIV antigen/antibody testing later returns positive and the CD4 count is 38 cells/uL.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Pneumocystis jirovecii</em> is an opportunistic fungus adapted to humans. It was historically classified as a protozoan, which is why older terminology and some older teaching can be confusing. Human disease is caused by <em>P. jirovecii</em>; <em>Pneumocystis carinii</em> refers to a related organism in rats and should not be used as the human pathogen name.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In the lung, Pneumocystis organisms occupy the alveolar space as trophic forms and cyst or ascus forms. The host inflammatory response and organisms produce a foamy, proteinaceous intra-alveolar exudate that interferes with gas exchange. This explains a classic bedside mismatch: the patient can be profoundly hypoxemic while auscultation remains nearly normal and the chest radiograph is subtle early. CT is more sensitive and commonly shows bilateral ground-glass opacities.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Disease is strongly linked to defects in T-cell immunity. Advanced HIV with CD4 count below 200 cells/uL is the classic risk state, but Pneumocystis pneumonia also occurs after solid organ or hematopoietic stem cell transplantation, hematologic malignancy, prolonged high-dose corticosteroids, and other T-cell-suppressive therapies. Pneumocystis may be acquired through airborne transmission or carried transiently, but clinically important disease usually reflects failure of cellular immune control rather than ordinary community exposure alone.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Pneumocystis is not diagnosed by routine bacterial culture. Diagnosis depends on detecting the organism or its nucleic acid in a respiratory specimen. Induced sputum can be used when available, but bronchoalveolar lavage has higher sensitivity, especially when the diagnosis is uncertain or the patient is significantly hypoxemic. Direct fluorescent antibody testing, silver stains such as Gomori methenamine silver, and PCR are commonly used. Serum beta-D-glucan is frequently elevated because Pneumocystis has fungal cell wall components, but the test is nonspecific and can also be positive with other invasive fungal infections or false-positive exposures.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Trimethoprim-sulfamethoxazole is first-line treatment. For HIV-associated Pneumocystis pneumonia, the usual treatment duration is 21 days. Adjunctive corticosteroids reduce respiratory deterioration and mortality in moderate-to-severe disease and should be started when room-air PaO2 is less than 70 mmHg or the alveolar-arterial oxygen gradient is at least 35 mmHg. After HIV is confirmed, antiretroviral therapy is generally started during the acute PJP treatment course, often within 2 weeks once the patient is clinically stabilized.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pjp-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Pathogen Notes
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Pneumocystis jirovecii</em> is a fungus and an opportunistic pulmonary pathogen of humans.
+    </li>
+    <li>
+      The organism is host-adapted: <em>P. jirovecii</em> causes human disease, while <em>P. carinii</em> is the rat species name.
+    </li>
+    <li>
+      Pneumocystis forms live in alveoli and produce a foamy intra-alveolar exudate that impairs oxygen diffusion.
+    </li>
+    <li>
+      The classic radiographic pattern is bilateral ground-glass opacity, often with hypoxemia more impressive than the lung exam.
+    </li>
+    <li>
+      Major risk states include CD4 T-cell depletion from advanced HIV, transplant immunosuppression, hematologic malignancy, prolonged corticosteroids, and T-cell-suppressive biologics.
+    </li>
+    <li>
+      Diagnosis requires Pneumocystis-directed testing on induced sputum or BAL fluid; routine bacterial cultures do not identify the organism.
+    </li>
+    <li>
+      Serum beta-D-glucan is sensitive but nonspecific and should be interpreted as supportive evidence rather than a stand-alone diagnosis.
+    </li>
+    <li>
+      TMP-SMX is used for both treatment and prophylaxis. In HIV, prophylaxis is indicated when CD4 count is below 200 cells/uL or there is a prior episode of PJP.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      National Institutes of Health. Guidelines for the Prevention and Treatment of Opportunistic Infections in Adults and Adolescents With HIV: Pneumocystis Pneumonia.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections/pneumocystis"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        NIH: Pneumocystis Pneumonia
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Guidelines for Preventing Opportunistic Infections Among HIV-Infected Persons.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5804a1.htm"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Opportunistic Infection Prevention Guidelines
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Thomas CF Jr, Limper AH. Pneumocystis pneumonia. <em>New England Journal of Medicine</em>. 2004;350:2487-2498.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.nejm.org/doi/full/10.1056/NEJMra032588"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        NEJM: Pneumocystis Pneumonia
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
