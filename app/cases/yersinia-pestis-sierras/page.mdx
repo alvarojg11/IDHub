@@ -1,0 +1,302 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("yersinia-pestis-sierras");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Hike and the Tender Node
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old man presents to an emergency department in Sacramento with 3 days of abrupt fever, chills, headache, and severe malaise. He returned 5 days ago from a long weekend camping trip in the Sierra Nevada, where he slept in a tent near a trailhead campground and hiked through dry brush and granite outcrops. He remembers seeing several ground squirrels near the campsite and noticed rodent burrows around the picnic area. On the last morning of the trip, he found a small itchy papule near his right ankle and assumed it was a mosquito bite.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the next 48 hours, he developed progressive pain in the right groin that became severe enough to make walking difficult. An urgent care clinic diagnosed cellulitis and prescribed cephalexin, but he continued to have high fevers and rigors. He has no cat scratches, dog bites, rabbit exposure, freshwater exposure, international travel, injection drug use, or sick contacts. He denies cough, dyspnea, hemoptysis, chest pain, abdominal pain, diarrhea, or dysuria.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 39.6 C, heart rate 118/min, blood pressure 106/68 mmHg, respiratory rate 18/min, and oxygen saturation 98% on room air. He appears ill but is alert and speaking in full sentences. A 1 cm crusted papule is present just above the right medial ankle without surrounding purulence. The right inguinal region contains a 5 cm exquisitely tender lymph node with overlying warmth and faint erythema; palpation causes him to recoil. There is no lymphangitic streaking, no diffuse rash, and no hepatosplenomegaly. Lung examination is clear.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 18.7 x 10^3/uL with 88% neutrophils and 12% bands, hemoglobin 14.2 g/dL, platelets 112 x 10^3/uL, creatinine 1.3 mg/dL, AST 74 U/L, ALT 66 U/L, lactate 2.4 mmol/L, and C-reactive protein 186 mg/L. Blood cultures are obtained. Ultrasound of the groin shows a markedly enlarged hyperemic lymph node with surrounding edema but no simple drainable abscess. A chest radiograph is clear.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-5xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/yersinia-pestis-sierras/ground-squirrel.png"
+      alt="Ground squirrel in the Sierra Nevada"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto h-auto w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Ground squirrel in the Sierra Nevada.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-yersinia-pestis-sierras-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Ulceroglandular tularemia",
+      feedback:
+        "Incorrect. Tularemia can cause fever, an inoculation lesion, and painful regional lymphadenopathy after tick bites, deer fly bites, or contact with infected animals such as rabbits. The geography and syndrome overlap, but this patient's Sierra Nevada camping exposure with ground squirrels and a rapidly evolving, exquisitely tender inguinal bubo after a small bite lesion is more concerning for plague.",
+    },
+    {
+      id: "B",
+      label: "Staphylococcal cellulitis with reactive lymphadenitis",
+      feedback:
+        "Incorrect. Staphylococcal skin infection is a common initial frame, but the exam is dominated by an intensely painful regional lymph node rather than a purulent skin focus. The systemic toxicity, thrombocytopenia, western US rodent exposure, and failure to improve with cephalexin should push the differential beyond routine cellulitis.",
+    },
+    {
+      id: "C",
+      label: "Bubonic plague due to Yersinia pestis",
+      correct: true,
+      feedback:
+        "Correct. Abrupt fever, severe malaise, a small lower-extremity bite lesion, and an exquisitely tender ipsilateral inguinal bubo after camping in a western US plague-endemic area with ground squirrel exposure is classic for bubonic plague. Absence of cough or infiltrates argues against pneumonic plague at this moment.",
+    },
+    {
+      id: "D",
+      label: "Cat scratch disease due to Bartonella henselae",
+      feedback:
+        "Incorrect. Cat scratch disease causes subacute regional lymphadenitis, usually after cat scratch or bite exposure. It is typically less toxic and less abrupt than this presentation, and the patient has no cat exposure. The western rodent/flea ecology is the key clue here.",
+    },
+    {
+      id: "E",
+      label: "Rocky Mountain spotted fever",
+      feedback:
+        "Incorrect. RMSF can cause fever, headache, thrombocytopenia, transaminitis, and severe illness after outdoor exposure, and empiric doxycycline should be considered when suspected. However, RMSF does not typically present with a dominant exquisitely tender regional bubo draining a bite lesion. The lymph node syndrome points elsewhere.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-yersinia-pestis-sierras-q2"
+  title="Question 2"
+  prompt="What diagnostic step is most appropriate now?"
+  options={[
+    {
+      id: "A",
+      label: "Send paired acute and convalescent serology only, and wait for results before changing therapy",
+      feedback:
+        "Incorrect. Serology can support the diagnosis, especially retrospectively, but it is not the best acute diagnostic approach and treatment must not wait. Early serology may be negative, and delayed therapy increases mortality.",
+    },
+    {
+      id: "B",
+      label: "Notify the laboratory and public health, then send bubo aspirate and blood cultures for Y. pestis testing",
+      correct: true,
+      feedback:
+        "Correct. Suspected plague requires immediate laboratory and public health notification. Diagnostic specimens include bubo aspirate, blood cultures, and other site-specific samples. Testing may include Gram stain or Wayson/Giemsa stain, culture, PCR, direct fluorescent antibody testing, and public health laboratory confirmation.",
+    },
+    {
+      id: "C",
+      label: "Incise and drain the lymph node at bedside and send routine aerobic culture without special notification",
+      feedback:
+        "Incorrect. Buboes are infected lymph nodes, not routine abscesses, and bedside incision may be unnecessary and risky. More importantly, the laboratory must be alerted because Y. pestis is a high-consequence pathogen requiring appropriate biosafety precautions and public health coordination.",
+    },
+    {
+      id: "D",
+      label: "Order Bartonella henselae IgG and defer invasive sampling",
+      feedback:
+        "Incorrect. Bartonella testing does not address the leading diagnosis. Cat scratch disease is usually more subacute, less toxic, and linked to cat exposure rather than camping near rodent burrows in a western US plague focus.",
+    },
+    {
+      id: "E",
+      label: "Obtain sputum PCR for plague as the only diagnostic test",
+      feedback:
+        "Incorrect. Sputum testing is important when pneumonic plague is suspected. This patient has no cough, hemoptysis, or infiltrate, so the highest-yield sample is the bubo aspirate, with blood cultures because bacteremia can occur.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-yersinia-pestis-sierras-q3"
+  title="Question 3"
+  prompt="What is the best treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Continue cephalexin while awaiting bubo aspirate culture",
+      feedback:
+        "Incorrect. Beta-lactam therapy for routine cellulitis is inadequate for suspected plague, and treatment should not wait for confirmatory testing. Delay can allow progression to septicemic or pneumonic plague.",
+    },
+    {
+      id: "B",
+      label: "Start a first-line fluoroquinolone or aminoglycoside immediately and notify public health",
+      correct: true,
+      feedback:
+        "Correct. Suspected plague is treated immediately. Current first-line options include fluoroquinolones such as ciprofloxacin or levofloxacin and aminoglycosides such as gentamicin; streptomycin is the historical classic but is less available. Public health notification is required. Bubonic plague without pneumonia does not usually require droplet precautions, but respiratory symptoms should trigger pneumonic plague precautions.",
+    },
+    {
+      id: "C",
+      label: "Start azithromycin and discharge with close follow-up",
+      feedback:
+        "Incorrect. Azithromycin is not appropriate therapy for suspected plague, and this toxic patient with possible bubonic plague needs urgent treatment and monitoring.",
+    },
+    {
+      id: "D",
+      label: "Start oral amoxicillin-clavulanate for 10 days",
+      feedback:
+        "Incorrect. Amoxicillin-clavulanate is not recommended therapy for plague and would miss a potentially fatal zoonotic infection.",
+    },
+    {
+      id: "E",
+      label: "Withhold antibiotics until the safety-pin stain is confirmed",
+      feedback:
+        "Incorrect. Bipolar 'safety pin' staining can be a classic clue, but waiting for any confirmatory test is unsafe. Plague treatment is time-sensitive and should begin as soon as the diagnosis is suspected.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-yersinia-pestis-sierras-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Bubonic plague is the most likely diagnosis because the syndrome localizes to a regional lymph node draining a likely flea bite. The abrupt fever, severe constitutional symptoms, lower-extremity papule, and intensely tender ipsilateral inguinal bubo are the clinical pattern. The Sierra Nevada camping exposure matters because plague persists in enzootic cycles among wild rodents and fleas in parts of the western United States, including California.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Yersinia pestis</em> is a gram-negative coccobacillus in the order Enterobacterales. It is maintained in nature through rodent-flea cycles. Ground squirrels, prairie dogs, chipmunks, wood rats, and other wild rodents can participate depending on the region, while humans are incidental hosts. Infection usually follows the bite of an infected flea or direct handling of infected animals. After inoculation, organisms drain to regional lymph nodes, evade innate immune responses, and produce necrotizing hemorrhagic lymphadenitis: the bubo.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis requires both microbiology and communication. The laboratory should be notified before handling specimens when plague is suspected. Bubo aspirate is the highest-yield specimen in bubonic disease, and blood cultures should be obtained because bacteremia may occur. Stains may show small gram-negative coccobacilli with bipolar staining on Wayson, Giemsa, or Wright stain, but culture and public health laboratory testing such as PCR or direct fluorescent antibody testing are used for confirmation. Serology is more useful later and should not be the only acute diagnostic test.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment should begin immediately when plague is suspected. First-line therapy includes fluoroquinolones such as ciprofloxacin or levofloxacin and aminoglycosides such as gentamicin; streptomycin is the historical standard but is often difficult to obtain. Doxycycline is an alternative in selected patients and is also used for post-exposure prophylaxis. Bubonic plague itself is not typically transmitted person to person, but pneumonic plague can spread by respiratory droplets and requires droplet precautions and urgent prophylaxis of close contacts.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-yersinia-pestis-sierras-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Bubonic plague presents with abrupt fever and a very painful regional bubo, often draining a flea bite on the affected limb.
+    </li>
+    <li>
+      In the western United States, plague persists in wild rodent-flea cycles; ground squirrel, chipmunk, prairie dog, and wood rat exposures are important clues.
+    </li>
+    <li>
+      Notify the laboratory and public health immediately. Send bubo aspirate and blood cultures for stain, culture, and public health confirmatory testing such as PCR or direct fluorescent antibody testing.
+    </li>
+    <li>
+      Do not wait for confirmation before treatment. Fluoroquinolones and aminoglycosides are first-line therapies for suspected plague; doxycycline is an alternative in selected patients and a prophylaxis option.
+    </li>
+    <li>
+      Person-to-person transmission is mainly a concern with pneumonic plague, not isolated bubonic plague without respiratory symptoms.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Plague: Clinical Features.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/plague/hcp/clinical-features/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Clinical Features of Plague
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Plague: Clinical Testing and Diagnosis.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/plague/hcp/diagnosis-testing/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Clinical Testing and Diagnosis
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Plague: Treatment and Prophylaxis.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/plague/hcp/treatment/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Treatment and Prophylaxis
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      California Department of Public Health. Plague.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Plague.aspx"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDPH: Plague
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

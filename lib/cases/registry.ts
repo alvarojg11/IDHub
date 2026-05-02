@@ -966,6 +966,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 32-year-old unvaccinated traveler returns from coffee farms in rural Tolima, Colombia with fever, headache, myalgias, mild jaundice, thrombocytopenia, and AST-predominant hepatitis. Dengue and malaria testing are negative. What is the most likely diagnosis, what test should be sent now, and how should he be treated?",
     tags: { organisms: ["Yellow fever virus"], syndromes: ["Travel Medicine", "Arboviral Infection", "Viral Hemorrhagic Fever"], concepts: ["Aedes aegypti", "Sylvatic transmission", "RT-PCR diagnosis", "Supportive care", "17D vaccine", "Public health notification"] },
   },
+  {
+    slug: "yersinia-pestis-sierras",
+    title: "The Hike and the Tender Node",
+    description: "A camper in California's Sierra Nevada develops fever and a painful inguinal node after a small bite near the ankle.",
+    enable: true,
+    ogImage: "/cases/yersinia-pestis-sierras/ground-squirrel.png",
+    teaser: "A 34-year-old camper returns from the Sierra Nevada with abrupt fever, severe malaise, and an exquisitely tender inguinal lymph node near a small ankle papule. Routine cellulitis is the wrong frame. What is the diagnosis, what test should be sent, and how should he be treated?",
+    tags: { organisms: ["Yersinia pestis"], syndromes: ["Zoonoses", "Travel Medicine", "Lymphadenitis", "Vector-borne Infection"], concepts: ["Bubonic plague", "Flea-borne transmission", "Ground squirrel exposure", "Bubo aspirate", "Gentamicin", "Public health notification"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
