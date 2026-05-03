@@ -27,18 +27,30 @@ async function extractTeachingPoints(slug: string): Promise<string[]> {
   try {
     const raw = await fs.readFile(file, "utf8");
 
-    // Find the teaching points section
-    const teachingIdx = raw.search(/Teaching points/i);
-    if (teachingIdx === -1) return [];
+    const sectionHeadings = [/Teaching Points/i, /Pathogen Notes/i];
 
-    const afterTeaching = raw.slice(teachingIdx);
+    for (const heading of sectionHeadings) {
+      const sectionIdx = raw.search(heading);
+      if (sectionIdx === -1) continue;
 
-    // Extract all <li>...</li> items
-    const liMatches = [...afterTeaching.matchAll(/<li>([\s\S]*?)<\/li>/gi)];
-    return liMatches
-      .map((m) => stripHtml(m[1]))
-      .filter((t) => t.length > 10)
-      .slice(0, 4);
+      // Limit extraction to the current reveal block so we only pull the
+      // intended bullets for this card.
+      const sectionEndIdx = raw.indexOf("</CaseReveal>", sectionIdx);
+      const section = raw.slice(
+        sectionIdx,
+        sectionEndIdx === -1 ? raw.length : sectionEndIdx
+      );
+
+      const liMatches = [...section.matchAll(/<li>([\s\S]*?)<\/li>/gi)];
+      const points = liMatches
+        .map((m) => stripHtml(m[1]))
+        .filter((t) => t.length > 10)
+        .slice(0, 4);
+
+      if (points.length > 0) return points;
+    }
+
+    return [];
   } catch {
     return [];
   }

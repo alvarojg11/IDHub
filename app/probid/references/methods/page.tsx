@@ -46,7 +46,8 @@ export default function ProbIDMethodsPage() {
 
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--foreground)]/85">
           ProbID uses likelihood ratios (LRs) and Bayes’ theorem to update a pretest probability into a post-test probability.
-          This page explains what an LR is, how it’s calculated from test performance, and shows a worked example.
+          This page explains what an LR is, how it’s calculated from test performance, how the current decision layer works,
+          and how the app preserves a shareable case state.
         </p>
       </header>
 
@@ -263,6 +264,45 @@ export default function ProbIDMethodsPage() {
             </ul>
             <p className="mt-3 text-xs text-[var(--muted)]">
               Utility-backed treatment models live in <span className="font-mono">lib/probidExpectedUtility.ts</span>. Heuristic fallback thresholds remain configurable in <span className="font-mono">lib/probidDecision.ts</span>.
+            </p>
+          </div>
+        </Callout>
+
+        <Callout title="5) Shareable Case State">
+          <p>
+            ProbID now keeps the current case setup in the page URL so the tool can restore the same syndrome,
+            setting, findings, and decision modifiers when the link is reopened or shared.
+          </p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+              <div className="text-sm font-semibold text-[var(--foreground)]">What is stored</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
+                <li>Selected syndrome and setting</li>
+                <li>Present and absent findings</li>
+                <li>Stepwise selection order</li>
+                <li>CAP utility modifiers</li>
+                <li>VAP and endocarditis pretest modifier selections</li>
+                <li>Score-panel inputs such as VIRSTA, DENOVA, and HANDOC</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+              <div className="text-sm font-semibold text-[var(--foreground)]">What is not stored</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
+                <li>No backend account or saved server-side record is created</li>
+                <li>No patient-identifying data should be entered into the tool</li>
+                <li>The URL is meant to preserve educational case logic, not protected health information</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+            <div className="text-sm font-semibold text-[var(--foreground)]">Implementation note</div>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              The app serializes the current tool state into a URL query parameter and restores it on load.
+              This is a convenience feature for reproducibility and teaching. It does not change the underlying LR,
+              expected-utility, or heuristic decision calculations.
             </p>
           </div>
         </Callout>

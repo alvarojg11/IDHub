@@ -5,7 +5,7 @@ const tiles = [
     href: "/probid/references/methods",
     title: "Methods",
     desc:
-      "How likelihood ratios were derived, how sensitivity and specificity were converted, and how Bayesian updating is implemented within ProbID.",
+      "How likelihood ratios were derived, how sensitivity and specificity were converted, how Bayesian updating is implemented, and how shareable case state works within ProbID.",
   },
   {
     href: "/probid/references/sources",
@@ -33,7 +33,8 @@ export default function ProbIDReferencesPage() {
 
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--foreground)]/85">
           Methodology and literature sources used to construct the
-          probabilistic framework within ProbID.
+          probabilistic framework within ProbID, including the current
+          decision-layer and shareable case-state behavior.
         </p>
       </header>
 

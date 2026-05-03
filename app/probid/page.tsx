@@ -53,8 +53,8 @@ export default function ProbIDPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.85fr)]">
-        <div className="idhub-panel rounded-[1.8rem] p-6">
+      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.7fr)_minmax(260px,0.7fr)]">
+        <div className="idhub-panel rounded-[1.8rem] p-6 lg:p-7">
           <p className="idhub-kicker">Tool Overview</p>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             ProbID turns pretest thinking into a visible workflow by combining setting, findings,
@@ -70,6 +70,15 @@ export default function ProbIDPage() {
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             CAP, VAP, endocarditis, invasive mold, and other syndromes where diagnostic uncertainty
             matters more than rote recall and where a probability estimate can change what you do next.
+          </p>
+        </div>
+
+        <div className="idhub-panel rounded-[1.8rem] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            Best for
+          </p>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+            Clinicians who want a structured way to move from suspicion to action without pretending the diagnosis is binary.
           </p>
         </div>
       </div>

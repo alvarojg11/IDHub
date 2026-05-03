@@ -1,7 +1,7 @@
 // components/ProbIDTool.tsx
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { FindingState, LRItem, SyndromeLRModule } from "@/lib/lrTypes";
 import { combinedLR, postTestProb, buildStepwisePath, formatPct, clamp } from "@/lib/lrMath";
 import { deriveDecisionThresholds, estimateHarms } from "@/lib/probidDecision";
@@ -21,40 +21,78 @@ type Props = {
   defaultModuleId?: string;
 };
 
+const FOCUS_RING =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2";
+
+const SHARE_PARAM = "probid";
+
+function toFindingStateMap(value: unknown): Record<string, FindingState> {
+  if (!value || typeof value !== "object") return {};
+
+  const out: Record<string, FindingState> = {};
+  for (const [key, raw] of Object.entries(value)) {
+    if (raw === "present" || raw === "absent" || raw === "unknown") out[key] = raw;
+  }
+  return out;
+}
+
+function toBooleanRecord(value: unknown): Record<string, boolean> {
+  if (!value || typeof value !== "object") return {};
+
+  const out: Record<string, boolean> = {};
+  for (const [key, raw] of Object.entries(value)) {
+    if (typeof raw === "boolean") out[key] = raw;
+  }
+  return out;
+}
+
+function toStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string");
+}
+
 function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
   if (moduleId === "cap") {
-    if (recommendation === "treat") return "Empiric CAP treatment justified";
-    if (recommendation === "observe") return "Monitor off antibiotics";
-    return "Antibiotics not yet justified";
+    if (recommendation === "treat") return "Treat for CAP now";
+    if (recommendation === "observe") return "Watch without antibiotics";
+    return "Not enough probability for antibiotics yet";
   }
   if (moduleId !== "inv_mold") {
-    if (recommendation === "treat") return "Treat now";
-    if (recommendation === "observe") return "Observe / monitor";
-    return "Pursue further testing";
+    if (recommendation === "treat") return "Treatment is supported";
+    if (recommendation === "observe") return "Observe and reassess";
+    return "Get more diagnostic data";
   }
-  if (recommendation === "treat") return "Start mold-active therapy";
-  if (recommendation === "observe") return "Broaden the differential";
+  if (recommendation === "treat") return "Start mold-active treatment";
+  if (recommendation === "observe") return "Mold is less likely right now";
   return "Keep mold on the differential";
 }
 
 function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
   if (moduleId === "cap") {
     if (recommendation === "treat") {
-      return "The current post-test probability is above the personalized CAP treatment threshold implied by the selected patient factors.";
+      return "The current probability is above the CAP treatment threshold for the selected patient factors.";
     }
     if (recommendation === "test") {
-      return "The current post-test probability remains below the personalized CAP treatment threshold, so reassessment or additional data is preferred over immediate empiric antibiotics.";
+      return "The current probability is still below the CAP treatment threshold, so more data or reassessment makes more sense than empiric antibiotics.";
     }
     return "Current data support monitoring rather than empiric antibiotics.";
   }
-  if (moduleId !== "inv_mold") return null;
+  if (moduleId !== "inv_mold") {
+    if (recommendation === "treat") {
+      return "The current probability is high enough that treatment is reasonable now.";
+    }
+    if (recommendation === "test") {
+      return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
+    }
+    return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
+  }
   if (recommendation === "treat") {
-    return "Invasive mold infection is concerning enough that empiric mold-active therapy is reasonable while you continue confirming the diagnosis and reassessing competing explanations.";
+    return "Invasive mold is concerning enough that empiric mold-active therapy is reasonable while the workup continues.";
   }
   if (recommendation === "test") {
-    return "Invasive mold infection remains on the differential, but better microbiologic or tissue confirmation would be helpful before calling this established disease.";
+    return "Invasive mold remains possible, but better microbiology or tissue confirmation would help before treating this as established disease.";
   }
-  return "Invasive mold infection is not strongly supported by the current data, so competing diagnoses should stay front and center rather than anchoring on mold right now.";
+  return "The current data do not strongly support invasive mold, so competing diagnoses should stay front and center.";
 }
 
 function recommendationNextSteps(moduleId: string, recommendation: "treat" | "test" | "observe") {
@@ -96,6 +134,147 @@ function formatUtility(value: number) {
 
 function formatUtilityDelta(value: number) {
   return `${value > 0 ? "+" : ""}${value.toFixed(3)}`;
+}
+
+function recommendationTheme(recommendation: "treat" | "test" | "observe") {
+  if (recommendation === "treat") {
+    return {
+      panel: "border-emerald-200 bg-emerald-50 text-emerald-900",
+      pill: "bg-emerald-600 text-white",
+      dot: "border-emerald-700 bg-emerald-500",
+    };
+  }
+
+  if (recommendation === "observe") {
+    return {
+      panel: "border-sky-200 bg-sky-50 text-sky-900",
+      pill: "bg-sky-600 text-white",
+      dot: "border-sky-700 bg-sky-500",
+    };
+  }
+
+  return {
+    panel: "border-amber-200 bg-amber-50 text-amber-900",
+    pill: "bg-amber-500 text-amber-950",
+    dot: "border-amber-700 bg-amber-500",
+  };
+}
+
+function explainDecisionTerm(term: "pretest" | "lr" | "threshold") {
+  if (term === "pretest") {
+    return "Pretest probability is your starting estimate before applying the selected findings and tests.";
+  }
+
+  if (term === "lr") {
+    return "The combined likelihood ratio shows how strongly the selected evidence shifts the starting probability.";
+  }
+
+  return "The treatment threshold is the probability at which treatment becomes worth it given the current harm or utility model.";
+}
+
+function recommendationStatusLabel(recommendation: "treat" | "test" | "observe") {
+  if (recommendation === "treat") return "Treat";
+  if (recommendation === "observe") return "Observe";
+  return "More data";
+}
+
+function syndromeOnboarding(moduleId: string) {
+  if (moduleId === "cap") {
+    return {
+      title: "Good CAP starting pattern",
+      summary: "Start with the setting, then add the findings that usually move CAP probability the most.",
+      prompts: [
+        "Choose the outpatient, ward, or ICU-type setting first.",
+        "Add high-yield findings such as infiltrate on chest imaging, hypoxemia, fever, or tachypnea.",
+        "If probability stays below the threshold, keep non-pneumonia causes of respiratory symptoms in play.",
+      ],
+    };
+  }
+
+  if (moduleId === "vap") {
+    return {
+      title: "Good VAP starting pattern",
+      summary: "Anchor the estimate in the ICU setting, then layer on the respiratory and imaging data you actually have.",
+      prompts: [
+        "Start with the correct ICU time-based pretest setting.",
+        "Use new oxygen needs, purulent secretions, fever, leukocytosis, and imaging together rather than in isolation.",
+        "Turn on risk modifiers only when they truly fit the patient.",
+      ],
+    };
+  }
+
+  if (moduleId === "endo") {
+    return {
+      title: "Good endocarditis starting pattern",
+      summary: "Think of this as bacteremia context plus echo, exam, and organism clues.",
+      prompts: [
+        "Start with the bacteremia or host-risk setting that best matches the patient.",
+        "Add organism clues, embolic findings, and echo results early because they shift probability strongly.",
+        "Use VIRSTA, DENOVA, or HANDOC when the syndrome context matches the score population.",
+      ],
+    };
+  }
+
+  if (moduleId === "inv_mold") {
+    return {
+      title: "Good invasive mold starting pattern",
+      summary: "This works best when you combine host context, CT pattern, and microbiology instead of leaning on one clue.",
+      prompts: [
+        "Choose the host-risk setting carefully before adding test data.",
+        "CT pattern and microbiology usually matter more than any single symptom.",
+        "If the estimate stays intermediate, tissue or BAL data often matter more than more speculation.",
+      ],
+    };
+  }
+
+  return {
+    title: `Getting started with ${moduleId.toUpperCase()}`,
+    summary: "Start with the setting, then add the few findings or tests that are most decision-relevant for the patient in front of you.",
+    prompts: [
+      "Pick the most accurate starting setting first.",
+      "Add only the findings you actually know rather than trying to fill every field.",
+      "Use the result card to decide whether treatment, observation, or more data makes the most sense.",
+    ],
+  };
+}
+
+function MobileResultSummary({
+  setting,
+  selectedCount,
+  postP,
+  treatmentThresholdP,
+  lr,
+}: {
+  setting: string;
+  selectedCount: number;
+  postP: number;
+  treatmentThresholdP: number;
+  lr: number;
+}) {
+  return (
+    <div className="rounded-xl border bg-white p-3 lg:hidden">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">At a glance</div>
+      <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+        <div className="rounded-lg bg-gray-50 px-3 py-2">
+          <div className="text-gray-500">Setting</div>
+          <div className="mt-1 font-semibold text-gray-900">{setting}</div>
+        </div>
+        <div className="rounded-lg bg-gray-50 px-3 py-2">
+          <div className="text-gray-500">Selected</div>
+          <div className="mt-1 font-semibold text-gray-900">{selectedCount}</div>
+        </div>
+        <div className="rounded-lg bg-gray-50 px-3 py-2">
+          <div className="text-gray-500">Post-test</div>
+          <div className="mt-1 font-semibold text-gray-900">{formatPct(postP)}</div>
+        </div>
+        <div className="rounded-lg bg-gray-50 px-3 py-2">
+          <div className="text-gray-500">Treat at</div>
+          <div className="mt-1 font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</div>
+        </div>
+      </div>
+      <div className="mt-2 text-[11px] text-gray-600">Combined LR {lr.toFixed(2)}</div>
+    </div>
+  );
 }
 
 type VirstaAcquisition = "nosocomial" | "community_or_nhca";
@@ -222,6 +401,9 @@ function byId(mods: SyndromeLRModule[], id?: string) {
 }
 
 export function ProbIDTool({ modules, defaultModuleId }: Props) {
+  const suppressModuleResetRef = useRef(false);
+  const didHydrateFromUrlRef = useRef(false);
+
   // Syndrome
   const [moduleId, setModuleId] = useState(byId(modules, defaultModuleId)?.id ?? modules[0]?.id);
   const activeModule = useMemo(() => byId(modules, moduleId), [modules, moduleId]);
@@ -239,6 +421,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [activeFamily, setActiveFamily] = useState<string>("Location");
   const [showSelectedOnly, setShowSelectedOnly] = useState(false);
   const [utilityModifierState, setUtilityModifierState] = useState<Record<string, boolean>>({});
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [shareSyncEnabled, setShareSyncEnabled] = useState(false);
 
   // VAP pretest risk modifiers (OR-informed, applied before diagnostic LR stack)
   const [useVapRiskModifiers, setUseVapRiskModifiers] = useState(false);
@@ -276,8 +460,87 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [handocOnlyOneSpecies, setHandocOnlyOneSpecies] = useState(false);
   const [handocCommunityAcquired, setHandocCommunityAcquired] = useState(false);
 
+  useEffect(() => {
+    if (typeof window === "undefined" || didHydrateFromUrlRef.current) return;
+    didHydrateFromUrlRef.current = true;
+
+    const raw = new URLSearchParams(window.location.search).get(SHARE_PARAM);
+    if (!raw) {
+      setShareSyncEnabled(true);
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(raw) as Record<string, unknown>;
+      suppressModuleResetRef.current = true;
+
+      if (typeof parsed.moduleId === "string") setModuleId(parsed.moduleId);
+      if (typeof parsed.presetId === "string") setPresetId(parsed.presetId);
+
+      setStates(toFindingStateMap(parsed.states));
+      setClickOrder(toStringArray(parsed.clickOrder));
+      setUtilityModifierState(toBooleanRecord(parsed.utilityModifierState));
+
+      if (typeof parsed.useVapRiskModifiers === "boolean") setUseVapRiskModifiers(parsed.useVapRiskModifiers);
+      setVapRiskState((prev) => ({ ...prev, ...toBooleanRecord(parsed.vapRiskState) }) as Record<VapRiskFactorId, boolean>);
+
+      if (typeof parsed.useEndoRiskModifiers === "boolean") setUseEndoRiskModifiers(parsed.useEndoRiskModifiers);
+      setEndoRiskState((prev) => ({ ...prev, ...toBooleanRecord(parsed.endoRiskState) }) as Record<EndoRiskFactorId, boolean>);
+
+      if (typeof parsed.useVirsta === "boolean") setUseVirsta(parsed.useVirsta);
+      if (typeof parsed.virstaEmboli === "boolean") setVirstaEmboli(parsed.virstaEmboli);
+      if (typeof parsed.virstaMeningitis === "boolean") setVirstaMeningitis(parsed.virstaMeningitis);
+      if (typeof parsed.virstaIntracardiacDevice === "boolean") setVirstaIntracardiacDevice(parsed.virstaIntracardiacDevice);
+      if (typeof parsed.virstaPriorEndocarditis === "boolean") setVirstaPriorEndocarditis(parsed.virstaPriorEndocarditis);
+      if (typeof parsed.virstaNativeValveDisease === "boolean") setVirstaNativeValveDisease(parsed.virstaNativeValveDisease);
+      if (typeof parsed.virstaIvdu === "boolean") setVirstaIvdu(parsed.virstaIvdu);
+      if (typeof parsed.virstaPersistentBacteremia48h === "boolean") setVirstaPersistentBacteremia48h(parsed.virstaPersistentBacteremia48h);
+      if (typeof parsed.virstaVertebralOsteomyelitis === "boolean") setVirstaVertebralOsteomyelitis(parsed.virstaVertebralOsteomyelitis);
+      if (parsed.virstaAcquisition === "nosocomial" || parsed.virstaAcquisition === "community_or_nhca") {
+        setVirstaAcquisition(parsed.virstaAcquisition);
+      }
+      if (typeof parsed.virstaSevereSepsisShock === "boolean") setVirstaSevereSepsisShock(parsed.virstaSevereSepsisShock);
+      if (typeof parsed.virstaCrpGt190 === "boolean") setVirstaCrpGt190(parsed.virstaCrpGt190);
+
+      if (typeof parsed.useDenova === "boolean") setUseDenova(parsed.useDenova);
+      if (typeof parsed.denovaDuration7d === "boolean") setDenovaDuration7d(parsed.denovaDuration7d);
+      if (typeof parsed.denovaEmbolization === "boolean") setDenovaEmbolization(parsed.denovaEmbolization);
+      if (typeof parsed.denovaNumPositive2 === "boolean") setDenovaNumPositive2(parsed.denovaNumPositive2);
+      if (typeof parsed.denovaOriginUnknown === "boolean") setDenovaOriginUnknown(parsed.denovaOriginUnknown);
+      if (typeof parsed.denovaValveDisease === "boolean") setDenovaValveDisease(parsed.denovaValveDisease);
+      if (typeof parsed.denovaAuscultationMurmur === "boolean") setDenovaAuscultationMurmur(parsed.denovaAuscultationMurmur);
+
+      if (typeof parsed.useHandoc === "boolean") setUseHandoc(parsed.useHandoc);
+      if (typeof parsed.handocHeartMurmurValve === "boolean") setHandocHeartMurmurValve(parsed.handocHeartMurmurValve);
+      if (
+        parsed.handocSpecies === "unspecified_other" ||
+        parsed.handocSpecies === "s_anginosus_group" ||
+        parsed.handocSpecies === "s_gallolyticus_bovis_group" ||
+        parsed.handocSpecies === "s_mutans_group" ||
+        parsed.handocSpecies === "s_sanguinis_group" ||
+        parsed.handocSpecies === "s_mitis_oralis_group" ||
+        parsed.handocSpecies === "s_salivarius_group"
+      ) {
+        setHandocSpecies(parsed.handocSpecies);
+      }
+      if (typeof parsed.handocNumPositive2 === "boolean") setHandocNumPositive2(parsed.handocNumPositive2);
+      if (typeof parsed.handocDuration7d === "boolean") setHandocDuration7d(parsed.handocDuration7d);
+      if (typeof parsed.handocOnlyOneSpecies === "boolean") setHandocOnlyOneSpecies(parsed.handocOnlyOneSpecies);
+      if (typeof parsed.handocCommunityAcquired === "boolean") setHandocCommunityAcquired(parsed.handocCommunityAcquired);
+    } catch {
+      suppressModuleResetRef.current = false;
+    } finally {
+      setShareSyncEnabled(true);
+    }
+  }, []);
+
   // Reset when syndrome changes
   useEffect(() => {
+    if (suppressModuleResetRef.current) {
+      suppressModuleResetRef.current = false;
+      return;
+    }
+
     setPresetId(activeModule.pretestPresets[0]?.id ?? "");
     setStates({});
     setClickOrder([]);
@@ -436,11 +699,113 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     }),
     [activeModule.id, recommendation]
   );
+  const recommendationUi = recommendationTheme(recommendation);
+  const onboarding = syndromeOnboarding(activeModule.id);
+
+  const shareableState = useMemo(
+    () => ({
+      moduleId,
+      presetId,
+      states,
+      clickOrder,
+      utilityModifierState,
+      useVapRiskModifiers,
+      vapRiskState,
+      useEndoRiskModifiers,
+      endoRiskState,
+      useVirsta,
+      virstaEmboli,
+      virstaMeningitis,
+      virstaIntracardiacDevice,
+      virstaPriorEndocarditis,
+      virstaNativeValveDisease,
+      virstaIvdu,
+      virstaPersistentBacteremia48h,
+      virstaVertebralOsteomyelitis,
+      virstaAcquisition,
+      virstaSevereSepsisShock,
+      virstaCrpGt190,
+      useDenova,
+      denovaDuration7d,
+      denovaEmbolization,
+      denovaNumPositive2,
+      denovaOriginUnknown,
+      denovaValveDisease,
+      denovaAuscultationMurmur,
+      useHandoc,
+      handocHeartMurmurValve,
+      handocSpecies,
+      handocNumPositive2,
+      handocDuration7d,
+      handocOnlyOneSpecies,
+      handocCommunityAcquired,
+    }),
+    [
+      clickOrder,
+      denovaAuscultationMurmur,
+      denovaDuration7d,
+      denovaEmbolization,
+      denovaNumPositive2,
+      denovaOriginUnknown,
+      denovaValveDisease,
+      endoRiskState,
+      handocCommunityAcquired,
+      handocDuration7d,
+      handocHeartMurmurValve,
+      handocNumPositive2,
+      handocOnlyOneSpecies,
+      handocSpecies,
+      moduleId,
+      presetId,
+      states,
+      useDenova,
+      useEndoRiskModifiers,
+      useHandoc,
+      useVapRiskModifiers,
+      useVirsta,
+      utilityModifierState,
+      vapRiskState,
+      virstaAcquisition,
+      virstaCrpGt190,
+      virstaEmboli,
+      virstaIntracardiacDevice,
+      virstaIvdu,
+      virstaMeningitis,
+      virstaNativeValveDisease,
+      virstaPersistentBacteremia48h,
+      virstaPriorEndocarditis,
+      virstaSevereSepsisShock,
+      virstaVertebralOsteomyelitis,
+    ]
+  );
 
   const steps = useMemo(
     () => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }),
     [pretestP, clickOrder, itemsById, states]
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!shareSyncEnabled) return;
+
+    const params = new URLSearchParams(window.location.search);
+    params.set(SHARE_PARAM, JSON.stringify(shareableState));
+    const next = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    window.history.replaceState(null, "", next);
+  }, [shareSyncEnabled, shareableState]);
+
+  async function copyShareLink() {
+    if (typeof window === "undefined") return;
+
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setShareStatus("copied");
+      window.setTimeout(() => setShareStatus("idle"), 2000);
+    } catch {
+      setShareStatus("error");
+      window.setTimeout(() => setShareStatus("idle"), 2000);
+    }
+  }
 
   // Apply item state w/ group exclusivity + step ordering
   function setItemState(item: LRItem, next: FindingState) {
@@ -555,6 +920,32 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
       .filter((it) => (states[it.id] ?? "unknown") !== "unknown")
       .map((it) => it.id);
   }, [activeModule.items, states]);
+
+  const selectedItems = useMemo(
+    () =>
+      activeSelected
+        .map((id) => {
+          const item = itemsById.get(id);
+          if (!item) return null;
+          return {
+            id,
+            label: item.label,
+            state: states[id] ?? "unknown",
+          };
+        })
+        .filter((item): item is { id: string; label: string; state: FindingState } => item !== null),
+    [activeSelected, itemsById, states]
+  );
+
+  const presentSelected = useMemo(
+    () => selectedItems.filter((item) => item.state === "present"),
+    [selectedItems]
+  );
+
+  const absentSelected = useMemo(
+    () => selectedItems.filter((item) => item.state === "absent"),
+    [selectedItems]
+  );
 
   const virstaScore = useMemo(() => {
     const deviceOrPriorIePoints = virstaIntracardiacDevice || virstaPriorEndocarditis ? 4 : 0;
@@ -688,21 +1079,54 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const catalogQ = normalize(catalogQuery);
 
   return (
-    <div className="idhub-tool-shell mx-auto max-w-6xl py-6">
-      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
+    <div className="idhub-tool-shell mx-auto max-w-6xl py-6 pb-28 lg:pb-6">
+      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.94))] p-6 shadow-[var(--shadow-medium)] lg:p-7">
         <p className="idhub-kicker">Interactive Tool</p>
         <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ProbID</h1>
-        <p className="mt-4 max-w-4xl text-[var(--muted)]">
-        Choose syndrome, location/setting, and features to estimate post-test probability using likelihood ratios,
-        then compare that probability with a treatment threshold. (Educational aid, not a guideline.)
+        <p className="mt-4 max-w-4xl text-[15px] leading-7 text-[var(--muted)]">
+          Build the case in three steps: choose the syndrome and setting, add findings and tests,
+          then compare the post-test probability with the treatment threshold. (Educational aid, not a guideline.)
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="hidden lg:grid lg:grid-cols-4 lg:gap-4">
+        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Syndrome</div>
+          <div className="mt-2 text-lg font-semibold text-gray-900">{activeModule.name}</div>
+        </div>
+        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Setting</div>
+          <div className="mt-2 text-lg font-semibold text-gray-900">{preset?.label}</div>
+          <div className="mt-1 text-sm text-gray-600">Pretest {formatPct(pretestP)}</div>
+        </div>
+        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Selected evidence</div>
+          <div className="mt-2 text-lg font-semibold text-gray-900">{selectedItems.length} items</div>
+          <div className="mt-1 text-sm text-gray-600">{presentSelected.length} present • {absentSelected.length} absent</div>
+        </div>
+        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Current direction</div>
+          <div className="mt-2 flex items-center gap-2">
+            <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
+              {recommendationStatusLabel(recommendation)}
+            </span>
+            <span className="text-sm font-medium text-gray-700">Post-test {formatPct(postP)}</span>
+          </div>
+          <div className="mt-1 text-sm text-gray-600">Treat threshold {formatPct(treatmentThresholdP)}</div>
+        </div>
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.9fr)_minmax(320px,0.95fr)] xl:gap-7">
         {/* LEFT */}
-        <section className="order-1 rounded-xl border bg-white p-6">
-          <div className="flex items-center justify-between gap-3">
-            <h2 className="text-lg font-semibold text-gray-900">Select features</h2>
+        <section className="order-1 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 1</div>
+              <h2 className="mt-1 text-lg font-semibold text-gray-900">Build the case</h2>
+              <p className="mt-1 text-sm text-gray-600">
+                Pick the syndrome and setting first, then add the findings or tests you actually have.
+              </p>
+            </div>
             <button type="button" onClick={resetAll} className="text-sm text-gray-600 underline hover:text-gray-900">
               Reset
             </button>
@@ -718,7 +1142,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   type="button"
                   onClick={() => setModuleId(m.id)}
                   className={[
-                    "rounded-full border px-3 py-1 text-sm",
+                    `rounded-full border px-3 py-1 text-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:shadow-none ${FOCUS_RING}`,
                     m.id === activeModule.id ? "bg-gray-900 text-white border-gray-900" : "hover:bg-gray-50",
                   ].join(" ")}
                 >
@@ -733,21 +1157,22 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <button
               type="button"
               onClick={() => setCatalogOpen(true)}
-              className="w-full rounded-lg border px-3 py-2 text-sm hover:bg-gray-50"
+              className={`w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-left text-sm transition-all duration-150 hover:-translate-y-0.5 hover:bg-gray-100 hover:shadow-sm active:translate-y-0 active:shadow-none ${FOCUS_RING}`}
             >
-              Browse catalog →
+              <span className="block font-semibold text-gray-900">Add findings and tests</span>
+              <span className="mt-1 block text-xs text-gray-600">Open the catalog to mark items as present or absent.</span>
             </button>
-            <p className="mt-2 text-xs text-gray-600">
-              Pick location/setting + findings/tests in the catalog. Close it when done.
-            </p>
           </div>
 
           {/* Location summary */}
-          <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
+          <div className="mt-6 rounded-xl border bg-gray-50 p-4 text-sm text-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-medium">Location:</span> {preset?.label}
-                <span className="ml-2 text-xs text-gray-600">(Pretest {formatPct(basePretestP)})</span>
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Setting</div>
+                <div className="mt-1">
+                  <span className="font-medium text-gray-900">{preset?.label}</span>
+                  <span className="ml-2 text-xs text-gray-600">Pretest {formatPct(basePretestP)}</span>
+                </div>
                 {showAdjustedPretest ? (
                   <span className="ml-2 text-xs text-gray-600">
                     (Risk-adjusted {formatPct(pretestP)})
@@ -760,11 +1185,121 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   setActiveFamily("Location");
                   setCatalogOpen(true);
                 }}
-                className="text-xs text-gray-600 underline hover:text-gray-900"
+                className={`text-xs text-gray-600 underline hover:text-gray-900 ${FOCUS_RING}`}
               >
                 change
               </button>
             </div>
+          </div>
+
+          {selectedItems.length === 0 ? (
+            <div className="mt-6 rounded-2xl border border-blue-100 bg-[linear-gradient(180deg,#f8fbff,#eef6ff)] p-4 text-sm text-slate-700 shadow-sm">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700">First pass</div>
+              <div className="mt-1 text-base font-semibold text-slate-900">{onboarding.title}</div>
+              <p className="mt-2 leading-6 text-slate-700">{onboarding.summary}</p>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
+                {onboarding.prompts.map((prompt) => (
+                  <li key={prompt} className="flex gap-2">
+                    <span className="mt-1 text-sky-600">•</span>
+                    <span>{prompt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <div className="mt-6 rounded-xl border bg-white p-4">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Step 2</div>
+                <div className="mt-1 text-sm font-semibold text-gray-900">Selected evidence</div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCatalogOpen(true)}
+                className={`rounded-full border px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 ${FOCUS_RING}`}
+              >
+                Edit
+              </button>
+            </div>
+
+            <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
+              <div className="rounded-lg bg-gray-50 px-3 py-2">
+                <div className="text-gray-500">Total</div>
+                <div className="mt-1 text-lg font-semibold text-gray-900">{selectedItems.length}</div>
+              </div>
+              <div className="rounded-lg bg-emerald-50 px-3 py-2">
+                <div className="text-emerald-700">Present</div>
+                <div className="mt-1 text-lg font-semibold text-emerald-900">{presentSelected.length}</div>
+              </div>
+              <div className="rounded-lg bg-slate-100 px-3 py-2">
+                <div className="text-slate-600">Absent</div>
+                <div className="mt-1 text-lg font-semibold text-slate-900">{absentSelected.length}</div>
+              </div>
+            </div>
+
+            {selectedItems.length === 0 ? (
+              <p className="mt-3 text-sm text-gray-600">No findings selected yet.</p>
+            ) : (
+              <>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {selectedItems.slice(0, 6).map((item) => (
+                    <span
+                      key={item.id}
+                      className={[
+                        "rounded-full px-3 py-1 text-xs font-medium",
+                        item.state === "present" ? "bg-emerald-50 text-emerald-900" : "bg-slate-100 text-slate-800",
+                      ].join(" ")}
+                    >
+                      {item.state === "present" ? "+" : "-"} {item.label}
+                    </span>
+                  ))}
+                  {selectedItems.length > 6 ? (
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+                      +{selectedItems.length - 6} more
+                    </span>
+                  ) : null}
+                </div>
+
+                <details className="group mt-4 rounded-lg border bg-gray-50 p-3 transition-colors open:bg-white">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-medium text-gray-900">
+                    <span>Review selected findings</span>
+                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+                  </summary>
+                  <div className="mt-3 divide-y rounded-lg border bg-white">
+                    {activeSelected.map((id) => {
+                      const it = itemsById.get(id);
+                      if (!it) return null;
+                      const locked = isAutoManagedLocked(it.id);
+                      return (
+                        <div key={id} className="px-3 py-2">
+                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                            <div className="min-w-0 flex-1">
+                              <LRItemToggle
+                                item={it}
+                                state={states[it.id] ?? "unknown"}
+                                disabled={locked}
+                                onChange={(next) => setItemState(it, next)}
+                              />
+                            </div>
+
+                            <button
+                              type="button"
+                              disabled={locked}
+                              onClick={() => setItemState(it, "unknown")}
+                              className="mt-1 shrink-0 self-start rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+                              title="Remove"
+                            >
+                              ×
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </details>
+              </>
+            )}
           </div>
 
           {activeModule.id === "vap" ? (
@@ -1162,103 +1697,78 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
           ) : null}
 
-          {/* Selected */}
-          <div className="mt-6">
-            <p className="text-sm font-medium text-gray-700">Selected findings/tests</p>
-
-            {activeSelected.length === 0 ? (
-              <p className="mt-2 text-sm text-gray-600">None selected yet. Open the catalog to add.</p>
-            ) : (
-              <div className="mt-3 divide-y rounded-lg border bg-white">
-                {activeSelected.map((id) => {
-                  const it = itemsById.get(id);
-                  if (!it) return null;
-                  const locked = isAutoManagedLocked(it.id);
-                  return (
-                    <div key={id} className="px-3 py-2">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <div className="min-w-0 flex-1">
-                          <LRItemToggle
-                            item={it}
-                            state={states[it.id] ?? "unknown"}
-                            disabled={locked}
-                            onChange={(next) => setItemState(it, next)}
-                          />
-                        </div>
-
-                        <button
-                          type="button"
-                          disabled={locked}
-                          onClick={() => setItemState(it, "unknown")}
-                          className="mt-1 shrink-0 self-start rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
-                          title="Remove"
-                        >
-                          ×
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
         </section>
 
         {/* MIDDLE */}
-        <section className="order-3 rounded-xl border bg-white p-6 lg:order-2">
-          <h2 className="text-lg font-semibold text-gray-900">Stepwise update</h2>
+        <section className="order-3 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm lg:order-2">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 4</div>
+          <h2 className="mt-1 text-lg font-semibold text-gray-900">See the math</h2>
+          <p className="mt-1 text-sm text-gray-600">
+            Expand this only when you want to see how each LR changed the probability estimate.
+          </p>
 
-          {steps.length === 0 ? (
-            <p className="mt-4 text-gray-700">Choose findings/tests to see stepwise probability updates.</p>
-          ) : (
-            <div className="mt-4 space-y-2 text-sm text-gray-700">
-              <div>
-                Start: <span className="font-semibold">{formatPct(pretestP)}</span>
-                {showAdjustedPretest ? (
-                  <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
-                ) : null}
+          <details className="group mt-4 rounded-xl border bg-gray-50 p-4 transition-colors open:bg-white">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-gray-900">
+              <span>Stepwise update and nomogram</span>
+              <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+            </summary>
+
+            {steps.length === 0 ? (
+              <p className="mt-4 text-sm text-gray-700">Choose findings/tests to see stepwise probability updates.</p>
+            ) : (
+              <div className="mt-4 space-y-2 text-sm text-gray-700">
+                <div>
+                  Start: <span className="font-semibold">{formatPct(pretestP)}</span>
+                  {showAdjustedPretest ? (
+                    <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
+                  ) : null}
+                </div>
+                <ol className="mt-2 space-y-2">
+                  {steps.map((s, idx) => (
+                    <li key={s.id} className="rounded-lg border bg-white p-3">
+                      <div className="font-medium text-gray-900">
+                        {idx + 1}. {s.label}
+                      </div>
+                      <div className="mt-1 text-gray-700">
+                        {s.state === "present" ? "LR+" : "LR−"} {s.lrUsed.toFixed(2)} →{" "}
+                        <span className="font-semibold">{formatPct(s.pAfter)}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <ol className="mt-2 space-y-2">
-                {steps.map((s, idx) => (
-                  <li key={s.id} className="rounded-lg border bg-gray-50 p-3">
-                    <div className="font-medium text-gray-900">
-                      {idx + 1}. {s.label}
-                    </div>
-                    <div className="mt-1 text-gray-700">
-                      {s.state === "present" ? "LR+" : "LR−"} {s.lrUsed.toFixed(2)} →{" "}
-                      <span className="font-semibold">{formatPct(s.pAfter)}</span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
+            )}
 
-          <div className="mt-6">
-            <h3 className="text-sm font-semibold text-gray-900">Fagan nomogram</h3>
-            <div className="mt-2 rounded-lg border bg-gray-50 p-3">
-              <FaganChart pretestP={pretestP} combinedLR={lr} />
+            <div className="mt-6">
+              <h3 className="text-sm font-semibold text-gray-900">Fagan nomogram</h3>
+              <div className="mt-2 rounded-lg border bg-white p-3">
+                <FaganChart pretestP={pretestP} combinedLR={lr} />
+              </div>
             </div>
-          </div>
 
-          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-3 text-xs leading-6 text-gray-600">
-            Multiplying LRs assumes conditional independence. Correlated inputs may overestimate certainty.
-          </div>
+            <div className="mt-6 rounded-lg border border-gray-200 bg-white p-3 text-xs leading-6 text-gray-600">
+              Multiplying LRs assumes conditional independence. Correlated inputs may overestimate certainty.
+            </div>
+          </details>
         </section>
 
         {/* RIGHT */}
-        <section className="order-2 rounded-xl border bg-white p-6 lg:order-3">
-          <h2 className="text-lg font-semibold text-gray-900">Post-test probability</h2>
+        <section id="probid-result" className="order-2 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm lg:order-3 xl:sticky xl:top-6 xl:self-start">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 3</div>
+          <h2 className="mt-1 text-lg font-semibold text-gray-900">Interpret the result</h2>
+          <p className="mt-1 text-sm text-gray-600">
+            The post-test probability is the estimate. The threshold tells you when treatment becomes worth it.
+          </p>
 
-          <div className="mt-4 rounded-lg border bg-gray-50 p-4">
+          <div className="mt-4 rounded-xl border bg-gray-50 p-4">
             <div className="flex items-center justify-between gap-3">
-              <div className="font-semibold text-gray-900">Estimated probability</div>
+              <div className="font-semibold text-gray-900">Post-test probability</div>
               <div className="text-sm text-gray-700">
                 {showAdjustedPretest ? (
                   <>
-                    Base <span className="font-semibold">{formatPct(basePretestP)}</span>{" "}
+                    Base <span className="font-semibold">{formatPct(basePretestP)}</span>
                     <span className="mx-1">•</span>
-                    Adj pretest <span className="font-semibold">{formatPct(pretestP)}</span>
+                    Adjusted <span className="font-semibold">{formatPct(pretestP)}</span>
                   </>
                 ) : (
                   <>
@@ -1270,29 +1780,100 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
             <div className="mt-2 text-5xl font-extrabold tracking-tight text-gray-900">{formatPct(postP)}</div>
 
-            <div className="mt-3 text-sm text-gray-700">
-              Combined LR: <span className="font-semibold">{lr.toFixed(2)}</span>
+            <div className="mt-4 grid grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div className="rounded-lg border bg-white px-3 py-2">
+                <div className="text-gray-500">Treatment threshold</div>
+                <div className="mt-1 font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</div>
+              </div>
+              <div className="rounded-lg border bg-white px-3 py-2">
+                <div className="text-gray-500">Combined LR</div>
+                <div className="mt-1 font-semibold text-gray-900">{lr.toFixed(2)}</div>
+              </div>
             </div>
 
-            <div className="mt-3 text-xs text-gray-600">Educational estimate only. Always use clinical context.</div>
+            <details className="group mt-4 rounded-lg border bg-white p-3 text-xs text-gray-700 transition-colors open:bg-gray-50">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
+                <span>Quick guide: pretest, LR, threshold</span>
+                <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+              </summary>
+              <div className="mt-3 grid gap-2 sm:grid-cols-3">
+                <div className="rounded-lg bg-gray-50 px-3 py-2">
+                  <div className="font-semibold text-gray-900">Pretest</div>
+                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("pretest")}</div>
+                </div>
+                <div className="rounded-lg bg-gray-50 px-3 py-2">
+                  <div className="font-semibold text-gray-900">Combined LR</div>
+                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("lr")}</div>
+                </div>
+                <div className="rounded-lg bg-gray-50 px-3 py-2">
+                  <div className="font-semibold text-gray-900">Threshold</div>
+                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("threshold")}</div>
+                </div>
+              </div>
+            </details>
+
+          <div className="mt-3 text-xs text-gray-600">Educational estimate only. Always use clinical context.</div>
+          </div>
+
+          <div className="mt-4">
+            <MobileResultSummary
+              setting={preset?.label ?? activeModule.pretestPresets[0]?.label ?? "Unknown"}
+              selectedCount={selectedItems.length}
+              postP={postP}
+              treatmentThresholdP={treatmentThresholdP}
+              lr={lr}
+            />
+          </div>
+
+          <div className={["mt-4 rounded-xl border px-4 py-4", recommendationUi.panel].join(" ")}>
+            <div className="flex items-center justify-between gap-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] opacity-80">Current recommendation</div>
+              <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
+                {recommendationStatusLabel(recommendation)}
+              </span>
+            </div>
+            <div className="mt-2 text-lg font-semibold">{recommendationCopy.headline}</div>
+            {recommendationCopy.detail ? (
+              <div className="mt-2 text-sm leading-6 opacity-90">{recommendationCopy.detail}</div>
+            ) : null}
+            <div className="mt-3 text-xs opacity-80">
+              Post-test {formatPct(postP)} versus threshold {formatPct(treatmentThresholdP)}.
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={copyShareLink}
+                className={`rounded-full border border-current/20 bg-white/70 px-3 py-1.5 text-xs font-semibold text-inherit transition hover:bg-white ${FOCUS_RING}`}
+              >
+                Copy share link
+              </button>
+              <span aria-live="polite" className="text-xs opacity-80">
+                {shareStatus === "copied"
+                  ? "Link copied"
+                  : shareStatus === "error"
+                    ? "Could not copy link"
+                    : "This case setup is kept in the URL."}
+              </span>
+            </div>
           </div>
 
           {adjustedUtilityModel ? (
-            <details className="mt-4 rounded-lg border p-4">
-              <summary className="cursor-pointer list-none text-sm font-semibold text-gray-900">
+            <details className="group mt-4 rounded-xl border p-4 transition-colors open:bg-gray-50">
+              <summary className="cursor-pointer list-none">
                 <span className="flex items-center justify-between gap-3">
-                  <span>Personalize threshold</span>
+                  <span className="text-sm font-semibold text-gray-900">Patient factors</span>
                   <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700">
                     {activeUtilityModifierIds.length} selected
                   </span>
+                  <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
                 </span>
               </summary>
               <p className="mt-3 text-xs leading-5 text-gray-600">
-                Toggle patient factors that change the relative harm of missing CAP versus giving empiric antibiotics.
+                Toggle factors that make missing CAP more harmful or empiric antibiotics less desirable.
               </p>
               <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {adjustedUtilityModel.model.modifiers.map((modifier) => (
-                  <label key={modifier.id} className="rounded-md border bg-gray-50 px-3 py-2 text-xs text-gray-700">
+                  <label key={modifier.id} className="rounded-lg border bg-gray-50 px-3 py-3 text-xs text-gray-700">
                     <span className="flex items-start gap-2">
                       <input
                         type="checkbox"
@@ -1309,19 +1890,19 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                 ))}
               </div>
               <p className="mt-3 text-[11px] leading-5 text-gray-600">
-                CAP v1 uses structured utilities anchored to published lower-respiratory-infection burden data and ATS/IDSA CAP severity concepts. Utilities are transparent estimates, not exact bedside preference measurements.
+                CAP v1 uses transparent structured utilities anchored to published lower-respiratory-infection burden data and CAP severity concepts.
               </p>
             </details>
           ) : null}
 
-          <div className="mt-4 rounded-lg border p-4">
+          <div className="mt-4 rounded-xl border p-4">
             <div className="text-sm font-semibold text-gray-900">
-              {adjustedUtilityModel ? "Treatment threshold" : "Decision layer (heuristic fallback)"}
+              {adjustedUtilityModel ? "When do antibiotics become worth it?" : "Decision thresholds"}
             </div>
             {adjustedUtilityModel ? (
               <>
                 <p className="mt-1 text-xs text-gray-600">
-                  CAP uses a binary expected-utility model: treat empirically when the post-test probability exceeds the personalized threshold implied by the selected utility terms.
+                  For CAP, treat empirically when the post-test probability rises above the threshold implied by the selected patient factors.
                 </p>
 
                 {expectedUtilityResult ? (
@@ -1343,8 +1924,53 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   </div>
                 ) : null}
 
-                <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
-                  <summary className="cursor-pointer font-semibold text-gray-900">How utilities were adjusted</summary>
+                <div className="mt-3 text-sm text-gray-700">
+                  Antibiotics become worth it at: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
+                </div>
+
+                <div className="mt-2 space-y-2">
+                  <div className="relative h-3 overflow-hidden rounded-full bg-gray-200">
+                    <div
+                      className="absolute inset-y-0 left-0 bg-slate-200"
+                      style={{ width: `${Math.max(0, Math.min(100, treatmentThresholdP * 100))}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute inset-y-0 right-0 bg-emerald-100"
+                      style={{ width: `${Math.max(0, Math.min(100, 100 - treatmentThresholdP * 100))}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
+                      style={{ left: `${treatmentThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className={[
+                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
+                        recommendationUi.dot,
+                      ].join(" ")}
+                      style={{ left: `${postP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-gray-600">
+                    <span>0%</span>
+                    <span>Below threshold</span>
+                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
+                    <span>100%</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-[11px] text-gray-600">
+                    <div className="rounded-md bg-slate-100 px-2 py-1">Below threshold: keep reassessing</div>
+                    <div className="rounded-md bg-emerald-50 px-2 py-1 text-emerald-900">At/above threshold: empiric treatment is justified</div>
+                  </div>
+                </div>
+
+                <details className="group mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700 transition-colors open:bg-white">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
+                    <span>Why the threshold moved</span>
+                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+                  </summary>
                   <div className="mt-2 space-y-2">
                     {(["treatDisease", "noTreatDisease", "treatNoDisease", "noTreatNoDisease"] as const).map((key) => {
                       const term = adjustedUtilityModel.terms[key];
@@ -1393,40 +2019,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                     ) : null}
                   </div>
                 </details>
-
-                <div className="mt-3 text-sm text-gray-700">
-                  Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
-                </div>
-
-                <div className="mt-2 space-y-2">
-                  <div className="relative h-2 rounded bg-gray-200">
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
-                      style={{ left: `${treatmentThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className={[
-                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
-                        recommendation === "treat" ? "border-emerald-700 bg-emerald-500" : "border-amber-700 bg-amber-500",
-                      ].join(" ")}
-                      style={{ left: `${postP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-gray-600">
-                    <span>0%</span>
-                    <span>Below threshold</span>
-                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
-                    <span>100%</span>
-                  </div>
-                </div>
               </>
             ) : (
               <>
                 <p className="mt-1 text-xs text-gray-600">
-                  Harms are auto-estimated from syndrome + selected high-impact findings. Treatment threshold uses:
-                  P(treat) = Harm of unnecessary treatment / (Harm of unnecessary treatment + Harm of missed diagnosis).
+                  For non-CAP syndromes, the threshold uses estimated harms of missed diagnosis versus unnecessary treatment.
                 </p>
 
                 <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
@@ -1440,8 +2037,70 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                   </div>
                 </div>
 
-                <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
-                  <summary className="cursor-pointer font-semibold text-gray-900">What is driving harm?</summary>
+                <div className="mt-3 text-sm text-gray-700">
+                  Treat at: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
+                </div>
+                <div className="text-sm text-gray-700">
+                  Observe at or below: <span className="font-semibold">{formatPct(heuristicObserveThresholdP)}</span>
+                </div>
+
+                <div className="mt-2 space-y-2">
+                  <div className="relative h-3 overflow-hidden rounded-full bg-gray-200">
+                    <div
+                      className="absolute inset-y-0 left-0 bg-sky-100"
+                      style={{ width: `${Math.max(0, Math.min(100, heuristicObserveThresholdP * 100))}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute inset-y-0 bg-amber-100"
+                      style={{
+                        left: `${Math.max(0, Math.min(100, heuristicObserveThresholdP * 100))}%`,
+                        width: `${Math.max(0, Math.min(100, (treatmentThresholdP - heuristicObserveThresholdP) * 100))}%`,
+                      }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute inset-y-0 right-0 bg-emerald-100"
+                      style={{ width: `${Math.max(0, Math.min(100, 100 - treatmentThresholdP * 100))}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
+                      style={{ left: `${heuristicObserveThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
+                      style={{ left: `${treatmentThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className={[
+                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
+                        recommendationUi.dot,
+                      ].join(" ")}
+                      style={{ left: `${postP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-gray-600">
+                    <span>0%</span>
+                    <span>Observe &le; {formatPct(heuristicObserveThresholdP)}</span>
+                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
+                    <span>100%</span>
+                  </div>
+                  <div className="grid gap-2 text-[11px] text-gray-600 sm:grid-cols-3">
+                    <div className="rounded-md bg-sky-50 px-2 py-1 text-sky-900">Low zone: observation is reasonable</div>
+                    <div className="rounded-md bg-amber-50 px-2 py-1 text-amber-900">Middle zone: gather more data</div>
+                    <div className="rounded-md bg-emerald-50 px-2 py-1 text-emerald-900">High zone: treatment is justified</div>
+                  </div>
+                </div>
+
+                <details className="group mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700 transition-colors open:bg-white">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
+                    <span>What is driving harm?</span>
+                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+                  </summary>
                   <div className="mt-2 space-y-1">
                     <div>
                       <div className="flex items-center justify-between">
@@ -1491,102 +2150,44 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                         ) : null}
                       </div>
                     ))}
-                    <div className="mt-1 border-t pt-1 flex items-center justify-between">
+                    <div className="mt-1 flex items-center justify-between border-t pt-1">
                       <span>Total missed-diagnosis harm</span>
                       <span className="font-semibold">{harmEstimate.missedDx}</span>
                     </div>
                   </div>
                 </details>
-
-                <div className="mt-3 text-sm text-gray-700">
-                  Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
-                </div>
-                <div className="text-sm text-gray-700">
-                  Observation threshold: <span className="font-semibold">{formatPct(heuristicObserveThresholdP)}</span>
-                </div>
-
-                <div className="mt-2 space-y-2">
-                  <div className="relative h-2 rounded bg-gray-200">
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
-                      style={{ left: `${heuristicObserveThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
-                      style={{ left: `${treatmentThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className={[
-                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
-                        recommendation === "treat"
-                          ? "border-emerald-700 bg-emerald-500"
-                          : recommendation === "observe"
-                            ? "border-sky-700 bg-sky-500"
-                            : "border-amber-700 bg-amber-500",
-                      ].join(" ")}
-                      style={{ left: `${postP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-gray-600">
-                    <span>0%</span>
-                    <span>Observe &le; {formatPct(heuristicObserveThresholdP)}</span>
-                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
-                    <span>100%</span>
-                  </div>
-                </div>
               </>
             )}
-
-            <div
-              className={[
-                "mt-3 rounded-md border px-3 py-2 text-sm",
-                recommendation === "treat"
-                  ? "border-emerald-200 bg-emerald-50 text-emerald-900"
-                  : recommendation === "observe"
-                  ? "border-sky-200 bg-sky-50 text-sky-900"
-                  : "border-amber-200 bg-amber-50 text-amber-900",
-              ].join(" ")}
-            >
-              <span className="font-semibold">
-                {recommendationCopy.headline}
-              </span>
-              <span className="ml-2">
-                (Post-test {formatPct(postP)})
-              </span>
-              {recommendationCopy.detail ? (
-                <div className="mt-2 text-xs leading-5 opacity-90">{recommendationCopy.detail}</div>
-              ) : null}
-            </div>
-
-            {recommendationCopy.nextSteps.length > 0 ? (
-              <div className="mt-3 rounded-md border border-gray-200 bg-white px-3 py-3">
-                <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">Suggested next steps</div>
-                <ul className="mt-2 list-disc pl-5 text-xs leading-5 text-gray-700">
-                  {recommendationCopy.nextSteps.map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
 
             <div className="mt-3 text-xs text-gray-600">
               {adjustedUtilityModel
                 ? adjustedUtilityModel.model.summary
                 : harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
-                ? harmEstimate.rationale[0]
-                : "Harm estimates are heuristic and configurable in lib/probidDecision.ts."}
+                  ? harmEstimate.rationale[0]
+                  : "Harm estimates are heuristic and configurable in lib/probidDecision.ts."}
             </div>
           </div>
 
-          <div className="mt-4 rounded-lg border p-4">
-            <div className="text-sm font-semibold text-gray-900">What’s driving it?</div>
+          {recommendationCopy.nextSteps.length > 0 ? (
+            <div className="mt-4 rounded-xl border border-gray-200 bg-white px-4 py-4">
+              <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">Suggested next steps</div>
+              <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-gray-700">
+                {recommendationCopy.nextSteps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <details className="group mt-4 rounded-xl border p-4 transition-colors open:bg-gray-50">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-gray-900">
+              <span>What is driving the estimate?</span>
+              <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
+            </summary>
             {steps.length === 0 ? (
               <p className="mt-2 text-sm text-gray-700">No selected findings yet.</p>
             ) : (
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700">
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-gray-700">
                 {steps.slice(-5).map((s) => (
                   <li key={s.id}>
                     {s.label}: {s.state === "present" ? "LR+" : "LR−"} {s.lrUsed.toFixed(2)}
@@ -1594,9 +2195,32 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                 ))}
               </ul>
             )}
-          </div>
+          </details>
         </section>
       </div>
+
+      {!catalogOpen ? (
+        <div className="fixed inset-x-3 bottom-3 z-40 lg:hidden">
+          <a
+            href="#probid-result"
+            className={`block rounded-2xl border border-gray-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur transition-transform duration-150 active:scale-[0.99] ${FOCUS_RING}`}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Current result</div>
+                <div className="mt-1 text-sm font-semibold text-gray-900">{recommendationCopy.headline}</div>
+              </div>
+              <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
+                {recommendationStatusLabel(recommendation)}
+              </span>
+            </div>
+            <div className="mt-2 flex items-center gap-3 text-xs text-gray-600">
+              <span>Post-test <span className="font-semibold text-gray-900">{formatPct(postP)}</span></span>
+              <span>Treat at <span className="font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</span></span>
+            </div>
+          </a>
+        </div>
+      ) : null}
 
         <div className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 text-sm text-gray-600">
             Educational content only. Not medical advice.{" "}
@@ -1613,18 +2237,24 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           CATALOG MODAL (2-pane)
          ========================= */}
       {catalogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true">
+        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4" role="dialog" aria-modal="true">
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/30" onClick={() => setCatalogOpen(false)} aria-hidden="true" />
 
           {/* Panel */}
-          <div className="relative z-10 flex h-[min(720px,calc(100dvh-1rem))] max-h-[calc(100dvh-1rem)] w-[min(980px,calc(100vw-1rem))] flex-col overflow-hidden rounded-[1.25rem] border bg-white shadow-lg sm:rounded-[1.5rem]">
+          <div className="relative z-10 flex h-[92dvh] max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[1.5rem] border bg-white shadow-lg sm:h-[min(720px,calc(100dvh-1rem))] sm:max-h-[calc(100dvh-1rem)] sm:w-[min(980px,calc(100vw-1rem))] sm:rounded-[1.5rem]">
             {/* Header */}
-            <div className="flex items-start justify-between gap-4 border-b p-4">
+            <div className="flex items-start justify-between gap-4 border-b bg-white p-4">
+              <div className="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-gray-200 sm:hidden" aria-hidden="true" />
               <div className="min-w-0">
                 <div className="text-lg font-semibold text-gray-900">Browse catalog</div>
                 <div className="mt-1 text-sm text-gray-600">
                   Pick a category on the left, then mark items as Present/Absent. (Esc to close.)
+                </div>
+                <div className="mt-2 text-xs text-gray-500">
+                  Selected <span className="font-semibold text-gray-900">{activeSelected.length}</span>
+                  <span className="mx-2">•</span>
+                  Pretest <span className="font-semibold text-gray-900">{formatPct(pretestP)}</span>
                 </div>
               </div>
 
@@ -1638,7 +2268,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
 
             {/* Top controls */}
-            <div className="border-b p-4">
+            <div className="border-b bg-white p-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="w-full sm:max-w-md">
                   <label className="text-sm font-medium text-gray-700">Search</label>
@@ -1677,7 +2307,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             {/* Body: 2-pane layout (right pane scrolls) */}
             <div className="flex min-h-0 flex-1 flex-col md:flex-row">
               {/* LEFT: categories */}
-              <aside className="w-full border-b bg-gray-50 p-2 md:w-52 md:border-b-0 md:border-r">
+              <aside className="sticky top-0 z-10 w-full border-b bg-gray-50 p-2 md:static md:w-52 md:border-b-0 md:border-r">
                 <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-600">Categories</div>
 
                 <div className="flex gap-2 overflow-x-auto pb-1 md:block md:overflow-visible md:pb-0">
@@ -1774,7 +2404,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                   return (
                                     <div key={it.id} className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
                                       <div className="min-w-0">
-                                        <div className="truncate text-sm font-medium text-gray-900">{it.label}</div>
+                                        <div className="text-sm font-medium text-gray-900">{it.label}</div>
                                         {it.notes ? (
                                           <div className="mt-0.5 text-xs text-gray-600">{it.notes}</div>
                                         ) : null}
@@ -1807,7 +2437,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                           disabled={locked}
                                           onClick={() => setItemState(it, "present")}
                                           className={[
-                                            "rounded-md border px-2 py-1 text-xs disabled:opacity-40 disabled:cursor-not-allowed",
+                                            "rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40",
                                             isPresent
                                               ? "border-gray-900 bg-gray-900 text-white"
                                               : "hover:bg-gray-50",
@@ -1820,7 +2450,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                           disabled={locked}
                                           onClick={() => setItemState(it, "absent")}
                                           className={[
-                                            "rounded-md border px-2 py-1 text-xs disabled:opacity-40 disabled:cursor-not-allowed",
+                                            "rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40",
                                             isAbsent
                                               ? "border-gray-900 bg-gray-900 text-white"
                                               : "hover:bg-gray-50",
@@ -1832,7 +2462,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                                           type="button"
                                           disabled={locked}
                                           onClick={() => setItemState(it, "unknown")}
-                                          className="rounded-md border px-2 py-1 text-xs hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                                          className="rounded-lg border px-3 py-2 text-xs font-medium hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
                                           title="Clear"
                                         >
                                           Clear
@@ -1853,7 +2483,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             </div>
 
             {/* Footer */}
-            <div className="border-t bg-white p-3">
+            <div className="border-t bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="text-sm text-gray-700">
                   Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
