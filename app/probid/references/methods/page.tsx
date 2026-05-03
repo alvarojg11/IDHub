@@ -202,60 +202,67 @@ export default function ProbIDMethodsPage() {
           </div>
         </Callout>
 
-        <Callout title="4) Decision Layer: How Harms and Thresholds Are Computed">
+        <Callout title="4) Decision Layer: How Treatment Thresholds Are Computed">
           <p>
-            ProbID now includes a decision layer that estimates whether to{" "}
-            <span className="font-semibold text-[var(--foreground)]">observe</span>,{" "}
-            <span className="font-semibold text-[var(--foreground)]">test further</span>, or{" "}
-            <span className="font-semibold text-[var(--foreground)]">treat now</span>, based on post-test probability.
+            ProbID now separates two questions: <span className="font-semibold text-[var(--foreground)]">how likely is the disease?</span> and{" "}
+            <span className="font-semibold text-[var(--foreground)]">at what probability does treatment become worth it?</span>
+            The CAP module now uses an expected-utility treatment threshold; other modules still use a transparent heuristic fallback while they are being upgraded.
           </p>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-              <div className="text-sm font-semibold text-[var(--foreground)]">A) Harm inputs</div>
+              <div className="text-sm font-semibold text-[var(--foreground)]">A) CAP expected-utility model</div>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Harms are auto-estimated from:
+                CAP uses four outcome utilities over a short acute-illness horizon:
               </p>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
-                <li>Syndrome-specific baseline harm pair</li>
-                <li>Incremental adjustments from selected high-impact findings</li>
+                <li>Treat + true CAP</li>
+                <li>No treat + true CAP</li>
+                <li>Treat + no CAP</li>
+                <li>No treat + no CAP</li>
               </ul>
               <p className="mt-2 text-xs text-[var(--muted)]">
-                In the app, each baseline and increment includes a literature anchor shown in the expanded harm panel.
-              </p>
-              <p className="mt-2 text-xs text-[var(--muted)]">
-                Current implementation is a transparent heuristic, not a validated utility model.
+                These values are structured estimates anchored to published lower-respiratory-infection burden data, adult CAP severity concepts, and outpatient antibiotic adverse-event burden. Patient factors shift the utilities in transparent, visible ways.
               </p>
             </div>
 
             <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-              <div className="text-sm font-semibold text-[var(--foreground)]">B) Treatment threshold</div>
+              <div className="text-sm font-semibold text-[var(--foreground)]">B) CAP treatment threshold</div>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Once harms are estimated, treatment threshold is calculated as:
+                For CAP, expected utility is computed directly:
+              </p>
+              <div className="mt-3">
+                <Formula>EU(treat) = P(CAP) × U(treat, CAP) + (1 − P(CAP)) × U(treat, no CAP)</Formula>
+              </div>
+              <div className="mt-3">
+                <Formula>EU(no treat) = P(CAP) × U(no treat, CAP) + (1 − P(CAP)) × U(no treat, no CAP)</Formula>
+              </div>
+              <p className="mt-3 text-sm text-[var(--muted)]">
+                Treatment is justified when <span className="font-semibold text-[var(--foreground)]">EU(treat) &gt; EU(no treat)</span>. Solving that equality for probability gives the treatment threshold:
               </p>
               <div className="mt-3">
                 <Formula>
-                  P(treat) = H(unnecessary treatment) / (H(unnecessary treatment) + H(missed diagnosis))
+                  T = [U(no treat, no CAP) − U(treat, no CAP)] / [(U(treat, CAP) − U(no treat, CAP)) + (U(no treat, no CAP) − U(treat, no CAP))]
                 </Formula>
               </div>
             </div>
           </div>
 
           <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-            <div className="text-sm font-semibold text-[var(--foreground)]">C) Observation threshold and recommendation</div>
+            <div className="text-sm font-semibold text-[var(--foreground)]">C) Recommendation logic in the app</div>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              MVP uses:
+              The CAP module currently uses a binary decision threshold:
             </p>
             <div className="mt-3 space-y-2">
-              <Formula>P(observe) = 0.5 × P(treat)</Formula>
+              <Formula>If post-test p(CAP) ≥ T, empiric treatment is justified.</Formula>
             </div>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
-              <li>If post-test p ≤ P(observe): Observe/monitor</li>
-              <li>If P(observe) &lt; post-test p &lt; P(treat): Pursue further testing</li>
-              <li>If post-test p ≥ P(treat): Treat now</li>
+              <li>If post-test p(CAP) is below threshold, the app recommends reassessment or further testing rather than immediate empiric antibiotics.</li>
+              <li>If post-test p(CAP) is above threshold, the app recommends empiric CAP treatment.</li>
+              <li>Modules without a true utility model still use the older heuristic observe/test/treat fallback.</li>
             </ul>
             <p className="mt-3 text-xs text-[var(--muted)]">
-              The harm model is configurable in <span className="font-mono">lib/probidDecision.ts</span>.
+              Utility-backed treatment models live in <span className="font-mono">lib/probidExpectedUtility.ts</span>. Heuristic fallback thresholds remain configurable in <span className="font-mono">lib/probidDecision.ts</span>.
             </p>
           </div>
         </Callout>

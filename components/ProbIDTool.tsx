@@ -5,6 +5,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import type { FindingState, LRItem, SyndromeLRModule } from "@/lib/lrTypes";
 import { combinedLR, postTestProb, buildStepwisePath, formatPct, clamp } from "@/lib/lrMath";
 import { deriveDecisionThresholds, estimateHarms } from "@/lib/probidDecision";
+import {
+  applyUtilityModifiers,
+  calculateExpectedUtilities,
+  deriveTreatmentThresholdFromUtilities,
+  getTreatmentUtilityModel,
+} from "@/lib/probidExpectedUtility";
 import { FaganChart } from "@/components/FaganChart";
 import { LRItemToggle } from "@/components/LRItemToggle";
 import { FAMILY_ORDER, familyFor, matchesQuery, normalize } from "@/lib/probidCatalog";
@@ -16,6 +22,11 @@ type Props = {
 };
 
 function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "cap") {
+    if (recommendation === "treat") return "Empiric CAP treatment justified";
+    if (recommendation === "observe") return "Monitor off antibiotics";
+    return "Antibiotics not yet justified";
+  }
   if (moduleId !== "inv_mold") {
     if (recommendation === "treat") return "Treat now";
     if (recommendation === "observe") return "Observe / monitor";
@@ -27,6 +38,15 @@ function recommendationHeadline(moduleId: string, recommendation: "treat" | "tes
 }
 
 function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "cap") {
+    if (recommendation === "treat") {
+      return "The current post-test probability is above the personalized CAP treatment threshold implied by the selected patient factors.";
+    }
+    if (recommendation === "test") {
+      return "The current post-test probability remains below the personalized CAP treatment threshold, so reassessment or additional data is preferred over immediate empiric antibiotics.";
+    }
+    return "Current data support monitoring rather than empiric antibiotics.";
+  }
   if (moduleId !== "inv_mold") return null;
   if (recommendation === "treat") {
     return "Invasive mold infection is concerning enough that empiric mold-active therapy is reasonable while you continue confirming the diagnosis and reassessing competing explanations.";
@@ -38,6 +58,18 @@ function recommendationDetail(moduleId: string, recommendation: "treat" | "test"
 }
 
 function recommendationNextSteps(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "cap") {
+    if (recommendation === "treat") {
+      return [
+        "Choose empiric CAP therapy that matches the care setting, comorbidities, and allergy profile.",
+        "Reassess oxygenation and severity markers early in case escalation or admission is needed.",
+      ];
+    }
+    return [
+      "Reassess trajectory, oxygenation, and chest imaging if CAP remains plausible.",
+      "Keep non-pneumonia causes of respiratory symptoms in play before committing to antibiotics.",
+    ];
+  }
   if (moduleId !== "inv_mold") return [] as string[];
   if (recommendation === "treat") {
     return [
@@ -56,6 +88,14 @@ function recommendationNextSteps(moduleId: string, recommendation: "treat" | "te
   return [
     "Reassess alternative diagnoses such as bacterial pneumonia, other fungal infection, nocardiosis, malignancy, drug toxicity, or noninfectious inflammatory lung disease.",
   ];
+}
+
+function formatUtility(value: number) {
+  return value.toFixed(3);
+}
+
+function formatUtilityDelta(value: number) {
+  return `${value > 0 ? "+" : ""}${value.toFixed(3)}`;
 }
 
 type VirstaAcquisition = "nosocomial" | "community_or_nhca";
@@ -198,6 +238,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [catalogQuery, setCatalogQuery] = useState("");
   const [activeFamily, setActiveFamily] = useState<string>("Location");
   const [showSelectedOnly, setShowSelectedOnly] = useState(false);
+  const [utilityModifierState, setUtilityModifierState] = useState<Record<string, boolean>>({});
 
   // VAP pretest risk modifiers (OR-informed, applied before diagnostic LR stack)
   const [useVapRiskModifiers, setUseVapRiskModifiers] = useState(false);
@@ -243,6 +284,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
+    setUtilityModifierState({});
     setUseVapRiskModifiers(false);
     setVapRiskState(DEFAULT_VAP_RISK_STATE);
     setUseEndoRiskModifiers(false);
@@ -343,6 +385,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     (activeModule.id === "endo" && useEndoRiskModifiers);
 
   const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
+  const treatmentUtilityModel = useMemo(() => getTreatmentUtilityModel(activeModule.id), [activeModule.id]);
+  const activeUtilityModifierIds = useMemo(
+    () => Object.entries(utilityModifierState).filter(([, enabled]) => enabled).map(([id]) => id),
+    [utilityModifierState]
+  );
 
   const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
@@ -355,11 +402,32 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     } as Record<string, FindingState>;
   }, [activeModule.id, useEndoRiskModifiers, endoRiskState, states]);
   const harmEstimate = useMemo(() => estimateHarms(activeModule.id, harmStates), [activeModule.id, harmStates]);
-  const { treatThresholdP: treatmentThresholdP, observeThresholdP } = useMemo(
+  const { treatThresholdP: heuristicTreatThresholdP, observeThresholdP: heuristicObserveThresholdP } = useMemo(
     () => deriveDecisionThresholds(harmEstimate),
     [harmEstimate]
   );
-  const recommendation = postP >= treatmentThresholdP ? "treat" : postP <= observeThresholdP ? "observe" : "test";
+  const adjustedUtilityModel = useMemo(
+    () => (treatmentUtilityModel ? applyUtilityModifiers(treatmentUtilityModel, activeUtilityModifierIds) : null),
+    [treatmentUtilityModel, activeUtilityModifierIds]
+  );
+  const expectedUtilityResult = useMemo(
+    () => (adjustedUtilityModel ? calculateExpectedUtilities(adjustedUtilityModel.terms, postP) : null),
+    [adjustedUtilityModel, postP]
+  );
+  const utilityTreatmentThresholdP = useMemo(
+    () => (adjustedUtilityModel ? deriveTreatmentThresholdFromUtilities(adjustedUtilityModel.terms) : null),
+    [adjustedUtilityModel]
+  );
+  const treatmentThresholdP = utilityTreatmentThresholdP ?? heuristicTreatThresholdP;
+  const recommendation = adjustedUtilityModel
+    ? postP >= treatmentThresholdP
+      ? "treat"
+      : "test"
+    : postP >= treatmentThresholdP
+      ? "treat"
+      : postP <= heuristicObserveThresholdP
+        ? "observe"
+        : "test";
   const recommendationCopy = useMemo(
     () => ({
       headline: recommendationHeadline(activeModule.id, recommendation),
@@ -420,6 +488,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setCatalogQuery("");
     setActiveFamily("Location");
     setShowSelectedOnly(false);
+    setUtilityModifierState({});
     setUseVapRiskModifiers(false);
     setVapRiskState(DEFAULT_VAP_RISK_STATE);
     setUseEndoRiskModifiers(false);
@@ -474,6 +543,10 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   function toggleEndoRiskFactor(id: EndoRiskFactorId) {
     setEndoRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
+  function toggleUtilityModifier(id: string) {
+    setUtilityModifierState((prev) => ({ ...prev, [id]: !prev[id] }));
   }
 
   // Selected: show everything active (not unknown)
@@ -620,14 +693,14 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
         <p className="idhub-kicker">Interactive Tool</p>
         <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ProbID</h1>
         <p className="mt-4 max-w-4xl text-[var(--muted)]">
-        Choose syndrome, location/setting, and features to estimate post-test probability using likelihood ratios.
-        (Educational aid—not a guideline.)
+        Choose syndrome, location/setting, and features to estimate post-test probability using likelihood ratios,
+        then compare that probability with a treatment threshold. (Educational aid, not a guideline.)
         </p>
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* LEFT */}
-        <section className="rounded-xl border bg-white p-6">
+        <section className="order-1 rounded-xl border bg-white p-6">
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-lg font-semibold text-gray-900">Select features</h2>
             <button type="button" onClick={resetAll} className="text-sm text-gray-600 underline hover:text-gray-900">
@@ -1132,7 +1205,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
         </section>
 
         {/* MIDDLE */}
-        <section className="rounded-xl border bg-white p-6">
+        <section className="order-3 rounded-xl border bg-white p-6 lg:order-2">
           <h2 className="text-lg font-semibold text-gray-900">Stepwise update</h2>
 
           {steps.length === 0 ? (
@@ -1174,7 +1247,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
         </section>
 
         {/* RIGHT */}
-        <section className="rounded-xl border bg-white p-6">
+        <section className="order-2 rounded-xl border bg-white p-6 lg:order-3">
           <h2 className="text-lg font-semibold text-gray-900">Post-test probability</h2>
 
           <div className="mt-4 rounded-lg border bg-gray-50 p-4">
@@ -1204,121 +1277,268 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <div className="mt-3 text-xs text-gray-600">Educational estimate only. Always use clinical context.</div>
           </div>
 
+          {adjustedUtilityModel ? (
+            <details className="mt-4 rounded-lg border p-4">
+              <summary className="cursor-pointer list-none text-sm font-semibold text-gray-900">
+                <span className="flex items-center justify-between gap-3">
+                  <span>Personalize threshold</span>
+                  <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700">
+                    {activeUtilityModifierIds.length} selected
+                  </span>
+                </span>
+              </summary>
+              <p className="mt-3 text-xs leading-5 text-gray-600">
+                Toggle patient factors that change the relative harm of missing CAP versus giving empiric antibiotics.
+              </p>
+              <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {adjustedUtilityModel.model.modifiers.map((modifier) => (
+                  <label key={modifier.id} className="rounded-md border bg-gray-50 px-3 py-2 text-xs text-gray-700">
+                    <span className="flex items-start gap-2">
+                      <input
+                        type="checkbox"
+                        checked={Boolean(utilityModifierState[modifier.id])}
+                        onChange={() => toggleUtilityModifier(modifier.id)}
+                        className="mt-0.5"
+                      />
+                      <span>
+                        <span className="block font-semibold text-gray-900">{modifier.label}</span>
+                        <span className="mt-1 block leading-5 text-gray-600">{modifier.description}</span>
+                      </span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+              <p className="mt-3 text-[11px] leading-5 text-gray-600">
+                CAP v1 uses structured utilities anchored to published lower-respiratory-infection burden data and ATS/IDSA CAP severity concepts. Utilities are transparent estimates, not exact bedside preference measurements.
+              </p>
+            </details>
+          ) : null}
+
           <div className="mt-4 rounded-lg border p-4">
-            <div className="text-sm font-semibold text-gray-900">Decision layer (MVP)</div>
-            <p className="mt-1 text-xs text-gray-600">
-              Harms are auto-estimated from syndrome + selected high-impact findings. Treatment threshold uses:
-              P(treat) = Harm of unnecessary treatment / (Harm of unnecessary treatment + Harm of missed diagnosis).
-            </p>
-
-            <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
-              <div className="rounded border bg-gray-50 px-3 py-2">
-                <div className="text-gray-600">Harm of missed diagnosis</div>
-                <div className="text-lg font-semibold text-gray-900">{harmEstimate.missedDx}</div>
-              </div>
-              <div className="rounded border bg-gray-50 px-3 py-2">
-                <div className="text-gray-600">Harm of unnecessary treatment</div>
-                <div className="text-lg font-semibold text-gray-900">{harmEstimate.unnecessaryTx}</div>
-              </div>
+            <div className="text-sm font-semibold text-gray-900">
+              {adjustedUtilityModel ? "Treatment threshold" : "Decision layer (heuristic fallback)"}
             </div>
+            {adjustedUtilityModel ? (
+              <>
+                <p className="mt-1 text-xs text-gray-600">
+                  CAP uses a binary expected-utility model: treat empirically when the post-test probability exceeds the personalized threshold implied by the selected utility terms.
+                </p>
 
-            <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
-              <summary className="cursor-pointer font-semibold text-gray-900">What is driving harm?</summary>
-              <div className="mt-2 space-y-1">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Baseline missed-diagnosis harm ({activeModule.name})</span>
-                    <span className="font-semibold">{harmEstimate.baseMissedDx}</span>
+                {expectedUtilityResult ? (
+                  <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
+                    <div className="rounded border bg-gray-50 px-3 py-2">
+                      <div className="text-gray-600">EU(treat)</div>
+                      <div className="text-lg font-semibold text-gray-900">{formatUtility(expectedUtilityResult.treat)}</div>
+                    </div>
+                    <div className="rounded border bg-gray-50 px-3 py-2">
+                      <div className="text-gray-600">EU(no treat)</div>
+                      <div className="text-lg font-semibold text-gray-900">{formatUtility(expectedUtilityResult.noTreat)}</div>
+                    </div>
                   </div>
-                  {harmEstimate.baseEvidence ? (
-                    <div className="text-[11px] text-gray-500">
-                      Source:{" "}
-                      {harmEstimate.baseEvidence.url ? (
-                        <a
-                          href={harmEstimate.baseEvidence.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline underline-offset-2 hover:text-gray-700"
-                        >
-                          {harmEstimate.baseEvidence.short}
-                        </a>
-                      ) : (
-                        harmEstimate.baseEvidence.short
-                      )}
-                    </div>
-                  ) : null}
-                </div>
-                {harmEstimate.missedDxDrivers.map((d, idx) => (
-                  <div key={`${d.label}-${idx}`}>
-                    <div className="flex items-center justify-between">
-                      <span>+ {d.label}</span>
-                      <span className="font-semibold">+{d.delta}</span>
-                    </div>
-                    {d.evidence ? (
-                      <div className="text-[11px] text-gray-500">
-                        Source:{" "}
-                        {d.evidence.url ? (
-                          <a
-                            href={d.evidence.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="underline underline-offset-2 hover:text-gray-700"
-                          >
-                            {d.evidence.short}
-                          </a>
-                        ) : (
-                          d.evidence.short
-                        )}
+                ) : null}
+
+                {expectedUtilityResult ? (
+                  <div className="mt-3 rounded border bg-gray-50 px-3 py-2 text-xs text-gray-700">
+                    Net utility advantage: <span className="font-semibold">{formatUtilityDelta(expectedUtilityResult.netBenefit)}</span>
+                  </div>
+                ) : null}
+
+                <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
+                  <summary className="cursor-pointer font-semibold text-gray-900">How utilities were adjusted</summary>
+                  <div className="mt-2 space-y-2">
+                    {(["treatDisease", "noTreatDisease", "treatNoDisease", "noTreatNoDisease"] as const).map((key) => {
+                      const term = adjustedUtilityModel.terms[key];
+                      return (
+                        <div key={key}>
+                          <div className="flex items-center justify-between gap-3">
+                            <span>{term.label}</span>
+                            <span className="font-semibold">
+                              {formatUtility(term.baseValue)} → {formatUtility(term.adjustedValue)}
+                            </span>
+                          </div>
+                          <div className="mt-1 text-[11px] leading-5 text-gray-600">{term.rationale}</div>
+                          {term.evidence ? (
+                            <div className="mt-1 text-[11px] text-gray-500">
+                              Source:{" "}
+                              {term.evidence.url ? (
+                                <a
+                                  href={term.evidence.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="underline underline-offset-2 hover:text-gray-700"
+                                >
+                                  {term.evidence.short}
+                                </a>
+                              ) : (
+                                term.evidence.short
+                              )}
+                              {term.structuredEstimate ? " (structured estimate)" : ""}
+                            </div>
+                          ) : null}
+                        </div>
+                      );
+                    })}
+
+                    {adjustedUtilityModel.selectedModifiers.length > 0 ? (
+                      <div className="border-t pt-2">
+                        <div className="font-semibold text-gray-900">Selected factor shifts</div>
+                        <ul className="mt-1 list-disc space-y-1 pl-5 text-[11px] leading-5 text-gray-600">
+                          {adjustedUtilityModel.selectedModifiers.map((modifier) => (
+                            <li key={modifier.id}>
+                              <span className="font-medium text-gray-700">{modifier.label}:</span> {modifier.description}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     ) : null}
                   </div>
-                ))}
-                <div className="mt-1 border-t pt-1 flex items-center justify-between">
-                  <span>Total missed-diagnosis harm</span>
-                  <span className="font-semibold">{harmEstimate.missedDx}</span>
+                </details>
+
+                <div className="mt-3 text-sm text-gray-700">
+                  Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
                 </div>
-              </div>
-            </details>
 
-            <div className="mt-3 text-sm text-gray-700">
-              Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
-            </div>
-            <div className="text-sm text-gray-700">
-              Observation threshold: <span className="font-semibold">{formatPct(observeThresholdP)}</span>
-            </div>
+                <div className="mt-2 space-y-2">
+                  <div className="relative h-2 rounded bg-gray-200">
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
+                      style={{ left: `${treatmentThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className={[
+                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
+                        recommendation === "treat" ? "border-emerald-700 bg-emerald-500" : "border-amber-700 bg-amber-500",
+                      ].join(" ")}
+                      style={{ left: `${postP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-gray-600">
+                    <span>0%</span>
+                    <span>Below threshold</span>
+                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
+                    <span>100%</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="mt-1 text-xs text-gray-600">
+                  Harms are auto-estimated from syndrome + selected high-impact findings. Treatment threshold uses:
+                  P(treat) = Harm of unnecessary treatment / (Harm of unnecessary treatment + Harm of missed diagnosis).
+                </p>
 
-            <div className="mt-2 space-y-2">
-              <div className="relative h-2 rounded bg-gray-200">
-                <div
-                  className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
-                  style={{ left: `${observeThresholdP * 100}%` }}
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
-                  style={{ left: `${treatmentThresholdP * 100}%` }}
-                  aria-hidden="true"
-                />
-                <div
-                  className={[
-                    "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
-                    recommendation === "treat"
-                      ? "border-emerald-700 bg-emerald-500"
-                      : recommendation === "observe"
-                      ? "border-sky-700 bg-sky-500"
-                      : "border-amber-700 bg-amber-500",
-                  ].join(" ")}
-                  style={{ left: `${postP * 100}%` }}
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="flex items-center justify-between text-[11px] text-gray-600">
-                <span>0%</span>
-                <span>Observe &le; {formatPct(observeThresholdP)}</span>
-                <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
-                <span>100%</span>
-              </div>
-            </div>
+                <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
+                  <div className="rounded border bg-gray-50 px-3 py-2">
+                    <div className="text-gray-600">Harm of missed diagnosis</div>
+                    <div className="text-lg font-semibold text-gray-900">{harmEstimate.missedDx}</div>
+                  </div>
+                  <div className="rounded border bg-gray-50 px-3 py-2">
+                    <div className="text-gray-600">Harm of unnecessary treatment</div>
+                    <div className="text-lg font-semibold text-gray-900">{harmEstimate.unnecessaryTx}</div>
+                  </div>
+                </div>
+
+                <details className="mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700">
+                  <summary className="cursor-pointer font-semibold text-gray-900">What is driving harm?</summary>
+                  <div className="mt-2 space-y-1">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span>Baseline missed-diagnosis harm ({activeModule.name})</span>
+                        <span className="font-semibold">{harmEstimate.baseMissedDx}</span>
+                      </div>
+                      {harmEstimate.baseEvidence ? (
+                        <div className="text-[11px] text-gray-500">
+                          Source:{" "}
+                          {harmEstimate.baseEvidence.url ? (
+                            <a
+                              href={harmEstimate.baseEvidence.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline underline-offset-2 hover:text-gray-700"
+                            >
+                              {harmEstimate.baseEvidence.short}
+                            </a>
+                          ) : (
+                            harmEstimate.baseEvidence.short
+                          )}
+                        </div>
+                      ) : null}
+                    </div>
+                    {harmEstimate.missedDxDrivers.map((d, idx) => (
+                      <div key={`${d.label}-${idx}`}>
+                        <div className="flex items-center justify-between">
+                          <span>+ {d.label}</span>
+                          <span className="font-semibold">+{d.delta}</span>
+                        </div>
+                        {d.evidence ? (
+                          <div className="text-[11px] text-gray-500">
+                            Source:{" "}
+                            {d.evidence.url ? (
+                              <a
+                                href={d.evidence.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline underline-offset-2 hover:text-gray-700"
+                              >
+                                {d.evidence.short}
+                              </a>
+                            ) : (
+                              d.evidence.short
+                            )}
+                          </div>
+                        ) : null}
+                      </div>
+                    ))}
+                    <div className="mt-1 border-t pt-1 flex items-center justify-between">
+                      <span>Total missed-diagnosis harm</span>
+                      <span className="font-semibold">{harmEstimate.missedDx}</span>
+                    </div>
+                  </div>
+                </details>
+
+                <div className="mt-3 text-sm text-gray-700">
+                  Treatment threshold: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
+                </div>
+                <div className="text-sm text-gray-700">
+                  Observation threshold: <span className="font-semibold">{formatPct(heuristicObserveThresholdP)}</span>
+                </div>
+
+                <div className="mt-2 space-y-2">
+                  <div className="relative h-2 rounded bg-gray-200">
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
+                      style={{ left: `${heuristicObserveThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
+                      style={{ left: `${treatmentThresholdP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className={[
+                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
+                        recommendation === "treat"
+                          ? "border-emerald-700 bg-emerald-500"
+                          : recommendation === "observe"
+                            ? "border-sky-700 bg-sky-500"
+                            : "border-amber-700 bg-amber-500",
+                      ].join(" ")}
+                      style={{ left: `${postP * 100}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-gray-600">
+                    <span>0%</span>
+                    <span>Observe &le; {formatPct(heuristicObserveThresholdP)}</span>
+                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
+                    <span>100%</span>
+                  </div>
+                </div>
+              </>
+            )}
 
             <div
               className={[
@@ -1353,7 +1573,9 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             ) : null}
 
             <div className="mt-3 text-xs text-gray-600">
-              {harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
+              {adjustedUtilityModel
+                ? adjustedUtilityModel.model.summary
+                : harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
                 ? harmEstimate.rationale[0]
                 : "Harm estimates are heuristic and configurable in lib/probidDecision.ts."}
             </div>

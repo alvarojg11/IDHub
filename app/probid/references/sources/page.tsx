@@ -162,6 +162,42 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1093/cid/ciaf625",
     },
     {
+      section: "CAP",
+      citation:
+        "José A, Corso SD. Patients hospitalized for community-acquired pneumonia present reduced functional performance. Braz J Phys Ther. 2013;17(4):351-358.",
+      doi: "https://doi.org/10.1590/S1413-35552013005000098",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Pakhale S, Mulpuru S, Verheij TJ, Kochen MM, Rohde GGU, Bjerre LM. Antibiotics for community-acquired pneumonia in adult outpatients. Cochrane Database Syst Rev. 2014;(10):CD002109.",
+      doi: "https://doi.org/10.1002/14651858.CD002109.pub4",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Stets R, Popescu M, Gonong JR, et al. Omadacycline for Community-Acquired Bacterial Pneumonia. N Engl J Med. 2019;380(6):517-527.",
+      doi: "https://doi.org/10.1056/NEJMoa1800201",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Choi SH, Cesar A, Snow TAC, Saleem N, Arulkumaran N, Singer M. Efficacy of Doxycycline for Mild-to-Moderate Community-Acquired Pneumonia in Adults: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. Clin Infect Dis. 2023;76(4):683-691.",
+      doi: "https://doi.org/10.1093/cid/ciac615",
+    },
+    {
+      section: "CAP",
+      citation:
+        "File TM Jr, Kaye KS, Ihor S, et al. Omadacycline versus moxifloxacin for community-acquired bacterial pneumonia (OPTIC-2): a phase 3b, randomised, double-blind, multicentre, controlled, noninferiority trial. EClinicalMedicine. 2025;90:103656.",
+      doi: "https://doi.org/10.1016/j.eclinm.2025.103656",
+    },
+    {
+      section: "CAP",
+      citation:
+        "Edwards SJ, Wordsworth S, Clarke MJ. Treating pneumonia in critical care in the United Kingdom following failure of initial antibiotic: a cost-utility analysis comparing meropenem with piperacillin/tazobactam. Eur J Health Econ. 2012;13(2):181-192.",
+      doi: "https://doi.org/10.1007/s10198-011-0296-0",
+    },
+    {
       section: "VAP",
       citation:
         "Kalil AC, Metersky ML, Klompas M, et al. Management of Adults With Hospital-acquired and Ventilator-associated Pneumonia: 2016 Clinical Practice Guidelines by the IDSA and ATS. Clin Infect Dis. 2016;63(5):e61-e111.",

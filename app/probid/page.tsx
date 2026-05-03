@@ -5,23 +5,23 @@ import SiteFooter from "@/components/SiteFooter";
 import { PROBID_MODULES } from "@/lib/lrSyndromes";
 
 export const metadata: Metadata = {
-  title: "ProbID — Diagnostic Reasoning & Pretest Probability Tool",
+  title: "ProbID — Diagnostic Probability & Treatment Threshold Tool",
   description:
-    "ProbID is an educational diagnostic reasoning tool that uses pretest probability and likelihood ratios to estimate post-test probability in Infectious Diseases syndromes.",
+    "ProbID is an educational diagnostic reasoning tool that uses pretest probability, likelihood ratios, and expected-utility treatment thresholds for Infectious Diseases syndromes.",
   alternates: { canonical: "https://infectiousdiseasehub.com/probid" },
   openGraph: {
     type: "website",
     url: "https://infectiousdiseasehub.com/probid",
     siteName: "InfectiousDiseaseHub",
-    title: "ProbID | IDHub — Diagnostic Reasoning & Pretest Probability Tool",
+    title: "ProbID | IDHub — Diagnostic Probability & Treatment Threshold Tool",
     description:
-      "Educational tool using pretest probability and likelihood ratios for Infectious Diseases diagnostic reasoning.",
+      "Educational tool using pretest probability, likelihood ratios, and treatment thresholds for Infectious Diseases diagnostic reasoning.",
   },
   twitter: {
     card: "summary",
-    title: "ProbID | IDHub — Diagnostic Reasoning & Pretest Probability Tool",
+    title: "ProbID | IDHub — Diagnostic Probability & Treatment Threshold Tool",
     description:
-      "Educational tool using pretest probability and likelihood ratios for Infectious Diseases diagnostic reasoning.",
+      "Educational tool using pretest probability, likelihood ratios, and treatment thresholds for Infectious Diseases diagnostic reasoning.",
   },
 };
 
@@ -31,7 +31,7 @@ const structuredData = {
   name: "ProbID",
   url: "https://infectiousdiseasehub.com/probid",
   description:
-    "Educational diagnostic reasoning tool using pretest probability and likelihood ratios for Infectious Diseases syndromes.",
+    "Educational diagnostic reasoning tool using pretest probability, likelihood ratios, and treatment thresholds for Infectious Diseases syndromes.",
   applicationCategory: "Medical Education",
   operatingSystem: "Web",
   author: {
@@ -58,7 +58,8 @@ export default function ProbIDPage() {
           <p className="idhub-kicker">Tool Overview</p>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             ProbID turns pretest thinking into a visible workflow by combining setting, findings,
-            and likelihood ratios into an educational post-test estimate.
+            and likelihood ratios into an educational post-test estimate, then comparing that
+            probability with a treatment threshold.
           </p>
         </div>
 
@@ -68,7 +69,7 @@ export default function ProbIDPage() {
           </p>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             CAP, VAP, endocarditis, invasive mold, and other syndromes where diagnostic uncertainty
-            matters more than rote recall.
+            matters more than rote recall and where a probability estimate can change what you do next.
           </p>
         </div>
       </div>
