@@ -1,0 +1,159 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-zika-was-still-a-forest",
+  title: "When Zika Was Still a Forest",
+  description:
+    "Before Zika became a global obstetric and neurologic alarm, it was a quiet arbovirus story from an overgrown Ugandan forest, a sentinel monkey, and a mosquito tower.",
+  publishedAt: "2026-05-03",
+  historicalDateLabel: "1947-1952",
+  historicalYearSort: 1947,
+  categories: ["organisms", "wars-outbreaks"],
+  tags: [
+    "Zika virus",
+    "Ziika Forest",
+    "Zika Forest",
+    "Uganda",
+    "Entebbe",
+    "Aedes africanus",
+    "rhesus monkey",
+    "yellow fever surveillance",
+    "flavivirus",
+    "congenital Zika syndrome",
+  ],
+  hook:
+    "Long before Zika showed up in pregnancy counseling and travel warnings, it was just the name of a forest near Entebbe and the fever of one monkey above the trees.",
+  takeaway:
+    "Zika did not enter medicine as a famous syndrome. It arrived through surveillance, vector work, and landscape. That early history is a useful reminder that arboviruses often become visible in ecology before they become legible in the clinic.",
+  heroImage: "/historid/when-zika-was-still-a-forest/hero.jpg",
+  heroImageAlt:
+    "Path through the Zika Forest near Entebbe, Uganda.",
+  heroImageCredit:
+    "Photograph of the Zika Forest taken during a visit to the Uganda Virus Research Institute and the adjacent forest.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Uganda_Virus_Research_Institute_visit_on_2_March_2018_-_the_forest_34.jpg",
+  heroImageLicense: "CC0 via Wikimedia Commons",
+  socialHeadline: "When Zika Was Still a Forest",
+  socialDek:
+    "Zika was first isolated during yellow fever surveillance in Uganda, when the whole story still fit inside a forest, a monkey, and a mosquito.",
+  socialFacts: [
+    "Ziika is reported to mean 'overgrown' in Luganda.",
+    "Zika virus was first isolated in 1947 from a febrile sentinel rhesus monkey in the Zika Forest near Entebbe.",
+    "The virus was recovered from Aedes africanus mosquitoes in the same forest the following year.",
+    "Human evidence followed in 1952, when investigators found neutralizing antibodies in sera from East Africa.",
+    "For decades Zika looked like a small arbovirus story before later outbreaks linked it to congenital Zika syndrome and neurologic disease.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The name came from a place before it became a warning. Near Entebbe, in a small forest used for
+    arbovirus research, investigators were watching yellow fever move through mosquitoes and
+    primates. In 1947, one of their sentinel rhesus monkeys developed fever. That sick animal, not
+    a crowded ward or a dramatic outbreak, gave medicine its first Zika virus isolate.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Mid-20th century East African virus research was slow, practical, and deeply tied to place. The
+    work depended on tree platforms, mosquito traps, caged monkeys, and patience. This was not yet
+    a bedside story. It was field ecology with a laboratory attached. Zika Forest drew attention
+    because it was dense, humid, and busy with vector life. Even the name carries that texture:
+    <em>Ziika</em> is reported in Luganda to mean "overgrown."
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    On 18 April 1947, a captive sentinel rhesus monkey developed fever while stationed in the
+    forest. Its serum was taken back to the laboratory at Entebbe and inoculated into mice. From
+    those experiments, investigators recovered a filterable transmissible agent. The new virus took
+    its name from the forest where the monkey had been placed. In 1948, the virus was also
+    recovered from <em>Aedes africanus</em> mosquitoes collected in the same setting, which made the
+    mosquito-borne frame much harder to dismiss.
+  </p>
+
+  <p>
+    Human evidence came next, but quietly. By 1952, investigators had serologic evidence that
+    people in East Africa had been infected, and early human descriptions followed. That still did
+    not make Zika famous. For decades it remained a small arbovirus story, recognized in Africa and
+    parts of Asia, but generally treated as uncommon and clinically mild.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    What makes this story useful is its order. The forest came first. Then the mosquito. Then the
+    monkey. Human disease recognition followed after that. Zika entered medicine through
+    surveillance rather than through a spectacular clinical syndrome. That sequence is classic
+    arbovirology. The vector and the landscape speak first, and the clinic catches up later.
+  </p>
+
+  <h2>Why the early story still matters</h2>
+  <p>
+    The later global Zika era changed the stakes completely. Once outbreaks in the Pacific and the
+    Americas linked infection to congenital Zika syndrome and neurologic complications, the old
+    forest isolate no longer looked obscure. That is exactly why the early history holds up. A virus
+    can spend decades looking minor, then return with very different consequences once transmission
+    expands and a vulnerable population is exposed.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Dick GWA, Kitchen SF, Haddow AJ. Zika virus. I. Isolations and serological specificity.
+        <em>Trans R Soc Trop Med Hyg</em>. 1952;46(5):509-520.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/0035-9203(52)90042-4" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/0035-9203(52)90042-4
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Hayes EB. Zika virus outside Africa. <em>Emerg Infect Dis</em>. 2009;15(9):1347-1350.
+      </p>
+      <p>
+        <a href="https://doi.org/10.3201/eid1509.090442" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.3201/eid1509.090442
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        World Health Organization. The history of Zika virus. Published 7 February 2016.
+      </p>
+      <p>
+        <a href="https://www.who.int/news-room/feature-stories/detail/the-history-of-zika-virus" target="_blank" rel="noreferrer">
+          Link: WHO history of Zika virus
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        World Health Organization. Zika virus fact sheet. Updated 6 November 2025.
+      </p>
+      <p>
+        <a href="https://www.who.int/news-room/fact-sheets/detail/zika-virus" target="_blank" rel="noreferrer">
+          Link: WHO Zika virus fact sheet
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Kaddumukasa MA, Mutebi JP, Lutwama JJ, Masembe C, Akol AM. Mosquitoes of Zika Forest,
+        Uganda: species composition and relative abundance. <em>J Med Entomol</em>.
+        2014;51(1):104-113.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1603/ME12269" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1603/ME12269
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

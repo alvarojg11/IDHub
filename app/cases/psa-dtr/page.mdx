@@ -1,0 +1,346 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("psa-dtr");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  After the Lithotripsy
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 59-year-old man with traumatic spinal cord injury, neurogenic bladder managed with intermittent catheterization, type 2 diabetes, and recurrent nephrolithiasis is admitted with fever, rigors, and hypotension 24 hours after ureteroscopy with laser lithotripsy and left ureteral stent placement for an obstructing ureteral stone. During the preceding 3 months he had repeated urinary symptoms treated with trimethoprim-sulfamethoxazole, ciprofloxacin, and, during a prior hospitalization, piperacillin-tazobactam. A pre-procedural urine culture later returned with <em>Pseudomonas aeruginosa</em>, and he received peri-procedural cefepime.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On arrival, temperature is 39.1 C, heart rate 118/min, blood pressure 88/54 mmHg, respiratory rate 24/min, and oxygen saturation 96% on room air. He has left flank tenderness and appears toxic but is alert. Laboratory studies show white blood cells 16.9 x 10^3/uL, creatinine 1.8 mg/dL from a baseline of 1.0 mg/dL, lactate 3.1 mmol/L, and C-reactive protein 241 mg/L. CT of the abdomen and pelvis shows residual stone fragments, the ureteral stent in place, persistent mild hydronephrosis, and bladder wall thickening.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blood cultures and urine cultures both grow <em>Pseudomonas aeruginosa</em>. Gram stain from a culture-positive specimen shows gram-negative bacilli. Final susceptibility testing demonstrates resistance to ciprofloxacin, levofloxacin, piperacillin-tazobactam, ceftazidime, cefepime, aztreonam, meropenem, and imipenem, with retained susceptibility to amikacin, ceftolozane-tazobactam, ceftazidime-avibactam, imipenem-relebactam, and cefiderocol.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/psa-dtr/psa.png"
+      alt="Gram stain showing gram-negative bacilli from a culture-positive specimen"
+      width={1592}
+      height={1200}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Gram stain demonstrating gram-negative bacilli from a culture-positive specimen. Morphology supports a gram-negative rod infection but does not establish species identity without culture-based identification.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-psa-dtr-q1"
+  title="Question 1"
+  prompt="Which is the best definitive antimicrobial therapy once susceptibilities are known and source control is being pursued?"
+  options={[
+    {
+      id: "A",
+      label: "High-dose extended-infusion cefepime",
+      feedback:
+        "Incorrect. Extended-infusion cefepime is reasonable only when the isolate remains susceptible to a traditional beta-lactam. This isolate is cefepime resistant, so PK optimization cannot rescue an inactive drug.",
+    },
+    {
+      id: "B",
+      label: "Amikacin monotherapy",
+      feedback:
+        "Incorrect. Amikacin may retain activity and can be useful in selected urinary infections, but it is generally not the preferred standalone agent for bacteremic difficult-to-treat Pseudomonas when an active newer beta-lactam is available.",
+    },
+    {
+      id: "C",
+      label: "Ceftolozane-tazobactam",
+      correct: true,
+      feedback:
+        "Correct. This is a classic difficult-to-treat Pseudomonas phenotype with retained susceptibility to newer anti-pseudomonal agents. In a likely non-carbapenemase pattern driven by AmpC derepression, porin loss, and efflux, ceftolozane-tazobactam is the preferred answer in this vignette because ceftolozane has particularly potent intrinsic anti-pseudomonal activity.",
+    },
+    {
+      id: "D",
+      label: "Ceftazidime-avibactam",
+      feedback:
+        "Incorrect as the best answer. Ceftazidime-avibactam would be a reasonable alternative if susceptible, but this vignette is framed around a non-carbapenemase DTR Pseudomonas pattern in which ceftolozane-tazobactam is more strongly supported by the expected resistance mechanism and available susceptibility data.",
+    },
+    {
+      id: "E",
+      label: "Oral ciprofloxacin step-down",
+      feedback:
+        "Incorrect. The isolate is fluoroquinolone resistant, and oral step-down options for Pseudomonas bacteremia are extremely limited once fluoroquinolones are inactive.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-psa-dtr-q2"
+  title="Question 2"
+  prompt="Which resistance mechanism best explains this susceptibility pattern?"
+  options={[
+    {
+      id: "A",
+      label: "AmpC derepression with OprD porin loss, efflux upregulation, and fluoroquinolone target mutations",
+      correct: true,
+      feedback:
+        "Correct. This is the classic teaching explanation for many difficult-to-treat Pseudomonas isolates: inducible or derepressed AmpC reduces cephalosporin activity, OprD loss impairs carbapenem entry, efflux pumps raise beta-lactam and quinolone MICs, and gyrA or parC mutations drive fluoroquinolone resistance.",
+    },
+    {
+      id: "B",
+      label: "Isolated CTX-M ESBL production alone",
+      feedback:
+        "Incorrect. CTX-M ESBLs are a central teaching mechanism in Enterobacterales, not the main explanation for this broad Pseudomonas resistance pattern.",
+    },
+    {
+      id: "C",
+      label: "A metallo-beta-lactamase as the only mechanism",
+      feedback:
+        "Incorrect. A metallo-beta-lactamase is possible in some carbapenem-resistant Pseudomonas isolates, but this vignette is intentionally built around a more typical non-carbapenemase DTR phenotype because several newer agents remain active.",
+    },
+    {
+      id: "D",
+      label: "Trimethoprim-sulfamethoxazole resistance gene acquisition",
+      feedback:
+        "Incorrect. TMP-SMX is not a reliable treatment option for Pseudomonas in the first place, so it does not explain the core resistance phenotype here.",
+    },
+    {
+      id: "E",
+      label: "Altered penicillin-binding proteins analogous to mecA-mediated resistance",
+      feedback:
+        "Incorrect. That mechanism is a useful frame for methicillin resistance in staphylococci, not for this Pseudomonas susceptibility profile.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-psa-dtr-q3"
+  title="Question 3"
+  prompt="Beyond choosing an active antibiotic, what is the most important management principle in this case?"
+  options={[
+    {
+      id: "A",
+      label: "Continue antibiotics alone if the fever curve improves",
+      feedback:
+        "Incorrect. Clinical improvement does not eliminate the need to address residual infected stone material, urinary obstruction, and colonized hardware in a bacteremic urinary-source infection.",
+    },
+    {
+      id: "B",
+      label: "Treat for 3 days after the first negative blood culture and leave the stent in place",
+      feedback:
+        "Incorrect. This understates both the duration and the source problem. Bacteremic complicated UTI with residual stone burden and hardware requires reassessment of drainage and source control, not a minimal bacteremia course.",
+    },
+    {
+      id: "C",
+      label: "Ensure source control with drainage, reassessment of residual stone burden or obstruction, and management of infected urinary hardware",
+      correct: true,
+      feedback:
+        "Correct. Antibiotics alone are often insufficient in post-instrumentation Pseudomonas bacteremia when residual stone fragments, urinary stasis, or a stent remain. The treatment plan must include proof of blood-culture clearance and active urologic source control.",
+    },
+    {
+      id: "D",
+      label: "Add vancomycin for synergy against biofilm",
+      feedback:
+        "Incorrect. Vancomycin has no role against Pseudomonas. The key adjunct to an active anti-pseudomonal regimen is source control, not empiric gram-positive coverage.",
+    },
+    {
+      id: "E",
+      label: "Switch to oral trimethoprim-sulfamethoxazole once the patient is hemodynamically stable",
+      feedback:
+        "Incorrect. TMP-SMX is not a dependable oral option for Pseudomonas, and this case does not have a safe oral step-down pathway.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-psa-dtr-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This patient has bacteremic complicated urinary tract infection due to <em>Pseudomonas aeruginosa</em> with difficult-to-treat resistance, or DTR <em>Pseudomonas</em>. That designation is more specific than either multidrug-resistant or carbapenem-resistant <em>Pseudomonas</em> alone. An isolate may be multidrug-resistant yet still susceptible to a standard anti-pseudomonal beta-lactam, and an isolate may be carbapenem-resistant but remain treatable with cefepime or another traditional agent. Here, the defining problem is resistance to the usual first-line anti-pseudomonal beta-lactams and fluoroquinolones in a patient with repeated antibiotic selection pressure, urinary tract instrumentation, residual stone burden, and ongoing risk of urinary stasis from neurogenic bladder. Those details explain both how this organism emerged and why cure is difficult.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <code>Ceftolozane-tazobactam</code> is the best definitive therapy in this vignette because the susceptibility pattern fits the more common non-carbapenemase DTR <em>Pseudomonas</em> phenotype driven by <code>AmpC</code> derepression, <code>OprD</code> loss, and efflux upregulation, with separate fluoroquinolone target mutations. In that setting, ceftolozane has particularly strong intrinsic anti-pseudomonal activity, and current guidance places the newer anti-pseudomonal beta-lactams at the center of treatment once standard agents are inactive. Surveillance data from United States hospitals have shown high retained activity of ceftolozane-tazobactam across resistant <em>Pseudomonas</em> subsets, including DTR isolates.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The reason this case favors <code>ceftolozane-tazobactam</code> rather than <code>ceftazidime-avibactam</code> is one of fit, not of absolute exclusion. Ceftazidime-avibactam would also be a reasonable option if the isolate is susceptible, and the literature does not prove universal superiority of one agent over the other for every resistant <em>Pseudomonas</em> infection. Earlier cohort studies showed similar mortality and cure between the two agents, while more recent multicenter data suggest higher clinical success with ceftolozane-tazobactam in invasive MDR <em>Pseudomonas</em> infections, especially pneumonia, without a clear mortality difference. Other studies show that treatment-emergent resistance can occur with either drug. For a urinary-source bacteremia case like this one, the most defensible conclusion is that both agents may be active, but ceftolozane-tazobactam is the preferred answer when AST results show resistance to cefepime, ceftazidime, piperacillin-tazobactam, aztreonam, carbapenems, and fluoroquinolones with retained susceptibility to newer anti-pseudomonal agents, a pattern more consistent with non-carbapenemase DTR <em>Pseudomonas</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The mechanism question is important because the susceptibility results are really a resistance story. Cefepime and ceftazidime resistance can be explained by derepressed chromosomal <code>AmpC</code>. Carbapenem resistance can arise through loss of the <code>OprD</code> porin, especially when combined with other beta-lactam resistance pathways. Efflux pump upregulation broadens resistance further, and <code>gyrA</code> or <code>parC</code> mutations explain failure of ciprofloxacin and levofloxacin. A metallo-beta-lactamase is less attractive as the main teaching answer here because multiple newer anti-pseudomonal options remain susceptible.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The major bedside mistake would be to think this is solved by choosing the right antibiotic alone. Post-lithotripsy bacteremia with residual stone fragments, a ureteral stent, and persistent hydronephrosis should trigger concern for incomplete source control. Residual infected stone material, urinary obstruction, hardware colonization, and impaired bladder emptying can all sustain infection despite active therapy. Management therefore requires a true source-control strategy: repeat blood cultures to document clearance, reassessment of drainage, and urologic review of the stent and remaining stone burden. The final teaching point is that DTR <em>Pseudomonas</em> is often an active drug plus source control problem, not just an AST interpretation problem.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-psa-dtr-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <strong>DTR <em>Pseudomonas aeruginosa</em> is not synonymous with either multidrug-resistant or carbapenem-resistant <em>Pseudomonas</em>.</strong> DTR specifically identifies isolates resistant to standard first-line anti-pseudomonal beta-lactams and fluoroquinolones, a category that more directly signals the need to consider newer anti-pseudomonal agents once susceptibility data are available.
+    </li>
+    <li>
+      <strong>Repeated antibiotic exposure, urinary instrumentation, neurogenic bladder, and nephrolithiasis create sustained selection pressure for resistant <em>Pseudomonas</em>.</strong> These host and procedural factors are central to understanding both acquisition of resistance and risk of relapse.
+    </li>
+    <li>
+      <strong><code>Ceftolozane-tazobactam</code> is a preferred option for non-carbapenemase DTR <em>Pseudomonas</em> when in vitro susceptibility is retained.</strong> In this case, resistance to cefepime, ceftazidime, piperacillin-tazobactam, aztreonam, carbapenems, and fluoroquinolones, together with retained susceptibility to ceftolozane-tazobactam and other newer agents, is more consistent with a non-carbapenemase resistance profile in which ceftolozane-tazobactam is favored over ceftazidime-avibactam.
+    </li>
+    <li>
+      <strong>The resistance phenotype is often multifactorial rather than attributable to a single determinant.</strong> A useful mechanistic framework is <code>AmpC</code> derepression, <code>OprD</code> porin loss, efflux upregulation, and fluoroquinolone target mutations.
+    </li>
+    <li>
+      <strong>Persistent urinary-source bacteremia requires source control in parallel with active antimicrobial therapy.</strong> Residual stone fragments, obstruction, and colonized urinary hardware can prevent microbiologic cure even when the selected agent is active in vitro.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tamma PD, Heil EL, Justo JA, Mathers AJ, Satlin MJ, Bonomo RA. IDSA 2024 guidance on the treatment of antimicrobial resistant Gram-negative infections. Clin Infect Dis. 2024;ciae403.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciae403"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/ciae403
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kadri SS, Adjemian J, Lai YL, et al. Difficult-to-treat resistance in Gram-negative bacteremia at 173 US hospitals: retrospective cohort analysis of prevalence, predictors, and outcome of resistance to all first-line agents. Clin Infect Dis. 2018;67(12):1803-1814.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciy378"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/ciy378
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Karlowsky JA, Lob SH, DeRyke CA, et al. In vitro activity of ceftolozane-tazobactam, imipenem-relebactam, ceftazidime-avibactam, and comparators against Pseudomonas aeruginosa isolates collected in United States hospitals according to results from the SMART surveillance program, 2018 to 2020. Antimicrob Agents Chemother. 2022;66(5):e0018922.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00189-22"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/AAC.00189-22
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Almangour TA, Ghonem L, Alassiri D, et al. Ceftolozane-tazobactam versus ceftazidime-avibactam for the treatment of infections caused by multidrug-resistant Pseudomonas aeruginosa: a multicenter cohort study. Antimicrob Agents Chemother. 2023;67(8):e0040523.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00405-23"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/AAC.00405-23
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hareza DA, Cosgrove SE, Bonomo RA, et al. Clinical outcomes and emergence of resistance of Pseudomonas aeruginosa infections treated with ceftolozane-tazobactam versus ceftazidime-avibactam. Antimicrob Agents Chemother. 2024;68(10):e0090724.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00907-24"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1128/AAC.00907-24
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Shields RK, Abbo LM, Ackley R, et al. Effectiveness of ceftazidime-avibactam versus ceftolozane-tazobactam for multidrug-resistant Pseudomonas aeruginosa infections in the USA (CACTUS): a multicentre, retrospective, observational study. Lancet Infect Dis. 2025;25(5):574-584.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(24)00648-0"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1016/S1473-3099(24)00648-0
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Shah S, Kline EG, Haidar G, et al. Rates of resistance to ceftazidime-avibactam and ceftolozane-tazobactam among patients treated for multidrug-resistant Pseudomonas aeruginosa bacteremia or pneumonia. Clin Infect Dis. 2025;80(1):24-28.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciae332"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: https://doi.org/10.1093/cid/ciae332
+      </a>
+    </p>
+  </div>
+</div>

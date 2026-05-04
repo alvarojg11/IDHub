@@ -984,6 +984,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 29-year-old man with no known medical history presents with 3 weeks of dry cough, fatigue, low-grade fever, and progressive dyspnea. His lungs are nearly clear, but a short walk causes marked desaturation and chest CT changes the differential. What is the diagnosis, what test should be sent, and how should he be treated?",
     tags: { organisms: ["Pneumocystis jirovecii"], syndromes: ["Pulmonary Infection", "Opportunistic Infection", "HIV/AIDS", "Immunocompromised Host"], concepts: ["Pneumocystis pneumonia", "Ground-glass opacities", "Beta-D-glucan", "Bronchoalveolar lavage", "TMP-SMX", "Adjunctive corticosteroids", "PJP prophylaxis"] },
   },
+  {
+    slug: "psa-dtr",
+    title: "After the Lithotripsy",
+    description: "Bacteremic difficult-to-treat Pseudomonas after urinary instrumentation and residual stone burden.",
+    enable: true,
+    ogImage: "/cases/psa-dtr/psa.png",
+    teaser: "A man with neurogenic bladder, recurrent stones, and multiple prior antibiotic courses becomes septic one day after lithotripsy and stent placement. Blood and urine cultures grow difficult-to-treat Pseudomonas aeruginosa. Which newer agent is the best definitive therapy, what resistance mechanisms fit the susceptibility profile, and why is source control still the center of management?",
+    tags: { organisms: ["Pseudomonas aeruginosa"], syndromes: ["Sepsis & Bacteremia", "Renal & Urologic"], concepts: ["Difficult-to-treat resistance", "Neurogenic bladder", "Ureteral stones", "Lithotripsy", "Source control", "Ceftolozane-tazobactam"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
