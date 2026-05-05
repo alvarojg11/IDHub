@@ -1,0 +1,126 @@
+{
+  "query": "BCG vaccine attenuation Mycobacterium bovis Calmette Guerin review history",
+  "count": 10,
+  "results": [
+    {
+      "pmid": "35891320",
+      "doi": "10.3390/vaccines10071157",
+      "title": "Past, Present and Future of Bacillus Calmette-Gu\u00e9rin Vaccine Use in China.",
+      "authors": "Li, Junli and Lu, Jinbiao and Wang, Guozhi and Zhao, Aihua and Xu, Miao",
+      "journal": "Vaccines",
+      "year": "2022",
+      "volume": "10",
+      "issue": "7",
+      "pages": "",
+      "abstract": "The BCG vaccine is prepared from a weakened strain of "
+    },
+    {
+      "pmid": "34593271",
+      "doi": "10.1016/j.vaccine.2021.09.040",
+      "title": "Recombinant BCGs for tuberculosis and bladder cancer.",
+      "authors": "Singh, Alok K and Srikrishna, Geetha and Bivalacqua, Trinity J and Bishai, William R",
+      "journal": "Vaccine",
+      "year": "2021",
+      "volume": "39",
+      "issue": "50",
+      "pages": "7321-7331",
+      "abstract": "Bacillus Calmette-Gu\u00e9rin (BCG) vaccine is an attenuated live strain of Mycobacterium bovis. It may be the most widely used vaccine in human history and is the only licensed human tuberculosis (TB) vaccine available. Despite its excellent safety history, a century of use in global vaccination programs, and its significant contribution to reducing TB mortality among children, the efficacy of BCG continues to be disputed due to its incomplete protection against pulmonary TB in adults. Still vaccines offer the best chance to contain the ongoing spread of multi-drug resistance TB and disease dissemination. The development of improved vaccines against TB therefore remains a high global priority. Interestingly, recent studies indicate that genetically modified BCG, or administration of existing BCG through alternate routes, or revaccination, offers improved protection, suggesting that BCG is well poised to make a comeback. Intravesical BCG is also the only approved microbial immunotherapy for any form of cancer, and is the first-line therapy for treatment-na\u00efve non-muscle invasive bladder cancer (NMBIC), which represents a majority of the new bladder cancer cases diagnosed. However, almost a third of patients with NMIBC are either BCG unresponsive or have tumor recurrence, leading to a higher risk of disease progression. With very few advances in intravesical therapy over the past two decades for early-stage disease, and a limited pipeline of therapeutics in Phase 3 or late Phase 2 development, there is a major unmet need for improved intravesical therapies for NMIBC. Indeed, genetically modified candidate BCG vaccines engineered to express molecules that confer stronger protection against pulmonary TB or induce potent anti-tumor immunity in NMIBC have shown promise in both pre-clinical and clinical settings. This review discusses the development of second generation, genetically modified BCG candidates as TB vaccines and as anti-tumor adjuvant therapy for NMIBC."
+    },
+    {
+      "pmid": "34506734",
+      "doi": "10.1016/S1473-3099(21)00403-5",
+      "title": "100 years of Mycobacterium bovis bacille Calmette-Gu\u00e9rin.",
+      "authors": "Lange, Christoph and Aaby, Peter and Behr, Marcel A and Donald, Peter R and Kaufmann, Stefan H E and Netea, Mihai G and Mandalakas, Anna M",
+      "journal": "The Lancet. Infectious diseases",
+      "year": "2022",
+      "volume": "22",
+      "issue": "1",
+      "pages": "e2-e12",
+      "abstract": "Mycobacterium bovis bacille Calmette-Gu\u00e9rin (BCG), an experimental vaccine designed to protect cattle from bovine tuberculosis, was administered for the first time to a newborn baby in Paris in 1921. Over the past century, BCG has saved tens of millions of lives and has been given to more humans than any other vaccine. It remains the sole tuberculosis vaccine licensed for use in humans. BCG provides long-lasting strong protection against miliary and meningeal tuberculosis in children, but it is less effective for the prevention of pulmonary tuberculosis, especially in adults. Evidence mainly from the past two decades suggests that BCG has non-specific benefits against non-tuberculous infections in newborn babies and in older adults, and offers immunotherapeutic benefit in certain malignancies such as non-muscle invasive bladder cancer. However, as a live attenuated vaccine, BCG can cause localised or disseminated infections in immunocompromised hosts, which can also occur following intravesical installation of BCG for the treatment of bladder cancer. The legacy of BCG includes fundamental discoveries about tuberculosis-specific and non-specific immunity and the demonstration that tuberculosis is a vaccine-preventable disease, providing a foundation for new vaccines to hasten tuberculosis elimination."
+    },
+    {
+      "pmid": "32107806",
+      "doi": "10.1111/joim.13050",
+      "title": "Benefits of BCG-induced metabolic switch from oxidative phosphorylation to aerobic glycolysis in autoimmune and nervous system diseases.",
+      "authors": "Faustman, D L",
+      "journal": "Journal of internal medicine",
+      "year": "2020",
+      "volume": "288",
+      "issue": "6",
+      "pages": "641-650",
+      "abstract": "The most commonly used vaccine worldwide, bacillus Calmette-Guerin (BCG), appears to have the ability to restore blood sugar control in humans with early-onset but long-duration type 1 diabetes when a repeat vaccination strategy is used. This is a process that may be driven by a metabolic switch from overactive oxidative phosphorylation to accelerated aerobic glycolysis and a reset of the immune system. BCG is a live, attenuated strain of Mycobacteria bovis, a cousin of M.\u00a0tuberculosis. Humans and Mycobacteria, which are found in the environment and in warm-blooded hosts, share a long coevolutionary history. In recent times, humans have had fewer exposures to these and other microorganisms that historically helped shape the immune response. By 're-introducing' an attenuated form of Mycobacteria via BCG vaccination, humans might benefit from an immunological perspective, a concept supported by a growing body of data in autoimmunity and robust data on the nonspecific immune effects of BCG related to protection from diverse infections and early mortality. New findings of immune and metabolic defects in type 1 diabetes that can be corrected with repeat BCG vaccination suggest that this therapeutic strategy may be applicable in other diseases with inadequate aerobic glycolysis, including Parkinson's disease, dementia, depression and other disorders affecting the nervous system."
+    },
+    {
+      "pmid": "32006723",
+      "doi": "10.1016/j.jaip.2020.01.038",
+      "title": "Primary Immunodeficiency Diseases and Bacillus Calmette-Gu\u00e9rin (BCG)-Vaccine-Derived Complications: A Systematic Review.",
+      "authors": "Fekrvand, Saba and Yazdani, Reza and Olbrich, Peter and Gennery, Andrew and Rosenzweig, Sergio D and Condino-Neto, Antonio and Azizi, Gholamreza and Rafiemanesh, Hosein and Hassanpour, Gholamreza and Rezaei, Nima and Abolhassani, Hassan and Aghamohammadi, Asghar",
+      "journal": "The journal of allergy and clinical immunology. In practice",
+      "year": "2020",
+      "volume": "8",
+      "issue": "4",
+      "pages": "1371-1386",
+      "abstract": "Bacillus Calmette-Gu\u00e9rin (BCG) vaccine is a live attenuated bacterial vaccine derived from Mycobacterium bovis, which is mostly administered to neonates in regions where tuberculosis is endemic. Adverse reactions after BCG vaccination are rare; however, immunocompromised individuals and in particular patients with primary immunodeficiencies (PIDs) are prone to develop vaccine-derived complications."
+    },
+    {
+      "pmid": "30999879",
+      "doi": "10.1186/s12879-019-3951-1",
+      "title": "The double-edged sword - prosthetic joint infection following BCG treatment for bladder cancer: a case report.",
+      "authors": "Nguyen, Minh-Vu Hoang and Giordani, Mauro M and Thompson, George R",
+      "journal": "BMC infectious diseases",
+      "year": "2019",
+      "volume": "19",
+      "issue": "1",
+      "pages": "331",
+      "abstract": "Prosthetic joint infections remain a significant cause of morbidity and are frustrating for patients and physicians alike. Unusual causes of infection may be seen in selected circumstances and a high index of suspicion and a careful history are required to ensure an accurate and timely diagnosis can be made."
+    },
+    {
+      "pmid": "29785215",
+      "doi": "10.2174/1874285801812010041",
+      "title": "Mycobacteriosis and Tuberculosis: Laboratory Diagnosis.",
+      "authors": "Azadi, Davood and Motallebirad, Tahereh and Ghaffari, Kazem and Shojaei, Hasan",
+      "journal": "The open microbiology journal",
+      "year": "2018",
+      "volume": "12",
+      "issue": "",
+      "pages": "41-58",
+      "abstract": "Tuberculosis is one of the most important infectious diseases that has claimed its victims throughout much of known human history. With Koch's discovery of the tubercle bacillus as the etiologic agent of the disease, his sanitary and hygienic measures, which were based on his discovery and the development of a vaccine against tuberculosis by Albert Calmette and Camille Gu\u00e9rin in 1921, an attenuated "
+    },
+    {
+      "pmid": "29740727",
+      "doi": "10.1007/s10067-018-4136-9",
+      "title": "The first case of bacillus Calmette-Gu\u00e9rin-induced small-vessel central nervous system vasculitis.",
+      "authors": "Parent, Marc-Etienne and Richer, Maxime and Liang, Patrick",
+      "journal": "Clinical rheumatology",
+      "year": "2018",
+      "volume": "37",
+      "issue": "8",
+      "pages": "2297-2302",
+      "abstract": "To present an unrecognized vascular complication of bacillus Calmette-Gu\u00e9rin (BCG) therapy administered for superficial bladder carcinoma. We also review the potential mimickers for primary angiitis of the central nervous system (PACNS) as well as complications of intravesical BCG therapy. An 89-year-old Caucasian man with a history of relapsing high-grade bladder carcinoma treated with intravesical BCG presented with recurring episodes of right upper limb paresthesia with clumsiness and dysarthria. Magnetic resonance imaging of the head revealed multiple predominantly left-sided frontotemporal micronodular peri-vascular lesions. Left frontal lobe biopsy showed non-necrotizing granulomatous vasculitis. Ziehl staining was negative. Initially, he was treated for PACNS but his symptoms relapsed during every attempt to taper the corticosteroids. Six months later, he developed bilateral mycobacterial endophthalmitis, caused by Mycobacterium bovis. Brain biopsy was reviewed and confirmed the presence of perivascular mycobacteria. A retrospective diagnosis of BCG-induced central nervous system vasculitis was made and he was treated with high-dose corticosteroids, moxifloxacin, isoniazid, ethambutol, and rifampicin. BCG is a live attenuated form of Mycobacterium bovis widely used as tuberculosis vaccination and intravesical therapy for superficial forms of bladder cancer. Systemic complications affect roughly 5% of patients and can manifest months or years after the last instillation. Cases of endophthalmitis, meningitis, aortitis, or mycotic aneurysms have been described, but no reports of CNS vasculitis have been found. In disseminated forms of BCG infections, referred to as BCGitis, histopathology usually reveals granulomatous inflammation. Mycobacterial cultures are often negative, making this a diagnostic challenge. This is the first documented case of BCG-induced small-vessel CNS vasculitis. Mycobacterium bovis infection is rare and findings are often nonspecific, making the diagnosis very difficult. Other infectious and non-infectious causes must be ruled out appropriately before considering this entity."
+    },
+    {
+      "pmid": "29506322",
+      "doi": "10.1111/iju.13538",
+      "title": "Bacillus Calmette-Gu\u00e9rin strain differences as the basis for immunotherapies against bladder cancer.",
+      "authors": "Miyazaki, Jun and Onozawa, Mizuki and Takaoka, Eiichiro and Yano, Ikuya",
+      "journal": "International journal of urology : official journal of the Japanese Urological Association",
+      "year": "2018",
+      "volume": "25",
+      "issue": "5",
+      "pages": "405-413",
+      "abstract": "In the past 40\u00a0years, intravesical immunotherapy with Mycobacterium bovis bacillus Calmette-Gu\u00e9rin has been carried out as the most effective treatment for preventing local recurrences and tumor progression of non-muscle-invasive bladder cancer. Bacillus Calmette-Gu\u00e9rin is a family of vaccines derived in 1921 by the in\u00a0vitro attenuation of Mycobacterium bovis. Subsequently, bacillus Calmette-Gu\u00e9rin seed lots were spread around the world, and both phenotypic and genotypic differences among the strains have been compiled. In recent genomic comparisons, the evolution of the different bacillus Calmette-Gu\u00e9rin substrains has begun to emerge. However, some of these genetic alterations in bacillus Calmette-Gu\u00e9rin strains have yet to be shown to affect the therapeutic effects and/or adverse effects. There are thus ongoing research efforts to assess the effects of these genetic alterations on the properties of bacillus Calmette-Gu\u00e9rin strains, with the ultimate goal of identifying an ideal bacillus Calmette-Gu\u00e9rin strain for treatment of non-muscle-invasive bladder cancer and providing clues for the improvement of bacillus Calmette-Gu\u00e9rin strains. The present review provides a history of bacillus Calmette-Gu\u00e9rin immunotherapy, and discusses the genetic differences among bacillus Calmette-Gu\u00e9rin strains, the different clinical outcomes afforded by bacillus Calmette-Gu\u00e9rin strains and possible future developments."
+    },
+    {
+      "pmid": "27903467",
+      "doi": "10.1016/j.avsg.2016.07.094",
+      "title": "Arteriocutaneous Fistula Associated with Bilateral Femoral Pseudoaneurysms Caused by Bacillus Calmette-Gu\u00e9rin. Apropos of a Case and Review of Literature.",
+      "authors": "Torres-Blanco, \u00c1lvaro and G\u00f3mez-Palon\u00e9s, Francisco and Edo-Fleta, Gemma",
+      "journal": "Annals of vascular surgery",
+      "year": "2017",
+      "volume": "39",
+      "issue": "",
+      "pages": "291.e1-291.e6",
+      "abstract": "Vascular complications of intravesical instillation of bacillus Calmette-Gu\u00e9rin (BCG) are rare. BCG is an attenuated strain of Mycobacterium bovis that was initially developed for vaccination against tuberculosis, but it has also been used as an adjuvant treatment for bladder transitional carcinoma. We report a patient with a history of instillation of BCG 2 years before, who underwent surgical treatment of 2 pseudoaneurysms. The first, located in the left superficial femoral artery (SFA), was resected, and the artery was ligated because he had a history of femoropopliteal occlusion. After 4\u00a0weeks, he presented another one associated with hemorrhage by cutaneous fistula, in the right common femoral artery. In this case, revascularization was performed by means a common-to-deep femoral artery bypass with polytetrafluorethylene graft and reimplantation of SFA. Initially, bacterial cultures were negative, but bacilli cultures identified M. bovis after 3\u00a0weeks. Antituberculosis therapy was administered. After 13\u00a0months, the patient was asymptomatic and duplex ultrasound showed no signs of recurrent infection. This exposure should be considered if presentation of the false aneurysm is spontaneous and there is a history of bladder carcinoma."
+    }
+  ]
+}

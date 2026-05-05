@@ -1,0 +1,189 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "when-tuberculosis-came-from-the-cow",
+  title: "When Tuberculosis Came from the Cow",
+  description:
+    "Mycobacterium bovis mattered because it forced medicine to treat tuberculosis as a zoonosis and a milk-supply problem, not just a human lung disease.",
+  publishedAt: "2026-05-04",
+  historicalDateLabel: "1898-1921",
+  historicalYearSort: 1898,
+  categories: ["organisms", "diagnostics-vaccines"],
+  tags: [
+    "Mycobacterium bovis",
+    "Bovine tuberculosis",
+    "Tuberculosis",
+    "Theobald Smith",
+    "Milk",
+    "Pasteurization",
+    "Zoonosis",
+    "BCG",
+  ],
+  hook:
+    "Tuberculosis did not stay in the coughing ward. Before pasteurization became routine, part of the disease also rode quietly in the milk pail.",
+  takeaway:
+    "The importance of Mycobacterium bovis was not just that it added another name to the tuberculosis family. It forced public health to follow TB across species, into dairies, and all the way to the breakfast table.",
+  heroImage: "/historid/when-tuberculosis-came-from-the-cow/hero.jpg",
+  heroImageAlt:
+    "Historic photograph of an inspector examining a milk wagon during dairy inspection work in 1914.",
+  heroImageCredit:
+    "U.S. Food and Drug Administration, John Earnshaw inspecting a milk wagon in 1914.",
+  heroImageSourceUrl: "https://www.flickr.com/photos/fdaphotos/4901388634/",
+  heroImageLicense: "Public domain via U.S. Food and Drug Administration",
+  socialHeadline: "When Tuberculosis Came from the Cow",
+  socialDek:
+    "Bovine tuberculosis forced medicine to admit that TB could move through cattle and milk, which turned dairy safety into part of tuberculosis control.",
+  socialFacts: [
+    "The 1898 paper at the center of this story was Theobald Smith's comparison of bovine tubercle bacilli with human bacilli from sputum.",
+    "For many patients, especially before safe milk systems were built, bovine tuberculosis could arrive through contaminated raw dairy rather than only through the air.",
+    "Pasteurization and cattle-control programs did not just improve farming. They became anti-tuberculosis interventions.",
+    "CDC now notes that Mycobacterium bovis causes less than 2% of TB disease cases in the United States.",
+    "Species still matters because Mycobacterium bovis is usually resistant to pyrazinamide, and its attenuated descendant became BCG.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Tuberculosis was supposed to be a disease of breath. Cough, sputum, crowded rooms, bad lungs.
+    Then medicine had to face another route. Part of the disease was coming from cattle, and part of
+    it was arriving at the table in milk. Once that became harder to ignore, tuberculosis stopped
+    being only a story about the sickroom. It became a story about dairies, inspection, and what
+    people were feeding their children.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Milk had a wholesome reputation it did not always deserve. In fast-growing cities, it moved from
+    herd to customer through a chain that could be dirty, diluted, badly stored, or barely watched at
+    all. Tuberculosis, meanwhile, was everywhere. It was feared, familiar, and only partly explained
+    by the still-young science of bacteriology. If infected cattle could seed human disease, then a
+    glass of milk was no longer just food. It was one more place to look for TB.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    In 1898, Theobald Smith published a comparative study of bovine tubercle bacilli and human
+    bacilli from sputum. The paper did not settle every argument in one clean stroke, and it did not
+    hand later readers the exact modern story they might want. What it did do was make the bovine
+    side of tuberculosis much harder to wave away. Smith argued from comparative bacteriology that the
+    bacilli from cattle were not simply interchangeable with the human organism. Public health now had
+    more than a hunch. It had a microbial trail that ran from herd disease toward human risk.
+  </p>
+
+  <p>
+    The next move was practical. If cattle could help sustain human tuberculosis, then inspection,
+    tuberculin testing, culling, and milk hygiene were no longer farm bureaucracy. They were disease
+    control. By the early 20th century, pasteurization and dairy oversight had become part of the
+    anti-TB toolkit.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    <em>Mycobacterium bovis</em> mattered because it forced medicine to follow a pathogen outside the
+    patient. Tuberculosis was still a disease of bodies, but it was also a disease of animal
+    reservoirs, food systems, and city oversight. Once you accept that, dairy inspection stops
+    looking like paperwork and starts looking like infectious-disease work. The fight against TB was
+    no longer only about diagnosing the sick. It was also about making an everyday staple less
+    dangerous before it ever reached the table.
+  </p>
+
+  <p>
+    In modern language, this reads like a One Health story before anyone used that phrase. The label
+    matters less than the logic. Human tuberculosis risk could not be understood by looking at humans
+    alone. You also had to look at cattle, dairies, and the route by which milk moved through a
+    population.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    The old milk story is quieter now, but it is not gone. In high-income settings, routine
+    pasteurization and long-running cattle-control programs made human <em>M. bovis</em> infection far
+    less common. CDC now notes that it causes less than 2% of TB disease cases in the United States.
+    That is exactly why the species still deserves attention. The cases that remain often come with
+    clues such as unpasteurized dairy exposure, animal contact, or travel and migration patterns that
+    lead back to the older bovine route.
+  </p>
+
+  <p>
+    The organism also still matters at the bedside. <em>M. bovis</em> is usually resistant to
+    pyrazinamide, so species identification can change treatment instead of merely making the lab
+    report prettier. And the story has one of the strangest afterlives in infectious-disease history:
+    an attenuated descendant of this bovine bacillus became BCG, the tuberculosis vaccine that later
+    took on a second job in bladder cancer care.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Smith T. A comparative study of bovine tubercle bacilli and of human bacilli from sputum.
+        <em>J Exp Med</em>. 1898;3(4-5):451-511.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1084/jem.3.4-5.451" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1084/jem.3.4-5.451
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Good M, Bakker D, Duignan A, Collins DM. The History of In Vivo Tuberculin Testing in
+        Bovines: Tuberculosis, a "One Health" Issue. <em>Front Vet Sci</em>. 2018;5:59.
+      </p>
+      <p>
+        <a href="https://doi.org/10.3389/fvets.2018.00059" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.3389/fvets.2018.00059
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        O'Reilly LM, Daborn CJ. The epidemiology of <em>Mycobacterium bovis</em> infections in
+        animals and man: a review. <em>Tuberc Lung Dis</em>. 1995;76 Suppl 1:1-46.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/0962-8479(95)90591-X" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/0962-8479(95)90591-X
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        de la Rua-Domenech R. Human <em>Mycobacterium bovis</em> infection in the United Kingdom:
+        incidence, risks, control measures and review of the zoonotic aspects of bovine
+        tuberculosis. <em>Tuberculosis (Edinb)</em>. 2006;86(2):77-109.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/j.tube.2005.05.002" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/j.tube.2005.05.002
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Centers for Disease Control and Prevention. About Bovine Tuberculosis in Humans. Updated May
+        20, 2024.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/tb/about/m-bovis.html" target="_blank" rel="noreferrer">
+          Link: CDC bovine tuberculosis in humans
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Centers for Disease Control and Prevention. Bacille Calmette-Guerin (BCG) Vaccine for
+        Tuberculosis. Updated January 31, 2025.
+      </p>
+      <p>
+        <a href="https://www.cdc.gov/tb/hcp/vaccines/index.html" target="_blank" rel="noreferrer">
+          Link: CDC BCG vaccine overview
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

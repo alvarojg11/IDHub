@@ -1,0 +1,302 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("flea-borne-typhus-la");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Fig Tree Fever
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old woman who works as a school librarian in Highland Park, Los Angeles presents to an urgent care clinic with 9 days of high-grade fever, severe bifrontal headache, profound fatigue, and diffuse myalgias. She initially attributed her symptoms to a summer viral illness and managed them with ibuprofen, which offered only partial headache relief. She has no significant past medical history, takes no chronic medications, and is up to date on routine vaccinations.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Around day 6 of her illness, her husband noticed faint pinkish spots on her abdomen and chest. She dismissed them as a heat rash and did not seek care at that time. She denies cough, dyspnea, nausea, vomiting, diarrhea, dysuria, or neck stiffness. She has no international travel, no wilderness camping, and no tick bites that she is aware of. She lives in a hillside home in Highland Park with a backyard containing a fig tree and an avocado tree. She has two indoor-outdoor cats that use a cat door freely. She mentions that opossums regularly visit the yard at night, eating fallen fruit under the trees.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.9°C, heart rate 104/min, blood pressure 108/70 mmHg, respiratory rate 16/min, and oxygen saturation 99% on room air. She appears fatigued but is alert and conversant. A maculopapular rash composed of discrete 2 to 4 mm erythematous macules and papules is distributed across the anterior chest, abdomen, and upper back. The palms, soles, and face are spared. No petechiae or vesicles are present. There is no eschar on the scalp, neck, axillae, groin, or anywhere else on the skin surface. The liver edge is palpable 2 cm below the costal margin and mildly tender to deep palpation. The spleen tip is palpable. No lymphadenopathy is appreciated. Lung and cardiac examinations are unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 5.8 x 10^3/uL with 72% neutrophils and 8% bands, hemoglobin 12.4 g/dL, platelets 88 x 10^3/uL, creatinine 1.2 mg/dL, sodium 131 mEq/L, AST 92 U/L, ALT 71 U/L, LDH 328 U/L, and C-reactive protein 112 mg/L. A malaria smear and rapid antigen test are negative. Dengue NS1 antigen and IgM ELISA are negative. Blood cultures are obtained. A chest radiograph is unremarkable.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/flea-borne-typhus-la/rash.png"
+      alt="Maculopapular rash on the trunk in flea-borne typhus"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Maculopapular rash on the trunk. The palms, soles, and face are spared.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-flea-borne-typhus-la-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Rocky Mountain spotted fever (Rickettsia rickettsii)",
+      feedback:
+        "Incorrect. RMSF causes fever, headache, thrombocytopenia, and transaminitis after tick exposure and can be severe and rapidly fatal. The rash of RMSF, however, classically begins on the wrists and ankles before spreading centrally, and involves the palms and soles in the majority of cases. This patient's rash is confined to the trunk and spares all acral surfaces. She also reports no tick bites and lives in an urban Los Angeles neighborhood without a recent tick-heavy outdoor exposure history. The vector and rash distribution argue against RMSF.",
+    },
+    {
+      id: "B",
+      label: "Scrub typhus (Orientia tsutsugamushi)",
+      feedback:
+        "Incorrect. Scrub typhus is transmitted by larval trombiculid mites (chiggers) and is endemic primarily in the Asia-Pacific region, stretching from Japan and Korea to northern Australia. A cardinal feature is an eschar at the mite attachment site, typically in a skin fold or concealed area. This patient has no eschar on thorough skin exam, no travel to endemic areas, and no exposure history compatible with scrub typhus.",
+    },
+    {
+      id: "C",
+      label: "Rickettsialpox (Rickettsia akari)",
+      feedback:
+        "Incorrect. Rickettsialpox is caused by Rickettsia akari, transmitted by the mite of the house mouse (Liponyssoides sanguineus), and characteristically produces an eschar at the mite bite site followed by a generalized vesiculopapular rash, not a purely maculopapular one. It is primarily reported from New York City and a few other dense urban centers, not Los Angeles. The absence of an eschar and the non-vesicular rash argue against rickettsialpox.",
+    },
+    {
+      id: "D",
+      label: "Murine (flea-borne) typhus (Rickettsia typhi)",
+      correct: true,
+      feedback:
+        "Correct. Murine typhus fits the full picture: prolonged fever, severe headache, thrombocytopenia, transaminitis, elevated LDH, mild hyponatremia, and a maculopapular truncal rash sparing the palms and soles, all without an eschar. In Los Angeles County, the predominant transmission cycle involves the Virginia opossum as the peridomestic reservoir and the cat flea (Ctenocephalides felis) as the vector. Backyard opossums and indoor-outdoor cats are the classic Los Angeles exposure. Los Angeles and the surrounding counties account for the large majority of reported murine typhus cases in the United States.",
+    },
+    {
+      id: "E",
+      label: "Epidemic typhus (Rickettsia prowazekii)",
+      feedback:
+        "Incorrect. Epidemic typhus is transmitted by the human body louse (Pediculus humanus corporis) and occurs in settings of severe overcrowding, displacement, or poverty, classically in refugee camps or among unhoused populations in cold climates. The syndrome of prolonged fever and rash overlaps, but this patient has no louse exposure, no history of crowded or unsheltered living, and no epidemiologic context for epidemic typhus. The vector does not fit.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-flea-borne-typhus-la-q2"
+  title="Question 2"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Azithromycin 500 mg once daily for 5 days",
+      feedback:
+        "Incorrect. Azithromycin has limited and inconsistent in vitro and clinical activity against Rickettsia species and is not recommended as primary therapy for murine typhus in non-pregnant adults. It is sometimes considered in pregnancy when both doxycycline and chloramphenicol carry risks, but it is not a first-line agent and should not be the default choice here.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline 100 mg twice daily until afebrile for 48 to 72 hours",
+      correct: true,
+      feedback:
+        "Correct. Doxycycline is first-line therapy for all rickettsial diseases, including murine typhus. Treatment should begin as soon as the diagnosis is suspected and must not wait for confirmatory serology, which is frequently negative in the first week of illness. Duration is continued until the patient is afebrile for 48 to 72 hours, typically 7 to 10 days total. Clinical response is a useful diagnostic clue: fever should begin to resolve within 24 to 48 hours of starting doxycycline, and failure to improve should prompt reconsideration of the diagnosis.",
+    },
+    {
+      id: "C",
+      label: "Trimethoprim-sulfamethoxazole DS twice daily for 10 days",
+      feedback:
+        "Incorrect. TMP-SMX is not only ineffective against Rickettsia species but is considered antagonistic. Clinical and experimental data suggest that TMP-SMX may actively worsen rickettsial disease, and it is explicitly contraindicated. This is a critical safety point: a clinician who empirically reaches for TMP-SMX for a febrile rash illness may inadvertently harm the patient.",
+    },
+    {
+      id: "D",
+      label: "Chloramphenicol 500 mg every 6 hours for 7 days",
+      feedback:
+        "Incorrect. Chloramphenicol was the historical standard for rickettsial disease before doxycycline became widely available and remains an option in select circumstances, including pregnancy. However, it is no longer first-line due to its serious toxicity profile, including idiosyncratic aplastic anemia and reversible bone marrow suppression. The correct treatment for this otherwise healthy non-pregnant adult is doxycycline.",
+    },
+    {
+      id: "E",
+      label: "Ciprofloxacin 500 mg twice daily for 7 days",
+      feedback:
+        "Incorrect. Fluoroquinolones, including ciprofloxacin, are not reliably active against Rickettsia typhi or other Rickettsia species and should not be used as definitive treatment for rickettsial disease. Using a fluoroquinolone in this patient would be both incorrect and potentially harmful given the delay in effective therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-flea-borne-typhus-la-q3"
+  title="Question 3"
+  prompt="How does R. typhi typically enter the human host?"
+  options={[
+    {
+      id: "A",
+      label: "R. typhi spreads when infected body lice defecate near the bite wound, and the host scratches louse feces into broken skin",
+      feedback:
+        "Incorrect. This correctly describes the mechanism of transmission for epidemic typhus: Rickettsia prowazekii is carried by the human body louse (Pediculus humanus corporis), which defecates during feeding, and the host inoculates louse feces by scratching. The same general mechanism applies to murine typhus, but the vector is the flea, not the body louse, and the organism is R. typhi, not R. prowazekii. Confusing these two is a common error.",
+    },
+    {
+      id: "B",
+      label: "Infected rats transmit R. typhi to humans directly through bites, and fleas function only as passive reservoir hosts",
+      feedback:
+        "Incorrect. Fleas are the active biological vectors, not passive bystanders. Rats and opossums serve as amplifying reservoir hosts: the flea acquires R. typhi by feeding on a rickettsemic animal, then transmits it to humans via fecal contamination of the bite wound. Direct animal bites are not a recognized route of transmission for murine typhus.",
+    },
+    {
+      id: "C",
+      label: "Humans acquire infection when infected fleas are crushed against the skin, releasing rickettsiae that penetrate intact epidermis",
+      feedback:
+        "Incorrect. Crushing an infected flea is sometimes cited as a theoretical risk, and rickettsiae can survive briefly outside the host, but this is not an established primary route of transmission for R. typhi. Intact epidermis is a meaningful barrier; the clinically important route is fecal rickettsiae introduced into already-abraded or broken skin at the pruritic bite site.",
+    },
+    {
+      id: "D",
+      label: "R. typhi is transmitted directly through the flea's saliva during the bite, analogous to arboviral transmission",
+      feedback:
+        "Incorrect. Unlike arboviruses such as dengue or West Nile virus, which replicate in the salivary glands of their arthropod vectors and are injected during feeding, Rickettsia typhi is not transmitted through flea saliva. Fleas infected with R. typhi carry the organisms in their gut, and it is fecal contamination, not salivary inoculation, that delivers rickettsiae to the host.",
+    },
+    {
+      id: "E",
+      label: "Infected flea feces deposited near the bite site are scratched into the skin, inoculating viable rickettsiae",
+      correct: true,
+      feedback:
+        "Correct. Infected fleas defecate during or shortly after feeding, depositing feces containing viable intracellular rickettsiae on or near the bite site. The pruritic papule provokes scratching, which abrades the skin and inoculates fecal rickettsiae into the dermis. This transcutaneous fecal inoculation is the primary route of entry for R. typhi. Inhalation of aerosolized dried flea feces and conjunctival inoculation are recognized but uncommon secondary routes. Patients frequently do not recall a flea bite because cat flea bites are often inconspicuous.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-flea-borne-typhus-la-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Murine or flea-borne typhus is caused by <em>Rickettsia typhi</em>, an obligate intracellular gram-negative bacterium in the typhus group. The clinical syndrome of prolonged fever, severe headache, myalgias, thrombocytopenia, transaminitis, elevated LDH, mild hyponatremia, and a maculopapular truncal rash sparing the palms and soles is characteristic. The absence of an eschar excludes scrub typhus and rickettsialpox; the acral-sparing truncal rash and LA peridomestic exposure argue against RMSF; and the absence of any louse exposure or crowded-living context makes epidemic typhus very unlikely.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In Los Angeles County, the transmission ecology for murine typhus has substantially shifted from the classic cycle involving rats and the rat flea (<em>Xenopsylla cheopis</em>) to a peridomestic urban cycle. The principal reservoir in the Los Angeles basin is the Virginia opossum (<em>Didelphis virginiana</em>), which maintains rickettsemia without apparent illness. The predominant vector is the cat flea (<em>Ctenocephalides felis</em>), which feeds freely on opossums, rats, cats, and incidentally on humans. Indoor-outdoor cats serve as efficient flea carriers and bring infested fleas into direct contact with household members. LA County and Orange County account for the large majority of domestically acquired murine typhus cases in the United States, with cases increasingly recognized in periurban hillside neighborhoods, exactly the setting this patient inhabits.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The route of entry for <em>R. typhi</em> is mechanistically distinct from arboviral transmission. Rickettsiae do not replicate in flea salivary glands and are not injected during feeding. Instead, infected fleas defecate during or after the blood meal, depositing feces containing viable intracellular organisms onto or near the bite site. The pruritic reaction to the bite provokes scratching, which abrades the skin and introduces fecal rickettsiae into the dermis. This transcutaneous fecal inoculation is the primary route. Aerosolization of dried flea feces is a recognized secondary route, particularly in heavily infested environments. Many patients, including this one, do not recall a flea bite because cat flea bites are often indolent, small, and not memorable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is typically confirmed by indirect immunofluorescence serology showing a fourfold or greater rise in IgG titer between acute and convalescent serum drawn 2 to 4 weeks apart. Early serology is frequently negative. PCR on blood can provide earlier confirmation but is not universally available. Because serology is insensitive in the first week of illness, treatment should never be deferred for confirmatory testing. Doxycycline 100 mg twice daily is first-line for all rickettsial disease in non-pregnant adults, continued until the patient is afebrile for 48 to 72 hours. Defervescence within 24 to 48 hours of starting doxycycline is both expected and diagnostically useful. TMP-SMX is explicitly contraindicated and may worsen disease. Fluoroquinolones are unreliable. Chloramphenicol is a historical alternative reserved primarily for pregnancy.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-flea-borne-typhus-la-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Murine typhus in Los Angeles is sustained by a peridomestic opossum-cat flea cycle (<em>Ctenocephalides felis</em>), not the classic rat-rat flea cycle; backyard opossums and indoor-outdoor cats are the key exposure clues.
+    </li>
+    <li>
+      The rash is maculopapular, confined to the trunk, and spares the palms, soles, and face, distinguishing it from RMSF. The absence of an eschar distinguishes it from scrub typhus and rickettsialpox.
+    </li>
+    <li>
+      <em>R. typhi</em> enters the host through flea feces scratched into the bite site, not through flea saliva. Patients frequently do not recall a flea bite.
+    </li>
+    <li>
+      Serology is often negative in the first week. Start doxycycline as soon as murine typhus is suspected; defervescence within 24 to 48 hours supports the diagnosis retroactively.
+    </li>
+    <li>
+      TMP-SMX is contraindicated and may worsen rickettsial disease. Fluoroquinolones are not reliably active. Doxycycline is the unambiguous first-line agent.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Murine Typhus: Clinical Information.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/typhus/murine/hcp/clinical-overview/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Murine Typhus Clinical Overview
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      California Department of Public Health. Murine Typhus.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Murine-Typhus.aspx"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDPH: Murine Typhus
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Adjemian J, Parks S, McElroy K, et al. Murine typhus in Austin, Texas, USA, 2008. Emerging Infectious Diseases. 2010;16(3):412-417.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://wwwnc.cdc.gov/eid/article/16/3/09-013_article"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Adjemian et al.: Murine Typhus Ecology and Epidemiology
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Blanton LS. The Rickettsioses: A Practical Update. Infectious Disease Clinics of North America. 2019;33(1):213-229.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.idc.2018.10.010"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Blanton: The Rickettsioses — A Practical Update
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

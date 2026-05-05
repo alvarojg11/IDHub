@@ -993,6 +993,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A man with neurogenic bladder, recurrent stones, and multiple prior antibiotic courses becomes septic one day after lithotripsy and stent placement. Blood and urine cultures grow difficult-to-treat Pseudomonas aeruginosa. Which newer agent is the best definitive therapy, what resistance mechanisms fit the susceptibility profile, and why is source control still the center of management?",
     tags: { organisms: ["Pseudomonas aeruginosa"], syndromes: ["Sepsis & Bacteremia", "Renal & Urologic"], concepts: ["Difficult-to-treat resistance", "Neurogenic bladder", "Ureteral stones", "Lithotripsy", "Source control", "Ceftolozane-tazobactam"] },
   },
+  {
+    slug: "flea-borne-typhus-la",
+    title: "The Fig Tree Fever",
+    description: "A Los Angeles resident develops nine days of fever, headache, and a subtle truncal rash after exposure to cats and backyard wildlife.",
+    enable: true,
+    ogImage: "/cases/flea-borne-typhus-la/rash.png",
+    teaser: "A 38-year-old woman in Highland Park develops nine days of fever, severe headache, and a faint maculopapular rash on her trunk. No tick exposure, no international travel, but two indoor-outdoor cats and opossums under the fig tree. Which rickettsial disease fits, what is the right treatment, and how did the organism actually enter the host?",
+    tags: { organisms: ["Rickettsia typhi"], syndromes: ["Vector-borne Infection", "Zoonoses", "Fever & Rash"], concepts: ["Murine typhus", "Flea-borne transmission", "Urban opossum cycle", "Cat flea", "Doxycycline", "Flea feces inoculation", "Truncal rash", "Los Angeles"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
