@@ -1002,6 +1002,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 38-year-old woman in Highland Park develops nine days of fever, severe headache, and a faint maculopapular rash on her trunk. No tick exposure, no international travel, but two indoor-outdoor cats and opossums under the fig tree. Which rickettsial disease fits, what is the right treatment, and how did the organism actually enter the host?",
     tags: { organisms: ["Rickettsia typhi"], syndromes: ["Vector-borne Infection", "Zoonoses", "Fever & Rash"], concepts: ["Murine typhus", "Flea-borne transmission", "Urban opossum cycle", "Cat flea", "Doxycycline", "Flea feces inoculation", "Truncal rash", "Los Angeles"] },
   },
+  {
+    slug: "toxoplasma-bmt",
+    title: "Before Day Forty-Two",
+    description: "A woman with AML develops focal neurological deficits and confusion on day thirteen after allogeneic bone marrow transplantation, before prophylaxis has been started.",
+    enable: true,
+    ogImage: "/cases/toxoplasma-bmt/mri.png",
+    teaser: "A 48-year-old woman with AML in CR1 develops worsening headache, right-sided weakness, and confusion on day thirteen after myeloablative allogeneic HSCT. TMP-SMX prophylaxis has not started. A routine pretransplant check was never sent. MRI shows multiple ring-enhancing lesions. Which pathogen fits, what is the treatment, and why did reactivation occur without any new exposure?",
+    tags: { organisms: ["Toxoplasma gondii"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "CNS Infection"], concepts: ["Reactivation toxoplasmosis", "Allogeneic HSCT", "Ring-enhancing lesions", "Bradyzoite cysts", "Pyrimethamine", "Sulfadiazine", "Leucovorin", "TMP-SMX prophylaxis gap"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
