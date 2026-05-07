@@ -1,0 +1,302 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("m-abscessus-lung-transplant");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Rough Colony
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 32-year-old man with cystic fibrosis (F508del homozygous) underwent bilateral lung transplantation five months ago for end-stage CF lung disease. His pretransplant infectious disease evaluation documented two consecutive sputum cultures growing <em>Mycobacterium abscessus</em> complex, which was noted in the ID pretransplant consultation but did not prevent transplantation. Post-transplant immunosuppression consists of tacrolimus, mycophenolate mofetil, and prednisone 10 mg daily. Prophylaxis includes TMP-SMX (PJP), valganciclovir (CMV), and itraconazole (mold). His post-transplant course was complicated by a single episode of acute cellular rejection (grade A2) at day 34, treated with pulse methylprednisolone.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Six weeks before the current visit he developed progressive cough with purulent sputum, low-grade fevers, night sweats, and a 4 kg weight loss. The primary team empirically started azithromycin for presumed bacterial bronchitis; there was no improvement. Three weeks later he noticed a firm, tender erythematous nodule on his right forearm. Two additional smaller nodules appeared over the following two weeks. He denies hemoptysis, dyspnea at rest, or joint pain.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.2°C, heart rate 102/min, blood pressure 116/74 mmHg, respiratory rate 18/min, and oxygen saturation 94% on room air. Three indurated, erythematous subcutaneous nodules measuring 1.2 to 2.4 cm are present on the right forearm; the largest has overlying fluctuance. Coarse crackles are heard in the right lower zone. No lymphadenopathy is palpated. The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 9.2 x 10^3/uL with 84% neutrophils and 6% bands, CRP 96 mg/L, procalcitonin 0.6 ng/mL, creatinine 1.4 mg/dL, and tacrolimus level 7.8 ng/mL. CT chest shows a 2.6 cm cavitary nodule in the right lower lobe with adjacent consolidation and multiple 5 to 8 mm satellite nodules; no pleural effusion. Flexible bronchoscopy is performed: bronchoalveolar lavage AFB smear is positive by auramine-rhodamine fluorescence. Standard bacterial cultures from the BAL are negative; aspergillus galactomannan on BAL is negative. Mycobacterial blood cultures using the BACTEC MGIT 960 liquid system are flagged positive at day 8; auramine stain of the broth confirms acid-fast bacilli. Colonies grow within 7 days at 30°C on solid media, consistent with a rapidly growing mycobacterium. Molecular speciation by <em>hsp65</em> gene sequencing identifies <em>M. abscessus</em> complex, subspecies <em>abscessus</em>. Azithromycin susceptibility at day 3 reads as susceptible (MIC 4 mcg/mL); the laboratory comments that extended 14-day incubation testing is in progress given the presence of a functional <em>erm(41)</em> gene in this subspecies.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/m-abscessus-lung-transplant/auramine.png"
+      alt="Auramine fluorescence stain of BACTEC blood culture broth showing acid-fast bacilli"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Auramine fluorescence stain of BACTEC blood culture broth: bright fluorescent acid-fast bacilli consistent with a rapidly growing mycobacterium.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-m-abscessus-lung-transplant-q1"
+  title="Question 1"
+  prompt="What is the most appropriate initial treatment approach?"
+  options={[
+    {
+      id: "A",
+      label: "Isoniazid + rifampin + ethambutol + pyrazinamide for 6 months",
+      feedback:
+        "Incorrect. RIPE therapy is the cornerstone of Mycobacterium tuberculosis treatment and has no role in M. abscessus complex disease. M. abscessus is intrinsically resistant to all first-line TB drugs: it lacks the targets for isoniazid and pyrazinamide, is resistant to rifamycins via ADP-ribosyltransferases, and ethambutol has no reliable activity. Using RIPE for nontuberculous mycobacteria reflects a fundamental misclassification of the pathogen.",
+    },
+    {
+      id: "B",
+      label: "Azithromycin monotherapy pending final susceptibility results",
+      feedback:
+        "Incorrect. Macrolides cannot be used as monotherapy for M. abscessus complex for two reasons. First, M. abscessus subsp. abscessus harbors a functional erm(41) gene encoding an inducible ribosomal methyltransferase; the organism appears susceptible in vitro at day 3 but develops resistance during prolonged macrolide exposure. Second, even when macrolides are active, monotherapy rapidly selects for acquired resistance via rrl mutations. Macrolides, when used, function as companion agents within a multi-drug regimen, never as sole therapy.",
+    },
+    {
+      id: "C",
+      label: "Intensive IV phase with amikacin, cefoxitin or imipenem-cilastatin, and tigecycline; macrolide inclusion deferred until subspecies and 14-day susceptibility results are confirmed",
+      correct: true,
+      feedback:
+        "Correct. M. abscessus complex requires a two-phase multi-drug regimen. The intensive phase, typically 4 to 8 weeks, is built around IV amikacin (15 mg/kg daily adjusted for renal function and monitored for ototoxicity and nephrotoxicity), combined with IV cefoxitin (up to 12 g/day in divided doses) or imipenem-cilastatin, and IV tigecycline when tolerated. Tigecycline is active but poorly tolerated due to nausea. The continuation phase relies on oral or inhaled agents, and macrolide inclusion depends critically on subspecies identification and extended 14-day susceptibility testing. For M. abscessus subsp. abscessus with functional erm(41), macrolides should be excluded from the active regimen despite day-3 in vitro susceptibility.",
+    },
+    {
+      id: "D",
+      label: "Ciprofloxacin + TMP-SMX as an oral outpatient regimen",
+      feedback:
+        "Incorrect. Ciprofloxacin combined with TMP-SMX is an appropriate regimen for M. fortuitum, the most common rapidly growing mycobacterium causing skin and soft tissue infections, which is generally susceptible to fluoroquinolones and sulfonamides. M. abscessus complex is a distinct and far more drug-resistant organism: fluoroquinolones have variable and unreliable activity, and TMP-SMX has limited role in M. abscessus treatment. Conflating these two rapid growers leads to treatment failure.",
+    },
+    {
+      id: "E",
+      label: "Linezolid 600 mg twice daily as monotherapy",
+      feedback:
+        "Incorrect. Linezolid has meaningful in vitro activity against M. abscessus and is an important component of continuation-phase regimens. However, it cannot be used as monotherapy: the bacterial burden in disseminated disease is substantial, monotherapy rapidly selects for resistance, and the clinical evidence base for M. abscessus supports multi-drug regimens throughout treatment. Linezolid is also poorly tolerated long-term due to myelosuppression and peripheral neuropathy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-m-abscessus-lung-transplant-q2"
+  title="Question 2"
+  prompt="Which mechanism explains why azithromycin cannot be relied upon as an active agent in M. abscessus subsp. abscessus despite day-3 susceptibility testing showing susceptibility?"
+  options={[
+    {
+      id: "A",
+      label: "Point mutations in the 23S rRNA gene (rrl) permanently alter the macrolide binding site, producing constitutive resistance from the outset of infection",
+      feedback:
+        "Incorrect. rrl mutations do produce macrolide resistance in M. abscessus and represent the most clinically severe form: constitutive, high-level resistance independent of drug exposure, with no role for macrolides in the regimen. This is a distinct mechanism from erm(41) and typically emerges as acquired resistance after macrolide monotherapy or inadequate multi-drug therapy. It is not the predominant mechanism in treatmentnaive M. abscessus subsp. abscessus, where the functional erm(41) gene mediates inducible rather than constitutive resistance. The distinction matters because rrl mutations confer even higher MICs and must be detected by 14-day susceptibility testing.",
+    },
+    {
+      id: "B",
+      label: "Overexpression of the MmpL5 efflux transporter actively removes macrolides from the intracellular environment before they reach the 50S ribosomal subunit",
+      feedback:
+        "Incorrect. MmpL5 is a mycobacterial inner membrane transporter involved in resistance to bedaquiline and clofazimine in M. tuberculosis through drug efflux, and similar efflux mechanisms contribute to intrinsic drug tolerance in M. abscessus. However, efflux is not the primary or defining mechanism of macrolide resistance in M. abscessus subsp. abscessus. The clinical signature of erm(41)-mediated resistance, apparent in vitro susceptibility followed by in vivo failure, is not explained by constitutive efflux.",
+    },
+    {
+      id: "C",
+      label: "A phosphotransferase encoded by mphA inactivates macrolides by phosphorylating the 2-prime hydroxyl group of the lactone ring before ribosome contact",
+      feedback:
+        "Incorrect. mphA encodes a macrolide 2-prime-phosphotransferase responsible for enzymatic macrolide inactivation in some Enterobacteriaceae and Staphylococcus species. While enzymatic inactivation is a legitimate macrolide resistance mechanism in other bacteria, it is not the operative mechanism in M. abscessus subsp. abscessus. No phosphotransferase of clinical significance mediates macrolide resistance in this organism.",
+    },
+    {
+      id: "D",
+      label: "The WhiB7 transcription factor senses antibiotic stress and induces a broad intrinsic resistance response that includes upregulation of ribosomal protection and macrolide efflux genes",
+      feedback:
+        "Incorrect. WhiB7 is a mycobacterial transcription factor that responds to diverse antibiotics, including aminoglycosides, macrolides, and tetracyclines, by inducing a broad intrinsic resistance transcriptional program in M. abscessus. It contributes to the organism's baseline tolerance. However, it does not account for the specific pattern of inducible resistance that causes day-3 susceptibility testing to read falsely susceptible: that signature is the defining feature of erm(41), a dedicated methyltransferase whose expression is specifically and potently induced by macrolide exposure.",
+    },
+    {
+      id: "E",
+      label: "The erm(41) gene encodes an inducible ribosomal RNA methyltransferase; macrolide exposure induces its expression, and the enzyme methylates adenine 2058 of the 23S rRNA, blocking drug binding",
+      correct: true,
+      feedback:
+        "Correct. M. abscessus subsp. abscessus carries a functional erm(41) gene encoding an inducible methyltransferase. In the absence of macrolide exposure, erm(41) is minimally expressed. Upon macrolide exposure, expression is rapidly induced, and the enzyme methylates adenine at position 2058 of the 23S rRNA, the key contact point for macrolide binding to the 50S ribosomal subunit. The result is that standard 3-day susceptibility testing, which reflects pre-induction behavior, reads as susceptible, while clinical and bacteriological failure occurs during prolonged therapy as the organism becomes resistant. M. abscessus subsp. massiliense carries a truncated, non-functional erm(41) and is therefore truly macrolide susceptible, explaining its consistently better treatment outcomes. Extended 14-day incubation susceptibility testing detects this inducible phenotype and should be performed for all M. abscessus complex isolates per ATS and IDSA guidelines.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-m-abscessus-lung-transplant-q3"
+  title="Question 3"
+  prompt="With macrolide resistance confirmed, what is the best continuation regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Continue azithromycin at double the standard dose to overcome erm(41)-mediated ribosomal methylation",
+      feedback:
+        "Incorrect. erm(41)-mediated resistance is a chemical modification of the drug's ribosomal target, not a concentration-dependent phenomenon that can be overcome by dose escalation. Higher macrolide doses do not displace methylated 23S rRNA. Continuing macrolides in this setting risks accelerating the emergence of acquired rrl mutations, which produce constitutive high-level resistance and eliminate any future therapeutic role for macrolides.",
+    },
+    {
+      id: "B",
+      label: "Exclude macrolides from the active regimen and build the continuation phase around amikacin (IV or inhaled), clofazimine, and linezolid",
+      correct: true,
+      feedback:
+        "Correct. When M. abscessus subsp. abscessus with functional erm(41) is identified, macrolides should be removed from the active drug count and the continuation regimen designed without them. The backbone consists of amikacin, administered intravenously or via inhaled liposomal amikacin (ARIKAYCE), which achieves high local drug concentrations in the airways. Clofazimine contributes meaningful activity against M. abscessus and is well tolerated at standard doses, with skin discoloration as the main adverse effect. Linezolid at 600 mg daily is an important oral companion agent, with monitoring for myelosuppression, peripheral neuropathy, and optic neuropathy required for prolonged courses. Surgical resection of localized pulmonary disease or incision and drainage of fluctuant skin lesions reduces bacterial burden and can improve outcomes.",
+    },
+    {
+      id: "C",
+      label: "Substitute moxifloxacin as the primary macrolide replacement, given shared activity at the 50S ribosomal subunit",
+      feedback:
+        "Incorrect. Fluoroquinolones, including moxifloxacin, target DNA gyrase and topoisomerase IV, not the 50S ribosomal subunit. They do not share the macrolide mechanism of action. More importantly, fluoroquinolones have inconsistent and generally modest activity against M. abscessus complex; they are not considered reliable backbone agents and are not the primary alternative to macrolides in resistant disease.",
+    },
+    {
+      id: "D",
+      label: "Add rifabutin and ethambutol to form a new treatment backbone",
+      feedback:
+        "Incorrect. Rifamycins, including rifabutin, have no reliable activity against M. abscessus complex. M. abscessus produces ADP-ribosyltransferases that inactivate rifamycins, conferring intrinsic resistance. Ethambutol has limited activity against M. abscessus as a single agent. Beyond the lack of efficacy, rifabutin is a potent CYP3A4 inducer that would substantially reduce tacrolimus levels, complicating immunosuppression management in this post-transplant patient.",
+    },
+    {
+      id: "E",
+      label: "Reduce tacrolimus and mycophenolate doses as the primary intervention to allow host immunity to suppress M. abscessus without antibiotic change",
+      feedback:
+        "Incorrect. While optimizing the level of immunosuppression is a reasonable adjunct in transplant-associated infections, reducing immunosuppression alone is insufficient to control disseminated M. abscessus and risks precipitating allograft rejection. Effective antimicrobial therapy is the primary intervention. Modest reduction of immunosuppression, in close coordination with the transplant team, may be considered alongside the antibiotic regimen, but it does not substitute for it.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-m-abscessus-lung-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Mycobacterium abscessus</em> complex (MABC) is the most virulent and treatment-resistant of the clinically important rapidly growing mycobacteria (RGM). It is defined by colonial growth within 7 days on solid media. In this case, a CF patient with known pretransplant MABC colonization develops disseminated disease under myeloablative immunosuppression: pulmonary infiltrates and cavitation in the transplanted lung combined with subcutaneous nodules on the forearm. Bacteremic dissemination confirms bloodstream seeding. The empiric azithromycin course was ineffective, foreshadowing the macrolide resistance finding.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    MABC comprises three subspecies with meaningfully different drug susceptibility profiles. <em>M. abscessus</em> subsp. <em>abscessus</em> carries a functional <em>erm(41)</em> gene and is the most treatment-resistant; macrolides cannot be relied upon as active agents. <em>M. abscessus</em> subsp. <em>massiliense</em> carries a truncated, non-functional <em>erm(41)</em> and is truly macrolide susceptible, allowing the continuation regimen to include an active macrolide and yielding substantially better treatment outcomes. <em>M. abscessus</em> subsp. <em>bolletii</em> has variable <em>erm(41)</em> activity and intermediate behavior. Subspecies identification by molecular methods (<em>hsp65</em> sequencing or whole genome sequencing) is therefore mandatory before finalizing any treatment plan. Among the other clinically relevant RGM, <em>M. chelonae</em> is a close relative with overlapping skin and soft tissue tropism but generally more drug susceptibility and no <em>erm(41)</em>; tobramycin is often active. <em>M. fortuitum</em>, the most common RGM overall, causes post-traumatic and post-procedural skin and soft tissue infections and is usually susceptible to fluoroquinolones, TMP-SMX, and doxycycline. <em>M. mucogenicum</em> is associated with catheter-related bloodstream infections rather than pulmonary or disseminated disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The <em>erm(41)</em> mechanism deserves emphasis because it creates a diagnostic trap. Standard Clinical and Laboratory Standards Institute (CLSI) susceptibility testing for M. abscessus reads azithromycin susceptibility at day 3, before erm(41) expression is fully induced. The organism appears susceptible. Extended 14-day incubation reveals the inducible phenotype with a markedly elevated MIC. The 2020 ATS, ERS, ESCMID, and IDSA guidelines for nontuberculous mycobacterial pulmonary disease explicitly recommend 14-day macrolide susceptibility testing for all MABC isolates and caution against interpreting day-3 results as reliable for clinical decision-making. A second and more severe form of macrolide resistance, constitutive resistance from acquired <em>rrl</em> 23S rRNA gene mutations, emerges after macrolide monotherapy or inadequate therapy and confers high-level resistance with no therapeutic role for macrolides.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment of M. abscessus complex follows a two-phase framework supported by observational data and expert guidelines rather than randomized trials. The intensive phase, lasting 4 to 8 weeks, combines IV amikacin (15 mg/kg daily with therapeutic drug monitoring targeting peak levels of 35 to 45 mcg/mL), IV cefoxitin (up to 12 g/day) or imipenem-cilastatin, and IV tigecycline when tolerated. The continuation phase for subsp. abscessus with macrolide resistance centers on inhaled liposomal amikacin (ARIKAYCE), which delivers high local drug concentrations in the airways, combined with oral clofazimine and linezolid. Prolonged linezolid therapy requires vigilant monitoring for myelosuppression and neuropathy. Surgical resection of localized pulmonary cavities, when feasible, reduces bacterial burden and has been associated with improved outcomes in selected patients. Phage therapy has been reported in compassionate use cases of disseminated M. abscessus after lung transplantation for CF, but it remains experimental and is not a standard option.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-m-abscessus-lung-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Subspecies identification within M. abscessus complex is mandatory: subsp. abscessus has a functional erm(41) and macrolides cannot be used as active agents; subsp. massiliense has a truncated non-functional erm(41) and is truly macrolide susceptible, with better treatment outcomes.
+    </li>
+    <li>
+      Standard day-3 azithromycin susceptibility testing is unreliable for M. abscessus subsp. abscessus; extended 14-day incubation is required to detect erm(41)-mediated inducible resistance. Do not base treatment decisions on day-3 results alone.
+    </li>
+    <li>
+      The intensive phase of M. abscessus treatment requires IV amikacin combined with IV cefoxitin or imipenem-cilastatin, and tigecycline when tolerated. Macrolide monotherapy, RIPE therapy, and fluoroquinolone-only regimens are all inadequate.
+    </li>
+    <li>
+      The continuation phase for macrolide-resistant M. abscessus relies on inhaled liposomal amikacin, clofazimine, and linezolid. Surgical resection of localized disease reduces bacterial burden and can improve outcomes.
+    </li>
+    <li>
+      Among the rapidly growing mycobacteria, M. fortuitum (fluoroquinolone and TMP-SMX susceptible), M. chelonae (tobramycin susceptible, no erm(41)), and M. mucogenicum (catheter-associated bloodstream infections) have distinct clinical niches and susceptibility profiles; M. abscessus complex is the most drug-resistant and requires the most aggressive approach.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Daley CL, Iaccarino JM, Lange C, et al. Treatment of nontuberculous mycobacterial pulmonary disease: an official ATS/ERS/ESCMID/IDSA clinical practice guideline. European Respiratory Journal. 2020;56(1):2000535.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1183/13993003.00535-2020"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Daley et al.: ATS/ERS/ESCMID/IDSA NTM Treatment Guidelines 2020
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Drusano GL, Sgambati N, Eichas A, et al. The combination of rifampin plus moxifloxacin is not more active than moxifloxacin alone against Mycobacterium abscessus in a mouse infection model. Antimicrobial Agents and Chemotherapy. 2018;62(8):e00635-18.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00635-18"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Drusano et al.: Fluoroquinolone Activity Against M. abscessus
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nessar R, Cambau E, Reyrat JM, Murray A, Gicquel B. Mycobacterium abscessus: a new antibiotic nightmare. Journal of Antimicrobial Chemotherapy. 2012;67(4):810-818.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/jac/dkr578"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Nessar et al.: M. abscessus — A New Antibiotic Nightmare
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Haworth CS, Banks J, Capstick T, et al. British Thoracic Society guidelines for the management of non-tuberculous mycobacterial pulmonary disease (NTM-PD). Thorax. 2017;72(Suppl 2):ii1-ii64.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1136/thoraxjnl-2017-210927"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        BTS NTM-PD Guidelines 2017
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

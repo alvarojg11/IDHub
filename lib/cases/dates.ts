@@ -284,6 +284,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-05-05T08:00:00-07:00",
     modifiedAt: "2026-05-05T08:00:00-07:00",
   },
+  "m-abscessus-lung-transplant": {
+    publishedAt: "2026-05-06T08:00:00-07:00",
+    modifiedAt: "2026-05-06T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {

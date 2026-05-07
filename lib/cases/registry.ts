@@ -1011,6 +1011,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 48-year-old woman with AML in CR1 develops worsening headache, right-sided weakness, and confusion on day thirteen after myeloablative allogeneic HSCT. TMP-SMX prophylaxis has not started. A routine pretransplant check was never sent. MRI shows multiple ring-enhancing lesions. Which pathogen fits, what is the treatment, and why did reactivation occur without any new exposure?",
     tags: { organisms: ["Toxoplasma gondii"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "CNS Infection"], concepts: ["Reactivation toxoplasmosis", "Allogeneic HSCT", "Ring-enhancing lesions", "Bradyzoite cysts", "Pyrimethamine", "Sulfadiazine", "Leucovorin", "TMP-SMX prophylaxis gap"] },
   },
+  {
+    slug: "m-abscessus-lung-transplant",
+    title: "The Rough Colony",
+    description: "A young man with cystic fibrosis develops progressive pulmonary infiltrates, constitutional symptoms, and subcutaneous nodules five months after bilateral lung transplantation.",
+    enable: true,
+    ogImage: "/cases/m-abscessus-lung-transplant/auramine.png",
+    teaser: "A 32-year-old man with CF presents five months after bilateral lung transplant with six weeks of cough, fevers, weight loss, and new forearm nodules. A positive AFB smear on BAL and blood cultures, a cavitary right lower lobe nodule, and molecular speciation identify a rapidly growing mycobacterium with a critical susceptibility nuance. What is the treatment, why do macrolides fail, and what do you reach for when they do?",
+    tags: { organisms: ["Mycobacterium abscessus"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Pulmonary Infection"], concepts: ["Rapidly growing mycobacteria", "erm(41) inducible resistance", "Subspecies massiliense", "Amikacin", "Clofazimine", "Linezolid", "Cystic fibrosis", "Lung transplant", "Macrolide resistance"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

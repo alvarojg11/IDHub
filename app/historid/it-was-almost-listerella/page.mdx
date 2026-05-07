@@ -1,0 +1,191 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "it-was-almost-listerella",
+  title: "It Was Almost Listerella",
+  description:
+    "Listeria monocytogenes kept one half of an old blood-count clue and one half of a tribute to Joseph Lister, then carried both into modern pregnancy loss, meningitis, and rhombencephalitis.",
+  publishedAt: "2026-05-06",
+  historicalDateLabel: "1926-1940",
+  historicalYearSort: 1940,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Listeria monocytogenes",
+    "Joseph Lister",
+    "Listerella",
+    "Bacterium monocytogenes",
+    "Monocytosis",
+    "Pregnancy",
+    "Meningitis",
+    "Rhombencephalitis",
+  ],
+  hook:
+    "If you spend enough time in ID, Listeria becomes one of those names that triggers an immediate reflex: pregnancy, neonatal sepsis, meningitis, ampicillin. But the name itself is stranger than it looks. It was almost something else entirely, and the version that survived still carries an old rabbit blood-count clue inside it.",
+  takeaway:
+    "Listeria monocytogenes is a small fossil from two eras of medicine. The name preserved a bedside-lab observation first, picked up Lister's honorific second, and still points toward two modern traps: pregnancy-associated infection and CNS disease that can outrun routine meningitis reflexes.",
+  heroImage: "/historid/it-was-almost-listerella/hero.jpg",
+  heroImageAlt:
+    "Transmission electron micrograph of a flagellated Listeria monocytogenes bacterium.",
+  heroImageCredit:
+    "Transmission electron micrograph of a flagellated Listeria monocytogenes bacterium, CDC / Dr. Balasubr Swaminathan; Peggy Hayes; photo credit Elizabeth White.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Listeria_monocytogenes_PHIL_2287_lores.jpg",
+  heroImageLicense: "Public domain via CDC PHIL / Wikimedia Commons",
+  socialHeadline: "It Was Almost Listerella",
+  socialDek:
+    "In ID, Listeria feels like a familiar reflex. The name is less straightforward: almost Listerella, partly Joseph Lister, and partly an old rabbit blood-count clue.",
+  socialFacts: [
+    "Before it became Listeria, the organism was first described as Bacterium monocytogenes in rabbit disease work from the 1920s.",
+    "Monocytogenes referred to the striking monocytosis or mononuclear leukocytosis seen in infected animals, not to the modern cell biology people usually imagine from the name.",
+    "Caspar Burn later placed the organism in a new genus, Listerella, to honor Joseph Lister.",
+    "That name did not stick because Listerella was already occupied, so J. H. H. Pirie renamed the genus Listeria in 1940.",
+    "The old name now sits on a very current pathogen: one that crosses the placenta, grows in the cold, and can cause meningitis or rhombencephalitis that cephalosporins miss.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    If you hear <em>Listeria monocytogenes</em> on rounds, your mind probably does not go first to
+    taxonomy. It goes to the patient in front of you. The pregnant patient with fever. The newborn
+    with sepsis. The adult with meningitis or those unsettling brainstem findings that do not quite
+    fit the usual script. But the name is worth stopping for, because it came together in a much less
+    tidy way than it sounds now.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Early bacteriology named organisms the way clinicians often named syndromes: by whatever stood
+    out first. A colony's color, a patient's rash, a host animal, a leukocyte pattern, a familiar
+    anatomy lesson, a respected teacher. In the mid-1920s, investigators working with sick rabbits
+    were not thinking about refrigerated deli meat or actin rockets inside host cells. They were
+    looking at a disease that killed laboratory animals and left a memorable hematologic trail.
+  </p>
+
+  <h2>Why monocytogenes</h2>
+  <p>
+    The oldest surviving half of the name came from the blood. When the organism was formally
+    described as <em>Bacterium monocytogenes</em>, the striking feature was a large monocytosis, or
+    in the older language of the time, a mononuclear leucocytosis. That is what <em>monocytogenes</em>
+    was trying to say. It was not a sleek modern claim about intracellular pathogenesis. It was a
+    name built from what investigators thought the CBC was showing them.
+  </p>
+
+  <p>
+    That detail matters because it makes the species name feel much older than the clinical reflexes
+    we attach to it now. Nobody reaches for <em>Listeria</em> in 2026 because they are chasing a clue
+    about monocytosis. The word is a remnant from the first description, left in place after the rest
+    of the taxonomy moved on.
+  </p>
+
+  <h2>Why it was almost Listerella</h2>
+  <p>
+    The genus name took a different route. In the 1930s, Caspar Burn described human infection due
+    to what he treated as a new pathogen of the genus <em>Listerella</em>, a tribute to Joseph Lister.
+    The choice made sense. Lister's name already stood for antiseptic thinking and for a new way of
+    taking infection seriously in surgery. Attaching his name to a pathogen gave the organism a place
+    in that same medical lineage.
+  </p>
+
+  <p>
+    But <em>Listerella</em> had a problem. The name was already occupied elsewhere in biology, so it
+    could not stay. In 1940, J. H. H. Pirie proposed <em>Listeria</em> instead. The honor remained.
+    The extra syllable did not. That is how the organism ended up with the name clinicians still use:
+    <em>Listeria monocytogenes</em>, one part tribute, one part old hematology.
+  </p>
+
+  <h2>Why the old name still bites now</h2>
+  <p>
+    The name sounds antique, but the organism is not museum material. In pregnancy, <em>Listeria</em>
+    still matters because it can make the mother look only mildly ill while the placenta takes the
+    real hit. A flu-like illness, a fever that could be dismissed, a few gastrointestinal symptoms,
+    maybe nothing dramatic at all, and the payoff can still be fetal loss, preterm delivery, or a
+    newborn with sepsis or meningitis. The organism's modern reputation in obstetric ID comes less
+    from how loud it is in the mother than from how efficiently it can turn placental infection into
+    neonatal catastrophe.
+  </p>
+
+  <p>
+    The CNS side is where this organism can really make you pause. Yes, it causes meningitis. But it
+    can also show up as rhombencephalitis, with cranial neuropathies, ataxia, bulbar symptoms, and
+    brainstem lesions that make the case feel neurologically off before the cultures catch up. That,
+    to me, is the reason the naming story still earns its place in ID. Not because the taxonomy is so
+    elegant, but because the bedside reflex still matters. In pregnancy or the early postpartum
+    period, think about the placenta even when the mother does not look dramatically ill. In
+    meningitis plus brainstem signs, think about <em>Listeria</em>. And when you do, remember the part
+    that still changes treatment right away: cephalosporins will miss it.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Burn CG. Characteristics of a new species of the genus <em>Listerella</em> obtained from human
+        sources. <em>J Bacteriol</em>. 1935;30(6):573-591.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1128/jb.30.6.573-591.1935" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1128/jb.30.6.573-591.1935
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Burn CG. Clinical and pathological features of an infection caused by a new pathogen of the
+        genus <em>Listerella</em>. <em>Am J Pathol</em>. 1936;12(3):341-348.1.
+      </p>
+      <p>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1911083/" target="_blank" rel="noreferrer">
+          Link: PubMed Central
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Gray ML, Killinger AH. <em>Listeria monocytogenes</em> and listeric infections.
+        <em>Bacteriol Rev</em>. 1966;30(2):309-382.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1128/br.30.2.309-382.1966" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1128/br.30.2.309-382.1966
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Charlier C, Disson O, Lecuit M. Maternal-neonatal listeriosis. <em>Virulence</em>.
+        2020;11(1):391-397.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/32363991/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Disson O, Lecuit M. Targeting of the central nervous system by <em>Listeria monocytogenes</em>.
+        <em>Virulence</em>. 2012;3(2):213-221.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/22460636/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Hof H, Nichterlein T, Kretschmar M. Management of listeriosis.
+        <em>Clin Microbiol Rev</em>. 1997;10(2):345-357.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1128/CMR.10.2.345" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1128/CMR.10.2.345
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
