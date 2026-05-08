@@ -1,0 +1,302 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("toxocara-vlm");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Wrong Host
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 19-year-old pre-medical student with no significant past medical history presents with six weeks of fatigue, right upper quadrant discomfort, dry cough, and recurrent urticarial rash. He takes no medications and is not immunosuppressed. Over the past two years he has participated in three international medical volunteer programs: four months in rural Vietnam (two years ago), two months in Costa Rica (eighteen months ago), and three months in Andean communities in the Bolivian altiplano (returned six weeks before presentation). He ate local and street food throughout his travels. He also volunteers weekly at a local dog rescue shelter and has done so for the past year, often eating lunch on the shelter grounds.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He first noticed the urticarial rash and fatigue approximately two weeks after returning from Bolivia and was seen at student health, where a viral upper respiratory infection was diagnosed and the rash was attributed to seasonal allergies. Over the following month his symptoms persisted and worsened. He developed right upper quadrant heaviness and the dry cough became more prominent, occasionally waking him from sleep. He denies fever, night sweats, hemoptysis, jaundice, diarrhea, or weight loss. He denies consumption of raw or undercooked freshwater fish, raw shellfish, or unwashed aquatic plants during any of his travels.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.6°C, heart rate 88/min, blood pressure 118/72 mmHg, respiratory rate 14/min, and oxygen saturation 98% on room air. He appears well but mildly fatigued. The liver edge is palpable 3 cm below the right costal margin and is smooth and non-tender. No splenomegaly, no jaundice, no scleral icterus, and no lymphadenopathy. Urticarial wheals are present on the trunk and proximal upper extremities. Lung examination reveals faint bibasilar crackles.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 11.2 x 10^3/uL with 28% eosinophils (absolute eosinophil count 3,136/uL), hemoglobin 13.8 g/dL, platelets 282 x 10^3/uL, AST 62 U/L, ALT 78 U/L, alkaline phosphatase 98 U/L (within normal limits), total bilirubin 0.8 mg/dL, and serum IgE 2,840 IU/mL (markedly elevated). Stool ova and parasite examination on three separate samples is negative. Strongyloides IgG serology is positive. CT abdomen with contrast shows hepatomegaly with multiple poorly defined hypodense lesions scattered throughout the liver parenchyma, measuring 0.4 to 1.2 cm; no intrahepatic or extrahepatic biliary dilation is present; no ascites. Chest radiograph shows bilateral patchy infiltrates in the lower lung zones.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/toxocara-vlm/larva-he.jpg"
+      alt="Hematoxylin and eosin stain showing a Toxocara larva in longitudinal section within hepatic parenchyma"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    H&E stain: longitudinal section within hepatic parenchyma, surrounded by eosinophilic inflammatory infiltrate and early granuloma formation. Image courtesy of the CDC (public domain).
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-toxocara-vlm-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Clonorchis sinensis (clonorchiasis)",
+      feedback:
+        "Incorrect. Clonorchis sinensis is a biliary trematode endemic in East and Southeast Asia, including Vietnam, and is acquired by ingesting raw or undercooked freshwater fish containing encysted metacercariae. The travel history to Vietnam is a legitimate clue, but this patient explicitly denies consumption of raw freshwater fish. More importantly, clonorchiasis causes intrahepatic biliary ductal dilation and periductal fibrosis; CT would show biliary rather than parenchymal lesions. The alkaline phosphatase is normal here, which argues against significant biliary disease. Stool examination in established clonorchiasis would reveal characteristic operculated eggs.",
+    },
+    {
+      id: "B",
+      label: "Fasciola hepatica (fasciolasis)",
+      feedback:
+        "Incorrect. Fasciola hepatica deserves serious consideration given the travel to Bolivia: the Andean altiplano has one of the highest prevalences of human fasciolasis in the world, and infection is acquired through consumption of freshwater aquatic plants such as watercress, alfalfa, or water chestnuts contaminated with metacercariae. The early migratory phase of fasciolasis produces poorly defined hypodense hepatic lesions, eosinophilia, and elevated transaminases, closely mimicking the CT appearance seen here. However, this patient denies consumption of aquatic plants, the alkaline phosphatase is normal (established fasciolasis typically causes biliary pathology and elevated ALP), and three negative stool O&P specimens argue against patent infection. Fasciola IgG ELISA would help distinguish if uncertainty remains.",
+    },
+    {
+      id: "C",
+      label: "Toxocara canis (visceral larva migrans)",
+      correct: true,
+      feedback:
+        "Correct. The constellation of marked eosinophilia (absolute count above 3,000/uL), dramatically elevated IgE, multiple poorly defined parenchymal hepatic lesions without biliary dilation, bilateral pulmonary infiltrates, urticaria, and persistently negative stool O&P on three samples is the signature of Toxocara visceral larva migrans. The extensive tropical travel history directs attention toward imported helminths, but the specific exposures required for each are absent: no raw freshwater fish (Clonorchis), no aquatic plants (Fasciola), no immunosuppression (Strongyloides hyperinfection), and negative Strongyloides serology. The operative exposure is the dog rescue shelter, where embryonated Toxocara eggs contaminate soil and surfaces. Stool O&P is always negative in VLM because humans are dead-end hosts who never shed eggs. Toxocara IgG ELISA is the diagnostic test of choice.",
+    },
+    {
+      id: "D",
+      label: "Tropical pulmonary eosinophilia (Wuchereria bancrofti)",
+      feedback:
+        "Incorrect. Tropical pulmonary eosinophilia results from an aberrant immune response to microfilariae of Wuchereria bancrofti or Brugia malayi, typically in individuals from South Asia or Southeast Asia, including Vietnam. It presents with nocturnal cough, wheeze, bilateral pulmonary infiltrates, and extreme peripheral eosinophilia, overlapping with several features of this case. However, tropical pulmonary eosinophilia does not produce focal hepatic parenchymal lesions, and the dominant manifestation is pulmonary rather than hepatic. Additionally, the syndrome responds dramatically and within days to diethylcarbamazine, which distinguishes it from VLM both therapeutically and diagnostically.",
+    },
+    {
+      id: "E",
+      label: "Strongyloides stercoralis hyperinfection syndrome",
+      feedback:
+        "Incorrect. Strongyloides is acquired through transcutaneous larval penetration in soil-contaminated environments and should be considered in any patient returning from tropical regions with eosinophilia. However, Strongyloides IgG serology is negative in this patient, which substantially lowers the probability. Hyperinfection syndrome, characterized by accelerated autoinfection and dissemination, occurs almost exclusively in immunosuppressed individuals receiving corticosteroids or with HTLV-1 infection; this patient is immunocompetent. In symptomatic strongyloides, larvae or eggs should be detectable in stool, which is negative here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-toxocara-vlm-q2"
+  title="Question 2"
+  prompt="What is the treatment of choice?"
+  options={[
+    {
+      id: "A",
+      label: "Praziquantel 40 mg/kg/day in 3 divided doses for 1 day",
+      feedback:
+        "Incorrect. Praziquantel is highly effective against trematodes (flukes) and cestodes (tapeworms), including Fasciola, Clonorchis, Schistosoma, and Taenia species. It acts by disrupting calcium homeostasis across the tegument of susceptible worms. However, it has no activity against nematodes (roundworms), including Toxocara. Its mechanism of action is not relevant to larval stages migrating through visceral tissue.",
+    },
+    {
+      id: "B",
+      label: "Albendazole 400 mg twice daily for 5 days, with corticosteroids added for significant organ involvement or severe symptoms",
+      correct: true,
+      feedback:
+        "Correct. Albendazole is the first-line treatment for Toxocara visceral larva migrans. It acts by inhibiting tubulin polymerization, impairing larval glucose uptake and motility. The standard regimen is 400 mg orally twice daily for 5 days (some guidelines extend to 7 days for heavy burdens). Corticosteroids are added in moderate to severe disease, particularly when hepatic involvement is prominent, pulmonary compromise is present, or there is CNS or ocular involvement. Steroids blunt the eosinophilic inflammatory response to dying larvae, which can otherwise paradoxically worsen symptoms at the start of antiparasitic therapy. Mebendazole is an alternative but has inferior pharmacokinetics for tissue-invasive stages compared to albendazole.",
+    },
+    {
+      id: "C",
+      label: "Ivermectin 200 mcg/kg as a single dose",
+      feedback:
+        "Incorrect. Ivermectin is highly effective against multiple nematodes, including Strongyloides stercoralis (the drug of choice), Onchocerca volvulus, and as adjunctive therapy in some filarial infections. Its activity against Toxocara is limited: it acts at glutamate-gated chloride channels, and tissue-migrating Toxocara larvae are poorly accessible to ivermectin. Albendazole is preferred for VLM.",
+    },
+    {
+      id: "D",
+      label: "Diethylcarbamazine (DEC) 6 mg/kg/day in 3 divided doses for 21 days",
+      feedback:
+        "Incorrect. Diethylcarbamazine is the treatment of choice for lymphatic filariasis (Wuchereria bancrofti, Brugia species) and tropical pulmonary eosinophilia, where it produces rapid and dramatic clinical and eosinophilic resolution. It has no established efficacy against Toxocara larvae in visceral tissue. The appropriate choice for VLM is albendazole.",
+    },
+    {
+      id: "E",
+      label: "Metronidazole 500 mg three times daily for 7 days",
+      feedback:
+        "Incorrect. Metronidazole is active against anaerobic bacteria, Giardia lamblia, Entamoeba histolytica, and Trichomonas vaginalis. It has no activity against tissue-invasive helminth larvae such as Toxocara. It would be appropriate if the diagnosis were amebic liver abscess, but the clinical picture here, particularly the marked eosinophilia and elevated IgE, is inconsistent with that diagnosis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-toxocara-vlm-q3"
+  title="Question 3"
+  prompt="Which best explains why this patient has visceral larva migrans rather than an intestinal worm infection, and why stool O&P is negative?"
+  options={[
+    {
+      id: "A",
+      label: "Toxocara eggs are directly infective upon ingestion without requiring a larval migration phase; eosinophilia results from immune sensitization to adult worm antigens in the gut",
+      feedback:
+        "Incorrect. Toxocara eggs require embryonation in soil for 2 to 4 weeks before becoming infectious. Once swallowed, the eggs do not directly infect the gut wall; the embryonated eggs hatch in the small intestine, releasing second-stage larvae that actively penetrate the intestinal mucosa and enter the portal circulation to begin visceral migration. There is no adult worm stage in the human intestine.",
+    },
+    {
+      id: "B",
+      label: "Humans are aberrant dead-end hosts; ingested larvae hatch in the intestine but cannot mature to adult worms, and instead migrate through visceral organs provoking eosinophilic granulomatous inflammation at each site",
+      correct: true,
+      feedback:
+        "Correct. In the dog (the definitive host), Toxocara canis larvae complete their full lifecycle: they migrate through the lungs via the tracheal route, are swallowed, mature to adult worms in the small intestine, and shed large numbers of eggs in the feces. In humans, the larval second stage hatches from ingested eggs and penetrates the gut wall normally, but humans lack the physiological signals required for further larval development. The larvae cannot undergo tracheal migration or mature to adult worms. Instead, they wander through the liver, lungs, brain, eyes, and other organs for months to years, provoking a robust Th2-driven eosinophilic granulomatous reaction at each site. Because no adult worms form and no eggs are ever shed, stool O&P is invariably negative. Diagnosis requires Toxocara IgG ELISA, not stool examination.",
+    },
+    {
+      id: "C",
+      label: "Larvae develop to adult worms in the human small intestine but are sterile and cannot produce eggs, explaining the negative stool O&P while still producing systemic symptoms",
+      feedback:
+        "Incorrect. Adult worms do not form in the human small intestine. Second-stage larvae penetrate the intestinal wall and enter the systemic circulation within hours of hatching; they do not remain in the lumen to mature. The systemic inflammatory syndrome of VLM is caused entirely by migrating larvae in visceral tissues, not by intestinal worms.",
+    },
+    {
+      id: "D",
+      label: "Human gastric acid destroys the majority of Toxocara larvae before they can penetrate the intestinal wall, making visceral migration a complication only of very heavy or repeated ingestion",
+      feedback:
+        "Incorrect. The embryonated Toxocara egg has a remarkably resistant outer shell that withstands gastric acid. Hatching is triggered in the small intestine by appropriate environmental cues, not prevented by gastric conditions. Visceral larva migrans can occur after ingestion of relatively small numbers of infective eggs and is not restricted to massive exposures.",
+    },
+    {
+      id: "E",
+      label: "Larvae complete their lifecycle in the human lymphatics rather than the intestine, and the hepatic lesions represent lymphatic obstruction rather than parenchymal granuloma formation",
+      feedback:
+        "Incorrect. Toxocara larvae travel via the portal blood to the liver, where they cause direct parenchymal injury and eosinophilic granuloma formation, not lymphatic obstruction. Lymphatic involvement is not a feature of VLM. The CT pattern of multiple small parenchymal hypodense lesions reflects these granulomas, not lymphatic disease.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-toxocara-vlm-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Toxocara visceral larva migrans is the correct diagnosis, but arriving there requires working through a genuinely competitive differential built by the travel history. Bolivia introduces Fasciola hepatica as a compelling alternative: the altiplano has some of the world's highest human fasciolasis rates, and early-phase fasciolasis produces poorly defined hepatic parenchymal lesions with eosinophilia that closely resemble VLM on CT. The distinction rests on the absence of aquatic plant consumption, a normal alkaline phosphatase (established fasciolasis causes biliary disease and ALP elevation), and three negative stool O&P samples (patent fasciolasis sheds eggs). Vietnam creates concern for Clonorchis sinensis, but clonorchiasis requires raw freshwater fish ingestion and produces biliary rather than parenchymal lesions. Strongyloides is less likely given negative serology and the absence of immunosuppression. Tropical pulmonary eosinophilia overlaps on the pulmonary and eosinophilic axes but does not cause focal hepatic lesions. Having worked through the travel exposures, the dog rescue shelter emerges as the operative history: Toxocara-contaminated soil is the source, stool O&P is always negative, and Toxocara IgG ELISA is the diagnostic test.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Toxocara canis</em> is the roundworm of domestic dogs; <em>T. cati</em> from cats causes an identical syndrome. Dogs, particularly puppies, shed enormous numbers of eggs in their feces. Eggs require 2 to 4 weeks of environmental embryonation to become infective; once embryonated they can survive in moist soil for months to years. Humans ingest infective eggs through contact with contaminated soil (pica, unwashed hands, unwashed vegetables), or, rarely, through consumption of raw meat from paratenic hosts (rabbits, chickens). After hatching in the human small intestine, second-stage larvae penetrate the intestinal wall, enter the portal circulation, and reach the liver within hours. In the definitive canine host, larvae continue their migration through the lungs, ascend the trachea, are swallowed, and mature to adult worms in the small intestine where they shed eggs. In humans, this developmental progression cannot occur. The larvae wander through hepatic parenchyma, lungs, skeletal muscle, and occasionally the central nervous system and eye, provoking a Th2-skewed eosinophilic granulomatous response at every site. The clinical result is visceral larva migrans: eosinophilia, elevated IgE, hepatic lesions, pulmonary infiltrates, and urticaria reflecting the systemic Th2 milieu.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis of VLM relies on serology because direct detection of larvae in stool is impossible: humans never shed eggs. Toxocara IgG ELISA, using larval excretory-secretory antigens, has a sensitivity of approximately 78% and specificity of 90% for VLM. Peripheral eosinophilia above 1,500/uL and markedly elevated serum IgE support the diagnosis. CT findings of multiple small poorly defined hypodense parenchymal hepatic lesions are characteristic. Tissue biopsy showing an eosinophilic granuloma containing a larva is definitive but is rarely necessary.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Albendazole 400 mg twice daily for 5 days is the standard first-line treatment, inhibiting larval tubulin polymerization and impairing motility and glucose uptake. Corticosteroids are co-administered in symptomatic or severe disease to blunt the inflammatory reaction to dying larvae, which can transiently worsen symptoms. Mebendazole is an alternative but achieves lower systemic concentrations for tissue-invasive larvae. Ocular larva migrans, a distinct syndrome in which a single larva reaches the retina and causes a focal granuloma with the risk of permanent vision loss, may require periocular steroid injection; the role of albendazole in established ocular disease is uncertain, and treatment should be coordinated with ophthalmology.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-toxocara-vlm-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      In a patient with tropical travel and eosinophilia, Toxocara is easily overlooked when exotic alternatives dominate the differential. The dog shelter exposure is the operative history; the travel creates red herrings, not the diagnosis.
+    </li>
+    <li>
+      Humans are aberrant dead-end hosts for <em>T. canis</em>; ingested larvae hatch and migrate through visceral tissues but cannot mature to adult worms. Stool O&P is therefore always negative. Diagnosis requires Toxocara IgG ELISA, not stool examination.
+    </li>
+    <li>
+      VLM presents with marked eosinophilia, dramatically elevated IgE, multiple poorly defined parenchymal hepatic lesions, bilateral pulmonary infiltrates, and urticaria reflecting wandering larvae and the systemic Th2 response they provoke.
+    </li>
+    <li>
+      Fasciola hepatica is an important differential when Bolivia is in the travel history; distinguish by the absence of aquatic plant consumption, normal alkaline phosphatase, and lack of biliary dilation on CT. Fasciola IgG ELISA resolves remaining uncertainty.
+    </li>
+    <li>
+      Treatment is albendazole 400 mg twice daily for 5 days. Add corticosteroids for significant organ involvement or severe symptoms to suppress the eosinophilic inflammatory response to dying larvae.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Despommier D. Toxocariasis: clinical aspects, epidemiology, medical ecology, and molecular aspects. Clinical Microbiology Reviews. 2003;16(2):265-272.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.16.2.265-272.2003"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Despommier: Toxocariasis — Clinical Aspects and Epidemiology
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rubinsky-Elefant G, Hirata CE, Yamamoto JH, Ferreira MU. Human toxocariasis: diagnosis, worldwide seroprevalences and clinical expression of the systemic and ocular forms. Annals of Tropical Medicine and Parasitology. 2010;104(1):3-23.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1179/136485910X12607012373957"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Rubinsky-Elefant et al.: Human Toxocariasis — Diagnosis and Clinical Expression
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Toxocariasis: Resources for Health Professionals.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/toxocariasis/hcp/clinical-overview/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Toxocariasis Clinical Overview
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Marcos LA, Terashima A, Gotuzzo E. Update on hepatobiliary flukes: fascioliasis, opisthorchiasis and clonorchiasis. Current Opinion in Infectious Diseases. 2008;21(5):523-530.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/QCO.0b013e32830f9818"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Marcos et al.: Update on Hepatobiliary Flukes
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

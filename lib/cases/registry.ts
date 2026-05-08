@@ -1020,6 +1020,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 32-year-old man with CF presents five months after bilateral lung transplant with six weeks of cough, fevers, weight loss, and new forearm nodules. A positive AFB smear on BAL and blood cultures, a cavitary right lower lobe nodule, and molecular speciation identify a rapidly growing mycobacterium with a critical susceptibility nuance. What is the treatment, why do macrolides fail, and what do you reach for when they do?",
     tags: { organisms: ["Mycobacterium abscessus"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Pulmonary Infection"], concepts: ["Rapidly growing mycobacteria", "erm(41) inducible resistance", "Subspecies massiliense", "Amikacin", "Clofazimine", "Linezolid", "Cystic fibrosis", "Lung transplant", "Macrolide resistance"] },
   },
+  {
+    slug: "toxocara-vlm",
+    title: "The Wrong Host",
+    description: "A young man with extensive tropical travel and dog shelter exposure presents with eosinophilia, hepatic lesions, pulmonary infiltrates, and a persistently negative stool exam.",
+    enable: true,
+    ogImage: "/cases/toxocara-vlm/larva-he.jpg",
+    teaser: "A 19-year-old pre-med student returns from volunteer work in Vietnam, Costa Rica, and Bolivia with fatigue, right upper quadrant discomfort, dry cough, and urticarial rash. He has marked eosinophilia, a dramatically elevated IgE, multiple poorly defined liver lesions on CT, and three negative stool O&P examinations. What is the diagnosis, how do you treat it, and why is the stool exam always negative?",
+    tags: { organisms: ["Toxocara canis"], syndromes: ["Zoonoses", "Travel Medicine", "Parasitic Infection"], concepts: ["Visceral larva migrans", "Aberrant host", "Eosinophilia", "Dead-end host", "Albendazole", "Toxocara ELISA", "Fasciola differential", "Dog exposure"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
