@@ -1,0 +1,298 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hepatitis-e");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Quiet Enzymes
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 45-year-old woman presents for her routine six-month transplant follow-up visit. She received a deceased-donor kidney transplant three years ago for end-stage renal disease secondary to IgA nephropathy. Her maintenance immunosuppression consists of tacrolimus, mycophenolate mofetil, and prednisone 5 mg daily. She reports four to six weeks of mild fatigue and reduced appetite but no fever, chills, nausea, vomiting, jaundice, or abdominal pain. She has no recent changes in medications and no new herbal supplements. She has no international travel history. She regularly eats at a local barbecue restaurant and, eight weeks before this visit, attended an outdoor gathering where she consumed venison prepared medium-rare.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.1°C, heart rate 82/min, blood pressure 128/78 mmHg, and oxygen saturation 99% on room air. She appears well and is not jaundiced. The liver is mildly enlarged at 2 cm below the right costal margin and non-tender. No splenomegaly, no lymphadenopathy, no skin rash, and no mucocutaneous lesions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show AST 78 U/L, ALT 94 U/L, alkaline phosphatase 102 U/L, GGT 88 U/L, total bilirubin 1.1 mg/dL, albumin 3.9 g/dL, and INR 1.0. Creatinine is 1.6 mg/dL, stable from her previous visit. Tacrolimus trough level is 7.2 ng/mL, within the target therapeutic range. Complete blood count shows white blood cells 6.8 x 10^3/uL without lymphocytosis or eosinophilia, hemoglobin 11.4 g/dL, and platelets 198 x 10^3/uL. Hepatitis B surface antigen is negative; anti-HBs is positive from prior vaccination. Anti-HCV is negative. CMV PCR, EBV PCR, and HSV PCR are sent and are pending. Liver ultrasound shows mild hepatomegaly without focal lesions, biliary dilation, or ascites.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/hepatitis-e/liver-biopsy.jpg"
+      alt="H&E stained liver biopsy showing portal expansion with mixed inflammatory infiltrate and hepatocellular ballooning"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    H&E stain: liver biopsy showing portal tract expansion with mixed inflammatory infiltrate, lobular disarray, and hepatocellular ballooning consistent with viral hepatitis. Image adapted from Aggarwal et al., Frontiers in Physiology (2014), CC BY.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-hepatitis-e-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "CMV hepatitis",
+      feedback:
+        "Incorrect. CMV is one of the most important opportunistic viral pathogens in solid organ transplant recipients, and CMV hepatitis is a recognized complication, particularly in seronegative recipients. It typically presents with constitutional symptoms including fever and malaise, often accompanied by lymphocytosis and other end-organ manifestations such as colitis or pneumonitis. CMV PCR is the appropriate diagnostic test and is pending here. However, this patient has no fever, no lymphocytosis, a normal tacrolimus level, and a critical dietary exposure history that points to a specific diagnosis. CMV hepatitis should remain on the differential until the PCR returns, but it is not the most likely explanation.",
+    },
+    {
+      id: "B",
+      label: "HSV hepatitis",
+      feedback:
+        "Incorrect. HSV hepatitis is uncommon but potentially catastrophic in immunosuppressed patients. Its hallmark is markedly elevated transaminases, often exceeding 1,000 U/L, frequently accompanied by fever and sometimes by mucocutaneous vesicular lesions or disseminated disease. The mild LFT elevation here (AST 78, ALT 94) is inconsistent with the severe and often fulminant transaminitis of HSV hepatitis. This patient's indolent four to six week course and dietary exposure history point to a different etiology. HSV PCR is appropriately pending but the clinical picture argues strongly against this diagnosis.",
+    },
+    {
+      id: "C",
+      label: "EBV-associated hepatitis or post-transplant lymphoproliferative disorder",
+      feedback:
+        "Incorrect. EBV-driven post-transplant lymphoproliferative disorder spans a spectrum from polyclonal lymphoid hyperplasia to aggressive lymphoma and can cause LFT elevation through hepatic involvement. PTLD is most common in the first one to two years after transplantation and in recipients receiving the highest levels of immunosuppression or anti-thymocyte globulin induction. This patient is three years post-transplant, has no lymphadenopathy or lymphocytosis, and no other features of PTLD. EBV PCR is pending and should be followed, but the epidemiological timing and the specific dietary exposure history favor another diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Tacrolimus hepatotoxicity",
+      feedback:
+        "Incorrect. Tacrolimus can cause hepatotoxicity, most commonly in the setting of supratherapeutic levels producing direct hepatocellular injury. This patient's tacrolimus level is 7.2 ng/mL, within the therapeutic target range, making tacrolimus toxicity unlikely. Drug-induced liver injury from tacrolimus at therapeutic levels is a diagnosis of exclusion and should only be entertained after infectious causes, particularly viral hepatitis, have been systematically excluded.",
+    },
+    {
+      id: "E",
+      label: "Hepatitis E virus genotype 3 infection",
+      correct: true,
+      feedback:
+        "Correct. Hepatitis E virus genotype 3 is the dominant strain in the United States and Western Europe and is a zoonotic infection acquired through consumption of undercooked pork, venison, wild boar, or other game meats. No international travel is required. In solid organ transplant recipients on calcineurin inhibitor-based immunosuppression, HEV genotype 3 can fail to clear and establish chronic infection, typically manifesting as asymptomatic or mildly symptomatic LFT elevation without jaundice, exactly as seen here. The consumption of medium-rare venison eight weeks before presentation is the operative exposure. Tacrolimus has been specifically associated with a higher risk of HEV chronification compared to cyclosporine. This diagnosis must be confirmed by HEV RNA in blood; serology is unreliable in immunosuppressed patients.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hepatitis-e-q2"
+  title="Question 2"
+  prompt="Which test best confirms chronic HEV infection in this patient, and how is chronic infection defined?"
+  options={[
+    {
+      id: "A",
+      label: "Anti-HEV IgM serology; a positive result confirms acute infection and a negative result excludes chronic disease",
+      feedback:
+        "Incorrect. Anti-HEV IgM is the serological marker of acute HEV infection in immunocompetent hosts. In solid organ transplant recipients and other immunosuppressed patients, the humoral immune response is blunted, and anti-HEV IgM may be absent, delayed by months, or persistently negative despite active and ongoing viremia. Using anti-HEV IgM to screen for HEV in this population will produce false-negative results and missed diagnoses. Negative serology does not exclude HEV infection in a transplant recipient.",
+    },
+    {
+      id: "B",
+      label: "Liver biopsy showing portal inflammation and lobular disarray; histological severity guides treatment decisions",
+      feedback:
+        "Incorrect. Liver biopsy can demonstrate the hepatocellular injury and inflammatory changes associated with HEV infection and is useful for staging fibrosis in established chronic disease, which informs the urgency of treatment. However, biopsy findings in HEV hepatitis are not specific enough to confirm the diagnosis; portal inflammation, lobular disarray, and cholestasis can be seen in CMV, EBV, drug-induced, and other forms of hepatitis. The diagnostic test for HEV is virological, not histological.",
+    },
+    {
+      id: "C",
+      label: "HEV RNA in blood by PCR; chronic HEV is defined as detectable HEV RNA for more than 3 months",
+      correct: true,
+      feedback:
+        "Correct. HEV RNA detected by PCR in blood is the diagnostic test of choice for HEV infection in immunosuppressed patients and the tool for monitoring treatment response. Serology is unreliable in this population because blunted humoral immunity prevents or delays seroconversion, making anti-HEV IgM and IgG frequently absent despite active viremia. Chronic HEV infection is defined as detection of HEV RNA in blood or stool for more than 3 months. Stool HEV RNA can complement blood RNA, as fecal shedding may persist beyond viremia. A positive blood HEV RNA confirms active infection; sustained positivity beyond three months defines chronicity and establishes the indication for treatment.",
+    },
+    {
+      id: "D",
+      label: "Anti-HEV IgG serology; seroconversion from IgM to IgG confirms resolution and a persistently elevated IgG titer indicates chronicity",
+      feedback:
+        "Incorrect. Anti-HEV IgG reflects past exposure and immunity in immunocompetent individuals. In transplant recipients, IgG seroconversion may be incomplete or absent due to the blunted immune response, and IgG titers do not reliably indicate chronicity. There is no validated correlation between IgG titer kinetics and chronic HEV status in immunosuppressed patients. HEV RNA, not serology, is the appropriate test.",
+    },
+    {
+      id: "E",
+      label: "Stool ova and parasite examination; HEV eggs are detectable in stool during active infection",
+      feedback:
+        "Incorrect. HEV is a virus, not a helminth, and does not produce eggs. Stool ova and parasite examination detects helminth eggs, larvae, and protozoan cysts. The appropriate stool-based test for HEV is stool HEV RNA by PCR, which can detect fecal viral shedding and complement blood HEV RNA testing. It is not the same as stool O&P.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hepatitis-e-q3"
+  title="Question 3"
+  prompt="HEV RNA returns positive. Three months later, RNA remains detectable. What is the correct treatment approach?"
+  options={[
+    {
+      id: "A",
+      label: "Reduce immunosuppression first; if HEV RNA remains positive after 3 months, start ribavirin at approximately 600 mg/day adjusted for renal function and hemoglobin",
+      correct: true,
+      feedback:
+        "Correct. Treatment of chronic HEV in solid organ transplant recipients follows a stepwise approach endorsed by EASL guidelines. The first step is reduction of immunosuppression, coordinated carefully with the transplant team to minimize rejection risk; this alone achieves sustained viral clearance in approximately 30% of patients. If HEV RNA remains detectable after three months of immunosuppression reduction, ribavirin is initiated. In the largest retrospective multicenter European study (n=255 transplant recipients), ribavirin was given at a median dose of 600 mg/day (mean 8.6 mg/kg/day), adjusted downward for glomerular filtration rate and hemoglobin. A first three-month course achieves sustained virologic response (undetectable HEV RNA at 12 weeks after end of treatment) in approximately 78 to 81% of patients. A second course in relapsers raises the cumulative SVR to approximately 90%. Hemolytic anemia is the dominant adverse effect; erythropoietin is required in approximately 40% of patients during ribavirin therapy.",
+    },
+    {
+      id: "B",
+      label: "Start sofosbuvir 400 mg daily as first-line antiviral given its established efficacy against RNA viruses",
+      feedback:
+        "Incorrect. Sofosbuvir is an NS5B RNA-dependent RNA polymerase inhibitor with high efficacy against hepatitis C virus. A prospective study specifically evaluating sofosbuvir as add-on therapy to ribavirin for chronic HEV in solid organ transplant recipients demonstrated no improvement in sustained virologic response compared to ribavirin alone. Sofosbuvir has no established role in HEV treatment and should not be used.",
+    },
+    {
+      id: "C",
+      label: "Start pegylated interferon alfa as the preferred antiviral in kidney transplant recipients with chronic HEV",
+      feedback:
+        "Incorrect. Pegylated interferon has demonstrated activity against HEV and has been used in selected patients with ribavirin failure, particularly in kidney transplant recipients where it is better tolerated than in liver transplant recipients. However, it is not first-line therapy. Interferon carries a significant risk of precipitating acute rejection through its immunomodulatory effects, and this risk is particularly high in liver transplant recipients where it is generally contraindicated. It is reserved for ribavirin failure after careful individualized risk-benefit assessment and should not be the initial treatment choice.",
+    },
+    {
+      id: "D",
+      label: "Start ribavirin immediately without attempting immunosuppression reduction, to minimize time to viral clearance",
+      feedback:
+        "Incorrect. Starting ribavirin without first attempting immunosuppression reduction bypasses the simplest, best-tolerated, and least toxic intervention. Approximately one-third of transplant recipients achieve viral clearance through immunosuppression reduction alone, avoiding the need for ribavirin and its associated hemolytic anemia, teratogenicity, and renal dosing complexity. The stepwise approach is supported by EASL guidelines and by pharmacological rationale.",
+    },
+    {
+      id: "E",
+      label: "Monitor without treatment; most transplant recipients clear chronic HEV spontaneously within 12 months",
+      feedback:
+        "Incorrect. Chronic HEV in solid organ transplant recipients does not resolve spontaneously in the majority of patients. Without treatment, the infection can progress to liver fibrosis and cirrhosis within two to five years, particularly in patients with high-level viral replication and ongoing immunosuppression. This complication can ultimately lead to graft failure in patients with liver transplants and significant hepatic morbidity in kidney and other organ transplant recipients. Active management is required.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-hepatitis-e-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The correct diagnosis requires reasoning through the differential before viral PCR results are available. CMV, EBV, and HSV hepatitis are all legitimate considerations in a transplant recipient with unexplained LFT elevation, but each has features that reduce its probability here: CMV hepatitis typically causes fever, lymphocytosis, and often other end-organ disease; HSV hepatitis causes fulminant transaminase elevation far exceeding the mild elevations seen here; and EBV-driven PTLD is most common in the first two years after transplantation and in the absence of lymphadenopathy or lymphocytosis. The normal tacrolimus level excludes drug toxicity as the explanation. What remains, and what the exposure history points to directly, is hepatitis E virus genotype 3: a zoonotic pathogen transmitted through undercooked pork, venison, and wild game, endemic in the US and Europe without any requirement for international travel. The medium-rare venison consumed eight weeks before presentation is the operative exposure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hepatitis E virus is a positive-sense single-stranded RNA virus in the family Hepeviridae. Genotypes 1 and 2 are transmitted via fecal-oral contamination of water in low-income countries and affect immunocompetent hosts; genotype 1 is particularly severe in pregnant women, with maternal mortality approaching 25% in the third trimester due to the combined effects of altered Th2 immune polarization, estrogen-driven viral replication, and disordered placental function. Genotypes 1 and 2 do not cause chronic infection. Genotypes 3 and 4 are zoonotic; pigs, wild boar, and deer are the primary reservoirs in developed countries. In immunocompetent individuals, GT3 causes self-limited acute hepatitis. In solid organ transplant recipients and others with deficient cellular immunity, including persons with HIV and hematologic malignancies, GT3 fails to clear and establishes chronic infection, defined by persistent HEV RNA beyond three months. Tacrolimus has been specifically implicated as a risk factor for chronification compared to cyclosporine, possibly through selective impairment of T-cell-mediated viral clearance.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic approach in immunosuppressed patients must account for the unreliability of serology. Anti-HEV IgM and IgG depend on intact humoral immunity that is specifically suppressed by the transplant immunosuppression regimen. In published series of solid organ transplant recipients with confirmed HEV infection, a substantial proportion are seronegative at the time of diagnosis. HEV RNA in blood detected by real-time PCR is the required test and is also the instrument of monitoring during and after treatment. Stool HEV RNA can complement blood testing, as fecal shedding may precede or outlast viremia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment follows a stepwise protocol. Reduction of immunosuppression is the first intervention, achieving viral clearance in approximately 30% of patients without the need for antivirals. If HEV RNA remains detectable after three months, ribavirin is started at approximately 600 mg/day (mean 8.6 mg/kg/day in the largest multicenter study), adjusted downward for renal function and baseline hemoglobin. A three-month first course achieves sustained virologic response in 78 to 81% of patients; a second course raises cumulative SVR to approximately 90% in relapsers. Hemolytic anemia is the dominant toxicity and erythropoietin is needed in approximately 40% of treated patients. Sofosbuvir add-on therapy has been specifically studied and shown not to improve outcomes. Pegylated interferon, which carries a rejection risk and is contraindicated in liver transplant recipients, is reserved for ribavirin failure in selected kidney transplant recipients after individualized risk-benefit assessment.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hepatitis-e-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      HEV genotype 3 is zoonotic (pork, venison, wild game) and endemic in the US and Europe without any international travel requirement; it is the dominant strain causing chronic hepatitis in solid organ transplant recipients.
+    </li>
+    <li>
+      Serology (anti-HEV IgM and IgG) is unreliable in immunosuppressed patients due to blunted humoral immunity; HEV RNA in blood by PCR is the diagnostic test of choice and defines chronic infection when detectable beyond 3 months.
+    </li>
+    <li>
+      CMV, EBV, and HSV hepatitis are all in the differential for unexplained LFT elevation in a transplant recipient; the clinical severity (HSV causes fulminant transaminitis), timing (PTLD peaks in year one), and exposure history help prioritize before PCR results return.
+    </li>
+    <li>
+      Treatment follows a stepwise approach: reduce immunosuppression first (SVR approximately 30%), then ribavirin approximately 600 mg/day adjusted for renal function and hemoglobin for a minimum of 3 months if HEV RNA persists (SVR approximately 78 to 81%, rising to 90% with a second course in relapsers).
+    </li>
+    <li>
+      Sofosbuvir add-on therapy does not improve SVR and has no role in HEV treatment. Pegylated interferon carries a rejection risk and is reserved for ribavirin failure in non-liver transplant recipients after careful risk-benefit assessment.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      European Association for the Study of the Liver. EASL Clinical Practice Guidelines on hepatitis E virus infection. Journal of Hepatology. 2018;68(6):1256-1271.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jhep.2018.03.005"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        EASL: Clinical Practice Guidelines on Hepatitis E Virus Infection
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kamar N, Abravanel F, Lhomme S, et al. Ribavirin for hepatitis E virus infection after organ transplantation: a large European retrospective multicenter study. Clinical Infectious Diseases. 2020;71(5):1204-1211.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciz953"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Kamar et al.: Ribavirin for HEV After Organ Transplantation
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kamar N, Garrouste C, Haagsma EB, et al. Factors associated with chronic hepatitis in patients with hepatitis E virus infection who have received solid organ transplants. Gastroenterology. 2011;140(5):1481-1489.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1053/j.gastro.2011.02.050"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Kamar et al.: Factors Associated with Chronic HEV in Transplant Recipients
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Aggarwal R, Shukla R, Jameel S, Bhatt P. Hepatitis E in liver biopsies from patients with acute hepatitis of clinically unexplained origin. Frontiers in Physiology. 2014;4:351.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fphys.2013.00351"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Aggarwal et al.: Hepatitis E in Liver Biopsies (image source, CC BY)
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

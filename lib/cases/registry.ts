@@ -1029,6 +1029,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 19-year-old pre-med student returns from volunteer work in Vietnam, Costa Rica, and Bolivia with fatigue, right upper quadrant discomfort, dry cough, and urticarial rash. He has marked eosinophilia, a dramatically elevated IgE, multiple poorly defined liver lesions on CT, and three negative stool O&P examinations. What is the diagnosis, how do you treat it, and why is the stool exam always negative?",
     tags: { organisms: ["Toxocara canis"], syndromes: ["Zoonoses", "Travel Medicine", "Parasitic Infection"], concepts: ["Visceral larva migrans", "Aberrant host", "Eosinophilia", "Dead-end host", "Albendazole", "Toxocara ELISA", "Fasciola differential", "Dog exposure"] },
   },
+  {
+    slug: "hepatitis-e",
+    title: "Quiet Enzymes",
+    description: "A kidney transplant recipient on tacrolimus presents with asymptomatic transaminase elevation and a dietary exposure that points away from the usual suspects.",
+    enable: true,
+    ogImage: "/cases/hepatitis-e/liver-biopsy.jpg",
+    teaser: "A 45-year-old woman three years out from a kidney transplant is found to have mildly elevated transaminases at routine follow-up. CMV, EBV, and HSV PCRs are pending. Her tacrolimus level is therapeutic. She recently ate venison prepared medium-rare. What is the diagnosis, which test confirms it in an immunosuppressed patient, and how do you treat it when it does not clear on its own?",
+    tags: { organisms: ["Hepatitis E virus"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Liver Disease"], concepts: ["Hepatitis E genotype 3", "Zoonotic hepatitis", "Chronic HEV", "HEV RNA", "Ribavirin", "Immunosuppression reduction", "Solid organ transplant", "Venison exposure"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
