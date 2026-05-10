@@ -1,0 +1,165 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-abscess-that-could-cost-a-surgeon-his-hands",
+  title: "The Abscess That Could Cost a Surgeon His Hands",
+  description:
+    "In Hammurabi's Babylon, a physician who cut into a dangerous swelling and killed the patient could lose his hands, a sharp reminder of how risky source control was before antisepsis, anesthesia, and antibiotics.",
+  publishedAt: "2026-05-09",
+  historicalDateLabel: "18th century BCE",
+  historicalYearSort: 1750,
+  categories: ["people-illness"],
+  tags: [
+    "Hammurabi",
+    "Babylonia",
+    "Mesopotamia",
+    "Abscess",
+    "Tumor",
+    "Source control",
+    "Surgery",
+    "Code of Hammurabi",
+  ],
+  hook:
+    "In Babylon, opening a swollen collection was not a minor procedure. If the patient died, the law could take the physician's hands.",
+  takeaway:
+    "The punishment was ancient, but the problem is still familiar. Some infections have to be opened, drained, or debrided, and before modern support that gamble could ruin both patient and healer.",
+  heroImage: "/historid/the-abscess-that-could-cost-a-surgeon-his-hands/hero.jpg",
+  heroImageAlt:
+    "Front view of the stele of Hammurabi in the Louvre Museum.",
+  heroImageCredit:
+    "Front view of the stele of Hammurabi, Louvre Museum; photograph by Mbzt.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg",
+  heroImageLicense: "CC BY 3.0 via Wikimedia Commons",
+  socialHeadline: "The Babylonian Abscess Law",
+  socialDek:
+    "A Babylonian physician could cut into a dangerous swelling, but if the patient died, the law could take his hands.",
+  socialFacts: [
+    "Law 215 pays the physician if the operation succeeds.",
+    "Law 218 says that if the patient dies or loses the eye, the physician's hands shall be cut off.",
+    "For a slave patient, the penalty shifts from mutilation to replacement or compensation.",
+    "King's translation calls it a tumor over the eye; later summaries often call it an abscess.",
+    "The modern name for this problem is source control.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    A patient in Babylon arrives with a dangerous swelling, and the doctor does the one thing that
+    still makes sense to us now: cut it open. That feels oddly modern for about half a second.
+    Then the law enters the room. If the operation succeeds, the physician is paid. If it fails
+    badly enough, he does not just lose the case. He loses his hands.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Mesopotamian medicine was not proto-ID. It lived in a world of omens,
+    exorcists, priest-healers, and the belief that illness could be sent by gods, demons, or moral
+    offense. But that was not the whole picture. Alongside divination and incantation, there were
+    also people who treated wounds, manipulated broken parts, prescribed remedies, and sometimes
+    used a knife. Hammurabi's Babylon did not separate the supernatural from the practical the way
+    we do. It held both at once.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The famous legal passage sits in the physician laws of the Code of Hammurabi. In L. W. King's
+    translation, Law 215 rewards a physician who makes "a large incision with an operating knife"
+    and cures the patient, or opens a tumor over the eye and saves the eye. Law 218 turns savage:
+    if the physician makes the same large incision and kills the patient, or opens the tumor and
+    destroys the eye, "his hands shall be cut off." The nearby laws are just as revealing. A
+    successful operation on a high-status patient pays better than one on a freedman or a slave,
+    and failed procedures on enslaved patients are handled through replacement or compensation rather
+    than reciprocal mutilation.
+  </p>
+
+  <p>
+    The split by social status matters, but so does the procedure itself. However translated, the law is
+    about invasive treatment of a dangerous localized problem. Britannica paraphrases it as opening
+    an abscess. King's translation speaks of a tumor over the eye. Either way, this was not bedside
+    ritual alone. Somebody was cutting into swollen tissue and hoping the patient
+    came out alive.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    What makes this useful ID history is not that Babylonians understood bacteria. They did not. It
+    is that they had already run into one of the oldest truths in infection care: sometimes the
+    problem is trapped in a place that has to be physically opened. Long before cultures, Gram
+    stains, or antibiotics, there was already a practical difference between letting a dangerous
+    collection sit and trying to drain it. The principle behind source control is older than germ
+    theory by millennia.
+  </p>
+
+  <h2>Why the law still feels familiar</h2>
+  <p>
+    Modern ID is kinder to the operator, but not different in kind. Deep abscesses, infected
+    hardware, devitalized tissue, empyemas, and necrotic collections still force the same basic
+    admission: some infections do not yield to medicine alone. They need drainage, debridement, or
+    removal. The difference is that we now bring imaging, sterile technique, anesthesia,
+    microbiology, antibiotics, and postoperative care to the table. Babylon had the knife and the
+    consequence. We kept the knife. We changed almost everything around it.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Code of Hammurabi, translated by L. W. King. Laws 215-220 on physician fees, operations,
+        and penalties.
+      </p>
+      <p>
+        <a href="https://sourcebooks.fordham.edu/ancient/hamcode.asp" target="_blank" rel="noreferrer">
+          Link: Fordham Ancient History Sourcebook
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Retief FP, Cilliers L. Mesopotamian medicine. <em>S Afr Med J</em>. 2007;97(1):27-30.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/17378276/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>History of medicine</em>. Section on the ancient Middle East,
+        including the Code of Hammurabi and the example of opening an abscess.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/science/history-of-medicine" target="_blank" rel="noreferrer">
+          Link: Britannica history of medicine
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>Code of Hammurabi</em>. Overview of the legal collection and
+        its historical context.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/topic/Code-of-Hammurabi" target="_blank" rel="noreferrer">
+          Link: Britannica Code of Hammurabi
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Louvre Museum collections. <em>Code de Hammurabi</em>, inventory SB 8.
+      </p>
+      <p>
+        <a href="https://collections.louvre.fr/ark:/53355/cl010174436" target="_blank" rel="noreferrer">
+          Link: Louvre collections record
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

@@ -1038,6 +1038,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 45-year-old woman three years out from a kidney transplant is found to have mildly elevated transaminases at routine follow-up. CMV, EBV, and HSV PCRs are pending. Her tacrolimus level is therapeutic. She recently ate venison prepared medium-rare. What is the diagnosis, which test confirms it in an immunosuppressed patient, and how do you treat it when it does not clear on its own?",
     tags: { organisms: ["Hepatitis E virus"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Liver Disease"], concepts: ["Hepatitis E genotype 3", "Zoonotic hepatitis", "Chronic HEV", "HEV RNA", "Ribavirin", "Immunosuppression reduction", "Solid organ transplant", "Venison exposure"] },
   },
+  {
+    slug: "anti-ifn-gamma-mac",
+    title: "The Absent Shield",
+    description: "A previously healthy Vietnamese-born woman presents with four months of fevers, weight loss, and massive lymphadenopathy. HIV is negative and CD4 is normal.",
+    enable: true,
+    ogImage: "/cases/anti-ifn-gamma-mac/chest-ct.jpg",
+    teaser: "A 54-year-old Vietnamese-born woman with no prior medical history presents with four months of fever, night sweats, 9 kg weight loss, and progressive lymphadenopathy. HIV is negative. CD4 count is 420. QuantiFERON-TB Gold is indeterminate twice. PET-CT shows SUV max 14 throughout mediastinal and retroperitoneal nodes. Blood cultures grow an acid-fast organism. What is the immune defect, which test confirms it, and how do you treat it?",
+    tags: { organisms: ["Mycobacterium avium complex"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Lymphadenopathy"], concepts: ["Anti-IFN-gamma autoantibodies", "Adult-onset immunodeficiency", "Acquired immunodeficiency", "Southeast Asian", "Rituximab", "Indeterminate QuantiFERON", "Disseminated MAC", "MSMD phenocopy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

@@ -1,0 +1,302 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("anti-ifn-gamma-mac");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Absent Shield
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 54-year-old woman born in Vietnam who immigrated to the United States 20 years ago presents with four months of daily fevers, drenching night sweats, a 9 kg weight loss, and progressive enlargement of lymph nodes in the neck and groin. She has no known medical history, takes no medications, and has no family history of immunodeficiency or malignancy. She has no recent travel outside the continental United States, no animal exposures, and no sick contacts. She was referred from an outside facility where she had been evaluated for possible lymphoma.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.7°C, heart rate 102/min, blood pressure 110/70 mmHg, respiratory rate 18/min, and oxygen saturation 96% on room air. She appears cachectic and chronically ill. Bilateral cervical, axillary, and inguinal lymphadenopathy is present; nodes measure 2 to 4 cm, are firm and non-tender. The liver edge is palpable 3 cm below the right costal margin. The spleen tip is palpable 4 cm below the left costal margin. No mucocutaneous lesions or skin findings are identified.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 8.2 x 10^3/uL with a normal differential, hemoglobin 9.4 g/dL (normocytic), platelets 142 x 10^3/uL, LDH 584 U/L, ferritin 2,840 ng/mL, ESR 98 mm/hr, CRP 88 mg/L, and albumin 2.6 g/dL. HIV-1/2 antigen-antibody combination assay is negative. CD4 count is 420 cells/uL. QuantiFERON-TB Gold Plus is indeterminate on two separate occasions. CT chest, abdomen, and pelvis shows mediastinal and bilateral hilar lymphadenopathy, hepatosplenomegaly, retroperitoneal lymphadenopathy, and diffuse pulmonary nodules with right upper lobe consolidation. PET-CT shows hypermetabolic lymphadenopathy in mediastinal, hilar, and retroperitoneal stations with SUV max of 14.2, along with hypermetabolic hepatosplenomegaly and bilateral pulmonary disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Excisional cervical lymph node biopsy shows non-caseating granulomas with abundant acid-fast bacilli on Ziehl-Neelsen stain; flow cytometry shows no evidence of lymphoma. Bone marrow biopsy reveals hypercellular marrow with granulomas and AFB. Blood cultures using the BACTEC MGIT 960 liquid system turn positive at day 11; speciation by <em>hsp65</em> sequencing identifies <em>Mycobacterium avium</em> complex. No susceptibility testing suggests macrolide resistance.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/anti-ifn-gamma-mac/chest-ct.jpg"
+      alt="Coronal chest CT showing dense right-sided consolidation and mediastinal lymphadenopathy before and after treatment"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Coronal chest CT at presentation (left) showing dense right-sided consolidation and bulky mediastinal lymphadenopathy, with marked radiographic improvement after treatment (right). Image adapted from Nguyen et al., Tropical Medicine and Infectious Disease (2025), CC BY 4.0.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-anti-ifn-gamma-mac-q1"
+  title="Question 1"
+  prompt="What is the most likely underlying immunological mechanism explaining disseminated MAC in this HIV-negative adult?"
+  options={[
+    {
+      id: "A",
+      label: "HIV-associated immunodeficiency with CD4 count below 50 cells/uL",
+      feedback:
+        "Incorrect. Disseminated MAC in the setting of HIV is almost invariably associated with profoundly low CD4 counts, typically below 50 cells/uL. This patient has a CD4 count of 420 cells/uL and a negative HIV antigen-antibody assay. A normal CD4 count with negative HIV testing in a patient with disseminated MAC is precisely the clinical signature that demands a search for an alternative immune defect.",
+    },
+    {
+      id: "B",
+      label: "Mendelian susceptibility to mycobacterial disease due to a germline IFN-γ receptor mutation",
+      feedback:
+        "Incorrect. Mendelian susceptibility to mycobacterial disease (MSMD) encompasses a group of genetic primary immunodeficiencies including mutations in IFNGR1, IFNGR2, STAT1, IL12B, IL12RB1, and others that impair IFN-γ signaling. These disorders typically present in childhood with severe mycobacterial infections. A previously healthy 54-year-old without a childhood history of infections has acquired rather than genetic disruption of IFN-γ signaling. The phenotype is functionally identical to MSMD but the mechanism is autoimmune rather than genetic.",
+    },
+    {
+      id: "C",
+      label: "Acquired neutralizing autoantibodies against interferon-gamma",
+      correct: true,
+      feedback:
+        "Correct. Anti-interferon-gamma autoantibody syndrome is an acquired immunodeficiency in which the immune system produces neutralizing IgG4 autoantibodies that bind and inactivate IFN-γ, abolishing Th1-mediated immunity against intracellular pathogens. The result is a phenocopy of Mendelian susceptibility to mycobacterial disease, but in a previously healthy adult. The syndrome predominantly affects individuals of Southeast Asian descent, with strong HLA associations (HLA-DRB1*16:02 and HLA-DQB1*05:02). This patient's Vietnamese origin, previously intact immune history, normal CD4 count, negative HIV, and indeterminate QuantiFERON-TB Gold due to neutralization of released IFN-γ by the autoantibodies are all hallmarks of this diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Occult hematologic malignancy causing functional immunosuppression through bone marrow replacement",
+      feedback:
+        "Incorrect. Lymphoma and other hematologic malignancies were appropriately considered given the hypermetabolic lymphadenopathy and constitutional symptoms. However, flow cytometry of the lymph node shows no lymphoma, and bone marrow biopsy shows granulomas with AFB rather than malignant infiltration. Hematologic malignancy has been excluded by the tissue diagnosis.",
+    },
+    {
+      id: "E",
+      label: "Idiopathic CD4+ T-lymphocytopenia",
+      feedback:
+        "Incorrect. Idiopathic CD4+ T-lymphocytopenia (ICL) is defined by a CD4 count below 300 cells/uL on two separate measurements in the absence of HIV or other known causes of CD4 depletion. This patient's CD4 count is 420 cells/uL, which excludes ICL. ICL is also not specifically associated with Southeast Asian ethnicity or the indeterminate QuantiFERON finding seen here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-anti-ifn-gamma-mac-q2"
+  title="Question 2"
+  prompt="Which single test best confirms the suspected immune defect?"
+  options={[
+    {
+      id: "A",
+      label: "Anti-IFN-γ neutralizing antibody titer by ELISA",
+      correct: true,
+      feedback:
+        "Correct. The diagnostic test for anti-IFN-γ autoantibody syndrome is detection of neutralizing anti-IFN-γ autoantibodies by ELISA, which measures the capacity of patient serum to block the biological activity of exogenous recombinant IFN-γ. High neutralizing titers confirm the diagnosis. Notably, the QuantiFERON-TB Gold assay is frequently indeterminate in this syndrome because the autoantibodies in the patient's blood neutralize the IFN-γ released by T cells during the assay, resulting in falsely low or absent IFN-γ readout in the mitogen control. An indeterminate IGRA in a patient with disseminated NTM and no HIV should raise suspicion for anti-IFN-γ autoantibodies.",
+    },
+    {
+      id: "B",
+      label: "CD4 count and T-cell subset analysis by flow cytometry",
+      feedback:
+        "Incorrect. CD4 count is already known and normal at 420 cells/uL. T-cell subset analysis would not identify the autoantibody. In anti-IFN-γ autoantibody syndrome, CD4 counts are characteristically normal or near-normal, and T-cell subsets are not the locus of the defect. The immune dysfunction is humoral in origin, driven by neutralizing IgG4 autoantibodies, not by lymphopenia.",
+    },
+    {
+      id: "C",
+      label: "Whole exome sequencing for a primary immunodeficiency gene panel",
+      feedback:
+        "Incorrect. Whole exome sequencing is the appropriate test when a germline mutation in an IFN-γ signaling gene (IFNGR1, IFNGR2, STAT1, IL12B, IL12RB1) is suspected as the cause of Mendelian susceptibility to mycobacterial disease. This patient's age of onset and lack of childhood infections make a genetic primary immunodeficiency unlikely. The acquired form of IFN-γ pathway disruption would not be detected by genetic sequencing because the defect lies in the serum (the autoantibody), not in the genome.",
+    },
+    {
+      id: "D",
+      label: "IL-12 and IL-12 receptor functional assay",
+      feedback:
+        "Incorrect. IL-12 and IL-12 receptor deficiency are specific genetic causes of MSMD that impair the upstream signaling cascade required for IFN-γ production by T cells. These functional assays are relevant when a primary immunodeficiency affecting the IL-12/IL-12R axis is suspected. This patient's acquired syndrome involves intact IL-12 production and T-cell IFN-γ production; the defect lies downstream in the neutralization of secreted IFN-γ by autoantibodies.",
+    },
+    {
+      id: "E",
+      label: "Repeat QuantiFERON-TB Gold with close attention to the mitogen control",
+      feedback:
+        "Incorrect. The QuantiFERON-TB Gold tests for prior TB sensitization by measuring IFN-γ released from T cells in response to TB antigens. In anti-IFN-γ autoantibody syndrome, the mitogen stimulation control frequently fails because neutralizing autoantibodies in the plasma inactivate the released IFN-γ, producing an indeterminate result. Repeating the test would likely yield another indeterminate result. The indeterminate IGRA is a diagnostic clue rather than a technical failure, and the correct next step is ELISA for anti-IFN-γ autoantibodies.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-anti-ifn-gamma-mac-q3"
+  title="Question 3"
+  prompt="Beyond MAC-directed antimicrobials, which intervention best addresses the underlying immune defect?"
+  options={[
+    {
+      id: "A",
+      label: "High-dose corticosteroids to suppress autoantibody production",
+      feedback:
+        "Incorrect. Broad corticosteroid-based immunosuppression is not the preferred approach and carries significant risk in a patient with disseminated mycobacterial infection. Corticosteroids would further suppress cellular immunity, potentially worsening mycobacterial disease. They do not specifically target the pathogenic B-cell clone and have no established efficacy for reducing anti-IFN-γ autoantibody titers in this syndrome.",
+    },
+    {
+      id: "B",
+      label: "Intravenous immunoglobulin to restore humoral immune function",
+      feedback:
+        "Incorrect. IVIG replaces polyclonal IgG and is useful for antibody-deficiency syndromes such as common variable immunodeficiency. In anti-IFN-γ autoantibody syndrome, the problem is not a deficit of antibodies but rather the presence of pathogenic autoantibodies. IVIG does not eliminate the B cell clone producing the anti-IFN-γ autoantibodies and has no established role in this condition.",
+    },
+    {
+      id: "C",
+      label: "Recombinant interferon-gamma supplementation to restore IFN-γ signaling",
+      feedback:
+        "Incorrect. Supplementing exogenous recombinant IFN-γ is a logical concept but is ineffective in practice: the circulating neutralizing autoantibodies rapidly bind and inactivate any administered IFN-γ before it can engage its receptor. Case reports of recombinant IFN-γ therapy in anti-IFN-γ autoantibody syndrome have shown no consistent clinical benefit for this reason. Addressing the source of the autoantibodies, rather than trying to overcome them, is the correct strategy.",
+    },
+    {
+      id: "D",
+      label: "Rituximab to deplete CD20+ B cells producing anti-IFN-γ autoantibodies",
+      correct: true,
+      feedback:
+        "Correct. Rituximab is the preferred immunomodulatory intervention for anti-IFN-γ autoantibody syndrome. Administered at 375 mg/m² weekly for four consecutive doses, rituximab depletes CD20-positive B cells, thereby reducing the source of pathogenic autoantibody production. Published case series document reductions in anti-IFN-γ autoantibody titers, improvement in IFN-γ signaling, and clinical and radiographic improvement following rituximab therapy. Cyclophosphamide is an alternative with comparable efficacy in small comparative series and may be preferred when rituximab access is limited. Plasmapheresis and IVIG have been tried but offer no durable benefit. MAC antimicrobials must be continued concurrently with rituximab for a minimum of 18 to 24 months, as premature discontinuation in the setting of residual immunosuppression carries a high relapse risk.",
+    },
+    {
+      id: "E",
+      label: "Plasmapheresis to acutely remove circulating anti-IFN-γ autoantibodies",
+      feedback:
+        "Incorrect. Plasmapheresis mechanically removes autoantibodies from the circulation and can transiently lower anti-IFN-γ titers. However, it does not address the underlying B-cell production of autoantibodies, and titers rebound rapidly after cessation. Plasmapheresis alone provides no durable immunological benefit and is not the primary treatment. It may have a limited role as a bridge to definitive B-cell-depleting therapy in rapidly deteriorating patients.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-anti-ifn-gamma-mac-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Disseminated MAC in an HIV-negative adult with a normal CD4 count, no immunosuppressive therapy, and no evidence of hematologic malignancy should immediately trigger a search for an alternative immune defect. The clinical presentation in this case, including the massive lymphadenopathy, hepatosplenomegaly, constitutional symptoms, hypermetabolic PET findings, and AFB-positive bone marrow, could be mistaken for high-grade lymphoma for weeks before cultures and biopsy return. The two indeterminate QuantiFERON-TB Gold results are not a laboratory failure: in anti-IFN-γ autoantibody syndrome, the neutralizing autoantibodies in patient plasma inactivate the IFN-γ released by T cells during the assay, causing both the TB antigen-specific and the mitogen stimulation wells to read as negative, producing an indeterminate result. Recognizing this as a diagnostic clue rather than a technical artifact accelerates the path to the correct diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Anti-interferon-gamma autoantibody syndrome is an acquired immunodeficiency first described in detail in a landmark 2012 NEJM report by Browne and colleagues, who characterized 52 patients, predominantly from Thailand and Taiwan, with disseminated NTM and high titers of neutralizing anti-IFN-γ IgG4 autoantibodies. The syndrome exhibits striking geographic and ethnic clustering, with the strongest associations found in Southeast and East Asian populations, linked to specific HLA haplotypes (HLA-DRB1*16:02 and HLA-DQB1*05:02) that are thought to promote autoreactive T-cell help for the IFN-γ-specific B-cell response. Mechanistically, the autoantibodies block IFN-γ binding to its receptor on macrophages, abolishing macrophage activation, granuloma formation, and intracellular mycobacterial killing, producing a phenotype functionally identical to genetic MSMD. MAC is the most common organism, but the spectrum of pathogens also includes other NTM species, non-typhoidal Salmonella, <em>Talaromyces marneffei</em> in endemic regions, varicella-zoster virus, <em>Cryptococcus</em>, and <em>Histoplasma</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is confirmed by detecting neutralizing anti-IFN-γ autoantibodies by ELISA, which measures the patient serum's capacity to block the biological activity of exogenous recombinant IFN-γ. High titers are characteristic. Whole exome sequencing would be indicated if a germline primary immunodeficiency were suspected, but the adult onset, Southeast Asian ethnicity, and lack of childhood infections point to the acquired syndrome. MAC treatment follows standard multidrug regimens: azithromycin or clarithromycin combined with ethambutol, with rifabutin commonly added for disseminated disease. Duration should be a minimum of 18 to 24 months, often longer, given the persistent immune defect; premature discontinuation frequently leads to relapse.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Addressing the autoantibody is essential for durable disease control. Rituximab depletes CD20-positive B cells and reduces autoantibody production, resulting in lower anti-IFN-γ titers and improved IFN-γ pathway function over weeks to months. Published case series support rituximab at 375 mg/m² weekly for four doses, with repeat courses used in patients who relapse immunologically. Cyclophosphamide has shown comparable efficacy in small comparative series and remains an alternative when rituximab is unavailable. Recombinant IFN-γ supplementation is neutralized by the circulating autoantibodies and has shown no consistent benefit. Plasmapheresis transiently lowers titers but provides no durable effect. In refractory cases, agents targeting plasma cells (daratumumab, an anti-CD38 antibody) have been reported with success in isolated cases.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-anti-ifn-gamma-mac-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Disseminated MAC in an HIV-negative adult with a normal CD4 count and no immunosuppression should prompt immediate testing for anti-IFN-γ neutralizing autoantibodies, particularly in individuals of Southeast or East Asian descent.
+    </li>
+    <li>
+      An indeterminate QuantiFERON-TB Gold in this setting is a diagnostic clue: neutralizing autoantibodies inactivate the IFN-γ released during the assay, causing both antigen-specific and mitogen wells to read as negative.
+    </li>
+    <li>
+      The syndrome produces a phenocopy of Mendelian susceptibility to mycobacterial disease but is acquired; CD4 count is normal, HIV is negative, and whole exome sequencing for primary immunodeficiency genes would be unrevealing.
+    </li>
+    <li>
+      MAC is treated with azithromycin or clarithromycin, ethambutol, and rifabutin for a minimum of 18 to 24 months. Rituximab (375 mg/m² weekly × 4 doses) is the preferred immunomodulatory intervention; cyclophosphamide is an alternative with comparable efficacy.
+    </li>
+    <li>
+      Recombinant IFN-γ supplementation is neutralized by circulating autoantibodies and is ineffective. Plasmapheresis is not durable. Both MAC antimicrobials and B-cell depleting therapy must be maintained concurrently to prevent relapse.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Browne SK, Burbelo PD, Chetchotisakd P, et al. Adult-onset immunodeficiency in Thailand and Taiwan. New England Journal of Medicine. 2012;367(8):725-734.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa1111160"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Browne et al.: Adult-Onset Immunodeficiency in Thailand and Taiwan (NEJM 2012)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nguyen VT, Pham TK, Nguyen TTH, et al. Anti-IFN-γ autoantibody syndrome presenting with disseminated nontuberculous mycobacteria infections: a case series of therapeutic implications and review of literature. Tropical Medicine and Infectious Disease. 2025;10(7):202.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/tropicalmed10070202"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Nguyen et al.: Anti-IFN-γ Syndrome — Case Series and Therapeutic Implications (2025)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sharma SK, Soneja M, Sreenivas V, et al. Treatment dilemmas in disseminated nontuberculous mycobacterial infections with interferon-gamma autoantibodies. Open Forum Infectious Diseases. 2021;8(8):ofab253.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/ofid/ofab253"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Sharma et al.: Treatment Dilemmas in Disseminated NTM with IFN-γ Autoantibodies
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chi CY, Chu CC, Liu JP, et al. Anti-IFN-γ autoantibodies in adults with disseminated nontuberculous mycobacterial infections are associated with HLA-DRB1*16:02 and HLA-DQB1*05:02 and the reactivation of latent varicella-zoster virus infection. Blood. 2013;121(8):1357-1366.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1182/blood-2012-08-452482"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Chi et al.: HLA Associations and Anti-IFN-γ Autoantibodies in NTM Infections
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
