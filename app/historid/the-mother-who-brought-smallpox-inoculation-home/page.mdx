@@ -41,6 +41,7 @@ export const fact = {
     "Back in England, she had her daughter inoculated in 1721 during a London epidemic.",
     "This was variolation, not Jenner's later cowpox vaccination.",
   ],
+  hookImageFit: "contain",
   featured: false,
 };
 
@@ -48,10 +49,12 @@ export const metadata = buildHistoridMetadata(fact);
 
 <HistorIDShell fact={fact}>
   <p>
-    Smallpox had already made this personal. Lady Mary Wortley Montagu had watched the disease kill
-    her brother, and when it came for her, it left her alive but scarred. So when she reached
-    Constantinople and saw women quietly using variolation to blunt the disease, she did not treat
-    it as an exotic curiosity. She looked at it like a mother looking at risk.
+    Smallpox had already made this personal. Lady Mary Wortley Montagu was an English aristocrat,
+    writer, and diplomat's wife, living in Constantinople when she encountered Ottoman inoculation
+    practices firsthand. She had already watched smallpox kill her brother, and when it came for
+    her, it left her alive but scarred. So when she saw women quietly using variolation to blunt the
+    disease, she did not treat it as an exotic curiosity. She looked at it like a mother looking at
+    risk.
   </p>
 
   <h2>Historical scene</h2>
@@ -59,7 +62,8 @@ export const metadata = buildHistoridMetadata(fact);
     Early 18th-century smallpox was not an abstract public-health problem. It moved through homes,
     courts, nurseries, and city streets with a reputation everyone understood. It killed many,
     disfigured many more, and left families making ugly calculations long before anyone had a clean
-    modern language for risk reduction. During her stay in the Ottoman Empire, Lady Mary heard about
+    modern language for risk reduction. Lady Mary was in the Ottoman Empire because her husband,
+    Edward Wortley Montagu, had been appointed British ambassador. During that stay, she heard about
     a local practice often called engrafting or inoculation, what we now call variolation: taking
     material from a smallpox lesion and introducing it deliberately in controlled fashion in hopes of
     producing a milder case.
