@@ -1,0 +1,163 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-mother-who-brought-smallpox-inoculation-home",
+  title: "The Mother Who Brought Smallpox Inoculation Home",
+  description:
+    "Before vaccination, Lady Mary Wortley Montagu watched Ottoman smallpox variolation, chose it for her own child, and then pushed the practice into British medicine at a time when the disease still disfigured and killed families every year.",
+  publishedAt: "2026-05-10",
+  historicalDateLabel: "1717-1721",
+  historicalYearSort: 1717,
+  categories: ["people-illness", "diagnostics-vaccines"],
+  tags: [
+    "Lady Mary Wortley Montagu",
+    "Smallpox",
+    "Variolation",
+    "Inoculation",
+    "Ottoman Empire",
+    "Constantinople",
+    "Charles Maitland",
+    "Maternal decision-making",
+  ],
+  hook:
+    "Before inoculation became military policy or royal fashion, it was a mother's decision. Lady Mary Wortley Montagu saw Ottoman smallpox variolation, chose it for her own child, and brought that risky idea back to England.",
+  takeaway:
+    "This story still belongs in ID because prevention usually lives in the same tense place: between evidence, fear, timing, and trust. Variolation was risky, but smallpox was worse.",
+  heroImage: "/historid/the-mother-who-brought-smallpox-inoculation-home/hero.jpg",
+  heroImageAlt:
+    "Portrait print of Lady Mary Wortley Montagu from the Wellcome Collection.",
+  heroImageCredit:
+    "Lady Mary Wortley Montagu. Stipple engraving by Caroline Watson, 1803.",
+  heroImageSourceUrl: "https://wellcomecollection.org/works/bw9udahc",
+  heroImageLicense: "CC BY 4.0 via Wellcome Collection",
+  socialHeadline: "The Mother Who Brought Inoculation Home",
+  socialDek:
+    "Lady Mary Wortley Montagu watched Ottoman variolation, chose it for her own child, and then pushed it in England while smallpox was still tearing through families.",
+  socialFacts: [
+    "Smallpox had already scarred Lady Mary and had killed her brother.",
+    "In Constantinople, she saw Ottoman variolation being used against smallpox.",
+    "She had her son Edward inoculated there by the surgeon Charles Maitland.",
+    "Back in England, she had her daughter inoculated in 1721 during a London epidemic.",
+    "This was variolation, not Jenner's later cowpox vaccination.",
+  ],
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Smallpox had already made this personal. Lady Mary Wortley Montagu had watched the disease kill
+    her brother, and when it came for her, it left her alive but scarred. So when she reached
+    Constantinople and saw women quietly using variolation to blunt the disease, she did not treat
+    it as an exotic curiosity. She looked at it like a mother looking at risk.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Early 18th-century smallpox was not an abstract public-health problem. It moved through homes,
+    courts, nurseries, and city streets with a reputation everyone understood. It killed many,
+    disfigured many more, and left families making ugly calculations long before anyone had a clean
+    modern language for risk reduction. During her stay in the Ottoman Empire, Lady Mary heard about
+    a local practice often called engrafting or inoculation, what we now call variolation: taking
+    material from a smallpox lesion and introducing it deliberately in controlled fashion in hopes of
+    producing a milder case.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Lady Mary did not just admire the idea from a distance. In 1718, while still in Constantinople,
+    she had her young son Edward variolated by the surgeon Charles Maitland. That is the point where
+    the story stops being interesting travel observation and becomes commitment. She was not importing gossip from abroad.
+    She was trusting the procedure with her own child.
+  </p>
+
+  <p>
+    Back in England, she kept pressing the case. When smallpox rose again in 1721, she had her
+    daughter inoculated in London and made sure influential witnesses saw the result. The practice
+    still frightened many physicians and much of the public. Some mistrusted its Ottoman origins.
+    Some feared the deliberate creation of disease. Some blurred it with reckless experimentation.
+    Lady Mary pushed anyway, because she knew what uncontrolled smallpox looked like.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The importance of the story is not that variolation was perfect. It was not. It could still
+    cause serious disease and could still spread infection. What changed ID history was the logic
+    underneath it: a controlled, chosen exposure could be better than waiting for the wild pathogen.
+    That was a major preventive shift. It also matters that the knowledge did not arise inside elite
+    British medicine and then move outward. Lady Mary saw a working practice in the Ottoman world,
+    recognized its value, and helped force British society to take it seriously.
+  </p>
+
+  <h2>Why the mother's choice still matters</h2>
+  <p>
+    This story still feels current because prevention rarely arrives as pure certainty. It arrives as
+    a decision made under pressure: the disease is real, the intervention is imperfect, the evidence
+    is contested, and somebody still has to choose for a child. Lady Mary's world called that choice
+    inoculation. We would call it a risk tradeoff. The shape of the problem has not changed as much
+    as we like to think.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>Lady Mary Wortley Montagu</em>. Biography noting her severe
+        smallpox illness and her role in pioneering inoculation in England after observing the
+        practice in Turkey.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/biography/Lady-Mary-Wortley-Montagu" target="_blank" rel="noreferrer">
+          Link: Britannica biography
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Willett J. Lady Mary Wortley Montagu and Her Campaign Against Smallpox. <em>Historic UK</em>.
+        Includes details on her son's inoculation in Constantinople, her daughter's inoculation in
+        England, and Charles Maitland's role.
+      </p>
+      <p>
+        <a href="https://www.historic-uk.com/HistoryUK/HistoryofBritain/Lady-Mary-Wortley-Montagu-Campaign-Against-Smallpox/" target="_blank" rel="noreferrer">
+          Link: Historic UK article
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Grundy I. Montagu's variolation. <em>Endeavour</em>. 2000;24(1):4-7.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/10824437/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Weiss RA, Esparza J. The prevention and eradication of smallpox: a commentary on Sloane
+        (1755) "An account of inoculation". <em>Philos Trans R Soc Lond B Biol Sci</em>.
+        2015;370(1666):20140378.
+      </p>
+      <p>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4360126/" target="_blank" rel="noreferrer">
+          Link: PubMed Central
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wellcome Collection. <em>Lady Mary Wortley Montagu. Stipple engraving by Caroline Watson,
+        1803.</em>
+      </p>
+      <p>
+        <a href="https://wellcomecollection.org/works/bw9udahc" target="_blank" rel="noreferrer">
+          Link: Wellcome Collection image record
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

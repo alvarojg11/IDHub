@@ -1047,6 +1047,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 54-year-old Vietnamese-born woman with no prior medical history presents with four months of fever, night sweats, 9 kg weight loss, and progressive lymphadenopathy. HIV is negative. CD4 count is 420. QuantiFERON-TB Gold is indeterminate twice. PET-CT shows SUV max 14 throughout mediastinal and retroperitoneal nodes. Blood cultures grow an acid-fast organism. What is the immune defect, which test confirms it, and how do you treat it?",
     tags: { organisms: ["Mycobacterium avium complex"], syndromes: ["Opportunistic Infection", "Immunocompromised Host", "Lymphadenopathy"], concepts: ["Anti-IFN-gamma autoantibodies", "Adult-onset immunodeficiency", "Acquired immunodeficiency", "Southeast Asian", "Rituximab", "Indeterminate QuantiFERON", "Disseminated MAC", "MSMD phenocopy"] },
   },
+  {
+    slug: "plasmodium-vivax",
+    title: "The Long Sleep",
+    description: "A humanitarian aid worker presents with cyclical fevers six months after returning from Papua New Guinea despite completing her malaria prophylaxis correctly.",
+    enable: true,
+    ogImage: "/cases/plasmodium-vivax/smear.jpg",
+    teaser: "A 34-year-old woman returns from Papua New Guinea six months ago, takes her malaria prophylaxis correctly, feels well — and then develops cyclical fevers every 48 hours. She insists it cannot be malaria. Which species explains the six-month delay, what does complete treatment require, and which prophylaxis drug would have protected her liver?",
+    tags: { organisms: ["Plasmodium vivax"], syndromes: ["Travel Medicine", "Vector-borne Infection", "Parasitic Infection"], concepts: ["Hypnozoite", "Relapsing malaria", "Radical cure", "Primaquine", "Tafenoquine", "G6PD testing", "Schüffner's dots", "Papua New Guinea", "Atovaquone-proguanil limitation"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
