@@ -1,0 +1,137 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-stain-that-made-bacteria-stand-out",
+  title: "The Stain That Made Bacteria Stand Out",
+  description:
+    "In 1884, Hans Christian Gram was not trying to build a grand bacterial classification system. He was trying to make tiny cocci visible in pneumonic lung tissue, and the method he devised became one of microbiology's most durable first looks.",
+  publishedAt: "2026-05-11",
+  historicalDateLabel: "1884",
+  historicalYearSort: 1884,
+  categories: ["diagnostics-vaccines"],
+  tags: [
+    "Hans Christian Gram",
+    "Gram stain",
+    "Pneumonia",
+    "Carl Friedlander",
+    "Bacteriology",
+    "Microbiology",
+    "Gram-positive",
+    "Gram-negative",
+  ],
+  hook:
+    "Before the Gram stain split bacteria into positive and negative, it solved a more basic problem: how do you make tiny cocci stand out in a lung full of exudate?",
+  takeaway:
+    "Gram's stain began as a visibility trick in pneumonia pathology. It turned into one of medicine's fastest first questions at the bedside: what color are the bacteria?",
+  heroImage: "/historid/the-stain-that-made-bacteria-stand-out/hero.jpg",
+  heroImageAlt: "Studio portrait of Hans Christian Gram.",
+  heroImageCredit: "Studio portrait of Hans Christian Gram by Hansen & Weller.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Hans_Christian_Gram_portrait_by_Hansen_%26_Weller.jpg",
+  heroImageLicense: "Public domain mark via Wikimedia Commons",
+  socialHeadline: "The Stain That Made Bacteria Stand Out",
+  socialDek:
+    "Gram was not chasing an abstract theory in 1884. He was trying to make pneumonia bacteria visible in tissue.",
+  socialFacts: [
+    "Gram developed the method in Berlin in 1884.",
+    "He was working with Friedlander on lungs from patients who had died of pneumonia.",
+    "His goal was contrast: tissue pale, cocci dark, bacteria easier to find.",
+    "Gram himself said the report was brief and had many gaps.",
+    "The bedside descendant is still familiar: Gram-positive or Gram-negative?",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The Gram stain is so familiar now that it can feel like part of the wallpaper of medicine. Purple
+    here, pink there, then on to the real work. But in 1884 the problem was much cruder. Hans
+    Christian Gram was trying to find tiny cocci in pneumonia tissue, and in ordinary preparations,
+    he said, they were impossible to see because the exudate swallowed everything.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Bacteriology was still young. Koch's postulates had raised the stakes: if a microbe caused a
+    disease, you had to show it there, in the lesion, not just talk around it. Gram was working in
+    Berlin with Carl Friedlander, studying lungs from people who had died of pneumonia and from
+    experimental animals. The challenge was not subtle. The organisms were tiny, the tissue was busy,
+    and the microscope needed help.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Gram's paper in 1884 was not written like a man announcing a revolution. It reads more like a
+    practical note from somebody who had found a better way to make bacteria stand out. He described
+    a procedure in which the cocci stained strongly while nuclei and other tissue elements stayed much
+    paler. That was the win. Suddenly the organisms were easier to locate in sections where they had
+    previously been buried in inflammatory debris.
+  </p>
+
+  <p>
+    The broader split came into view as he kept trying the method on other organisms. Some held the
+    stain. Some gave it up easily in alcohol. Gram himself was almost comically restrained about it.
+    He wrote that he was publishing the method even though the results were brief and full of gaps,
+    and that he only hoped it would prove useful in other hands. It did.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    What changed ID was speed. A stained slide could now give an early shape to the
+    pathogen before culture had finished doing its slower work. Cocci or rods. Purple or decolorized.
+    Later, those reactions would be tied to real structural differences in bacterial envelopes, but at
+    the start the method earned its place because it made the organisms visible and sortable. That was
+    enough to sharpen diagnosis and, eventually, empiric treatment thinking.
+  </p>
+
+  <h2>Why it still matters now</h2>
+  <p>
+    Modern microbiology has faster and fancier tools, but the Gram stain still survives because it is
+    one of the quickest useful looks we have. It can turn a cloudy CSF, a positive blood culture, or a
+    sputum sample into an immediate clinical clue. The vocabulary is so ingrained that people forget it
+    began in a morgue, in a search for pneumonia cocci hidden in lung tissue. That is what keeps the
+    story alive for me. A method born from a visibility problem still shapes first-pass decisions at the
+    bedside.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Gram HC. Ueber die isolirte Färbung der Schizomyceten in Schnitt- und Trockenpräparaten.
+        <em>Fortschr Med</em>. 1884;2:185-189. Historical translation and commentary excerpted in
+        the archived "Pioneers in Medical Laboratory Science" page.
+      </p>
+      <p>
+        <a href="https://web.archive.org/web/20160810225816/http://www.hoslink.com/pathology/lab_general/history2.htm#gram" target="_blank" rel="noreferrer">
+          Link: archived historical note and translation excerpt
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>Gram stain</em>. Overview of the method, date, and the later
+        interpretation of Gram-positive and Gram-negative cell wall differences.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/science/Gram-stain" target="_blank" rel="noreferrer">
+          Link: Britannica Gram stain entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wikimedia Commons. <em>Hans Christian Gram portrait by Hansen &amp; Weller</em>.
+      </p>
+      <p>
+        <a href="https://commons.wikimedia.org/wiki/File:Hans_Christian_Gram_portrait_by_Hansen_%26_Weller.jpg" target="_blank" rel="noreferrer">
+          Link: portrait source
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

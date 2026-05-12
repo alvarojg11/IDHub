@@ -1056,6 +1056,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old woman returns from Papua New Guinea six months ago, takes her malaria prophylaxis correctly, feels well — and then develops cyclical fevers every 48 hours. She insists it cannot be malaria. Which species explains the six-month delay, what does complete treatment require, and which prophylaxis drug would have protected her liver?",
     tags: { organisms: ["Plasmodium vivax"], syndromes: ["Travel Medicine", "Vector-borne Infection", "Parasitic Infection"], concepts: ["Hypnozoite", "Relapsing malaria", "Radical cure", "Primaquine", "Tafenoquine", "G6PD testing", "Schüffner's dots", "Papua New Guinea", "Atovaquone-proguanil limitation"] },
   },
+  {
+    slug: "ehrlichiosis",
+    title: "Fever in the Ozarks",
+    description: "A deer hunter from rural Missouri presents with four days of fever, leukopenia, thrombocytopenia, and transaminitis after removing ticks from his legs.",
+    enable: true,
+    ogImage: "/cases/ehrlichiosis/smear.jpg",
+    teaser: "A 58-year-old hunter returns from the Missouri Ozarks with four days of abrupt fever, leukopenia, thrombocytopenia, elevated transaminases, and no rash. Two ticks were removed from his legs ten days ago. The peripheral smear shows something inside a monocyte. Which tick-borne pathogen fits, which test confirms it early, and what must you start before the results come back?",
+    tags: { organisms: ["Ehrlichia chaffeensis"], syndromes: ["Vector-borne Infection", "Zoonoses", "Fever & Rash"], concepts: ["Human monocytic ehrlichiosis", "Morulae", "Lone Star tick", "Heartland virus", "Doxycycline", "PCR blood", "Leukopenia thrombocytopenia", "Ozarks"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
