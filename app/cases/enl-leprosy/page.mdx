@@ -1,0 +1,333 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("enl-leprosy");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  A Firestorm After the Cure
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 36-year-old man from the Peruvian Amazon presents for evaluation of a new febrile illness several months after completing treatment for multibacillary Hansen disease. His original diagnosis had evolved over more than a year: he developed numerous annular and infiltrated plaques on the trunk and extremities, diffuse thickening of the earlobes and eyebrows, palpably thickened ulnar and posterior tibial nerves, and glove-and-stocking hypoesthesia with intermittent burning pain in both feet. A slit-skin smear showed a bacteriological index of 4.5, and skin biopsy demonstrated a diffuse dermal infiltrate of foamy macrophages packed with acid-fast bacilli. He completed 12 months of multidrug therapy with monthly rifampin, monthly clofazimine, daily clofazimine, and daily dapsone under supervision. During treatment, the infiltrated plaques flattened progressively and his sensory symptoms stabilized.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    At the end of treatment, a repeat slit-skin smear returned with a bacteriological index of 3 and a very low morphological index. The treating team counseled him that bacillary antigen persists and clears slowly in highly bacilliferous disease, and that a positive smear without rising index or solid-staining bacilli does not constitute relapse. He was discharged from supervised treatment feeling clinically improved, with residual hyperpigmented plaques but without new lesions.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Several months later, following a gastrointestinal illness and a period of emotional stress, he develops abrupt onset fever to 38.8°C, diffuse myalgias, bilateral ankle edema, testicular pain diagnosed clinically as epididymo-orchitis, and new crops of exquisitely tender erythematous nodules on the face, extensor surfaces of the arms, and trunk. Several nodules become pustular and ulcerate. He reports worsening tenderness over both ulnar nerves but denies new weakness in the hands, foot drop, or new areas of numbness. The old plaques remain flat rather than newly infiltrated. Motor testing of the small muscles of the hands and feet is preserved bilaterally.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show neutrophilic leukocytosis, mild normocytic anemia, and elevated C-reactive protein. Creatinine is normal, urinalysis is bland, complement levels are normal, and ANCA is negative. Repeat slit-skin smear shows a bacteriological index of 3, unchanged from the end of treatment, with a persistently low morphological index. He also reports a history of intermittent abdominal cramping and loose stools over the past year. Prednisolone 60 mg/day is started. After 48 hours, fever and nerve pain improve substantially, but he develops refractory hyperglycemia requiring an insulin infusion. Thalidomide becomes available.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/enl-leprosy/nodules.jpg"
+      alt="Erythematous edematous papules and nodules on the upper extremity"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Erythematous, edematous papules and nodules on the upper extremity. Image adapted from Puri et al., IDCases (2024), CC BY 4.0.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-enl-leprosy-q1"
+  title="Question 1"
+  prompt="Which diagnosis best explains the patient's new febrile illness?"
+  options={[
+    {
+      id: "A",
+      label: "Rifampin-resistant relapse of multibacillary leprosy presenting as erythema-nodosum-like nodules",
+      feedback:
+        "Incorrect. Relapse of leprosy is characterized by new or expanding infiltrated leprosy lesions, a rising bacteriological index, solid-staining bacilli or a positive morphological index, and sometimes molecular evidence of resistance mutations in rpoB, folP1, or gyrA. This patient's old plaques remain flat and non-infiltrated, the bacteriological index is unchanged at 3, the morphological index is low, and the syndrome is abrupt and inflammatory rather than slowly progressive. Persistent smear positivity alone in a previously highly bacilliferous patient does not constitute relapse.",
+    },
+    {
+      id: "B",
+      label: "Drug-induced ANCA-associated vasculitis with cutaneous small-vessel involvement",
+      feedback:
+        "Incorrect. ANCA-associated vasculitis can produce fever, nodular skin lesions, and systemic inflammation, and dapsone has been associated with rare hypersensitivity reactions. However, ANCA is negative, the urinalysis is bland, complement is normal, and there is no pulmonary-renal syndrome. The high initial bacillary burden, the orchitis, and the characteristic tender nodular crops in this post-treatment context fit a leprosy-specific immunological diagnosis far better than a drug-induced vasculitis.",
+    },
+    {
+      id: "C",
+      label: "Type 1 leprosy reaction (reversal reaction) with acute neuritis",
+      feedback:
+        "Incorrect. Type 1 reversal reactions are delayed-type hypersensitivity reactions driven by T-cell activation against mycobacterial antigens, occurring most commonly in unstable borderline leprosy. Their hallmark is acute inflammation within existing leprosy lesions, which become erythematous, edematous, and raised, along with acute neuritis in previously involved nerve trunks. The critical distinction is that type 1 reactions inflame pre-existing lesions rather than generating de novo painful nodular crops on previously uninvolved skin. Type 1 reactions do not cause systemic fever, epididymo-orchitis, or the marked neutrophilic leukocytosis seen here. This patient's old plaques remain flat and non-infiltrated, and the new tender nodular crops are appearing on skin that was not previously leprous: that pattern, combined with fever, orchitis, and systemic inflammation, points to a type 2 rather than a type 1 reaction.",
+    },
+    {
+      id: "D",
+      label: "Type 2 leprosy reaction / erythema nodosum leprosum after multidrug therapy",
+      correct: true,
+      feedback:
+        "Correct. Erythema nodosum leprosum (ENL) is the classic type 2 leprosy reaction of multibacillary disease, particularly lepromatous and borderline lepromatous leprosy. Abrupt fever, painful crops of erythematous nodules on the face and extensor surfaces, neuritis with preserved motor function, epididymo-orchitis, ankle edema, neutrophilic leukocytosis, and elevated CRP in a patient with high initial bacillary burden completing multidrug therapy are the defining features. ENL reflects inflammatory antigen burden and immune dysregulation rather than viable bacterial relapse, which explains its occurrence after effective MDT. The flat old plaques, unchanged bacteriological index, and low morphological index confirm that active bacillary multiplication is not driving this episode.",
+    },
+    {
+      id: "E",
+      label: "Lucio phenomenon due to diffuse lepromatous leprosy",
+      feedback:
+        "Incorrect. Lucio phenomenon is a necrotizing vasculopathy occurring in untreated diffuse lepromatous leprosy (pure diffuse lepromatous leprosy of Lucio and Latapí), producing irregular necrotic ulcers from ischemic infarction of skin. It is distinct from ENL in mechanism, morphology, and clinical context. This patient has completed MDT and presents with tender nodular crops rather than necrotic vasculopathic ulcers. The systemic features (orchitis, neuritis, edema) and the nodular morphology are consistent with ENL, not Lucio phenomenon.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enl-leprosy-q2"
+  title="Question 2"
+  prompt="Which finding would most strongly support relapse or drug-resistant leprosy rather than ENL?"
+  options={[
+    {
+      id: "A",
+      label: "Painful erythematous nodules with fever and orchitis",
+      feedback:
+        "Incorrect. Painful erythematous nodular crops with fever and epididymo-orchitis are classic features of ENL, not relapse. These findings reflect systemic inflammatory activation driven by antigen burden and immune complex deposition, not renewed bacillary multiplication. Their presence actually supports ENL rather than distinguishing relapse.",
+    },
+    {
+      id: "B",
+      label: "Persistent positive slit-skin smear with low morphological index after MDT",
+      feedback:
+        "Incorrect. Persistent smear positivity after MDT is expected in previously highly bacilliferous patients and does not by itself constitute relapse. Acid-fast debris, dead bacilli, and residual antigen can persist for years as bacillary indices decline slowly. The morphological index (the proportion of solid-staining, presumably viable bacilli) is the more informative figure. A low morphological index with unchanged bacteriological index supports antigen persistence rather than active bacterial multiplication.",
+    },
+    {
+      id: "C",
+      label: "New infiltrated plaques with rising bacteriological index, solid-staining bacilli or positive morphological index, and molecular evidence of resistance mutations",
+      correct: true,
+      feedback:
+        "Correct. Relapse of leprosy is an active clinical and microbiological event, not an immunological one. The diagnostic criteria include new or expanding leprosy skin lesions, a rising bacteriological index, solid-staining bacilli or a positive morphological index indicating viable replicating organisms, and in some settings, molecular detection of resistance-associated mutations in rpoB (rifampin), folP1 (dapsone), or gyrA (fluoroquinolones). None of these features are present here. The bedside priority in ENL with active neuritis is not antibiotic retreatment but daily nerve-function documentation and prevention of irreversible disability.",
+    },
+    {
+      id: "D",
+      label: "Tender ulnar nerves without new motor deficit",
+      feedback:
+        "Incorrect. Painful nerve trunks with preserved motor function are characteristic of early or active neuritis in the context of ENL, not relapse. This is actually the most urgent feature of ENL from a disability-prevention standpoint because untreated neuritis can progress to irreversible motor loss. Nerve tenderness without deficit represents a window of opportunity for anti-inflammatory therapy to prevent permanent damage, not a feature distinguishing relapse from reaction.",
+    },
+    {
+      id: "E",
+      label: "Elevated C-reactive protein and neutrophilic leukocytosis",
+      feedback:
+        "Incorrect. Neutrophilic leukocytosis and elevated CRP are systemic inflammatory markers that support the diagnosis of ENL as an inflammatory reaction. They reflect cytokine activation, immune complex deposition, and endothelial involvement characteristic of ENL pathophysiology. These findings would not differentiate ENL from relapse, and in the context of active ENL they are consistent with the expected systemic inflammatory response.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enl-leprosy-q3"
+  title="Question 3"
+  prompt="Prednisolone 60 mg/day improved fever and nerve pain but caused refractory hyperglycemia requiring insulin. The patient has a history of abdominal symptoms and lives in a region where intestinal parasites are endemic. Thalidomide is now available. Which plan is safest?"
+  options={[
+    {
+      id: "A",
+      label: "Give ivermectin 200 mcg/kg for 2 days, perform a baseline neuropathy assessment, start thalidomide 100 mg nightly, then stop prednisolone immediately once ivermectin is complete and bridge with NSAIDs",
+      feedback:
+        "Incorrect. The ivermectin course and neuropathy baseline are both appropriate, and 100 mg nightly is the correct starting dose for thalidomide. The error is stopping prednisolone immediately once ivermectin is complete. Thalidomide takes at least several days to exert meaningful ENL control, and NSAIDs are inadequate to protect an actively inflamed nerve trunk during that gap. The steroid bridge must remain in place until objective nerve-function stability is confirmed for at least 48 hours, not until the ivermectin course ends. Concurrent use of ivermectin and prednisolone is safe and is the correct approach.",
+    },
+    {
+      id: "B",
+      label: "Give ivermectin 200 mcg/kg for 2 days, perform a baseline neuropathy assessment, restart full MDT, and taper prednisolone over 2 weeks because refractory hyperglycemia on steroids confirms the working diagnosis was relapse all along",
+      feedback:
+        "Incorrect. Steroid-induced hyperglycemia is a metabolic complication of high-dose corticosteroids, not a diagnostic indicator. It does not change the underlying diagnosis from ENL to relapse. The clinical, microbiological, and inflammatory evidence points to ENL: flat old plaques, unchanged bacteriological index, low morphological index, and a systemic inflammatory syndrome inconsistent with slowly progressive bacillary relapse. Restarting MDT when antigen persistence rather than viable bacterial multiplication is driving symptoms is incorrect. The correct response to steroid toxicity is to transition to a steroid-sparing ENL agent, not to pivot to antimicrobials.",
+    },
+    {
+      id: "C",
+      label: "Give ivermectin 200 mcg/kg for 2 days, perform a baseline neuropathy assessment, start thalidomide 100 mg nightly, and stop prednisolone at 48 hours relying on clofazimine 100 mg three times daily to protect nerve function while thalidomide takes effect",
+      feedback:
+        "Incorrect. Ivermectin, neuropathy baseline, and a 100 mg thalidomide starting dose are all correct. The error is stopping prednisolone at 48 hours. Thalidomide requires several days to begin suppressing ENL activity, and clofazimine, while valuable for long-term ENL management, has a delayed onset of several weeks and cannot protect an acutely inflamed nerve during the immediate transition period. The prednisolone bridge must continue until objective nerve-function stability is documented for at least 48 hours, not until a fixed time has elapsed.",
+    },
+    {
+      id: "D",
+      label: "Give ivermectin 200 mcg/kg for 2 days, perform a baseline neuropathy assessment, start thalidomide at 400 mg nightly for rapid ENL suppression, and taper prednisolone over 5 days",
+      feedback:
+        "Incorrect. Ivermectin and baseline neuropathy assessment are appropriate. The two errors are the thalidomide starting dose and the prednisolone taper speed. Starting thalidomide at 400 mg nightly exposes the patient to unnecessary sedation, thrombosis risk, and neuropathy without evidence of superior early efficacy over a cautious starting dose of 100 mg nightly. A 5-day prednisolone taper after refractory neuritis is too rapid: the taper must be guided by serial objective nerve-function testing, not a fixed schedule, and should proceed in defined weekly steps only when motor and sensory function remain stable.",
+    },
+    {
+      id: "E",
+      label: "Document nerve function daily; give ivermectin 200 mcg/kg daily for 2 days concurrently with prednisolone; perform a baseline neuropathy assessment and start thalidomide 100 mg nightly with safety counseling, escalating to 200 mg nightly after 3 to 7 days if ENL persists; bridge with prednisolone until nerve stability is confirmed for 48 hours, then taper in defined weekly steps while monitoring motor and sensory function",
+      correct: true,
+      feedback:
+        "Correct. This plan manages each simultaneous risk concurrently rather than sequentially. Daily nerve-function documentation is the structural anchor: it detects deterioration early and defines the taper endpoint objectively. Ivermectin 200 mcg/kg daily for 2 days treats chronic Strongyloides infection and is given at the same time as prednisolone, removing the hyperinfection risk without sacrificing nerve protection. Baseline neuropathy assessment before thalidomide captures any pre-existing deficit and allows monitoring for drug-induced neuropathy during follow-up. Thalidomide 100 mg nightly is the appropriate cautious starting dose; escalation to 200 mg nightly after 3 to 7 days is reasonable if ENL remains active and no sedation, neuropathy, or thrombosis has emerged. Counseling on teratogenicity, thrombosis, and peripheral neuropathy is required before the first dose regardless of the patient's sex. The prednisolone bridge is maintained at the dose that protects nerve function until objective stability is confirmed for 48 hours, then reduced to 40 mg, 30 mg, 20 mg, 15 mg, and 10 mg in weekly steps, pausing or stepping back if motor function deteriorates. Clofazimine 100 mg three times daily can be added for longer-term ENL suppression if recurrent episodes are anticipated.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-enl-leprosy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    ENL is not a failure of multidrug therapy. It is an inflammatory complication driven by antigen persistence and dysregulated host immunity in multibacillary leprosy, particularly at the lepromatous and borderline lepromatous poles of the Ridley-Jopling spectrum. The pathophysiology involves immune complex deposition, neutrophil recruitment, complement activation, and cytokine release, producing painful dermal nodules with systemic features including fever, neuritis, edema, orchitis, lymphadenitis, arthritis, and nephritis. ENL can occur before, during, and after MDT precisely because effective antimicrobial therapy reduces the viable bacterial load without immediately eliminating the reservoir of bacillary antigen, which continues to drive immune activation in a previously sensitized host.
+  </p>
+
+  <figure className="my-8">
+    <div className="mx-auto max-w-3xl rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/enl-leprosy/ridley-jopling.jpg"
+        alt="Ridley-Jopling leprosy spectrum from tuberculoid to lepromatous poles showing clinical subtypes"
+        width={708}
+        height={385}
+        className="rounded-lg mx-auto w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      The Ridley-Jopling spectrum: from tuberculoid (high cell-mediated immunity, few lesions, low bacillary load) to lepromatous (low cell-mediated immunity, diffuse infiltration, high bacillary load). Borderline lepromatous disease lies near the lepromatous pole and carries the highest risk for type 2 reactions. Image adapted from Dubey et al., Frontiers in Pharmacology (2024), CC BY 4.0.
+    </figcaption>
+  </figure>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Distinguishing ENL from relapse matters because the treatment pathways diverge completely. ENL requires immunomodulation; relapse requires extended antimicrobial therapy and resistance testing. The diagnostic criteria for relapse include new or expanding leprosy skin lesions, a rising bacteriological index, solid-staining bacilli or a positive morphological index indicating viable replicating organisms, and in the modern era, molecular detection of mutations in rpoB (rifampin resistance), folP1 (dapsone resistance), or gyrA (fluoroquinolone resistance). Persistent smear positivity with a low morphological index and flat, non-expanding old plaques represents antigen persistence, not relapse. The strong distractors in this case, including ANCA vasculitis, panniculitic lymphoma, and Lucio phenomenon, are excluded by the negative ANCA, the leprosy-specific features (orchitis, neuritis, borderline lepromatous classification, high initial BI), and the pustular-to-ulcerative nodular morphology characteristic of severe ENL rather than necrotizing vasculopathy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Severe ENL with active neuritis is a disability emergency. Untreated or inadequately treated neuritis in ENL progresses to irreversible axonal loss, producing claw hand, foot drop, and anesthetic extremities that are the most disabling long-term consequences of leprosy. The preserved motor function at presentation represents a critical treatment window: the priority is protecting the ulnar nerves over the next days to weeks. Corticosteroids remain the most reliably rapid therapy for acute neuritis, and their use is appropriate as a bridge; the problem arises when steroid-related toxicity makes prolonged use untenable. Thalidomide is highly effective for the systemic and cutaneous features of ENL and reduces steroid requirements, but its effect is not immediate and it requires at least several days to titrate. Before use, baseline neurological assessment and counseling on teratogenicity, thrombosis, and peripheral neuropathy are required. The structured bridge, from steroids to thalidomide, with daily nerve-function monitoring as the taper guide, is the evidence-based approach.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The Strongyloides risk in this case is not incidental. High-dose corticosteroids in a patient from an endemic region with abdominal symptoms can precipitate hyperinfection, in which the autoinfection cycle accelerates massively and larvae disseminate to the lungs, central nervous system, and other organs, carrying enteric bacteria into the bloodstream and carrying mortality rates exceeding 60% in untreated disseminated disease. Screening or empiric treatment with ivermectin before or concurrent with prolonged high-dose steroids is an established harm-reduction strategy. For chronic Strongyloides infection, ivermectin 200 mcg/kg/day orally for 2 days is the standard regimen; hyperinfection or disseminated disease requires daily treatment until stool and sputum samples are negative for at least 2 consecutive weeks, combined with reduction of immunosuppression when feasible.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-enl-leprosy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      ENL is a systemic inflammatory reaction of multibacillary leprosy driven by antigen persistence and immune dysregulation; it occurs before, during, and after MDT and is not evidence of treatment failure or relapse.
+    </li>
+    <li>
+      Persistent smear positivity with a low morphological index after MDT reflects dead bacilli and antigen clearance, not viable bacterial multiplication; relapse requires new lesions, rising bacteriological index, solid-staining bacilli, or molecular resistance evidence.
+    </li>
+    <li>
+      Active neuritis in ENL with preserved motor function is a disability emergency: protect the nerve now. Serial objective nerve-function documentation guides steroid taper endpoints.
+    </li>
+    <li>
+      When steroid toxicity is severe, transition to thalidomide (100 mg nightly, escalating to 200 mg nightly if needed) with mandatory safety counseling before the first dose; use a structured prednisolone taper guided by objective nerve-function stability, not symptom relief alone.
+    </li>
+    <li>
+      Screen or empirically treat for Strongyloides with ivermectin before or concurrent with prolonged high-dose steroids in patients from endemic regions; hyperinfection carries high mortality and is triggered by corticosteroid-induced disruption of host immune containment.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Grijsen ML, Nguyen TH, Pinheiro RO, et al. Leprosy. Nature Reviews Disease Primers. 2024;10(1):90.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/s41572-024-00575-1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Grijsen et al.: Leprosy Disease Primer (Nature Reviews 2024)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Voorend CGN, Post EB. A systematic review on the epidemiological data of erythema nodosum leprosum, a type 2 leprosy reaction. PLOS Neglected Tropical Diseases. 2013;7(10):e2440.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pntd.0002440"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Voorend &amp; Post: Epidemiology of Erythema Nodosum Leprosum
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nabarro LEB, Aggarwal D, Armstrong M, Lockwood DNJ. The use of steroids and thalidomide in the management of erythema nodosum leprosum: 17 years at the Hospital for Tropical Diseases, London. Leprosy Review. 2016;87(2):221-231.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.47276/lr.87.2.221"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Nabarro et al.: Steroids and Thalidomide in ENL Management
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wasser M, Nguyen QD, Ghadersohi S, et al. Erythema nodosum leprosum. Journal of General Internal Medicine. 2021;36(9):2788-2790.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11606-021-06620-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Wasser et al.: Erythema Nodosum Leprosum (image source, CC BY 4.0)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Strongyloides: Clinical Care and Treatment.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/strongyloides/hcp/clinical-overview/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC: Strongyloides Clinical Care and Treatment
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -1065,6 +1065,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 58-year-old hunter returns from the Missouri Ozarks with four days of abrupt fever, leukopenia, thrombocytopenia, elevated transaminases, and no rash. Two ticks were removed from his legs ten days ago. The peripheral smear shows something inside a monocyte. Which tick-borne pathogen fits, which test confirms it early, and what must you start before the results come back?",
     tags: { organisms: ["Ehrlichia chaffeensis"], syndromes: ["Vector-borne Infection", "Zoonoses", "Fever & Rash"], concepts: ["Human monocytic ehrlichiosis", "Morulae", "Lone Star tick", "Heartland virus", "Doxycycline", "PCR blood", "Leukopenia thrombocytopenia", "Ozarks"] },
   },
+  {
+    slug: "enl-leprosy",
+    title: "A Firestorm After the Cure",
+    description: "A man from the Peruvian Amazon develops abrupt fever, painful nodular crops, neuritis, and orchitis several months after completing multidrug therapy for multibacillary leprosy.",
+    enable: true,
+    ogImage: "/cases/enl-leprosy/nodules.jpg",
+    teaser: "A 36-year-old man from the Peruvian Amazon completes multidrug therapy for borderline lepromatous disease and is told his positive slit-skin smear is expected. Months later he develops abrupt fever, painful nodular crops on the face and trunk, ulnar nerve pain, and epididymo-orchitis. His old plaques are flat. Is this relapse, vasculitis, or something else — and how do you treat it without the steroids that are already causing insulin-requiring hyperglycemia?",
+    tags: { organisms: ["Mycobacterium leprae"], syndromes: ["Tropical & Neglected Disease", "Dermatology", "Neurology"], concepts: ["Erythema nodosum leprosum", "Type 2 leprosy reaction", "ENL", "Thalidomide REMS", "Leprosy relapse differential", "Strongyloides prophylaxis", "Neuritis", "Borderline lepromatous leprosy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
