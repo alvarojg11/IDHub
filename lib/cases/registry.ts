@@ -1074,6 +1074,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 36-year-old man from the Peruvian Amazon completes multidrug therapy for borderline lepromatous disease and is told his positive slit-skin smear is expected. Months later he develops abrupt fever, painful nodular crops on the face and trunk, ulnar nerve pain, and epididymo-orchitis. His old plaques are flat. Is this relapse, vasculitis, or something else — and how do you treat it without the steroids that are already causing insulin-requiring hyperglycemia?",
     tags: { organisms: ["Mycobacterium leprae"], syndromes: ["Tropical & Neglected Disease", "Dermatology", "Neurology"], concepts: ["Erythema nodosum leprosum", "Type 2 leprosy reaction", "ENL", "Thalidomide REMS", "Leprosy relapse differential", "Strongyloides prophylaxis", "Neuritis", "Borderline lepromatous leprosy"] },
   },
+  {
+    slug: "m-kansasii-silicosis",
+    title: "What Grew in the Scar",
+    description: "A retired gold miner with progressive massive fibrosis develops constitutional symptoms and a new right upper lobe cavitary lesion on CT.",
+    enable: true,
+    ogImage: "/cases/m-kansasii-silicosis/ct-chest.jpg",
+    teaser: "A 58-year-old gold miner with silicosis and progressive massive fibrosis develops six months of productive cough, weight loss, and night sweats. Two sputum AFB smears are positive, QuantiFERON-TB Gold is negative twice, and CT shows a new right upper lobe cavity. Which criteria establish the diagnosis, what is the correct regimen, why does it differ from MAC, and what do you do when the cavity persists despite negative cultures?",
+    tags: { organisms: ["Mycobacterium kansasii"], syndromes: ["Pulmonary Infection", "Opportunistic Infection"], concepts: ["NTM pulmonary disease", "Silicosis", "Progressive massive fibrosis", "ATS IDSA criteria", "Rifampin susceptibility", "Culture conversion", "Amikacin salvage", "Moxifloxacin", "Radiologic vs microbiologic endpoint"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

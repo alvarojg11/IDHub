@@ -1,0 +1,174 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "before-it-was-e-coli",
+  title: "Before It Was E. coli",
+  description:
+    "Before it became a pathogen board answer, a molecular biology workhorse, and a food-safety headline, Escherichia coli was Theodor Escherich's common colon bacillus in infant studies, and its later name kept both the doctor and the organ in view.",
+  publishedAt: "2026-05-13",
+  historicalDateLabel: "1886-1919",
+  historicalYearSort: 1886,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Theodor Escherich",
+    "Escherichia coli",
+    "Bacterium coli commune",
+    "Pediatrics",
+    "Gut microbiology",
+    "Etymology",
+    "Colon",
+  ],
+  hook:
+    "Before it was E. coli, it was just the common colon bacillus in Theodor Escherich's infant-gut studies. One of medicine's most famous bacteria started with a much plainer name and a pediatrician's microscope.",
+  takeaway:
+    "The naming story still matters because it captures the organism's double life. What began as a normal intestinal resident in pediatric bacteriology later became one of the clearest examples of how a commensal can turn into a pathogen.",
+  heroImage: "/historid/before-it-was-e-coli/hero.jpg",
+  heroImageAlt: "Portrait of Theodor Escherich.",
+  heroImageCredit: "Portrait of Theodor Escherich, around 1900.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Escherich,_Theodor.jpg",
+  heroImageLicense: "Public domain mark via Wikimedia Commons",
+  socialHeadline: "Before It Was E. coli",
+  socialDek:
+    "Before it became one of microbiology's most familiar names, E. coli was Escherich's common colon bacillus in infant studies.",
+  socialFacts: [
+    "Escherich described the organism in 1886 in his work on the intestinal bacteria of infants.",
+    "He called it Bacterium coli commune, the common colon bacterium.",
+    "The genus Escherichia was later named after Theodor Escherich in 1919.",
+    "Coli is Latin for of the colon.",
+    "The same organism later became both a normal gut resident and a major pathogen.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    If you say <em>E. coli</em> on rounds, nobody thinks first about a pediatrician in the 1880s.
+    They think about bacteremia, pyelonephritis, O157, ESBLs, maybe a urine culture already
+    growing in the lab. But the name is worth slowing down for. Before the abbreviation, before the
+    species binomial, there was Theodor Escherich and his much less glamorous phrase for it: the
+    common colon bacillus.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Escherich was not a general bacteriologist dabbling in children. He was a pediatrician working
+    at a moment when infant digestion, diarrhea, and intestinal life were becoming legitimate medical
+    territory. Late 19th-century medicine was learning that the bowel was not empty background noise.
+    It had residents, patterns, and consequences. That made infant stools, unromantic as they were,
+    worth the microscope.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    In 1886, after intensive bacteriologic work, Escherich published <em>Die Darmbakterien des
+    Säuglings und ihre Beziehungen zur Physiologie der Verdauung</em>, his monograph on the intestinal
+    bacteria of infants and their relation to digestion. In that work he described the organism he
+    called <em>Bacterium coli commune</em>. The name made plain sense. It was the common bacterium of
+    the colon. No prophecy, no grandeur, no hint yet that this same organism would later become one
+    of the best-known names in medicine.
+  </p>
+
+  <p>
+    The later name came in pieces. The genus <em>Escherichia</em> was proposed in 1919, honoring
+    Theodor Escherich. The species term <em>coli</em> stayed rooted in anatomy: according to LPSN, it
+    is the Latin genitive meaning "of the colon." So <em>Escherichia coli</em> preserves both the
+    person and the place. It is Escherich's organism, and it is still the colon's.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The discovery mattered because it helped make the intestine microbiologic territory rather than a
+    vague digestive black box. Escherich's work belongs in ID history not only because of what the
+    organism later became, but because it helped establish that ordinary resident flora were worth
+    describing carefully. That turned out to be a bigger idea than anyone could see at the time.
+  </p>
+
+  <p>
+    And then the organism's career expanded in every direction. <em>E. coli</em> became a cause of UTI,
+    neonatal disease, bacteremia, peritonitis, and foodborne disaster. It also became one of the most
+    worked-on organisms in experimental biology. Few microbes swing so easily between commensal,
+    pathogen, and laboratory instrument.
+  </p>
+
+  <h2>Why the name still matters now</h2>
+  <p>
+    The name is a reminder that one organism can carry two truths at once. It can be normal flora in
+    one context and a dangerous pathogen in another. Modern ID lives inside that tension all the time.
+    We do not just ask what species this is. We ask where it is, what strain it is, and what it is
+    doing there. Escherich's common colon bacillus turned into a perfect lesson in why location,
+    context, and virulence matter as much as the name on the plate.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Shulman ST, Friedmann HC, Sims RH. Theodor Escherich: the first pediatric infectious diseases
+        physician? <em>Clin Infect Dis</em>. 2007;45(8):1025-1029.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/17879920/" target="_blank" rel="noreferrer">
+          Link: PubMed
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Escherich T. <em>Die Darmbakterien des Säuglings und ihre Beziehungen zur Physiologie der
+        Verdauung</em>. Stuttgart: F. Enke; 1886.
+      </p>
+      <p>
+        <a href="https://archive.org/details/b28116410" target="_blank" rel="noreferrer">
+          Link: Internet Archive
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        LPSN. <em>Escherichia</em>. Genus entry noting that the name honors Theodor Escherich and that
+        the genus was proposed in 1919 by Castellani and Chalmers.
+      </p>
+      <p>
+        <a href="https://lpsn.dsmz.de/genus/escherichia" target="_blank" rel="noreferrer">
+          Link: LPSN genus entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        LPSN. <em>Escherichia coli</em>. Species entry giving the etymology of <em>coli</em> as the
+        Latin genitive meaning "of the colon."
+      </p>
+      <p>
+        <a href="https://lpsn.dsmz.de/species/escherichia-coli" target="_blank" rel="noreferrer">
+          Link: LPSN species entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>E. coli</em>. Overview of the organism's normal intestinal role
+        and its pathogenic potential.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/science/E-coli" target="_blank" rel="noreferrer">
+          Link: Britannica E. coli entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wikimedia Commons. <em>Escherich, Theodor</em> portrait.
+      </p>
+      <p>
+        <a href="https://commons.wikimedia.org/wiki/File:Escherich,_Theodor.jpg" target="_blank" rel="noreferrer">
+          Link: portrait source
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

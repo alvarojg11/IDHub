@@ -1,0 +1,341 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("m-kansasii-silicosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  What Grew in the Scar
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man presents with six months of productive cough, an 8 kg weight loss, night sweats, and progressive exertional dyspnea. He worked as a hard-rock gold miner in Nevada for 25 years before retiring. He has never smoked and drinks alcohol only occasionally. He was diagnosed with silicosis eight years ago based on chest imaging showing bilateral upper lobe fibronodular changes with progressive massive fibrosis; his pulmonologist has followed him every six months. He takes no inhalers or medications. He has no travel history outside the southwestern United States.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.8°C, heart rate 96/min, blood pressure 122/74 mmHg, respiratory rate 20/min, and oxygen saturation 91% on room air. He appears thin and fatigued. Coarse crackles and occasional rhonchi are present in both upper lung zones, more prominent on the right. No lymphadenopathy and no clubbing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 9.4 x 10^3/uL, hemoglobin 11.2 g/dL, ESR 88 mm/hr, and CRP 76 mg/L. Renal function and liver enzymes are normal. HIV antigen-antibody assay is negative. QuantiFERON-TB Gold Plus is negative on two separate occasions. CT chest shows stable bilateral upper lobe fibronodular disease and progressive massive fibrosis consistent with known silicosis, plus a new right upper lobe cavitary lesion measuring 4.2 cm with surrounding satellite nodules. Sputum AFB smear is positive on two specimens collected on separate days. Mycobacterial cultures are sent. Speciation by <em>hsp65</em> gene sequencing returns <em>Mycobacterium kansasii</em> from both specimens. Drug susceptibility testing is pending.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/m-kansasii-silicosis/ct-chest.jpg"
+      alt="Coronal chest CT showing right upper lobe cavitary lesion with bilateral nodular silicotic changes"
+      width={1200}
+      height={800}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Coronal chest CT: right upper lobe cavitary lesion (arrow) against a background of bilateral nodular silicotic changes. Image adapted from Patel et al., Journal of Investigative Medicine High Impact Case Reports (2025), CC BY-NC 4.0.
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-m-kansasii-silicosis-q1"
+  title="Question 1"
+  prompt="Which combination of findings establishes the diagnosis of M. kansasii pulmonary disease in this patient?"
+  options={[
+    {
+      id: "A",
+      label: "A positive AFB smear on two sputum specimens from separate days",
+      feedback:
+        "Incorrect. A positive AFB smear confirms the presence of acid-fast organisms but does not establish species identity. M. tuberculosis, M. kansasii, MAC, and other NTM cannot be distinguished on smear. Smear positivity triggers the diagnostic workup but by itself does not meet the ATS/IDSA criteria for pulmonary NTM disease.",
+    },
+    {
+      id: "B",
+      label: "A single positive sputum culture for M. kansasii",
+      feedback:
+        "Incorrect. The ATS/IDSA 2020 guidelines require at least two positive sputum cultures from separate specimens to establish pulmonary NTM disease from expectorated sputum. A single positive sputum culture is considered significant given M. kansasii's higher pathogenicity compared with most NTM, and should prompt collection of additional specimens, but one culture alone does not formally meet the diagnostic threshold. One positive culture from bronchoscopy (BAL or bronchial wash) is sufficient as a single specimen.",
+    },
+    {
+      id: "C",
+      label: "Two positive sputum cultures for M. kansasii from separate specimens, combined with appropriate pulmonary symptoms and CT findings, after exclusion of other diagnoses",
+      correct: true,
+      feedback:
+        "Correct. The ATS/IDSA 2020 diagnostic criteria for pulmonary NTM disease require all three components: clinical (pulmonary symptoms and appropriate radiographic findings), microbiological (at least two positive sputum cultures from separate specimens, or one positive BAL culture, or a positive lung biopsy), and exclusion of alternative diagnoses. This patient has two culture-positive specimens identifying M. kansasii, six months of productive cough and constitutional symptoms, and CT findings of a new cavitary lesion in a patient with silicosis. The negative QuantiFERON-TB Gold on two occasions substantially reduces the probability of concurrent M. tuberculosis infection.",
+    },
+    {
+      id: "D",
+      label: "Positive QuantiFERON-TB Gold combined with AFB-positive sputum and upper lobe cavitation",
+      feedback:
+        "Incorrect. QuantiFERON-TB Gold (IGRA) detects interferon-gamma responses to M. tuberculosis-specific antigens (ESAT-6 and CFP-10) and is designed to identify latent or active M. tuberculosis infection. NTM, including M. kansasii, do not produce reliable positive IGRA results because they do not share the relevant antigens. In this patient, the IGRA is negative on two occasions, which supports NTM rather than tuberculosis. IGRA is not a diagnostic test for M. kansasii disease.",
+    },
+    {
+      id: "E",
+      label: "CT findings of new upper lobe cavitation in a patient with silicosis and AFB-positive sputum smears",
+      feedback:
+        "Incorrect. Radiographic findings and a positive smear raise appropriate concern for NTM or TB but do not establish a species diagnosis. The ATS/IDSA criteria explicitly require positive cultures with species identification for diagnosis. In patients with silicosis, CT findings of progressive cavitation may reflect silicosis-related complications, TB reactivation, NTM disease, or other infections, and the imaging alone cannot distinguish between them.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-m-kansasii-silicosis-q2"
+  title="Question 2"
+  prompt="What is the preferred first-line treatment regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Rifampin 600 mg/day + ethambutol 15 mg/kg/day + azithromycin 250 mg/day, continued for 12 months of culture-negative sputum",
+      correct: true,
+      feedback:
+        "Correct. The ATS/IDSA 2020 guidelines recommend a three-drug regimen of rifampin, ethambutol, and either azithromycin or isoniazid (with pyridoxine) for pulmonary M. kansasii disease. Azithromycin is increasingly preferred over isoniazid given equivalent efficacy and a more favorable tolerability profile. Treatment is continued for 12 months after the date of first negative sputum culture; sputum culture conversion is expected within four months in drug-susceptible disease. Relapse rates are less than 1% with completed 12-month regimens but rise to approximately 7% when treatment is stopped before 12 months of negative cultures. Pyrazinamide is intrinsically inactive against M. kansasii and should not be included.",
+    },
+    {
+      id: "B",
+      label: "Azithromycin 250 mg/day + ethambutol 15 mg/kg/day + rifabutin 300 mg/day",
+      feedback:
+        "Incorrect. This is a regimen designed for MAC pulmonary disease, where rifabutin is used as an alternative rifamycin. For M. kansasii, rifampin is the preferred rifamycin because M. kansasii is intrinsically and reliably susceptible to rifampin, and the drug serves as the true bactericidal backbone of the regimen. MAC is intrinsically rifampin-resistant; its regimen differs fundamentally from M. kansasii therapy.",
+    },
+    {
+      id: "C",
+      label: "Isoniazid + rifampin + pyrazinamide + ethambutol (RIPE) for 6 months",
+      feedback:
+        "Incorrect. RIPE is the standard regimen for M. tuberculosis. Pyrazinamide has no activity against M. kansasii, which is intrinsically resistant. Using TB-targeted four-drug therapy for NTM disease reflects misidentification of the pathogen or failure to act on speciation results. The presence of silicosis and a negative QuantiFERON-TB Gold on two occasions makes M. tuberculosis substantially less likely than M. kansasii here.",
+    },
+    {
+      id: "D",
+      label: "Azithromycin + ethambutol without rifampin, to reduce pill burden and hepatotoxicity risk",
+      feedback:
+        "Incorrect. Rifampin is the essential backbone of M. kansasii therapy and should not be omitted. Omitting rifampin to reduce pill burden is not supported by evidence and significantly increases the risk of treatment failure and relapse. Two-drug macrolide plus ethambutol combinations are insufficient for M. kansasii disease. Monitoring for rifampin-related hepatotoxicity and drug interactions is required but does not justify removing the most active agent in the regimen.",
+    },
+    {
+      id: "E",
+      label: "Amikacin IV alone at 15 mg/kg three times weekly for 6 months",
+      feedback:
+        "Incorrect. Parenteral aminoglycosides are not used as monotherapy for M. kansasii. Amikacin and streptomycin are reserved as adjunctive agents in refractory disease or rifampin-resistant cases, where they are added to a multi-drug oral backbone rather than used alone. Aminoglycoside monotherapy would rapidly select for resistance and carries substantial nephrotoxic and ototoxic risk without evidence of benefit as primary therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-m-kansasii-silicosis-q3"
+  title="Question 3"
+  prompt="Which property of M. kansasii most distinguishes its treatment regimen and prognosis from MAC pulmonary disease?"
+  options={[
+    {
+      id: "A",
+      label: "M. kansasii grows faster than MAC, allowing a shorter total treatment duration",
+      feedback:
+        "Incorrect. Both M. kansasii and MAC are slowly growing mycobacteria that typically require more than seven days for visible colony growth on solid media. Treatment duration for M. kansasii pulmonary disease is 12 months of culture-negative sputum, which in practice means 15 to 18 months of total treatment in most patients. Growth rate does not explain the difference in treatment outcomes between the two organisms.",
+    },
+    {
+      id: "B",
+      label: "M. kansasii is not susceptible to macrolides, so rifampin must be used as the sole effective antimicrobial agent",
+      feedback:
+        "Incorrect. M. kansasii is susceptible to macrolides, and azithromycin or clarithromycin is included in the standard regimen precisely because they contribute additive activity. The distinctive advantage of M. kansasii treatment over MAC is not the absence of macrolide activity but rather the addition of highly effective rifampin, which MAC lacks.",
+    },
+    {
+      id: "C",
+      label: "Ethambutol is the bactericidal backbone of M. kansasii treatment because MAC is uniformly ethambutol-resistant",
+      feedback:
+        "Incorrect. Both M. kansasii and MAC are generally susceptible to ethambutol, which is a companion agent in both regimens. Ethambutol is not the bactericidal backbone of either regimen; it functions as a resistance-prevention partner rather than the primary killing agent. MAC is not uniformly ethambutol-resistant.",
+    },
+    {
+      id: "D",
+      label: "M. kansasii is intrinsically susceptible to rifampin, making it the active bactericidal backbone; MAC is intrinsically rifampin-resistant, and rifampin is included in MAC regimens primarily to reduce the risk of acquired macrolide resistance",
+      correct: true,
+      feedback:
+        "Correct. This is the central pharmacological distinction between M. kansasii and MAC treatment. Rifampin has direct, reliable bactericidal activity against M. kansasii, and rifampin-based regimens produce failure rates below 2% and relapse rates below 1% in susceptible disease. MAC, by contrast, is intrinsically resistant to rifampin through mechanisms including intrinsic efflux and reduced cell wall permeability. In MAC regimens, rifampin (or rifabutin) is included not for its direct bactericidal effect but to reduce the probability of selecting rrl 23S rRNA mutations that confer high-level macrolide resistance during long-term macrolide therapy; the evidence supporting this protective role is observational and limited. The practical consequence is that M. kansasii pulmonary disease is significantly more treatable than MAC pulmonary disease, with substantially better culture conversion and cure rates.",
+    },
+    {
+      id: "E",
+      label: "M. kansasii requires longer treatment than MAC because it forms more durable biofilms in cavitary lesions",
+      feedback:
+        "Incorrect. Treatment duration for M. kansasii (12 months of culture-negative sputum) is not longer than for MAC pulmonary disease, which also requires at least 12 months of culture-negative sputum per ATS/IDSA guidelines and is often treated for longer in practice. Biofilm differences are not the clinically relevant factor distinguishing treatment prognosis between the two organisms.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-m-kansasii-silicosis-q4"
+  title="Question 4"
+  prompt="At month 8 of rifampin + ethambutol + azithromycin, sputum cultures converted to negative at month 3. Repeat CT shows the right upper lobe cavity is unchanged in size. What is the most appropriate next step?"
+  options={[
+    {
+      id: "A",
+      label: "Stop all antimicrobials because negative cultures confirm cure and the cavity represents post-infectious scarring",
+      feedback:
+        "Incorrect. The ATS/IDSA guidelines require 12 months of culture-negative sputum before treatment discontinuation, not simply bacteriologic conversion. Stopping at month 8 (five months of negative cultures) carries an approximately 7% relapse risk based on historical data. In a patient with progressive massive fibrosis and limited pulmonary reserve, relapse would be clinically devastating. Continue the regimen to the 12-month culture-negative endpoint.",
+    },
+    {
+      id: "B",
+      label: "Add IV amikacin 15 mg/kg three times weekly to accelerate cavity closure",
+      feedback:
+        "Incorrect. Amikacin and streptomycin are reserved for refractory M. kansasii disease, defined by persistently positive cultures despite adequate rifampin-based therapy, or for confirmed rifampin-resistant disease. Adding an aminoglycoside when cultures are already negative exposes the patient to significant nephrotoxicity and ototoxicity without any microbiological target. Cavity persistence alone in a culture-negative patient is not an indication for aminoglycoside use.",
+    },
+    {
+      id: "C",
+      label: "Add moxifloxacin 400 mg/day and extend treatment to 18 months to achieve radiologic response",
+      feedback:
+        "Incorrect. Moxifloxacin is an alternative or salvage agent for rifampin-resistant M. kansasii or treatment failure with continued culture positivity. It has no established role in accelerating radiologic resolution after bacteriologic cure. Cavities may persist indefinitely in patients with silicosis and progressive massive fibrosis due to structural lung changes that predate and outlast the NTM infection. Extending treatment or adding agents based on radiologic non-resolution in a culture-negative patient is not evidence-based and introduces unnecessary drug toxicity.",
+    },
+    {
+      id: "D",
+      label: "Refer for surgical lobectomy of the right upper lobe given the persistent cavitary lesion",
+      feedback:
+        "Incorrect. Surgical resection has a role in carefully selected patients with localized M. kansasii cavitary disease that fails to respond after maximal medical therapy, defined by persistent culture positivity despite an adequate rifampin-based regimen. Surgery in this patient, who has already achieved culture conversion, would carry substantial perioperative risk given his baseline progressive massive fibrosis and oxygen saturation of 91% on room air, and would not be indicated for a cavity that is microbiologically quiescent.",
+    },
+    {
+      id: "E",
+      label: "Continue the current three-drug regimen to complete 12 months of culture-negative sputum; cavity persistence without microbiological failure is not an indication for regimen escalation in a patient with underlying progressive massive fibrosis",
+      correct: true,
+      feedback:
+        "Correct. The treatment endpoint for M. kansasii pulmonary disease is 12 months of culture-negative sputum, not radiologic resolution of cavities. Cavities frequently persist after bacteriologic cure, particularly in patients with extensive structural lung disease such as progressive massive fibrosis, where pre-existing architectural distortion limits healing. This patient's culture converted at month 3 and remains negative; the current regimen is working, and the appropriate plan is to complete the full 12-month negative-culture course. Reserve aminoglycosides (amikacin or streptomycin) and fluoroquinolones (moxifloxacin) for confirmed treatment failure (cultures positive beyond 4 to 6 months despite adequate therapy) or rifampin-resistant M. kansasii. In those scenarios, at least three agents with demonstrated susceptibility should be selected, and surgical consultation for localized disease can be considered if culture conversion is not achieved.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-m-kansasii-silicosis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Silicosis is the strongest structural lung disease risk factor for pulmonary M. kansasii disease. Silica particles phagocytosed by alveolar macrophages impair phagolysosomal fusion and lysosomal function, reducing intracellular mycobacterial killing. Silica also causes macrophage apoptosis and chronic granulomatous inflammation that remodels the upper lobes, creating the fibrocavitary architecture that provides a favorable microenvironment for slowly growing mycobacteria. The clinical and radiologic presentation of M. kansasii in silicosis closely mimics pulmonary tuberculosis: both produce upper lobe fibrocavitary disease in patients with relevant occupational exposures, constitutional symptoms, and AFB-positive sputum. The negative QuantiFERON-TB Gold on two occasions is an important distinguishing feature, as NTM do not produce IGRA positivity, while the combination of silicosis with cavitary disease should keep TB high in the differential until speciation is confirmed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>M. kansasii</em> is a slowly growing photochromogenic NTM (Runyon Group I) that turns yellow-orange when exposed to light. It is the second most common cause of NTM pulmonary disease in the United States after MAC and the most common NTM in patients with pneumoconiosis, including silicosis and coal workers' pneumoconiosis. Compared with MAC, M. kansasii has higher intrinsic virulence and is more likely to cause clinically significant disease when isolated. The ATS/IDSA 2020 diagnostic criteria require at least two positive expectorated sputum cultures from separate specimens or one positive BAL culture, combined with appropriate clinical and radiographic features and exclusion of alternative diagnoses. One positive sputum culture, while more meaningful for M. kansasii than for environmental NTM such as MAC or M. gordonae, still warrants collection of additional specimens before formal diagnosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pharmacological cornerstone of M. kansasii treatment is rifampin. Unlike MAC, which is intrinsically rifampin-resistant, M. kansasii is reliably susceptible, and rifampin provides direct bactericidal activity that drives culture conversion and cure. Rifampin-based regimens produce failure rates below 2% and relapse rates below 1% when 12 months of culture-negative sputum are completed. The preferred three-drug regimen per ATS/IDSA 2020 guidelines is rifampin 600 mg/day, ethambutol 15 mg/kg/day, and azithromycin 250 mg/day; isoniazid with pyridoxine is an alternative third agent. Pyrazinamide is intrinsically inactive against M. kansasii and should not be used. Macrolides (azithromycin or clarithromycin) contribute additive activity and are essential companions. In MAC treatment, rifampin (or rifabutin) is included not as the bactericidal backbone but to reduce the probability of selecting acquired macrolide resistance via rrl 23S rRNA mutations during prolonged macrolide-based therapy; the evidence for this protective role in MAC is observational and limited.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Culture conversion is expected within four months for drug-susceptible M. kansasii. When cultures remain positive beyond four to six months on an adequate rifampin-based regimen, rifampin susceptibility testing (MIC) should be requested, as acquired rifampin resistance, though rare, does occur. Rifampin-resistant M. kansasii is treated with at least three drugs selected by susceptibility testing from: a macrolide (clarithromycin or azithromycin), moxifloxacin 400 mg/day, ethambutol, sulfamethoxazole, and an aminoglycoside (amikacin or streptomycin 15 mg/kg three to five times weekly). Aminoglycosides provide additional bactericidal activity in refractory culture-positive disease but are reserved for this indication because of their nephrotoxicity and ototoxicity. Surgical resection of localized cavitary disease is considered for patients who fail to achieve culture conversion with maximal medical therapy. Importantly, cavity persistence after confirmed culture conversion is not a treatment failure and does not warrant regimen escalation; in patients with silicosis and progressive massive fibrosis, cavities may persist indefinitely due to structural architectural damage that predates the NTM infection.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-m-kansasii-silicosis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Silicosis is the strongest structural lung disease risk factor for M. kansasii; it mimics pulmonary TB both clinically and radiologically. A negative QuantiFERON-TB Gold supports NTM over TB, but speciation by culture is required to confirm.
+    </li>
+    <li>
+      The ATS/IDSA 2020 diagnostic criteria require at least two positive sputum cultures from separate specimens (or one positive BAL culture) combined with compatible clinical and CT findings; smear positivity and imaging alone are insufficient.
+    </li>
+    <li>
+      First-line treatment is rifampin 600 mg/day + ethambutol 15 mg/kg/day + azithromycin 250 mg/day for 12 months of culture-negative sputum. Culture conversion is expected within four months. Pyrazinamide is inactive against M. kansasii and must not be used.
+    </li>
+    <li>
+      Rifampin is the active bactericidal backbone for M. kansasii (intrinsically susceptible); in MAC, rifampin is used primarily to prevent acquired macrolide resistance, not as a primary bactericidal agent. This distinction explains the superior treatment outcomes of M. kansasii disease.
+    </li>
+    <li>
+      Cavity persistence after culture conversion is not treatment failure. Reserve aminoglycosides (amikacin or streptomycin) and moxifloxacin for confirmed refractory culture-positive disease or rifampin-resistant M. kansasii; adding agents for radiologic non-resolution in a culture-converted patient causes toxicity without benefit.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Daley CL, Iaccarino JM, Lange C, et al. Treatment of nontuberculous mycobacterial pulmonary disease: an official ATS/ERS/ESCMID/IDSA clinical practice guideline. European Respiratory Journal. 2020;56(1):2000535.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1183/13993003.00535-2020"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Daley et al.: ATS/ERS/ESCMID/IDSA NTM Treatment Guidelines 2020
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Griffith DE, Daley CL. Treatment of Mycobacterium abscessus pulmonary disease. Chest. 2012;141(4):1059-1068.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1378/chest.11-0523"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Griffith &amp; Daley: NTM Treatment Principles and M. kansasii
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Patel K, Habeeb S, Deshpande D. Dust to disease: cavitary lung lesion with Mycobacterium kansasii in a black lung patient. Journal of Investigative Medicine High Impact Case Reports. 2025;13:23247096251348906.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1177/23247096251348906"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Patel et al.: M. kansasii in Coal Workers' Pneumoconiosis (image source, CC BY-NC 4.0)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Haworth CS, Banks J, Capstick T, et al. British Thoracic Society guidelines for the management of non-tuberculous mycobacterial pulmonary disease (NTM-PD). Thorax. 2017;72(Suppl 2):ii1-ii64.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1136/thoraxjnl-2017-210927"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        BTS NTM-PD Guidelines 2017
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
