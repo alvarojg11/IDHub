@@ -1,9 +1,19 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+import { getBlogPost } from "@/lib/blog/registry";
+
+export const runtime = "nodejs";
 
 const WIDTH = 1080;
 const HEIGHT = 1350;
+const OUTER_PADDING_Y = 112;
+const OUTER_PADDING_X = 92;
+const INNER_PADDING_Y = 84;
+const INNER_PADDING_X = 72;
+const TITLE_SIZE = 64;
+const COMPACT_TITLE_SIZE = 56;
+const PREVIEW_SIZE = 38;
+const TITLE_WRAP_THRESHOLD = 84;
 
 function titleFromSlug(slug: string) {
   return slug
@@ -13,13 +23,23 @@ function titleFromSlug(slug: string) {
     .join(" ");
 }
 
+function clampText(input: string, max: number) {
+  if (input.length <= max) return input;
+  return `${input.slice(0, max - 3).trimEnd()}...`;
+}
+
 export async function GET(
-  req: Request,
+  _req: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const title = titleFromSlug(slug);
-  const titleSize = title.length > 72 ? 64 : title.length > 42 ? 76 : 86;
+  const post = await getBlogPost(slug);
+  const title = post?.title ?? titleFromSlug(slug);
+  const preview = clampText(
+    post?.preview ?? post?.description ?? "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+    180
+  );
+  const titleSize = title.length > TITLE_WRAP_THRESHOLD ? COMPACT_TITLE_SIZE : TITLE_SIZE;
 
   return new ImageResponse(
     (
@@ -29,7 +49,7 @@ export async function GET(
           width: "100%",
           height: "100%",
           background: "linear-gradient(165deg, #081a14 0%, #0d2b20 35%, #145c47 100%)",
-          padding: "68px",
+          padding: `${OUTER_PADDING_Y}px ${OUTER_PADDING_X}px`,
           fontFamily: "system-ui, sans-serif",
         }}
       >
@@ -42,7 +62,7 @@ export async function GET(
             height: "100%",
             borderRadius: "34px",
             border: "1px solid rgba(255,255,255,0.14)",
-            padding: "68px 72px",
+            padding: `${INNER_PADDING_Y}px ${INNER_PADDING_X}px`,
             boxShadow: "0 30px 80px rgba(0,0,0,0.18)",
           }}
         >
@@ -76,6 +96,7 @@ export async function GET(
               style={{
                 display: "flex",
                 flexDirection: "column",
+                alignItems: "center",
                 borderTop: "1px solid rgba(255,255,255,0.14)",
                 borderBottom: "1px solid rgba(255,255,255,0.14)",
                 padding: "28px 0",
@@ -96,14 +117,15 @@ export async function GET(
               <div
                 style={{
                   display: "flex",
-                  fontSize: 38,
+                  fontSize: PREVIEW_SIZE,
                   fontWeight: 500,
                   color: "rgba(255,255,255,0.96)",
                   lineHeight: 1.42,
                   fontStyle: "italic",
+                  textAlign: "center",
                 }}
               >
-                Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.
+                {preview}
               </div>
             </div>
           </div>

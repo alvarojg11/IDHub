@@ -25,6 +25,7 @@ function formatPublishedAt(input: string) {
 export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
   const publishedLabel = formatPublishedAt(fact.publishedAt);
   const structuredData = buildHistoridStructuredData(fact);
+  const heroImageClassName = fact.hookImageFit === "contain" ? "object-contain p-6" : "object-cover";
 
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
@@ -81,7 +82,7 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
               src={fact.heroImage}
               alt={fact.heroImageAlt}
               fill
-              className="object-cover"
+              className={heroImageClassName}
               priority
               sizes="(max-width: 1024px) 100vw, 960px"
             />

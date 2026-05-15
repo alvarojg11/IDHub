@@ -9,6 +9,7 @@ export type BlogPostMeta = {
   slug: string;
   title: string;
   description: string;
+  preview: string;
   publishedAt: string | null;
 };
 
@@ -68,6 +69,19 @@ function cleanText(input: string) {
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function clampText(input: string, max: number) {
+  if (input.length <= max) return input;
+  return `${input.slice(0, max - 3).trimEnd()}...`;
+}
+
+function extractFirstSentence(text: string) {
+  const normalized = cleanText(text);
+  if (!normalized) return null;
+
+  const match = normalized.match(/^(.+?[.!?])(?:\s+|$)/);
+  return match ? match[1].trim() : normalized;
 }
 
 function extractEmbeddedHtml(raw: string) {
@@ -130,6 +144,39 @@ function extractSummary(raw: string) {
   return "Clinical reflections and practical infectious diseases reasoning.";
 }
 
+function extractLeadBlock(raw: string) {
+  const withoutExports = raw
+    .replace(/export\s+const\s+\w+\s*=\s*\{[\s\S]*?\}\s*;/g, "")
+    .replace(/^export\s+const\s+.+$/gm, "")
+    .replace(/^import\s+.+$/gm, "")
+    .replace(/^<\/?.+>$/gm, "")
+    .trim();
+  const blocks = withoutExports.split(/\n\s*\n/);
+
+  for (const block of blocks) {
+    const line = block.trim();
+    if (!line) continue;
+    if (line.startsWith("#")) continue;
+    if (line.startsWith("```")) continue;
+    if (line.startsWith("import ")) continue;
+    if (line.startsWith("<BlogPostShell") || line === "</BlogPostShell>") continue;
+    if (line.includes("dangerouslySetInnerHTML")) continue;
+
+    const text = cleanText(line);
+    if (text.length >= 30) {
+      return text;
+    }
+  }
+
+  return null;
+}
+
+function extractPreview(raw: string, description: string) {
+  const leadBlock = extractLeadBlock(raw);
+  const firstSentence = leadBlock ? extractFirstSentence(leadBlock) : null;
+  return clampText(firstSentence ?? description, 280);
+}
+
 function parsePostFrontmatter(raw: string): PostFrontmatter {
   const postObject = extractPostObject(raw);
   if (!postObject) {
@@ -153,18 +200,22 @@ async function readBlogPost(slug: string): Promise<BlogPostMeta | null> {
     const frontmatter = parsePostFrontmatter(raw);
     const title = frontmatter.title ?? extractHeadingTitle(raw) ?? slug;
     const description = frontmatter.description ?? extractSummary(raw);
+    const preview = extractPreview(raw, description);
     const publishedAt = normalizeDate(frontmatter.publishedAt);
 
     return {
       slug,
       title,
       description,
+      preview,
       publishedAt,
     };
   } catch {
     return null;
   }
 }
+
+export const getBlogPost = cache(async (slug: string): Promise<BlogPostMeta | null> => readBlogPost(slug));
 
 export const getBlogPosts = cache(async (): Promise<BlogPostMeta[]> => {
   let entries: Dirent[] = [];
@@ -176,9 +227,9 @@ export const getBlogPosts = cache(async (): Promise<BlogPostMeta[]> => {
 
   const posts = (
     await Promise.all(
-      entries
-        .filter((entry) => entry.isDirectory())
-        .map((entry) => readBlogPost(entry.name))
+        entries
+          .filter((entry) => entry.isDirectory())
+          .map((entry) => getBlogPost(entry.name))
     )
   ).filter((post): post is BlogPostMeta => Boolean(post));
 

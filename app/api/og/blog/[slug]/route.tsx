@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+import { getBlogPost } from "@/lib/blog/registry";
+
+export const runtime = "nodejs";
 
 function titleFromSlug(slug: string) {
   if (slug === "index") return "Infectious Diseases Teaching Essays";
@@ -12,12 +14,22 @@ function titleFromSlug(slug: string) {
     .join(" ");
 }
 
+function clampText(input: string, max: number) {
+  if (input.length <= max) return input;
+  return `${input.slice(0, max - 3).trimEnd()}...`;
+}
+
 export async function GET(
-  req: Request,
+  _req: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const title = titleFromSlug(slug);
+  const post = slug === "index" ? null : await getBlogPost(slug);
+  const title = post?.title ?? titleFromSlug(slug);
+  const preview = clampText(
+    post?.preview ?? post?.description ?? "Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.",
+    190
+  );
 
   return new ImageResponse(
     (
@@ -77,17 +89,19 @@ export async function GET(
             <div
               style={{
                 display: "flex",
+                justifyContent: "center",
                 fontSize: 24,
                 color: "#465a53",
                 marginTop: "28px",
                 lineHeight: 1.5,
                 maxWidth: "860px",
                 fontStyle: "italic",
+                textAlign: "center",
               }}
             >
-              Practical reflections on diagnostics, antimicrobials, and clinical reasoning in Infectious Diseases.
+                {preview}
+              </div>
             </div>
-          </div>
 
           <div
             style={{

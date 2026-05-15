@@ -1,0 +1,164 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-yeast-that-built-the-hpv-vaccine",
+  title: "The Yeast That Built the HPV Vaccine",
+  description:
+    "The HPV vaccine did not need whole virus. Once high-risk HPV was tied to cervical cancer, the crucial trick was getting Saccharomyces cerevisiae to make L1 proteins that self-assembled into virus-like particles the immune system could recognize.",
+  publishedAt: "2026-05-15",
+  historicalDateLabel: "1980s-2006",
+  historicalYearSort: 2006,
+  categories: ["diagnostics-vaccines", "organisms"],
+  tags: [
+    "HPV",
+    "Human papillomavirus",
+    "Saccharomyces cerevisiae",
+    "Virus-like particles",
+    "L1 proteins",
+    "Harald zur Hausen",
+    "Gardasil",
+    "Cervical cancer",
+  ],
+  hook:
+    "The HPV vaccine did not need whole virus. What it needed was yeast, a capsid protein, and a convincing fake.",
+  takeaway:
+    "This is why the story still belongs in ID. The breakthrough was not just linking HPV to cancer. It was learning how to imitate the virus safely enough for the immune system to learn from the shell without ever meeting the genome.",
+  heroImage: "/historid/the-yeast-that-built-the-hpv-vaccine/hero.jpg",
+  heroImageAlt:
+    "Photograph of Gardasil human papillomavirus vaccine packaging.",
+  heroImageCredit:
+    "Gardasil - Human Papillomavirus Vaccine [Types 6, 11, 16, 18] (Recombinant, adsorbed), photograph by Whispyhistory.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Gardasil.jpg",
+  heroImageLicense: "CC BY-SA 4.0 via Wikimedia Commons",
+  socialHeadline: "The Yeast That Built the HPV Vaccine",
+  socialDek:
+    "The HPV vaccine works because yeast cells made the viral shell proteins and let them assemble into a safe imitation of the virus.",
+  socialFacts: [
+    "Harald zur Hausen showed that human papillomaviruses causing cervical cancer mattered enough to target.",
+    "Gardasil contains purified L1 proteins for HPV types 6, 11, 16, and 18.",
+    "Those L1 proteins are produced in yeast cells by recombinant DNA technology.",
+    "The proteins self-assemble into virus-like particles, or VLPs.",
+    "The VLPs look like HPV to the immune system but carry no viral DNA.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The weirdly elegant part of the HPV vaccine story is that the final product is built around an
+    absence. No whole virus. No viral genome. No infection to replicate. The immune system is shown a
+    shell and taught to remember it. To make that shell at scale, scientists turned to an old, workmanlike
+    organism that had been helping humans ferment and brew for centuries: <em>Saccharomyces cerevisiae</em>.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The first half of the story belongs to causation. Harald zur Hausen pushed the now-transformative
+    claim that certain human papillomaviruses were not just wart viruses but drivers of cervical
+    cancer. That was the conceptual break. Once high-risk HPV types such as HPV-16 and HPV-18 were in
+    view, prevention could stop being only a screening story and start becoming a vaccine story.
+  </p>
+
+  <p>
+    But that still left a hard practical problem. How do you build a vaccine against a virus linked to
+    cancer without giving people the virus itself? The answer was to focus on the capsid, specifically
+    the L1 protein, the structural protein that forms the outer shell of the virus.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    Vaccine developers used recombinant DNA technology to insert the relevant genetic instructions into
+    yeast cells. In Gardasil's case, EMA explains it plainly: the purified L1 proteins are made by
+    yeast cells that have been given DNA telling them how to produce those proteins. Once expressed,
+    the L1 proteins self-assemble into virus-like particles, or VLPs.
+  </p>
+
+  <p>
+    That phrase, virus-like particles, is the key move in the whole story. The particles look enough
+    like HPV from the outside that the immune system recognizes them as worth responding to. But they
+    are empty. No viral DNA sits inside. They cannot cause infection. In other words, the vaccine wins
+    by being a very persuasive decoy.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The change was bigger than one product. This was infection prevention crossing directly into cancer
+    prevention. It also made structural mimicry feel practical. Instead of relying on whole-pathogen
+    logic, the vaccine used a clean immunologic trick: show the host the shell, not the dangerous core.
+    That is a beautiful piece of microbiology, and it is one reason HPV vaccination became such a
+    powerful public-health intervention.
+  </p>
+
+  <h2>Why the yeast still matters now</h2>
+  <p>
+    The yeast matters because it keeps the story honest. People often talk about the HPV vaccine as if
+    it simply appeared once the cancer link was accepted. It did not. Someone had to solve the problem
+    of manufacturing a safe viral imitation at scale, and <em>Saccharomyces cerevisiae</em> became part
+    of that answer. The enduring lesson is that vaccine history often turns on platform decisions as
+    much as pathogen discovery. Sometimes the decisive organism in the story is not the virus you fear,
+    but the yeast you recruit to imitate it.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        The Nobel Prize in Physiology or Medicine 2008. Awarded in part to Harald zur Hausen for his
+        discovery of human papillomaviruses causing cervical cancer.
+      </p>
+      <p>
+        <a href="https://www.nobelprize.org/prizes/medicine/2008/summary/" target="_blank" rel="noreferrer">
+          Link: Nobel Prize summary
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        European Medicines Agency. <em>Gardasil</em>. EPAR summary explaining that the vaccine contains
+        purified L1 proteins produced in yeast cells by recombinant DNA technology and assembled into
+        virus-like particles.
+      </p>
+      <p>
+        <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/gardasil" target="_blank" rel="noreferrer">
+          Link: EMA Gardasil EPAR
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        U.S. Food and Drug Administration. <em>Gardasil</em>. Regulatory product page for the
+        recombinant quadrivalent HPV vaccine.
+      </p>
+      <p>
+        <a href="https://www.fda.gov/vaccines-blood-biologics/vaccines/gardasil" target="_blank" rel="noreferrer">
+          Link: FDA Gardasil page
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Encyclopaedia Britannica. <em>Human papillomavirus</em>. Overview of HPV biology, cancer link,
+        and vaccine prevention.
+      </p>
+      <p>
+        <a href="https://www.britannica.com/science/human-papillomavirus" target="_blank" rel="noreferrer">
+          Link: Britannica HPV entry
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wikimedia Commons. <em>Gardasil</em> photograph.
+      </p>
+      <p>
+        <a href="https://commons.wikimedia.org/wiki/File:Gardasil.jpg" target="_blank" rel="noreferrer">
+          Link: image source
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

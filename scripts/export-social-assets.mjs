@@ -33,13 +33,21 @@ const CONTENT_CONFIG = {
     ],
     ogAssets: (slug) => [{ route: `/api/og/historid/${slug}`, fileName: "og.png" }],
   },
+  blog: {
+    aliases: ["blog", "blogs"],
+    instagramDir: (root) => path.join(root, "Instagram", "Blog"),
+    ogDir: (root) => path.join(root, "OG", "Blog"),
+    instagramAssets: (slug) => [{ route: `/api/ig/blog/${slug}`, fileName: `${slug}.png` }],
+    ogAssets: (slug) => [{ route: `/api/og/blog/${slug}`, fileName: `${slug}.png` }],
+  },
 };
 
 function printUsage() {
-  console.log(`Usage: npm run export:social -- <case|historid> <slug> [--base-url=http://localhost:3000] [--drive-root="/path/to/Media"] [--skip-og] [--skip-instagram]\n`);
+  console.log(`Usage: npm run export:social -- <case|historid|blog> <slug> [--base-url=http://localhost:3000] [--drive-root="/path/to/Media"] [--skip-og] [--skip-instagram]\n`);
   console.log("Examples:");
   console.log("  npm run export:social -- case ptld-heart-transplant");
   console.log("  npm run export:social -- historid pasteurs-rabies-gamble");
+  console.log("  npm run export:social -- blog dont-treat-the-scan");
 }
 
 function normalizeKind(input) {
