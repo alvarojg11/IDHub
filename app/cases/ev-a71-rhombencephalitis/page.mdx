@@ -1,0 +1,466 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("ev-a71-rhombencephalitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Brainstem Under Siege
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 28-year-old man presents to the emergency department of a hospital in Ho
+    Chi Minh City with three days of fever, sore throat, and painful oral
+    ulcers. His five-year-old nephew recovered from hand-foot-and-mouth disease
+    two weeks ago, and the patient recalls similar small vesicles on his palms
+    that have since faded. He was diagnosed with granulomatosis with
+    polyangiitis eight months ago, currently in remission on rituximab
+    maintenance therapy (last infusion six weeks ago, CD19-positive B cells
+    undetectable) and prednisone 5 mg daily. He has no other medical history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This morning he developed intermittent jerking of his arms and legs that
+    woke him from sleep. His wife noticed his eyes were "not moving properly"
+    and that he was stumbling when walking. Over the next several hours he
+    became progressively dysarthric and began drooling, unable to swallow his
+    saliva. On arrival to the emergency department he is tachycardic to 142
+    bpm, blood pressure 178/104 mmHg, respiratory rate 32, temperature
+    38.6&deg;C. He is alert but dysarthric, with bilateral sixth nerve
+    palsies, left facial weakness, and absent gag reflex. He has frequent
+    myoclonic jerks involving all four extremities and is ataxic when
+    attempting to sit. Plantar responses are flexor. There is no
+    meningismus. His palms show faint resolving macular lesions; no active
+    vesicles are present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies reveal a white blood cell count of 11,200/&mu;L
+    (neutrophils 82%, lymphocytes 11%), hemoglobin 12.8 g/dL, and platelet
+    count 198,000/&mu;L. Serum sodium is 139 mEq/L, creatinine 0.9 mg/dL.
+    CRP is 4.2 mg/dL. A lumbar puncture reveals an opening pressure of 240
+    mmH<sub>2</sub>O, CSF white blood cell count 52/&mu;L (78% lymphocytes),
+    protein 71 mg/dL, and glucose 62 mg/dL (serum glucose 108 mg/dL). CSF
+    Gram stain shows no organisms.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    MRI of the brain with and without gadolinium is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/ev-a71-rhombencephalitis/mri.png"
+        alt="MRI brain T2/FLAIR sequence showing hyperintensity in the dorsal medulla, posterior pontine tegmentum, and bilateral dentate nuclei consistent with enterovirus A71 rhombencephalitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      MRI brain, T2/FLAIR sequence: hyperintensity involving the dorsal
+      medulla oblongata, posterior pontine tegmentum, and bilateral dentate
+      nuclei, without significant gadolinium enhancement. Pattern consistent
+      with rhombencephalitis.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-ev-a71-rhombencephalitis-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely cause of this patient's brainstem encephalitis?"
+  options={[
+    {
+      id: "A",
+      label: "Listeria monocytogenes rhombencephalitis",
+      feedback:
+        "Incorrect. Listeria is the most common bacterial cause of rhombencephalitis in adults and must be considered in any immunocompromised patient with brainstem signs. However, several features point away from Listeria here. The clinical prodrome includes a hand-foot-and-mouth-like illness and close contact with a child with HFMD, which is a classic epidemiologic clue for enterovirus A71. The MRI pattern of dorsal medulla and bilateral dentate nucleus involvement is far more characteristic of EV-A71 than Listeria, which typically produces abscess-like ring-enhancing lesions in the brainstem rather than symmetric T2 hyperintensity. CSF Gram stain showing no organisms also makes acute bacterial infection less likely, though it does not exclude it. Empiric ampicillin should still be started until cultures return.",
+    },
+    {
+      id: "B",
+      label: "Enterovirus A71 rhombencephalitis",
+      correct: true,
+      feedback:
+        "Correct. The combination of a hand-foot-and-mouth disease prodrome (oral ulcers, palmar vesicles, sick contact with nephew), myoclonus, cranial nerve palsies (CN VI, VII, IX), ataxia, and the characteristic MRI pattern of dorsal medulla and bilateral dentate nucleus T2/FLAIR hyperintensity is the signature of enterovirus A71 rhombencephalitis. The patient's B-cell depletion from rituximab increases his vulnerability to severe enteroviral infections, as neutralizing antibody responses are critical for controlling EV-A71 viremia. The autonomic instability (tachycardia, hypertension, tachypnea) signals progression to neurologic stage 3, which carries high mortality without prompt intervention.",
+    },
+    {
+      id: "C",
+      label: "Japanese encephalitis",
+      feedback:
+        "Incorrect. Japanese encephalitis is endemic in Vietnam and must remain on the differential for encephalitis in Southeast Asia. However, the MRI pattern is wrong. Japanese encephalitis characteristically produces bilateral thalamic T2 hyperintensity (often with hemorrhagic transformation), basal ganglia involvement, and substantia nigra signal change. This patient's MRI shows brainstem and cerebellar (dentate nucleus) involvement without thalamic lesions. The HFMD prodrome and myoclonus further favor EV-A71. JEV also typically presents with a more subacute encephalopathy rather than the brainstem-predominant syndrome seen here.",
+    },
+    {
+      id: "D",
+      label: "Bickerstaff brainstem encephalitis",
+      feedback:
+        "Incorrect. Bickerstaff brainstem encephalitis (BBE) is an autoimmune condition characterized by the triad of external ophthalmoplegia, ataxia, and impaired consciousness, often preceded by an infection. It is associated with anti-GQ1b antibodies and overlaps with Miller Fisher syndrome. While this patient has cranial nerve palsies and ataxia, several features argue against BBE: the MRI shows prominent structural brainstem abnormalities (BBE typically has normal or minimally abnormal MRI), the HFMD prodrome points toward a specific viral etiology, and the autonomic instability with progression to pulmonary edema is characteristic of EV-A71 rather than BBE. Anti-GQ1b testing can be sent but is not the most likely diagnosis.",
+    },
+    {
+      id: "E",
+      label: "HSV brainstem encephalitis",
+      feedback:
+        "Incorrect. HSV can rarely produce an isolated brainstem encephalitis, but this is uncommon. HSV encephalitis overwhelmingly targets the temporal lobes and orbitofrontal cortex, and isolated brainstem involvement without temporal lobe signal change is unusual. The HFMD prodrome, dentate nucleus involvement on MRI, myoclonus, and epidemiologic context all favor EV-A71. That said, empiric acyclovir must be started immediately for any patient with encephalitis of unclear etiology until HSV PCR is resulted, because untreated HSV encephalitis is rapidly fatal. Acyclovir has no activity against enteroviruses but must not be withheld while the diagnosis is being established.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-ev-a71-rhombencephalitis-q2"
+  title="Question 2"
+  prompt="What is the most appropriate diagnostic approach to confirm the etiology of this patient's rhombencephalitis?"
+  options={[
+    {
+      id: "A",
+      label: "CSF enterovirus PCR alone",
+      feedback:
+        "Incorrect. While CSF PCR is the most specific test for confirming CNS invasion by an enterovirus, its sensitivity for EV-A71 is imperfect. Studies of EV-A71 encephalitis show that CSF PCR can be negative in 35 to 50% of confirmed cases, particularly early in the course of illness. The virus may be present in the brainstem parenchyma without being shed into the cerebrospinal fluid in detectable quantities. Relying on CSF PCR alone risks a false-negative result in a patient with a life-threatening infection.",
+    },
+    {
+      id: "B",
+      label: "RT-PCR from CSF, throat swab, and rectal swab simultaneously",
+      correct: true,
+      feedback:
+        "Correct. Multi-compartment PCR is the recommended approach for confirming EV-A71 infection. The virus is shed from the gastrointestinal tract for weeks and from the oropharynx for one to two weeks, often at higher viral loads than in the CSF. Throat and rectal swabs frequently test positive when CSF PCR is negative or only weakly positive. Testing all three sites simultaneously maximizes diagnostic yield. In a patient with a clear clinical and radiographic picture of EV-A71 rhombencephalitis, a positive throat or rectal swab in the correct clinical context is sufficient to establish the diagnosis. Speciation and genotyping can be performed by VP1 gene sequencing on any positive specimen.",
+    },
+    {
+      id: "C",
+      label: "Serum EV-A71 IgM serology alone",
+      feedback:
+        "Incorrect. EV-A71 IgM serology can suggest recent infection but has several critical limitations in this patient. First, IgM antibodies may not become detectable until 7 to 10 days after symptom onset, and this patient is only on day 3 of neurologic symptoms, potentially yielding a false-negative result. Second, and more importantly, this patient is B-cell depleted from rituximab, which impairs his ability to mount a humoral immune response. IgM serology may be falsely negative or delayed in patients with impaired B-cell function. Serology should not be relied upon as the sole diagnostic test, particularly in an immunocompromised host.",
+    },
+    {
+      id: "D",
+      label: "Brain biopsy of the medulla",
+      feedback:
+        "Incorrect. Brain biopsy of the medulla is an extraordinarily high-risk procedure with significant morbidity and mortality, and it is almost never indicated for EV-A71 encephalitis. The diagnosis can be established non-invasively through multi-compartment PCR. Biopsy might be considered only in exceptional circumstances where the diagnosis remains elusive despite extensive non-invasive workup and the patient continues to deteriorate despite empiric therapy, raising concern for an alternative diagnosis such as lymphoma or autoimmune encephalitis. It is not an appropriate initial diagnostic approach.",
+    },
+    {
+      id: "E",
+      label: "CSF viral culture",
+      feedback:
+        "Incorrect. CSF viral culture has low sensitivity for enteroviruses compared with PCR, requires days to weeks for results, and is not routinely available in most clinical laboratories. RT-PCR has supplanted culture as the diagnostic standard for enterovirus detection due to its superior sensitivity, faster turnaround time, and ability to provide speciation. Culture does not offer any advantage over PCR in this clinical setting and would delay diagnosis in a deteriorating patient.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-ev-a71-rhombencephalitis-q3"
+  title="Question 3"
+  prompt="RT-PCR confirms EV-A71 from throat and rectal swabs; CSF is weakly positive. HSV and VZV PCRs are negative. The patient is now tachypneic with an SpO2 of 88% on room air, and chest X-ray shows new bilateral infiltrates consistent with early neurogenic pulmonary edema. What is the most appropriate management?"
+  options={[
+    {
+      id: "A",
+      label: "Acyclovir 10 mg/kg IV every 8 hours",
+      feedback:
+        "Incorrect. Acyclovir has no activity against enteroviruses. It was appropriate as empiric therapy while HSV was being excluded, but now that HSV PCR is negative and EV-A71 is confirmed, acyclovir provides no benefit and should be discontinued. Enteroviruses are RNA viruses of the Picornaviridae family; acyclovir is a nucleoside analogue that requires phosphorylation by viral thymidine kinase, an enzyme encoded by herpesviruses but not by enteroviruses. Continuing acyclovir in this setting would expose the patient to unnecessary nephrotoxicity without any therapeutic benefit.",
+    },
+    {
+      id: "B",
+      label: "IVIG and aggressive supportive ICU care",
+      correct: true,
+      feedback:
+        "Correct. No FDA-approved specific antiviral exists for EV-A71. The treatment foundation is aggressive supportive care combined with intravenous immunoglobulin (IVIG). IVIG provides passive neutralizing antibodies against EV-A71 and has immunomodulatory effects that may attenuate the cytokine storm driving brainstem dysfunction. This is particularly important in this rituximab-treated patient, who lacks the ability to produce his own neutralizing antibodies due to B-cell depletion. Case-level evidence in adults, including a 21-year-old Vietnamese woman who recovered fully after a single dose of IVIG and a rituximab-treated patient who improved with IVIG and fluoxetine, supports its use. Supportive ICU care includes early intubation for respiratory protection, hemodynamic monitoring and support for autonomic instability, lung-protective ventilation for neurogenic pulmonary edema, and careful fluid management to avoid exacerbating pulmonary edema.",
+    },
+    {
+      id: "C",
+      label: "High-dose corticosteroids",
+      feedback:
+        "Incorrect. There is no controlled evidence supporting corticosteroids in EV-A71 encephalitis, and they are theoretically harmful in the setting of active viral replication. Corticosteroids suppress the host immune response at a time when viral clearance depends on intact cellular immunity and neutralizing antibody production. While corticosteroids might be considered if an immune-mediated complication such as ADEM develops as a delayed sequela, they are not recommended as part of acute management. This patient's B-cell depletion from rituximab already places him at a disadvantage for viral clearance; adding corticosteroid-mediated T-cell suppression could worsen outcomes.",
+    },
+    {
+      id: "D",
+      label: "IVIG and milrinone infusion",
+      feedback:
+        "Incorrect as the best answer, though partially reasonable. Milrinone has been studied in severe EV-A71 infection, with one randomized controlled trial in Vietnamese children showing a mortality benefit in patients with pulmonary edema and neurogenic shock. However, the evidence base is limited to a single small pediatric trial, and no adult data exists. Milrinone should not be presented as a standard-of-care intervention. It may be considered in patients with documented cardiac dysfunction or hemodynamic compromise refractory to conventional support, but IVIG and aggressive supportive care remain the established management. The distinction matters: this patient needs the interventions with the clearest rationale first, not extrapolation from a single pediatric study.",
+    },
+    {
+      id: "E",
+      label: "Fluoxetine monotherapy",
+      feedback:
+        "Incorrect. Fluoxetine has demonstrated in vitro capsid inhibitor activity against enteroviruses, and there are individual case reports of its use in enteroviral CNS infections, including a rituximab-treated patient who improved with fluoxetine in combination with IVIG. However, fluoxetine is not appropriate as monotherapy for a patient with stage 3 EV-A71 infection and evolving neurogenic pulmonary edema. The evidence base consists of case reports and in vitro data, not controlled trials. If used at all, fluoxetine would be an adjunct to IVIG and supportive care, not a replacement for them. This patient is deteriorating rapidly and requires ICU-level intervention with proven supportive measures.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-ev-a71-rhombencephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Enterovirus A71 is a single-stranded positive-sense RNA virus of the
+    Picornaviridae family and the most neurovirulent enterovirus since
+    poliovirus eradication. It uses the scavenger receptor class B member 2
+    (SCARB2) as its primary cellular receptor, which is expressed on neurons
+    and epithelial cells, explaining its characteristic neurotropism. Since
+    the landmark description of EV-A71 neurologic complications during the
+    1998 Taiwan epidemic, rhombencephalitis has been recognized as the most
+    feared complication, with a staging system that progresses from myoclonus
+    and ataxia (stage 1), through cranial nerve involvement (stage 2), to
+    autonomic instability and neurogenic pulmonary edema (stage 3).
+    Mortality in stage 3 can exceed 70% without intervention, with death
+    occurring within hours from fulminant neurogenic pulmonary edema driven
+    by a catecholamine storm originating in the damaged brainstem.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Although EV-A71 rhombencephalitis is overwhelmingly a pediatric disease,
+    adults can develop severe infection when protective immunity is impaired.
+    The majority of reported adult cases occur in patients with B-cell
+    depletion, most commonly from rituximab or after hematopoietic stem cell
+    transplantation. Neutralizing antibodies are the primary mechanism of
+    protection against EV-A71, and adults in endemic regions typically carry
+    seroprevalence rates of 60 to 70% from prior childhood exposure. When
+    B-cell function is abolished by rituximab, this humoral defense is lost,
+    and even a previously immune adult can develop uncontrolled viremia and
+    CNS invasion upon re-exposure, as likely occurred here through contact
+    with his nephew. A key diagnostic pitfall in immunocompromised adults is
+    that CSF pleocytosis may be absent entirely, reflecting the blunted
+    inflammatory response rather than the severity of infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The MRI pattern of EV-A71 rhombencephalitis is highly characteristic.
+    T2/FLAIR hyperintensity in the dorsal medulla oblongata and posterior
+    pontine tegmentum reflects the segmental distribution of viral
+    neurotropism along the brainstem, consistent with retrograde axonal
+    transport from the oropharynx via cranial nerves. Bilateral dentate
+    nucleus involvement is a distinctive feature that helps differentiate
+    EV-A71 from other causes of rhombencephalitis. Dorsal medulla
+    involvement is the single most powerful MRI predictor of poor outcome,
+    with an accuracy of approximately 90% in published series. The absence
+    of significant gadolinium enhancement is typical in the acute phase. MRI
+    lesions in survivors often normalize over months, with approximately 84%
+    showing complete resolution on long-term follow-up.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Multi-compartment PCR is the diagnostic standard because EV-A71 is shed
+    from the gastrointestinal tract for weeks and from the oropharynx for one
+    to two weeks, often at viral loads that exceed those found in CSF. CSF
+    PCR alone misses 35 to 50% of confirmed cases. Testing throat swab,
+    rectal swab, and CSF simultaneously maximizes yield and allows for
+    speciation by VP1 gene sequencing. In immunocompromised patients, IgM
+    serology is unreliable because B-cell depletion impairs the humoral
+    response. Empiric ampicillin and acyclovir should be started for all
+    rhombencephalitis until bacterial (particularly Listeria) and herpesvirus
+    etiologies are excluded.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    No approved specific antiviral exists for EV-A71. Treatment is anchored
+    on IVIG and aggressive supportive ICU care. IVIG provides passive
+    neutralizing antibodies and modulates the inflammatory cascade through
+    multiple mechanisms, including expansion of regulatory T-cell populations
+    and suppression of IL-6, IL-8, and IL-10. In B-cell depleted patients,
+    IVIG is the only means of supplying anti-EV-A71 neutralizing antibodies.
+    Dosing is extrapolated from pediatric protocols at 1 to 2 g/kg. ICU
+    management centers on early intubation for airway protection and
+    respiratory failure, lung-protective ventilation for neurogenic pulmonary
+    edema, hemodynamic support for autonomic storms, and close monitoring for
+    the abrupt cardiovascular collapse that characterizes stage 3 disease.
+    Milrinone has been studied in a single pediatric randomized trial in
+    Vietnamese children with stage 3B disease and showed a mortality signal,
+    but the evidence is limited and no adult data exists. Fluoxetine has
+    demonstrated in vitro capsid inhibitor activity against enteroviruses and
+    has been used adjunctively in published case reports alongside IVIG, but
+    it remains investigational. Pleconaril, rupintrivir, and combination
+    antiviral approaches are under investigation but not commercially
+    available.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-ev-a71-rhombencephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      EV-A71 rhombencephalitis is predominantly pediatric but can cause
+      life-threatening brainstem encephalitis in immunocompromised adults,
+      particularly those with B-cell depletion from rituximab or after
+      hematopoietic stem cell transplantation. A sick contact with HFMD in an
+      endemic region should trigger suspicion regardless of age.
+    </li>
+    <li>
+      The MRI signature of dorsal medulla, posterior pontine tegmentum, and
+      bilateral dentate nucleus T2/FLAIR hyperintensity is highly suggestive
+      of EV-A71. Dorsal medulla involvement is the strongest predictor of
+      poor outcome, with approximately 90% prognostic accuracy.
+    </li>
+    <li>
+      Multi-compartment PCR (CSF, throat swab, and rectal swab) is the
+      diagnostic standard. CSF PCR alone misses 35 to 50% of confirmed cases.
+      In B-cell depleted patients, serology is unreliable and should not delay
+      molecular diagnosis.
+    </li>
+    <li>
+      No approved specific antiviral exists for EV-A71. IVIG and aggressive
+      supportive ICU care are the treatment foundation. IVIG is especially
+      critical in B-cell depleted patients, who cannot generate their own
+      neutralizing antibodies.
+    </li>
+    <li>
+      Empiric ampicillin and acyclovir should be started for all
+      rhombencephalitis until Listeria and HSV are excluded. Acyclovir has no
+      activity against enteroviruses but must not be withheld before HSV PCR
+      results are available.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Huang CC, Liu CC, Chang YC, Chen CY, Wang ST, Yeh TF.
+      Neurologic complications in children with enterovirus 71 infection.
+      <em>New England Journal of Medicine</em>. 1999;341(13):936-942.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJM199909233411301"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJM199909233411301
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kapadia RK, Wackym PA, Shatzkes DR, Bly RA, Lalwani AK.
+      Enterovirus A71 causing meningoencephalitis and acute flaccid myelitis
+      in a patient receiving rituximab.
+      <em>Journal of Neuroimmunology</em>. 2021;358:577639.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jneuroim.2021.577639"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.jneuroim.2021.577639
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pham KNO, Nguyen HT, Le VT, Tran TM, Vu TH, Nguyen TT.
+      Hand, foot and mouth disease with encephalomyelitis in adult: a case
+      report.
+      <em>Diagnostic Microbiology and Infectious Disease</em>.
+      2025;112(3):116832.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.diagmicrobio.2025.116832"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.diagmicrobio.2025.116832
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Liu K, Zhang L, Su Q, Wang M, Chen J, Li X.
+      Clinical value of dorsal medulla oblongata involvement detected with
+      conventional MRI in children with enterovirus 71 brainstem encephalitis.
+      <em>Pediatric Infectious Disease Journal</em>. 2019;38(2):99-103.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/INF.0000000000002026"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/INF.0000000000002026
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Jubelt B, Mihai C, Li TM, Veerapaneni P.
+      Rhombencephalitis / brainstem encephalitis.
+      <em>Current Neurology and Neuroscience Reports</em>. 2011;11(6):543-552.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11910-011-0228-1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s11910-011-0228-1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chi CY, Khanh TH, Thoa le PK, Tseng FC, Wang SM, Thinh le Q, Lin HC,
+      Hsu BM, Wang JR, Liu CC.
+      Milrinone therapy for enterovirus 71-induced pulmonary edema and/or
+      neurogenic shock in children: a randomized controlled trial.
+      <em>Critical Care Medicine</em>. 2013;41(7):1754-1760.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/CCM.0b013e31828a398c"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/CCM.0b013e31828a398c
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

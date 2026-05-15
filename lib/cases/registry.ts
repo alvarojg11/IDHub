@@ -1083,6 +1083,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 58-year-old gold miner with silicosis and progressive massive fibrosis develops six months of productive cough, weight loss, and night sweats. Two sputum AFB smears are positive, QuantiFERON-TB Gold is negative twice, and CT shows a new right upper lobe cavity. Which criteria establish the diagnosis, what is the correct regimen, why does it differ from MAC, and what do you do when the cavity persists despite negative cultures?",
     tags: { organisms: ["Mycobacterium kansasii"], syndromes: ["Pulmonary Infection", "Opportunistic Infection"], concepts: ["NTM pulmonary disease", "Silicosis", "Progressive massive fibrosis", "ATS IDSA criteria", "Rifampin susceptibility", "Culture conversion", "Amikacin salvage", "Moxifloxacin", "Radiologic vs microbiologic endpoint"] },
   },
+  {
+    title: "The Brainstem Under Siege",
+    slug: "ev-a71-rhombencephalitis",
+    description: "A rituximab-treated adult in Vietnam with brainstem encephalitis, myoclonus, and a characteristic MRI pattern after contact with hand-foot-and-mouth disease.",
+    enable: true,
+    ogImage: "/cases/ev-a71-rhombencephalitis/mri.png",
+    teaser: "A 28-year-old man in Ho Chi Minh City on rituximab for granulomatosis with polyangiitis develops myoclonus, cranial nerve palsies, and autonomic instability after his nephew recovers from hand-foot-and-mouth disease. MRI shows T2/FLAIR hyperintensity in the dorsal medulla, posterior pons, and bilateral dentate nuclei. What is the most likely diagnosis?",
+    tags: { organisms: ["Enterovirus A71", "EV-A71"], syndromes: ["Neuroinfection", "Transplant & Immunocompromised", "Travel Medicine"], concepts: ["Rhombencephalitis", "Brainstem encephalitis", "Hand-foot-and-mouth disease", "Myoclonus", "Rituximab immunosuppression", "B-cell depletion", "Neurogenic pulmonary edema", "Dentate nucleus MRI", "IVIG", "Dorsal medulla", "Multi-compartment PCR"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
