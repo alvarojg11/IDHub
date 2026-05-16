@@ -1,0 +1,185 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-wheel-in-the-microscope",
+  title: "The Wheel in the Microscope",
+  description:
+    "Before 1973, most severe childhood diarrhea had no visible cause. Then a Melbourne team looked at duodenal tissue from sick children under an electron microscope and found a virus shaped like a wheel.",
+  publishedAt: "2026-05-16",
+  historicalDateLabel: "1973-1978",
+  historicalYearSort: 1973,
+  categories: ["organisms", "diagnostics-vaccines"],
+  tags: [
+    "Rotavirus",
+    "Ruth Bishop",
+    "T. H. Flewett",
+    "Melbourne",
+    "Royal Children's Hospital",
+    "Electron microscopy",
+    "Pediatric gastroenteritis",
+    "Etymology",
+    "Rota",
+  ],
+  hook:
+    "Before 1973, severe childhood diarrhea filled wards around the world, and in roughly 80 percent of hospitalized cases no infectious agent could be identified. Then a team in Melbourne looked directly at duodenal tissue from sick children and found a virus shaped like a wheel.",
+  takeaway:
+    "Rotavirus became visible because clinicians stopped treating childhood diarrhea as an anonymous syndrome and started looking at the tissue. The name came from the shape, and the shape came from electron microscopy. That sequence, from biopsy to image to name, is why the story still belongs in ID.",
+  heroImage: "/historid/the-wheel-in-the-microscope/hero.jpg",
+  heroImageAlt:
+    "Transmission electron micrograph of rotavirus particles showing the characteristic wheel-like appearance.",
+  heroImageCredit:
+    "Rotavirus particles visualized by transmission electron microscopy. CDC/Dr. Erskine Palmer.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Rotavirus_TEM_B82-0337_lores.jpg",
+  heroImageLicense: "Public domain via CDC",
+  socialHeadline: "The Wheel in the Microscope",
+  socialDek:
+    "For years, severe childhood diarrhea had no visible cause. Then a Melbourne team found a wheel-shaped virus hiding in duodenal cells.",
+  socialFacts: [
+    "Before 1973, no infectious agent could be identified in about 80 percent of children admitted with severe dehydrating diarrhea.",
+    "Ruth Bishop, Geoffrey Davidson, Ian Holmes, and Brian Ruck found the virus in duodenal epithelial cells using electron microscopy at the Royal Children's Hospital, Melbourne.",
+    "T. H. Flewett suggested the name rotavirus in 1974 from the Latin rota, meaning wheel.",
+    "The International Committee on Taxonomy of Viruses formally approved the name in 1978.",
+    "Rotavirus is now known to cause 40 to 50 percent of severe acute diarrhea in young children worldwide.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    It is strange to think that one of the world's biggest killers was invisible until
+    1973. Before that year, severe dehydrating diarrhea was a leading cause of childhood death
+    globally, but in most hospitalized cases the laboratory could not put a name to the cause.
+    Bacteria did not explain enough of the story. Then a team in Melbourne took duodenal biopsies
+    from sick children, put them under an electron microscope, and saw something nobody had
+    described before: a virus that looked like a wheel.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The Royal Children's Hospital, Melbourne, in the early 1970s was not the international center
+    of virology the way some American and European labs were. But it had children with severe
+    diarrhea, a gastroenterology department that was willing to biopsy the duodenum, and a
+    microbiology department with an electron microscope. That combination turned out to matter more
+    than prestige. Ruth Bishop, Geoffrey Davidson, Ian Holmes, and Brian Ruck decided to look
+    directly at the tissue rather than just at stool filtrates. That decision changed the picture.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    In 1973, Bishop, Davidson, Holmes, and Ruck reported virus particles in the cytoplasm of
+    mature epithelial cells lining the duodenal villi, and in feces, from children admitted with
+    acute non-bacterial gastroenteritis. Their paper, published in <em>The Lancet</em>, showed
+    abundant viral particles in the affected tissue. The virus was there, in the cells that were
+    supposed to absorb water and nutrients. That is why the diarrhea was so severe and why so many
+    children were getting so sick.
+  </p>
+
+  <p>
+    The name came the following year, from a different angle. T. H. Flewett and colleagues, looking
+    at viruses from children and newborn calves, saw the same wheel-like shape. In 1974 they wrote:
+    the name rotavirus is suggested for them. The Latin <em>rota</em> means wheel. The name was not
+    grand or commemorative. It was descriptive, almost plainspoken. That is part of what makes it
+    durable. You see the shape once under an electron microscope and you do not forget it, and the
+    name tells you exactly what you are looking at.
+  </p>
+
+  <p>
+    The International Committee on Taxonomy of Viruses formally approved the name four years later,
+    in 1978. By then the wheel-shaped virus had already started to reorganize how pediatric
+    gastroenterology thought about diarrhea.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The discovery changed the map. Before rotavirus, a large share of severe childhood diarrhea was
+    a diagnostic blank. After 1973, a specific viral target came into view, and with it the
+    possibility of tracking disease burden, designing diagnostics, and eventually building vaccines.
+    It turned childhood diarrhea from a vague clinical pattern into a virologic problem with a
+    named agent. That may sound obvious now, but it was not obvious then.
+  </p>
+
+  <h2>Why the wheel still matters now</h2>
+  <p>
+    Rotavirus is still a major cause of severe pediatric gastroenteritis worldwide, and the
+    non-enveloped capsid that gives it that wheel shape is the same structural feature that makes
+    it resistant to alcohol-based hand sanitizers. That is a clinical detail born directly from the
+    morphology Flewett noticed in 1974. The discovery also cleared the way for the live oral
+    vaccines that have since reduced childhood hospitalizations dramatically in countries with high
+    vaccine coverage. The story holds together well: a virus was seen, then named, then targeted.
+    None of the later steps happen without the first image.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Bishop RF, Davidson GP, Holmes IH, Ruck BJ. Virus particles in epithelial cells of duodenal
+        mucosa from children with acute non-bacterial gastroenteritis. <em>Lancet</em>.
+        1973;2(7841):1281-1283.
+      </p>
+      <p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0140673673928675" target="_blank" rel="noreferrer">
+          Link: Lancet discovery paper
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Flewett TH, Bryden AS, Davies H, Woode GN, Bridger JC, Derrick JM. Relation between viruses
+        from acute gastroenteritis of children and newborn calves. <em>Lancet</em>.
+        1974;2(7872):61-63.
+      </p>
+      <p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0140673674916316" target="_blank" rel="noreferrer">
+          Link: Lancet naming paper
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Männikkö N. Etymologia: Rotavirus. <em>Emerg Infect Dis</em>. 2011;17(8):1501.
+      </p>
+      <p>
+        <a href="https://wwwnc.cdc.gov/eid/article/17/8/et-1708_article" target="_blank" rel="noreferrer">
+          Link: CDC etymology note
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Bishop R. Discovery of rotavirus: Implications for child health. <em>J Gastroenterol
+        Hepatol</em>. 2009;24 Suppl 3:S81-S85.
+      </p>
+      <p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/19799704/" target="_blank" rel="noreferrer">
+          Link: PubMed historical review
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        International Committee on Taxonomy of Viruses. Genus: <em>Rotavirus</em>. ICTV Report
+        chapter on Sedoreoviridae.
+      </p>
+      <p>
+        <a href="https://ictv.global/report/chapter/sedoreoviridae/sedoreoviridae/rotavirus" target="_blank" rel="noreferrer">
+          Link: ICTV genus page
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wikimedia Commons. Rotavirus transmission electron micrograph.
+      </p>
+      <p>
+        <a href="https://commons.wikimedia.org/wiki/File:Rotavirus_TEM_B82-0337_lores.jpg" target="_blank" rel="noreferrer">
+          Link: image source
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
