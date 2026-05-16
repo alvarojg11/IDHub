@@ -1,0 +1,300 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("visa-endocarditis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Waning Shield
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man with type 2 diabetes and hemodialysis-dependent end-stage renal disease presents to the emergency department with three days of fever, rigors, and diffuse myalgias. He underwent tunneled hemodialysis catheter placement at an outside facility six weeks ago. On examination, temperature is 39.2°C, heart rate 110/min, blood pressure 96/62 mmHg, respiratory rate 20/min, and oxygen saturation 97% on room air. He appears acutely ill and diaphoretic. The catheter exit site is erythematous with a small amount of purulent drainage.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two sets of blood cultures drawn from peripheral venipuncture grow gram-positive cocci in clusters within 16 hours; susceptibility testing confirms methicillin-resistant <em>Staphylococcus aureus</em> (MRSA) with a vancomycin minimum inhibitory concentration (MIC) of 1 mg/L by broth microdilution. Vancomycin is initiated with area-under-the-curve (AUC)-guided dosing, and the tunneled catheter is removed. Follow-up blood cultures on day 4 remain positive for MRSA. Transthoracic echocardiography (TTE) is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/visa-endocarditis/echo.jpg"
+      alt="Transthoracic echocardiogram showing a mobile echogenic vegetation attached to the posterior mitral valve leaflet"
+      width={784}
+      height={581}
+      className="rounded-lg mx-auto max-h-[520px] w-full object-contain"
+    />
+  </div>
+
+  <figcaption className="mt-4 text-center text-sm text-gray-600">
+    Transthoracic echocardiogram: a mobile echogenic vegetation (arrow) attached to the posterior leaflet of the mitral valve, measuring 12 × 10 mm. Image from Castiglioni et al., <em>Cardiology and Therapy</em> 2022 (CC BY-NC-SA 4.0).
+  </figcaption>
+</figure>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The TTE confirms a mobile 12 × 10 mm vegetation on the posterior mitral leaflet with no abscess or valve perforation. Blood cultures on day 7 remain positive. On day 9, a repeat vancomycin MIC by broth microdilution returns at 2 mg/L. The infection team is asked to reassess the diagnosis and management.
+  </p>
+</div>
+
+<CaseQuestion
+  pollId="case-visa-endocarditis-q1"
+  title="Question 1"
+  prompt="Which mechanism best explains the emergence of intermediate vancomycin susceptibility in this isolate?"
+  options={[
+    {
+      id: "A",
+      label: "Acquisition of the vanA gene from vancomycin-resistant Enterococcus",
+      feedback:
+        "Incorrect. vanA gene acquisition from vancomycin-resistant Enterococcus (VRE) describes vancomycin-resistant Staphylococcus aureus (VRSA), a distinct and far rarer entity (fewer than 20 cases reported in the United States). VRSA harbors the vanA operon on a transferable plasmid and produces D-Ala-D-Lac dipeptide termini instead of D-Ala-D-Ala, resulting in high-level vancomycin resistance (MIC ≥32 mg/L). This patient's isolate has a MIC of 2 mg/L, placing it in the intermediate category (VISA, MIC 4–8 mg/L by CLSI, or emerging heteroresistance at MIC 2), not the full resistance range seen with vanA.",
+    },
+    {
+      id: "B",
+      label: "Overexpression of an efflux pump that reduces intracellular vancomycin accumulation",
+      feedback:
+        "Incorrect. Efflux pumps are a major resistance mechanism in gram-negative bacteria and in certain gram-positive organisms such as Staphylococcus epidermidis for some agents, but efflux is not the established mechanism underlying VISA. Vancomycin is a large glycopeptide that acts at the cell wall surface and does not need to enter the cytoplasm to exert its effect; reducing intracellular concentration would not meaningfully alter its activity against the cell wall target.",
+    },
+    {
+      id: "C",
+      label: "Cell wall thickening with excess D-Ala-D-Ala targets that sequester vancomycin before it reaches the transpeptidation site",
+      correct: true,
+      feedback:
+        "Correct. VISA develops through stepwise mutations that result in a thickened, disordered cell wall with a markedly increased density of D-Ala-D-Ala-terminated peptidoglycan precursors. Vancomycin, which kills by binding D-Ala-D-Ala and blocking cell wall transpeptidation, becomes trapped in the outer layers of this expanded cell wall, unable to reach the sites of active peptidoglycan synthesis at the cytoplasmic membrane. The drug is physically sequestered by an overabundance of its own target rather than displaced or destroyed. This mechanism is distinct from VRSA (which replaces D-Ala-D-Ala with D-Ala-D-Lac, eliminating the target entirely) and explains why VISA remains susceptible in vitro to drugs that act at the membrane rather than the cell wall.",
+    },
+    {
+      id: "D",
+      label: "Altered penicillin-binding protein 2a (PBP2a) with reduced affinity for vancomycin",
+      feedback:
+        "Incorrect. PBP2a, encoded by mecA, is the hallmark of methicillin resistance in MRSA: it is a transpeptidase with low affinity for beta-lactam antibiotics, conferring resistance to virtually all beta-lactams. However, PBP2a is not the target of vancomycin, which acts on D-Ala-D-Ala cell wall precursors rather than on penicillin-binding proteins. Altered PBP2a cannot confer vancomycin resistance, and the two resistance mechanisms operate entirely independently.",
+    },
+    {
+      id: "E",
+      label: "Plasmid-mediated production of a vancomycin-inactivating enzyme",
+      feedback:
+        "Incorrect. Vancomycin is not inactivated by enzymatic degradation in any clinically recognized mechanism. Unlike beta-lactams, which are hydrolyzed by beta-lactamases, vancomycin's large glycopeptide structure does not have a hydrolyzable bond that staphylococcal enzymes exploit. The resistance mechanisms relevant to glycopeptides in S. aureus are target modification (D-Ala-D-Lac substitution in VRSA) and target sequestration via cell wall thickening (VISA), neither of which involves an inactivating enzyme.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-visa-endocarditis-q2"
+  title="Question 2"
+  prompt="The decision is made to change therapy. Which agent is most appropriate for this patient with VISA bacteremia and mitral valve endocarditis?"
+  options={[
+    {
+      id: "A",
+      label: "Continue vancomycin at a higher dose targeting troughs of 20–25 mg/L",
+      feedback:
+        "Incorrect. When the vancomycin MIC rises to 2 mg/L, escalating the vancomycin dose to achieve higher troughs does not restore clinical efficacy and substantially increases the risk of nephrotoxicity, particularly in a hemodialysis patient with residual renal function or in patients with other nephrotoxin exposures. The 2020 ASHP/IDSA/SIDP guidelines and the IDSA Staphylococcal Endocarditis guidelines explicitly recommend against using vancomycin when the MIC is ≥2 mg/L (CLSI breakpoint for resistance) or even ≥1.5 mg/L in serious infections, as achieving adequate AUC/MIC targets becomes pharmacokinetically unreliable. VISA should prompt a therapeutic switch, not dose escalation.",
+    },
+    {
+      id: "B",
+      label: "Daptomycin 8–10 mg/kg/day IV",
+      correct: true,
+      feedback:
+        "Correct. Daptomycin is the preferred alternative for VISA bacteremia and endocarditis. It is a lipopeptide antibiotic that depolarizes the bacterial membrane by inserting calcium-dependent oligomers into the cytoplasmic membrane, disrupting membrane potential and causing rapid bactericidal killing independent of the cell wall mechanism exploited by vancomycin. Because its target is the membrane rather than the cell wall, cell wall thickening (the VISA mechanism) does not impair its activity. For left-sided endocarditis, high-dose daptomycin (8–10 mg/kg/day) is used to maximize bactericidal exposure. In hemodialysis-dependent patients, daptomycin is typically dosed every 48 hours or after each dialysis session, as it is removed by high-flux hemodialysis. Important caveats: prior exposure to sub-therapeutic vancomycin in VISA strains can sometimes select for daptomycin non-susceptibility (the \"VISA-to-daptomycin non-susceptible\" pathway); susceptibility should be confirmed. Combination with a beta-lactam (e.g., cefazolin or oxacillin) can restore daptomycin activity against daptomycin-non-susceptible strains via membrane depolarization enhancement.",
+    },
+    {
+      id: "C",
+      label: "Linezolid 600 mg IV every 12 hours",
+      feedback:
+        "Incorrect. Linezolid is an oxazolidinone with excellent activity against MRSA and VISA, including in soft tissue infections and pneumonia. However, it is bacteriostatic rather than bactericidal, which is a critical limitation in bacteremia and endocarditis, where rapid bacterial killing is essential to prevent septic emboli, valve destruction, and relapse. The IDSA guidelines recommend against linezolid as primary therapy for S. aureus bacteremia and endocarditis. It may have a role in salvage combinations or in patients unable to tolerate other agents, but it is not the preferred first-line switch for VISA bacteremia.",
+    },
+    {
+      id: "D",
+      label: "Ceftaroline 600 mg IV every 8 hours",
+      feedback:
+        "Incorrect. Ceftaroline is a fifth-generation cephalosporin active against MRSA, including VISA strains, through its high-affinity binding to PBP2a. While it has demonstrated bactericidal activity and has been used in salvage therapy for MRSA bacteremia and endocarditis, it is not FDA-approved for these indications and is not first-line for VISA. Notably, ceftaroline has been used in combination with daptomycin for VISA and daptomycin-non-susceptible strains, taking advantage of its ability to enhance membrane permeability and restore daptomycin susceptibility. In that combinatorial context it has real clinical utility, but as monotherapy it is not the preferred agent over daptomycin for this indication.",
+    },
+    {
+      id: "E",
+      label: "Trimethoprim-sulfamethoxazole 5 mg/kg IV every 8 hours",
+      feedback:
+        "Incorrect. Trimethoprim-sulfamethoxazole (TMP-SMX) has activity against many MRSA strains and is used successfully for uncomplicated skin and soft tissue MRSA infections in the outpatient setting. However, it is not appropriate as primary therapy for MRSA or VISA bacteremia and endocarditis. Clinical trial evidence supporting TMP-SMX in these serious infections is limited, bactericidal activity in bloodstream infections is uncertain, and it lacks established efficacy for left-sided endocarditis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-visa-endocarditis-q3"
+  title="Question 3"
+  prompt="Per the 2020 ASHP/IDSA/SIDP consensus guidelines, which pharmacokinetic/pharmacodynamic target should guide vancomycin dosing in serious MRSA infections such as bacteremia and endocarditis?"
+  options={[
+    {
+      id: "A",
+      label: "Trough concentration of 15–20 mg/L",
+      feedback:
+        "Incorrect. A trough target of 15–20 mg/L was the prior standard recommendation for serious MRSA infections, based on the assumption that trough served as a reliable surrogate for drug exposure. This approach was abandoned in the 2020 ASHP/IDSA/SIDP guidelines because trough alone is a poor predictor of both efficacy and nephrotoxicity. Trough-based monitoring can lead to AUC values that are either inadequate (subtherapeutic exposure with clinical failure) or excessive (supratherapeutic exposure with nephrotoxicity), without directly measuring the pharmacokinetic parameter that drives bacterial killing.",
+    },
+    {
+      id: "B",
+      label: "Trough-to-MIC ratio of ≥10",
+      feedback:
+        "Incorrect. A trough-to-MIC ratio is not a validated pharmacokinetic/pharmacodynamic target for vancomycin efficacy. Vancomycin pharmacodynamics are best characterized by the AUC/MIC ratio, not the trough-to-MIC ratio, because killing is time-dependent and related to total drug exposure over 24 hours rather than peak or trough concentrations alone. The trough-to-MIC ratio conflates two imprecise measures and is not recommended in any current guideline.",
+    },
+    {
+      id: "C",
+      label: "AUC/MIC ratio of 400–600 mg·h/L",
+      correct: true,
+      feedback:
+        "Correct. The 2020 ASHP/IDSA/SIDP consensus guidelines replaced trough-based monitoring with AUC-guided dosing for serious MRSA infections. The target is a vancomycin AUC/MIC of 400–600 mg·h/L (using the vancomycin AUC over 24 hours divided by the broth microdilution MIC). For susceptible strains with a MIC of 1 mg/L, this corresponds to a 24-hour AUC target of 400–600 mg·h/L. Compared to trough-based monitoring, AUC-guided dosing more accurately reflects drug exposure, is associated with lower rates of acute kidney injury (approximately 50% reduction in nephrotoxicity in several studies), and maintains therapeutic efficacy. Bayesian software programs using one or two pharmacokinetic samples are now widely used to estimate AUC in real time and guide dose adjustments. Practically, this shift also explains the MIC creep problem: as vancomycin MICs rise from 1 to 2 mg/L, achieving an AUC/MIC ≥400 requires doubling the AUC target, which becomes pharmacokinetically difficult and nephrotoxic.",
+    },
+    {
+      id: "D",
+      label: "Peak concentration of 40–60 mg/L",
+      feedback:
+        "Incorrect. Peak-based monitoring was historically used for aminoglycosides, where concentration-dependent killing means that peak concentrations directly drive efficacy. Vancomycin pharmacodynamics are not concentration-dependent in this way; killing correlates with total drug exposure (AUC) over time rather than with peak concentration. There is no validated peak target for vancomycin in MRSA infections, and achieving artificially high peaks would markedly increase the risk of nephrotoxicity without proven efficacy benefit.",
+    },
+    {
+      id: "E",
+      label: "Trough concentration of 20–25 mg/L",
+      feedback:
+        "Incorrect. A trough of 20–25 mg/L is not a recommended target in any current guideline. Troughs at this level were sometimes pursued empirically in the era of trough-based monitoring for highly resistant strains, but this approach is associated with substantially higher rates of nephrotoxicity without demonstrated improvement in clinical outcomes. The 2020 ASHP/IDSA/SIDP guidelines explicitly replaced trough-based targets with AUC-guided dosing precisely to avoid the toxicity associated with supratherapeutic exposure while ensuring adequate drug activity.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-visa-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case illustrates two compounding problems: an organism that evolved reduced vancomycin susceptibility under antibiotic pressure, and a monitoring strategy that, under older protocols, might have missed the pharmacokinetic failure underlying that evolution. MRSA bacteremia in a patient with a tunneled hemodialysis catheter and persistent bacteremia is among the highest-risk clinical presentations in hospital medicine: without source control and effective bactericidal therapy, the risk of metastatic seeding (endocarditis, septic emboli, osteomyelitis) is substantial. The TTE confirming mitral valve endocarditis further elevates the stakes and the required duration of therapy to at least six weeks.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Vancomycin-intermediate <em>S. aureus</em> (VISA) is defined by a vancomycin MIC of 4–8 mg/L by broth microdilution (CLSI). The isolate in this case, with a MIC rising from 1 to 2 mg/L, represents what is often called heterogeneous VISA (hVISA): a population of organisms with variable vancomycin susceptibility, some subpopulations already above the intermediate threshold, even when the overall MIC appears susceptible. hVISA is notoriously difficult to detect by standard clinical microbiology and requires specialized population analysis profiling or macromethod Etest. Clinically, it presents exactly as this case does: persistent bacteremia despite adequate vancomycin exposure, rising MICs reported on serial susceptibility testing, and ultimate failure to clear cultures. The mechanism is a stepwise phenotypic adaptation rather than a single gene acquisition: alterations in the <em>vraSR</em>, <em>graSR</em>, and <em>walKR</em> regulatory systems promote cell wall thickening, producing excess D-Ala-D-Ala peptidoglycan targets that sequester vancomycin molecules before they reach the sites of active transpeptidation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The 2020 ASHP/IDSA/SIDP consensus guideline on vancomycin therapeutic monitoring replaced trough-based dosing with AUC/MIC-guided dosing for all serious MRSA infections. The clinical driver was a body of evidence showing that trough monitoring was an imprecise surrogate for drug exposure: patients achieving the same trough concentration can have widely different AUC values depending on half-life, volume of distribution, and dosing interval. Maintaining troughs of 15–20 mg/L led to nephrotoxicity rates approaching 20–30% in some studies without ensuring that AUC/MIC targets were actually met. Bayesian AUC estimation using two timed pharmacokinetic samples (or population pharmacokinetic models) now allows real-time AUC calculation without requiring steady-state troughs. The target AUC/MIC of 400–600 mg·h/L is both the efficacy threshold (AUC/MIC ≥400 correlates with clinical success) and the nephrotoxicity ceiling (AUC/MIC >600 is associated with progressively higher rates of acute kidney injury).
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    When VISA or hVISA is detected or clinically suspected (persistent bacteremia beyond day 5–7 despite adequate vancomycin exposure), therapy should be switched rather than escalated. Daptomycin at 8–10 mg/kg/day is the standard-of-care alternative for left-sided endocarditis due to VISA. Its membrane-depolarizing mechanism is entirely independent of cell wall architecture, making VISA-associated thickening irrelevant to its activity. A practical caution: prior vancomycin exposure, particularly at sub-effective AUC levels, can select for daptomycin non-susceptibility via membrane charge alteration (<em>mprF</em>, <em>dltABCD</em> mutations), the so-called "VISA-to-daptomycin non-susceptible" pathway. Susceptibility should be confirmed before and periodically during daptomycin therapy in this setting. Combination with ceftaroline exploits this vulnerability by restoring membrane permeability.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-visa-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      VISA (vancomycin MIC 4–8 mg/L) and heterogeneous VISA (hVISA) emerge through stepwise phenotypic adaptation: cell wall thickening with excess D-Ala-D-Ala targets that sequester vancomycin before it reaches the transpeptidation site, distinct from the high-level resistance of VRSA (vanA-mediated D-Ala-D-Lac substitution).
+    </li>
+    <li>
+      Risk factors for VISA/hVISA include prolonged vancomycin exposure, prior sub-therapeutic drug levels, and persistent MRSA bacteremia; suspect it clinically when blood cultures remain positive beyond day 5–7 despite adequate vancomycin dosing.
+    </li>
+    <li>
+      Daptomycin 8–10 mg/kg/day is the preferred agent for VISA bacteremia and left-sided endocarditis; its lipopeptide membrane-depolarizing mechanism bypasses the cell wall target and is unaffected by VISA's resistance mechanism.
+    </li>
+    <li>
+      The 2020 ASHP/IDSA/SIDP guidelines replaced trough-based vancomycin monitoring with AUC/MIC-guided dosing targeting AUC/MIC 400–600 mg·h/L, reducing nephrotoxicity by approximately 50% while maintaining efficacy compared to traditional trough targeting of 15–20 mg/L.
+    </li>
+    <li>
+      MRSA bacteremia with persistent positive cultures requires TTE (and TEE if TTE is non-diagnostic or high clinical suspicion remains) to exclude endocarditis; confirmed endocarditis mandates at least six weeks of bactericidal therapy and reassessment for surgical intervention.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rybak MJ, Le J, Lodise TP, et al. Therapeutic monitoring of vancomycin for serious methicillin-resistant <em>Staphylococcus aureus</em> infections: a revised consensus guideline and review by the American Society of Health-System Pharmacists, the Infectious Diseases Society of America, and the Society of Infectious Diseases Pharmacists. <em>American Journal of Health-System Pharmacy</em>. 2020;77(11):835–864.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/ajhp/zxaa036"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Rybak et al.: 2020 Vancomycin Therapeutic Monitoring Consensus Guidelines (ASHP/IDSA/SIDP)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Baddour LM, Wilson WR, Bayer AS, et al. Infective endocarditis in adults: diagnosis, antimicrobial therapy, and management of complications. <em>Circulation</em>. 2015;132(15):1435–1486.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1161/CIR.0000000000000296"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        AHA/ACC: Infective Endocarditis Management Guidelines (2015)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Howden BP, Davies JK, Johnson PDR, Stinear TP, Grayson ML. Reduced vancomycin susceptibility in <em>Staphylococcus aureus</em>, including vancomycin-intermediate and heterogeneous vancomycin-intermediate strains: resistance mechanisms, laboratory detection, and clinical implications. <em>Clinical Microbiology Reviews</em>. 2010;23(1):99–139.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00042-09"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Howden et al.: VISA and hVISA — Mechanisms, Detection, and Clinical Implications (CMR 2010)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Castiglioni M, Ceruti S, Melisurgo G, et al. Native-valve endocarditis detected by point-of-care echocardiography. <em>Cardiology and Therapy</em>. 2022;11(4):557–566.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s40119-022-00294-z"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Castiglioni et al.: Point-of-care Echocardiography in Native-valve Endocarditis (2022)
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

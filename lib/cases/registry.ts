@@ -1092,6 +1092,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 28-year-old man in Ho Chi Minh City on rituximab for granulomatosis with polyangiitis develops myoclonus, cranial nerve palsies, and autonomic instability after his nephew recovers from hand-foot-and-mouth disease. MRI shows T2/FLAIR hyperintensity in the dorsal medulla, posterior pons, and bilateral dentate nuclei. What is the most likely diagnosis?",
     tags: { organisms: ["Enterovirus A71", "EV-A71"], syndromes: ["Neuroinfection", "Transplant & Immunocompromised", "Travel Medicine"], concepts: ["Rhombencephalitis", "Brainstem encephalitis", "Hand-foot-and-mouth disease", "Myoclonus", "Rituximab immunosuppression", "B-cell depletion", "Neurogenic pulmonary edema", "Dentate nucleus MRI", "IVIG", "Dorsal medulla", "Multi-compartment PCR"] },
   },
+  {
+    title: "The Waning Shield",
+    slug: "visa-endocarditis",
+    description: "A hemodialysis patient with MRSA bacteremia who fails to clear blood cultures on vancomycin — and the mechanism behind it.",
+    enable: true,
+    ogImage: "/cases/visa-endocarditis/echo.jpg",
+    teaser: "A 58-year-old man on hemodialysis develops MRSA bacteremia from an infected tunneled catheter. Despite vancomycin therapy, blood cultures remain positive on day 7 and a repeat MIC returns at 2 mg/L. TTE confirms a mitral valve vegetation. What resistance mechanism explains this failure, what should replace vancomycin, and how should vancomycin have been monitored from the start?",
+    tags: { organisms: ["Staphylococcus aureus", "MRSA", "VISA"], syndromes: ["Bacteremia", "Endocarditis", "Healthcare-associated Infection"], concepts: ["VISA", "hVISA", "Cell wall thickening", "D-Ala-D-Ala sequestration", "Daptomycin", "AUC/MIC monitoring", "Vancomycin therapeutic monitoring", "ASHP IDSA SIDP guidelines", "MIC creep", "Hemodialysis", "Tunneled catheter"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
