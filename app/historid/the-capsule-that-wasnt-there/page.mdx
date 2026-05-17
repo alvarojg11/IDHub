@@ -1,0 +1,174 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-capsule-that-wasnt-there",
+  title: "The Capsule That Wasn't There",
+  description:
+    "In 1905, a pathologist in Panama found a microorganism with a halo, named it for the capsule, and called it a protozoan. Both assumptions were wrong — and both errors are still printed in the name.",
+  publishedAt: "2026-05-17",
+  historicalDateLabel: "1905-1934",
+  historicalYearSort: 1905,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Histoplasma capsulatum",
+    "Samuel Taylor Darling",
+    "Panama Canal",
+    "Histoplasmosis",
+    "Medical mycology",
+    "William DeMonbreun",
+    "Endemic mycosis",
+    "Ancon Hospital",
+    "Etymology",
+    "Dimorphic fungus",
+  ],
+  hook:
+    "In 1905, a pathologist at the Panama Canal was studying why workers kept dying of fevers. He opened an autopsy, looked through his microscope, and saw organisms he had never seen before. He gave them a name that got two things wrong.",
+  takeaway:
+    "Histoplasma capsulatum is not a protozoan and has no true capsule. The name preserves a double mistake that has survived for more than a century. That is not a flaw in the name. It is a reminder that what you see under a microscope and what you are actually looking at are not always the same thing.",
+  heroImage: "/historid/the-capsule-that-wasnt-there/hero.jpg",
+  heroImageAlt:
+    "Histopathology of Histoplasma capsulatum, H&E stain, showing organisms surrounded by halos in a granuloma of epithelioid histiocytes.",
+  heroImageCredit:
+    "Histoplasma capsulatum in tissue, H&E stain. Wikimedia Commons.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Histopathology_of_histoplasma,_HE_stain.png",
+  heroImageLicense: "Public domain via Wikimedia Commons",
+  socialHeadline: "The Capsule That Wasn't There",
+  socialDek:
+    "A pathologist in Panama found a microorganism with a halo, named it for its nonexistent capsule, and called it a protozoan. Both mistakes are still in the name.",
+  socialFacts: [
+    "Samuel Taylor Darling discovered Histoplasma capsulatum in 1905 while examining autopsies of canal workers in Panama.",
+    "He thought it was a protozoan, but in 1934 William DeMonbreun proved it was a dimorphic fungus by culturing it.",
+    "The \"capsule\" that gave capsulatum its name is a tissue-processing artifact around the fungal cell wall, not a real structure.",
+    "In highly endemic areas such as Kansas City, 80 to 90 percent of lifelong residents show serologic evidence of past Histoplasma exposure.",
+    "Histoplasmosis is an AIDS-defining illness and one of the most common endemic mycoses in the Americas.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    It is strange to look at a name like <em>Histoplasma capsulatum</em> and realize both
+    halves are wrong. It is not a protozoan, and it has no capsule. Samuel Taylor Darling was
+    a pathologist at Ancon Hospital in the Panama Canal Zone, where workers from around the
+    world were dying of malaria and yellow fever while building one of the largest
+    engineering projects the world had seen. In 1905 he opened an autopsy expecting
+    tuberculosis and found something else entirely.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The Panama Canal in 1905 was a medical crisis as much as an engineering one. Thousands of
+    laborers, many from the Caribbean, worked in heat and mud. Mosquito-borne disease was the
+    biggest killer, and the hospital at Ancon was the front line. Darling, an American
+    pathologist trained at Johns Hopkins, had come to Panama to study malaria. His job was to
+    perform autopsies on workers who died and to try to untangle what was killing them. He
+    was looking for one thing. He found another.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The patient was a 27-year-old carpenter from Martinique who had died of what appeared to
+    be miliary tuberculosis. When Darling examined the tissue, he saw something unusual: tiny
+    intracellular organisms packed inside histiocytes, each surrounded by a clear halo. To
+    Darling, this looked like an encapsulated protozoan, similar in size and intracellular
+    habit to <em>Leishmania</em>, but filling the tissues with a pattern he had never seen
+    before. He published the case in JAMA in 1906 under a title that gave the organism its
+    name: &ldquo;<em>A protozoon general infection producing pseudotubercules in the lungs and focal
+    necrosis in the liver, spleen, and lymphnodes.</em>&rdquo; The name <em>Histoplasma
+    capsulatum</em> broke down as tissue cytoplasm with a capsule, a description of what
+    Darling thought he saw.
+  </p>
+
+  <p>
+    The capsule was a mirage. The clear halo Darling interpreted as an enclosing membrane was
+    actually a shrinkage artifact, the gap that forms between the fungal cell wall and the
+    surrounding cytoplasm when tissue is fixed and stained. There is no capsule. There never
+    was. And the organism was not a protozoan. Nearly three decades passed before William A.
+    DeMonbreun, a bacteriologist at Vanderbilt University, successfully cultured
+    <em>H. capsulatum</em> from the bone marrow of a living patient. In 1934 he showed that
+    it grew as a mold at room temperature and as budding yeast at body temperature, the
+    classic pattern of a dimorphic fungus. Darling had been right about the morphology and
+    wrong about the biology.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Histoplasmosis was not a medical curiosity confined to a single autopsy in Panama. Once
+    DeMonbreun proved it was a fungus, investigators mapped its distribution. The organism turned out
+    to be one of the most common endemic mycoses in the United States, concentrated in the
+    Ohio and Mississippi River valleys. Skin testing with histoplasmin antigen showed that in
+    places like Kansas City, 80 to 90 percent of lifelong residents had been exposed. Most
+    infections were asymptomatic or self-limited, but the organism also caused chronic
+    cavitary pulmonary disease, granulomatous mediastinitis, and disseminated disease in
+    immunocompromised patients. In the era of HIV, disseminated histoplasmosis became an
+    AIDS-defining illness, and the fungus Darling had mistaken for a protozoan was suddenly a
+    major opportunist.
+  </p>
+
+  <h2>Why the mistaken name still matters</h2>
+  <p>
+    The name did not change after the mistakes were uncovered, and that is exactly why it
+    matters. <em>Histoplasma capsulatum</em> preserves a moment when a sharp pathologist saw
+    something real (the intracellular organisms) and something false (the capsule), wrote them
+    both into a name, and sent that name forward. Every clinician who diagnoses histoplasmosis
+    repeats Darling's error. Every microbiology textbook that prints <em>capsulatum</em>
+    describes a structure that does not exist. The name is a fossil, and fossils are useful.
+    They remind you that classification is provisional, that what a microscope shows and what
+    a pathologist concludes are two different things, and that discovery sometimes means
+    getting the big things wrong while getting the small things right enough that others can
+    fix them later.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Darling ST. A protozoon general infection producing pseudotubercules in the lungs
+        and focal necrosis in the liver, spleen, and lymphnodes. <em>JAMA</em>.
+        1906;46:1283.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1001/jama.1906.62510440037003" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1001/jama.1906.62510440037003
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        DeMonbreun WA. The cultivation and cultural characteristics of Darling's
+        <em>Histoplasma capsulatum</em>. <em>Am J Trop Med</em>. 1934;14:93-125.
+      </p>
+      <p>
+        <a href="https://doi.org/10.4269/ajtmh.1934.s1-14.93" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.4269/ajtmh.1934.s1-14.93
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Mahajan M. Etymologia: <em>Histoplasma capsulatum</em>. <em>Emerg Infect Dis</em>.
+        2021;27(3):969.
+      </p>
+      <p>
+        <a href="https://doi.org/10.3201/eid2703.et2703" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.3201/eid2703.et2703
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Kauffman CA. Histoplasmosis: a clinical and laboratory update. <em>Clin Microbiol
+        Rev</em>. 2007;20(1):115-132.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1128/CMR.00027-06" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1128/CMR.00027-06
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
