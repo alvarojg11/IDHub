@@ -1,0 +1,326 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("paracoccidioidomycosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Mulberry Wound
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 49-year-old man presents to his primary care physician with a slowly enlarging lesion
+    involving his lips and the inside of his mouth that he first noticed four months ago. He was
+    born and raised in the Andean foothills of Mérida state, Venezuela, where he worked as a
+    coffee farmer for more than twenty years, with daily exposure to moist soil and decaying
+    vegetation. He immigrated to California eight months ago.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He reports fatigue, drenching night sweats, and unintentional weight loss of approximately
+    9 kg over the preceding five months, along with intermittent low-grade fevers. He has no
+    cough, hemoptysis, or dyspnea. He denies HIV risk factors; a fourth-generation HIV
+    antigen-antibody test returns negative. He takes no medications, has no known
+    immunodeficiency, and does not use tobacco or alcohol.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.8°C and remaining vital signs are normal. The lips and
+    oral mucosa demonstrate a painless, granular, vegetating ulceration with a distinctive
+    mulberry-like surface punctuated by small hemorrhagic dots, shown below. Bilateral
+    submandibular and cervical lymph nodes are palpable and firm. Chest auscultation reveals
+    diminished breath sounds bilaterally at the bases.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chest radiography shows bilateral interstitial and nodular infiltrates distributed
+    predominantly in the perihilar and lower lung zones, sparing the apices and costophrenic
+    angles. A biopsy of the oral lesion is performed; Grocott methenamine silver staining reveals
+    large yeast forms measuring 15 to 30 μm in diameter, each bearing multiple peripheral buds
+    attached by narrow necks in a pattern resembling a pilot wheel.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/paracoccidioidomycosis/para.png"
+      alt="Granular vegetating ulceration of the lips and oral mucosa with a mulberry-like surface and hemorrhagic dots, consistent with moriform stomatitis of paracoccidioidomycosis"
+      width={600}
+      height={450}
+      className="rounded-lg mx-auto w-full object-contain"
+    />
+  </div>
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    Oral mucosal lesion (moriform stomatitis)
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-paracoccidioidomycosis-q1"
+  title="Question 1"
+  prompt="Which organism is responsible for this patient's presentation?"
+  options={[
+    {
+      id: "A",
+      label: "Histoplasma capsulatum",
+      feedback:
+        "Incorrect. Histoplasmosis can cause oral and nasal ulcers, particularly in immunocompromised hosts, and is endemic in parts of Venezuela near the Orinoco basin. However, Histoplasma appears as small intracellular yeast (2 to 5 μm) within macrophages, far smaller than the large 15 to 30 μm yeast seen here and without the multiple peripheral buds of the pilot wheel pattern.",
+    },
+    {
+      id: "B",
+      label: "Blastomyces dermatitidis",
+      feedback:
+        "Incorrect. Blastomycosis can produce verrucous or ulcerative mucocutaneous lesions and pulmonary infiltrates, but the histologic hallmark of Blastomyces is a large yeast (8 to 15 μm) with a single broad-based bud, quite different from the multiple peripheral buds in a pilot wheel pattern seen here. Blastomycosis is also predominantly North American and uncommon in Venezuela.",
+    },
+    {
+      id: "C",
+      label: "Klebsiella rhinoscleromatis",
+      feedback:
+        "Incorrect. Rhinoscleroma caused by K. rhinoscleromatis is endemic in parts of Latin America and produces progressive granulomatous infiltration of the nasal mucosa and upper airway. Histopathology shows Mikulicz cells (large vacuolated macrophages packed with intracellular bacilli) and Russell bodies, not yeast forms. The mulberry surface and pilot wheel histology do not fit rhinoscleroma.",
+    },
+    {
+      id: "D",
+      label: "Paracoccidioides brasiliensis",
+      correct: true,
+      feedback:
+        "Correct. Agricultural soil exposure in the humid Andean foothills of Venezuela, a painless granular mucocutaneous ulcer with a mulberry-like surface, bilateral perihilar pulmonary infiltrates, and large yeast with multiple peripheral buds in a pilot wheel arrangement on GMS staining are classic for paracoccidioidomycosis caused by P. brasiliensis. The pilot wheel morphology is pathognomonic.",
+    },
+    {
+      id: "E",
+      label: "Leishmania (Viannia) braziliensis",
+      feedback:
+        "Incorrect. Mucocutaneous leishmaniasis caused by L. (Viannia) braziliensis is endemic in Venezuela and can produce destructive nasal and oropharyngeal lesions; however, histology reveals intracellular amastigotes within macrophages, not large extracellular yeast. The pilot wheel morphology is not a feature of Leishmania, and exposure typically involves sandfly bites rather than soil contact.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-paracoccidioidomycosis-q2"
+  title="Question 2"
+  prompt="There is no evidence of CNS or adrenal involvement and his clinical status is stable. Which treatment is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Liposomal amphotericin B for 2 weeks, then itraconazole for 12 months",
+      feedback:
+        "Incorrect. Liposomal amphotericin B is reserved for severe, rapidly progressive, or CNS paracoccidioidomycosis. This patient has stable, mild-to-moderate disease; starting with amphotericin B exposes him to nephrotoxicity and infusion-related adverse effects without providing additional benefit over oral itraconazole, which has excellent efficacy for this presentation.",
+    },
+    {
+      id: "B",
+      label: "Trimethoprim-sulfamethoxazole one DS tablet twice daily for 24 months",
+      feedback:
+        "Incorrect. Trimethoprim-sulfamethoxazole was the mainstay of paracoccidioidomycosis therapy for decades before itraconazole became widely available. It retains activity and remains a cost-effective alternative in resource-limited settings. However, its sustained response rate is lower than itraconazole, relapse rates are higher, treatment duration is typically longer (up to 2 to 3 years), and adverse effects including gastrointestinal intolerance and hypersensitivity are common. Itraconazole is preferred when available.",
+    },
+    {
+      id: "C",
+      label: "Itraconazole 200 mg/day for 12 to 18 months",
+      correct: true,
+      feedback:
+        "Correct. Itraconazole 200 mg/day for 12 to 18 months is the recommended first-line treatment for mild-to-moderate paracoccidioidomycosis, including cases with mucocutaneous and pulmonary involvement, per current Brazilian and PAHO consensus guidelines. It achieves higher sustained response rates and superior tolerability compared to older sulfonamide regimens. Duration is guided by clinical response and serology; treatment continues until antibody titers are undetectable or stable at low levels.",
+    },
+    {
+      id: "D",
+      label: "Fluconazole 400 mg/day for 12 months",
+      feedback:
+        "Incorrect. Fluconazole has limited in vitro and clinical activity against Paracoccidioides species and is not recommended for the treatment of paracoccidioidomycosis. Unlike itraconazole, it does not achieve adequate tissue concentrations against this organism, and clinical data supporting its use in PCM are lacking.",
+    },
+    {
+      id: "E",
+      label: "Voriconazole 200 mg twice daily for 12 months",
+      feedback:
+        "Incorrect. Voriconazole demonstrates in vitro activity against Paracoccidioides species and has been used in salvage settings, but it is not recommended as first-line therapy for paracoccidioidomycosis. Clinical trial data supporting voriconazole over itraconazole are lacking, and itraconazole is both more established and better tolerated for mild-to-moderate disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-paracoccidioidomycosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Paracoccidioidomycosis (PCM) is the most prevalent systemic endemic mycosis in Latin America,
+    caused by the thermally dimorphic fungi <em>Paracoccidioides brasiliensis</em> and the
+    more recently described <em>P. lutzii</em>. Infection results from inhalation of conidia
+    produced in the moist subtropical soils of humid forest regions, particularly areas under
+    coffee, maize, and sugarcane cultivation. The humid Andean foothills of Mérida and Táchira
+    states in Venezuela fall squarely within the endemic zone.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The chronic adult form is the most common clinical presentation and predominantly affects
+    men aged 30 to 60 with agricultural soil exposure. The striking male predominance,
+    approximately 13:1, is attributed to the inhibitory effect of estrogens on mycelium-to-yeast
+    phase conversion, which partially protects women from developing clinical disease. After
+    inhalation, the organism converts to its pathogenic yeast form at body temperature; most
+    immunocompetent individuals contain the primary infection asymptomatically, and clinical
+    disease typically reflects reactivation of a latent focus years to decades later, often
+    triggered by migration and altered immune status.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Mucocutaneous involvement is a hallmark of the chronic adult form, and moriform stomatitis
+    is its most recognizable signature. The term moriform derives from the Latin <em>morus</em>
+    (mulberry); the lesion earns this name through its surface texture: a granular, vegetating
+    ulceration studded with tiny hemorrhagic papules that replicate the drupelets of a mulberry
+    fruit. These pinpoint hemorrhagic dots arise from dilated capillary loops within the
+    exuberant granulomatous tissue and are not simply superficial bleeding. The lesion is
+    characteristically painless despite its dramatic appearance, a feature that contributes to
+    delayed presentation and initial misdiagnosis. Any mucosal surface of the upper
+    aerodigestive tract can be affected: lips, gingiva, palate, tongue, and buccal mucosa are
+    common sites; laryngeal involvement can produce progressive dysphonia. Pulmonary disease is
+    present in the majority of chronic cases, classically producing bilateral symmetric
+    interstitial infiltrates in a butterfly distribution that spares the apices and
+    costophrenic angles.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The histopathologic hallmark is the pilot wheel arrangement: a large central yeast
+    (15 to 40 μm) bearing multiple peripheral buds (up to 30) each attached by a narrow
+    neck or isthmus, producing the characteristic steering wheel appearance on GMS staining.
+    This morphology is pathognomonic and reliably distinguishes <em>Paracoccidioides</em> from
+    all other medically important fungi, including the single broad-based bud of
+    <em>Blastomyces</em>, the small intracellular yeast of <em>Histoplasma</em>, and the
+    spherules of <em>Coccidioides</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    For mild-to-moderate PCM, itraconazole 200 mg/day for 12 to 18 months is the current
+    standard of care per Brazilian consensus guidelines and PAHO recommendations. Serologic
+    monitoring using double immunodiffusion or complement fixation titers guides treatment
+    duration; therapy should continue until titers are undetectable or stable at baseline
+    low levels. Severe disease, rapid progression, or CNS involvement warrants induction with
+    liposomal amphotericin B followed by step-down to itraconazole.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-paracoccidioidomycosis-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      The pilot wheel (steering wheel) morphology on GMS stain, a large central yeast with
+      multiple peripheral buds attached by narrow isthmi, is pathognomonic for
+      <em>Paracoccidioides</em> and distinguishes it from all other dimorphic fungi.
+    </li>
+    <li>
+      Chronic PCM preferentially affects middle-aged men with agricultural soil exposure in
+      endemic Latin American regions; the approximately 13:1 male predominance is attributed
+      to estrogen-mediated inhibition of mycelium-to-yeast phase conversion.
+    </li>
+    <li>
+      Moriform (mulberry) stomatitis, a granular vegetating ulcer with pinpoint hemorrhagic
+      dots on the oral and nasal mucosa, is the classic mucocutaneous presentation of chronic
+      PCM, typically accompanied by bilateral perihilar pulmonary infiltrates.
+    </li>
+    <li>
+      Itraconazole 200 mg/day for 12 to 18 months is first-line for mild-to-moderate PCM;
+      trimethoprim-sulfamethoxazole is an active alternative in resource-limited settings but
+      has a lower sustained response rate, higher relapse rate, and longer required duration
+      compared to itraconazole.
+    </li>
+    <li>
+      Distinguish PCM from mucocutaneous leishmaniasis (intracellular amastigotes, sandfly
+      exposure, destructive septal/palatal perforation) and rhinoscleroma (Mikulicz cells with
+      intracellular bacilli, <em>Klebsiella rhinoscleromatis</em>).
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Shikanai-Yasuda MA, Mendes RP, Colombo AL, et al. Brazilian guidelines for the
+      clinical management of paracoccidioidomycosis.
+      <em> Revista da Sociedade Brasileira de Medicina Tropical</em>. 2017;50(5):715–740.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1590/0037-8682-0230-2017"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Shikanai-Yasuda et al.: Brazilian Guidelines for Paracoccidioidomycosis (2017)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Queiroz-Telles F, Fahal AH, Falci DR, Caceres DH, Chiller T, Pasqualotto AC. Neglected
+      endemic mycoses. <em>The Lancet Infectious Diseases</em>. 2017;17(11):e367–e377.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(17)30306-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Queiroz-Telles et al.: Neglected Endemic Mycoses (Lancet ID 2017)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Colombo AL, Tobón A, Restrepo A, Queiroz-Telles F, Nucci M. Epidemiology of endemic
+      systemic fungal infections in Latin America.
+      <em> Medical Mycology</em>. 2011;49(8):785–798.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3109/13693786.2011.577821"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Colombo et al.: Epidemiology of Endemic Mycoses in Latin America (2011)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Martinez R. Paracoccidioidomycosis: the dimorphic fungus <em>Paracoccidioides brasiliensis</em>
+      and host-pathogen interactions. In: Bennett JE, Dolin R, Blaser MJ, eds.
+      <em> Mandell, Douglas, and Bennett&apos;s Principles and Practice of Infectious Diseases</em>.
+      10th ed. Elsevier; 2026.
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

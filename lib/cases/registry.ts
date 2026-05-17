@@ -1101,6 +1101,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 58-year-old man on hemodialysis develops MRSA bacteremia from an infected tunneled catheter. Despite vancomycin therapy, blood cultures remain positive on day 7 and a repeat MIC returns at 2 mg/L. TTE confirms a mitral valve vegetation. What resistance mechanism explains this failure, what should replace vancomycin, and how should vancomycin have been monitored from the start?",
     tags: { organisms: ["Staphylococcus aureus", "MRSA", "VISA"], syndromes: ["Bacteremia", "Endocarditis", "Healthcare-associated Infection"], concepts: ["VISA", "hVISA", "Cell wall thickening", "D-Ala-D-Ala sequestration", "Daptomycin", "AUC/MIC monitoring", "Vancomycin therapeutic monitoring", "ASHP IDSA SIDP guidelines", "MIC creep", "Hemodialysis", "Tunneled catheter"] },
   },
+  {
+    title: "The Mulberry Wound",
+    slug: "paracoccidioidomycosis",
+    description: "A progressive granular nasal ulcer in a Venezuelan coffee farmer.",
+    enable: true,
+    ogImage: "/cases/paracoccidioidomycosis/para.png",
+    teaser: "A 49-year-old man from the Andean foothills of Mérida, Venezuela presents with a 4-month history of a painless, granular, mulberry-like ulceration of the nasal mucosa and upper lip, accompanied by 9 kg of weight loss and bilateral perihilar infiltrates on chest radiography. Nasal biopsy with GMS staining reveals large yeast bearing multiple peripheral buds in a pilot wheel arrangement. What is the diagnosis, and how do you treat it?",
+    tags: { organisms: ["Paracoccidioides brasiliensis"], syndromes: ["Skin & Soft Tissue", "Pulmonary Infection", "Travel Medicine", "Mycology"], concepts: ["Pilot wheel morphology", "Moriform stomatitis", "Mulberry stomatitis", "Endemic mycosis", "Dimorphic fungi", "Itraconazole", "Agricultural exposure", "Latin America"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

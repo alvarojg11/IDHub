@@ -324,6 +324,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-05-15T08:00:00-07:00",
     modifiedAt: "2026-05-15T08:00:00-07:00",
   },
+  "paracoccidioidomycosis": {
+    publishedAt: "2026-05-16T08:00:00-07:00",
+    modifiedAt: "2026-05-16T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {
