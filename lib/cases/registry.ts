@@ -1102,6 +1102,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Staphylococcus aureus", "MRSA", "VISA"], syndromes: ["Bacteremia", "Endocarditis", "Healthcare-associated Infection"], concepts: ["VISA", "hVISA", "Cell wall thickening", "D-Ala-D-Ala sequestration", "Daptomycin", "AUC/MIC monitoring", "Vancomycin therapeutic monitoring", "ASHP IDSA SIDP guidelines", "MIC creep", "Hemodialysis", "Tunneled catheter"] },
   },
   {
+    title: "The Unyielding Ring",
+    slug: "chagas-cns-hiv",
+    description: "Ring-enhancing brain lesions in an HIV patient from Bolivia that fail empiric toxoplasmosis therapy.",
+    enable: true,
+    ogImage: "/cases/chagas-cns-hiv/trypomastigote.png",
+    teaser: "A 38-year-old man from rural Bolivia with HIV (CD4 78) presents with two weeks of confusion and right arm weakness. MRI shows two ring-enhancing lesions. Toxoplasma IgG is negative. After 14 days of empiric pyrimethamine and sulfadiazine, he is no better. Lumbar puncture is performed — and the wet mount reveals something unexpected. What is the diagnosis, and how do you treat it?",
+    tags: { organisms: ["Trypanosoma cruzi"], syndromes: ["CNS Infection", "HIV/AIDS", "Parasitology", "Travel Medicine"], concepts: ["Chagas reactivation", "Ring-enhancing lesion", "Toxoplasmosis mimic", "Trypomastigotes in CSF", "Benznidazole", "Immune reconstitution", "CD4 <200"] },
+  },
+  {
     title: "The Mulberry Wound",
     slug: "paracoccidioidomycosis",
     description: "A progressive granular nasal ulcer in a Venezuelan coffee farmer.",

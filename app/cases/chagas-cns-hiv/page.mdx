@@ -1,0 +1,333 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chagas-cns-hiv");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Unyielding Ring
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old man from rural Cochabamba department, Bolivia presents to the emergency
+    department with two weeks of progressive headache, confusion, and right arm weakness.
+    He grew up in a mud-walled adobe house where triatomine insects were commonly observed
+    during childhood. He immigrated to California six years ago. HIV was diagnosed
+    incidentally three months ago; he has not yet started antiretroviral therapy. His CD4
+    count is 78 cells/μL and HIV viral load is 482,000 copies/mL.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 38.2°C, heart rate 98/min, blood pressure 124/78 mmHg.
+    He is oriented to person only. There is a right arm drift and dysmetria on finger-nose
+    testing; no meningismus is present. MRI brain with gadolinium reveals two ring-enhancing
+    cortical and subcortical lesions in the left frontal and parietal regions with surrounding
+    vasogenic edema. Toxoplasma gondii IgG is negative; serum cryptococcal antigen is
+    negative; CMV PCR and EBV PCR are both undetectable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Given the imaging findings and degree of immunosuppression, empiric therapy with
+    pyrimethamine (200 mg loading dose, then 75 mg/day), sulfadiazine (4 g/day in divided
+    doses), and leucovorin (10 mg/day) is initiated alongside dexamethasone. After 14 days,
+    he shows no clinical improvement and repeat MRI demonstrates stable-to-mildly progressive
+    lesion enhancement.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Lumbar puncture is performed. Opening pressure is 18 cm H₂O. CSF analysis shows 14
+    nucleated cells (predominantly lymphocytes), protein 82 mg/dL, and glucose 54 mg/dL
+    (serum glucose 98 mg/dL). On wet mount examination of the CSF, the finding shown below
+    is identified.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl rounded-lg border border-gray-300 bg-white p-2">
+    <Image
+      src="/cases/chagas-cns-hiv/trypomastigote.png"
+      alt="CSF wet mount showing a mobile flagellated trypomastigote consistent with Trypanosoma cruzi"
+      width={600}
+      height={450}
+      className="rounded-lg mx-auto w-full object-contain"
+    />
+  </div>
+  <figcaption className="mt-3 text-center text-sm text-gray-600">
+    CSF wet mount preparation
+  </figcaption>
+</figure>
+
+<CaseQuestion
+  pollId="case-chagas-cns-hiv-q1"
+  title="Question 1"
+  prompt="Which of the following best explains this patient's CNS lesions?"
+  options={[
+    {
+      id: "A",
+      label: "Cerebral toxoplasmosis",
+      feedback:
+        "Incorrect. Cerebral toxoplasmosis is the leading cause of ring-enhancing brain lesions in HIV-infected patients with CD4 below 200 cells/μL and was appropriately considered here. However, Toxoplasma IgG seronegativity substantially lowers pretest probability; fewer than 5% of confirmed CNS toxoplasmosis cases occur in seronegative patients. Failure to improve after 14 days of pyrimethamine and sulfadiazine is strong evidence against this diagnosis. Toxoplasma appears as obligate intracellular tachyzoites or bradycysts in tissue, not as free-swimming flagellated organisms in CSF.",
+    },
+    {
+      id: "B",
+      label: "Primary CNS lymphoma",
+      feedback:
+        "Incorrect. Primary CNS lymphoma (PCNSL) is an important consideration when ring-enhancing lesions fail to respond to empiric anti-toxoplasma therapy, particularly in severely immunocompromised patients. PCNSL typically presents as periventricular or deep white matter lesions; CSF cytology or flow cytometry may reveal malignant lymphocytes, and EBV DNA in the CSF carries a high positive predictive value. However, PCNSL does not produce mobile flagellated organisms on CSF wet mount, which points unambiguously to a parasitic etiology.",
+    },
+    {
+      id: "C",
+      label: "Trypanosoma brucei gambiense encephalitis",
+      feedback:
+        "Incorrect. Trypanosoma brucei gambiense causes human African trypanosomiasis (sleeping sickness), transmitted by the tsetse fly (Glossina species) and endemic to West and Central Africa. Like T. cruzi, T. brucei can invade the CNS, producing meningoencephalitis with somnolence, behavioral changes, and trypomastigotes visible in CSF — making it a compelling mimic on microscopy alone. However, this patient has no exposure history to sub-Saharan Africa; his origin from rural Bolivia and triatomine exposure place him firmly in the endemic zone for T. cruzi. The two species are also treated with entirely different agents: T. brucei gambiense responds to eflornithine, pentamidine, or fexinidazole, none of which are active against T. cruzi.",
+    },
+    {
+      id: "D",
+      label: "Cryptococcal meningoencephalitis",
+      feedback:
+        "Incorrect. Cryptococcal meningoencephalitis typically presents with headache, fever, and meningismus rather than focal ring-enhancing mass lesions; when parenchymal disease (cryptococcomas) occurs, lesions tend to cluster in the basal ganglia with a soap-bubble gelatinous appearance. The serum cryptococcal antigen was negative, substantially reducing the likelihood of cryptococcal disease, and flagellated organisms are not a feature of Cryptococcus infection.",
+    },
+    {
+      id: "E",
+      label: "CNS Trypanosoma cruzi reactivation",
+      correct: true,
+      feedback:
+        "Correct. The combination of severe HIV immunosuppression (CD4 78 cells/μL), origin from a highly endemic region (rural Bolivia, triatomine-infested housing), negative Toxoplasma serology, failure of empiric anti-toxoplasma therapy, and mobile flagellated trypomastigotes on CSF wet mount is diagnostic of CNS Trypanosoma cruzi reactivation. Chagas reactivation is an underrecognized complication of advanced HIV disease in patients with chronic infection, and trypomastigotes in the CSF are pathognomonic.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chagas-cns-hiv-q2"
+  title="Question 2"
+  prompt="T. cruzi IgG serology returns strongly positive, confirming the diagnosis. Which treatment is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Benznidazole",
+      correct: true,
+      feedback:
+        "Correct. Benznidazole is the preferred treatment for CNS Trypanosoma cruzi reactivation in HIV-infected patients, dosed at 5 to 7 mg/kg/day in two divided doses for 60 days. It functions as a prodrug reduced by T. cruzi-specific nitroreductases, generating reactive metabolites that damage parasite DNA and disrupt redox metabolism. Antiretroviral therapy should be initiated concurrently to restore immune function and reduce the risk of recurrence. Secondary prophylaxis with benznidazole may be warranted until CD4 exceeds 200 cells/μL on stable ART.",
+    },
+    {
+      id: "B",
+      label: "Eflornithine",
+      feedback:
+        "Incorrect. Eflornithine (difluoromethylornithine) is active against Trypanosoma brucei gambiense, the agent of West African sleeping sickness, by inhibiting ornithine decarboxylase. It has no clinically meaningful activity against Trypanosoma cruzi. These are phylogenetically distinct species with entirely different drug susceptibility profiles; the geographic and vector exposure history is the first clue to which trypanosome is responsible.",
+    },
+    {
+      id: "C",
+      label: "Continue pyrimethamine and sulfadiazine for an additional 4 weeks",
+      feedback:
+        "Incorrect. Pyrimethamine and sulfadiazine are active against Toxoplasma gondii, not Trypanosoma cruzi. This patient has already failed a 14-day course, and CNS Chagas reactivation is now confirmed. Continuing anti-toxoplasma therapy provides no benefit against T. cruzi and delays definitive treatment.",
+    },
+    {
+      id: "D",
+      label: "Nifurtimox",
+      feedback:
+        "Incorrect. Nifurtimox has activity against T. cruzi and is an accepted alternative when benznidazole is unavailable or not tolerated; it acts through a similar prodrug nitroreduction mechanism. However, nifurtimox is dosed more frequently (8 to 10 mg/kg/day in three to four divided doses for 60 to 90 days) and is associated with more frequent adverse effects including nausea, weight loss, and peripheral neuropathy compared to benznidazole. It is a reasonable second-line option but not the preferred first-line agent for reactivation disease.",
+    },
+    {
+      id: "E",
+      label: "Liposomal amphotericin B",
+      feedback:
+        "Incorrect. Liposomal amphotericin B has broad activity against pathogenic fungi, including Cryptococcus, Aspergillus, and endemic mycoses, but it has no meaningful activity against Trypanosoma cruzi. It is not indicated for any form of Chagas disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-chagas-cns-hiv-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Trypanosoma cruzi</em> is an obligate intracellular protozoan transmitted by triatomine
+    insects (kissing bugs) that defecate near their bite wound; infective metacyclic
+    trypomastigotes penetrate through mucous membranes or skin abrasions. Chronic infection is
+    endemic across Latin America, with Bolivia carrying the highest seroprevalence in the world,
+    reaching 20 to 30% in rural communities where triatomine-infested adobe housing is
+    widespread. In immunocompetent hosts, the acute phase resolves and the organism persists
+    indefinitely as quiescent intracellular amastigotes, predominantly in cardiac and smooth
+    muscle, without producing further symptoms in the majority of infected individuals.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In patients with chronic T. cruzi infection who develop advanced HIV disease, the collapse
+    of cell-mediated immunity permits reactivation of dormant amastigotes. CNS reactivation
+    typically occurs when the CD4 count falls below 200 cells/μL and most commonly below 100
+    cells/μL. The result is cerebral trypanosomiasis: space-occupying, ring-enhancing lesions
+    with surrounding vasogenic edema that are radiographically indistinguishable from cerebral
+    toxoplasmosis. This overlap creates a diagnostic trap: empiric anti-toxoplasma therapy is
+    frequently initiated before the correct diagnosis is entertained, delaying appropriate
+    treatment by days to weeks.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two clues at initial presentation should raise suspicion and shorten this delay.
+    First, Toxoplasma IgG serology is detectable in more than 95% of confirmed CNS
+    toxoplasmosis cases; a negative result meaningfully shifts the differential toward
+    alternative diagnoses, including Chagas reactivation, primary CNS lymphoma, and other
+    infections. Second, the epidemiologic history matters enormously: patients from rural
+    Bolivia, Brazil, Argentina, Paraguay, or other highly endemic regions who have documented
+    or suspected chronic T. cruzi infection deserve early consideration of this diagnosis even
+    before empiric therapy fails. When the CSF is examined by wet mount, the identification of
+    mobile flagellated trypomastigotes establishes the diagnosis with certainty and without the
+    need for brain biopsy. T. cruzi serology (IgG by ELISA or indirect immunofluorescence) is
+    typically strongly positive, reflecting the underlying chronic infection, and provides
+    confirmatory serologic evidence.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Benznidazole is the preferred treatment for CNS Chagas reactivation, dosed at 5 to
+    7 mg/kg/day in two divided doses for 60 days. It acts as a prodrug selectively reduced by
+    T. cruzi nitroreductase enzymes, generating reactive intermediates that alkylate parasite
+    DNA and disrupt thiol-dependent redox homeostasis. Common adverse effects include rash,
+    peripheral neuropathy, and gastrointestinal intolerance. Nifurtimox (8 to 10 mg/kg/day
+    in three to four divided doses for 60 to 90 days) is an active alternative with a similar
+    mechanism but a less favorable tolerability profile. Both drugs are available in the United
+    States through specialized compounding pharmacies and via the CDC. Antiretroviral therapy
+    must be initiated or optimized concurrently: sustained immune reconstitution above
+    200 cells/μL is the most reliable protection against future reactivation, and without ART,
+    recurrence is nearly certain.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chagas-cns-hiv-q2">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      CNS <em>T. cruzi</em> reactivation should be considered in any HIV patient with
+      CD4 below 200 cells/μL and ring-enhancing brain lesions who originates from a
+      Chagas-endemic region, particularly Bolivia, Brazil, Argentina, or Paraguay; Bolivia
+      carries the highest seroprevalence worldwide, up to 20 to 30% in rural communities.
+    </li>
+    <li>
+      Negative Toxoplasma IgG substantially lowers the probability of cerebral toxoplasmosis
+      (fewer than 5% of cases are seronegative); failure to improve after 14 days of empiric
+      pyrimethamine and sulfadiazine should prompt urgent workup for alternative diagnoses.
+    </li>
+    <li>
+      Mobile flagellated trypomastigotes on CSF wet mount are pathognomonic for CNS Chagas
+      reactivation, establishing the diagnosis without biopsy; blood smear examination may
+      also reveal trypomastigotes during reactivation.
+    </li>
+    <li>
+      Benznidazole 5 to 7 mg/kg/day in two divided doses for 60 days is the preferred
+      treatment; nifurtimox is an active but less well-tolerated alternative dosed more
+      frequently and for a longer duration.
+    </li>
+    <li>
+      Antiretroviral therapy initiation is essential: sustained CD4 recovery above 200
+      cells/μL is the most reliable protection against recurrence, and secondary prophylaxis
+      with benznidazole may be required until immune reconstitution is achieved.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bern C. Chagas disease. <em>New England Journal of Medicine</em>. 2015;373(5):456–466.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra1410150"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Bern: Chagas Disease (NEJM 2015)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Cordova E, Boschi A, Ambrosioni J, Cudos C, Corti M. Reactivation of Chagas disease
+      with central nervous system involvement in HIV-infected patients in Argentina,
+      1992–2007. <em>International Journal of Infectious Diseases</em>. 2008;12(6):587–592.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.ijid.2008.02.015"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Cordova et al.: CNS Chagas Reactivation in HIV (IJID 2008)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Panel on Opportunistic Infections in Adults and Adolescents with HIV. Guidelines for
+      the Prevention and Treatment of Opportunistic Infections in Adults and Adolescents
+      with HIV: Recommendations from the Centers for Disease Control and Prevention, the
+      National Institutes of Health, and the HIV Medicine Association of the Infectious
+      Diseases Society of America. Section: American Trypanosomiasis (Chagas Disease).
+      Updated 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections/chagas-disease"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        IDSA/NIH/CDC OI Guidelines: Chagas Disease in HIV (2024)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bern C, Montgomery SP, Herwaldt BL, et al. Evaluation and treatment of Chagas disease
+      in the United States: a systematic review. <em>JAMA</em>. 2007;298(18):2171–2181.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.298.18.2171"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Bern et al.: Evaluation and Treatment of Chagas Disease in the United States (JAMA 2007)
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
