@@ -1102,6 +1102,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Staphylococcus aureus", "MRSA", "VISA"], syndromes: ["Bacteremia", "Endocarditis", "Healthcare-associated Infection"], concepts: ["VISA", "hVISA", "Cell wall thickening", "D-Ala-D-Ala sequestration", "Daptomycin", "AUC/MIC monitoring", "Vancomycin therapeutic monitoring", "ASHP IDSA SIDP guidelines", "MIC creep", "Hemodialysis", "Tunneled catheter"] },
   },
   {
+    title: "The Winter Breakthrough",
+    slug: "influenza-a-hsct",
+    description: "Severe influenza A after allogeneic HSCT, with questions on viral entry, oseltamivir, and prevention.",
+    enable: true,
+    ogImage: "/cases/influenza-a-hsct/xray.png",
+    teaser: "A 46-year-old woman on tacrolimus and prednisone for graft-versus-host disease presents on day 83 after allogeneic HSCT with fever, cough, hypoxemia, and a positive influenza A PCR after a sick household exposure. Chest radiograph shows new bilateral patchy opacities. Which viral mechanisms explain airway infection, oseltamivir activity, and the need for updated annual prevention?",
+    tags: { organisms: ["Influenza A virus"], syndromes: ["Pulmonary Infection", "Transplant & Immunocompromised"], concepts: ["Hemagglutinin", "Sialic acid binding", "M2 ion channel", "Neuraminidase inhibitor", "Oseltamivir", "Antigenic drift", "Droplet precautions", "Post-exposure prophylaxis", "Allogeneic HSCT"] },
+  },
+  {
     title: "The Unyielding Ring",
     slug: "chagas-cns-hiv",
     description: "Ring-enhancing brain lesions in an HIV patient from Bolivia that fail empiric toxoplasmosis therapy.",
