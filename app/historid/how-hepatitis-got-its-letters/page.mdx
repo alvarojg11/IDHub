@@ -1,0 +1,203 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "how-hepatitis-got-its-letters",
+  title: "How Hepatitis Got Its Letters",
+  description:
+    "Hepatitis A, B, C, D, and E sound like a natural sequence — but the alphabetical naming system was an accident of history, not a plan. It started when a British physician replaced misleading names with neutral letters in 1947, and it was cemented when a disease spent 14 years being called what it wasn't.",
+  publishedAt: "2026-05-20",
+  historicalDateLabel: "1947-1989",
+  historicalYearSort: 1947,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Hepatitis",
+    "Hepatitis A",
+    "Hepatitis B",
+    "Hepatitis C",
+    "Non-A non-B hepatitis",
+    "Harvey Alter",
+    "F.O. MacCallum",
+    "Nomenclature",
+    "Etymology",
+    "HCV",
+  ],
+  hook:
+    "Before 1947, viral hepatitis had two names: infectious hepatitis and serum hepatitis. Both were misleading. A British physician replaced them with neutral letters — A and B. That decision locked the field into an alphabet it never escaped, and when a third form appeared in 1975, it spent 14 years being called 'non-A, non-B.'",
+  takeaway:
+    "The hepatitis alphabet was not designed. It was improvised. MacCallum chose A and B in 1947 to avoid making assumptions. Alter named 'non-A, non-B' in 1975 because he had no virus to name. When the virus was finally found in 1989, the letter C was waiting. The naming system worked not because it was clever but because it was neutral. It didn't pretend to know things the science hadn't yet figured out.",
+  heroImage: "/historid/how-hepatitis-got-its-letters/hero.jpg",
+  heroImageAlt:
+    "Dr. Harvey J. Alter holding his Nobel Prize medal in 2020. Alter coined the term 'non-A, non-B hepatitis' in 1975 and shared the Nobel for the discovery of hepatitis C virus.",
+  heroImageCredit:
+    "Dr. Harvey J. Alter, 2020 Nobel Prize in Physiology or Medicine. NIH.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Harvey_Alter_in_2020_(cropped).jpg",
+  heroImageLicense: "Public domain via NIH",
+  socialHeadline: "How Hepatitis Got Its Letters",
+  socialDek:
+    "Hepatitis A, B, C, D, and E sound planned. They weren't. The alphabet started in 1947 when a physician ditched misleading names, and it was locked in when a disease spent 14 years called 'non-A, non-B.'",
+  socialFacts: [
+    "In 1947, F.O. MacCallum proposed Hepatitis A and B to replace 'infectious hepatitis' and 'serum hepatitis' \u2014 names that misleadingly described how the diseases spread.",
+    "Harvey Alter coined 'non-A, non-B hepatitis' in 1975 \u2014 for 14 years, a disease infecting millions was officially named by what it wasn't.",
+    "The virus was finally cloned in 1989 by a team at Chiron Corporation led by Michael Houghton. Harvey Alter and Charles Rice shared the 2020 Nobel Prize.",
+    "Hepatitis F was proposed in 1994 but debunked \u2014 the virus never existed. Hepatitis G was found in 1995 but doesn't cause hepatitis.",
+    "MacCallum chose letters to be neutral. He locked the field into an alphabet that would outlast every theory about what the viruses actually were.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The hepatitis alphabet sounds inevitable: A, B, C, D, E. But nothing about it
+    was planned. Before 1947, viral hepatitis had exactly two names: infectious
+    hepatitis and serum hepatitis. The first was supposedly spread by food and
+    water. The second was supposedly spread by blood. The distinction was
+    epidemiologically useful but biologically wrong. Both viruses could spread
+    both ways. The names were misleading, and a British physician named F.O.
+    MacCallum decided to fix them. What he did next locked the field into an
+    alphabet it is still using, three-quarters of a century later, for reasons
+    nobody could have predicted.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The problem MacCallum faced in 1947 was practical. During the Second World
+    War, outbreaks of jaundice had swept through soldiers who received vaccines
+    prepared with human serum, and through civilians in crowded camps and
+    hospitals. The old labels \u2014 infectious and serum \u2014 assumed clean
+    distinctions that did not hold. MacCallum argued in <em>The Lancet</em> that
+    both forms could be transmitted by either route. He proposed discarding the
+    old names entirely and replacing them with Hepatitis A and Hepatitis B. The
+    letters carried no assumptions about transmission, no claims about virology.
+    They were just letters. That was the point.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The letters took hold, and for a while two seemed enough. Then, in 1975,
+    Harvey Alter at the NIH discovered that most cases of post-transfusion
+    hepatitis were caused by neither A nor B. He had found a third disease but
+    he had no virus to name it after. Nobody did. The agent was invisible under
+    electron microscopy, unculturable in the lab, and undetectable by any
+    serologic test. So Alter did the only honest thing possible. He named it by
+    what it was not: non-A, non-B hepatitis. A disease that infected millions of
+    people was officially called a triple negation.
+  </p>
+
+  <p>
+    The name was awkward, but it was truthful. Blood banks could only screen for
+    it indirectly, using surrogate markers like ALT levels, starting in the
+    mid-1980s. Before screening began, post-transfusion hepatitis occurred in up
+    to 10 percent of transfusion recipients. For 14 years, non-A, non-B
+    hepatitis was a ghost \u2014 clinically devastating, epidemiologically
+    undeniable, and nameless in any positive sense. Then, in 1989, a team at
+    Chiron Corporation in California, led by Michael Houghton and including
+    Qui-Lim Choo and George Kuo, used a blind immunoscreening approach to clone
+    the virus from infected chimpanzee plasma. They published in
+    <em>Science</em>. The ghost had a genome. The name that had been waiting
+    since 1975 snapped into place: Hepatitis C. Alter, Houghton, and Charles
+    Rice shared the 2020 Nobel Prize for the discovery.
+  </p>
+
+  <p>
+    D and E followed naturally. Mario Rizzetto in Turin discovered the delta
+    antigen in 1977 while studying liver biopsies from hepatitis B carriers. At
+    first he thought it was a new HBV antigen. It turned out to be a defective
+    virus that requires HBV to replicate \u2014 Hepatitis D, the only
+    subviral human pathogen. In 1983, the Soviet virologist Mikhail Balayan
+    needed to prove that an unexplained hepatitis outbreak among soldiers in
+    Afghanistan was enterically transmitted. With no animal model, he drank a
+    pooled stool extract from infected soldiers. He developed acute hepatitis 36
+    days later and detected the virus in his own stool. It became Hepatitis E.
+  </p>
+
+  <p>
+    The alphabet also got ghosts. In 1994, researchers proposed Hepatitis F after
+    finding virus-like particles in post-transfusion patients. Subsequent
+    investigations could not confirm its existence, and the letter was
+    vacated. Hepatitis G was found the following year \u2014 a real flavivirus
+    that infects about 2 percent of blood donors \u2014 but exhaustive study
+    showed it causes no disease. It is now classified as human pegivirus, an
+    orphan virus that occupies a letter without an illness. The alphabet had
+    outrun the diseases.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    The hepatitis naming system succeeded because it was humble. MacCallum chose
+    letters in 1947 to avoid making assumptions about transmission routes that
+    might later prove wrong. Alter named a ghost in 1975 because he had no
+    alternative but honesty. Both decisions turned out to be more durable than
+    any descriptive name could have been. Descriptive names \u2014 picornavirus
+    hepatitis, flavivirus hepatitis, enteric hepatitis \u2014 would have had to
+    change every time the virology was refined. The letters absorbed new
+    knowledge without breaking. When the molecular biology caught up, the names
+    were waiting.
+  </p>
+
+  <h2>Why the letters still matter now</h2>
+  <p>
+    The alphabet is now too entrenched to change. Blood banks screen for B and
+    C by letter. Vaccine programs target A and B by letter. Clinicians diagnose
+    and treat by letter. The naming system has become invisible because it
+    works. But behind E is a Soviet virologist who drank infected stool, behind
+    C is 14 years of a disease named by what it wasn't, and behind A and B is a
+    British physician in 1947 who thought that medicine should stop using names
+    that pretended to know more than it did. MacCallum could not have imagined
+    where the alphabet would go. That is exactly why it survived.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        MacCallum FO. Homologous serum jaundice. <em>Lancet</em>.
+        1947;250(6480):691-692.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0140-6736(47)91114-8" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0140-6736(47)91114-8
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Alter HJ, Purcell RH, Holland PV, Feinstone SM, Morrow AG, Moritsugu Y.
+        Clinical and serological analysis of transfusion-associated hepatitis.
+        <em>Lancet</em>. 1975;2(7940):838-841.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S0140-6736(75)90234-2" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1016/S0140-6736(75)90234-2
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Choo QL, Kuo G, Weiner AJ, Overby LR, Bradley DW, Houghton M. Isolation
+        of a cDNA clone derived from a blood-borne non-A, non-B viral hepatitis
+        genome. <em>Science</em>. 1989;244(4902):359-362.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1126/science.2523562" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1126/science.2523562
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Balayan MS, Andjaparidze AG, Savinskaya SS, et al. Evidence for a virus
+        in non-A, non-B hepatitis transmitted via the fecal-oral route.
+        <em>Intervirology</em>. 1983;20(1):23-31.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1159/000149370" target="_blank" rel="noreferrer">
+          DOI: https://doi.org/10.1159/000149370
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

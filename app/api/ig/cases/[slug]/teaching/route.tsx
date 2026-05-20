@@ -18,6 +18,8 @@ function stripHtml(input: string) {
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
+    .replace(/&ndash;/g, "\u2013")
+    .replace(/&mdash;/g, "\u2014")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -44,8 +46,7 @@ async function extractTeachingPoints(slug: string): Promise<string[]> {
       const liMatches = [...section.matchAll(/<li>([\s\S]*?)<\/li>/gi)];
       const points = liMatches
         .map((m) => stripHtml(m[1]))
-        .filter((t) => t.length > 10)
-        .slice(0, 4);
+        .filter((t) => t.length > 10);
 
       if (points.length > 0) return points;
     }

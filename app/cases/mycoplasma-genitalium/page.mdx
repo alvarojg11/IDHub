@@ -1,0 +1,323 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("mycoplasma-genitalium");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Persistent Burn
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 28-year-old man presents to the STI clinic with 10 days of persistent dysuria and a mucopurulent urethral discharge that never fully resolved. Twelve days ago, he was evaluated at an urgent care center for the same symptoms and treated empirically with ceftriaxone 500 mg intramuscularly once plus doxycycline 100 mg orally twice daily for 7 days. He completed the full course of doxycycline without interruption. His sexual history is notable for a new partnership approximately 6 weeks ago; his partner is currently asymptomatic and has not been evaluated. He reports no sick contacts, no testicular pain or scrotal swelling, no oral or genital ulcerations, no rash, no fever, and no arthralgias.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 36.9 C, heart rate 76/min, blood pressure 118/72 mmHg, and respiratory rate 14/min. Mucous membranes are moist without lesions. There is no lymphadenopathy. Genitourinary examination reveals a thin, mucopurulent urethral discharge without periurethral induration or fluctuance. The testes, epididymides, and prostate are non-tender. There is no rash on the palms, soles, or trunk.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Urethral swab nucleic acid amplification testing for Neisseria gonorrhoeae and Chlamydia trachomatis is negative. Urinalysis shows 8 white blood cells per high-power field with no organisms. Serum HIV antigen-antibody testing is negative.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/mycoplasma-genitalium/mgen-culture.png"
+        alt="Mycoplasma genitalium colonies on SP4 agar demonstrating the characteristic granular morphology visible after extended incubation"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Colonies on SP4 agar, approximately 50&ndash;100 &mu;m in diameter, with a granular surface and dense central zone.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-mycoplasma-genitalium-q1"
+  title="Question 1"
+  prompt="Which of the following is the most likely cause of this patient's persistent urethritis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Ceftriaxone-resistant Neisseria gonorrhoeae",
+      correct: false,
+      feedback:
+        "Incorrect. Ceftriaxone resistance in N. gonorrhoeae remains exceptionally rare in the United States, with only a handful of confirmed cases reported to the CDC. More importantly, the urethral swab NAAT for N. gonorrhoeae is now negative. Given the high sensitivity and specificity of the approved NAAT platforms, a negative result effectively excludes active gonococcal infection. The persistent symptoms are not attributable to ceftriaxone failure.",
+    },
+    {
+      id: "B",
+      label:
+        "Persistent Chlamydia trachomatis infection despite doxycycline therapy",
+      feedback:
+        "Incorrect. Doxycycline 100 mg twice daily for 7 days is the recommended first-line therapy for C. trachomatis urethritis and achieves microbiologic cure rates exceeding 95%. While reinfection from an untreated partner is always possible, the patient's GC/CT NAAT is now negative, arguing against active chlamydial infection. Persistent C. trachomatis despite a correctly completed doxycycline course would be distinctly unusual.",
+    },
+    {
+      id: "C",
+      label:
+        "Mycoplasma genitalium urethritis",
+      correct: true,
+      feedback:
+        "Correct. M. genitalium is now recognized as the most common identifiable cause of persistent or recurrent urethritis in men after empiric therapy for gonococcal and chlamydial infection. It accounts for 15 to 25% of cases of non-gonococcal urethritis (NGU) and is especially likely when symptoms persist after standard ceftriaxone-plus-doxycycline treatment. The organism belongs to the class Mollicutes and lacks a cell wall, rendering beta-lactams intrinsically ineffective. Doxycycline alone achieves only 30 to 40% microbiologic cure for M. genitalium, which is why symptoms so often persist after standard empiric NGU treatment.",
+    },
+    {
+      id: "D",
+      label:
+        "Trichomonas vaginalis urethritis",
+      feedback:
+        "Incorrect. Trichomonas vaginalis can cause urethritis in men and is not treated by either ceftriaxone or doxycycline, so persistent trichomonal infection is mechanistically plausible. However, T. vaginalis more commonly produces a thinner, less purulent discharge in men and is a less frequent cause of NGU in this epidemiological context. Among men with persistent urethritis after standard therapy, M. genitalium is substantially more common.",
+    },
+    {
+      id: "E",
+      label:
+        "Herpes simplex virus urethritis",
+      feedback:
+        "Incorrect. HSV urethritis typically presents with severe dysuria, herpetic vesicular lesions, or urethral ulcerations visible on examination. This patient has mucopurulent discharge without any vesicular or ulcerative findings, and the absence of visible genital lesions makes primary HSV urethritis unlikely. While HSV can cause urethral shedding in the absence of visible lesions, it would not be the leading diagnostic consideration in this presentation of persistent mucopurulent discharge.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-mycoplasma-genitalium-q2"
+  title="Question 2"
+  prompt="Which statement best describes how the FDA-cleared assay detects this organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Transcription-mediated amplification targets the 16S ribosomal RNA sequence, generating exponential copies of the target RNA through isothermal reverse transcription and T7 RNA polymerase-mediated transcription",
+      correct: true,
+      feedback:
+        "Correct. The Aptima assay (Hologic) is the FDA-cleared test for M. genitalium detection. It utilizes transcription-mediated amplification (TMA), an isothermal (constant temperature) nucleic acid amplification method. Target 16S ribosomal RNA is captured by target-specific probes, then reverse transcriptase generates a DNA copy containing a T7 promoter sequence. T7 RNA polymerase subsequently transcribes thousands of RNA amplicons from each DNA template, achieving exponential amplification without the thermal cycling required by PCR. The use of rRNA (present at thousands of copies per organism rather than the single copy of genomic DNA) provides high analytical sensitivity even at low organism burdens.",
+    },
+    {
+      id: "B",
+      label:
+        "The organism is cultured on SP4 agar supplemented with cholesterol and identified by its characteristic fried-egg colony morphology after 48 to 72 hours of incubation",
+      feedback:
+        "Incorrect. While M. genitalium does require cholesterol for membrane synthesis and can be grown on SP4 agar in research reference laboratories, the organism is extraordinarily fastidious. Visible colonies — barely granular at 50 to 100 &mu;m — require weeks of incubation, not 48 to 72 hours, and they lack the classic fried-egg morphology of Ureaplasma species or the 'mulberry' appearance of M. hominis. Culture is not clinically practical and is virtually never used for routine diagnosis. This is precisely why NAAT is the diagnostic gold standard.",
+    },
+    {
+      id: "C",
+      label:
+        "Patient serum is tested for M. genitalium-specific IgM and IgG antibodies using an enzyme immunoassay; a four-fold rise in titer confirms active infection",
+      feedback:
+        "Incorrect. No serologic test for M. genitalium has been cleared by the FDA, and available research assays suffer from poor specificity due to extensive antigenic cross-reactivity with M. pneumoniae and other Mycoplasma species that cause respiratory tract infections. Serology cannot reliably distinguish current from past infection and plays no role in the clinical diagnosis of M. genitalium urethritis.",
+    },
+    {
+      id: "D",
+      label:
+        "A Gram-stained smear of urethral exudate is examined for pleomorphic gram-negative coccobacilli at the organism's characteristic 5-micrometer diameter",
+      feedback:
+        "Incorrect. M. genitalium is the smallest known self-replicating bacterium, measuring approximately 200 to 300 nanometers — barely 0.2 to 0.3 &mu;m — near the theoretical resolution limit of light microscopy. It also lacks a cell wall and does not reliably take up Gram stain. Direct microscopic identification is impossible in routine clinical practice.",
+    },
+    {
+      id: "E",
+      label:
+        "M. genitalium antigens in urine are detected by a lateral flow immunochromatographic assay designed for point-of-care use",
+      feedback:
+        "Incorrect. No FDA-cleared antigen detection tests exist for M. genitalium. Unlike group A streptococcal pharyngitis or SARS-CoV-2, for which rapid antigen tests are widely used, M. genitalium requires molecular amplification for sensitive detection because the organism burden in clinical specimens is typically very low (often 10 to 1000 copies per swab).",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-mycoplasma-genitalium-q3"
+  title="Question 3"
+  prompt="Which treatment regimen is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Azithromycin 1 g orally as a single dose",
+      feedback:
+        "Incorrect. Single-dose azithromycin (1 g) has been associated with macrolide resistance selection and unacceptably high treatment failure rates. Current data from the United States and Europe indicate that macrolide resistance in M. genitalium now exceeds 50%. The 2021 CDC STI Treatment Guidelines explicitly recommend against single-dose azithromycin for M. genitalium due to poor efficacy in the setting of prevalent resistance.",
+    },
+    {
+      id: "B",
+      label:
+        "Azithromycin 500 mg orally on day 1, then 250 mg daily on days 2 through 5 (total 2.5 g)",
+      feedback:
+        "Incorrect. The extended azithromycin regimen (2.5 g total) is an option only when macrolide susceptibility has been confirmed by molecular resistance testing. Without resistance testing, the background prevalence of macrolide resistance is too high to rely on any azithromycin-based regimen. The CDC recommends that azithromycin be used for M. genitalium only in the setting of documented macrolide susceptibility.",
+    },
+    {
+      id: "C",
+      label:
+        "Doxycycline 100 mg orally twice daily for 7 days, followed by moxifloxacin 400 mg orally once daily for 7 days",
+      correct: true,
+      feedback:
+        "Correct. This two-stage sequential regimen is the CDC-recommended approach for M. genitalium when macrolide resistance testing is unavailable. The doxycycline pretreatment reduces the organism burden by approximately 2.6 log10 copies, which may decrease the likelihood of selecting de novo resistance during the second phase. Moxifloxacin then achieves microbiologic cure rates exceeding 90%. The sequential approach is preferred over moxifloxacin monotherapy because doxycycline pretreatment may help reduce the risk of fluoroquinolone resistance emergence.",
+    },
+    {
+      id: "D",
+      label:
+        "Moxifloxacin 400 mg orally once daily for 14 days",
+      feedback:
+        "Incorrect. Moxifloxacin monotherapy for a prolonged 14-day course is not supported by clinical trial data and is not recommended by the CDC. The standard moxifloxacin duration for uncomplicated M. genitalium genital infection is 7 days, not 14. The doxycycline pretreatment component of the sequential regimen serves an important role by reducing bacterial load before fluoroquinolone exposure.",
+    },
+    {
+      id: "E",
+      label:
+        "Doxycycline 100 mg orally twice daily for 14 days",
+      feedback:
+        "Incorrect. Extended doxycycline monotherapy achieves microbiologic cure rates of only 40 to 70% for M. genitalium, making it an inadequate treatment for confirmed infection. Doxycycline reduces the organism burden but does not reliably eradicate it. This is why a second agent — either moxifloxacin or, if macrolide susceptibility is confirmed, azithromycin — must follow the doxycycline pretreatment phase.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-mycoplasma-genitalium-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Mycoplasma genitalium is the smallest known self-replicating free-living bacterium, measuring only 200 to 300 nanometers in diameter. As a member of the class Mollicutes, it lacks a cell wall, which renders all beta-lactam antibiotics intrinsically ineffective. Its reductive evolution has produced a minimal genome of approximately 580 kilobase pairs that encodes fewer than 500 proteins, including a specialized tip organelle (the terminal attachment organelle) that mediates adherence to urethral epithelial cells and microcolony formation. These biological features explain both the organism's tissue tropism for the urogenital epithelium and its intrinsic resistance to cell-wall-active agents.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Epidemiologically, M. genitalium is now firmly established as a cause of non-gonococcal urethritis in men, accounting for 15 to 25% of cases. It is also associated with cervicitis, pelvic inflammatory disease, and possibly tubal factor infertility in women. Critically, it is the most common identifiable etiology of persistent or recurrent urethritis after standard empiric therapy for gonorrhea and chlamydia. The standard ceftriaxone-plus-doxycycline regimen covers N. gonorrhoeae and C. trachomatis but leaves M. genitalium largely untreated: ceftriaxone has no activity against organisms without cell walls, and doxycycline monotherapy achieves only 30 to 40% microbiologic cure for M. genitalium. This therapeutic gap is why the vignette patient's symptoms persist.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic gold standard is nucleic acid amplification testing. The Hologic Aptima assay, the only FDA-cleared test for M. genitalium, uses transcription-mediated amplification to target 16S ribosomal RNA amplicons. TMA is an isothermal amplification method that avoids the thermal cycling required by PCR. The use of ribosomal RNA (present at 10<sup>3</sup> to 10<sup>4</sup> copies per organism) rather than genomic DNA (1 copy per organism) confers high analytical sensitivity, which is important because organism burdens in clinical specimens can be as low as 10 to 1000 copies per swab. Culture, by contrast, requires weeks of incubation on specialized SP4 agar supplemented with cholesterol, produces barely visible granular colonies, and is available only in reference or research laboratories.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is complicated by the rapid emergence of antimicrobial resistance. Macrolide resistance in M. genitalium, driven primarily by point mutations in the 23S rRNA gene (especially A2058G and A2059G in Escherichia coli numbering), now exceeds 50% in many regions of the United States. This renders single-dose azithromycin regimens — once the standard of care — no longer reliably effective. The 2021 CDC STI Treatment Guidelines therefore recommend a sequential two-stage approach when resistance testing is unavailable: doxycycline 100 mg twice daily for 7 days to reduce bacterial load, followed by moxifloxacin 400 mg daily for 7 days. This regimen achieves cure rates exceeding 90%. When molecular macrolide resistance testing is available and confirms susceptibility, the extended azithromycin regimen (500 mg on day 1, then 250 mg daily on days 2 through 5) can be used instead of moxifloxacin after doxycycline pretreatment.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Test of cure (TOC) with repeat NAAT is recommended 3 to 4 weeks after completion of therapy, and all sexual partners within the preceding 60 days should be referred for evaluation and treatment. Sexual activity should be avoided until treatment is complete and symptoms have resolved.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-mycoplasma-genitalium-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      M. genitalium is the smallest self-replicating bacterium and, as a Mollicute, lacks a cell wall — rendering all beta-lactams intrinsically ineffective.
+    </li>
+    <li>
+      It is the most common cause of persistent or recurrent urethritis in men after standard ceftriaxone-plus-doxycycline therapy because doxycycline alone achieves only 30&ndash;40% microbiologic cure.
+    </li>
+    <li>
+      The only FDA-cleared diagnostic test is the Aptima transcription-mediated amplification (TMA) assay, which isothermally amplifies 16S ribosomal RNA — not genomic DNA.
+    </li>
+    <li>
+      Culture on SP4 agar with cholesterol requires weeks of incubation, yields barely visible granular colonies, and is not clinically practical; NAAT is the diagnostic standard.
+    </li>
+    <li>
+      Macrolide resistance exceeds 50% in the United States. Single-dose azithromycin is explicitly contraindicated in the 2021 CDC STI Treatment Guidelines.
+    </li>
+    <li>
+      The recommended regimen is doxycycline 100 mg BID x 7 days followed by moxifloxacin 400 mg daily x 7 days.
+    </li>
+    <li>
+      Test of cure with repeat NAAT should be performed 3 to 4 weeks after treatment completion.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bachmann LH, Kirkcaldy RD, Geisler WM, et al. Mycoplasma genitalium in the United States: CDC STI Treatment Guidelines, 2021. <em>Sex Transm Dis</em>. 2022;49(8S):S17-S22.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/OLQ.0000000000001666"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/OLQ.0000000000001666
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Workowski KA, Bachmann LH, Chan PA, et al. Sexually transmitted infections treatment guidelines, 2021. <em>MMWR Recomm Rep</em>. 2021;70(4):1-187.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.15585/mmwr.rr7004a1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.15585/mmwr.rr7004a1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Durukan D, Read TRH, Murray G, et al. Resistance-guided antimicrobial therapy for Mycoplasma genitalium infections. <em>Clin Infect Dis</em>. 2020;71(6):1461-1468.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciz1010"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciz1010
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gaydos CA, Mena LA. Mycoplasma genitalium: an emerging sexually transmitted infection. <em>J Clin Microbiol</em>. 2019;57(11):e01125-19.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.01125-19"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.01125-19
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

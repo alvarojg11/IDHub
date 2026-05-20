@@ -1128,6 +1128,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 49-year-old man from the Andean foothills of Mérida, Venezuela presents with a 4-month history of a painless, granular, mulberry-like ulceration of the nasal mucosa and upper lip, accompanied by 9 kg of weight loss and bilateral perihilar infiltrates on chest radiography. Nasal biopsy with GMS staining reveals large yeast bearing multiple peripheral buds in a pilot wheel arrangement. What is the diagnosis, and how do you treat it?",
     tags: { organisms: ["Paracoccidioides brasiliensis"], syndromes: ["Skin & Soft Tissue", "Pulmonary Infection", "Travel Medicine", "Mycology"], concepts: ["Pilot wheel morphology", "Moriform stomatitis", "Mulberry stomatitis", "Endemic mycosis", "Dimorphic fungi", "Itraconazole", "Agricultural exposure", "Latin America"] },
   },
+  {
+    title: "The Persistent Burn",
+    slug: "mycoplasma-genitalium",
+    description: "Persistent urethritis in a young man after standard GC/CT treatment, with questions on microbiology, NAAT methodology, and resistance-driven sequential therapy.",
+    enable: true,
+    ogImage: "/cases/mycoplasma-genitalium/mgen-culture.png",
+    teaser: "A 28-year-old man presents with persistent dysuria and mucopurulent urethral discharge 10 days after completing ceftriaxone and doxycycline for urethritis. GC and CT NAAT are now negative. A separate NAAT for a cell-wall-free pathogen is sent. What is the most likely diagnosis, how does the diagnostic test work, and how should this infection be treated in an era of escalating macrolide resistance?",
+    tags: { organisms: ["Mycoplasma genitalium"], syndromes: ["Sexually Transmitted Infection"], concepts: ["Mollicutes", "Terminal attachment organelle", "Cell wall-free pathogen", "Transcription-mediated amplification", "16S ribosomal RNA", "Aptima assay", "Macrolide resistance", "23S rRNA mutation", "Doxycycline pretreatment", "Moxifloxacin", "Sequential therapy", "Test of cure", "Non-gonococcal urethritis", "Persistent urethritis"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
