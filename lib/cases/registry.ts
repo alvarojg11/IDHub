@@ -1137,6 +1137,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 28-year-old man presents with persistent dysuria and mucopurulent urethral discharge 10 days after completing ceftriaxone and doxycycline for urethritis. GC and CT NAAT are now negative. A separate NAAT for a cell-wall-free pathogen is sent. What is the most likely diagnosis, how does the diagnostic test work, and how should this infection be treated in an era of escalating macrolide resistance?",
     tags: { organisms: ["Mycoplasma genitalium"], syndromes: ["Sexually Transmitted Infection"], concepts: ["Mollicutes", "Terminal attachment organelle", "Cell wall-free pathogen", "Transcription-mediated amplification", "16S ribosomal RNA", "Aptima assay", "Macrolide resistance", "23S rRNA mutation", "Doxycycline pretreatment", "Moxifloxacin", "Sequential therapy", "Test of cure", "Non-gonococcal urethritis", "Persistent urethritis"] },
   },
+  {
+    title: "The Summer Temporal Lobe Trap",
+    slug: "la-crosse-encephalitis",
+    description: "A 17-year-old with summer encephalitis, temporal PLEDs, hyponatremia, and a negative routine CSF panel.",
+    enable: true,
+    ogImage: "/cases/la-crosse-encephalitis/eeg.png",
+    teaser: "A 17-year-old boy from rural western North Carolina presents in late July with fever, emesis, aphasia, seizure, frontotemporal MRI abnormalities, and temporal PLEDs on EEG. The routine CSF PCR panel is negative. What arboviral diagnosis best explains this HSV-mimic syndrome, how should it be confirmed, and which physiologic trend should most heighten concern for deterioration?",
+    tags: { organisms: ["La Crosse virus"], syndromes: ["Neuroinfection", "Arboviral Infection", "Vector-borne Infection"], concepts: ["Aedes triseriatus", "Tree-hole mosquito", "Temporal PLEDs", "HSV encephalitis mimic", "California serogroup", "Orthobunyavirus", "CSF IgM", "Neutralizing antibody confirmation", "Hyponatremia", "Intracranial hypertension", "Transovarial transmission", "Dead-end host"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

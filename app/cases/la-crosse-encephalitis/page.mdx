@@ -1,0 +1,341 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("la-crosse-encephalitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Summer Temporal Lobe Trap
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 17-year-old previously healthy boy is brought to the emergency department in late July after a witnessed focal seizure at home. Four days earlier he developed fever, bifrontal headache, repeated emesis, malaise, and increasing somnolence. He lives in rural western North Carolina and has spent the past two weekends helping his uncle clear brush around a wooded property, including hauling out several water-filled discarded tires. He recalls frequent daytime mosquito bites while working near the tree line. He has not traveled outside the state, denies tick attachment, and has had no freshwater exposure, rash, or sick contacts.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On the day of admission, his mother noticed that he was answering questions slowly and searching for words. Minutes later he had rightward head deviation followed by rhythmic clonic jerking of the right arm and face that generalized secondarily and lasted approximately 90 seconds. In the emergency department his temperature is 39.3 C, heart rate 118/min, blood pressure 132/78 mmHg, respiratory rate 20/min, and oxygen saturation 98% on room air. He is lethargic but arousable, oriented only to name, and has sparse speech with mild expressive aphasia. Neck is supple. There is no rash, conjunctivitis, or focal weakness.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 12.6 x 10^3/uL, hemoglobin 14.1 g/dL, platelets 228 x 10^3/uL, sodium 129 mEq/L, creatinine 0.8 mg/dL, AST 24 U/L, and ALT 19 U/L. MRI of the brain demonstrates subtle bilateral frontotemporal T2/FLAIR hyperintensity without abscess, hemorrhage, or ring enhancement. Continuous EEG reveals left temporal periodic lateralized epileptiform discharges. Lumbar puncture yields an opening pressure of 235 mmH<sub>2</sub>O, cerebrospinal fluid white blood cells 118/mm<sup>3</sup> (86% lymphocytes), protein 72 mg/dL, and glucose 64 mg/dL with a simultaneous serum glucose of 101 mg/dL. CSF Gram stain is negative.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Empiric acyclovir, ceftriaxone, and vancomycin are started. The CSF meningitis-encephalitis PCR panel returns negative, including HSV-1, HSV-2, VZV, and enterovirus. Because the combination of geography, season, seizure-predominant encephalitis, and temporal-lobe EEG abnormalities remains unexplained, additional arboviral testing is pursued.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/la-crosse-encephalitis/eeg.png"
+        alt="Electroencephalogram demonstrating left temporal periodic lateralized epileptiform discharges in La Crosse virus encephalitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      EEG demonstrating left temporal periodic lateralized epileptiform discharges, a pattern that can closely mimic HSV encephalitis in La Crosse virus neuroinvasive disease.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-la-crosse-encephalitis-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Herpes simplex virus type 1 encephalitis",
+      feedback:
+        "Incorrect. HSV-1 is the most dangerous immediate alternative diagnosis, and this patient's temporal-lobe MRI signal abnormality, aphasia, and temporal PLEDs justify empiric acyclovir at presentation. However, the summer timing, Appalachian geography, mosquito exposure, hyponatremia, negative CSF HSV PCR on the meningitis-encephalitis panel, and seizure-predominant syndrome together fit La Crosse virus better. La Crosse encephalitis is a classic clinical and electrographic mimic of HSV.",
+    },
+    {
+      id: "B",
+      label:
+        "La Crosse virus neuroinvasive disease",
+      correct: true,
+      feedback:
+        "Correct. La Crosse virus is the leading cause of pediatric arboviral encephalitis in the United States and remains entirely plausible in a 17-year-old from the southern Appalachians with summer mosquito exposure. The hallmark syndrome is fever, headache, vomiting, altered mental status, and seizures, often with lymphocytic CSF, normal glucose, hyponatremia, and EEG abnormalities that can localize to the temporal lobe. The exposure to tree-line mosquitoes around standing water in discarded tires is particularly characteristic because Aedes triseriatus and invasive container-breeding Aedes species amplify risk in this exact setting.",
+    },
+    {
+      id: "C",
+      label:
+        "Powassan virus encephalitis",
+      feedback:
+        "Incorrect. Powassan virus is a reasonable arboviral mimic in the eastern United States, but the epidemiology is wrong here. Powassan is tick-borne, not mosquito-borne, and most often points to Ixodes exposure in the Northeast or Upper Midwest. Its MRI pattern more often involves the thalami and brainstem than a temporal-lobe, PLED-heavy encephalitic picture.",
+    },
+    {
+      id: "D",
+      label:
+        "West Nile virus neuroinvasive disease",
+      feedback:
+        "Incorrect. West Nile virus can cause meningoencephalitis with seizures and movement disorders, but severe neuroinvasive disease occurs most often in older adults or immunocompromised hosts. West Nile more commonly produces tremor, parkinsonism, or acute flaccid paralysis than an HSV-like temporal-lobe encephalitis pattern in a previously healthy adolescent from Appalachia.",
+    },
+    {
+      id: "E",
+      label:
+        "Anti-NMDA receptor encephalitis",
+      feedback:
+        "Incorrect. Autoimmune encephalitis remains on the broad differential for seizures and language dysfunction, but the syndrome here is more acutely infectious: high fever, emesis, CSF lymphocytic pleocytosis, seasonal outdoor exposure, and evolving neuroinvasive disease over several days. Anti-NMDA receptor encephalitis more typically has a subacute course with psychiatric symptoms, dyskinesias, autonomic instability, and less prominent febrile prodrome.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-la-crosse-encephalitis-q2"
+  title="Question 2"
+  prompt="Which diagnostic approach is most appropriate to confirm this suspected etiology in this immunocompetent patient?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Repeat CSF HSV PCR in 24 hours and stop the arboviral workup unless the repeat study is positive",
+      feedback:
+        "Incorrect. Repeating CSF HSV PCR can be appropriate when clinical suspicion for HSV remains high despite an early negative result, and acyclovir should not be stopped prematurely. However, this does not confirm the leading alternative diagnosis. The question asks how to establish La Crosse virus infection, and the primary pathway is arboviral serology with confirmatory neutralization testing.",
+    },
+    {
+      id: "B",
+      label:
+        "Send serum and CSF La Crosse virus IgM with confirmatory neutralizing antibody testing through the state public health laboratory or CDC",
+      correct: true,
+      feedback:
+        "Correct. Serology is the primary diagnostic method for La Crosse virus disease. Detection of La Crosse virus-specific IgM in serum or CSF, together with the right clinical syndrome, establishes a preliminary diagnosis, but positive results should be confirmed by neutralizing antibody testing because IgM cross-reactivity can occur with related California serogroup viruses such as Jamestown Canyon virus. The most practical route is coordination with the state health department or CDC arboviral laboratory.",
+    },
+    {
+      id: "C",
+      label:
+        "Order CSF La Crosse virus RT-PCR alone because viral RNA is routinely detectable early in neuroinvasive disease",
+      feedback:
+        "Incorrect. Viral RNA is rarely recovered from routine clinical specimens in La Crosse virus infection. CDC specifically notes that serology remains the primary diagnostic approach because the virus is difficult to isolate from serum or CSF. RT-PCR can confirm infection if positive, and may be particularly helpful in severely immunocompromised patients, but a negative molecular result does not exclude disease and should not be the sole test in this immunocompetent adolescent.",
+    },
+    {
+      id: "D",
+      label:
+        "Send plasma metagenomic next-generation sequencing because conventional arboviral serology is too insensitive for acute disease",
+      feedback:
+        "Incorrect. Metagenomic sequencing may be considered in select undifferentiated encephalitis cases, but it is not the standard confirmatory pathway for suspected La Crosse virus infection. Arboviral serology is not 'too insensitive' here; it is the CDC-recommended primary method. mNGS would also be a slower, more expensive, and less validated approach for this specific diagnostic question.",
+    },
+    {
+      id: "E",
+      label:
+        "Perform temporal-lobe brain biopsy for immunohistochemistry because electrographic temporal localization makes serology unreliable",
+      feedback:
+        "Incorrect. Brain biopsy is not indicated for suspected La Crosse virus encephalitis. Temporal PLEDs and frontotemporal MRI abnormalities are precisely what make this infection diagnostically challenging because they mimic HSV, but they do not invalidate serology. Biopsy would be reserved only for extraordinary cases in which noninvasive testing remains nondiagnostic and management would change.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-la-crosse-encephalitis-q3"
+  title="Question 3"
+  prompt="Which in-hospital development should most increase concern for impending clinical deterioration and need for intensified neurocritical supportive care?"
+  options={[
+    {
+      id: "A",
+      label:
+        "New thrombocytopenia and AST-predominant transaminitis",
+      feedback:
+        "Incorrect. Thrombocytopenia and transaminitis are more characteristic of systemic arboviral syndromes such as dengue or yellow fever than of La Crosse encephalitis. They would broaden the differential, but they were not the features most strongly associated with in-hospital deterioration in the major La Crosse pediatric series.",
+    },
+    {
+      id: "B",
+      label:
+        "Progressive hyponatremia accompanied by rising temperature",
+      correct: true,
+      feedback:
+        "Correct. In the classic 127-patient series of hospitalized children with La Crosse encephalitis, worsening hyponatremia and increasing body temperature were associated with clinical deterioration. These changes should immediately raise concern for escalating cerebral edema, seizures, or intracranial hypertension and justify closer ICU monitoring, aggressive seizure control, sodium management, and consideration of intracranial pressure-directed care when the neurologic examination worsens.",
+    },
+    {
+      id: "C",
+      label:
+        "Development of peripheral eosinophilia above 1500 cells/uL",
+      feedback:
+        "Incorrect. Eosinophilia would suggest a different diagnostic frame altogether, such as helminthic disease, eosinophilic meningitis, or drug hypersensitivity. It is not a recognized marker of worsening La Crosse virus neuroinvasive disease.",
+    },
+    {
+      id: "D",
+      label:
+        "Conversion of the CSF differential from lymphocytic to neutrophilic predominance after 48 hours",
+      feedback:
+        "Incorrect. A shift toward neutrophilic predominance would prompt reconsideration of bacterial meningitis, partially treated infection, or another inflammatory process. It is not the classic warning signal identified in La Crosse encephalitis cohorts.",
+    },
+    {
+      id: "E",
+      label:
+        "Persistent low-grade fever despite 48 hours of acyclovir",
+      feedback:
+        "Incorrect. Lack of rapid defervescence on acyclovir does not meaningfully stratify risk in La Crosse virus infection because acyclovir has no antiviral activity against orthobunyaviruses. The worrisome issue is not that acyclovir failed; it is that the patient is developing the physiologic pattern linked to neurologic worsening.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-la-crosse-encephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    La Crosse virus is an enveloped, tripartite, negative-sense RNA virus in the genus <em>Orthobunyavirus</em>, family <em>Peribunyaviridae</em>, and belongs to the California serogroup. In the United States it is maintained in an enzootic cycle between mosquitoes and small mammals, especially chipmunks and tree squirrels. The principal vector is <em>Aedes triseriatus</em>, the eastern tree-hole mosquito, although container-breeding invasive Aedes species may contribute to transmission in some regions. The epidemiologic clue that makes this case fair but difficult is the setting: deciduous woods, daytime mosquito exposure, and water-filled tires. Female mosquitoes can pass the virus transovarially to their eggs, allowing infected eggs to overwinter and sustain transmission without requiring continuous vertebrate infection.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Clinically, La Crosse virus disease is most common in children younger than 16 years, but older adolescents remain susceptible, particularly in Appalachian and upper Midwestern endemic zones during midsummer. The syndrome often begins with fever, headache, nausea, vomiting, and lethargy, then progresses to encephalitis, meningoencephalitis, or aseptic meningitis. Seizures are especially common, much more so than in many other domestic arboviral infections. This patient is intentionally challenging because his language dysfunction, frontotemporal MRI signal change, and temporal PLEDs initially suggest HSV encephalitis. That is a real-world trap: published La Crosse cases have demonstrated both temporal-lobe imaging abnormalities and electrographic lateralized periodic discharges that are nearly indistinguishable from HSV early in the course.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis rests primarily on serology, not PCR. CDC guidance states that La Crosse virus-specific IgM in serum or CSF is the main diagnostic pathway, with confirmatory neutralizing antibody testing required because IgM can cross-react with related California serogroup viruses such as Jamestown Canyon virus. By contrast, viral culture and RT-PCR are confirmatory only when positive and are much less sensitive on routine clinical samples; most molecular detections have come from brain tissue and only rarely from CSF. This distinction is exactly why the case is aimed at fellows: after a negative routine CSF panel, the next move is not broader empiricism alone, but recognition that arboviral serology is the correct test rather than a 'better PCR.'
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is supportive. There is no proven antiviral therapy for La Crosse virus infection, so management focuses on seizure control, careful fluid and sodium management, serial neurologic examinations, and monitoring for cerebral edema or elevated intracranial pressure. Acyclovir should still be given empirically at presentation because HSV encephalitis remains the most catastrophic and treatable alternative diagnosis. Once La Crosse becomes likely, the major management pivot is toward neurocritical care rather than pathogen-specific therapy. In the large NEJM cohort, worsening hyponatremia and increasing body temperature were associated with in-hospital deterioration, and severe cases sometimes required intracranial pressure monitoring because of impending herniation.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Prognosis is better than for HSV encephalitis in terms of mortality, but not necessarily in terms of neurologic recovery. Fatality is low, around 1%, yet chronic sequelae including epilepsy, hemiparesis, memory deficits, behavioral abnormalities, and school difficulties have all been described. That long-tail morbidity is why recognizing the diagnosis matters even when specific antiviral therapy does not exist.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-la-crosse-encephalitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      La Crosse virus is a California serogroup <em>Orthobunyavirus</em> transmitted primarily by <em>Aedes triseriatus</em> in wooded habitats of the upper Midwest, mid-Atlantic, and Appalachia.
+    </li>
+    <li>
+      Severe neuroinvasive disease is most common in children but can occur in older adolescents; seizures are a particularly prominent feature.
+    </li>
+    <li>
+      Temporal-lobe MRI abnormalities and temporal PLEDs can make La Crosse encephalitis look strikingly similar to HSV encephalitis, so empiric acyclovir is appropriate at presentation.
+    </li>
+    <li>
+      CSF typically shows lymphocytic pleocytosis, normal glucose, and only modest protein elevation; routine meningitis-encephalitis PCR panels will not establish the diagnosis.
+    </li>
+    <li>
+      The correct confirmatory strategy is serum and/or CSF La Crosse virus IgM with neutralizing antibody confirmation because serologic cross-reactivity can occur with related California serogroup viruses.
+    </li>
+    <li>
+      Viral RNA testing is confirmatory only when positive and is much less sensitive than serology on routine clinical specimens in immunocompetent patients.
+    </li>
+    <li>
+      Worsening hyponatremia with rising temperature should heighten concern for clinical deterioration, cerebral edema, and the need for intensified neurocritical supportive care.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      McJunkin JE, de los Reyes EC, Irazuzta JE, et al. La Crosse encephalitis in children. <em>New England Journal of Medicine</em>. 2001;344(11):801-807.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJM200103153441103"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJM200103153441103
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      de los Reyes EC, McJunkin JE, Glauser TA, Tomsho M, O'Neal J. Periodic lateralized epileptiform discharges in La Crosse encephalitis, a worrisome subgroup: clinical presentation, electroencephalogram patterns, and long-term neurologic outcome. <em>Journal of Child Neurology</em>. 2008;23(2):167-172.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1177/0883073807307984"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1177/0883073807307984
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sokol DK, Kleiman MB, Garg BP. LaCrosse viral encephalitis mimics herpes simplex viral encephalitis. <em>Pediatric Neurology</em>. 2001;25(5):413-415.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0887-8994(01)00337-X"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0887-8994(01)00337-X
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Clinical signs and symptoms of La Crosse virus disease. Updated May 15, 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/la-crosse-encephalitis/hcp/clinical-signs/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC clinical signs and symptoms
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Clinical testing and diagnosis for La Crosse virus disease. Updated Nov 19, 2025.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/la-crosse-encephalitis/hcp/diagnosis-testing/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC testing and diagnosis guidance
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
