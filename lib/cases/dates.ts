@@ -340,6 +340,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-05-19T08:00:00-07:00",
     modifiedAt: "2026-05-19T08:00:00-07:00",
   },
+  "staphylococcus-lugdunensis-endocarditis": {
+    publishedAt: "2026-05-21T08:00:00-07:00",
+    modifiedAt: "2026-05-21T08:00:00-07:00",
+  },
   "la-crosse-encephalitis": {
     publishedAt: "2026-05-20T08:00:00-07:00",
     modifiedAt: "2026-05-20T08:00:00-07:00",

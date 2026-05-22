@@ -1138,6 +1138,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Mycoplasma genitalium"], syndromes: ["Sexually Transmitted Infection"], concepts: ["Mollicutes", "Terminal attachment organelle", "Cell wall-free pathogen", "Transcription-mediated amplification", "16S ribosomal RNA", "Aptima assay", "Macrolide resistance", "23S rRNA mutation", "Doxycycline pretreatment", "Moxifloxacin", "Sequential therapy", "Test of cure", "Non-gonococcal urethritis", "Persistent urethritis"] },
   },
   {
+    title: "The Wolf in CoNS Clothing",
+    slug: "staphylococcus-lugdunensis-endocarditis",
+    description: "A destructive native-valve endocarditis caused by a coagulase-negative staphylococcus that should never be dismissed as a contaminant.",
+    enable: true,
+    ogImage: "/cases/staphylococcus-lugdunensis-endocarditis/echo.png",
+    teaser: "A 52-year-old man develops aggressive native mitral-valve endocarditis with leaflet perforation. Blood cultures from all three sets grow gram-positive cocci in clusters reported as coagulase-negative Staphylococcus. Which CoNS species causes destructive endocarditis that behaves more like S. aureus than S. epidermidis?",
+    tags: { organisms: ["Staphylococcus lugdunensis"], syndromes: ["Endocarditis", "Bacteremia", "Cardiovascular"], concepts: ["Coagulase-negative staphylococcus", "Clumping factor", "Fbl protein", "Slide coagulase positive", "Tube coagulase negative", "MALDI-TOF MS", "Native-valve endocarditis", "Methicillin-susceptible", "Beta-lactam therapy", "Valve replacement"] },
+  },
+  {
     title: "The Summer Temporal Lobe Trap",
     slug: "la-crosse-encephalitis",
     description: "A 17-year-old with summer encephalitis, temporal PLEDs, hyponatremia, and a negative routine CSF panel.",

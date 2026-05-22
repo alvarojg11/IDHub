@@ -1,0 +1,357 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("staphylococcus-lugdunensis-endocarditis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Wolf in CoNS Clothing
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man with hypertension and osteoarthritis presents to the emergency department with nine days of fever, night sweats, anorexia, and progressive dyspnea on exertion. One week before the fevers began he underwent incision and drainage of a spontaneous left inguinal abscess that was not cultured. He has no prosthetic valves, no indwelling hardware, no recent hospitalizations, and no injection drug use. He works as a maintenance technician at an apartment complex.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 38.9 C, heart rate 112/min, blood pressure 98/62 mmHg, and oxygen saturation 95% on room air. He appears ill and diaphoretic. Cardiac auscultation reveals a new grade 3/6 holosystolic murmur at the apex radiating to the axilla. There is faint conjunctival injection bilaterally but no splinter hemorrhages, Janeway lesions, Osler nodes, or Roth spots. Lungs are clear. There is a healing 2-cm scar in the left inguinal fold without surrounding erythema or fluctuance.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 14.8 x 10^3/uL with 82% neutrophils, hemoglobin 10.4 g/dL, platelets 187 x 10^3/uL, erythrocyte sedimentation rate 92 mm/h, C-reactive protein 18.4 mg/dL, creatinine 1.3 mg/dL, and blood urea nitrogen 28 mg/dL. Urinalysis shows 2+ proteinuria and 10 to 25 red blood cells per high-power field without casts. Three sets of blood cultures drawn from peripheral venipuncture over the first 90 minutes all grow gram-positive cocci in clusters within 14 hours. The laboratory reports the isolate as coagulase-negative <em>Staphylococcus</em> species. Because the organism grew in all six bottles from three separate sets drawn from different sites, the team escalates concern beyond typical contamination.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Transthoracic echocardiography demonstrates a mobile echodensity on the anterior mitral valve leaflet with moderate-to-severe mitral regurgitation. Transesophageal echocardiography confirms a 1.6 x 0.5 cm mobile vegetation on the anterior leaflet with a small area of leaflet perforation and no perivalvular abscess.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/staphylococcus-lugdunensis-endocarditis/echo.png"
+        alt="Echocardiogram demonstrating a mobile vegetation on the mitral valve"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Transthoracic echocardiography and transesophageal echocardiography demonstrating a mobile vegetation on the mitral valve.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-staphylococcus-lugdunensis-endocarditis-q1"
+  title="Question 1"
+  prompt="Full species identification by MALDI-TOF MS is pending. Which organism should be specifically considered?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Staphylococcus epidermidis",
+      feedback:
+        "Incorrect. S. epidermidis is by far the most commonly isolated coagulase-negative staphylococcus in blood cultures, and it does cause prosthetic valve endocarditis and device-related bacteremia. However, native-valve endocarditis caused by S. epidermidis in a patient without prosthetic material, indwelling devices, or injection drug use is distinctly uncommon. More importantly, the destructiveness of this infection (leaflet perforation, rapid clinical decline, and all-set positivity) goes well beyond what S. epidermidis typically produces in native-valve infections.",
+    },
+    {
+      id: "B",
+      label:
+        "Staphylococcus lugdunensis",
+      correct: true,
+      feedback:
+        "Correct. Staphylococcus lugdunensis is a coagulase-negative staphylococcus that uniquely causes aggressive, destructive native-valve endocarditis clinically resembling S. aureus more than other CoNS. It accounts for fewer than 1% of infective endocarditis cases but carries mortality rates as high as 40% in published series, with approximately half of patients requiring surgical valve replacement. The inguinal abscess preceding the illness is also characteristic because S. lugdunensis preferentially colonizes the lower body, especially the inguinal fold and perineum. The key teaching point is that when a coagulase-negative staphylococcus causes destructive native-valve endocarditis with all-set-positive blood cultures, S. lugdunensis should immediately rise to the top of the differential rather than being dismissed as a contaminant.",
+    },
+    {
+      id: "C",
+      label:
+        "Staphylococcus aureus with a false-negative coagulase test",
+      feedback:
+        "Incorrect. S. aureus can occasionally yield a false-negative tube coagulase result if testing is performed too early or the inoculum is insufficient, and S. aureus certainly causes destructive native-valve endocarditis. However, this organism was reported as coagulase-negative by the clinical laboratory after appropriate testing. The question asks which organism should be specifically considered given the combination of CoNS identification and destructive native-valve endocarditis, and the answer is S. lugdunensis, not a laboratory error.",
+    },
+    {
+      id: "D",
+      label:
+        "Staphylococcus capitis",
+      feedback:
+        "Incorrect. S. capitis is a coagulase-negative staphylococcus that can cause occasional device-related infections, including prosthetic valve endocarditis and neurosurgical shunt infections, but it is not associated with the aggressive, destructive native-valve endocarditis seen in this case. It does not have the virulence factors, particularly the fibrinogen-binding protein Fbl and the von Willebrand factor adherence mechanisms, that give S. lugdunensis its unique capacity for endovascular destruction.",
+    },
+    {
+      id: "E",
+      label:
+        "Enterococcus faecalis misidentified as a staphylococcus",
+      feedback:
+        "Incorrect. Enterococcus faecalis can cause subacute native-valve endocarditis, and rare Gram-stain misidentifications have been reported, but the organism here grew as clear gram-positive cocci in clusters (not pairs or short chains) and was biochemically characterized as a coagulase-negative staphylococcus. There is no reason to suspect a genus-level misidentification with modern blood culture instrumentation and Gram-stain morphology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-staphylococcus-lugdunensis-endocarditis-q2"
+  title="Question 2"
+  prompt="MALDI-TOF MS confirms Staphylococcus lugdunensis. Which statement most accurately describes its coagulase testing profile and the mechanism behind it?"
+  options={[
+    {
+      id: "A",
+      label:
+        "It is tube coagulase-positive and slide coagulase-positive, identical to S. aureus",
+      feedback:
+        "Incorrect. S. lugdunensis is classified as a coagulase-negative staphylococcus and does not produce free coagulase. The tube coagulase test, which detects free (extracellular) coagulase that converts fibrinogen to fibrin in plasma, is negative. S. aureus is positive on both tube and slide tests because it produces both free and bound coagulase. S. lugdunensis differs critically: it has bound but not free coagulase-like activity.",
+    },
+    {
+      id: "B",
+      label:
+        "It is tube coagulase-negative but can be positive on slide coagulase and latex agglutination assays due to a surface-bound clumping factor protein called Fbl that binds fibrinogen",
+      correct: true,
+      feedback:
+        "Correct. This is the core diagnostic nuance. S. lugdunensis does not produce free coagulase, so the tube coagulase test is negative. However, it expresses a cell wall-anchored surface protein called Fbl (fibrinogen-binding protein of S. lugdunensis) that is structurally related to clumping factor A (ClfA) of S. aureus. Fbl binds the gamma chain of fibrinogen by the same dock-lock-latch mechanism used by ClfA. Because the slide coagulase test and many commercial latex agglutination kits detect bound clumping factor activity rather than free coagulase, S. lugdunensis can yield a positive result on these rapid tests, leading to misidentification as S. aureus. This is precisely why MALDI-TOF MS has transformed detection: it identifies S. lugdunensis accurately regardless of coagulase testing quirks, and one study showed its use increased identification by 18-fold.",
+    },
+    {
+      id: "C",
+      label:
+        "It is both tube and slide coagulase-negative, identical to all other coagulase-negative staphylococci",
+      feedback:
+        "Incorrect. This is the classic misconception. While S. lugdunensis is correctly classified as a CoNS based on its negative tube coagulase test, it differs from most other CoNS because it expresses the Fbl protein, which confers clumping factor activity. This means the slide coagulase test and latex agglutination can be positive. Before widespread MALDI-TOF MS adoption, this property caused S. lugdunensis to be misidentified as S. aureus, masking its true clinical incidence.",
+    },
+    {
+      id: "D",
+      label:
+        "It produces free coagulase that is only detectable after prolonged incubation beyond 48 hours",
+      feedback:
+        "Incorrect. S. lugdunensis does not produce free coagulase under any incubation conditions. Its classification as a coagulase-negative staphylococcus is not a timing artifact. The bound fibrinogen-binding protein Fbl is constitutively expressed and detectable on rapid slide and latex tests, while the tube test remains negative because there is no free enzyme to convert fibrinogen to fibrin in the plasma tube.",
+    },
+    {
+      id: "E",
+      label:
+        "It acquires coagulase production through horizontal transfer of the coa gene from S. aureus in vivo",
+      feedback:
+        "Incorrect. S. lugdunensis has a closed pangenome with strict barriers to horizontal gene transfer, including CRISPR/Cas loci and restriction-modification systems. It does not acquire the coa gene or any other virulence factor from S. aureus in vivo. Its virulence factors, including Fbl, are encoded within its own stable genome. This closed pangenome also explains why methicillin resistance in S. lugdunensis remains relatively uncommon compared to S. aureus and S. epidermidis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-staphylococcus-lugdunensis-endocarditis-q3"
+  title="Question 3"
+  prompt="The isolate is methicillin-susceptible. The patient remains febrile on vancomycin with a rising creatinine and worsening mitral regurgitation on repeat echocardiography. Cardiothoracic surgery is consulted. Which antibiotic regimen is most appropriate for definitive therapy?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Continue vancomycin for 6 weeks because it is active against coagulase-negative staphylococci and provides reliable coverage",
+      feedback:
+        "Incorrect. Vancomycin is a reasonable empiric choice when the methicillin susceptibility of a staphylococcal isolate is unknown, but once methicillin susceptibility is confirmed, a beta-lactam is preferred. Beta-lactams achieve faster bactericidal activity, higher cure rates, and lower mortality than vancomycin for methicillin-susceptible staphylococcal bacteremia and endocarditis. Additionally, this patient has worsening renal function, making continued vancomycin less attractive from a nephrotoxicity standpoint.",
+    },
+    {
+      id: "B",
+      label:
+        "Switch to nafcillin or cefazolin for at least 6 weeks, with early surgical evaluation for valve replacement",
+      correct: true,
+      feedback:
+        "Correct. For methicillin-susceptible S. lugdunensis endocarditis, the optimal definitive agent is an antistaphylococcal beta-lactam such as nafcillin, oxacillin, or cefazolin. Beta-lactams are bactericidal and achieve serum bactericidal titers far superior to vancomycin for MSSA and MSS CoNS. The duration should be at least 6 weeks for native-valve endocarditis. Equally important is the surgical consultation: S. lugdunensis endocarditis has a significantly higher rate of surgical valve replacement than S. aureus endocarditis in published series, with approximately half of patients requiring surgery due to progressive valvular destruction, heart failure, or uncontrolled infection. The clinical trajectory here (worsening regurgitation, rising creatinine suggesting possible renal embolization or cardiorenal physiology, and persistent fever) further supports early operative intervention.",
+    },
+    {
+      id: "C",
+      label:
+        "Switch to daptomycin 6 mg/kg/day because it is bactericidal and avoids beta-lactam toxicity",
+      feedback:
+        "Incorrect. Daptomycin is a reasonable alternative for MRSA or VISA bacteremia and endocarditis, and it is bactericidal, but it is not the preferred agent when the isolate is methicillin-susceptible. Antistaphylococcal beta-lactams outperform daptomycin for MSSA and methicillin-susceptible CoNS in terms of time to clearance and clinical outcomes. Daptomycin should be reserved for patients with genuine beta-lactam allergy or intolerance, not used as a first-line substitute for a confirmed susceptible organism.",
+    },
+    {
+      id: "D",
+      label:
+        "Start linezolid for 6 weeks because it provides excellent oral bioavailability and covers CoNS reliably",
+      feedback:
+        "Incorrect. Linezolid is a bacteriostatic oxazolidinone with excellent activity against staphylococci including S. lugdunensis, but it is not appropriate as primary therapy for endocarditis. Bacteriostatic agents are generally inferior to bactericidal agents for intravascular infections where rapid bacterial killing is essential to prevent ongoing valvular destruction and septic embolization. Linezolid has a role in oral step-down therapy for select infections or in salvage combinations, but it is not a first-line endocarditis agent.",
+    },
+    {
+      id: "E",
+      label:
+        "Use vancomycin plus rifampin for 6 weeks, mirroring the coagulase-negative staphylococcal prosthetic valve endocarditis regimen",
+      feedback:
+        "Incorrect. The vancomycin-plus-rifampin combination is the guideline-recommended regimen for coagulase-negative staphylococcal prosthetic valve endocarditis, where biofilm penetration and the prosthetic material context justify rifampin addition. This patient has native-valve endocarditis, and the organism is methicillin-susceptible, so a beta-lactam alone is sufficient without rifampin. Reflexively applying the CoNS PVE regimen to a native-valve infection misses both the antibiotic selection (beta-lactam preferred over vancomycin) and the clinical context (no prosthetic material requiring biofilm-directed therapy).",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-staphylococcus-lugdunensis-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Staphylococcus lugdunensis</em> was first described as a new species of coagulase-negative staphylococcus in 1988 by Freney and colleagues in Lyon, France. Its species name derives from <em>Lugdunum</em>, the Latin name for Lyon. It colonizes human skin, preferentially the lower trunk, inguinal folds, perineum, and the area beneath the large toenail, with reported colonization rates as high as 67% in some populations. This anatomic predilection explains why preceding inguinal or perineal skin and soft tissue infections are a characteristic clinical clue.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Among the coagulase-negative staphylococci, <em>S. lugdunensis</em> occupies a unique and dangerous position. Unlike <em>S. epidermidis</em> and most other CoNS, which cause indolent device-related or prosthetic infections, <em>S. lugdunensis</em> causes aggressive infections that clinically mimic <em>S. aureus</em>. Native-valve endocarditis is its most feared manifestation. Although it causes fewer than 1% of all infective endocarditis cases, published series report mortality rates reaching 40% and surgical valve replacement in approximately half of patients. The mitral valve is most commonly affected, and the infection progresses rapidly to leaflet destruction, perforation, and heart failure.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The key microbiologic teaching point is the coagulase trap. <em>S. lugdunensis</em> does not produce free coagulase, so the tube coagulase test is negative and the organism is correctly classified as a CoNS. However, it expresses a cell wall-anchored fibrinogen-binding protein called Fbl that is structurally and functionally related to clumping factor A (ClfA) of <em>S. aureus</em>. Fbl binds the gamma chain of fibrinogen through the same dock-lock-latch mechanism used by ClfA. Because slide coagulase tests and commercial latex agglutination kits detect bound clumping factor rather than free coagulase, <em>S. lugdunensis</em> can yield positive results on these rapid assays. Before the widespread adoption of MALDI-TOF MS, this property led to frequent misidentification as <em>S. aureus</em>, masking its true clinical incidence. One landmark study demonstrated that implementing MALDI-TOF MS increased identification of <em>S. lugdunensis</em> by a factor of 18.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism also possesses several other virulence factors that distinguish it from other CoNS. It adheres to von Willebrand factor on damaged endothelium under conditions of shear stress, a property that is unique among CoNS and critical for initiating endovascular infection. It encodes an iron-regulated surface determinant (Isd) system for heme acquisition that includes a novel energy-coupling factor transporter. It produces synergistic hemolytic peptides called SLUSH (S. lugdunensis synergistic hemolysins) that are related to phenol-soluble modulins of <em>S. aureus</em>. It survives within macrophage phagolysosomes without proliferating, a strategy fundamentally different from <em>S. aureus</em>, which actively grows and expresses leukotoxins that damage the phagosome membrane. Its pangenome is closed with strict barriers to horizontal gene transfer, including CRISPR/Cas loci, which likely explains why methicillin resistance remains relatively uncommon.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management of <em>S. lugdunensis</em> native-valve endocarditis follows the same principles as <em>S. aureus</em> endocarditis rather than other CoNS infections. When the isolate is methicillin-susceptible, an antistaphylococcal beta-lactam such as nafcillin, oxacillin, or cefazolin is the definitive agent of choice. Vancomycin should be used only while susceptibility is pending or when a genuine beta-lactam allergy exists. The duration is at least 6 weeks. Surgical consultation should be obtained early because the rate of valve replacement in <em>S. lugdunensis</em> endocarditis substantially exceeds that of <em>S. aureus</em> endocarditis in comparative studies.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-staphylococcus-lugdunensis-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Staphylococcus lugdunensis</em> is a coagulase-negative staphylococcus that causes aggressive native-valve endocarditis clinically resembling <em>S. aureus</em> rather than other CoNS.
+    </li>
+    <li>
+      It preferentially colonizes the inguinal fold, perineum, and lower body skin; preceding abscesses or skin infections at these sites are a characteristic epidemiologic clue.
+    </li>
+    <li>
+      The tube coagulase test is negative (no free coagulase), but the slide coagulase and latex agglutination tests can be positive because the Fbl surface protein binds fibrinogen, creating a diagnostic trap that mimics <em>S. aureus</em>.
+    </li>
+    <li>
+      MALDI-TOF MS has transformed detection, increasing <em>S. lugdunensis</em> identification 18-fold in one study; species-level identification of CoNS from blood cultures should never be assumed unnecessary.
+    </li>
+    <li>
+      Native-valve endocarditis caused by <em>S. lugdunensis</em> carries high mortality (up to 40%) and frequently requires surgical valve replacement (approximately 50% of cases).
+    </li>
+    <li>
+      When the isolate is methicillin-susceptible, definitive therapy is an antistaphylococcal beta-lactam (nafcillin, oxacillin, or cefazolin) for at least 6 weeks, not vancomycin.
+    </li>
+    <li>
+      CoNS growing in all blood culture sets from separate venipuncture sites in a patient with clinical endocarditis should never be dismissed as contamination without species-level identification and clinical correlation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Heilbronner S, Foster TJ. <em>Staphylococcus lugdunensis</em>: a skin commensal with invasive pathogenic potential. <em>Clinical Microbiology Reviews</em>. 2021;34(2):e00205-20.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00205-20"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.00205-20
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Liu PY, Huang YF, Tang CW, et al. <em>Staphylococcus lugdunensis</em> infective endocarditis: a literature review and analysis of risk factors. <em>Journal of Microbiology, Immunology, and Infection</em>. 2010;43(6):478-484.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1684-1182(10)60074-6"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1684-1182(10)60074-6
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Argemi X, Hansmann Y, Riegel P, Prevost G. Is <em>Staphylococcus lugdunensis</em> significant in clinical samples? <em>Journal of Clinical Microbiology</em>. 2017;55(11):3167-3174.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.00846-17"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.00846-17
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Elamin WF, Ball D, Millar M. Unbiased species-level identification of clinical isolates of coagulase-negative staphylococci: does it change the perspective on <em>Staphylococcus lugdunensis</em>? <em>Journal of Clinical Microbiology</em>. 2015;53(1):292-294.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.02932-14"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.02932-14
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Baddour LM, Wilson WR, Bayer AS, et al. Infective endocarditis in adults: diagnosis, antimicrobial therapy, and management of complications. <em>Circulation</em>. 2015;132(15):1435-1486.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1161/CIR.0000000000000296"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1161/CIR.0000000000000296
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Linz MS, Finkel D, Goshorn ES. <em>Staphylococcus lugdunensis</em> endocarditis presenting with brain abscesses and temporal vision deficits. <em>Case Reports in Infectious Diseases</em>. 2024;2024:4728700.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1155/2024/4728700"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1155/2024/4728700
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

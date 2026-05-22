@@ -1,0 +1,245 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-red-fog-over-san-francisco",
+  title: "The Red Fog Over San Francisco",
+  description:
+    "In 1950, the U.S. Navy sprayed a bright red bacterium over San Francisco to see how a biological weapon would spread through a city. The military thought the microbe was harmless. Eleven people ended up in Stanford Hospital. One of them died.",
+  publishedAt: "2026-05-22",
+  historicalDateLabel: "1950-1977",
+  historicalYearSort: 1950,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Serratia marcescens",
+    "Operation Sea-Spray",
+    "San Francisco",
+    "biological warfare",
+    "prodigiosin",
+    "Edward Nevin",
+    "Stanford Hospital",
+    "U.S. Navy",
+    "1950",
+    "Senate hearings",
+    "human experimentation",
+  ],
+  hook:
+    "The U.S. military collected a bacterium that makes colonies the color of fresh blood and pumped it into the air two miles off the coast of San Francisco. For six days in September 1950, a Navy minesweeper circled the Golden Gate while the wind carried a cloud of Serratia marcescens across the city. Within two weeks, an infection so rare that Stanford doctors had virtually never seen it before appeared in eleven patients. One of them died. The military had chosen Serratia because it was easy to spot on a plate and because, at the time, everyone agreed it could not make people sick. Both assumptions were correct. The third assumption was not.",
+  takeaway:
+    "Operation Sea-Spray was a secret 1950 Navy biological warfare simulation. Serratia marcescens was selected for its bright red pigment, which makes its colonies unmistakable on agar. The military also believed Serratia did not cause human disease. Eleven patients at Stanford Hospital developed Serratia infections shortly after the spraying, and Edward Nevin, a 75-year-old retired utility worker, died of Serratia endocarditis. The experiment stayed secret for 27 years. In 1977, Senate hearings disclosed that the military had conducted 239 open-air biological tests over American cities between 1949 and 1969. Nevin's family sued all the way to the Supreme Court and lost because they could not conclusively trace the bacteria that killed him to the Navy's ship.",
+  heroImage: "/historid/the-red-fog-over-san-francisco/hero.jpg",
+  heroImageAlt:
+    "Bright red colonies of Serratia marcescens growing on an agar plate. The red pigment prodigiosin is what made the bacterium useful for tracking the spread of the 1950 biological warfare test.",
+  heroImageCredit:
+    "Serratia marcescens on agar plate. Photo by ValeNtov.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Serratia_marcescens_on_agar_plate.jpg",
+  heroImageLicense: "CC BY-SA 4.0 via Wikimedia Commons",
+  socialHeadline: "The Red Fog Over San Francisco",
+  socialDek:
+    "In 1950, the U.S. Navy sprayed a red-pigmented bacterium over San Francisco to simulate a bioweapon attack. The military thought it was harmless. Eleven people ended up in Stanford Hospital. One died.",
+  socialFacts: [
+    "In 1950, the U.S. Navy sprayed Serratia marcescens over San Francisco from a minesweeper to test whether a port city could be attacked with a biological weapon from offshore.",
+    "Serratia was chosen because it produces prodigiosin, a bright red pigment. The color made it easy to trace in environmental samples. The military also believed it could not cause human disease.",
+    "Within two weeks, eleven patients checked into Stanford Hospital with Serratia infections. Doctors published it as the first documented outbreak. Edward Nevin, 75, died of Serratia endocarditis.",
+    "The experiment was kept secret for 27 years. In 1977, Senate hearings revealed the military had conducted 239 open-air biological tests on American soil between 1949 and 1969.",
+    "Nevin's widow sued the federal government. The case went to the Supreme Court and was dismissed because the family could not prove the Navy's Serratia was the same strain that killed their father.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    The U.S. military collected a bacterium that makes colonies the color
+    of fresh blood and pumped it into the air two miles off the coast of
+    San Francisco. For six days in September 1950, a Navy minesweeper
+    circled the Golden Gate while the wind carried a cloud of <em>Serratia
+    marcescens</em> across the city. The ship's crew operated spray
+    equipment on deck. On shore, the Army set up monitoring stations at 43
+    locations to measure where the cloud landed. They got their answer: the
+    bacteria blanketed a semicircle reaching Sausalito to the north, the
+    East Bay suburbs to the east, and Colma to the south. Nearly every one
+    of San Francisco's 800,000 residents inhaled at least 5,000 particles.
+    The test worked.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    World War II had ended five years earlier, and the Cold War was
+    tightening. U.S. military planners needed to know: if an enemy
+    approached a coastal city by ship and released a pathogen into the
+    onshore wind, how far would it travel? How many people would inhale
+    enough to get sick? No one had measured this before. The biological
+    weapons program at Fort Detrick, Maryland, had a list of candidate
+    simulants for open-air testing. <em>Serratia marcescens</em> was high
+    on the list for two reasons. First, its colonies glow a vivid red on
+    agar, the result of a pigment called prodigiosin. That meant
+    researchers could streak environmental samples onto plates and know
+    within hours where their spray had settled. Second, medical textbooks
+    at the time classified <em>Serratia</em> as a harmless saprophyte, a
+    microbe that lived in soil and water and occasionally turned stale
+    bread red. It was not considered a human pathogen. The military called
+    the test Operation Sea-Spray.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    On October 11, 1950, roughly two weeks after the spraying ended, eleven
+    patients walked into the old Stanford University Hospital in San
+    Francisco with unusual urinary tract infections. The cultures grew red
+    colonies. The organism was <em>Serratia marcescens</em>. The outbreak
+    was so anomalous that the Stanford physicians investigated it
+    extensively, trying to figure out how a bacterium considered harmless
+    had caused a cluster of invasive infections in a single hospital. Ten
+    patients recovered after treatment. One did not. Edward J. Nevin III,
+    a 75-year-old retired Pacific Gas and Electric worker, was recovering
+    from prostate surgery when <em>Serratia</em> reached his heart valves.
+    He died in November 1950 of bacterial endocarditis.
+  </p>
+
+  <p>
+    The Stanford doctors published the cluster as the first documented
+    outbreak of <em>Serratia marcescens</em> infection in humans. They had
+    no way of knowing that a Navy ship had sprayed billions of the same
+    organism over their city a few weeks earlier. No military official had
+    notified the city's health department. No civilian doctor had been
+    warned.
+  </p>
+
+  <p>
+    The secret held for a generation. In 1976, the <em>San Francisco
+    Chronicle</em> science writer David Perlman reported on a series of
+    declassified documents revealing that the Army had conducted
+    biological warfare tests over populated American cities. The following
+    year, the U.S. Senate Subcommittee on Health and Scientific Research
+    held hearings. Army officials disclosed that between 1949 and 1969,
+    they had run 239 open-air tests with live bacteria or inert simulants
+    over cities including San Francisco, New York, Washington, D.C., and
+    locations along the Pennsylvania Turnpike. In New York, military
+    researchers dropped lightbulbs filled with bacteria onto subway tracks
+    in 1966. At Washington's National Airport, passengers were exposed
+    during a mock attack and traveled to 39 cities before the bacteria
+    were detected.
+  </p>
+
+  <p>
+    In 1981, Nevin's surviving family sued the federal government for
+    negligence. They argued that the Navy had caused Edward Nevin's death
+    by blanketing the city with an organism it had failed to understand.
+    The case worked its way to the U.S. Supreme Court. The court declined
+    to hear it, letting stand a lower court ruling that the family could
+    not prove the specific bacteria that killed Nevin came from the Navy's
+    ship, as opposed to another environmental source.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Before Operation Sea-Spray, <em>Serratia marcescens</em> was a
+    microbiological curiosity. After the spraying and the subsequent
+    outbreak, it became something else. The Stanford cluster alerted the
+    medical community that an organism widely considered nonpathogenic
+    could, under the right conditions, cause invasive disease. Over the
+    following decades, <em>Serratia</em> established itself as a
+    significant nosocomial pathogen, particularly in intensive care units
+    and among immunocompromised patients. By 2001, a compounding pharmacy
+    in Walnut Creek, California, would contaminate spinal injections with
+    <em>Serratia</em>, killing three people and hospitalizing ten. By
+    2004, contamination with the same organism would force Chiron
+    Corporation to discard its entire U.S. flu vaccine supply.
+  </p>
+
+  <p>
+    The broader change was in the oversight of human subjects research.
+    The 1977 Senate hearings, combined with the revelations of the
+    Tuskegee syphilis study in 1972, drove the formalization of informed
+    consent and institutional review requirements for government-funded
+    research. The notion that the military could spray bacteria over a
+    civilian population without notification became legally and ethically
+    untenable.
+  </p>
+
+  <h2>Why the red fog still matters now</h2>
+  <p>
+    Every time an ID physician treats a <em>Serratia marcescens</em>
+    bloodstream infection in an ICU patient, the organism on the plate is
+    a descendant of the same species that drifted over San Francisco in
+    1950. Some microbiologists believe the Operation Sea-Spray spraying
+    permanently altered the Bay Area's microbial ecology, introducing a
+    strain that established itself in the local environment and continues
+    to cause infections today. The hypothesis is difficult to prove
+    without genomic comparison between the 1950 military strain and
+    contemporary clinical isolates. But the idea that a single secret
+    experiment could change the microbiology of a metropolitan region for
+    decades is not a fringe position among infectious disease
+    epidemiologists who have studied the event.
+  </p>
+
+  <p>
+    The story holds a narrower lesson too. <em>Serratia marcescens</em> was
+    picked for a weapons test because it was colorful and thought
+    harmless. The color made it traceable. The harmlessness was a
+    provisional judgment, not a fact, and it was wrong. That pattern of
+    mistaking tractability for safety has recurred in microbiology. Every
+    time a lab synthesizes a novel pathogen or a research team enhances a
+    virus for gain-of-function study, the same calculus is being
+    performed: we need something we can track, and we believe it will not
+    cause harm. The red fog over San Francisco is what happens when the
+    second half of that equation is wrong.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Cole LA. <em>Clouds of Secrecy: The Army's Germ Warfare Tests Over
+        Populated Areas</em>. Rowman and Littlefield; 1988:75-84.
+      </p>
+    </li>
+    <li>
+      <p>
+        Wheat RP, Zuckerman A, Rantz LA. Infection due to chromobacteria:
+        report of eleven cases. <em>AMA Arch Intern Med</em>.
+        1951;88(4):461-466.
+      </p>
+      <p>
+        <a href="https://www.doi.org/10.1001/archinte.1951.03810100042004" target="_blank" rel="noreferrer">
+          DOI: 10.1001/archinte.1951.03810100042004
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        U.S. Senate, Subcommittee on Health and Scientific Research,
+        Committee on Human Resources. <em>Biological Testing Involving
+        Human Subjects by the Department of Defense</em>. 95th Congress,
+        1st Session. Washington, DC: U.S. Government Printing Office;
+        1977.
+      </p>
+      <p>
+        <a href="https://babel.hathitrust.org/cgi/pt?id=mdp.39015005321081" target="_blank" rel="noreferrer">
+          Link: HathiTrust Digital Library
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Regis E. <em>The Biology of Doom: America's Secret Germ Warfare
+        Project</em>. Diane Publishing; 1999.
+      </p>
+    </li>
+    <li>
+      <p>
+        Tansey B. Serratia has dark history in region: Army test in 1950
+        may have changed microbial ecology. <em>San Francisco
+        Chronicle</em>. October 31, 2004.
+      </p>
+      <p>
+        <a href="https://www.sfgate.com/health/article/Serratia-has-dark-history-in-region-Army-test-2677623.php" target="_blank" rel="noreferrer">
+          Link: SFGATE article
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>
