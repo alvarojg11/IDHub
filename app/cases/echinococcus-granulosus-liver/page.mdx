@@ -1,0 +1,334 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("echinococcus-granulosus-liver");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Daughter Within
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old woman from rural Patagonia, Argentina, who has lived in the United States for six years presents to her primary care physician with three months of intermittent right upper quadrant fullness and mild discomfort. She grew up on a sheep farm where her family kept working dogs that herded livestock and had free access to the animals' viscera at slaughter. She recalls no acute illness during childhood.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile, hemodynamically stable, and has mild right upper quadrant tenderness without guarding or palpable mass. Liver function tests show total bilirubin 0.7 mg/dL, alkaline phosphatase 98 U/L, ALT 42 U/L, and AST 38 U/L. Complete blood count and basic metabolic panel are unremarkable, with a normal eosinophil count.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Abdominal ultrasound reveals a 12 cm well-defined cystic lesion in the right hepatic lobe with multiple smaller peripheral cystic structures within it, creating a characteristic spoke-wheel or rosette pattern. No biliary ductal dilatation is seen. Contrast-enhanced CT of the abdomen confirms a 12.4 x 10.8 cm multiloculated cystic lesion in hepatic segments VII and VIII containing numerous rounded daughter cysts of varying size along the periphery, with a thin curvilinear calcification along portions of the wall. The cyst wall does not enhance after contrast administration. No solid enhancing component is identified. The remainder of the liver, biliary tree, and pancreas are normal.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Echinococcus</em> IgG ELISA returns positive. Western blot confirms specific reactivity with the arc 5 antigen. The surgical team plans CT-guided percutaneous aspiration of the cyst for definitive histopathologic diagnosis.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/echinococcus-granulosus-liver/ct-abdomen.jpg"
+        alt="Contrast-enhanced CT of the abdomen showing a large multiloculated hepatic cyst with peripheral daughter cysts"
+        width={778}
+        height={433}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Contrast-enhanced CT abdomen demonstrating a large multiloculated hepatic cyst with characteristic peripheral daughter cysts in a spoke-wheel pattern. Image from Alshoabi et al., Diagnostics, 2023, CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-echinococcus-granulosus-liver-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Biliary cystadenoma with intra-cystic hemorrhage",
+      feedback:
+        "Incorrect. Biliary cystadenomas are rare neoplastic cysts that can appear multiloculated, but they typically occur in middle-aged women and present as a solitary cystic mass with internal septations and sometimes enhancing mural nodules. They do not contain the classic daughter cysts within a mother cyst that are seen here, and they are not associated with the patient's sheep-farming and dog-exposure background. The spoke-wheel pattern of smaller cysts arranged peripherally within a larger cyst, the lack of enhancing components, and the positive Echinococcus serology all point away from a cystadenoma.",
+    },
+    {
+      id: "B",
+      label:
+        "Alveolar echinococcosis caused by Echinococcus multilocularis",
+      feedback:
+        "Incorrect. Alveolar echinococcosis caused by E. multilocularis is an important differential, but it has a distinctly different radiologic appearance. E. multilocularis produces infiltrative, poorly defined hepatic lesions with microcalcifications, central necrosis, and irregular margins that mimic cholangiocarcinoma or hepatocellular carcinoma. It does not produce well-circumscribed cystic structures with organized daughter cysts. The organism's lifecycle also involves foxes and small rodents, not the dog-sheep cycle described here. The circumscribed multiloculated cyst with daughter cysts and calcified rim is characteristic of cystic echinococcosis caused by E. granulosus.",
+    },
+    {
+      id: "C",
+      label:
+        "Cystic echinococcosis caused by Echinococcus granulosus, WHO-IWGE stage CE2",
+      correct: true,
+      feedback:
+        "Correct. The combination of a sheep-farming background with dog exposure in Patagonia (a hyperendemic region), a large well-circumscribed hepatic cyst containing multiple daughter cysts in a rosette or spoke-wheel arrangement, curvilinear wall calcification, non-enhancing cyst wall, positive Echinococcus IgG ELISA confirmed by arc 5 antigen on Western blot, and absence of an infiltrative growth pattern establishes the diagnosis of cystic echinococcosis caused by Echinococcus granulosus. Per the WHO Informal Working Group on Echinococcosis (WHO-IWGE) classification, this multivesicular cyst with daughter cysts corresponds to stage CE2, which is an active cyst requiring intervention.",
+    },
+    {
+      id: "D",
+      label:
+        "Simple hepatic cyst with superimposed hemorrhage and organized clot",
+      feedback:
+        "Incorrect. Simple hepatic cysts are common, usually small, unilocular, and anechoic on ultrasound with thin imperceptible walls. When hemorrhage occurs, it can produce internal echoes or fluid levels, but it does not create organized smaller cysts arranged in a spoke-wheel pattern within the mother cyst. The daughter cysts seen here are rounded, well-defined cystic structures within the main cyst, which is a pathognomonic feature of cystic echinococcosis and cannot be mimicked by hemorrhage into a simple cyst.",
+    },
+    {
+      id: "E",
+      label:
+        "Amebic liver abscess in a chronic encapsulated phase",
+      feedback:
+        "Incorrect. Amebic liver abscess caused by Entamoeba histolytica typically presents as a solitary, often large, hypoechoic or complex cystic lesion in the right hepatic lobe. Chronic encapsulated abscesses can develop thickened walls and may appear cystic, but they do not contain the organized daughter cysts that are the hallmark of echinococcal disease. Amebic abscesses are also associated with travel to or residence in tropical regions with poor sanitation, fever, and right upper quadrant pain, and they would not produce the specific Echinococcus arc 5 reactivity on Western blot. The clinical context and imaging features are inconsistent with amebic disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-echinococcus-granulosus-liver-q2"
+  title="Question 2"
+  prompt="The surgical team proposes CT-guided percutaneous aspiration of the cyst for histopathologic diagnosis. What is the most important concern with proceeding?"
+  options={[
+    {
+      id: "A",
+      label:
+        "The cyst wall is likely to collapse during aspiration, making histologic interpretation impossible",
+      feedback:
+        "Incorrect. Cyst wall collapse is not the primary concern. The cyst wall in echinococcosis consists of the host-derived pericyst (fibrous tissue), the parasite-derived laminated membrane, and the inner germinal membrane. These structures are robust enough that collapse during aspiration is not the dominant risk. The critical danger lies elsewhere: uncontrolled release of cyst contents into the peritoneal cavity and bloodstream.",
+    },
+    {
+      id: "B",
+      label:
+        "The lesion is likely sterile, so aspiration will not yield diagnostic material",
+      feedback:
+        "Incorrect. Active CE2 cysts contain viable protoscolices, germinal membrane, and daughter cysts — the lesion is far from sterile. Aspiration would in fact yield diagnostic material, including protoscolices with characteristic rostellar hooklets that confirm the diagnosis. The problem is not that the aspiration would be unproductive but that it would be dangerous.",
+    },
+    {
+      id: "C",
+      label:
+        "Hemorrhage from the pericyst vasculature is the primary life-threatening risk",
+      feedback:
+        "Incorrect. The pericyst is a host-derived fibrous capsule formed by the liver in response to the slowly growing parasite. It does have a blood supply, but significant hemorrhage from percutaneous needle insertion is uncommon and manageable. The pericyst actually provides a buffer between the parasitic cyst contents and the host tissue. The life-threatening risks of uncontrolled aspiration are immunologic and parasitologic, not hemorrhagic.",
+    },
+    {
+      id: "D",
+      label:
+        "Uncontrolled aspiration risks anaphylaxis from sudden antigenic cyst fluid release and peritoneal seeding with viable protoscolices",
+      correct: true,
+      feedback:
+        "Correct. This is the cardinal rule of cystic echinococcosis: never perform uncontrolled percutaneous aspiration of a suspected hydatid cyst. The risks are threefold. First, cyst fluid contains highly antigenic parasitic proteins; sudden release into the peritoneal cavity or bloodstream can trigger life-threatening anaphylactic shock, with reported fatalities in case series. Second, the cyst fluid contains viable protoscolices that, if spilled into the peritoneal cavity, can implant on serosal surfaces and develop into secondary echinococcal cysts throughout the abdomen — a condition called secondary echinococcosis that is often more difficult to treat than the original disease. Third, protoscolices deposited along the needle tract can cause recurrent disease at the puncture site. These risks are precisely why the PAIR protocol (puncture, aspiration, injection of scolecidal agent, re-aspiration) was developed: it controls the release of cyst contents by injecting a scolecidal agent such as hypertonic saline or ethanol to kill protoscolices in situ before the cyst is fully evacuated.",
+    },
+    {
+      id: "E",
+      label:
+        "CT guidance is inadequate for this lesion; ultrasound guidance is required for cyst aspiration procedures",
+      feedback:
+        "Incorrect. Both CT and ultrasound guidance are used for percutaneous procedures on hepatic hydatid cysts, and the choice of imaging modality depends on the cyst location, operator expertise, and institutional preference. CT provides excellent anatomic detail for planning the needle trajectory and avoiding critical structures. The danger lies not in the imaging guidance method but in the uncontrolled nature of the aspiration itself.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-echinococcus-granulosus-liver-q3"
+  title="Question 3"
+  prompt="According to the WHO-IWGE stage-specific management framework, which treatment approach is most appropriate for this patient's cyst?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Albendazole monotherapy for 6 months without procedural intervention, because the cyst is unruptured and the patient is asymptomatic",
+      feedback:
+        "Incorrect. Albendazole monotherapy is reserved for small CE1 cysts less than 5 cm and for patients who are not candidates for any procedural intervention. This patient has a 12 cm CE2 cyst with daughter cysts, which is an active lesion that requires procedural treatment in addition to medical therapy. Albendazole alone does not reliably eradicate cysts of this size and complexity. The WHO-IWGE framework recommends procedural intervention — either percutaneous or surgical — for CE2 cysts, combined with albendazole coverage.",
+    },
+    {
+      id: "B",
+      label:
+        "Albendazole started preoperatively, followed by surgical resection, because the CE2 stage with daughter cysts cannot be adequately evacuated by percutaneous methods",
+      correct: true,
+      feedback:
+        "Correct. The WHO-IWGE stage-specific approach assigns CE2 cysts — multivesicular cysts with daughter cysts — to the surgical treatment category. The critical reason is that percutaneous methods such as PAIR (puncture, aspiration, injection, re-aspiration) cannot reliably evacuate all daughter cyst compartments within the mother cyst. Daughter cysts are separate structures with their own walls; a catheter placed into the main cyst cavity may not drain them completely, and residual daughter cysts can contain viable protoscolices that lead to recurrence. Surgical management allows complete removal of the cyst contents, including all daughter cysts, with direct visualization of the cyst cavity. Albendazole should be started at least 4 days before the surgical procedure and continued for 1 to 3 months afterward to reduce the risk of recurrence from any residual or spilled protoscolices. The dose is 10 to 15 mg/kg/day in two divided doses taken with a fatty meal to maximize absorption.",
+    },
+    {
+      id: "C",
+      label:
+        "PAIR with albendazole cover, because PAIR is the standard first-line approach for all active echinococcal cysts",
+      feedback:
+        "Incorrect. PAIR is not the standard approach for all active cysts. The WHO-IWGE framework explicitly limits PAIR to CE1 cysts 5 cm or larger and CE3a cysts with a detached laminated membrane. CE2 cysts with daughter cysts and CE3b cysts with a solid matrix containing daughter cysts are not amenable to PAIR because the multivesicular structure prevents complete percutaneous evacuation. Applying PAIR to a CE2 cyst would leave residual daughter cysts in place, which may contain viable protoscolices and lead to treatment failure and recurrence. Surgery is the recommended approach for CE2 and CE3b cysts.",
+    },
+    {
+      id: "D",
+      label:
+        "Watchful waiting with serial ultrasound surveillance, because the curvilinear calcification indicates the cyst is involuting",
+      feedback:
+        "Incorrect. Watchful waiting with serial ultrasound follow-up is the correct approach for inactive cysts classified as CE4 (heterogeneous, no daughter cysts) or CE5 (thick calcified wall) in the WHO-IWGE system. This patient's cyst contains multiple daughter cysts, which is the defining feature of CE2, an active stage. Curvilinear calcification can be present in any stage and does not by itself indicate inactivity. The presence of daughter cysts and the large size of this lesion clearly place it in an active category requiring intervention.",
+    },
+    {
+      id: "E",
+      label:
+        "Praziquantel as a single dose followed by percutaneous drainage without scolecidal agent instillation",
+      feedback:
+        "Incorrect. Praziquantel is an adjunctive agent used preoperatively at a single dose of 40 mg/kg to damage protoscolices and reduce the risk of secondary echinococcosis if intraoperative spillage occurs. It is not a primary treatment for hepatic cysts and should not replace albendazole or procedural management. Furthermore, performing percutaneous drainage without injecting a scolecidal agent such as hypertonic saline or ethanol would leave viable protoscolices in the cyst cavity, increasing the risk of recurrence and secondary seeding. The correct approach for a CE2 cyst is surgical resection with albendazole coverage, not percutaneous drainage with praziquantel alone.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-echinococcus-granulosus-liver-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Echinococcus granulosus</em> sensu stricto is a small tapeworm maintained in a dog–sheep–dog life cycle. The definitive host — most commonly the domestic dog — harbors the adult tapeworm in the small intestine and sheds eggs in feces. Sheep and other livestock ingest these eggs on pasture; the eggs release oncospheres that penetrate the intestinal wall, enter the portal circulation, and lodge predominantly in the liver, where they develop into hydatid cysts over months to years. When a dog ingests infected offal containing cysts with protoscolices, the cycle completes as protoscolices develop into adult tapeworms. Humans are accidental intermediate hosts who acquire infection by ingesting eggs from contaminated food, water, soil, or direct hand-to-mouth contact with infected dogs. Person-to-person transmission does not occur.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The hydatid cyst has three layers: the outer pericyst, which is a host-derived fibrous capsule; the middle laminated membrane, which is an acellular chitin-like layer produced by the parasite that allows nutrient passage while protecting the cyst from host immune attack; and the inner germinal membrane, which gives rise to brood capsules containing protoscolices. Daughter cysts develop when brood capsules detach and form independent cystic structures within the mother cyst, creating the characteristic multivesicular or rosette appearance seen on imaging.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The WHO Informal Working Group on Echinococcosis (WHO-IWGE) classification system is the standard framework for staging hepatic cystic echinococcosis and guiding management decisions. Cysts are classified as CE1 through CE5 based on ultrasound morphology. CE1 cysts are active, unilocular, anechoic lesions with a double-wall sign. CE2 cysts are active, multivesicular lesions containing daughter cysts in a rosette or spoke-wheel pattern — which is what this patient has. CE3a cysts are transitional, with a detached laminated membrane producing the water lily sign. CE3b cysts are transitional, with a solid matrix and daughter cysts. CE4 cysts are inactive, with heterogeneous contents and no daughter cysts. CE5 cysts are inactive, with a thick calcified wall. Active and transitional cysts require treatment; inactive cysts (CE4 and CE5) are managed with watchful waiting and serial ultrasound surveillance.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The management of cystic echinococcosis is stage-specific, and this principle is the most important clinical takeaway. For CE1 cysts smaller than 5 cm, albendazole monotherapy for 6 months may be sufficient. For CE1 cysts 5 cm or larger and CE3a cysts, the PAIR procedure (puncture, aspiration, injection of scolecidal agent, re-aspiration) combined with albendazole cover is the preferred approach. PAIR uses a controlled, staged protocol: the cyst is punctured under imaging guidance, fluid is aspirated, a scolecidal agent such as 20% hypertonic saline or 95% ethanol is injected to kill protoscolices in situ, and the agent is then re-aspirated. Albendazole is started 4 days before the procedure and continued for 1 to 3 months afterward.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CE2 and CE3b cysts, however, are not amenable to PAIR because the multivesicular structure prevents complete evacuation of all daughter cyst compartments. Residual daughter cysts may contain viable protoscolices that lead to recurrence. For these stages, surgical management is preferred, allowing complete removal of the cyst contents with direct visualization. Albendazole coverage before and after surgery follows the same timeline as for PAIR.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The cardinal contraindication to PAIR beyond cyst type is biliary communication. If the cyst communicates with the biliary tree, injecting a scolecidal agent such as hypertonic saline or ethanol into the cyst will cause sclerosing cholangitis — a devastating complication. For this reason, the aspirated fluid should be checked for bilirubin before any scolecidal agent is injected. A bilirubin concentration in the aspirate approaching the serum level confirms a cysto-biliary fistula and precludes the injection step.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Albendazole is the cornerstone of medical therapy. The dose is 10 to 15 mg/kg/day divided into two doses, up to a maximum of 800 mg/day. Absorption is dramatically enhanced by taking the drug with a fatty meal, increasing bioavailability approximately 4 to 5 fold, because albendazole is poorly soluble and requires bile-mediated dissolution. Monitoring includes liver function tests every 2 weeks for the first 2 months and then monthly, along with complete blood counts to detect hepatotoxicity and the rare but serious complication of neutropenia.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Praziquantel has a limited role in cystic echinococcosis. A single dose of 40 mg/kg is sometimes given preoperatively to damage protoscolices and reduce the risk of secondary echinococcosis in case of intraoperative spillage, but it is not a primary treatment. Its primary veterinary and public health role is in deworming definitive hosts — dogs — to interrupt the transmission cycle at the population level.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-echinococcus-granulosus-liver-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Echinococcus granulosus</em> is maintained in a dog–sheep–dog life cycle; humans are accidental dead-end intermediate hosts who ingest eggs from canid feces. Person-to-person transmission does not occur.
+    </li>
+    <li>
+      The WHO-IWGE classifies cysts CE1 through CE5: active cysts (CE1, CE2) and transitional cysts (CE3a, CE3b) require treatment; inactive cysts (CE4, CE5) are managed with watchful waiting.
+    </li>
+    <li>
+      Uncontrolled percutaneous aspiration of a hydatid cyst risks anaphylaxis from antigenic cyst fluid release, peritoneal seeding with viable protoscolices, and needle tract seeding — never aspirate without a controlled PAIR protocol.
+    </li>
+    <li>
+      PAIR is indicated for CE1 cysts 5 cm or larger and CE3a cysts; CE2 and CE3b cysts with daughter cysts require surgery because percutaneous evacuation cannot remove all daughter cyst compartments.
+    </li>
+    <li>
+      Albendazole 10–15 mg/kg/day divided BID must be taken with a fatty meal (absorption increases 4–5 fold); start 4 days before any procedure and continue 1–3 months after; monitor LFTs and CBC.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Brunetti E, Kern P, Vuitton DA. Expert consensus for diagnosis and treatment of cystic and alveolar echinococcosis in humans. <em>Acta Tropica</em>. 2010;114(1):1-16.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.actatropica.2009.11.001"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.actatropica.2009.11.001
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. WHO guidelines for the treatment of patients with cystic echinococcosis. Geneva: WHO; 2025.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Alshoabi SA, Al-Zahrani HM, Baessa EM, et al. Hydatid disease: a radiological pictorial review. <em>Diagnostics</em>. 2023;13(6):1127.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/diagnostics13061127"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3390/diagnostics13061127
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stojkovic M, Zwahlen M, Teggi A, et al. Treatment response of cystic echinococcosis to benzimidazoles: a systematic review. <em>PLoS Neglected Tropical Diseases</em>. 2009;3(9):e524.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pntd.0000524"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1371/journal.pntd.0000524
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Neumayr A, Troia G, de Bernardo C, et al. Justified concern or exaggerated fear: the risk of anaphylaxis in percutaneous treatment of cystic echinococcosis. <em>PLoS Neglected Tropical Diseases</em>. 2011;5(6):e1154.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1371/journal.pntd.0001154"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1371/journal.pntd.0001154
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

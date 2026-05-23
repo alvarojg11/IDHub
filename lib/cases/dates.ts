@@ -352,6 +352,14 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-05-22T08:00:00-07:00",
     modifiedAt: "2026-05-22T08:00:00-07:00",
   },
+  "klebsiella-aerogenes-ampc-cholangitis": {
+    publishedAt: "2026-05-23T08:00:00-07:00",
+    modifiedAt: "2026-05-23T08:00:00-07:00",
+  },
+  "echinococcus-granulosus-liver": {
+    publishedAt: "2026-05-24T08:00:00-07:00",
+    modifiedAt: "2026-05-24T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {

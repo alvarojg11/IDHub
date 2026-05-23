@@ -1,0 +1,354 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("klebsiella-aerogenes-ampc-cholangitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Report Said Susceptible
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 67-year-old woman with pancreatic adenocarcinoma diagnosed three months ago presents to the emergency department with two days of fever, right upper quadrant pain, jaundice, and rigors. She underwent endoscopic retrograde cholangiopancreatography (ERCP) with biliary stent placement for malignant distal common bile duct stricture seven weeks ago. A second ERCP with stent exchange was performed two weeks ago for recurrent jaundice. She completed a 7-day course of levofloxacin after the first ERCP but has received no antibiotics since.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination her temperature is 39.4 C, heart rate 124/min, blood pressure 82/50 mmHg, respiratory rate 22/min, and oxygen saturation 97% on room air. She is icteric, diaphoretic, and diffusely tender in the right upper quadrant with voluntary guarding. There is no peritoneal sign. A right internal biliary stent is known to be in place.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 18.6 x 10^3/uL with 84% neutrophils and 8% bands, total bilirubin 6.8 mg/dL (direct 5.4), alkaline phosphatase 384 U/L, ALT 112 U/L, AST 98 U/L, creatinine 1.4 mg/dL (baseline 0.8), lactate 4.2 mmol/L, and C-reactive protein 196 mg/L. CT abdomen shows a patent biliary stent with upstream intrahepatic and extrahepatic ductal dilatation, periductal stranding, and a small amount of perihepatic fluid consistent with cholangitis.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blood cultures are drawn and empiric piperacillin-tazobactam is started. ERCP with stent exchange and biliary drainage is performed urgently. On hospital day 2, both blood culture sets grow gram-negative bacilli. The organism is identified by MALDI-TOF MS as <em>Klebsiella aerogenes</em> (formerly <em>Enterobacter aerogenes</em>).
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Antimicrobial susceptibility testing returns on hospital day 3:
+  </p>
+  <ul className="list-disc pl-8 text-lg leading-7 text-gray-800 space-y-1 mb-6">
+    <li>Ampicillin/sulbactam: <strong>Resistant</strong></li>
+    <li>Piperacillin/tazobactam: Susceptible (MIC {"<="} 8)</li>
+    <li>Ceftriaxone: Susceptible (MIC {"<="} 1)</li>
+    <li>Ceftazidime: Susceptible (MIC 2)</li>
+    <li>Cefepime: <strong>Susceptible-dose dependent</strong> (MIC 4 mcg/mL)</li>
+    <li>Aztreonam: Susceptible (MIC 2)</li>
+    <li>Ertapenem: Susceptible (MIC {"<="} 0.5)</li>
+    <li>Meropenem: Susceptible (MIC {"<="} 0.25)</li>
+    <li>Gentamicin: Susceptible</li>
+    <li>Ciprofloxacin: Resistant</li>
+    <li>Levofloxacin: Resistant</li>
+    <li>Trimethoprim/sulfamethoxazole: Susceptible</li>
+  </ul>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The patient remains on piperacillin-tazobactam. She is afebrile after ERCP and source control, hemodynamically improved on intravenous fluids, and her bilirubin is trending down. The primary team reviews the susceptibility report and considers narrowing from piperacillin-tazobactam to ceftriaxone, which the report lists as susceptible.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/klebsiella-aerogenes-ampc-cholangitis/gram-stain.jpg"
+        alt="Gram stain of Klebsiella aerogenes demonstrating gram-negative bacilli"
+        width={1280}
+        height={945}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Gram stain demonstrating gram-negative bacilli from blood culture. Image by Riraq25, CC BY-SA 3.0, via Wikimedia Commons.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-klebsiella-aerogenes-ampc-cholangitis-q1"
+  title="Question 1"
+  prompt="Which resistance mechanism is the primary concern with this organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Carbapenemase production, specifically KPC",
+      feedback:
+        "Incorrect. KPC carbapenemases are a major resistance concern in Enterobacterales, but this isolate is susceptible to both ertapenem and meropenem with low MICs, which excludes carbapenemase production. Carbapenemase-producing organisms typically demonstrate elevated carbapenem MICs or frank resistance. The susceptibility profile here points away from a carbapenemase and toward the organism's intrinsic chromosomal AmpC mechanism.",
+    },
+    {
+      id: "B",
+      label:
+        "Porin loss combined with efflux pump upregulation",
+      feedback:
+        "Incorrect. Porin loss and efflux upregulation are important resistance mechanisms, particularly in Pseudomonas aeruginosa, and can contribute to carbapenem and beta-lactam resistance in Enterobacterales as accessory mechanisms. However, they are not the primary concern with Klebsiella aerogenes, and the carbapenem MICs here are very low, which argues against significant porin loss. The defining resistance concern for K. aerogenes is its chromosomal AmpC, not membrane-based permeability changes.",
+    },
+    {
+      id: "C",
+      label:
+        "Acquired CTX-M extended-spectrum beta-lactamase",
+      feedback:
+        "Incorrect. CTX-M ESBLs are the most common acquired ESBLs in Enterobacterales and produce resistance to third-generation cephalosporins. However, this isolate is susceptible to ceftriaxone (MIC less than or equal to 1), which is inconsistent with an ESBL-producing phenotype. The more relevant concern with Klebsiella aerogenes is not an acquired ESBL but its chromosomally encoded inducible AmpC beta-lactamase, which does not necessarily cause baseline resistance on the susceptibility report but can be selected for and derepressed during therapy, leading to clinical failure even when the initial report shows susceptibility to third-generation cephalosporins.",
+    },
+    {
+      id: "D",
+      label:
+        "Altered penicillin-binding proteins reducing beta-lactam affinity",
+      feedback:
+        "Incorrect. Altered PBPs are the primary mechanism of methicillin resistance in staphylococci (mecA-encoded PBP2a) and ampicillin resistance in Enterococcus faecium (low-affinity PBP5). They are not the primary beta-lactam resistance mechanism in Klebsiella aerogenes. The relevant mechanism in K. aerogenes is enzymatic hydrolysis by the inducible chromosomal AmpC beta-lactamase, not target-site modification.",
+    },
+    {
+      id: "E",
+      label:
+        "Inducible chromosomal AmpC beta-lactamase with risk of derepression during beta-lactam therapy",
+      correct: true,
+      feedback:
+        "Correct. Klebsiella aerogenes (formerly Enterobacter aerogenes) carries a chromosomally encoded inducible AmpC beta-lactamase gene regulated by the AmpR transcriptional regulator. Under basal conditions, AmpC expression is low and the organism may appear susceptible to third-generation cephalosporins and piperacillin-tazobactam on standard susceptibility testing. However, exposure to certain beta-lactams, particularly third-generation cephalosporins, can destabilize the repressor function and select for stably derepressed mutants that constitutively overproduce AmpC. These mutants emerge at rates of approximately 10 to the minus 6 to 10 to the minus 7 per cell division and cause clinical failure during what initially appeared to be appropriate therapy. This is precisely why the 2024 IDSA guidance classifies K. aerogenes as a moderate-risk organism for clinically significant AmpC production and recommends against relying on third-generation cephalosporins for invasive infections caused by this group.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-klebsiella-aerogenes-ampc-cholangitis-q2"
+  title="Question 2"
+  prompt="Which feature of this susceptibility report most strongly signals the need for caution when selecting a beta-lactam?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Ceftriaxone is reported susceptible, so ceftriaxone is the safest narrowest-spectrum choice",
+      feedback:
+        "Incorrect. This is the central trap. Ceftriaxone susceptibility on the report does not make ceftriaxone a safe or reliable choice for invasive Klebsiella aerogenes infection. The organism's inducible chromosomal AmpC may not cause baseline resistance detectable by standard susceptibility testing, but third-generation cephalosporins are potent inducers of AmpC expression and select for stably derepressed mutants at high frequency during therapy. Clinical failures with emergence of resistance on ceftriaxone therapy for Enterobacter, Klebsiella aerogenes, and Citrobacter infections have been documented repeatedly. The 2024 IDSA guidance explicitly addresses this scenario and recommends against third-generation cephalosporins for invasive infections caused by these moderate-risk AmpC organisms, regardless of the susceptibility result.",
+    },
+    {
+      id: "B",
+      label:
+        "Piperacillin-tazobactam susceptibility confirms that AmpC is not a concern",
+      feedback:
+        "Incorrect. Piperacillin-tazobactam susceptibility does not exclude clinically significant AmpC risk. Piperacillin-tazobactam is a moderate inducer of AmpC and is partially hydrolyzed by derepressed AmpC. Baseline susceptibility can be present because expression levels are low on initial testing, but resistance can emerge during therapy through the same derepression mechanism that affects third-generation cephalosporins. The IDSA guidance does not list piperacillin-tazobactam among the preferred beta-lactams for moderate-risk AmpC organisms precisely because of this concern. Pip-tazo susceptibility on a report does not clear the organism of its AmpC risk.",
+    },
+    {
+      id: "C",
+      label:
+        "Fluoroquinolone resistance is the key finding because it limits oral step-down options",
+      feedback:
+        "Partially true but not the best answer. Fluoroquinolone resistance does limit oral step-down options and is clinically relevant for duration-of-therapy planning. However, the question asks about caution when selecting a beta-lactam, and fluoroquinolone resistance does not inform the beta-lactam selection decision. The most important beta-lactam-specific caution is driven by the organism's AmpC risk, not its fluoroquinolone susceptibility. The correct answer addresses the question that was actually asked.",
+    },
+    {
+      id: "D",
+      label:
+        "The species identification itself is the most important clue, because Klebsiella aerogenes is classified as a moderate-risk organism for clinically significant AmpC production",
+      correct: true,
+      feedback:
+        "Correct. The single most important feature of this susceptibility report is not any individual S or R result but the organism name at the top. The 2024 IDSA guidance on the treatment of antimicrobial-resistant Gram-negative infections designates Klebsiella aerogenes (along with Enterobacter cloacae complex and Citrobacter freundii complex) as moderate-risk organisms for clinically significant AmpC production. This classification means that the species name alone should trigger caution when interpreting beta-lactam susceptibility results, regardless of what the individual drug categories show. The guidance explicitly states that cefepime is suggested for infections caused by these organisms because cefepime is a weak inducer of AmpC and relatively stable to AmpC hydrolysis. In contrast, third-generation cephalosporins are potent inducers and readily hydrolyzed by derepressed AmpC. Piperacillin-tazobactam is also a weaker inducer but is less stable than cefepime in the setting of AmpC derepression. The species name is the antibiogram's loudest warning.",
+    },
+    {
+      id: "E",
+      label:
+        "The laboratory should have reported a specific AmpC phenotype or a comment flagging the risk",
+      feedback:
+        "Incorrect as a practical matter. While some laboratories do append AmpC risk comments to susceptibility reports for organisms in this group, this practice is not universal and is not required by CLSI or CAP. The responsibility to recognize that Klebsiella aerogenes is an AmpC-risk organism falls on the clinician and the antimicrobial stewardship team, not solely on the laboratory report. The 2024 IDSA guidance was written precisely so that clinicians can make this inference from the species name alone, without needing a laboratory-generated flag. Waiting for or depending on a laboratory comment is not the standard of care.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-klebsiella-aerogenes-ampc-cholangitis-q3"
+  title="Question 3"
+  prompt="The team decides to narrow from piperacillin-tazobactam. Which beta-lactam regimen is most appropriate for definitive therapy of this bacteremic cholangitis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Ceftriaxone 2 g IV every 24 hours because it is susceptible and narrows the spectrum",
+      feedback:
+        "Incorrect. This is the wrong treatment despite the susceptibility report. Ceftriaxone is the most dangerous choice for this organism because it is the most potent inducer of chromosomal AmpC among the beta-lactams listed. During therapy for a high-inoculum infection such as bacteremic cholangitis, the selective pressure favoring stably derepressed AmpC mutants is enormous. Clinical failure due to emergent resistance during ceftriaxone therapy for Enterobacter and Klebsiella aerogenes infections is well documented, with reported resistance emergence rates of 5 to 20% in invasive infections. The 2024 IDSA guidance explicitly recommends against third-generation cephalosporins for invasive infections caused by moderate-risk AmpC organisms regardless of the susceptibility category.",
+    },
+    {
+      id: "B",
+      label:
+        "Continue piperacillin-tazobactam because it is susceptible and already working clinically",
+      feedback:
+        "Reasonable but not the best answer. Piperacillin-tazobactam is a moderate inducer of AmpC and is less stable than cefepime in the setting of AmpC derepression. While clinical improvement after source control does not prove that the antibiotic is optimal for the duration of therapy, the IDSA guidance prefers cefepime over pip-tazo for moderate-risk AmpC organisms. Continuing pip-tazo would not be a serious error, but narrowing to high-dose extended-infusion cefepime is the more evidence-supported choice for definitive therapy.",
+    },
+    {
+      id: "C",
+      label:
+        "Cefepime 2 g IV every 8 hours as an extended infusion over 3 hours, based on the SDD MIC of 4 mcg/mL",
+      correct: true,
+      feedback:
+        "Correct. This is the optimal definitive beta-lactam choice for this case. The reasoning involves three layers. First, Klebsiella aerogenes is a moderate-risk AmpC organism per the 2024 IDSA guidance, and cefepime is the suggested beta-lactam for this group because it is a weak inducer of AmpC and relatively stable to AmpC hydrolysis. Second, the cefepime MIC is 4 mcg/mL, which falls in the susceptible-dose dependent (SDD) category for Enterobacterales (breakpoint: susceptible less than or equal to 2, SDD 4 to 8). SDD does not mean resistant; it means that cefepime can be used only if the dosing regimen achieves adequate drug exposure. The IDSA guidance specifies that cefepime SDD MICs of 4 to 8 mcg/mL are based on cefepime 2 g every 8 hours infused over 3 hours. Notably, the 2024 IDSA guidance removed the prior caution against using cefepime for moderate-risk AmpC organisms when the MIC was 4 to 8 mcg/mL, after rereview of existing data showed no clear association between cefepime SDD MICs and ESBL production or clinical failure in this population. Third, high-dose extended-infusion cefepime achieves sustained free drug concentrations above the MIC throughout the dosing interval, maximizing the time-dependent killing that is the pharmacodynamic driver for beta-lactams. For a bacteremic cholangitis with high organism burden in the biliary tree, this pharmacologic optimization matters.",
+    },
+    {
+      id: "D",
+      label:
+        "Meropenem 1 g IV every 8 hours because carbapenems are always safe for AmpC organisms",
+      feedback:
+        "Incorrect as the best answer. Meropenem would certainly be effective, as carbapenems are stable to AmpC hydrolysis. However, using a carbapenem when cefepime is a viable option represents unnecessarily broad spectrum therapy that contributes to carbapenem selection pressure, which is a driver of carbapenem-resistant Enterobacterales emergence at the institutional level. The 2024 IDSA guidance recommends cefepime as the preferred beta-lactam for moderate-risk AmpC organisms and reserves carbapenems for ESBL-producing organisms or for patients who cannot tolerate cefepime. Using a carbapenem here would be overtreatment.",
+    },
+    {
+      id: "E",
+      label:
+        "Ertapenem 1 g IV every 24 hours because once-daily dosing simplifies discharge planning",
+      feedback:
+        "Incorrect. Ertapenem would also be effective against AmpC organisms because carbapenems are stable to AmpC hydrolysis, and its once-daily dosing is convenient. However, the same overtreatment argument applies as with meropenem: ertapenem is broader spectrum than necessary when high-dose extended-infusion cefepime is a viable option per the 2024 IDSA guidance. Additionally, ertapenem lacks activity against Pseudomonas and Acinetobacter, which is not a problem in this case but is worth noting for completeness. Cefepime is the right answer because it is effective, appropriately dosed for the MIC, and avoids unnecessary carbapenem use.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-klebsiella-aerogenes-ampc-cholangitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Klebsiella aerogenes</em>, formerly classified as <em>Enterobacter aerogenes</em>, was reclassified into the genus <em>Klebsiella</em> in 2019 based on whole-genome phylogenetic analysis. Despite the name change, its antimicrobial resistance profile and clinical behavior remain unchanged. It is a member of the Enterobacterales order that constitutively carries a chromosomal <code>ampC</code> gene encoding an inducible Ambler class C beta-lactamase. The gene is regulated by the <code>ampR</code> transcriptional repressor, which keeps basal expression low under non-inducing conditions. When certain beta-lactam drugs bind to penicillin-binding proteins in the cell wall, the resulting disruption of peptidoglycan recycling leads to accumulation of 1,6-anhydro-N-acetylmuramyl peptide precursors that displace AmpR from its repressor conformation, converting it into a transcriptional activator. AmpC expression then increases dramatically.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical problem arises because spontaneous mutations in the <code>ampR</code> regulatory region, the <code>ampC</code> promoter, or the <code>ampD</code> attenuator gene can produce stably derepressed mutants that constitutively overproduce AmpC regardless of inducing conditions. These mutants arise at frequencies of approximately 10 to the minus 6 to 10 to the minus 7 per cell division. In a high-inoculum infection such as bacteremic cholangitis, where the bacterial burden in the biliary tree can reach 10 to the 8 to 10 to the 10 colony-forming units, the absolute number of pre-existing derepressed mutants is substantial. When a beta-lactam that is both a strong inducer and susceptible to AmpC hydrolysis is used as therapy, these mutants are selected for, expand, and lead to clinical failure with a resistant isolate on repeat culture.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Third-generation cephalosporins such as ceftriaxone and ceftazidime are the most dangerous drugs in this setting because they are potent inducers of AmpC expression and are efficiently hydrolyzed by the enzyme. Piperacillin-tazobactam is a moderate inducer and is partially hydrolyzed. Cefepime, by contrast, is a weak inducer and penetrates the outer membrane porin channels more efficiently, and its zwitterionic structure makes it relatively stable to AmpC hydrolysis even when the enzyme is expressed at high levels. Carbapenems are stable to AmpC hydrolysis but represent broader spectrum therapy than necessary.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The 2024 IDSA guidance on the treatment of antimicrobial-resistant Gram-negative infections addresses this scenario explicitly. Question 2.3 of the guidance states that for infections caused by moderate-risk AmpC organisms, including <em>Enterobacter cloacae</em> complex, <em>Klebsiella aerogenes</em>, and <em>Citrobacter freundii</em> complex, cefepime is suggested as a preferred treatment option. The guidance notes that cefepime is a weak inducer of AmpC and relatively stable to AmpC hydrolysis. Importantly, the 2024 update removed the prior caution against using cefepime for these organisms when the MIC was in the SDD range of 4 to 8 mcg/mL, after rereview of existing data showed no clear association between cefepime SDD MICs and clinical failure in this population.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The susceptible-dose dependent category for cefepime is an exposure-dependent interpretation, not a resistance categorization. The CLSI breakpoint defines cefepime SDD as an MIC of 4 to 8 mcg/mL for Enterobacterales. The IDSA guidance specifies that cefepime SDD MICs are based on cefepime 2 g every 8 hours infused over 3 hours, which achieves sustained free drug concentrations above the MIC throughout the dosing interval. Standard intermittent dosing such as 1 g every 12 hours or 2 g every 12 hours may not achieve adequate time above the MIC when the MIC is 4 mcg/mL, which is why the extended-infusion high-dose regimen is mandatory in the SDD range.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    This case also illustrates why source control is inseparable from antimicrobial decision-making in cholangitis. ERCP with stent exchange and biliary drainage addressed the anatomic cause of infection, and the patient's hemodynamic improvement after drainage reflects the primacy of source control. However, the antibiotic choice matters for the remaining duration of therapy because the biliary tree remains colonized, and an inadequate beta-lactam can select for resistance during the treatment course even after source control.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-klebsiella-aerogenes-ampc-cholangitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Klebsiella aerogenes</em> (formerly <em>Enterobacter aerogenes</em>) carries a chromosomal inducible AmpC beta-lactamase regulated by the AmpR transcriptional repressor; derepressed mutants that constitutively overproduce AmpC can emerge during beta-lactam therapy.
+    </li>
+    <li>
+      The 2024 IDSA guidance classifies <em>K. aerogenes</em>, <em>Enterobacter cloacae</em> complex, and <em>Citrobacter freundii</em> complex as moderate-risk organisms for clinically significant AmpC production. The species name alone should trigger caution when interpreting beta-lactam susceptibility results.
+    </li>
+    <li>
+      Ceftriaxone susceptibility on a report does not make ceftriaxone reliable for invasive <em>K. aerogenes</em> infection. Third-generation cephalosporins are potent AmpC inducers and readily hydrolyzed, with documented resistance emergence rates of 5 to 20% during therapy.
+    </li>
+    <li>
+      Cefepime is the suggested beta-lactam for moderate-risk AmpC organisms because it is a weak inducer and relatively stable to AmpC hydrolysis. When the cefepime MIC is 4 to 8 mcg/mL (SDD), use cefepime 2 g IV every 8 hours infused over 3 hours per the 2024 IDSA guidance.
+    </li>
+    <li>
+      Susceptible-dose dependent (SDD) does not mean resistant. It is an exposure-dependent interpretation that requires a specific high-dose extended-infusion regimen to achieve adequate drug exposure.
+    </li>
+    <li>
+      Piperacillin-tazobactam is a moderate AmpC inducer and is less stable than cefepime to AmpC hydrolysis; susceptibility on the report does not exclude risk of emergent resistance during therapy.
+    </li>
+    <li>
+      Carbapenems are effective against AmpC organisms but represent broader spectrum therapy than necessary when cefepime is a viable option. The IDSA guidance reserves carbapenems for ESBL-producing organisms and situations where cefepime cannot be used.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tamma PD, Heil EL, Justo JA, Mathers AJ, Satlin MJ, Bonomo RA. Infectious Diseases Society of America 2024 guidance on the treatment of antimicrobial-resistant Gram-negative infections. <em>Clinical Infectious Diseases</em>. 2024;ciae403.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciae403"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciae403
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Jacoby GA. AmpC beta-lactamases. <em>Clinical Microbiology Reviews</em>. 2009;22(1):161-182.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00036-08"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.00036-08
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D, Clancy CJ. Infectious Diseases Society of America 2023 guidance on the treatment of infections caused by Gram-negative bacteria: integrating pharmacokinetics, pharmacodynamics, and microbiology. <em>Clinical Infectious Diseases</em>. 2023;77(7):1077-1124.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciad268"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciad268
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Clinical and Laboratory Standards Institute. Performance standards for antimicrobial susceptibility testing (M100). 34th ed. Wayne, PA: CLSI; 2024.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sanders WE Jr, Sanders CC. Inducible beta-lactamases: clinical and epidemiologic implications for use of newer cephalosporins. <em>Reviews of Infectious Diseases</em>. 1988;10(4):830-838.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/clinids/10.4.830"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/clinids/10.4.830
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
