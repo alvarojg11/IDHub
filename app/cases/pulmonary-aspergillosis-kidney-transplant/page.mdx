@@ -1,0 +1,376 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pulmonary-aspergillosis-kidney-transplant");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Nodules Before the Headache
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old woman with end-stage kidney disease secondary to hypertensive nephrosclerosis underwent deceased-donor kidney transplantation six months ago. Her baseline immunosuppression includes tacrolimus 3 mg twice daily (trough 6.2 ng/mL at last check), mycophenolate mofetil 1000 mg twice daily, and prednisone 5 mg daily. Six weeks ago, a surveillance biopsy showed Banff grade IB acute cellular rejection, treated with three days of intravenous methylprednisolone 500 mg daily. Her creatinine improved from 2.1 to 1.5 mg/dL and she was discharged on her prior oral regimen.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Twelve days ago she developed right-sided pleuritic chest pain, a dry cough, and low-grade fevers to 38.2 C. She attributed the symptoms to a viral illness and did not seek care. Over the next week the fevers continued, fatigue worsened, and she noticed mild dyspnea climbing stairs. Two days ago she developed a new frontal headache that woke her from sleep, accompanied by difficulty concentrating and word-finding pauses during conversation. Her husband noted she seemed confused about the date.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In the emergency department her temperature is 38.6 C, heart rate 96/min, blood pressure 142/88 mmHg, respiratory rate 20/min, and oxygen saturation 94% on room air. She is alert but mildly disoriented to time. There are fine crackles at the right base. No focal motor deficits are present, but she pauses mid-sentence and occasionally substitutes incorrect words. Neck is supple. There is no skin rash.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 11.4 x 10^3/uL with 78% neutrophils, hemoglobin 10.8 g/dL, platelets 198 x 10^3/uL, creatinine 1.7 mg/dL (up from 1.5 mg/dL baseline), and C-reactive protein 12.4 mg/dL. Tacrolimus trough is 8.4 ng/mL (elevated from her usual 6 to 7). Serum galactomannan returns at 0.3 optical density index (negative cutoff less than 0.5). 1,3-beta-D-glucan is pending. Blood cultures show no growth at 48 hours.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chest CT reveals multiple bilateral peripheral nodules ranging from 0.8 to 2.4 cm, at least two of which are cavitary with thin walls, surrounded by rimming ground-glass attenuation. There is no pleural effusion or mediastinal adenopathy. Brain MRI with contrast demonstrates a 1.8-cm ring-enhancing lesion in the right frontal white matter with surrounding vasogenic edema and a second 1.1-cm enhancing lesion in the left cerebellar hemisphere.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/pulmonary-aspergillosis-kidney-transplant/chest-ct.jpg"
+        alt="Chest CT showing small thin-walled cavitary nodules surrounded by ground-glass opacity"
+        width={745}
+        height={317}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Chest CT showing small thin-walled cavitary nodules surrounded by ground-glass opacity.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-pulmonary-aspergillosis-kidney-transplant-q1"
+  title="Question 1"
+  prompt="Which diagnosis most likely unifies the pulmonary nodules and the brain lesions?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Pulmonary mucormycosis with cerebral involvement",
+      feedback:
+        "Incorrect. Mucorales species cause angioinvasive pulmonary infection with a similar imaging pattern and can disseminate to the brain, making this a legitimate consideration. However, the clinical context makes Mucorales less likely. Pulmonary mucormycosis is most strongly associated with diabetic ketoacidosis, profound neutropenia, and iron overload states. This patient does not have diabetes, is not neutropenic, and has no known iron overload. While corticosteroids are a risk factor for both Aspergillus and Mucorales, Aspergillus is far more common in the solid organ transplant population, accounting for the majority of invasive mold infections in this group. Without specific risk factors favoring Mucorales, Aspergillus remains the statistically dominant pathogen. The two organisms cannot be reliably distinguished on imaging alone, and tissue diagnosis remains essential, but the epidemiology strongly favors Aspergillus.",
+    },
+    {
+      id: "B",
+      label:
+        "Post-transplant lymphoproliferative disorder involving lung and brain",
+      feedback:
+        "Incorrect. PTLD can produce pulmonary nodules and CNS masses, and the timing at six months post-transplant falls within the peak incidence window, particularly if there was an EBV serostatus mismatch. However, PTLD nodules are typically solid and homogeneous rather than cavitary with ground-glass halos. The ring-enhancing brain lesions could occur in PTLD, but the clinical presentation with fever, the ground-glass halo around the pulmonary nodules, and the elevated inflammatory markers point toward infection rather than lymphoproliferation. PTLD is not typically associated with the cavitary halo-sign pattern that is a hallmark of angioinvasive fungal infection.",
+    },
+    {
+      id: "C",
+      label:
+        "Bacterial septic emboli with metastatic brain abscesses",
+      feedback:
+        "Incorrect. Bacterial septic emboli can produce cavitary pulmonary nodules and brain abscesses, most commonly from endocarditis or from infected venous catheters. However, this patient has no cardiac murmur, no indwelling lines, no history of injection drug use, and blood cultures show no growth at 48 hours. The peripheral distribution of the nodules with ground-glass halos, the absence of a clear cardiac or vascular source, and the clinical context of recent high-dose immunosuppression all favor a fungal rather than bacterial process. Bacterial brain abscesses also tend to have thicker, more irregularly enhancing walls compared to the lesions seen here.",
+    },
+    {
+      id: "D",
+      label:
+        "Invasive pulmonary aspergillosis with hematogenous CNS dissemination",
+      correct: true,
+      feedback:
+        "Correct. The combination of a recent high-dose corticosteroid pulse for rejection, bilateral peripheral cavitary nodules with ground-glass halos, and new ring-enhancing brain lesions in a solid organ transplant recipient is the classic presentation of invasive pulmonary aspergillosis with CNS seeding. Aspergillus hyphae invade pulmonary vessels, fragment into septic emboli, and travel hematogenously to the brain where they cause angioinvasive cerebral lesions. The key clinical trigger is the methylprednisolone pulse six weeks ago, which profoundly suppressed macrophage and T-cell function at a time when the patient's net immunosuppressive burden was already substantial. The negative serum galactomannan does not exclude the diagnosis, particularly in non-neutropenic solid organ transplant recipients where the assay sensitivity is substantially lower than in hematologic patients.",
+    },
+    {
+      id: "E",
+      label:
+        "Disseminated nocardiosis with brain abscesses",
+      feedback:
+        "Incorrect. Nocardia species certainly cause pulmonary nodules with CNS dissemination in immunosuppressed hosts, and the recent corticosteroid pulse increases risk for Nocardia as well. However, the imaging pattern provides important distinguishing clues. Nocardia pulmonary lesions tend to be denser consolidations or masses rather than the peripheral cavitary nodules with ground-glass halos typical of angioinvasive mold infection. The halo sign, produced by perinodular hemorrhage from hyphal angioinvasion, is far more characteristic of Aspergillus and Mucorales than Nocardia. Additionally, Nocardia brain abscesses are typically multiloculated with thicker, more irregular walls rather than the thin-walled ring-enhancing lesions seen here. The clinical presentation could fit Nocardia, but the imaging pattern favors angioinvasive fungal infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pulmonary-aspergillosis-kidney-transplant-q2"
+  title="Question 2"
+  prompt="Serum galactomannan is negative at 0.3 ODI. Which diagnostic step is most likely to establish the diagnosis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Serum Aspergillus PCR because molecular methods are more sensitive than antigen detection",
+      feedback:
+        "Incorrect. Aspergillus PCR from blood has shown promise in hematologic populations and is included in some European diagnostic algorithms when combined with galactomannan, but it has not been as well validated in solid organ transplant recipients. Furthermore, serum-based tests of any kind share the same limitation in non-neutropenic hosts: the pathogen is present in tissue, not bloodstream, and circulating markers may be present at low levels or absent. The superior approach is to sample at the site of infection through bronchoalveolar lavage, where both the antigen load and the probability of detecting organisms are substantially higher.",
+    },
+    {
+      id: "B",
+      label:
+        "Repeat serum galactomannan in 48 to 72 hours because sensitivity increases with serial testing",
+      feedback:
+        "Incorrect. Serial serum galactomannan testing does increase sensitivity in hematologic patients undergoing serial surveillance, but this benefit is modest in non-neutropenic solid organ transplant recipients because the fundamental problem is not timing but clearance. The patient's neutrophils are functionally intact and will continue to clear circulating galactomannan regardless of when the sample is drawn. Repeating a test with known low sensitivity in this population delays diagnosis without meaningfully improving yield. The correct approach is to move to a higher-yield specimen source, which is bronchoalveolar lavage.",
+    },
+    {
+      id: "C",
+      label:
+        "Brain biopsy of the right frontal lesion because CNS tissue has the highest diagnostic yield",
+      feedback:
+        "Incorrect. Brain biopsy does provide definitive histopathology, but it is an intracranial neurosurgical procedure with substantial risks including hemorrhage, infection, and neurologic deterioration. It should be reserved for cases where less invasive diagnostics have failed and the diagnosis remains uncertain. In this patient, the pulmonary disease is accessible by bronchoscopy, which is far less invasive and has a high diagnostic yield for invasive pulmonary aspergillosis. The principle is to biopsy the most accessible site first, and the lung is always more accessible than the brain.",
+    },
+    {
+      id: "D",
+      label:
+        "Bronchoscopy with bronchoalveolar lavage for galactomannan and fungal culture",
+      correct: true,
+      feedback:
+        "Correct. In non-neutropenic solid organ transplant recipients, serum galactomannan has poor sensitivity for invasive pulmonary aspergillosis, with reported values as low as 22 to 42% in some series. The reason is straightforward: galactomannan is released when angioinvasion allows the antigen to enter the bloodstream, and non-neutropenic hosts with intact neutrophil function can clear circulating galactomannan more effectively than neutropenic patients. Bronchoalveolar lavage galactomannan, by contrast, detects the antigen at the site of infection before systemic clearance can occur. BAL galactomannan has substantially higher sensitivity in SOT recipients, with reported values exceeding 80% when an appropriate optical density index cutoff is used (typically greater than or equal to 1.0 for BAL versus greater than or equal to 0.5 for serum). BAL also allows fungal culture and cytopathology, which can demonstrate septate hyphae with acute-angle branching consistent with Aspergillus. The combination of BAL galactomannan, culture, and direct microscopy provides the highest diagnostic yield.",
+    },
+    {
+      id: "E",
+      label:
+        "CT-guided percutaneous needle biopsy of the largest pulmonary nodule",
+      feedback:
+        "Incorrect. Tissue biopsy of a pulmonary nodule can certainly provide a definitive histopathologic diagnosis, and it has a role when bronchoscopy is non-diagnostic or when the differential diagnosis includes conditions that require tissue for classification, such as PTLD. However, as the first invasive diagnostic step, CT-guided biopsy is riskier than bronchoscopy in a patient with cavitary nodules and possible hemoptysis. Percutaneous needle biopsy of cavitary lesions carries a risk of pneumothorax, hemorrhage, and air embolism. Bronchoscopy with BAL is less invasive, provides multiple diagnostic modalities (galactomannan, culture, cytology, and possibly PCR), and should be performed first. Biopsy can be pursued if bronchoscopy is non-diagnostic.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pulmonary-aspergillosis-kidney-transplant-q3"
+  title="Question 3"
+  prompt="BAL galactomannan returns at 3.2 ODI and fungal culture grows Aspergillus fumigatus. Brain MRI confirms the lesions described. Which is the most appropriate initial management?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Start caspofungin as initial monotherapy because echinocandins have no CYP3A4 interactions",
+      feedback:
+        "Incorrect. Echinocandins including caspofungin do not inhibit CYP3A4 and therefore do not interact with tacrolimus, which is an advantage. However, echinocandins are not recommended as primary monotherapy for invasive aspergillosis. They inhibit beta-1,3-glucan synthase and are fungistatic against Aspergillus, not fungicidal. More importantly, echinocandins have negligible CSF penetration and cannot be relied upon to treat CNS aspergillosis. The IDSA guidelines recommend echinocandins only as salvage therapy in combination with a mold-active azole or as empiric therapy when mold disease is suspected but not confirmed. In this case with documented cerebral involvement, an agent with proven CNS penetration is mandatory.",
+    },
+    {
+      id: "B",
+      label:
+        "Start liposomal amphotericin B because it is the preferred agent for CNS aspergillosis",
+      feedback:
+        "Incorrect. Liposomal amphotericin B is a reasonable alternative for invasive aspergillosis when voriconazole cannot be used, and it does cross the blood-brain barrier in limited amounts. However, voriconazole achieves substantially higher CSF and brain tissue concentrations than amphotericin B formulations and has demonstrated superior outcomes in the landmark 2002 randomized trial comparing voriconazole to conventional amphotericin B for invasive aspergillosis. The IDSA guidelines recommend voriconazole as primary therapy for CNS aspergillosis. Liposomal amphotericin B should be reserved for patients with voriconazole intolerance, azole resistance, or as salvage therapy. Additionally, liposomal amphotericin B is nephrotoxic, which is particularly concerning in a kidney transplant recipient with a creatinine of 1.7 mg/dL that is already above her baseline.",
+    },
+    {
+      id: "C",
+      label:
+        "Start voriconazole with simultaneous tacrolimus dose reduction and close trough monitoring",
+      correct: true,
+      feedback:
+        "Correct. Voriconazole is the first-line agent for invasive aspergillosis, including CNS disease. It achieves therapeutic concentrations in cerebrospinal fluid and brain tissue, which is critical because this patient has documented cerebral involvement. The key management issue that distinguishes this case from a straightforward antifungal prescription is the voriconazole-tacrolimus drug interaction. Voriconazole is a potent inhibitor of CYP3A4, the primary enzyme responsible for tacrolimus metabolism. When voriconazole is started, tacrolimus blood levels can increase threefold to fivefold within 24 to 48 hours. The standard approach is to reduce the tacrolimus dose to one-third to one-fifth of the current dose on the day voriconazole is started, then check a tacrolimus trough within 48 to 72 hours and adjust further. Failure to proactively reduce the tacrolimus dose can result in acute calcineurin inhibitor nephrotoxicity, neurotoxicity including PRES, or both. The elevated tacrolimus level on admission (8.4 ng/mL versus her usual 6 to 7) may already reflect early impairment of tacrolimus clearance from intercurrent illness and warrants even closer monitoring.",
+    },
+    {
+      id: "D",
+      label:
+        "Start isavuconazole because it has fewer drug interactions with tacrolimus than voriconazole",
+      feedback:
+        "Incorrect. Isavuconazole does have a somewhat less severe interaction profile with tacrolimus than voriconazole because it is a weaker CYP3A4 inhibitor, and some transplant protocols prefer isavuconazole for this reason. However, isavuconazole has not been studied as extensively as voriconazole for CNS aspergillosis specifically. The SECURE trial demonstrated non-inferiority of isavuconazole versus voriconazole for invasive mold infections overall, but CNS penetration data and outcomes for cerebral aspergillosis are more limited. Isavuconazole is a legitimate alternative, but it is not the established first-line agent for CNS disease. The correct answer addresses the most important management principle: start voriconazole for optimal CNS penetration while proactively managing the CYP3A4 interaction with tacrolimus.",
+    },
+    {
+      id: "E",
+      label:
+        "Start voriconazole and hold tacrolimus entirely until antifungal therapy is complete",
+      feedback:
+        "Incorrect. Abruptly stopping tacrolimus in a kidney transplant recipient who recently experienced acute cellular rejection creates an unacceptably high risk of recurrent rejection and graft loss. The patient's rejection episode only six weeks ago underscores the precarious state of her allograft. The correct approach is not to stop tacrolimus but to reduce the dose in anticipation of the CYP3A4 inhibition, then titrate based on trough levels. Therapeutic drug monitoring of both voriconazole and tacrolimus is essential throughout treatment. Voriconazole troughs should target 1 to 5.5 mcg/mL for therapeutic efficacy while avoiding toxicity.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-pulmonary-aspergillosis-kidney-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Invasive aspergillosis is the most common invasive mold infection in solid organ transplant recipients, with an incidence of approximately 1 to 9% depending on the organ transplanted. Kidney transplant recipients have a lower incidence than lung or liver recipients but still face substantial risk, particularly during periods of augmented immunosuppression. The median time to onset after kidney transplantation is approximately 4 to 6 months, coinciding with the window when maintenance immunosuppression is still relatively high and when rejection episodes often trigger additional corticosteroid pulses.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathogenesis of invasive pulmonary aspergillosis in the non-neutropenic host differs from the classic neutropenic model. In neutropenic patients, the primary deficit is the absence of neutrophil-mediated hyphal killing, allowing angioinvasion to proceed unchecked. In solid organ transplant recipients, the key defect is impaired macrophage function and T-cell mediated immunity from calcineurin inhibition and corticosteroids. Corticosteroids are particularly potent risk amplifiers because they suppress both alveolar macrophage activity, which is the first line of defense against inhaled conidia, and Th1 responses that coordinate antifungal immunity. A pulse of high-dose methylprednisolone can suppress macrophage conidial killing for weeks, creating a window of vulnerability during which environmental or previously colonizing <em>Aspergillus</em> conidia can germinate, invade tissue, and enter the vasculature.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The halo sign on chest CT, which refers to ground-glass attenuation surrounding a pulmonary nodule, is a radiographic hallmark of angioinvasive mold infection. It represents perinodular hemorrhage caused by hyphal invasion of pulmonary vessels. While classically described in neutropenic patients with invasive aspergillosis, it is also seen in non-neutropenic SOT recipients, though it may be less prominent and less frequently present because residual neutrophil function limits the extent of hemorrhagic infarction. The combination of multiple bilateral peripheral nodules, at least some cavitation, and surrounding ground-glass halos in a recently steroid-pulsed transplant recipient should immediately raise concern for invasive mold infection.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CNS dissemination occurs in approximately 10 to 20% of solid organ transplant recipients with invasive pulmonary aspergillosis. <em>Aspergillus</em> hyphae fragment during vascular invasion, travel as septic emboli through the systemic circulation, and lodge in the cerebral vasculature where they cause angioinvasive lesions with surrounding infarction and edema. The resulting brain lesions are typically ring-enhancing on contrast MRI, reflecting central necrosis surrounded by a rim of inflammatory tissue and edema. The clinical presentation ranges from headache and subtle cognitive changes, as in this patient, to seizures, focal motor deficits, and rapid neurologic deterioration. The frontal lobe is a common location because of preferential middle cerebral artery territory seeding.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic approach to invasive aspergillosis in SOT recipients must account for the well-documented limitations of serum biomarkers in this population. Serum galactomannan, a polysaccharide component of the <em>Aspergillus</em> cell wall released during tissue invasion, has a sensitivity of approximately 80 to 90% in neutropenic hematologic patients but only 22 to 42% in non-neutropenic SOT recipients. The lower sensitivity is attributed to intact neutrophil function that clears circulating galactomannan before it accumulates to detectable levels. BAL galactomannan overcomes this limitation by detecting the antigen at the site of pulmonary infection before systemic clearance can occur, with reported sensitivity of 80 to 90% in SOT recipients when an appropriate optical density index cutoff is used.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Voriconazole is the cornerstone of treatment for invasive aspergillosis, including CNS disease. The landmark 2002 randomized trial by Herbrecht and colleagues demonstrated superior survival and response rates with voriconazole compared to conventional amphotericin B, establishing it as the primary therapy for invasive aspergillosis. Voriconazole achieves CSF concentrations approximately 50% of plasma levels and brain tissue concentrations exceeding plasma, making it the azole of choice for CNS disease. Isavuconazole is a reasonable alternative based on the SECURE trial, which demonstrated non-inferiority for invasive mold infections overall and a more favorable drug interaction profile, but voriconazole remains the best-studied agent for cerebral aspergillosis specifically.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The voriconazole-tacrolimus interaction is among the most clinically consequential drug interactions in transplant infectious diseases. Voriconazole is a potent CYP3A4 inhibitor, and tacrolimus is almost entirely metabolized by CYP3A4 in the liver and intestines. When voriconazole is initiated, tacrolimus trough concentrations can increase threefold to fivefold within 24 to 48 hours, risking acute nephrotoxicity, neurotoxicity including posterior reversible encephalopathy syndrome, and electrolyte disturbances. The recommended approach is to reduce the tacrolimus dose to approximately one-third to one-fifth of the pre-voriconazole dose on the first day of antifungal therapy, then check a trough within 48 to 72 hours and adjust. Both voriconazole and tacrolimus levels should be monitored throughout treatment. Voriconazole metabolism is also affected by CYP2C19 polymorphisms, which can produce wide inter-patient variability in serum concentrations, making therapeutic drug monitoring of voriconazole itself equally important.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pulmonary-aspergillosis-kidney-transplant-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Negative serum galactomannan does <strong>not</strong> exclude invasive pulmonary aspergillosis in non-neutropenic SOT recipients, where sensitivity can be as low as 22 to 42%.
+    </li>
+    <li>
+      New headache or cognitive changes in a transplant recipient with pulmonary nodules should prompt immediate brain MRI to evaluate for hematogenous CNS dissemination.
+    </li>
+    <li>
+      Voriconazole is first-line for CNS aspergillosis due to superior brain tissue and CSF penetration compared to amphotericin B formulations.
+    </li>
+    <li>
+      When starting voriconazole in a patient on tacrolimus, reduce the tacrolimus dose to one-third to one-fifth immediately and monitor troughs within 48 to 72 hours; tacrolimus levels can triple within one day of voriconazole initiation.
+    </li>
+    <li>
+      The halo sign on chest CT, representing perinodular hemorrhage from hyphal angioinvasion, is a radiographic hallmark of invasive mold infection and should prompt aggressive diagnostic evaluation in immunosuppressed hosts.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Patterson TF, Thompson GR 3rd, Denning DW, et al. Practice guidelines for the diagnosis and management of aspergillosis: 2016 update by the Infectious Diseases Society of America. <em>Clinical Infectious Diseases</em>. 2016;63(4):e1-e60.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw326"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciw326
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Herbrecht R, Denning DW, Patterson TF, et al. Voriconazole versus amphotericin B for primary therapy of invasive aspergillosis. <em>New England Journal of Medicine</em>. 2002;347(6):408-415.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa020191"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa020191
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pappas PG, Alexander BD, Andes DR, et al. Invasive fungal infections among organ transplant recipients: results of the Transplant-Associated Infection Surveillance Network (TRANSNET). <em>Clinical Infectious Diseases</em>. 2010;50(8):1101-1111.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/651262"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/651262
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Singh N, Paterson DL. Aspergillus infections in transplant recipients. <em>Clinical Microbiology Reviews</em>. 2005;18(1):44-69.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.18.1.44-69.2005"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.18.1.44-69.2005
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Maertens JA, Rahav G, Lee DG, et al. Posaconazole versus voriconazole for primary treatment of invasive aspergillosis: a phase 3, randomised, controlled, double-blind trial. <em>The Lancet</em>. 2021;397(10273):464-473.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(21)00246-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(21)00246-3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pfeiffer CD, Fine JP, Safdar N. Diagnosis of invasive aspergillosis using a galactomannan assay: a meta-analysis. <em>Clinical Infectious Diseases</em>. 2006;42(10):1417-1427.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/503427"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/503427
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ihori A, Watanabe T, Yamashita T, et al. Multiple cavities with halo sign in a case of invasive pulmonary aspergillosis during therapy for drug-induced hypersensitivity syndrome. <em>Respiratory Medicine Case Reports</em>. 2017;21:124-128.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.rmcr.2017.04.017"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.rmcr.2017.04.017
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

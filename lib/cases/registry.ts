@@ -1147,6 +1147,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Staphylococcus lugdunensis"], syndromes: ["Endocarditis", "Bacteremia", "Cardiovascular"], concepts: ["Coagulase-negative staphylococcus", "Clumping factor", "Fbl protein", "Slide coagulase positive", "Tube coagulase negative", "MALDI-TOF MS", "Native-valve endocarditis", "Methicillin-susceptible", "Beta-lactam therapy", "Valve replacement"] },
   },
   {
+    title: "The Nodules Before the Headache",
+    slug: "pulmonary-aspergillosis-kidney-transplant",
+    description: "A kidney transplant recipient with recent rejection therapy develops cavitary pulmonary nodules and ring-enhancing brain lesions.",
+    enable: true,
+    ogImage: "/cases/pulmonary-aspergillosis-kidney-transplant/chest-ct.jpg",
+    teaser: "A 58-year-old kidney transplant recipient develops cavitary pulmonary nodules with ground-glass halos and new ring-enhancing brain lesions six weeks after pulse methylprednisolone for acute rejection. Serum galactomannan is negative. What is the most likely diagnosis, and which diagnostic test should be performed next?",
+    tags: { organisms: ["Aspergillus fumigatus"], syndromes: ["Invasive Fungal Infection", "Pulmonary Infection", "CNS Infection", "Transplant & Immunocompromised"], concepts: ["Invasive pulmonary aspergillosis", "BAL galactomannan", "Serum galactomannan false negative", "CNS dissemination", "Voriconazole", "Tacrolimus CYP3A4 interaction", "Corticosteroid-pulsed immunosuppression", "Halo sign", "Kidney transplant", "Acute cellular rejection"] },
+  },
+  {
     title: "The Summer Temporal Lobe Trap",
     slug: "la-crosse-encephalitis",
     description: "A 17-year-old with summer encephalitis, temporal PLEDs, hyponatremia, and a negative routine CSF panel.",
