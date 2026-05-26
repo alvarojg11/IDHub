@@ -1,0 +1,238 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-parasite-that-wasnt",
+  title: "The Parasite That Wasn't",
+  description:
+    "In 1892, a 22-year-old Argentine medical student saw a round body under his microscope and thought it was a protozoan parasite. He named it Coccidioides — 'resembles Coccidia.' He was wrong about the kingdom. The name survived anyway.",
+  publishedAt: "2026-05-25",
+  historicalDateLabel: "1892-1900",
+  historicalYearSort: 1892,
+  categories: ["organisms"],
+  tags: [
+    "Coccidioides",
+    "coccidioidomycosis",
+    "Valley Fever",
+    "Alejandro Posadas",
+    "William Ophüls",
+    "etymology",
+    "spherule",
+    "dimorphic fungus",
+    "San Joaquin Valley",
+    "1892",
+  ],
+  hook:
+    "Alejandro Posadas was a 22-year-old medical student at the Hospital de Clínicas in Buenos Aires when a soldier named Domingo Escurra arrived with a fungating lesion on his cheek. Posadas biopsied the tissue and examined it under his microscope. He saw large round bodies, each filled with smaller round bodies, and diagnosed a protozoan parasite from the group Coccidia. He named the organism Coccidioides — Greek kokkos for berry or seed, plus -oides for resembling. He was wrong about what he was looking at. His name for it was never corrected.",
+  takeaway:
+    "Coccidioides immitis was first described by Alejandro Posadas in Buenos Aires in 1892. He misidentified the organism as a protozoan parasite related to Coccidia, which is why the genus name means 'resembles Coccidia.' In 1900, William Ophüls at Stanford University proved it was a dimorphic fungus that grows as a mold in soil and converts to spherules in human tissue. The protozoan hypothesis was dead; the name was permanent. Coccidioidomycosis, also called Valley Fever, was the first systemic dimorphic fungal infection recognized in the Americas. It causes approximately 20,000 reported cases per year in the United States, with risk factors for dissemination including Filipino and African ancestry, pregnancy, and immunosuppression.",
+  heroImage: "/historid/the-parasite-that-wasnt/hero.jpg",
+  heroImageAlt:
+    "A Coccidioides spherule in tissue, the large round body filled with endospores. This is the tissue form that Alejandro Posadas saw under his microscope in 1892 and mistook for a protozoan parasite.",
+  heroImageCredit:
+    "Coccidioides fungal spherule. NIAID, National Institutes of Health.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:Coccidioides_Fungal_Spherule.jpg",
+  heroImageLicense: "Public domain, U.S. Government (NIAID/NIH)",
+  socialHeadline: "The Parasite That Wasn't",
+  socialDek:
+    "In 1892, a medical student saw a round body under his microscope and thought it was a protozoan. He named it Coccidioides — 'resembles Coccidia.' He was wrong. The name survived 133 years.",
+  socialFacts: [
+    "In 1892, Alejandro Posadas, a 22-year-old Argentine medical student, examined tissue from soldier Domingo Escurra and found round bodies filled with smaller round bodies. He thought they were protozoan parasites and named the organism Coccidioides — 'resembles Coccidia.'",
+    "William Ophüls at Stanford proved in 1900 that Coccidioides was not a parasite but a dimorphic fungus, growing as mold in soil and converting to spherules in human tissue. The name was never changed.",
+    "Coccidioides was the first systemic dimorphic fungal infection recognized in the Americas. Posadas' 1892 description preceded the discovery of Histoplasma capsulatum by 13 years.",
+    "Charles E. Smith at UC Berkeley developed the coccidioidin skin test in the 1940s and showed that approximately 60% of infections are asymptomatic. His work was accelerated by outbreaks at WWII military bases in the San Joaquin Valley.",
+    "Valley Fever causes approximately 20,000 reported U.S. cases per year. Risk factors for severe disease include Filipino and African ancestry, pregnancy, and immunosuppression. The name is a 133-year-old fossil of a wrong guess.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Alejandro Posadas was a 22-year-old medical student at the Hospital de
+    Clínicas in Buenos Aires when a soldier named Domingo Escurra arrived
+    with a fungating lesion on his cheek. Escurra had been stationed in the
+    Gran Chaco, a semi-arid region spanning what is now northern Argentina,
+    Paraguay, and Bolivia. Posadas biopsied the tissue and examined it
+    under his microscope. He saw large round bodies, some measuring up to
+    80 microns, each filled with smaller round bodies. He had been studying
+    parasitology. He diagnosed a protozoan infection from the group
+    Coccidia, intestinal parasites of vertebrates. He named the organism
+    <em>Coccidioides</em> — Greek <em>kokkos</em> for berry or seed, plus
+    <em>-oides</em> for resembling. He was describing the fungal spherule,
+    the tissue form of a dimorphic fungus. He just did not know it.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    Posadas published his case in 1892 in the <em>Anales del Círculo
+    Médico Argentino</em> under the title "A new case of mycosis fungoides
+    with psorospermiae." The article was modest and meticulous. He
+    described Escurra's progressive facial lesion, the biopsy findings, the
+    clinical course, and the autopsy that followed. Escurra died of
+    disseminated disease. Posadas documented it all. He was not yet a
+    doctor. He was a student who walked into a hospital ward and saw
+    something no one had catalogued before.
+  </p>
+
+  <p>
+    Across the hemisphere, a similar clinical picture was emerging. In 1894
+    and 1896, Emmet Rixford, a San Francisco surgeon, and Thomas Caspar
+    Gilchrist, a dermatologist at Johns Hopkins, described two cases in
+    agricultural workers from the San Joaquin Valley of California. Both
+    patients had disseminated lesions. Both died. Rixford and Gilchrist
+    saw the same round bodies Posadas had seen. They, too, concluded they
+    were looking at protozoan parasites. The organism appeared to belong to
+    Coccidia, and the name <em>Coccidioides</em> seemed correct.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    In 1900, William Ophüls, a pathologist at Stanford University's Cooper
+    Medical College in San Francisco, proved that the round bodies were not
+    protozoan cysts. They were fungal spherules. Ophüls cultured the
+    organism from clinical specimens on standard fungal media and observed
+    it grow as a mold producing arthroconidia, the infectious particles
+    that aerosolize from soil. He then inoculated the mold form into
+    laboratory animals and watched the arthroconidia convert to spherules
+    in tissue. He had demonstrated the full dimorphic life cycle: mold in
+    the environment, spherule in the host.
+  </p>
+
+  <p>
+    Ophüls published his findings definitively in 1905. He also named the
+    species: <em>Coccidioides immitis</em>. The epithet <em>immitis</em>
+    is Latin for harsh, cruel, severe. He had seen what the disease did
+    to the small number of patients who developed disseminated infection,
+    and he chose a word that matched the clinical reality. The genus name
+    Posadas had given it, meaning "resembles a Coccidium," was wrong. The
+    species name Ophüls added was right.
+  </p>
+
+  <p>
+    For three decades, coccidioidomycosis was considered a rare and almost
+    universally fatal disease because the only cases that came to medical
+    attention were the disseminated ones. That perception broke in the
+    1930s and 1940s. Myrnie Gifford, a public health physician in San
+    Francisco, recognized that erythema nodosum — painful red bumps on the
+    shins, nicknamed "Valley bumps" — was a manifestation of acute,
+    self-limited coccidioidal infection. Charles E. Smith, an
+    epidemiologist at the University of California, Berkeley, developed the
+    coccidioidin skin test and launched population surveys that revealed
+    the true epidemiology: about 60 percent of infections were
+    asymptomatic, and most of the rest caused only a flu-like illness.
+    Dissemination happened in fewer than 1 percent of cases. The disease
+    was everywhere in the San Joaquin Valley. It just rarely killed.
+  </p>
+
+  <p>
+    Smith's work was accelerated by a grim natural experiment. During World
+    War II, the U.S. military stationed tens of thousands of personnel at
+    airfields and training bases in the endemic regions of California and
+    Arizona. Outbreaks of Valley Fever among troops who had never been
+    exposed drove urgent investment in diagnostics, epidemiology, and
+    treatment. Civilian prisoners held at relocation camps for Japanese
+    Americans — including those at Gila River, Arizona — also suffered
+    outbreaks. By the war's end, coccidioidomycosis had gone from a
+    medical curiosity to a strategic concern.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    <em>Coccidioides</em> was the first systemic dimorphic fungal infection
+    recognized in the Americas. Posadas described it in 1892, thirteen
+    years before Samuel Taylor Darling identified <em>Histoplasma
+    capsulatum</em> in Panama in 1905. Ophüls' demonstration of the
+    dimorphic life cycle in 1900 established the paradigm for understanding
+    all subsequent dimorphic fungi: a saprophytic mold phase in soil that
+    produces aerosolized infectious particles, and a parasitic phase in the
+    host characterized by a distinctive tissue form. The spherule is the
+    diagnostic hallmark of coccidioidomycosis. No other fungus produces
+    anything quite like it. The endospores released when a mature spherule
+    ruptures each seed a new spherule, which is how the infection
+    propagates in tissue. It is the same structure Posadas saw, the same
+    structure Ophüls proved was fungal, and the same structure a
+    pathologist in Bakersfield or Phoenix looks for today.
+  </p>
+
+  <h2>Why the name still matters now</h2>
+  <p>
+    The name <em>Coccidioides</em> means "resembles Coccidia," and it has
+    been wrong for 133 years. Nobody is going to change it. Medical
+    nomenclature rarely corrects etymological errors embedded in a century
+    of literature, and the genus name has too much clinical gravity behind
+    it to be disturbed. Every ID physician who orders a Coccidioides
+    antibody panel by immunodiffusion, every pulmonologist who follows a
+    residual nodule on CT, every microbiologist who works with the mold
+    form inside a biosafety cabinet, uses a name coined by a student who
+    got the kingdom wrong.
+  </p>
+
+  <p>
+    The clinical relevance has only grown. The Centers for Disease Control
+    and Prevention reports approximately 20,000 cases annually, but the
+    true incidence is certainly higher because so many infections are mild
+    or subclinical. Climate change is expanding the endemic zone northward
+    into Oregon and Washington. Construction, agriculture, and archeological
+    digs in endemic areas continue to cause point-source outbreaks when
+    arthroconidia are aerosolized from disturbed soil. Treatment remains
+    frustratingly limited: fluconazole for mild to moderate pulmonary
+    disease, itraconazole for skeletal disease, and lipid amphotericin B
+    for severe or disseminated infection. There is no vaccine, despite
+    decades of effort. Exposure in the endemic area is nearly universal.
+    The only protection is knowing what to look for when a patient with the
+    right geography and the right risk factors develops the wrong kind of
+    pneumonia.
+  </p>
+
+  <p>
+    Alejandro Posadas died in 1902 at the age of 28, never having learned
+    that the organism he named was a fungus. Domingo Escurra's name
+    survives because Posadas wrote it down. The word <em>Coccidioides</em>
+    survives because a medical student looked at a round body and saw
+    something that was not there.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Posadas A. Un nuevo caso de micosis fungoidea con psorospermias.
+        <em>An Círculo Méd Argent</em>. 1892;15:585-597.
+      </p>
+    </li>
+    <li>
+      <p>
+        Rixford E, Gilchrist TC. Two cases of protozoan (coccidioidal)
+        infection of the skin and other organs. <em>Johns Hopkins Hosp
+        Rep</em>. 1896;1:209-268.
+      </p>
+    </li>
+    <li>
+      <p>
+        Ophüls W. Coccidioidal granuloma. <em>J Am Med Assoc</em>.
+        1905;45(17):1291-1296.
+      </p>
+    </li>
+    <li>
+      <p>
+        Smith CE. Epidemiology of acute coccidioidomycosis with erythema
+        nodosum ("San Joaquin" or "Valley Fever"). <em>Am J Public Health
+        Nations Health</em>. 1940;30(6):600-611.
+      </p>
+    </li>
+    <li>
+      <p>
+        Galgiani JN, Ampel NM, Blair JE, et al. Coccidioidomycosis.
+        <em>Clin Infect Dis</em>. 2005;41(9):1217-1223.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1086/496991" target="_blank" rel="noreferrer">
+          DOI: 10.1086/496991
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

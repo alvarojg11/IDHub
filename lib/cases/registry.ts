@@ -1165,6 +1165,15 @@ export const CASES: CaseMeta[] = [
     tags: { organisms: ["Klebsiella aerogenes"], syndromes: ["Bacteremia", "GI & Hepatic", "Antimicrobial Resistance"], concepts: ["Inducible chromosomal AmpC", "AmpC derepression", "Cefepime susceptible-dose dependent", "SDD interpretation", "IDSA 2024 AMR guidance", "Third-generation cephalosporin avoidance", "Extended-infusion cefepime", "Moderate-risk AmpC organism", "Cholangitis", "ERCP"] },
   },
   {
+    title: "The Water Was Warm",
+    slug: "naegleria-fowleri-pam",
+    description: "A previously healthy young man in Texas develops fulminant meningoencephalitis days after swimming in a warm lake, with anosmia and motile trophozoites on CSF wet mount.",
+    enable: true,
+    ogImage: "/cases/naegleria-fowleri-pam/trichrome-stain.jpg",
+    teaser: "A 28-year-old man in Texas develops severe headache, fever, confusion, and complete anosmia four days after swimming in a warm lake. CSF shows 4,200 neutrophils, low glucose, and a Gram stain with no organisms. Then the microbiology lab calls: the wet mount shows large, slowly moving cells with blunt pseudopods. What is the diagnosis, and what is the single most important laboratory precaution?",
+    tags: { organisms: ["Naegleria fowleri"], syndromes: ["CNS Infection", "Neuroinfection", "Parasitic Infection"], concepts: ["Primary amebic meningoencephalitis", "PAM", "CSF wet mount", "Olfactory neuroepithelium", "Anosmia", "Amphotericin B", "Miltefosine", "Warm freshwater exposure", "Thermophilic amoeba", "Balamuthia differential"] },
+  },
+  {
     title: "The Daughter Within",
     slug: "echinococcus-granulosus-liver",
     description: "A young woman from Patagonia with a large multiloculated liver cyst containing daughter cysts — and a planned biopsy that must not proceed.",

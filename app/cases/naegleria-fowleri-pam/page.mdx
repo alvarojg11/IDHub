@@ -1,0 +1,331 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("naegleria-fowleri-pam");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Water Was Warm
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A previously healthy 28-year-old man presents to a Texas emergency department in late July with two days of severe frontal headache, fever to 40.2 C, nausea, and three episodes of vomiting. This morning he developed worsening confusion and his wife noticed he was no longer able to identify familiar smells. He swam in a warm, stagnant lake four days ago while on a weekend camping trip.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 39.8 C, heart rate 118/min, blood pressure 142/88 mmHg, and respiratory rate 20/min. He is lethargic and oriented only to person. Nuchal rigidity and a positive Kernig's sign are present. Cranial nerve examination is otherwise intact, and there are no focal motor deficits. He reports complete loss of smell since yesterday.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 22.4 x 10^3/uL with 88% neutrophils, sodium 128 mEq/L, glucose 142 mg/dL, creatinine 1.1 mg/dL, and C-reactive protein 84 mg/L. CT head without contrast shows no acute intracranial abnormality. Lumbar puncture reveals an opening pressure of 320 mm H2O. Cerebrospinal fluid analysis shows white blood cells 4,200/uL with 91% neutrophils, 450 red blood cells, glucose 24 mg/dL (serum glucose 142), and protein 410 mg/dL. Gram stain shows no organisms.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Empiric ceftriaxone, vancomycin, and acyclovir are started for presumed bacterial meningitis with HSV encephalitis coverage. Thirty minutes later, the microbiology laboratory calls the clinical team: the technician prepared a wet mount from the patient's fresh, room-temperature CSF and observed several large, slowly motile cells with blunt lobate pseudopods and a prominent central karyosome.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/naegleria-fowleri-pam/trichrome-stain.jpg"
+        alt="Trichrome-stained cerebrospinal fluid specimen demonstrating trophozoites with a prominent central karyosome"
+        width={709}
+        height={569}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Trichrome-stained cerebrospinal fluid specimen demonstrating trophozoites with lobate pseudopods and a prominent central karyosome. Image from Channoi et al., Frontiers in Cellular and Infection Microbiology, 2022, CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-naegleria-fowleri-pam-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Bacterial meningitis with a false-negative Gram stain",
+      feedback:
+        "Incorrect. The CSF profile — thousands of neutrophils, profoundly low glucose, markedly elevated protein — is certainly consistent with acute bacterial meningitis, and a false-negative Gram stain can occur when organisms are present at low concentration or when prior antibiotics have been administered. However, the microbiology laboratory has now reported motile cells with lobate pseudopods and a prominent central karyosome on wet mount. These are not bacteria; they are eukaryotic organisms with the morphologic features of free-living amoebae. The freshwater exposure four days before symptom onset, the early anosmia, and the identification of motile trophozoites in CSF point to a specific diagnosis that is not bacterial meningitis.",
+    },
+    {
+      id: "B",
+      label:
+        "Herpes simplex virus encephalitis with secondary CSF inflammation",
+      feedback:
+        "Incorrect. HSV encephalitis can produce fever, headache, altered mental status, and CSF pleocytosis, and it was appropriately included in the initial empiric differential. However, the CSF profile here is predominantly neutrophilic with a profoundly low glucose, which is atypical for viral encephalitis (HSV encephalitis typically produces a lymphocytic pleocytosis with normal or mildly low glucose). More importantly, the wet mount demonstrates motile trophozoites with lobate pseudopods and a central karyosome, which are not compatible with viral infection. The freshwater exposure, anosmia, and hemorrhagic CSF with neutrophilic predominance should redirect the differential away from HSV.",
+    },
+    {
+      id: "C",
+      label:
+        "Primary amebic meningoencephalitis caused by Naegleria fowleri",
+      correct: true,
+      feedback:
+        "Correct. The combination of warm freshwater exposure four days before symptom onset, fulminant meningoencephalitis with anosmia, a CSF profile mimicking bacterial meningitis (thousands of neutrophils, low glucose, high protein, elevated red blood cells reflecting hemorrhagic necrosis), negative Gram stain, and the identification of motile trophozoites with lobate pseudopods and a prominent central karyosome on room-temperature CSF wet mount establishes the diagnosis of primary amebic meningoencephalitis (PAM) caused by Naegleria fowleri. The organism is a thermophilic free-living amoeba that enters the nasal passages during warm freshwater exposure, traverses the cribriform plate along the olfactory nerve filaments, and destroys the olfactory bulbs before spreading to produce hemorrhagic necrotizing meningoencephalitis of the basal forebrain and cerebral cortex. The early anosmia reflects this olfactory bulb destruction and is a highly specific clinical localizing sign.",
+    },
+    {
+      id: "D",
+      label:
+        "Granulomatous amebic encephalitis caused by Balamuthia mandrillaris",
+      feedback:
+        "Incorrect. Balamuthia mandrillaris causes granulomatous amebic encephalitis (GAE), but the clinical presentation is fundamentally different. GAE is a subacute to chronic disease that evolves over weeks to months, not the fulminant course seen here with symptom onset only two days ago following freshwater exposure four days prior. Balamuthia is not reliably found on CSF wet mount — it is typically diagnosed by brain biopsy with immunohistochemical staining or PCR. Furthermore, Balamuthia GAE is often preceded by a characteristic central facial plaque, particularly in Latin American patients, which is absent here. The rapid progression, CSF wet mount findings, and freshwater exposure are characteristic of Naegleria, not Balamuthia.",
+    },
+    {
+      id: "E",
+      label:
+        "Aseptic meningitis from an enteroviral infection",
+      feedback:
+        "Incorrect. Enteroviral meningitis typically produces a lymphocytic pleocytosis with normal glucose and modestly elevated protein. The CSF profile here — with over 4,000 neutrophils/uL, glucose of 24 mg/dL, protein of 410 mg/dL, and 450 red blood cells — is far more inflammatory than what is seen in viral meningitis. Furthermore, motile trophozoites on wet mount are not a feature of any viral infection. The combination of the CSF profile, the wet mount finding, and the freshwater exposure history rules out aseptic meningitis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-naegleria-fowleri-pam-q2"
+  title="Question 2"
+  prompt="Which statement about the CSF wet mount finding is most accurate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "The organisms should be confirmed by Gram stain for definitive species identification",
+      feedback:
+        "Incorrect. Gram stain should be avoided when free-living amoebic infection is suspected. The heat fixation step during Gram stain preparation destroys Naegleria fowleri trophozoites — the CDC explicitly warns against performing Gram stain for this reason. Confirmatory identification should be performed using trichrome or Giemsa staining of fixed specimens, PCR from CSF or brain tissue, or direct immunofluorescence antibody testing. The motile trophozoites on wet mount, combined with the clinical presentation, are sufficient to establish the diagnosis and initiate treatment without waiting for confirmatory testing.",
+    },
+    {
+      id: "B",
+      label:
+        "The trophozoites were likely introduced during the lumbar puncture and represent environmental contamination",
+      feedback:
+        "Incorrect. Naegleria fowleri trophozoites are not environmental contaminants that appear during a lumbar puncture. The trophozoites are present in the CSF because the organism has invaded the central nervous system through the olfactory neuroepithelium, destroyed the olfactory bulbs, and disseminated through the subarachnoid space causing hemorrhagic necrotizing meningoencephalitis. The organisms visible on wet mount are within the CSF because the CSF space is actively infected. Finding motile trophozoites in CSF is a pathologic finding that reflects active meningoencephalitis, not procedural contamination.",
+    },
+    {
+      id: "C",
+      label:
+        "Refrigeration of the CSF sample before wet mount examination would have improved diagnostic sensitivity",
+      feedback:
+        "Incorrect. Refrigeration of CSF is one of the worst things you can do when Naegleria fowleri is in the differential. The organism is thermophilic — it thrives at temperatures up to 46 C — and its trophozoites are adapted to warm environments. Cold temperatures cause the trophozoites to round up, stop moving, and may kill them, rendering them undetectable on wet mount. The wet mount must be performed on fresh, room-temperature CSF, ideally on a warmed stage set to approximately 37 C, to preserve the motility that is the key diagnostic feature. CSF should never be refrigerated when free-living amoebic infection is suspected.",
+    },
+    {
+      id: "D",
+      label:
+        "The motile trophozoites on room-temperature wet mount are diagnostic; heat fixation for Gram stain would have destroyed them",
+      correct: true,
+      feedback:
+        "Correct. This is the critical diagnostic point. Naegleria fowleri trophozoites are visible on wet mount prepared from fresh, room-temperature CSF because the organisms are 10 to 35 micrometers in size, move with slow purposeful motion using lobate pseudopods, and have a characteristic single nucleus with a large, prominent central karyosome. The wet mount must be performed at room temperature or on a warmed stage because the trophozoites are thermophilic and become non-motile or die when chilled. Critically, the heat fixation step required for Gram stain preparation destroys the trophozoites — this is why the CDC recommends avoiding Gram stain when PAM is suspected and instead performing a wet mount directly. The diagnosis can be confirmed with PCR, trichrome or Giemsa staining, or direct immunofluorescence, but the motile trophozoites on wet mount in the right clinical context are sufficient to initiate life-saving treatment immediately.",
+    },
+    {
+      id: "E",
+      label:
+        "The finding is expected because free-living amoebae are normal commensals of the human nasopharynx",
+      feedback:
+        "Incorrect. Free-living amoebae are not normal commensals of the human nasopharynx or any human tissue. They are environmental organisms found in warm freshwater, soil, and poorly maintained water systems. When they gain access to the human nasal mucosa — typically during swimming, diving, or nasal irrigation with contaminated water — they can invade the olfactory neuroepithelium and cause a lethal infection. Finding trophozoites in CSF is always pathologic and indicates active central nervous system infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-naegleria-fowleri-pam-q3"
+  title="Question 3"
+  prompt="Which treatment regimen is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Continue ceftriaxone, vancomycin, and acyclovir pending culture results",
+      feedback:
+        "Incorrect. The diagnosis of PAM has been established by the wet mount findings. Continuing antibacterial and antiviral therapy alone, without anti-amoebic agents, will not address the underlying infection and the patient will almost certainly die. The median time from symptom onset to death in untreated PAM is approximately 5 days. Every hour of delay in initiating appropriate anti-amoebic therapy reduces the already extremely slim chance of survival. The current empiric regimen should be continued as adjunctive therapy but must be supplemented immediately with the CDC-recommended combination anti-amoebic regimen.",
+    },
+    {
+      id: "B",
+      label:
+        "Liposomal amphotericin B 5 mg/kg/day IV plus fluconazole and sulfadiazine",
+      feedback:
+        "Incorrect on two counts. First, conventional (deoxycholate) amphotericin B is preferred over liposomal amphotericin B for Naegleria fowleri. The minimum inhibitory concentration for conventional amphotericin B is approximately 0.1 micrograms per milliliter, roughly tenfold lower than for liposomal amphotericin B, and conventional amphotericin B was more effective in mouse models of PAM. Second, sulfadiazine and fluconazole are not part of the current CDC-recommended regimen. The CDC guidance, updated in November 2025, recommends a multi-drug combination including conventional amphotericin B, miltefosine, azithromycin, posaconazole (which has replaced fluconazole as the preferred azole), rifampin, and dexamethasone.",
+    },
+    {
+      id: "C",
+      label:
+        "Conventional amphotericin B IV and intrathecal, miltefosine, azithromycin, posaconazole, rifampin, and dexamethasone",
+      correct: true,
+      feedback:
+        "Correct. This is the CDC-recommended combination regimen for primary amebic meningoencephalitis, updated in November 2025. Conventional (deoxycholate) amphotericin B is the backbone of therapy and is preferred over the liposomal formulation because it has approximately tenfold lower minimum inhibitory concentration against Naegleria fowleri in vitro and was more effective in animal models. It is administered both intravenously at 1.5 mg/kg/day in divided doses for the first three days then 1 mg/kg/day, and intrathecally at 1.5 mg daily for two days then 1 mg every other day. Miltefosine, originally developed for leishmaniasis, has demonstrated amoebicidal activity and was part of the regimen received by all recent North American survivors. Azithromycin provides additional anti-amoebic activity. Posaconazole has replaced fluconazole as the preferred azole because of superior in vitro activity. Rifampin adds a further mechanism of action. Dexamethasone is included for management of cerebral edema and elevated intracranial pressure, which are the proximate causes of death in PAM. The regimen should be started immediately upon clinical suspicion — do not wait for confirmatory PCR results.",
+    },
+    {
+      id: "D",
+      label:
+        "Miltefosine monotherapy because amphotericin B has poor CNS penetration when given intravenously",
+      feedback:
+        "Incorrect. While it is true that intravenous amphotericin B has limited CNS penetration, this is precisely why the CDC regimen includes both intravenous AND intrathecal amphotericin B — to achieve therapeutic drug concentrations in the subarachnoid space. Miltefosine monotherapy is inadequate. All confirmed North American survivors of PAM received amphotericin B as part of a multi-drug combination. Miltefosine alone does not provide sufficient anti-amoebic activity to reliably clear the infection, and no survivor has been treated with miltefosine monotherapy. The extremely high mortality of PAM demands the most aggressive multi-drug regimen available.",
+    },
+    {
+      id: "E",
+      label:
+        "Intrathecal miconazole plus oral ketoconazole, modeled after the first survivor in 1978",
+      feedback:
+        "Incorrect. The 1978 survivor was treated with intravenous and intrathecal miconazole and oral ketoconazole, but treatment has evolved substantially since then. Miconazole and ketoconazole are no longer part of the recommended regimen. Miconazole is not commercially available in the United States in an intrathecal formulation, and ketoconazole has been largely replaced by more effective and better-tolerated azole antifungals. The current CDC-recommended regimen incorporates decades of additional experience, in vitro susceptibility data, and the treatment histories of all subsequent survivors, and is based on conventional amphotericin B, miltefosine, azithromycin, posaconazole, rifampin, and dexamethasone.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-naegleria-fowleri-pam-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Naegleria fowleri</em> is a thermophilic free-living amoeba found in warm freshwater, soil, hot springs, and poorly maintained recreational water systems. It has three life cycle stages: a resistant cyst (present in the environment but not in human tissue), a trophozoite (the feeding, reproductive, and tissue-destructive form, 10 to 35 micrometers, with lobate pseudopods and a prominent central karyosome), and a transient flagellated form (non-feeding, non-dividing, seen in the laboratory when trophozoites are placed in distilled water). Only trophozoites are found in human CSF and brain tissue.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathogenesis of PAM follows a specific anatomic pathway. Trophozoites in contaminated water enter the nasal passages during swimming, diving, or nasal irrigation. They adhere to the nasal mucosa, migrate to the olfactory neuroepithelium, and traverse the cribriform plate along the olfactory nerve filaments to access the subarachnoid space. The first structures destroyed are the olfactory bulbs, which explains why early anosmia or ageusia is a characteristic localizing sign. From there, the infection spreads as a hemorrhagic, necrotizing meningoencephalitis involving the basal forebrain, temporal and frontal lobes, and eventually the entire cerebral cortex. The median time from symptom onset to death in confirmed cases is approximately 5 days.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Critically, <em>N. fowleri</em> is NOT acquired by drinking contaminated water. Trophozoites are killed by stomach acid and cannot penetrate gastrointestinal mucosa. The organism requires direct access to the olfactory neuroepithelium via the nasal route. Person-to-person transmission has never been documented.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The CSF profile in PAM closely mimics acute bacterial meningitis: a neutrophil-predominant pleocytosis often in the thousands, profoundly low glucose, markedly elevated protein, and elevated red blood cells reflecting the hemorrhagic nature of the necrosis. In published series, 75% of patients were initially treated with antibacterial therapy for presumed bacterial meningitis before the correct diagnosis was established. The key to diagnosis is maintaining a high clinical suspicion based on the exposure history and performing a wet mount on fresh, room-temperature CSF. The wet mount must not be performed on refrigerated CSF, because cold temperatures cause the thermophilic trophozoites to round up and stop moving. Heat fixation for Gram stain destroys the trophozoites entirely, which is why the CDC explicitly recommends avoiding Gram stain when PAM is suspected.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The current CDC-recommended treatment regimen, updated in November 2025, is a multi-drug combination: conventional (deoxycholate) amphotericin B administered both intravenously and intrathecally, miltefosine, azithromycin, posaconazole (which has replaced fluconazole due to superior in vitro activity), rifampin, and dexamethasone for cerebral edema management. Conventional amphotericin B is specifically preferred over the liposomal formulation because its minimum inhibitory concentration against <em>N. fowleri</em> is approximately tenfold lower. The investigational drug nitroxoline may also be available through the CDC under expanded access.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    PAM must be distinguished from granulomatous amebic encephalitis (GAE) caused by <em>Balamuthia mandrillaris</em> and <em>Acanthamoeba</em> species. PAM is fulminant, evolving over days, in previously healthy individuals with warm freshwater exposure; it is diagnosed by CSF wet mount showing motile trophozoites and treated with an amphotericin B-based regimen. GAE is subacute to chronic, evolving over weeks to months, may occur in immunocompromised or immunocompetent hosts, and <em>Balamuthia</em> GAE is often preceded by a characteristic central facial plaque; it is diagnosed by brain biopsy with immunostaining or PCR, and treated with a miltefosine-based combination that does not include amphotericin B.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The case fatality rate for PAM exceeds 97%, with only five documented survivors in North America. The strongest predictor of survival in these cases was early treatment initiation — the median time from symptom onset to treatment in survivors was 2.5 days. The CDC Emergency Operations Center provides 24-hour diagnostic assistance and treatment guidance at 770-488-7100.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-naegleria-fowleri-pam-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>N. fowleri</em> enters the CNS via the olfactory neuroepithelium after warm freshwater exposure; it is NOT acquired by drinking contaminated water, and person-to-person transmission does not occur.
+    </li>
+    <li>
+      PAM presents as fulminant meningoencephalitis in previously healthy young people; anosmia or ageusia is a red-flag localizing sign reflecting olfactory bulb destruction.
+    </li>
+    <li>
+      CSF mimics bacterial meningitis (PMN-predominant pleocytosis, low glucose, high protein); motile trophozoites on room-temperature wet mount are diagnostic — Gram stain heat fixation destroys the organisms.
+    </li>
+    <li>
+      Conventional (deoxycholate) amphotericin B is preferred over liposomal (10-fold lower MIC); the CDC regimen combines amphotericin B IV + intrathecal, miltefosine, azithromycin, posaconazole, rifampin, and dexamethasone.
+    </li>
+    <li>
+      PAM is fulminant (days), hemorrhagic, diagnosed by CSF wet mount — differentiate from <em>Balamuthia</em> GAE which is subacute (weeks to months), granulomatous, often preceded by a facial plaque, and diagnosed by biopsy/PCR.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gharpure R, Bliton J, Goodman A, Ali IKM, Yoder J, Cope JR. Epidemiology and clinical characteristics of primary amebic meningoencephalitis caused by <em>Naegleria fowleri</em>: a global review. <em>Clinical Infectious Diseases</em>. 2021;73(1):e19-e27.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciaa520"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciaa520
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Naegleria fowleri — clinical care and treatment. Updated November 2025. Available at: https://www.cdc.gov/naegleria/
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Channoi T, Sribharat P, Thiptanapoj N, et al. Fatal <em>Naegleria fowleri</em> primary amebic meningoencephalitis in Thailand. <em>Frontiers in Cellular and Infection Microbiology</em>. 2022;12:931546.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fcimb.2022.931546"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3389/fcimb.2022.931546
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Linam WM, Ahmed M, Cope JR, et al. Successful treatment of an adolescent with <em>Naegleria fowleri</em> meningoencephalitis. <em>Pediatrics</em>. 2015;135(3):e744-e748.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1542/peds.2014-2292"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1542/peds.2014-2292
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Qvarnstrom Y, Visvesvara GS, Sriram R, da Silva AJ. Multiplex real-time PCR assay for simultaneous detection of <em>Acanthamoeba</em> spp., <em>Balamuthia mandrillaris</em>, and <em>Naegleria fowleri</em>. <em>Journal of Clinical Microbiology</em>. 2006;44(10):3589-3595.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.00875-06"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.00875-06
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
