@@ -1,0 +1,344 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("rhodococcus-equi-hiv");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Contaminant
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old man with HIV diagnosed two months ago presents to the infectious diseases clinic with three weeks of fever, productive cough, night sweats, and 6 kg of unintentional weight loss. His CD4 count at diagnosis was 42 cells/uL with a viral load of 280,000 copies/mL. He has not yet started antiretroviral therapy. He lives in a rural area of central Texas and works as a landscaper. He has no recent travel, no known tuberculosis exposure, and no animal contact beyond a household dog.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 38.9 C, heart rate 104/min, blood pressure 118/72 mmHg, respiratory rate 18/min, and oxygen saturation 95% on room air. He appears chronically ill with temporal wasting. Crackles are present in the right upper lung field. There is no lymphadenopathy, skin lesions, or organomegaly.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 11.8 x 10^3/uL with 78% neutrophils, hemoglobin 10.2 g/dL, platelets 285 x 10^3/uL, creatinine 0.9 mg/dL, ALT 42 U/L, and AST 56 U/L. Three induced sputum specimens for acid-fast bacilli smear and mycobacterial culture are all negative. A fourth sputum shows no AFB. Histoplasma urine antigen is negative. Serum cryptococcal antigen is negative.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chest CT demonstrates a 4.5 cm cavitary lesion in the right upper lobe with a thick irregular wall and surrounding parenchymal consolidation. There is no pleural effusion or mediastinal lymphadenopathy. The radiologist's impression notes that the findings are concerning for tuberculosis or fungal infection in the setting of advanced HIV.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Bronchoscopy with bronchoalveolar lavage is performed. Bacterial culture of the BAL fluid grows a gram-positive coccobacillus after 48 hours. The microbiology laboratory initially reports it as "Corynebacterium species, probable skin contaminant." However, the laboratory's modified Kinyoun (modified acid-fast) stain on the direct BAL specimen is positive, showing organisms that retain carbolfuchsin with 1% sulfuric acid decolorization. On blood agar, the colonies are salmon-pink, smooth, and mucoid. The organism is catalase-positive and urease-positive.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/rhodococcus-equi-hiv/colonies.jpg"
+        alt="Blood agar culture after 48 hours demonstrating pigmented mucoid colonies"
+        width={536}
+        height={521}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Blood agar culture after 48 hours of incubation demonstrating pigmented mucoid colonies. Image from Dias et al., J Family Med Prim Care, 2013, CC BY-NC-SA 3.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-rhodococcus-equi-hiv-q1"
+  title="Question 1"
+  prompt="What is the most likely causative organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Corynebacterium jeikeium",
+      feedback:
+        "Incorrect. Corynebacterium jeikeium is a gram-positive coccobacillus that can cause opportunistic infection in immunocompromised patients, and it is precisely the type of organism that laboratories may report as a Corynebacterium species or diphtheroid. However, C. jeikeium is not acid-fast — it does not retain carbolfuchsin on modified Kinyoun staining. It is a nosocomial pathogen associated with catheter-related bacteremia and wound infections in neutropenic patients, not cavitary pneumonia. Its colonies are gray-white and non-hemolytic, not salmon-pink and mucoid. The acid-fast positivity and the distinctive colony pigmentation are inconsistent with C. jeikeium and should prompt the clinician to reconsider the laboratory's initial dismissal of the isolate as a contaminant.",
+    },
+    {
+      id: "B",
+      label:
+        "Mycobacterium avium complex",
+      feedback:
+        "Incorrect. MAC can cause pulmonary disease in patients with advanced HIV, and in disseminated disease it can present with fever, weight loss, and pulmonary infiltrates. However, MAC organisms are true acid-fast bacilli — they stain positive with the standard Ziehl-Neelsen or Kinyoun methods using 20% sulfuric acid decolorization, not just the modified method with 1% sulfuric acid. MAC does not grow as salmon-pink colonies on blood agar within 48 hours; it requires mycobacterial culture media such as Middlebrook 7H10 or MGIT broth and typically takes 1 to 3 weeks to grow. The growth characteristics, colony morphology, and Gram stain appearance (gram-positive coccobacillus, not AFB) all distinguish this organism from MAC.",
+    },
+    {
+      id: "C",
+      label:
+        "Mycobacterium tuberculosis",
+      feedback:
+        "Incorrect. The clinical and radiographic presentation — subacute fever, cough, weight loss, night sweats, and an upper lobe cavitary lesion in an immunocompromised host — is entirely consistent with tuberculosis, and TB should always be in the differential. However, three sputum AFB smears are negative, the BAL AFB smear is negative, and the organism growing in culture is a gram-positive coccobacillus, not an acid-fast bacillus. Mycobacterium tuberculosis would not appear as a gram-positive coccobacillus on Gram stain, nor would it grow as salmon-pink mucoid colonies on routine blood agar within 48 hours. The modified acid-fast positivity with 1% sulfuric acid (rather than the standard 20% sulfuric acid used for true AFB) reflects a different degree of acid-fastness. The clinical mimicry of TB is a central feature of this case, but the microbiology distinguishes the two.",
+    },
+    {
+      id: "D",
+      label:
+        "Rhodococcus equi",
+      correct: true,
+      feedback:
+        "Correct. The combination of a gram-positive coccobacillus that is partially acid-fast on modified Kinyoun stain, salmon-pink mucoid colonies on blood agar, catalase-positive and urease-positive biochemical profile, and cavitary upper lobe pneumonia in a patient with advanced HIV (CD4 42) establishes the diagnosis of Rhodococcus equi pulmonary infection. R. equi is a facultative intracellular pathogen of macrophages that causes disease predominantly in immunocompromised hosts, particularly those with CD4 counts below 200 cells per microliter. Its clinical and radiographic presentation closely mimics tuberculosis — subacute cough, fever, weight loss, and upper lobe cavitary lesions — which is why the diagnosis is frequently delayed. The #1 diagnostic error is dismissal of the organism as a diphtheroid contaminant, as initially occurred in this case. The salmon-pink colony color and the modified acid-fast positivity are the critical microbiologic clues that should prevent this dismissal.",
+    },
+    {
+      id: "E",
+      label:
+        "Nocardia species",
+      feedback:
+        "Incorrect. Nocardia species are an important differential because they are also partially acid-fast on modified Kinyoun stain and can cause cavitary pulmonary disease in immunocompromised hosts. However, the key morphologic distinction is that Nocardia are filamentous, branching organisms on Gram stain — not coccobacillary. This patient's organism is described as a gram-positive coccobacillus. Furthermore, Nocardia colonies on blood agar are typically chalky-white to orange and dry, not the salmon-pink, smooth, mucoid colonies described here. Nocardia are also urease-variable, whereas this isolate is urease-positive. The colony morphology and coccobacillary gram stain morphology point away from Nocardia.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rhodococcus-equi-hiv-q2"
+  title="Question 2"
+  prompt="Which virulence mechanism best explains why this organism causes opportunistic infection in patients with advanced HIV?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Secretion of proteases that directly degrade lung parenchyma and extracellular matrix",
+      feedback:
+        "Incorrect. While some bacterial pathogens (such as Pseudomonas aeruginosa with elastase, or Staphylococcus aureus with various proteases) use secreted enzymes to degrade tissue and promote invasion, R. equi does not rely on secreted proteases for its virulence. The lung destruction in R. equi infection is a consequence of uncontrolled intracellular bacterial replication within macrophages, macrophage necrosis, and the resulting pyogranulomatous inflammatory response. The virulence strategy is intracellular survival, not extracellular tissue degradation.",
+    },
+    {
+      id: "B",
+      label:
+        "Formation of a polysaccharide capsule that inhibits complement-mediated opsonization",
+      feedback:
+        "Incorrect. R. equi does not produce a polysaccharide capsule. While capsule-mediated complement evasion is a virulence strategy employed by organisms such as Cryptococcus neoformans, Streptococcus pneumoniae, and Klebsiella pneumoniae, R. equi's pathogenic strategy is fundamentally different. It is an intracellular pathogen that avoids host defenses not by preventing opsonization but by subverting the intracellular killing machinery of the macrophage. The critical virulence factor is the vapA plasmid-encoded system that diverts phagosome trafficking, not a surface capsule.",
+    },
+    {
+      id: "C",
+      label:
+        "Arrest of phagosome maturation via vapA-encoded virulence proteins, preventing phagolysosomal fusion and acidification within macrophages",
+      correct: true,
+      feedback:
+        "Correct. This is the defining virulence mechanism of Rhodococcus equi. The organism carries an 80 to 100 kilobase conjugative virulence plasmid encoding a pathogenicity island with the vapA gene (virulence-associated protein A) and multiple vap homologues. After phagocytosis by alveolar macrophages, the Rhodococcus-containing vacuole passes through early endosomal stages normally but is then arrested at the early-to-late endosome transition. The vacuole does not acquire lysosomal markers such as LAMP-1 or cathepsin D, does not acidify (pH remains approximately 7.0 instead of the normal phagolysosomal pH of approximately 4.5), and does not undergo the respiratory burst. VapA is required for this phagosome diversion — vapA deletion mutants show partial acidification and are attenuated in macrophage survival and animal models. After 48 hours of intracellular replication, the macrophage is killed by necrosis, releasing bacteria that are then phagocytosed by newly recruited macrophages, perpetuating the cycle. This intracellular survival strategy explains why intact cell-mediated immunity — specifically CD4-positive T cells activating macrophages via interferon-gamma — is the critical host defense against R. equi, and why patients with advanced HIV and depleted CD4 counts are uniquely vulnerable.",
+    },
+    {
+      id: "D",
+      label:
+        "Biofilm formation on airway epithelium that resists antimicrobial penetration",
+      feedback:
+        "Incorrect. R. equi is not a biofilm-forming organism in the clinical sense relevant to this case. While some Rhodococcus species have been studied for biofilm production in environmental contexts, biofilm formation is not the primary virulence mechanism of R. equi in human pulmonary infection. The organism's pathogenicity is centered on intracellular survival within macrophages, not on surface adherence and biofilm production. Biofilm-associated infections typically present differently — indwelling device infections, chronic wound infections, or Pseudomonas in cystic fibrosis — with progressive resistance to antibiotics due to the extracellular matrix barrier. R. equi's resistance to clearance is immunologic (loss of cell-mediated immunity), not biofilm-mediated.",
+    },
+    {
+      id: "E",
+      label:
+        "Production of a potent exotoxin that causes necrosis of lung parenchyma",
+      feedback:
+        "Incorrect. Rhodococcus equi does not produce exotoxins. Its virulence is not mediated by toxin secretion but by its ability to survive and replicate inside host macrophages. The tissue necrosis and cavitation seen in R. equi pneumonia result from the host inflammatory response to intracellular bacterial replication and macrophage death, not from a secreted toxin. This distinction matters clinically because it explains why immune-based strategies (ART, immune reconstitution) are essential for cure, whereas antitoxin approaches have no role.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-rhodococcus-equi-hiv-q3"
+  title="Question 3"
+  prompt="Which approach to treatment is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Trimethoprim-sulfamethoxazole monotherapy for 12 months",
+      feedback:
+        "Incorrect. TMP-SMX has variable in vitro activity against R. equi and cannot be relied upon as monotherapy. While TMP-SMX is a mainstay of treatment for Nocardia — the organism most commonly confused with R. equi on modified acid-fast staining — it is not the correct approach here. The in vitro susceptibility of R. equi to TMP-SMX is inconsistent across isolates, and monotherapy with a single agent provides inadequate coverage for an intracellular pathogen that requires prolonged combination therapy. Even for Nocardia, current guidelines recommend combination therapy initially, not monotherapy.",
+    },
+    {
+      id: "B",
+      label:
+        "Intravenous vancomycin alone for 2 weeks followed by oral step-down with a single agent",
+      feedback:
+        "Incorrect on two counts. First, the duration is too short. Two weeks of IV therapy followed by oral step-down would be appropriate for an uncomplicated bacteremia or skin infection with a susceptible organism, but R. equi pulmonary infection in an immunocompromised host requires prolonged therapy of at least 2 to 6 months, similar to other intracellular pathogens such as Nocardia and mycobacteria. Second, single-agent therapy is not recommended. The organism replicates intracellularly within macrophages, and combination therapy with agents that have intracellular penetration is necessary to prevent the emergence of resistance and ensure adequate bacterial killing. Vancomycin has poor intracellular penetration, which further limits its utility as monotherapy for an intracellular pathogen.",
+    },
+    {
+      id: "C",
+      label:
+        "Isoniazid, rifampin, pyrazinamide, and ethambutol for 6 months, as the presentation is most consistent with tuberculosis",
+      feedback:
+        "Incorrect. While the clinical presentation closely mimics tuberculosis, the microbiology has established a different diagnosis. The organism is not Mycobacterium tuberculosis — it is a gram-positive coccobacillus with partial acid-fast positivity, not a true acid-fast bacillus, and standard anti-tuberculous therapy has no reliable activity against Rhodococcus equi. R. equi is taxonomically related to mycobacteria (both belong to the order Mycobacteriales and share mycolic acid-containing cell walls), but this relatedness does not translate into susceptibility to TB drugs. Isoniazid, pyrazinamide, and ethambutol are not active against R. equi. Rifampin has in vitro activity and may be used as a component of combination therapy, but not in the context of a four-drug TB regimen.",
+    },
+    {
+      id: "D",
+      label:
+        "Amphotericin B plus flucytosine, as the organism's mycolic acid-containing cell wall resembles fungal cell wall components",
+      feedback:
+        "Incorrect. While R. equi does share some cell wall features with mycobacteria (mycolic acids) and is taxonomically placed in the same order (Mycobacteriales), it is a bacterium — not a fungus. Antifungal agents such as amphotericin B and flucytosine have no activity against R. equi. The mycolic acid content in the cell wall contributes to the organism's partial acid-fastness on staining (a feature shared with Nocardia and mycobacteria), but it does not make the organism susceptible to antifungals. The treatment approach requires antibacterial agents with activity against R. equi and adequate intracellular penetration.",
+    },
+    {
+      id: "E",
+      label:
+        "Prolonged combination therapy with two to three active agents for at least 2 to 6 months, guided by susceptibility testing, plus initiation of antiretroviral therapy",
+      correct: true,
+      feedback:
+        "Correct. There are no randomized controlled trials to guide therapy for Rhodococcus equi infection, and no standardized regimen exists. Treatment recommendations are derived from in vitro susceptibility data, case series, and expert opinion. The approach involves combination therapy with two to three agents that have demonstrated activity against R. equi, typically including vancomycin or linezolid as a backbone plus a fluoroquinolone such as levofloxacin and either rifampin or a macrolide such as azithromycin. Imipenem is another option with reliable in vitro activity. The duration should be prolonged — at least 2 to 6 months for pulmonary disease — because relapse is well documented with shorter courses. Critically, antiretroviral therapy must be initiated to achieve immune reconstitution. Without CD4 recovery above 200 cells per microliter, relapse is expected even after prolonged antimicrobial therapy, and lifelong suppressive therapy with an oral regimen such as a macrolide plus a fluoroquinolone or rifampin may be required. The importance of ART cannot be overstated: antibiotics alone may suppress but rarely cure the infection in the absence of immune reconstitution.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-rhodococcus-equi-hiv-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Rhodococcus equi</em> (formerly <em>Corynebacterium equi</em>) is a gram-positive, partially acid-fast, obligate aerobic coccobacillus found worldwide in soil, particularly in environments enriched by herbivore manure. It belongs to the order Mycobacteriales, family Nocardiaceae — placing it taxonomically alongside mycobacteria and <em>Nocardia</em>, all of which share mycolic acid-containing cell walls that account for their variable acid-fastness on staining.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism's defining clinical feature is its ability to cause cavitary pulmonary infection in immunocompromised hosts, particularly those with advanced HIV and CD4 counts below 200 cells per microliter. The clinical and radiographic presentation — subacute fever, productive cough, weight loss, night sweats, and upper lobe cavitary lesions — so closely mimics tuberculosis that patients are frequently started on empiric anti-tuberculous therapy before the correct diagnosis is established. In published series, the median CD4 count at presentation is approximately 30 to 50 cells per microliter, reflecting the degree of cell-mediated immunodeficiency required for the organism to cause invasive disease.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The virulence of <em>R. equi</em> depends on a large conjugative plasmid carrying a pathogenicity island that includes the <em>vapA</em> gene and multiple <em>vap</em> homologues. VapA is a lipid-anchored surface protein essential for the organism's ability to survive within macrophages. After phagocytosis, the <em>R. equi</em>-containing vacuole is diverted from the normal endosomal maturation pathway: it does not acquire lysosomal markers, does not acidify, and does not undergo the respiratory burst. This allows the organism to replicate freely within the macrophage. After approximately 48 hours, the infected macrophage undergoes necrosis, releasing organisms that are phagocytosed by newly recruited phagocytes, perpetuating the infectious cycle.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The host defense against <em>R. equi</em> depends on intact cell-mediated immunity — specifically, CD4-positive T lymphocytes producing interferon-gamma to activate infected macrophages and overcome the phagosome maturation block. This is precisely the immune compartment that is depleted in advanced HIV, explaining the strong association between severe <em>R. equi</em> infection and low CD4 counts. It also explains why antiretroviral therapy is not merely an adjunct but an essential component of treatment: without immune reconstitution, relapse is expected regardless of the duration or intensity of antimicrobial therapy.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnosis of <em>R. equi</em> infection is frequently delayed because the organism is dismissed as a diphtheroid contaminant — a coryneform gram-positive rod that the laboratory may not fully identify in the absence of specific clinical context. The critical microbiologic clues that should prevent this error are: the organism is partially acid-fast on modified Kinyoun stain (using 1% sulfuric acid decolorization), it produces characteristically salmon-pink to coral-red mucoid colonies on blood agar, it is catalase-positive and urease-positive, and it does not ferment carbohydrates. MALDI-TOF mass spectrometry has improved the speed and accuracy of identification.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The most important diagnostic distinction is from <em>Nocardia</em> species, which are also partially acid-fast and can cause cavitary pulmonary disease in immunocompromised hosts. The key differences are morphologic: <em>R. equi</em> appears as a coccobacillus on Gram stain (not filamentous or branching), produces salmon-pink mucoid colonies (not the chalky, dry colonies typical of <em>Nocardia</em>), and is reliably urease-positive (<em>Nocardia</em> is urease-variable). Both organisms grow on routine media, but the colony morphology and Gram stain appearance allow experienced microbiologists to distinguish them before definitive identification.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment of <em>R. equi</em> infection requires prolonged combination antimicrobial therapy guided by in vitro susceptibility testing. There are no randomized controlled trials. Agents with reliable activity include vancomycin, linezolid, imipenem, levofloxacin, rifampin, and macrolides such as azithromycin. A common approach is to use two to three of these agents in combination for at least 2 to 6 months, with an initial period of intravenous therapy until clinical improvement is documented. Antiretroviral therapy should be initiated concurrently to achieve immune reconstitution. If the patient does not recover CD4 counts above 200 cells per microliter, lifelong suppressive oral therapy may be necessary to prevent relapse. Surgical resection of refractory cavitary lesions may be required in selected cases.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-rhodococcus-equi-hiv-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>R. equi</em> is a gram-positive coccobacillus that is partially acid-fast on modified Kinyoun stain — do not dismiss it as a "diphtheroid contaminant" in immunocompromised patients with pulmonary disease.
+    </li>
+    <li>
+      The organism survives inside macrophages by arresting phagosome maturation via the <em>vapA</em> virulence plasmid — cell-mediated immunity (CD4+ T cells producing IFN-gamma) is the critical host defense, explaining the predilection for advanced HIV.
+    </li>
+    <li>
+      Clinical and radiographic presentation closely mimics tuberculosis (upper lobe cavity, subacute course, weight loss) — consider <em>R. equi</em> when AFB smears are repeatedly negative but modified acid-fast stain is positive.
+    </li>
+    <li>
+      Distinguish from <em>Nocardia</em>: <em>R. equi</em> is coccobacillary (not filamentous or branching), urease-positive, and produces salmon-pink mucoid colonies rather than chalky dry colonies.
+    </li>
+    <li>
+      Treatment requires prolonged combination therapy (2-3 drugs for at least 2-6 months) plus ART for immune reconstitution; without CD4 recovery above 200, relapse is expected and lifelong suppressive therapy may be needed.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Prescott JF. <em>Rhodococcus equi</em>: an animal and human pathogen. <em>Clinical Microbiology Reviews</em>. 1991;4(1):20-34.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.4.1.20"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.4.1.20
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      von Bargen K, Polidoro M, Klose K, et al. <em>R. equi</em> VapA is required for diversion of phagosome biogenesis but not for cytotoxicity. <em>Infection and Immunity</em>. 2009;77(12):5676-5681.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/IAI.00828-09"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/IAI.00828-09
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Harvey RL, Sunstrum JC. <em>Rhodococcus equi</em> infection in patients with and without human immunodeficiency virus infection. <em>Reviews of Infectious Diseases</em>. 1991;13(1):139-145.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/clinids/13.1.139"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/clinids/13.1.139
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Topino S, Galati V, Grilli E, Petrosillo N. <em>Rhodococcus equi</em> infection in HIV-infected individuals: case reports and review of the literature. <em>AIDS Patient Care and STDs</em>. 2010;24(4):211-222.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1089/apc.2009.0252"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1089/apc.2009.0252
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Weinstock DM, Brown AE. <em>Rhodococcus equi</em>: an emerging pathogen. <em>Clinical Infectious Diseases</em>. 2002;34(10):1379-1385.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/340259"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/340259
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

@@ -1191,6 +1191,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 17-year-old boy from rural western North Carolina presents in late July with fever, emesis, aphasia, seizure, frontotemporal MRI abnormalities, and temporal PLEDs on EEG. The routine CSF PCR panel is negative. What arboviral diagnosis best explains this HSV-mimic syndrome, how should it be confirmed, and which physiologic trend should most heighten concern for deterioration?",
     tags: { organisms: ["La Crosse virus"], syndromes: ["Neuroinfection", "Arboviral Infection", "Vector-borne Infection"], concepts: ["Aedes triseriatus", "Tree-hole mosquito", "Temporal PLEDs", "HSV encephalitis mimic", "California serogroup", "Orthobunyavirus", "CSF IgM", "Neutralizing antibody confirmation", "Hyponatremia", "Intracranial hypertension", "Transovarial transmission", "Dead-end host"] },
   },
+  {
+    title: "Contaminant",
+    slug: "rhodococcus-equi-hiv",
+    description: "A gram-positive coccobacillus dismissed as a diphtheroid contaminant in a patient with advanced HIV and a cavitary lung lesion.",
+    enable: true,
+    ogImage: "/cases/rhodococcus-equi-hiv/colonies.jpg",
+    teaser: "A 34-year-old man with HIV (CD4 42, not on ART) and a right upper lobe cavity has three negative AFB smears. BAL culture grows a gram-positive coccobacillus reported as \"Corynebacterium, probable contaminant.\" Modified Kinyoun stain is positive. Salmon-pink mucoid colonies appear on blood agar. What is the organism, and why was it almost missed?",
+    tags: { organisms: ["Rhodococcus equi"], syndromes: ["Pulmonary Infection", "HIV/AIDS", "Opportunistic Infection"], concepts: ["Partially acid-fast", "vapA virulence plasmid", "Phagosome maturation arrest", "Macrophage intracellular pathogen", "Cavitary pneumonia", "TB mimic", "Diphtheroid contaminant dismissal", "Salmon-pink colonies", "Prolonged combination therapy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
