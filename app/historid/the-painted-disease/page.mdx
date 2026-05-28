@@ -1,0 +1,273 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-painted-disease",
+  title: "The Painted Disease",
+  description:
+    "Pinta means 'painted' in Spanish. It is the name of a skin disease caused by Treponema carateum, a spirochete indistinguishable from syphilis under a microscope but radically different in what it does to a human body: it only touches the skin.",
+  publishedAt: "2026-05-27",
+  historicalDateLabel: "1869-1938",
+  historicalYearSort: 1869,
+  categories: ["organisms"],
+  tags: [
+    "Pinta",
+    "Treponema carateum",
+    "spirochete",
+    "treponematosis",
+    "Aristides Herrera",
+    "Emile Brumpt",
+    "etymology",
+    "carate",
+    "mal del pinto",
+    "WHO",
+    "penicillin",
+    "endemic treponematoses",
+  ],
+  hook:
+    "When Spanish colonists arrived in the Americas, they noticed something on the skin of the people they encountered: patches of skin that had lost their color, turning white or blue-gray, as if someone had dabbed paint on them and let it dry. The indigenous people had their own words for it. In parts of Colombia and Venezuela they called it carate. In Mexico they called it mal del pinto, the disease of the painted one. The Spanish word that eventually took hold across the medical literature was pinta, meaning painted. Five hundred years later, a spirochete indistinguishable from the one that causes syphilis was found living in those patches, and nowhere else in the body. The painted disease was caused by a version of the same bacterium that had been destroying brains and hearts and bones in Europe for centuries. It just chose not to.",
+  takeaway:
+    "Pinta is a non-venereal treponematosis caused by Treponema carateum, a spirochete morphologically and serologically indistinguishable from Treponema pallidum, the cause of syphilis. Unlike syphilis, pinta affects only the skin — no congenital transmission, no central nervous system invasion, no cardiovascular damage. The name comes from the Spanish word for 'painted,' describing the characteristic depigmented patches. The indigenous name carate is preserved in the species epithet. The organism was first visualized in 1938 by the Cuban dermatologist Arístides Herrera and named Treponema carateum by the French parasitologist Émile Brumpt in 1939. WHO and UNICEF mass penicillin campaigns in the 1950s and 1960s drove pinta to near extinction. A single dose of intramuscular benzathine penicillin G is curative. Pinta may be the first human treponematosis eliminated.",
+  heroImage: "/historid/the-painted-disease/hero.jpg",
+  heroImageAlt:
+    "An 1869 illustration titled 'El carate' by Édouard André and Édouard Riou, showing a person being examined for pinta, the painted disease. It is one of the earliest visual records of the disease.",
+  heroImageCredit:
+    "'El carate' (1869). Illustration by Édouard André and Édouard Riou. From the Galería Histórica de Colombia.",
+  heroImageSourceUrl: "https://commons.wikimedia.org/wiki/File:El_carate.jpg",
+  heroImageLicense: "Public domain (1869, copyright expired)",
+  socialHeadline: "The Painted Disease",
+  socialDek:
+    "Pinta means 'painted' in Spanish. It's a skin disease caused by a spirochete indistinguishable from syphilis — except it only touches the skin. It may now be gone.",
+  socialFacts: [
+    "Pinta means 'painted' or 'spotted' in Spanish, describing the depigmented skin patches. The indigenous name carate is preserved in the species epithet of Treponema carateum.",
+    "Treponema carateum is morphologically and serologically indistinguishable from T. pallidum, the cause of syphilis. Yet pinta affects only the skin — no congenital transmission, no CNS invasion, no cardiovascular damage.",
+    "The organism was first visualized in 1938 by Cuban dermatologist Arístides Herrera using dark-field microscopy of lesion exudate. Émile Brumpt named it Treponema carateum in 1939.",
+    "WHO and UNICEF mass penicillin campaigns in the 1950s and 1960s drove pinta to near extinction. A single intramuscular dose of benzathine penicillin G is curative.",
+    "Pinta may be the first human treponematosis eliminated. The last autochthonous case was reported in Brazil in 2020. Its near-eradication proves that treponemal diseases can be eliminated.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    When Spanish colonists arrived in the Americas, they noticed something on
+    the skin of the people they encountered: patches that had lost their
+    color, turning white or blue-gray, as if someone had dabbed paint on
+    them and let it dry. The indigenous people had their own words for it.
+    In parts of Colombia and Venezuela they called it <em>carate</em>. In
+    Mexico they called it <em>mal del pinto</em>, the disease of the
+    painted one. The Spanish word that eventually took hold across the
+    medical literature was <em>pinta</em>, meaning painted. Five hundred
+    years later, a spirochete indistinguishable from the one that causes
+    syphilis was found living in those patches, and nowhere else in the
+    body.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    The earliest Spanish chroniclers of the Americas noted the skin disease
+    in the 1500s. Gonzalo Fernández de Oviedo, the first official
+    chronicler of the Indies, described what was almost certainly pinta
+    among indigenous populations. The disease was endemic across a belt
+    stretching from southern Mexico through Central America and into
+    Colombia, Venezuela, Ecuador, Peru, and Brazil. Entire villages had
+    residents with the characteristic discoloration. The communities
+    living with it did not seem to consider it especially threatening.
+    The affected individuals were not sicker than anyone else. They just
+    had patches of skin that looked different. This was not leprosy. It
+    was not vitiligo. It was something that damaged pigment cells and
+    nothing else.
+  </p>
+
+  <p>
+    Western science did not formally document pinta until 1869, when the
+    French botanist and explorer Édouard André traveled through the San
+    Martín Territory of what was then the United States of Colombia. With
+    the illustrator Édouard Riou, André produced one of the earliest
+    visual records of the disease, an engraving titled simply "El carate."
+    It shows a person standing for examination, their skin marked by the
+    characteristic depigmented plaques. The image was published in <em>Le
+    Tour du Monde</em>, a French travel journal. It was scientific
+    documentation in the form of journalism. The organism causing the
+    lesions in the picture would not be seen for another 69 years.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The breakthrough came in 1938, in Cuba. Arístides Herrera, a
+    dermatologist working in Havana, collected exudate from the early
+    papular lesions of patients with active pinta and examined it under
+    dark-field microscopy. He saw them: spiral-shaped organisms,
+    rotating and flexing, corkscrew bacteria identical in appearance to
+    <em>Treponema pallidum</em>, the spirochete of syphilis. The same
+    organism had been sought unsuccessfully in pinta lesions for decades.
+    The problem was that the spirochetes are sparse in pinta compared to
+    the chancre of primary syphilis, and they disappear from older
+    lesions. Herrera had learned to sample the earliest papules, before
+    depigmentation set in. That is where the organism lives.
+  </p>
+
+  <p>
+    The French parasitologist Émile Brumpt gave the organism its formal
+    name in 1939: <em>Treponema carateum</em>. The genus name
+    <em>Treponema</em> comes from the Greek <em>trepein</em>, to turn,
+    and <em>nema</em>, a thread. It describes the organism's distinctive
+    rotational motility. The species epithet <em>carateum</em> preserves
+    the indigenous word for the disease, the name given by the people who
+    had recognized it centuries before any European scientist saw it.
+    Brumpt's choice of epithet was an acknowledgment that Western
+    medicine was late to this disease. The people living with it had
+    named it long before a microscope was pointed at their skin.
+  </p>
+
+  <p>
+    Subsequent research confirmed what clinicians had long suspected.
+    <em>Treponema carateum</em> is morphologically and serologically
+    indistinguishable from <em>Treponema pallidum</em>. The non-treponemal
+    tests for syphilis, VDRL and RPR, are positive in pinta. The
+    treponemal-specific tests, FTA-ABS and TPHA, are positive in pinta.
+    The organisms look the same under dark-field microscopy. Their
+    genomes are highly conserved. And yet <em>T. carateum</em> causes a
+    disease that stays entirely in the skin, while <em>T. pallidum</em>
+    can invade the central nervous system, the cardiovascular system, the
+    placenta, and every organ in the body. Nobody knows why. The
+    differences in the genome are small and the functional consequences
+    are not understood. The organism's behavior in the human host is
+    defined by clinical observation, not by its DNA.
+  </p>
+
+  <p>
+    Pinta progresses through three stages, all confined to the skin. The
+    primary lesion is a small, pruritic papule that appears two to three
+    weeks after skin-to-skin contact, usually on the arms, legs, or face.
+    After three to nine months, secondary lesions called pintids erupt
+    across the body. These are flat, hyperpigmented, or erythematous
+    plaques. The late stage, which may take years to appear, is
+    characterized by depigmentation. Melanocytes are destroyed, leaving
+    patches of achromic skin that resemble vitiligo but are not
+    autoimmune in origin. The discoloration is permanent. It is
+    disfiguring. It does not kill.
+  </p>
+
+  <p>
+    The treatment was identified early and has never needed improvement.
+    A single intramuscular injection of benzathine penicillin G is
+    curative at any stage of the disease. The treponeme has no known
+    resistance to penicillin. In the 1950s and 1960s, the World Health
+    Organization and UNICEF launched mass treatment campaigns in endemic
+    regions, going village to village, examining skin, giving injections.
+    The campaigns were modeled on the yaws eradication program that had
+    proven mass penicillin could eliminate a treponematosis. They worked.
+    Pinta incidence collapsed across the endemic belt. By the 1990s, the
+    disease was so rare that new cases were reportable events. The last
+    autochthonous case documented in the medical literature was reported
+    from Brazil in 2020. Whether pinta still circulates anywhere in the
+    Americas is an open question. It may not.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    Pinta completed a spectrum. By the mid-twentieth century, four
+    clinically distinct human treponematoses had been characterized:
+    venereal syphilis (<em>T. pallidum</em> subsp. <em>pallidum</em>),
+    endemic syphilis or bejel (<em>T. pallidum</em> subsp.
+    <em>endemicum</em>), yaws (<em>T. pallidum</em> subsp.
+    <em>pertenue</em>), and pinta (<em>T. carateum</em>). The diseases
+    form a clinical gradient. Venereal syphilis can kill. Bejel can
+    destroy bone and cartilage. Yaws can erode the face and limbs. Pinta
+    can change the color of skin. The same genus, essentially the same
+    genome, causes everything from lethal systemic disease to purely
+    cosmetic damage. The gradient is not explained by differences in the
+    organisms. It is explained by differences in host response, in
+    environmental conditions, in route of transmission, and in the
+    level of medical attention the populations affected could access.
+    This is epidemiology as much as microbiology. Pinta is the mildest
+    treponematosis because it occurs in populations where the organism
+    adapted to skin-to-skin childhood transmission in warm, humid
+    climates, not sexual transmission in adults. The route shaped the
+    disease.
+  </p>
+
+  <h2>Why the painted disease still matters now</h2>
+  <p>
+    The most practical reason an infectious disease physician should know
+    about pinta is the differential diagnosis of a positive treponemal
+    serology. A patient from an endemic region of Mexico, Central America,
+    or South America who presents with depigmented skin patches and
+    positive treponemal serologies does not automatically have late
+    latent syphilis. It could be pinta, particularly if the patient has
+    no history of genital lesions, no sexual risk factors, and remembers
+    having the discolored patches since childhood. The distinction matters
+    because pinta requires nothing beyond a single dose of benzathine
+    penicillin and no further workup. Late latent syphilis requires a
+    lumbar puncture to rule out neurosyphilis if certain criteria are
+    met. Getting the diagnosis right avoids unnecessary procedures.
+  </p>
+
+  <p>
+    The other reason is that pinta demonstrates a principle. Treponemal
+    diseases respond completely to penicillin. They have done so for more
+    than seventy years without developing resistance. Mass treatment
+    campaigns targeting entire populations in endemic areas can reduce a
+    treponematosis to the point of elimination. This was proven with
+    yaws in the 1950s, confirmed with pinta in the 1960s, and is being
+    attempted again with yaws today in a renewed WHO eradication
+    campaign using single-dose oral azithromycin. Pinta may already be
+    gone. If it is, then the painted disease is the first treponematosis
+    eliminated from the human population. The word <em>pinta</em> meant
+    painted. It may now mean something else: gone.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Antal GM, Lukehart SA, Meheus AZ. The endemic treponematoses.
+        <em>Microbes Infect</em>. 2002;4(1):83-94.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1016/S1286-4579(01)01513-1" target="_blank" rel="noreferrer">
+          DOI: 10.1016/S1286-4579(01)01513-1
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Giacani L, Lukehart SA. The endemic treponematoses. <em>Clin
+        Microbiol Rev</em>. 2014;27(1):89-115.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1128/CMR.00070-13" target="_blank" rel="noreferrer">
+          DOI: 10.1128/CMR.00070-13
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Brumpt E. <em>Précis de Parasitologie</em>. 6th ed. Paris: Masson
+        et Cie; 1949. pp. 497-499.
+      </p>
+    </li>
+    <li>
+      <p>
+        World Health Organization. Endemic treponematoses. <em>Wkly
+        Epidemiol Rec</em>. 1981;56(31):241-244.
+      </p>
+    </li>
+    <li>
+      <p>
+        Vighi da Rosa R, Damares Rodrigues de Souza D, Cartell A, Ricardo
+        Martins Souza P. Mal de Pinta, first autochthonous case from South
+        of Brazil. <em>Int J Dermatol</em>. 2021;60(1):112-114.
+      </p>
+      <p>
+        <a href="https://doi.org/10.1111/ijd.15264" target="_blank" rel="noreferrer">
+          DOI: 10.1111/ijd.15264
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

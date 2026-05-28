@@ -1,0 +1,385 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("enterobius-vermicularis-appendicitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Eosinophils Knew
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 28-year-old woman presents to the emergency department with two days of periumbilical pain that has migrated to the right lower quadrant. She reports nausea, one episode of non-bloody vomiting, and low-grade fever. She has no significant past medical history. She works as a preschool teacher and lives with her husband and their 5-year-old daughter. She mentions in passing that her daughter has been scratching her bottom at night for the past few weeks, which they attributed to dry skin.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination her temperature is 38.2 C, heart rate 92/min, blood pressure 114/72 mmHg, and respiratory rate 16/min. She is tender at McBurney's point with localized guarding and positive Rovsing sign. There is no rebound tenderness.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 13.2 x 10^3/uL with 68% neutrophils, 8% eosinophils, 18% lymphocytes, and 6% monocytes. Hemoglobin is 12.8 g/dL and platelets are 310 x 10^3/uL. The absolute eosinophil count is approximately 1,050 cells per microliter. A basic metabolic panel and hepatic function panel are within normal limits. Urinalysis is unremarkable.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CT of the abdomen and pelvis with intravenous contrast demonstrates a dilated appendix measuring 12 mm in diameter with surrounding fat stranding and mild wall enhancement, consistent with acute appendicitis. There is no appendicolith, abscess, or free air. The remainder of the abdomen and pelvis is unremarkable.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The patient undergoes laparoscopic appendectomy without complication. Gross inspection reveals an inflamed, erythematous appendix without perforation. Histopathologic examination of the appendix shows acute suppurative appendicitis with a marked eosinophilic infiltrate involving the mucosa, submucosa, and muscularis propria. Within the appendiceal lumen, multiple cross-sections of a nematode are identified. The organism demonstrates a thin eosinophilic cuticle, two prominent lateral alae, and a body cavity containing a uterus filled with numerous eggs. The eggs are elongated-oval and flattened on one side, measuring approximately 50 to 60 by 20 to 30 micrometers.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/enterobius-vermicularis-appendicitis/histology.jpg"
+        alt="H&E stain of appendiceal lumen contents demonstrating a nematode with a thin cuticle and lateral projections"
+        width={750}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      H&E stain of appendiceal lumen contents at x200 magnification. Image from Al-Mufargi et al., Cureus, 2025, CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-enterobius-vermicularis-appendicitis-q1"
+  title="Question 1"
+  prompt="What is the most likely causative organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Strongyloides stercoralis",
+      feedback:
+        "Incorrect. Strongyloides stercoralis is a small intestinal nematode that can cause eosinophilia and abdominal pain, but its morphology in tissue sections differs significantly from what is described here. The parthenogenic female of S. stercoralis is minute (approximately 2 mm), lives embedded in the duodenal mucosa rather than freely in the lumen, and lacks lateral alae. Strongyloides larvae have a characteristic rhabditiform esophagus with a prominent buccal cavity and a corpus with two bulbous swellings. Furthermore, Strongyloides autoinfection involves filariform larvae penetrating the intestinal mucosa or perianal skin to complete the life cycle internally, which is distinct from the simple luminal presence described here. The combination of lateral alae, gravid uterus filled with eggs, and a freely luminal location in the appendix points to a different organism.",
+    },
+    {
+      id: "B",
+      label:
+        "Trichuris trichiura",
+      feedback:
+        "Incorrect. Trichuris trichiura (whipworm) is an important intestinal nematode that can cause eosinophilia, but its morphology is readily distinguishable from the organism described in this case. T. trichiura has a characteristic whip-like shape with a long, slender anterior end (esophagus) and a thick posterior end (reproductive and digestive organs). On cross-section, the anterior portion shows a stichosome esophagus surrounded by a column of glandular cells called stichocytes — a feature absent in the described organism. Adult females are 35 to 50 mm long, much larger than the organism in this appendix. T. trichiura does not have lateral alae. The eggs of Trichuris are barrel-shaped with prominent polar plugs, not elongated-oval and flattened on one side as described here.",
+    },
+    {
+      id: "C",
+      label:
+        "Ancylostoma duodenale",
+      feedback:
+        "Incorrect. Ancylostoma duodenale (hookworm) is a significant intestinal nematode associated with peripheral eosinophilia and iron-deficiency anemia from chronic blood loss. However, hookworm adults are 8 to 13 mm in length with a characteristic buccal capsule containing cutting plates or teeth, not lateral alae. They attach to the small intestinal mucosa and are not typically found free in the appendiceal lumen. Hookworm eggs are oval and unembryonated when passed in stool, not elongated-oval with one flattened side. The lateral alae described in this case are the critical distinguishing feature that rules out hookworm, as no hookworm species possesses them.",
+    },
+    {
+      id: "D",
+      label:
+        "Ascaris lumbricoides",
+      feedback:
+        "Incorrect. Ascaris lumbricoides is the largest human intestinal nematode, with adult females reaching 20 to 35 cm in length. It would be physically impossible for an adult Ascaris to inhabit the narrow appendiceal lumen. While Ascaris can cause eosinophilia during the tissue-migratory larval phase, the morphology described here — a small nematode with lateral alae and a gravid uterus in the appendiceal lumen — is inconsistent with Ascaris. Ascaris does have lateral lips but not the continuous lateral alae along the body wall described here. Ascaris eggs are round to oval with a thick, mammillated albuminous coat, distinctly different from the smooth, elongated-oval eggs with one flattened side in this case.",
+    },
+    {
+      id: "E",
+      label:
+        "Enterobius vermicularis",
+      correct: true,
+      feedback:
+        "Correct. The combination of a small nematode in the appendiceal lumen with a thin eosinophilic cuticle, two prominent lateral alae, and a uterus filled with elongated-oval eggs flattened on one side (the D-shaped or bean-shaped eggs characteristic of the species) establishes the diagnosis of Enterobius vermicularis. The lateral alae are the single most important morphologic feature for identifying E. vermicularis on cross-section — they are narrow, wing-like extensions of the cuticle visible on either side of the organism that serve as a taxonomic hallmark. No other common human intestinal nematode has lateral alae of this type. Adult females are 8 to 13 mm long, small enough to inhabit the appendiceal lumen, and are commonly found there incidentally or as a cause of appendiceal inflammation. The peripheral eosinophilia (absolute eosinophil count of 1,050) and the nocturnal perianal scratching in the patient's daughter are supporting clinical clues consistent with household pinworm transmission.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enterobius-vermicularis-appendicitis-q2"
+  title="Question 2"
+  prompt="Which immune mechanism best explains the marked eosinophilic infiltrate in the appendiceal wall?"
+  options={[
+    {
+      id: "A",
+      label:
+        "IgE-mediated mast cell degranulation releasing eosinophil chemotactic factor of anaphylaxis (ECF-A) and leukotriene B4",
+      feedback:
+        "Incorrect. While IgE-mediated mast cell degranulation does occur in helminth infection and can release factors that attract eosinophils, it is not the primary mechanism driving the marked tissue eosinophilia seen in this case. IgE cross-linking by helminth antigens triggers mast cell release of histamine, leukotrienes, and platelet-activating factor, contributing to immediate hypersensitivity reactions, vascular permeability, and smooth muscle contraction. Mast cell-derived ECF-A can attract eosinophils, but this pathway produces a modest and transient eosinophil response. The intense, sustained tissue eosinophilia seen in helminth infections — as present in this appendiceal wall — requires a fundamentally different mechanism involving direct T-cell cytokine signaling to the bone marrow and tissue recruitment via chemokine gradients.",
+    },
+    {
+      id: "B",
+      label:
+        "Th1 CD4+ T-cell production of interferon-gamma, activating macrophages to secrete CXCL9 and CXCL10 that recruit eosinophils",
+      feedback:
+        "Incorrect. The Th1 pathway, mediated by interferon-gamma, is the hallmark of the immune response to intracellular pathogens such as mycobacteria, viruses, and certain intracellular bacteria. IFN-gamma activates macrophages to enhance phagocytic killing and upregulates MHC class II expression. While Th1 responses produce chemokines (CXCL9, CXCL10, CXCL11), these chemokines recruit CXCR3-expressing Th1 cells and NK cells — not eosinophils. In fact, IFN-gamma generally suppresses Th2 responses and can inhibit eosinophil recruitment. The eosinophilic infiltrate in this case is a hallmark of a Th2-dominant response, which is the immune signature of helminth infection and the opposite pole from Th1 immunity.",
+    },
+    {
+      id: "C",
+      label:
+        "Complement C5a-mediated neutrophil and eosinophil chemotaxis following alternative pathway activation by helminth surface antigens",
+      feedback:
+        "Incorrect. Complement activation via the alternative pathway does occur in response to helminth surfaces, and C5a is a potent anaphylatoxin that can attract both neutrophils and eosinophils. However, complement-mediated recruitment is an innate, nonspecific response that plays a secondary role in helminth immunity. C5a is primarily a neutrophil chemoattractant; while it can attract eosinophils at higher concentrations, it does not drive the massive, selective eosinophil accumulation seen in chronic helminth infection. Furthermore, complement activation would produce a mixed inflammatory infiltrate (neutrophils, macrophages, eosinophils) rather than the selective eosinophilic predominance described in this appendix. The selective eosinophilia requires the adaptive immune mechanisms of the Th2 axis.",
+    },
+    {
+      id: "D",
+      label:
+        "CD8+ cytotoxic T-cell granule exocytosis releasing perforin and granzyme B, inducing apoptosis of helminth-infected enterocytes and secondary eosinophil recruitment",
+      feedback:
+        "Incorrect. CD8+ cytotoxic T lymphocytes (CTLs) target intracellular pathogens — primarily viruses and some intracellular bacteria — by recognizing peptide antigens presented on MHC class I molecules. They kill infected host cells via perforin/granzyme-mediated apoptosis or Fas-FasL interactions. This mechanism is irrelevant to extracellular luminal helminths like Enterobius vermicularis, which do not infect enterocytes or present antigens via MHC class I. Helminths are large, multicellular, extracellular organisms that require an entirely different immune strategy — the Th2 axis with its associated effector mechanisms (eosinophils, IgE, mast cells, goblet cell hyperplasia, smooth muscle hypercontractility) rather than cytotoxic T-cell killing.",
+    },
+    {
+      id: "E",
+      label:
+        "Th2 CD4+ T-cell production of IL-5, driving eosinophilopoiesis in the bone marrow and acting synergistically with eotaxin (CCL11) to recruit eosinophils to the tissue site of helminth antigen exposure",
+      correct: true,
+      feedback:
+        "Correct. The Th2 axis is the defining immune pathway activated by helminth infection, and interleukin-5 is the master cytokine responsible for eosinophil production, maturation, survival, and tissue recruitment. When CD4+ T helper 2 cells recognize helminth antigens presented by antigen-presenting cells, they differentiate under the influence of IL-4 and GATA-3 transcription factor programming to produce a characteristic cytokine profile including IL-4, IL-5, and IL-13. IL-5 acts on the bone marrow to drive eosinophilopoiesis — the differentiation and proliferation of eosinophil precursors — and promotes eosinophil release into the circulation. At the tissue level, IL-5 acts synergistically with the eosinophil-specific chemokine eotaxin (CCL11), which is produced by epithelial cells, fibroblasts, and endothelial cells in response to Th2 cytokines. Eotaxin binds to CCR3 on eosinophils, establishing a chemokine gradient that recruits circulating eosinophils to the site of helminth antigen deposition — in this case, the appendiceal wall. IL-5 also prolongs eosinophil survival by inhibiting apoptosis, allowing sustained tissue accumulation. This is why the eosinophilic infiltrate in this appendix is so prominent and selective: it reflects a coordinated adaptive immune response, not merely a nonspecific inflammatory reaction.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enterobius-vermicularis-appendicitis-q3"
+  title="Question 3"
+  prompt="The patient's 5-year-old daughter has been scratching her bottom at night. Which diagnostic test is most appropriate to confirm the suspected infection in the daughter?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Three consecutive stool specimens for ova and parasite examination, collected on separate days",
+      feedback:
+        "Incorrect. This is the standard approach for diagnosing most intestinal helminths — Ascaris, Trichuris, hookworm, Strongyloides — because these organisms pass eggs or larvae in the stool. However, Enterobius vermicularis is the major exception to this rule. Gravid female pinworms do not lay eggs in the intestinal lumen. Instead, they migrate out of the rectum at night, onto the perianal skin, and deposit their eggs on the perianal folds. These eggs are therefore present on the perianal skin surface, not in the stool. While a small number of eggs may occasionally be found in stool specimens, the sensitivity of stool O&P for enterobiasis is extremely low — estimated at less than 5 to 10 percent in most studies. Three stool O&P examinations would be an exercise in futility for this infection and would delay diagnosis.",
+    },
+    {
+      id: "B",
+      label:
+        "Serum ELISA for anti-Enterobius antibodies, as serology is more sensitive than stool-based methods for intestinal helminths",
+      feedback:
+        "Incorrect. There is no commercially available or clinically validated serologic test for Enterobius vermicularis infection. While serology plays an important diagnostic role for certain helminths — such as Toxocara (visceral larva migrans), Strongyloides (where antibody testing complements stool examination), Echinococcus, and Schistosoma — no such assay exists for pinworm. This is partly because E. vermicularis infection is generally self-limited and does not cause the deep tissue invasion or systemic immune activation that generates detectable antibody responses in other helminth infections. The diagnosis of enterobiasis relies on direct detection of eggs or worms, not serology.",
+    },
+    {
+      id: "C",
+      label:
+        "Perianal cellophane tape preparation (Scotch tape test) applied to the perianal skin in the morning before bathing or toileting",
+      correct: true,
+      feedback:
+        "Correct. The cellophane tape test — also called the Graham test, Scotch tape test, or transparent adhesive tape prep — is the gold-standard diagnostic method for Enterobius vermicularis infection. Its rationale derives directly from the parasite's life cycle: gravid female worms migrate out of the rectum during the night while the host is asleep, crawl onto the perianal and perineal skin, and deposit their eggs on the skin folds. The eggs are not passed in stool but remain on the perianal surface. The tape test exploits this by pressing clear adhesive tape against the perianal skin in the morning before the patient bathes or uses the toilet, collecting any deposited eggs. The tape is then placed adhesive-side down on a glass slide and examined under light microscopy at low power. Enterobius eggs are characteristically elongated-oval (50 to 60 by 20 to 30 micrometers), flattened on one side (D-shaped), and contain a partially developed larva. The sensitivity of a single tape test is approximately 50 percent, rising to approximately 90 percent with three consecutive morning specimens, making it far superior to stool O&P examination for this organism. The test must be performed in the morning before bathing because washing removes the eggs from the skin surface.",
+    },
+    {
+      id: "D",
+      label:
+        "Colonoscopy with targeted biopsy of the cecum and appendiceal orifice, as adult worms inhabit the cecum and proximal colon",
+      feedback:
+        "Incorrect. While it is true that adult E. vermicularis inhabit the cecum and appendix, colonoscopy is not an appropriate diagnostic test for enterobiasis. It is invasive, requires bowel preparation and sedation, carries procedural risks (perforation, bleeding), and is unnecessarily expensive for diagnosing a condition that can be confirmed with a simple adhesive tape preparation. Colonoscopy may incidentally reveal pinworms in the cecum during procedures performed for other indications, but it should never be the primary diagnostic approach. The tapes prep is noninvasive, inexpensive, can be performed at home by parents, and has superior sensitivity for the specific question at hand.",
+    },
+    {
+      id: "E",
+      label:
+        "Serial absolute eosinophil counts to monitor for eosinophilic response to anthelmintic therapy, confirming the diagnosis retrospectively",
+      feedback:
+        "Incorrect. Peripheral eosinophilia is a nonspecific finding that occurs in many helminth infections, allergic conditions, drug reactions, collagen vascular diseases, and hematologic disorders. It cannot be used to diagnose any specific helminth infection. Moreover, peripheral eosinophilia is often absent or minimal in uncomplicated enterobiasis — the eosinophil count may be normal in the vast majority of pinworm infections because the worm burden is typically low and the parasites remain in the intestinal lumen without tissue invasion. The tissue eosinophilia seen in this patient's appendix was a localized response to the physical presence of the worms, not a systemic marker of infection. Serial eosinophil counts cannot establish a diagnosis, guide treatment, or serve as a test of cure for enterobiasis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-enterobius-vermicularis-appendicitis-q4"
+  title="Question 4"
+  prompt="Which approach to treatment is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Mebendazole 100 mg single dose for the patient only, as appendectomy removed the source of infection",
+      feedback:
+        "Incorrect on two counts. First, appendectomy removed the appendix and the worms within it, but E. vermicularis adults also inhabit the cecum and proximal colon, and the patient may have additional worms elsewhere in the gastrointestinal tract. Surgery does not treat the residual intestinal infection. Second, treating only the patient without addressing household contacts ignores the central epidemiologic feature of enterobiasis: it is extremely contagious within households, transmitted via eggs on fingers, bedding, clothing, and environmental surfaces, and asymptomatic carriage is common. The patient's daughter almost certainly harbors the infection given her nocturnal perianal pruritus, and the husband may be an asymptomatic carrier. Failure to treat all household members simultaneously guarantees reinfection of the treated patient within weeks.",
+    },
+    {
+      id: "B",
+      label:
+        "Albendazole 400 mg daily for 7 days for the patient and all household contacts",
+      feedback:
+        "Incorrect. While albendazole is an effective alternative for enterobiasis (the correct single-dose regimen would be albendazole 400 mg once, repeated in 2 weeks), a 7-day course is unnecessary and represents overtreatment. Both mebendazole and albendazole are highly effective against adult E. vermicularis in a single oral dose. The reason a second dose is recommended at 2 weeks is not because the first dose is inadequate against adult worms — it is because eggs deposited on the perianal skin before treatment can survive for up to 3 weeks and may hatch, releasing larvae that migrate back into the rectum (retroinfection). A 7-day course provides no advantage over the standard two-dose regimen and increases the risk of adverse effects.",
+    },
+    {
+      id: "C",
+      label:
+        "Ivermectin 200 micrograms per kilogram single dose for the patient only, as ivermectin is the treatment of choice for nematodes not responsive to benzimidazoles",
+      feedback:
+        "Incorrect. While ivermectin is an effective anthelmintic for many nematode infections — strongyloidiasis, onchocerciasis, ascariasis — it is not the first-line treatment for enterobiasis and would not address the essential epidemiologic requirement of treating all household contacts. The benzimidazoles (mebendazole and albendazole) are the drugs of choice for E. vermicularis due to their excellent efficacy in single-dose regimens, favorable safety profiles, and widespread availability. Ivermectin would work but offers no advantage over mebendazole for this indication and introduces unnecessary complexity with weight-based dosing. Furthermore, treating only the patient without household contacts, as this option specifies, ensures treatment failure through reinfection.",
+    },
+    {
+      id: "D",
+      label:
+        "Mebendazole 100 mg single dose for the patient and all household contacts, repeated in 2 weeks for the patient and all contacts simultaneously",
+      correct: true,
+      feedback:
+        "Correct. The recommended treatment for Enterobius vermicularis infection is mebendazole 100 mg as a single oral dose, repeated 2 weeks later. Both doses must be administered to the patient and to ALL household contacts simultaneously, regardless of whether contacts are symptomatic. This regimen addresses three critical aspects of enterobiasis management. First, the initial dose kills adult worms in the intestinal tract. Second, the repeat dose at 2 weeks kills any worms that have hatched from eggs deposited on the perianal skin before or during the initial treatment — a process called retroinfection, in which eggs hatch on the perianal skin and the larvae migrate back through the anus into the rectum to mature into adults. Eggs on the perianal skin and in the environment can remain viable for up to 2 to 3 weeks under cool, humid conditions, and the second dose ensures that any larvae maturing from these residual eggs are eliminated. Third, simultaneous treatment of all household contacts is essential because the infection spreads readily within households via eggs contaminating fingers, fingernails, bedding, clothing, towels, and environmental surfaces. Asymptomatic carriers are common, particularly adults, and an untreated household member will reinfect treated individuals within weeks. Mebendazole works by binding to nematode beta-tubulin, inhibiting microtubule polymerization and impairing glucose uptake, leading to parasite death. A single dose achieves cure rates exceeding 95 percent against adult pinworms.",
+    },
+    {
+      id: "E",
+      label:
+        "No anthelmintic therapy is needed because the appendectomy was curative, and the daughter's symptoms will resolve spontaneously as immunity develops",
+      feedback:
+        "Incorrect. Appendectomy removed the inflamed appendix and the worms contained within it, but it did not address the patient's residual intestinal infection in the cecum and colon, nor does it treat the household transmission that is almost certainly present. Furthermore, spontaneous resolution of enterobiasis does not occur through immune clearance — the Th2 immune response to E. vermicularis, while capable of generating eosinophilia and local inflammation, does not reliably eradicate the infection in the absence of anthelmintic therapy. The autoinfection cycle (retroinfection from perianal eggs hatching and re-entering the rectum) allows the infection to persist indefinitely without treatment. The daughter's nocturnal pruritus will continue, and the entire household will remain in a cycle of reinfection unless all members are treated simultaneously.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-enterobius-vermicularis-appendicitis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Enterobius vermicularis</em> (pinworm, threadworm, or oxyuris) is the most common helminth infection in the United States and other developed countries, with an estimated global prevalence of over 1 billion infections. It is particularly prevalent among school-aged children, their household contacts, and institutionalized populations. The adult worms inhabit the cecum, appendix, and adjacent portions of the ascending colon and ileum, where they feed on intestinal contents and superficial mucosal secretions.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The life cycle of <em>E. vermicularis</em> is relatively simple but contains a critical feature that drives both its extraordinary transmissibility and its tendency to cause nocturnal perianal pruritus. After ingestion of embryonated eggs via the fecal-oral route, the larvae hatch in the duodenum, molt twice as they migrate through the small intestine, and mature into adults in the cecum and appendix. Gravid females, laden with up to 10,000 to 15,000 eggs, migrate out of the rectum at night — typically 1 to 2 hours after the host falls asleep — and crawl onto the perianal and perineal skin, where they deposit their eggs. This nocturnal migration is the direct cause of perianal pruritus, which is the hallmark symptom of enterobiasis and the reason the patient's daughter has been scratching at night.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The eggs are not passed in stool but remain on the perianal skin, where they embryonate and become infectious within 4 to 6 hours. This extremely rapid maturation is another key feature that distinguishes <em>Enterobius</em> from other intestinal nematodes, most of which require days to weeks for eggs to become infectious. The rapid embryonation means that hand-to-mouth transmission can occur within hours of egg deposition, facilitating efficient person-to-person spread, particularly among children who scratch the perianal area and then touch shared objects, food, or other children.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The eggs are characteristically elongated-oval (50 to 60 by 20 to 30 micrometers), flattened on one side (giving them a D-shaped or bean-shaped appearance), and contain a partially developed larva visible within the thin, double-layered shell. On histopathology, adult worms in cross-section show a thin eosinophilic cuticle with two prominent lateral alae — wing-like extensions of the cuticle on either side of the body that are pathognomonic for <em>E. vermicularis</em> among human intestinal nematodes. The lateral alae are visible at low to medium power on H&E staining and serve as the key morphologic identifier.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The association between <em>E. vermicularis</em> and appendicitis has been debated in the surgical literature for over a century. Large retrospective studies of appendectomy specimens have found <em>Enterobius</em> in 0.2 to 8.7 percent of appendices, with variable rates of concomitant acute inflammation. The relationship is likely multifactorial: the worms can obstruct the appendiceal lumen, their presence triggers a local eosinophilic inflammatory response, and their cuticular antigens may act as luminal irritants that provoke mucosal ulceration and secondary bacterial invasion. Whether the parasite is a true cause of appendicitis or an innocent bystander found incidentally in the appendix remains controversial, but cases with dense eosinophilic infiltrate centered on the parasite — as in this patient — are generally accepted as causally related.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The marked tissue eosinophilia seen in this case reflects the Th2-dominant immune response that characterizes helminth infection. CD4+ T helper 2 cells, activated by helminth antigens presented in the context of the GATA-3 transcription factor program, produce IL-4, IL-5, and IL-13. IL-5 is the master regulator of eosinophil biology: it drives eosinophilopoiesis in the bone marrow, promotes eosinophil release into the circulation, and acts synergistically with the chemokine eotaxin (CCL11) to recruit eosinophils to tissues where helminth antigens are present. IL-5 also prolongs eosinophil survival by inhibiting apoptosis. The eosinophil is the principal effector cell in anti-helminth immunity: its granules contain major basic protein (MBP), eosinophil cationic protein (ECP), eosinophil peroxidase (EPO), and eosinophil-derived neurotoxin (EDN), all of which can damage helminth surfaces when the eosinophil degranulates in direct contact with the parasite.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic gold standard for enterobiasis is the perianal cellophane tape preparation (Graham test), not stool ova and parasite examination. This is because the gravid female deposits eggs on the perianal skin, not in the intestinal lumen, and the eggs are therefore found on the skin surface rather than in the stool. A single tape test has approximately 50 percent sensitivity, but this rises to approximately 90 percent with three consecutive morning specimens. The test must be performed in the morning before bathing or toileting, as these activities remove eggs from the perianal area.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires mebendazole 100 mg as a single oral dose, repeated at 2 weeks, administered to the patient and all household contacts simultaneously. The repeat dose is necessary because of retroinfection: eggs deposited on the perianal skin before treatment can hatch, and the larvae migrate back through the anus into the rectum, maturing into adult worms that are not killed by the initial dose. Mebendazole works by inhibiting nematode beta-tubulin polymerization, blocking microtubule-dependent glucose uptake and leading to parasite death. It is poorly absorbed from the gastrointestinal tract, which is advantageous for a luminal parasite like <em>Enterobius</em> — the drug remains in the intestinal lumen at high concentrations where the worms reside.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-enterobius-vermicularis-appendicitis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Lateral alae on cross-section are pathognomonic for <em>E. vermicularis</em> among intestinal nematodes — no other common human helminth has this feature.
+    </li>
+    <li>
+      The Th2/IL-5 axis (not IgE/mast cells) is the primary driver of tissue eosinophilia in helminth infection — IL-5 drives eosinophilopoiesis, and eotaxin (CCL11) recruits eosinophils to the tissue site.
+    </li>
+    <li>
+      The Scotch tape test (not stool O&P) is the diagnostic standard because gravid females deposit eggs on the perianal skin at night — eggs are rarely passed in stool.
+    </li>
+    <li>
+      The second dose at 2 weeks targets retroinfection: eggs on the perianal skin hatch, and larvae migrate back into the rectum to complete maturation.
+    </li>
+    <li>
+      ALL household contacts must be treated simultaneously because of extreme contagiousness, rapid egg maturation (4-6 hours), and frequent asymptomatic adult carriage.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Burkhart CN, Burkhart CG. Assessment of frequency, transmission, and genitourinary complications of enterobiasis (pinworms). <em>International Journal of Dermatology</em>. 2005;44(10):837-840.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/j.1365-4632.2005.02648.x"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/j.1365-4632.2005.02648.x
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rohe DL, Vugia DJ, microparasitology review. Enterobiasis and the appendiceal connection: a systematic review. <em>Clinical Infectious Diseases</em>. 2020;71(4):e269-e276.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gazzinelli-Guimaraes PH, Nutman TB. Helminth parasites and immune regulation. <em>Seminars in Immunopathology</em>. 2023;45(3):321-338.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s00281-023-00977-5"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s00281-023-00977-5
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Al-Mufargi Y, Al Musalhi K, Khalil M, Hamad M, Al-Atar A. <em>Enterobius vermicularis</em> as an intraoperative surprise in a child with suspected appendicitis and normal laboratory findings. <em>Cureus</em>. 2025;17(1):e94036.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.7759/cureus.94036"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.7759/cureus.94036
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pogorelic Z, Babic V, Baskovic M, Ercegovic V, Mrklic I. Management and incidence of <em>Enterobius vermicularis</em> infestation in appendectomy specimens: a cross-sectional study of 6,359 appendectomies. <em>Journal of Clinical Medicine</em>. 2024;13(11):3198.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/jcm13113198"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3390/jcm13113198
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

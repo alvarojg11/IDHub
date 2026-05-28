@@ -1200,6 +1200,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old man with HIV (CD4 42, not on ART) and a right upper lobe cavity has three negative AFB smears. BAL culture grows a gram-positive coccobacillus reported as \"Corynebacterium, probable contaminant.\" Modified Kinyoun stain is positive. Salmon-pink mucoid colonies appear on blood agar. What is the organism, and why was it almost missed?",
     tags: { organisms: ["Rhodococcus equi"], syndromes: ["Pulmonary Infection", "HIV/AIDS", "Opportunistic Infection"], concepts: ["Partially acid-fast", "vapA virulence plasmid", "Phagosome maturation arrest", "Macrophage intracellular pathogen", "Cavitary pneumonia", "TB mimic", "Diphtheroid contaminant dismissal", "Salmon-pink colonies", "Prolonged combination therapy"] },
   },
+  {
+    title: "The Eosinophils Knew",
+    slug: "enterobius-vermicularis-appendicitis",
+    description: "Eosinophilic appendicitis caused by a nematode with pathognomonic lateral alae, discovered on pathology after appendectomy in a young woman.",
+    enable: true,
+    ogImage: "/cases/enterobius-vermicularis-appendicitis/histology.jpg",
+    teaser: "A 28-year-old woman undergoes appendectomy for acute appendicitis. Pathology reveals marked eosinophilic infiltrate and a nematode in the lumen with two prominent lateral alae. Her 5-year-old daughter scratches her bottom at night. What is the organism, and why is the right diagnostic test not a stool sample?",
+    tags: { organisms: ["Enterobius vermicularis"], syndromes: ["Surgical Infection", "Helminth Infection", "Pediatric Infectious Disease"], concepts: ["Eosinophilic appendicitis", "Lateral alae", "Th2 IL-5 eosinophilia", "Scotch tape test", "Retroinfection", "Household treatment", "Pinworm", "Mebendazole", "Perianal eggs"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
