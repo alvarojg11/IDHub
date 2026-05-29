@@ -53,34 +53,14 @@ export default function ProbIDPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.7fr)_minmax(260px,0.7fr)]">
-        <div className="idhub-panel rounded-[1.8rem] p-6 lg:p-7">
-          <p className="idhub-kicker">Tool Overview</p>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-            ProbID turns pretest thinking into a visible workflow by combining setting, findings,
-            and likelihood ratios into an educational post-test estimate, then comparing that
-            probability with a treatment threshold.
-          </p>
-        </div>
-
-        <div className="idhub-panel rounded-[1.8rem] p-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-            Use it for
-          </p>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-            CAP, VAP, endocarditis, invasive mold, and other syndromes where diagnostic uncertainty
-            matters more than rote recall and where a probability estimate can change what you do next.
-          </p>
-        </div>
-
-        <div className="idhub-panel rounded-[1.8rem] p-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
-            Best for
-          </p>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-            Clinicians who want a structured way to move from suspicion to action without pretending the diagnosis is binary.
-          </p>
-        </div>
+      <div className="mb-6 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.94))] p-5 shadow-[var(--shadow-medium)] sm:p-6 lg:p-7">
+        <p className="idhub-kicker">Interactive Tool</p>
+        <h1 className="mt-2 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">ProbID</h1>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          Build the case: choose syndrome and setting, add findings and tests, then see how the
+          post-test probability compares to the treatment threshold.{" "}
+          <span className="text-[var(--muted-soft)]">(Educational aid, not a guideline.)</span>
+        </p>
       </div>
 
       <ProbIDTool modules={PROBID_MODULES} defaultModuleId="cap" />

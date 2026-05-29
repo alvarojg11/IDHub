@@ -4,7 +4,6 @@
 import React, { useMemo, useState } from "react";
 import type { FindingState, SyndromeLRModule, LRItem } from "@/lib/lrTypes";
 import { combinedLR, postTestProb, buildStepwisePath, formatPct, clamp } from "@/lib/lrMath";
-import { FaganChart } from "@/components/FaganChart";
 import { LRItemToggle } from "@/components/LRItemToggle";
 
 type Props = {
@@ -228,8 +227,8 @@ export function LRWorkbench3Panel({ modules, defaultModuleId, defaultPresetIdByM
           )}
         </Section>
 
-        <Section title="Fagan nomogram (dynamic)">
-          <FaganChart pretestP={pretestP} combinedLR={lr} />
+        <Section title="LR update curve">
+          <p className="text-sm text-slate-600">Combined LR: {lr.toFixed(2)}. Pretest {formatPct(pretestP)} → Post-test {formatPct(postP)}.</p>
         </Section>
 
         <Section title="Evidence (click an item)">

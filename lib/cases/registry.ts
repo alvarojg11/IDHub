@@ -1218,6 +1218,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 52-year-old commercial fisherman with hemochromatosis develops necrotizing fasciitis with hemorrhagic bullae and septic shock 36 hours after a minor seashell laceration while wading in the Gulf of Mexico. Gram stain of bulla fluid shows curved gram-negative rods. What is the organism, and why does iron overload make this infection lethal?",
     tags: { organisms: ["Vibrio vulnificus"], syndromes: ["Necrotizing Fasciitis", "Sepsis & Bacteremia", "Wound Infection"], concepts: ["Halophilic organism", "Hemochromatosis iron overload", "Vulnibactin siderophore", "Ferric uptake regulator Fur", "Hemorrhagic bullae", "Doxycycline ceftazidime", "TCBS agar", "Gulf Coast", "Cytolysin VvhA"] },
   },
+  {
+    title: "The Culture That Changed the Scope",
+    slug: "streptococcus-gallolyticus-endocarditis",
+    description: "Subacute endocarditis caused by Streptococcus gallolyticus subsp. gallolyticus leading to discovery of colorectal neoplasia — the strongest organism-disease association in clinical infectious diseases.",
+    enable: true,
+    ogImage: "/cases/streptococcus-gallolyticus-endocarditis/blood-agar.png",
+    teaser: "A 67-year-old man with three weeks of fever, night sweats, and 15-pound weight loss has a new aortic valve vegetation and blood cultures growing gram-positive cocci in pairs and chains. The colonies are alpha-hemolytic, bile esculin-positive, and PYR-negative. What organism is this — and why does the answer change everything about his workup?",
+    tags: { organisms: ["Streptococcus gallolyticus", "S. bovis/equinus group"], syndromes: ["Endocarditis", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Colorectal cancer screening", "Alpha-hemolysis", "Bile esculin-positive", "Pilus-mediated adhesion", "Gallo2179", "Taxonomy reclassification", "Penicillin susceptibility", "PYR-negative"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

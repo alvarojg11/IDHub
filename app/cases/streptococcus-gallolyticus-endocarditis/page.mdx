@@ -1,0 +1,505 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("streptococcus-gallolyticus-endocarditis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Culture That Changed the Scope
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 67-year-old man with hypertension and hyperlipidemia presents to the
+    emergency department with three weeks of low-grade fever, drenching night
+    sweats, progressive fatigue, and a 15-pound unintentional weight loss over
+    two months. He denies recent travel, sick contacts, dental procedures,
+    intravenous drug use, or animal exposures. His only medications are
+    lisinopril and atorvastatin. He has not seen a primary care physician in
+    over five years and has never undergone colorectal cancer screening.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.4&#176;C, heart rate 94 bpm, blood
+    pressure 138/82 mmHg, respiratory rate 18 breaths per minute, and oxygen
+    saturation 97% on room air. He appears chronically ill with temporal wasting.
+    Cardiac auscultation reveals a new harsh diastolic murmur best heard at the
+    right second intercostal space. Conjunctival petechiae are present bilaterally.
+    Splinter hemorrhages are noted on the right index and middle fingernails.
+    The abdomen is soft and non-tender. No hepatosplenomegaly is appreciated.
+    The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 13,200/&#956;L with 80% neutrophils. Hemoglobin
+    is 10.1 g/dL with a mean corpuscular volume of 76 fL. Platelet count is
+    385,000/&#956;L. ESR is 78 mm/hr and CRP is 62 mg/L. Iron studies reveal
+    a ferritin of 18 ng/mL, consistent with iron deficiency anemia. Basic
+    metabolic panel and liver function tests are within normal limits. Two sets
+    of blood cultures are drawn from separate peripheral sites 30 minutes apart
+    before antibiotics are administered. Both sets flag positive at 20 hours
+    with gram-positive cocci in pairs and short chains on Gram stain.
+    Transthoracic echocardiography demonstrates a 1.2 cm mobile echodense mass
+    on the aortic valve with moderate aortic regurgitation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Subculture onto sheep blood agar reveals small, gray-white, alpha-hemolytic
+    colonies. The organism is catalase-negative, bile esculin-positive, PYR-negative,
+    and not susceptible to optochin.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/streptococcus-gallolyticus-endocarditis/blood-agar.png"
+        alt="Sheep blood agar plate demonstrating growth from positive blood culture bottles"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Sheep blood agar: subculture from positive blood culture bottles.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-streptococcus-gallolyticus-endocarditis-q1"
+  title="Question 1"
+  prompt="Based on the Gram stain morphology, colony characteristics, and biochemical profile (catalase-negative, bile esculin-positive, PYR-negative, optochin-resistant, alpha-hemolytic), which of the following organism groups is most likely responsible for this patient's bacteremia?"
+  options={[
+    {
+      id: "A",
+      label: "Streptococcus pneumoniae",
+      feedback:
+        "Incorrect. Streptococcus pneumoniae is alpha-hemolytic and catalase-negative, which matches part of the profile, but several key features exclude it. S. pneumoniae is optochin-susceptible and bile-soluble, and it does not hydrolyze bile esculin. The colonies are typically larger with a central depression that gives them a draughtsman appearance as they autolyze. Perhaps most importantly, S. pneumoniae endocarditis is rare — it accounts for less than 3% of infective endocarditis cases — and it presents as an acute, destructive infection rather than the subacute course described here with weeks of symptoms, petechiae, and splinter hemorrhages.",
+    },
+    {
+      id: "B",
+      label: "Enterococcus faecalis",
+      feedback:
+        "Incorrect. Enterococcus faecalis is a gram-positive coccus in pairs and short chains that is catalase-negative and bile esculin-positive, matching several features of this profile. However, E. faecalis is PYR-positive — it hydrolyzes L-pyrrolidonyl-beta-naphthylamide — and this isolate is PYR-negative. Additionally, enterococci are typically gamma-hemolytic (non-hemolytic) or occasionally alpha-hemolytic, and they characteristically grow in 6.5% sodium chloride, a feature not shared by the Streptococcus bovis group. The PYR result is the critical discriminator here: a bile esculin-positive, PYR-negative organism points away from Enterococcus and toward the S. bovis/equinus group.",
+    },
+    {
+      id: "C",
+      label: "Viridans streptococci (non-bovis group)",
+      feedback:
+        "Incorrect, though this is a reasonable consideration. Viridans streptococci such as S. mitis, S. oralis, and S. sanguinis are alpha-hemolytic, catalase-negative, and optochin-resistant — matching much of the profile. They are classic causes of subacute endocarditis with the precise clinical picture described here. However, viridans streptococci are bile esculin-negative: they do not grow in the presence of 40% bile and do not hydrolyze esculin. The bile esculin-positive result is the key distinguishing feature that separates this organism from the viridans group and places it in the Streptococcus bovis/equinus group.",
+    },
+    {
+      id: "D",
+      label: "Streptococcus bovis/equinus group",
+      correct: true,
+      feedback:
+        "Correct. The combination of gram-positive cocci in pairs and short chains, alpha-hemolysis on sheep blood agar, catalase negativity, bile esculin positivity, PYR negativity, and optochin resistance is the classic biochemical profile of the Streptococcus bovis/equinus group (now renamed the Streptococcus gallolyticus/equinus group). Bile esculin positivity is the single most important discriminator: it distinguishes the S. bovis group from viridans streptococci (bile esculin-negative) and, combined with the PYR-negative result, from Enterococcus (bile esculin-positive but PYR-positive). The clinical context of subacute endocarditis with this microbiologic profile should immediately raise the specter of the S. bovis group — and its critical clinical associations — before the laboratory even provides a species-level identification.",
+    },
+    {
+      id: "E",
+      label: "Abiotrophia defectiva",
+      feedback:
+        "Incorrect. Abiotrophia and Granulicatella species (formerly known as nutritionally variant streptococci) are alpha-hemolytic, catalase-negative organisms that can cause endocarditis. However, they are satelliting organisms that fail to grow on standard blood agar unless pyridoxal (vitamin B6) is supplemented or they are cultured adjacent to other bacteria providing the necessary growth factors. This isolate grew well on standard sheep blood agar without satellite requirements, ruling out Abiotrophia. Furthermore, Abiotrophia does not hydrolyze bile esculin, and its identification typically requires specific supplementation during subculture.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-streptococcus-gallolyticus-endocarditis-q2"
+  title="Question 2"
+  prompt="MALDI-TOF mass spectrometry further identifies the organism as Streptococcus gallolyticus subsp. gallolyticus (formerly Streptococcus bovis biotype I). In addition to endocarditis, which of the following underlying conditions is most strongly associated with bacteremia caused by this specific organism?"
+  options={[
+    {
+      id: "A",
+      label: "Prostatic hypertrophy and recurrent urinary tract infections",
+      feedback:
+        "Incorrect. While gram-positive bacteremia can occasionally originate from the urinary tract, S. gallolyticus subsp. gallolyticus is not associated with prostatic disease or urinary tract pathology as a primary source. The organism's ecological niche is the gastrointestinal tract, and the colon is the portal of entry for bacteremia. Prostatic hypertrophy and recurrent UTIs are more relevant to Enterococcus or gram-negative bacteremia. The association with S. gallolyticus points in a fundamentally different direction — toward the lower gastrointestinal tract.",
+    },
+    {
+      id: "B",
+      label: "Colorectal neoplasia",
+      correct: true,
+      feedback:
+        "Correct. The association between Streptococcus gallolyticus subsp. gallolyticus bacteremia and colorectal neoplasia is one of the strongest and most clinically significant organism-disease associations in clinical infectious diseases. Multiple case-control and cohort studies have demonstrated that 47 to 71% of patients with S. gallolyticus subsp. gallolyticus bacteremia have underlying colorectal adenomas or carcinomas — a prevalence far exceeding the general screening population. The association was first recognized in the 1950s and has been confirmed across decades of subsequent research. This is not a subtle epidemiologic signal: when S. gallolyticus subsp. gallolyticus grows from blood cultures, the pretest probability of colorectal neoplasia is high enough that colonoscopy is mandatory regardless of age, symptoms, or prior screening history. The association is stronger for S. gallolyticus subsp. gallolyticus (formerly biotype I) than for other members of the S. bovis/equinus group such as S. infantarius (formerly biotype II).",
+    },
+    {
+      id: "C",
+      label: "Cholelithiasis and biliary tract disease",
+      feedback:
+        "Incorrect. Biliary tract disease is a source of bacteremia for many enteric organisms, including Enterococcus, Escherichia coli, Klebsiella, and Bacteroides. While the S. bovis group colonizes the gastrointestinal tract and could theoretically translocate from the biliary tree, cholelithiasis and biliary disease are not the defining clinical associations of S. gallolyticus subsp. gallolyticus bacteremia. The much stronger and more clinically actionable association is with colorectal neoplasia. Attributing the bacteremia to biliary disease without investigating the colon would represent a missed opportunity for early cancer detection.",
+    },
+    {
+      id: "D",
+      label: "Advanced liver disease and portal hypertension",
+      feedback:
+        "Incorrect. Advanced liver disease with portal hypertension predisposes to bacteremia from gut translocation, and cirrhotic patients are at increased risk for bacteremia from enteric organisms including Enterococcus, Escherichia coli, and Klebsiella. However, S. gallolyticus subsp. gallolyticus is not specifically associated with cirrhosis or portal hypertension as its primary clinical association. The organism's signature link is to colorectal neoplasia — adenomas and carcinomas that disrupt the colonic mucosa and provide a portal of entry. While cirrhosis may facilitate bacteremia from any gut source, the organism-specific association with colorectal neoplasia is the critical finding that must not be overlooked.",
+    },
+    {
+      id: "E",
+      label: "Indwelling vascular devices and health care exposure",
+      feedback:
+        "Incorrect. Indwelling vascular catheters, prosthetic devices, and health care exposure are risk factors for coagulase-negative staphylococcal bacteremia, Staphylococcus aureus bacteremia, and candidemia. S. gallolyticus is a community-acquired organism whose bacteremia originates from the gastrointestinal tract, not from device-related infection. This patient has no indwelling devices, no recent hospitalizations, and no health care exposure — features that should direct attention toward a community endogenous source rather than an exogenous device-related one.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-streptococcus-gallolyticus-endocarditis-q3"
+  title="Question 3"
+  prompt="Which of the following best explains the biological mechanism linking Streptococcus gallolyticus subsp. gallolyticus to colorectal neoplasia?"
+  options={[
+    {
+      id: "A",
+      label: "The organism produces a cytopathic enterotoxin that directly induces malignant transformation of colonic epithelial cells",
+      feedback:
+        "Incorrect. Unlike certain toxin-producing bacteria such as enterotoxigenic Bacteroides fragilis (which produces a metalloprotease toxin that activates Wnt/beta-catenin signaling) or some strains of Escherichia coli (which carry the pks island producing colibactin, a genotoxin that causes double-strand DNA breaks), S. gallolyticus does not produce a direct oncogenic or cytopathic toxin. The association is not one of bacterial carcinogenesis but rather of bacterial exploitation of pre-existing neoplastic tissue. The tumor provides a niche — altered mucins, disrupted epithelial barriers, and tumor-associated glycans — that the organism can adhere to and proliferate within, leading to bacteremia.",
+    },
+    {
+      id: "B",
+      label: "Pilus-mediated adhesion to adenomatous and carcinomatous colonic tissue allows the organism to exploit the tumor microenvironment",
+      correct: true,
+      feedback:
+        "Correct. The mechanism underlying the S. gallolyticus-colorectal neoplasia association is not carcinogenic but rather adhesive and ecological. S. gallolyticus subsp. gallolyticus expresses specialized pilus proteins — particularly Gallo2179 and Gallo2178, which form the Pil1 pilus, and additional pilus variants (Pil2, Pil3) — that mediate specific adhesion to extracellular matrix proteins and altered glycans present on the surface of adenomatous and carcinomatous colonic tissue. These pili recognize tumor-associated mucins and cell surface antigens that are overexpressed or altered during neoplastic transformation. The tumor microenvironment thus provides a privileged niche: the disrupted epithelial barrier allows bacterial invasion and translocation into the bloodstream, while the tumor surface provides attachment sites that facilitate colonization. This is a species-specific interaction — other members of the S. bovis/equinus group that lack these pilus variants do not show the same strength of association with colorectal neoplasia. The relationship may also have a bidirectional component: while the bacteria exploit the tumor, chronic mucosal inflammation and bacterial metabolites may promote tumor progression, though this remains under investigation.",
+    },
+    {
+      id: "C",
+      label: "Chronic bacteremia triggers systemic inflammation that secondarily promotes neoplastic transformation in the colon",
+      feedback:
+        "Incorrect. Chronic systemic inflammation can contribute to carcinogenesis in certain settings — for example, inflammatory bowel disease increases colorectal cancer risk through repeated cycles of epithelial injury and repair. However, S. gallolyticus bacteremia is typically an acute or subacute event, not a chronic smoldering process that would provide the sustained inflammatory stimulus needed for malignant transformation. The mechanism is not systemic inflammation-driven carcinogenesis but rather local, organism-specific adhesion to neoplastic tissue that already exists. The bacteremia is a consequence of the tumor, not the cause of it.",
+    },
+    {
+      id: "D",
+      label: "The organism degrades the colonic mucus barrier, exposing the epithelium to dietary carcinogens that initiate tumor formation",
+      feedback:
+        "Incorrect. Mucus barrier degradation is a pathogenic mechanism employed by several enteric pathogens — for example, certain strains of Bacteroides fragilis produce a metalloprotease that degrades the protective mucus layer, and Helicobacter pylori can disrupt gastric mucins. However, S. gallolyticus does not primarily act through mucus degradation. Its key virulence features are pilus-mediated adhesion to tumor-associated surface structures and the capacity to exploit pre-existing neoplastic tissue. The organism does not initiate tumors by exposing epithelium to carcinogens but rather colonizes and translocates through tumor tissue that has already formed.",
+    },
+    {
+      id: "E",
+      label: "Bacterial polysaccharide capsules suppress p53 tumor suppressor gene expression in adjacent colonic epithelium",
+      feedback:
+        "Incorrect. Bacterial polysaccharide capsules are important virulence factors for immune evasion — they prevent opsonization and phagocytosis — but there is no evidence that S. gallolyticus capsules suppress p53 or other tumor suppressor genes in colonic epithelial cells. While the bacterial capsule may facilitate survival in the bloodstream and contribute to endocarditis pathogenesis, the colorectal neoplasia association is driven by pilus-mediated adhesion, not by capsular effects on host tumor suppressor pathways. This answer confuses the organism's capsule biology with an unrelated mechanism of carcinogenesis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-streptococcus-gallolyticus-endocarditis-q4"
+  title="Question 4"
+  prompt="The patient is started on intravenous ceftriaxone 2 g every 24 hours for streptococcal endocarditis. Regarding colorectal evaluation, which of the following is the most appropriate next step in management?"
+  options={[
+    {
+      id: "A",
+      label: "Fecal immunochemical testing (FIT) during the current admission; if negative, colonoscopy is not needed",
+      feedback:
+        "Incorrect. Fecal immunochemical testing detects occult blood in stool and is a valid population-level screening tool for colorectal cancer. However, FIT has limited sensitivity, particularly for adenomas and early-stage carcinomas — it detects only about 70 to 75% of cancers and a much smaller fraction of advanced adenomas. In a patient with S. gallolyticus subsp. gallolyticus bacteremia, the pretest probability of colorectal neoplasia is so high (47 to 71%) that a negative FIT would be falsely reassuring and would miss a substantial proportion of lesions. FIT is an inadequate evaluation in this context; colonoscopy with direct visualization and the ability to biopsy and remove lesions is the required standard.",
+    },
+    {
+      id: "B",
+      label: "CT colonography after completion of the antibiotic course, to avoid procedural risk during active bacteremia",
+      feedback:
+        "Incorrect. CT colonography (virtual colonoscopy) is an alternative screening modality with reasonable sensitivity for lesions greater than 1 cm, but it is inferior to optical colonoscopy for detecting flat adenomas, small polyps, and mucosal lesions — precisely the types of lesions that may be present in this setting. More importantly, CT colonography cannot biopsy or resect lesions, so any abnormal finding would require a subsequent colonoscopy anyway. The concern about procedural risk during bacteremia is understandable but misplaced: the endocarditis is being treated with appropriate antibiotics, and colonoscopy is routinely performed during treatment for S. gallolyticus bacteremia once the patient is hemodynamically stable. Delaying evaluation risks missing a malignant lesion during a window when early detection matters.",
+    },
+    {
+      id: "C",
+      label: "Colonoscopy during the current admission once the patient is hemodynamically stable and afebrile",
+      correct: true,
+      feedback:
+        "Correct. Colonoscopy is mandatory in every patient with S. gallolyticus subsp. gallolyticus bacteremia, regardless of age, symptomatology, or prior screening history. The strength of the association — with 47 to 71% of patients harboring colorectal adenomas or carcinomas — makes colonoscopy a non-negotiable component of the diagnostic workup. The procedure should be performed during the current admission once the patient is hemodynamically stable and afebrile on appropriate antibiotic therapy; it should not be deferred to an outpatient setting where it may be delayed or forgotten. Colonoscopy provides direct visualization, allows biopsy of suspicious lesions, and enables polypectomy of adenomas that might otherwise progress to carcinoma. The iron deficiency anemia (microcytic, low ferritin) in this patient further supports a colonic source of blood loss and heightens the urgency. Multiple studies have demonstrated that early colonoscopic evaluation in S. gallolyticus bacteremia patients leads to detection of colorectal neoplasia at earlier, more treatable stages.",
+    },
+    {
+      id: "D",
+      label: "Colonoscopy in six months after completion of antibiotic therapy and cardiac rehabilitation",
+      feedback:
+        "Incorrect. While colonoscopy is correctly identified as the necessary evaluation, deferring it for six months represents an unacceptable delay. Colorectal carcinoma can progress significantly in six months — particularly if a lesion is already causing iron deficiency anemia, as in this patient. The colonoscopy should be performed during the current admission or shortly after discharge, not after a prolonged delay. The rationale for inpatient or early outpatient colonoscopy is precisely to detect and treat neoplastic lesions before they progress further. Patients deferred to outpatient follow-up are at risk for loss to follow-up, and the opportunity for early cancer detection may be missed entirely.",
+    },
+    {
+      id: "E",
+      label: "No additional colorectal evaluation if the patient remains asymptomatic from a gastrointestinal standpoint",
+      feedback:
+        "Incorrect. This is the most dangerous option. S. gallolyticus subsp. gallolyticus bacteremia is itself the symptom — it is the alarm signal that colorectal neoplasia may be present. Many patients with S. gallolyticus bacteremia and underlying colorectal cancer are asymptomatic from a gastrointestinal standpoint at the time of their bacteremia. The absence of abdominal pain, change in bowel habits, or visible gastrointestinal bleeding does not reduce the probability of neoplasia. The patient's iron deficiency anemia (microcytic, low ferritin) is in fact a subtle sign of chronic gastrointestinal blood loss that may be attributable to a colonic lesion. Failing to perform colonoscopy in a patient with S. gallolyticus bacteremia would represent a failure to pursue the most clinically important diagnostic lead the blood culture has provided.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-streptococcus-gallolyticus-endocarditis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The <em>Streptococcus bovis</em>/<em>Streptococcus equinus</em> group has
+    undergone substantial taxonomic revision over the past two decades.
+    The landmark reclassification by Schlegel and colleagues in 2003 renamed the
+    former <em>S. bovis</em> biotype I as <em>Streptococcus gallolyticus</em>
+    subsp. <em>gallolyticus</em>, while biotype II was split into
+    <em> S. infantarius</em> subsp. <em>infantarius</em> (formerly II/1) and
+    <em> S. gallolyticus</em> subsp. <em>pasteurianus</em> and
+    <em> S. infantarius</em> subsp. <em>coli</em> (formerly II/2). The group
+    now includes <em>S. gallolyticus</em> (with subspecies
+    <em>gallolyticus</em>, <em>macedonicus</em>, and <em>pasteurianus</em>),
+    <em>S. infantarius</em>, <em>S. alactolyticus</em>,
+    <em>S. equinus</em>, and <em>S. lutetiensis</em>. This taxonomic
+    restructuring was not merely academic: the clinical significance of these
+    organisms varies by subspecies, and <em>S. gallolyticus</em> subsp.
+    <em>gallolyticus</em> carries the strongest association with colorectal
+    neoplasia by a wide margin.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The microbiologic identification of the <em>S. bovis</em>/<em>equinus</em>
+    group rests on a distinctive biochemical profile that distinguishes it from
+    other streptococci and enterococci. The organism is alpha-hemolytic on sheep
+    blood agar (though some strains may be gamma-hemolytic), catalase-negative,
+    bile esculin-positive, and PYR-negative. Bile esculin positivity — the
+    ability to grow in the presence of 40% bile and hydrolyze esculin to
+    esculetin — is the hallmark feature that separates the <em>S. bovis</em>
+    group from viridans streptococci, which are bile esculin-negative. The
+    PYR-negative result further distinguishes the <em>S. bovis</em> group from
+    <em>Enterococcus</em> species, which are both bile esculin-positive and
+    PYR-positive. Modern identification relies on MALDI-TOF mass spectrometry
+    or molecular methods, which can provide subspecies-level identification —
+    clinically important because the colorectal neoplasia risk varies
+    significantly by subspecies.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The association between <em>S. gallolyticus</em> subsp.
+    <em>gallolyticus</em> bacteremia and colorectal neoplasia was first
+    recognized in the 1950s and has since been confirmed in dozens of studies
+    across multiple continents. The prevalence of colorectal adenoma or
+    carcinoma in patients with <em>S. gallolyticus</em> subsp.
+    <em>gallolyticus</em> bacteremia ranges from 47 to 71%, depending on the
+    study population and the thoroughness of colonic evaluation. The mechanism
+    underlying this association is not carcinogenic but adhesive and ecological:
+    <em>S. gallolyticus</em> subsp. <em>gallolyticus</em> expresses
+    specialized pilus proteins — particularly the Pil1 pilus composed of
+    Gallo2179 and Gallo2178 subunits, along with Pil2 and Pil3 variants — that
+    mediate specific adhesion to extracellular matrix proteins and tumor-associated
+    glycans present on the surface of adenomatous and carcinomatous colonic
+    tissue. These pili recognize mucins and cell surface antigens that are
+    overexpressed during neoplastic transformation. The tumor provides a
+    privileged niche: the disrupted epithelial barrier facilitates bacterial
+    invasion and translocation into the portal and systemic circulation. This is
+    a species-specific interaction — other members of the <em>S. bovis</em>
+    group that lack these pilus variants do not show the same strength of CRC
+    association.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Endocarditis is the most common invasive manifestation of <em>S.
+    gallolyticus</em> infection, though bacteremia without endocarditis, liver
+    abscess, spinal epidural abscess, and meningitis have all been reported. The
+    organism exhibits a tropism for damaged or prosthetic cardiac valves that is
+    shared with other streptococcal species. Treatment follows standard
+    guidelines for streptococcal endocarditis: intravenous penicillin G or
+    ceftriaxone for 4 to 6 weeks, with ceftriaxone often preferred for its
+    convenient once-daily dosing. The organism is almost universally susceptible
+    to beta-lactams, and resistance is rare. Vancomycin is reserved for patients
+    with severe beta-lactam allergy. The AHA/IDSA guidelines for infective
+    endocarditis management apply directly, and the addition of an aminoglycoside
+    for synergy is optional for fully susceptible streptococci with low MICs.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The management imperative that extends beyond antibiotics and valve treatment
+    is colonoscopy. Every patient with <em>S. gallolyticus</em> subsp.
+    <em>gallolyticus</em> bacteremia — whether or not endocarditis is present,
+    whether or not gastrointestinal symptoms are reported, and regardless of
+    prior screening history — should undergo colonoscopic evaluation. The
+    colonoscopy should be performed during the index admission or shortly after
+    discharge, not deferred to a later outpatient follow-up where it risks being
+    forgotten. FIT testing is insufficient, as it misses a substantial fraction
+    of adenomas and early carcinomas. The blood culture in this context is not
+    merely a microbiologic result — it is a sentinel event that should trigger
+    a focused search for colorectal neoplasia with the same urgency that a
+    positive screening mammogram triggers a diagnostic workup for breast cancer.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-streptococcus-gallolyticus-endocarditis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      The <em>Streptococcus bovis</em>/<em>equinus</em> group has been
+      reclassified: <em>S. bovis</em> biotype I is now <em>S. gallolyticus</em>
+      subsp. <em>gallolyticus</em>, the subspecies with the strongest
+      association with colorectal neoplasia. Species-level identification
+      matters — the CRC risk varies significantly by subspecies.
+    </li>
+    <li>
+      Bile esculin positivity is the key biochemical feature that distinguishes
+      the <em>S. bovis</em> group from viridans streptococci. Combined with
+      PYR negativity, it separates the <em>S. bovis</em> group from
+      <em>Enterococcus</em>. MALDI-TOF provides rapid subspecies-level
+      identification.
+    </li>
+    <li>
+      <em>S. gallolyticus</em> subsp. <em>gallolyticus</em> bacteremia is
+      associated with colorectal neoplasia in 47 to 71% of cases. Colonoscopy
+      is mandatory for every patient — not optional, not replaceable by FIT,
+      and not safely deferrable.
+    </li>
+    <li>
+      The mechanism is pilus-mediated adhesion: specialized pilus proteins
+      (Gallo2179, Gallo2178) bind tumor-associated glycans and mucins on
+      adenomatous and carcinomatous tissue, allowing the organism to exploit
+      the tumor as a portal of entry into the bloodstream.
+    </li>
+    <li>
+      Treatment is straightforward — penicillin G or ceftriaxone for 4 to 6
+      weeks for endocarditis, as the organism is almost universally
+      beta-lactam-susceptible. The real management decision is not the
+      antibiotic but the colonoscopy.
+    </li>
+    <li>
+      Do not dismiss the blood culture as "just another strep endocarditis."
+      When <em>S. gallolyticus</em> grows from blood, the organism is doing
+      diagnostic work that the colonoscope has not yet done — it is signaling
+      the presence of a colonic lesion that may be the earliest opportunity to
+      diagnose cancer.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Schlegel L, Grimont F, Ageron E, Grimont PAD, Bouvet A. Reappraisal of
+      the taxonomy of the <em>Streptococcus bovis</em>/<em>Streptococcus
+      equinus</em> complex and related species: description of
+      <em> Streptococcus gallolyticus</em> subsp. <em>gallolyticus</em> subsp.
+      nov., <em>S. gallolyticus</em> subsp. <em>macedonicus</em> subsp. nov.
+      and <em>S. gallolyticus</em> subsp. <em>pasteurianus</em> subsp. nov.
+      <em> International Journal of Systematic and Evolutionary
+      Microbiology</em>. 2003;53(Pt 3):631-645.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1099/ijs.0.02361-0"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1099/ijs.0.02361-0
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Corredoira-S&#225;nchez J, Garc&#237;a-Garrote F, Rabu&#241;al R, et al.
+      Association between bacteremia due to <em>Streptococcus gallolyticus</em>
+      subsp. <em>gallolyticus</em> (Streptococcus bovis I) and colorectal
+      neoplasia: a case-control study. <em>Clinical Infectious Diseases</em>.
+      2012;55(4):491-496.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis434"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cis434
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Boleij A, van Gelder MMHJ, Swinkels DW, Tjalsma H. Clinical
+      importance of <em>Streptococcus gallolyticus</em> infection among
+      colorectal cancer patients: systematic review and meta-analysis.
+      <em> Clinical Infectious Diseases</em>. 2011;53(9):870-878.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cir609"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cir609
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Baddour LM, Wilson WR, Bayer AS, et al. Infective endocarditis in
+      adults: diagnosis, antimicrobial therapy, and management of
+      complications. <em>Circulation</em>. 2015;132(15):1435-1486.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1161/CIR.0000000000000296"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1161/CIR.0000000000000296
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tjalsma H, Boleij A, Marchesi JR, Dutilh BE. A bacterial
+      driver-passenger model for colorectal cancer: beyond the usual
+      suspects. <em>Nature Reviews Microbiology</em>. 2012;10(8):575-582.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/nrmicro2819"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1038/nrmicro2819
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

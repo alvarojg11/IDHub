@@ -1,4 +1,3 @@
-// components/ProbIDTool.tsx
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
@@ -11,271 +10,21 @@ import {
   deriveTreatmentThresholdFromUtilities,
   getTreatmentUtilityModel,
 } from "@/lib/probidExpectedUtility";
-import { FaganChart } from "@/components/FaganChart";
-import { LRItemToggle } from "@/components/LRItemToggle";
+import { computeTestImpact } from "@/lib/probidTestImpact";
 import { FAMILY_ORDER, familyFor, matchesQuery, normalize } from "@/lib/probidCatalog";
+import { ProbidVerdict } from "@/components/ProbidVerdict";
+import { ProbidThresholdHighway } from "@/components/ProbidThresholdHighway";
+import { ProbidTestImpact } from "@/components/ProbidTestImpact";
+import { ProbidBuildPanel } from "@/components/ProbidBuildPanel";
+import { ProbidPatientFactors } from "@/components/ProbidPatientFactors";
+import { ProbidMathDetails } from "@/components/ProbidMathDetails";
+import { ProbidFloatingBar } from "@/components/ProbidFloatingBar";
 import Link from "next/link";
 
 type Props = {
   modules: SyndromeLRModule[];
   defaultModuleId?: string;
 };
-
-const FOCUS_RING =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2";
-
-const SHARE_PARAM = "probid";
-
-function toFindingStateMap(value: unknown): Record<string, FindingState> {
-  if (!value || typeof value !== "object") return {};
-
-  const out: Record<string, FindingState> = {};
-  for (const [key, raw] of Object.entries(value)) {
-    if (raw === "present" || raw === "absent" || raw === "unknown") out[key] = raw;
-  }
-  return out;
-}
-
-function toBooleanRecord(value: unknown): Record<string, boolean> {
-  if (!value || typeof value !== "object") return {};
-
-  const out: Record<string, boolean> = {};
-  for (const [key, raw] of Object.entries(value)) {
-    if (typeof raw === "boolean") out[key] = raw;
-  }
-  return out;
-}
-
-function toStringArray(value: unknown): string[] {
-  if (!Array.isArray(value)) return [];
-  return value.filter((item): item is string => typeof item === "string");
-}
-
-function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
-  if (moduleId === "cap") {
-    if (recommendation === "treat") return "Treat for CAP now";
-    if (recommendation === "observe") return "Watch without antibiotics";
-    return "Not enough probability for antibiotics yet";
-  }
-  if (moduleId !== "inv_mold") {
-    if (recommendation === "treat") return "Treatment is supported";
-    if (recommendation === "observe") return "Observe and reassess";
-    return "Get more diagnostic data";
-  }
-  if (recommendation === "treat") return "Start mold-active treatment";
-  if (recommendation === "observe") return "Mold is less likely right now";
-  return "Keep mold on the differential";
-}
-
-function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
-  if (moduleId === "cap") {
-    if (recommendation === "treat") {
-      return "The current probability is above the CAP treatment threshold for the selected patient factors.";
-    }
-    if (recommendation === "test") {
-      return "The current probability is still below the CAP treatment threshold, so more data or reassessment makes more sense than empiric antibiotics.";
-    }
-    return "Current data support monitoring rather than empiric antibiotics.";
-  }
-  if (moduleId !== "inv_mold") {
-    if (recommendation === "treat") {
-      return "The current probability is high enough that treatment is reasonable now.";
-    }
-    if (recommendation === "test") {
-      return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
-    }
-    return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
-  }
-  if (recommendation === "treat") {
-    return "Invasive mold is concerning enough that empiric mold-active therapy is reasonable while the workup continues.";
-  }
-  if (recommendation === "test") {
-    return "Invasive mold remains possible, but better microbiology or tissue confirmation would help before treating this as established disease.";
-  }
-  return "The current data do not strongly support invasive mold, so competing diagnoses should stay front and center.";
-}
-
-function recommendationNextSteps(moduleId: string, recommendation: "treat" | "test" | "observe") {
-  if (moduleId === "cap") {
-    if (recommendation === "treat") {
-      return [
-        "Choose empiric CAP therapy that matches the care setting, comorbidities, and allergy profile.",
-        "Reassess oxygenation and severity markers early in case escalation or admission is needed.",
-      ];
-    }
-    return [
-      "Reassess trajectory, oxygenation, and chest imaging if CAP remains plausible.",
-      "Keep non-pneumonia causes of respiratory symptoms in play before committing to antibiotics.",
-    ];
-  }
-  if (moduleId !== "inv_mold") return [] as string[];
-  if (recommendation === "treat") {
-    return [
-      "If feasible, obtain BAL and send fungal culture/cytology plus galactomannan and Aspergillus PCR if that workup has not already been done.",
-      "Repeat chest CT to assess radiographic trajectory after treatment starts.",
-      "If the patient is not responding clinically or the CT chest is worsening, pursue tissue biopsy for histopathology and fungal culture if it is feasible and safe.",
-    ];
-  }
-  if (recommendation === "test") {
-    return [
-      "If feasible, obtain BAL and send fungal culture/cytology plus galactomannan and Aspergillus PCR.",
-      "If the lesion is accessible and the procedure is safe, pursue tissue biopsy for histopathology and fungal culture.",
-      "Keep competing diagnoses in play rather than assuming all compatible imaging is mold.",
-    ];
-  }
-  return [
-    "Reassess alternative diagnoses such as bacterial pneumonia, other fungal infection, nocardiosis, malignancy, drug toxicity, or noninfectious inflammatory lung disease.",
-  ];
-}
-
-function formatUtility(value: number) {
-  return value.toFixed(3);
-}
-
-function formatUtilityDelta(value: number) {
-  return `${value > 0 ? "+" : ""}${value.toFixed(3)}`;
-}
-
-function recommendationTheme(recommendation: "treat" | "test" | "observe") {
-  if (recommendation === "treat") {
-    return {
-      panel: "border-emerald-200 bg-emerald-50 text-emerald-900",
-      pill: "bg-emerald-600 text-white",
-      dot: "border-emerald-700 bg-emerald-500",
-    };
-  }
-
-  if (recommendation === "observe") {
-    return {
-      panel: "border-sky-200 bg-sky-50 text-sky-900",
-      pill: "bg-sky-600 text-white",
-      dot: "border-sky-700 bg-sky-500",
-    };
-  }
-
-  return {
-    panel: "border-amber-200 bg-amber-50 text-amber-900",
-    pill: "bg-amber-500 text-amber-950",
-    dot: "border-amber-700 bg-amber-500",
-  };
-}
-
-function explainDecisionTerm(term: "pretest" | "lr" | "threshold") {
-  if (term === "pretest") {
-    return "Pretest probability is your starting estimate before applying the selected findings and tests.";
-  }
-
-  if (term === "lr") {
-    return "The combined likelihood ratio shows how strongly the selected evidence shifts the starting probability.";
-  }
-
-  return "The treatment threshold is the probability at which treatment becomes worth it given the current harm or utility model.";
-}
-
-function recommendationStatusLabel(recommendation: "treat" | "test" | "observe") {
-  if (recommendation === "treat") return "Treat";
-  if (recommendation === "observe") return "Observe";
-  return "More data";
-}
-
-function syndromeOnboarding(moduleId: string) {
-  if (moduleId === "cap") {
-    return {
-      title: "Good CAP starting pattern",
-      summary: "Start with the setting, then add the findings that usually move CAP probability the most.",
-      prompts: [
-        "Choose the outpatient, ward, or ICU-type setting first.",
-        "Add high-yield findings such as infiltrate on chest imaging, hypoxemia, fever, or tachypnea.",
-        "If probability stays below the threshold, keep non-pneumonia causes of respiratory symptoms in play.",
-      ],
-    };
-  }
-
-  if (moduleId === "vap") {
-    return {
-      title: "Good VAP starting pattern",
-      summary: "Anchor the estimate in the ICU setting, then layer on the respiratory and imaging data you actually have.",
-      prompts: [
-        "Start with the correct ICU time-based pretest setting.",
-        "Use new oxygen needs, purulent secretions, fever, leukocytosis, and imaging together rather than in isolation.",
-        "Turn on risk modifiers only when they truly fit the patient.",
-      ],
-    };
-  }
-
-  if (moduleId === "endo") {
-    return {
-      title: "Good endocarditis starting pattern",
-      summary: "Think of this as bacteremia context plus echo, exam, and organism clues.",
-      prompts: [
-        "Start with the bacteremia or host-risk setting that best matches the patient.",
-        "Add organism clues, embolic findings, and echo results early because they shift probability strongly.",
-        "Use VIRSTA, DENOVA, or HANDOC when the syndrome context matches the score population.",
-      ],
-    };
-  }
-
-  if (moduleId === "inv_mold") {
-    return {
-      title: "Good invasive mold starting pattern",
-      summary: "This works best when you combine host context, CT pattern, and microbiology instead of leaning on one clue.",
-      prompts: [
-        "Choose the host-risk setting carefully before adding test data.",
-        "CT pattern and microbiology usually matter more than any single symptom.",
-        "If the estimate stays intermediate, tissue or BAL data often matter more than more speculation.",
-      ],
-    };
-  }
-
-  return {
-    title: `Getting started with ${moduleId.toUpperCase()}`,
-    summary: "Start with the setting, then add the few findings or tests that are most decision-relevant for the patient in front of you.",
-    prompts: [
-      "Pick the most accurate starting setting first.",
-      "Add only the findings you actually know rather than trying to fill every field.",
-      "Use the result card to decide whether treatment, observation, or more data makes the most sense.",
-    ],
-  };
-}
-
-function MobileResultSummary({
-  setting,
-  selectedCount,
-  postP,
-  treatmentThresholdP,
-  lr,
-}: {
-  setting: string;
-  selectedCount: number;
-  postP: number;
-  treatmentThresholdP: number;
-  lr: number;
-}) {
-  return (
-    <div className="rounded-xl border bg-white p-3 lg:hidden">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">At a glance</div>
-      <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-        <div className="rounded-lg bg-gray-50 px-3 py-2">
-          <div className="text-gray-500">Setting</div>
-          <div className="mt-1 font-semibold text-gray-900">{setting}</div>
-        </div>
-        <div className="rounded-lg bg-gray-50 px-3 py-2">
-          <div className="text-gray-500">Selected</div>
-          <div className="mt-1 font-semibold text-gray-900">{selectedCount}</div>
-        </div>
-        <div className="rounded-lg bg-gray-50 px-3 py-2">
-          <div className="text-gray-500">Post-test</div>
-          <div className="mt-1 font-semibold text-gray-900">{formatPct(postP)}</div>
-        </div>
-        <div className="rounded-lg bg-gray-50 px-3 py-2">
-          <div className="text-gray-500">Treat at</div>
-          <div className="mt-1 font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</div>
-        </div>
-      </div>
-      <div className="mt-2 text-[11px] text-gray-600">Combined LR {lr.toFixed(2)}</div>
-    </div>
-  );
-}
 
 type VirstaAcquisition = "nosocomial" | "community_or_nhca";
 type HandocSpecies =
@@ -298,32 +47,16 @@ const HANDOC_SPECIES_POINTS: Record<HandocSpecies, number> = {
 };
 
 const ENDO_SCORE_ITEM_IDS = [
-  "endo_virsta_high",
-  "endo_virsta_na",
-  "endo_denova_high",
-  "endo_denova_na",
-  "endo_handoc_high",
-  "endo_handoc_na",
+  "endo_virsta_high", "endo_virsta_na", "endo_denova_high",
+  "endo_denova_na", "endo_handoc_high", "endo_handoc_na",
 ] as const;
 
 type VapRiskFactorId =
-  | "male_sex"
-  | "copd"
-  | "trauma"
-  | "impaired_consciousness"
-  | "prior_antibiotics"
-  | "reintubation"
-  | "tracheostomy"
-  | "enteral_feeding"
-  | "nasogastric_tube"
-  | "h2_blocker";
+  | "male_sex" | "copd" | "trauma" | "impaired_consciousness"
+  | "prior_antibiotics" | "reintubation" | "tracheostomy"
+  | "enteral_feeding" | "nasogastric_tube" | "h2_blocker";
 
-type VapRiskFactorOption = {
-  id: VapRiskFactorId;
-  label: string;
-  pooledOr: number;
-  notes?: string;
-};
+type VapRiskFactorOption = { id: VapRiskFactorId; label: string; pooledOr: number; notes?: string };
 
 const VAP_RISK_FACTOR_OPTIONS: VapRiskFactorOption[] = [
   { id: "male_sex", label: "Male sex", pooledOr: 1.3 },
@@ -339,38 +72,18 @@ const VAP_RISK_FACTOR_OPTIONS: VapRiskFactorOption[] = [
 ];
 
 const DEFAULT_VAP_RISK_STATE: Record<VapRiskFactorId, boolean> = {
-  male_sex: false,
-  copd: false,
-  trauma: false,
-  impaired_consciousness: false,
-  prior_antibiotics: false,
-  reintubation: false,
-  tracheostomy: false,
-  enteral_feeding: false,
-  nasogastric_tube: false,
-  h2_blocker: false,
+  male_sex: false, copd: false, trauma: false, impaired_consciousness: false,
+  prior_antibiotics: false, reintubation: false, tracheostomy: false,
+  enteral_feeding: false, nasogastric_tube: false, h2_blocker: false,
 };
 
-// ORs from incidence/risk-factor meta-analysis are not diagnostic LRs.
-// We apply them as a conservative odds-space pretest modifier with shrinkage + cap.
 const VAP_RISK_OR_SHRINK_EXPONENT = 0.5;
 const VAP_RISK_MAX_MULTIPLIER = 6;
 
-type EndoRiskFactorId =
-  | "ivdu"
-  | "prosthetic_valve"
-  | "prior_endo"
-  | "structural_valve_disease"
-  | "chd"
-  | "cied"
-  | "hemodialysis";
+type EndoRiskFactorId = "ivdu" | "prosthetic_valve" | "prior_endo"
+  | "structural_valve_disease" | "chd" | "cied" | "hemodialysis";
 
-type EndoRiskFactorOption = {
-  id: EndoRiskFactorId;
-  label: string;
-  orLike: number;
-  group: "general_ie" | "sab_context";
-};
+type EndoRiskFactorOption = { id: EndoRiskFactorId; label: string; orLike: number; group: "general_ie" | "sab_context" };
 
 const ENDO_RISK_FACTOR_OPTIONS: EndoRiskFactorOption[] = [
   { id: "prosthetic_valve", label: "Prosthetic valve", orLike: 2.5, group: "general_ie" },
@@ -383,39 +96,62 @@ const ENDO_RISK_FACTOR_OPTIONS: EndoRiskFactorOption[] = [
 ];
 
 const DEFAULT_ENDO_RISK_STATE: Record<EndoRiskFactorId, boolean> = {
-  ivdu: false,
-  prosthetic_valve: false,
-  prior_endo: false,
-  structural_valve_disease: false,
-  chd: false,
-  cied: false,
-  hemodialysis: false,
+  ivdu: false, prosthetic_valve: false, prior_endo: false,
+  structural_valve_disease: false, chd: false, cied: false, hemodialysis: false,
 };
 
 const ENDO_RISK_OR_SHRINK_EXPONENT = 0.5;
 const ENDO_RISK_MAX_MULTIPLIER = 5;
+const SHARE_PARAM = "probid";
 
 function byId(mods: SyndromeLRModule[], id?: string) {
   if (!id) return mods[0];
   return mods.find((m) => m.id === id) ?? mods[0];
 }
 
+function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "cap") {
+    if (recommendation === "treat") return "Treat for CAP now";
+    if (recommendation === "observe") return "Watch without antibiotics";
+    return "Not enough probability for antibiotics yet";
+  }
+  if (moduleId !== "inv_mold") {
+    if (recommendation === "treat") return "Treatment is supported";
+    if (recommendation === "observe") return "Observe and reassess";
+    return "Get more diagnostic data";
+  }
+  if (recommendation === "treat") return "Start mold-active treatment";
+  if (recommendation === "observe") return "Mold is less likely right now";
+  return "Keep mold on the differential";
+}
+
+function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "cap") {
+    if (recommendation === "treat") return "The current probability is above the CAP treatment threshold for the selected patient factors.";
+    if (recommendation === "test") return "The current probability is still below the CAP treatment threshold, so more data or reassessment makes more sense than empiric antibiotics.";
+    return "Current data support monitoring rather than empiric antibiotics.";
+  }
+  if (moduleId !== "inv_mold") {
+    if (recommendation === "treat") return "The current probability is high enough that treatment is reasonable now.";
+    if (recommendation === "test") return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
+    return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
+  }
+  if (recommendation === "treat") return "Invasive mold is concerning enough that empiric mold-active therapy is reasonable while the workup continues.";
+  if (recommendation === "test") return "Invasive mold remains possible, but better microbiology or tissue confirmation would help before treating this as established disease.";
+  return "The current data do not strongly support invasive mold, so competing diagnoses should stay front and center.";
+}
+
 export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const suppressModuleResetRef = useRef(false);
   const didHydrateFromUrlRef = useRef(false);
 
-  // Syndrome
   const [moduleId, setModuleId] = useState(byId(modules, defaultModuleId)?.id ?? modules[0]?.id);
   const activeModule = useMemo(() => byId(modules, moduleId), [modules, moduleId]);
 
-  // Location (pretest)
   const [presetId, setPresetId] = useState(activeModule.pretestPresets[0]?.id ?? "");
-
-  // Item states + step order
   const [states, setStates] = useState<Record<string, FindingState>>({});
   const [clickOrder, setClickOrder] = useState<string[]>([]);
 
-  // Catalog modal (2-pane)
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [catalogQuery, setCatalogQuery] = useState("");
   const [activeFamily, setActiveFamily] = useState<string>("Location");
@@ -424,13 +160,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "error">("idle");
   const [shareSyncEnabled, setShareSyncEnabled] = useState(false);
 
-  // VAP pretest risk modifiers (OR-informed, applied before diagnostic LR stack)
   const [useVapRiskModifiers, setUseVapRiskModifiers] = useState(false);
   const [vapRiskState, setVapRiskState] = useState<Record<VapRiskFactorId, boolean>>(DEFAULT_VAP_RISK_STATE);
   const [useEndoRiskModifiers, setUseEndoRiskModifiers] = useState(false);
   const [endoRiskState, setEndoRiskState] = useState<Record<EndoRiskFactorId, boolean>>(DEFAULT_ENDO_RISK_STATE);
 
-  // Endocarditis score autocompute controls
   const [useVirsta, setUseVirsta] = useState(false);
   const [virstaEmboli, setVirstaEmboli] = useState(false);
   const [virstaMeningitis, setVirstaMeningitis] = useState(false);
@@ -465,82 +199,52 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     didHydrateFromUrlRef.current = true;
 
     const raw = new URLSearchParams(window.location.search).get(SHARE_PARAM);
-    if (!raw) {
-      setShareSyncEnabled(true);
-      return;
-    }
+    if (!raw) { setShareSyncEnabled(true); return; }
 
     try {
-      const parsed = JSON.parse(raw) as Record<string, unknown>;
+      const p = JSON.parse(raw) as Record<string, unknown>;
       suppressModuleResetRef.current = true;
-
-      if (typeof parsed.moduleId === "string") setModuleId(parsed.moduleId);
-      if (typeof parsed.presetId === "string") setPresetId(parsed.presetId);
-
-      setStates(toFindingStateMap(parsed.states));
-      setClickOrder(toStringArray(parsed.clickOrder));
-      setUtilityModifierState(toBooleanRecord(parsed.utilityModifierState));
-
-      if (typeof parsed.useVapRiskModifiers === "boolean") setUseVapRiskModifiers(parsed.useVapRiskModifiers);
-      setVapRiskState((prev) => ({ ...prev, ...toBooleanRecord(parsed.vapRiskState) }) as Record<VapRiskFactorId, boolean>);
-
-      if (typeof parsed.useEndoRiskModifiers === "boolean") setUseEndoRiskModifiers(parsed.useEndoRiskModifiers);
-      setEndoRiskState((prev) => ({ ...prev, ...toBooleanRecord(parsed.endoRiskState) }) as Record<EndoRiskFactorId, boolean>);
-
-      if (typeof parsed.useVirsta === "boolean") setUseVirsta(parsed.useVirsta);
-      if (typeof parsed.virstaEmboli === "boolean") setVirstaEmboli(parsed.virstaEmboli);
-      if (typeof parsed.virstaMeningitis === "boolean") setVirstaMeningitis(parsed.virstaMeningitis);
-      if (typeof parsed.virstaIntracardiacDevice === "boolean") setVirstaIntracardiacDevice(parsed.virstaIntracardiacDevice);
-      if (typeof parsed.virstaPriorEndocarditis === "boolean") setVirstaPriorEndocarditis(parsed.virstaPriorEndocarditis);
-      if (typeof parsed.virstaNativeValveDisease === "boolean") setVirstaNativeValveDisease(parsed.virstaNativeValveDisease);
-      if (typeof parsed.virstaIvdu === "boolean") setVirstaIvdu(parsed.virstaIvdu);
-      if (typeof parsed.virstaPersistentBacteremia48h === "boolean") setVirstaPersistentBacteremia48h(parsed.virstaPersistentBacteremia48h);
-      if (typeof parsed.virstaVertebralOsteomyelitis === "boolean") setVirstaVertebralOsteomyelitis(parsed.virstaVertebralOsteomyelitis);
-      if (parsed.virstaAcquisition === "nosocomial" || parsed.virstaAcquisition === "community_or_nhca") {
-        setVirstaAcquisition(parsed.virstaAcquisition);
-      }
-      if (typeof parsed.virstaSevereSepsisShock === "boolean") setVirstaSevereSepsisShock(parsed.virstaSevereSepsisShock);
-      if (typeof parsed.virstaCrpGt190 === "boolean") setVirstaCrpGt190(parsed.virstaCrpGt190);
-
-      if (typeof parsed.useDenova === "boolean") setUseDenova(parsed.useDenova);
-      if (typeof parsed.denovaDuration7d === "boolean") setDenovaDuration7d(parsed.denovaDuration7d);
-      if (typeof parsed.denovaEmbolization === "boolean") setDenovaEmbolization(parsed.denovaEmbolization);
-      if (typeof parsed.denovaNumPositive2 === "boolean") setDenovaNumPositive2(parsed.denovaNumPositive2);
-      if (typeof parsed.denovaOriginUnknown === "boolean") setDenovaOriginUnknown(parsed.denovaOriginUnknown);
-      if (typeof parsed.denovaValveDisease === "boolean") setDenovaValveDisease(parsed.denovaValveDisease);
-      if (typeof parsed.denovaAuscultationMurmur === "boolean") setDenovaAuscultationMurmur(parsed.denovaAuscultationMurmur);
-
-      if (typeof parsed.useHandoc === "boolean") setUseHandoc(parsed.useHandoc);
-      if (typeof parsed.handocHeartMurmurValve === "boolean") setHandocHeartMurmurValve(parsed.handocHeartMurmurValve);
-      if (
-        parsed.handocSpecies === "unspecified_other" ||
-        parsed.handocSpecies === "s_anginosus_group" ||
-        parsed.handocSpecies === "s_gallolyticus_bovis_group" ||
-        parsed.handocSpecies === "s_mutans_group" ||
-        parsed.handocSpecies === "s_sanguinis_group" ||
-        parsed.handocSpecies === "s_mitis_oralis_group" ||
-        parsed.handocSpecies === "s_salivarius_group"
-      ) {
-        setHandocSpecies(parsed.handocSpecies);
-      }
-      if (typeof parsed.handocNumPositive2 === "boolean") setHandocNumPositive2(parsed.handocNumPositive2);
-      if (typeof parsed.handocDuration7d === "boolean") setHandocDuration7d(parsed.handocDuration7d);
-      if (typeof parsed.handocOnlyOneSpecies === "boolean") setHandocOnlyOneSpecies(parsed.handocOnlyOneSpecies);
-      if (typeof parsed.handocCommunityAcquired === "boolean") setHandocCommunityAcquired(parsed.handocCommunityAcquired);
-    } catch {
-      suppressModuleResetRef.current = false;
-    } finally {
-      setShareSyncEnabled(true);
-    }
+      if (typeof p.moduleId === "string") setModuleId(p.moduleId);
+      if (typeof p.presetId === "string") setPresetId(p.presetId);
+      setStates(toFindingStateMap(p.states));
+      setClickOrder(toStringArray(p.clickOrder));
+      setUtilityModifierState(toBooleanRecord(p.utilityModifierState));
+      if (typeof p.useVapRiskModifiers === "boolean") setUseVapRiskModifiers(p.useVapRiskModifiers);
+      if (p.vapRiskState) setVapRiskState({ ...DEFAULT_VAP_RISK_STATE, ...toBooleanRecord(p.vapRiskState) } as Record<VapRiskFactorId, boolean>);
+      if (typeof p.useEndoRiskModifiers === "boolean") setUseEndoRiskModifiers(p.useEndoRiskModifiers);
+      if (p.endoRiskState) setEndoRiskState({ ...DEFAULT_ENDO_RISK_STATE, ...toBooleanRecord(p.endoRiskState) } as Record<EndoRiskFactorId, boolean>);
+      if (typeof p.useVirsta === "boolean") setUseVirsta(p.useVirsta);
+      if (typeof p.virstaEmboli === "boolean") setVirstaEmboli(p.virstaEmboli);
+      if (typeof p.virstaMeningitis === "boolean") setVirstaMeningitis(p.virstaMeningitis);
+      if (typeof p.virstaIntracardiacDevice === "boolean") setVirstaIntracardiacDevice(p.virstaIntracardiacDevice);
+      if (typeof p.virstaPriorEndocarditis === "boolean") setVirstaPriorEndocarditis(p.virstaPriorEndocarditis);
+      if (typeof p.virstaNativeValveDisease === "boolean") setVirstaNativeValveDisease(p.virstaNativeValveDisease);
+      if (typeof p.virstaIvdu === "boolean") setVirstaIvdu(p.virstaIvdu);
+      if (typeof p.virstaPersistentBacteremia48h === "boolean") setVirstaPersistentBacteremia48h(p.virstaPersistentBacteremia48h);
+      if (typeof p.virstaVertebralOsteomyelitis === "boolean") setVirstaVertebralOsteomyelitis(p.virstaVertebralOsteomyelitis);
+      if (typeof p.virstaAcquisition === "string") setVirstaAcquisition(p.virstaAcquisition as VirstaAcquisition);
+      if (typeof p.virstaSevereSepsisShock === "boolean") setVirstaSevereSepsisShock(p.virstaSevereSepsisShock);
+      if (typeof p.virstaCrpGt190 === "boolean") setVirstaCrpGt190(p.virstaCrpGt190);
+      if (typeof p.useDenova === "boolean") setUseDenova(p.useDenova);
+      if (typeof p.denovaDuration7d === "boolean") setDenovaDuration7d(p.denovaDuration7d);
+      if (typeof p.denovaEmbolization === "boolean") setDenovaEmbolization(p.denovaEmbolization);
+      if (typeof p.denovaNumPositive2 === "boolean") setDenovaNumPositive2(p.denovaNumPositive2);
+      if (typeof p.denovaOriginUnknown === "boolean") setDenovaOriginUnknown(p.denovaOriginUnknown);
+      if (typeof p.denovaValveDisease === "boolean") setDenovaValveDisease(p.denovaValveDisease);
+      if (typeof p.denovaAuscultationMurmur === "boolean") setDenovaAuscultationMurmur(p.denovaAuscultationMurmur);
+      if (typeof p.useHandoc === "boolean") setUseHandoc(p.useHandoc);
+      if (typeof p.handocHeartMurmurValve === "boolean") setHandocHeartMurmurValve(p.handocHeartMurmurValve);
+      if (typeof p.handocSpecies === "string") setHandocSpecies(p.handocSpecies as HandocSpecies);
+      if (typeof p.handocNumPositive2 === "boolean") setHandocNumPositive2(p.handocNumPositive2);
+      if (typeof p.handocDuration7d === "boolean") setHandocDuration7d(p.handocDuration7d);
+      if (typeof p.handocOnlyOneSpecies === "boolean") setHandocOnlyOneSpecies(p.handocOnlyOneSpecies);
+      if (typeof p.handocCommunityAcquired === "boolean") setHandocCommunityAcquired(p.handocCommunityAcquired);
+    } catch { /* ignore bad URL state */ }
+    setShareSyncEnabled(true);
   }, []);
 
-  // Reset when syndrome changes
   useEffect(() => {
-    if (suppressModuleResetRef.current) {
-      suppressModuleResetRef.current = false;
-      return;
-    }
-
+    if (suppressModuleResetRef.current) { suppressModuleResetRef.current = false; return; }
     setPresetId(activeModule.pretestPresets[0]?.id ?? "");
     setStates({});
     setClickOrder([]);
@@ -553,55 +257,26 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     setUseEndoRiskModifiers(false);
     setEndoRiskState(DEFAULT_ENDO_RISK_STATE);
     setUseVirsta(false);
-    setVirstaEmboli(false);
-    setVirstaMeningitis(false);
-    setVirstaIntracardiacDevice(false);
-    setVirstaPriorEndocarditis(false);
-    setVirstaNativeValveDisease(false);
-    setVirstaIvdu(false);
-    setVirstaPersistentBacteremia48h(false);
-    setVirstaVertebralOsteomyelitis(false);
-    setVirstaAcquisition("nosocomial");
-    setVirstaSevereSepsisShock(false);
-    setVirstaCrpGt190(false);
+    setVirstaEmboli(false); setVirstaMeningitis(false); setVirstaIntracardiacDevice(false);
+    setVirstaPriorEndocarditis(false); setVirstaNativeValveDisease(false); setVirstaIvdu(false);
+    setVirstaPersistentBacteremia48h(false); setVirstaVertebralOsteomyelitis(false);
+    setVirstaAcquisition("nosocomial"); setVirstaSevereSepsisShock(false); setVirstaCrpGt190(false);
     setUseDenova(false);
-    setDenovaDuration7d(false);
-    setDenovaEmbolization(false);
-    setDenovaNumPositive2(false);
-    setDenovaOriginUnknown(false);
-    setDenovaValveDisease(false);
-    setDenovaAuscultationMurmur(false);
+    setDenovaDuration7d(false); setDenovaEmbolization(false); setDenovaNumPositive2(false);
+    setDenovaOriginUnknown(false); setDenovaValveDisease(false); setDenovaAuscultationMurmur(false);
     setUseHandoc(false);
-    setHandocHeartMurmurValve(false);
-    setHandocSpecies("unspecified_other");
-    setHandocNumPositive2(false);
-    setHandocDuration7d(false);
-    setHandocOnlyOneSpecies(false);
-    setHandocCommunityAcquired(false);
+    setHandocHeartMurmurValve(false); setHandocSpecies("unspecified_other");
+    setHandocNumPositive2(false); setHandocDuration7d(false);
+    setHandocOnlyOneSpecies(false); setHandocCommunityAcquired(false);
   }, [activeModule]);
 
-  // Derived pretest/posttest
   const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
   const basePretestP = clamp(preset?.p ?? 0.05, 0.001, 0.999);
 
-  const vapSelectedRiskFactors = useMemo(
-    () => VAP_RISK_FACTOR_OPTIONS.filter((opt) => vapRiskState[opt.id]),
-    [vapRiskState]
-  );
-  const endoSelectedRiskFactors = useMemo(
-    () => ENDO_RISK_FACTOR_OPTIONS.filter((opt) => endoRiskState[opt.id]),
-    [endoRiskState]
-  );
-  const endoAppliedRiskFactors = useMemo(
-    () =>
-      endoSelectedRiskFactors.filter((opt) => !(useVirsta && opt.group === "sab_context")),
-    [endoSelectedRiskFactors, useVirsta]
-  );
-  const endoSuppressedRiskFactors = useMemo(
-    () =>
-      endoSelectedRiskFactors.filter((opt) => useVirsta && opt.group === "sab_context"),
-    [endoSelectedRiskFactors, useVirsta]
-  );
+  const vapSelectedRiskFactors = useMemo(() => VAP_RISK_FACTOR_OPTIONS.filter((opt) => vapRiskState[opt.id]), [vapRiskState]);
+  const endoSelectedRiskFactors = useMemo(() => ENDO_RISK_FACTOR_OPTIONS.filter((opt) => endoRiskState[opt.id]), [endoRiskState]);
+  const endoAppliedRiskFactors = useMemo(() => endoSelectedRiskFactors.filter((opt) => !(useVirsta && opt.group === "sab_context")), [endoSelectedRiskFactors, useVirsta]);
+  const endoSuppressedRiskFactors = useMemo(() => endoSelectedRiskFactors.filter((opt) => useVirsta && opt.group === "sab_context"), [endoSelectedRiskFactors, useVirsta]);
 
   const vapRiskRawMultiplier = useMemo(() => {
     if (activeModule.id !== "vap" || !useVapRiskModifiers) return 1;
@@ -610,8 +285,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   const vapRiskAppliedMultiplier = useMemo(() => {
     if (activeModule.id !== "vap" || !useVapRiskModifiers) return 1;
-    const shrunk = Math.pow(vapRiskRawMultiplier, VAP_RISK_OR_SHRINK_EXPONENT);
-    return clamp(shrunk, 1, VAP_RISK_MAX_MULTIPLIER);
+    return clamp(Math.pow(vapRiskRawMultiplier, VAP_RISK_OR_SHRINK_EXPONENT), 1, VAP_RISK_MAX_MULTIPLIER);
   }, [activeModule.id, useVapRiskModifiers, vapRiskRawMultiplier]);
 
   const endoRiskRawMultiplier = useMemo(() => {
@@ -621,219 +295,118 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   const endoRiskAppliedMultiplier = useMemo(() => {
     if (activeModule.id !== "endo" || !useEndoRiskModifiers) return 1;
-    const shrunk = Math.pow(endoRiskRawMultiplier, ENDO_RISK_OR_SHRINK_EXPONENT);
-    return clamp(shrunk, 1, ENDO_RISK_MAX_MULTIPLIER);
+    return clamp(Math.pow(endoRiskRawMultiplier, ENDO_RISK_OR_SHRINK_EXPONENT), 1, ENDO_RISK_MAX_MULTIPLIER);
   }, [activeModule.id, useEndoRiskModifiers, endoRiskRawMultiplier]);
 
   const pretestP = useMemo(() => {
     const odds = basePretestP / (1 - basePretestP);
     let adjustedOdds = odds;
-    if (activeModule.id === "vap" && useVapRiskModifiers) {
-      adjustedOdds *= vapRiskAppliedMultiplier;
-    }
-    if (activeModule.id === "endo" && useEndoRiskModifiers) {
-      adjustedOdds *= endoRiskAppliedMultiplier;
-    }
+    if (activeModule.id === "vap" && useVapRiskModifiers) adjustedOdds *= vapRiskAppliedMultiplier;
+    if (activeModule.id === "endo" && useEndoRiskModifiers) adjustedOdds *= endoRiskAppliedMultiplier;
     return clamp(adjustedOdds / (1 + adjustedOdds), 0.001, 0.999);
-  }, [
-    activeModule.id,
-    basePretestP,
-    useVapRiskModifiers,
-    vapRiskAppliedMultiplier,
-    useEndoRiskModifiers,
-    endoRiskAppliedMultiplier,
-  ]);
-  const showAdjustedPretest =
-    (activeModule.id === "vap" && useVapRiskModifiers) ||
-    (activeModule.id === "endo" && useEndoRiskModifiers);
+  }, [activeModule.id, basePretestP, useVapRiskModifiers, vapRiskAppliedMultiplier, useEndoRiskModifiers, endoRiskAppliedMultiplier]);
+
+  const showAdjustedPretest = (activeModule.id === "vap" && useVapRiskModifiers) || (activeModule.id === "endo" && useEndoRiskModifiers);
 
   const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
   const treatmentUtilityModel = useMemo(() => getTreatmentUtilityModel(activeModule.id), [activeModule.id]);
-  const activeUtilityModifierIds = useMemo(
-    () => Object.entries(utilityModifierState).filter(([, enabled]) => enabled).map(([id]) => id),
-    [utilityModifierState]
-  );
+  const activeUtilityModifierIds = useMemo(() => Object.entries(utilityModifierState).filter(([, v]) => v).map(([id]) => id), [utilityModifierState]);
 
   const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
+
   const harmStates = useMemo(() => {
     if (activeModule.id !== "endo" || !useEndoRiskModifiers) return states;
-    return {
-      ...states,
-      endo_prosthetic_valve: endoRiskState.prosthetic_valve ? "present" : "unknown",
-      endo_cied: endoRiskState.cied ? "present" : "unknown",
-    } as Record<string, FindingState>;
+    return { ...states, endo_prosthetic_valve: endoRiskState.prosthetic_valve ? "present" : "unknown", endo_cied: endoRiskState.cied ? "present" : "unknown" } as Record<string, FindingState>;
   }, [activeModule.id, useEndoRiskModifiers, endoRiskState, states]);
+
   const harmEstimate = useMemo(() => estimateHarms(activeModule.id, harmStates), [activeModule.id, harmStates]);
-  const { treatThresholdP: heuristicTreatThresholdP, observeThresholdP: heuristicObserveThresholdP } = useMemo(
-    () => deriveDecisionThresholds(harmEstimate),
-    [harmEstimate]
-  );
-  const adjustedUtilityModel = useMemo(
-    () => (treatmentUtilityModel ? applyUtilityModifiers(treatmentUtilityModel, activeUtilityModifierIds) : null),
-    [treatmentUtilityModel, activeUtilityModifierIds]
-  );
-  const expectedUtilityResult = useMemo(
-    () => (adjustedUtilityModel ? calculateExpectedUtilities(adjustedUtilityModel.terms, postP) : null),
-    [adjustedUtilityModel, postP]
-  );
-  const utilityTreatmentThresholdP = useMemo(
-    () => (adjustedUtilityModel ? deriveTreatmentThresholdFromUtilities(adjustedUtilityModel.terms) : null),
-    [adjustedUtilityModel]
-  );
+  const { treatThresholdP: heuristicTreatThresholdP, observeThresholdP: heuristicObserveThresholdP } = useMemo(() => deriveDecisionThresholds(harmEstimate), [harmEstimate]);
+  const adjustedUtilityModel = useMemo(() => treatmentUtilityModel ? applyUtilityModifiers(treatmentUtilityModel, activeUtilityModifierIds) : null, [treatmentUtilityModel, activeUtilityModifierIds]);
+  const expectedUtilityResult = useMemo(() => adjustedUtilityModel ? calculateExpectedUtilities(adjustedUtilityModel.terms, postP) : null, [adjustedUtilityModel, postP]);
+  const utilityTreatmentThresholdP = useMemo(() => adjustedUtilityModel ? deriveTreatmentThresholdFromUtilities(adjustedUtilityModel.terms) : null, [adjustedUtilityModel]);
   const treatmentThresholdP = utilityTreatmentThresholdP ?? heuristicTreatThresholdP;
-  const recommendation = adjustedUtilityModel
-    ? postP >= treatmentThresholdP
-      ? "treat"
-      : "test"
-    : postP >= treatmentThresholdP
-      ? "treat"
-      : postP <= heuristicObserveThresholdP
-        ? "observe"
-        : "test";
-  const recommendationCopy = useMemo(
-    () => ({
-      headline: recommendationHeadline(activeModule.id, recommendation),
-      detail: recommendationDetail(activeModule.id, recommendation),
-      nextSteps: recommendationNextSteps(activeModule.id, recommendation),
-    }),
-    [activeModule.id, recommendation]
-  );
-  const recommendationUi = recommendationTheme(recommendation);
-  const onboarding = syndromeOnboarding(activeModule.id);
+  const observeThresholdP = heuristicObserveThresholdP;
 
-  const shareableState = useMemo(
-    () => ({
-      moduleId,
-      presetId,
-      states,
-      clickOrder,
-      utilityModifierState,
-      useVapRiskModifiers,
-      vapRiskState,
-      useEndoRiskModifiers,
-      endoRiskState,
-      useVirsta,
-      virstaEmboli,
-      virstaMeningitis,
-      virstaIntracardiacDevice,
-      virstaPriorEndocarditis,
-      virstaNativeValveDisease,
-      virstaIvdu,
-      virstaPersistentBacteremia48h,
-      virstaVertebralOsteomyelitis,
-      virstaAcquisition,
-      virstaSevereSepsisShock,
-      virstaCrpGt190,
-      useDenova,
-      denovaDuration7d,
-      denovaEmbolization,
-      denovaNumPositive2,
-      denovaOriginUnknown,
-      denovaValveDisease,
-      denovaAuscultationMurmur,
-      useHandoc,
-      handocHeartMurmurValve,
-      handocSpecies,
-      handocNumPositive2,
-      handocDuration7d,
-      handocOnlyOneSpecies,
-      handocCommunityAcquired,
-    }),
-    [
-      clickOrder,
-      denovaAuscultationMurmur,
-      denovaDuration7d,
-      denovaEmbolization,
-      denovaNumPositive2,
-      denovaOriginUnknown,
-      denovaValveDisease,
-      endoRiskState,
-      handocCommunityAcquired,
-      handocDuration7d,
-      handocHeartMurmurValve,
-      handocNumPositive2,
-      handocOnlyOneSpecies,
-      handocSpecies,
-      moduleId,
-      presetId,
-      states,
-      useDenova,
-      useEndoRiskModifiers,
-      useHandoc,
-      useVapRiskModifiers,
-      useVirsta,
-      utilityModifierState,
-      vapRiskState,
-      virstaAcquisition,
-      virstaCrpGt190,
-      virstaEmboli,
-      virstaIntracardiacDevice,
-      virstaIvdu,
-      virstaMeningitis,
-      virstaNativeValveDisease,
-      virstaPersistentBacteremia48h,
-      virstaPriorEndocarditis,
-      virstaSevereSepsisShock,
-      virstaVertebralOsteomyelitis,
-    ]
-  );
+  const recommendation: "treat" | "test" | "observe" = adjustedUtilityModel
+    ? postP >= treatmentThresholdP ? "treat" : "test"
+    : postP >= treatmentThresholdP ? "treat" : postP <= heuristicObserveThresholdP ? "observe" : "test";
 
-  const steps = useMemo(
-    () => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }),
-    [pretestP, clickOrder, itemsById, states]
-  );
+  const recHeadline = useMemo(() => recommendationHeadline(activeModule.id, recommendation), [activeModule.id, recommendation]);
+  const recDetail = useMemo(() => recommendationDetail(activeModule.id, recommendation), [activeModule.id, recommendation]);
+
+  const steps = useMemo(() => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }), [pretestP, clickOrder, itemsById, states]);
+
+  const testImpactEntries = useMemo(() => computeTestImpact({
+    currentPostP: postP, currentCombinedLR: lr, items: activeModule.items,
+    states, treatThresholdP: treatmentThresholdP, observeThresholdP,
+  }), [postP, lr, activeModule.items, states, treatmentThresholdP, observeThresholdP]);
+
+  const shareableState = useMemo(() => ({
+    moduleId, presetId, states, clickOrder, utilityModifierState,
+    useVapRiskModifiers, vapRiskState, useEndoRiskModifiers, endoRiskState,
+    useVirsta, virstaEmboli, virstaMeningitis, virstaIntracardiacDevice,
+    virstaPriorEndocarditis, virstaNativeValveDisease, virstaIvdu,
+    virstaPersistentBacteremia48h, virstaVertebralOsteomyelitis,
+    virstaAcquisition, virstaSevereSepsisShock, virstaCrpGt190,
+    useDenova, denovaDuration7d, denovaEmbolization, denovaNumPositive2,
+    denovaOriginUnknown, denovaValveDisease, denovaAuscultationMurmur,
+    useHandoc, handocHeartMurmurValve, handocSpecies, handocNumPositive2,
+    handocDuration7d, handocOnlyOneSpecies, handocCommunityAcquired,
+  }), [moduleId, presetId, states, clickOrder, utilityModifierState,
+    useVapRiskModifiers, vapRiskState, useEndoRiskModifiers, endoRiskState,
+    useVirsta, virstaEmboli, virstaMeningitis, virstaIntracardiacDevice,
+    virstaPriorEndocarditis, virstaNativeValveDisease, virstaIvdu,
+    virstaPersistentBacteremia48h, virstaVertebralOsteomyelitis,
+    virstaAcquisition, virstaSevereSepsisShock, virstaCrpGt190,
+    useDenova, denovaDuration7d, denovaEmbolization, denovaNumPositive2,
+    denovaOriginUnknown, denovaValveDisease, denovaAuscultationMurmur,
+    useHandoc, handocHeartMurmurValve, handocSpecies, handocNumPositive2,
+    handocDuration7d, handocOnlyOneSpecies, handocCommunityAcquired]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!shareSyncEnabled) return;
-
+    if (typeof window === "undefined" || !shareSyncEnabled) return;
     const params = new URLSearchParams(window.location.search);
     params.set(SHARE_PARAM, JSON.stringify(shareableState));
-    const next = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
-    window.history.replaceState(null, "", next);
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}${window.location.hash}`);
   }, [shareSyncEnabled, shareableState]);
 
-  async function copyShareLink() {
-    if (typeof window === "undefined") return;
+  const virstaScore = useMemo(() => {
+    const dp = virstaIntracardiacDevice || virstaPriorEndocarditis ? 4 : 0;
+    const ap = virstaAcquisition === "community_or_nhca" ? 2 : 0;
+    return (virstaEmboli ? 5 : 0) + (virstaMeningitis ? 5 : 0) + dp + (virstaNativeValveDisease ? 3 : 0) +
+      (virstaIvdu ? 4 : 0) + (virstaPersistentBacteremia48h ? 3 : 0) + (virstaVertebralOsteomyelitis ? 2 : 0) +
+      ap + (virstaSevereSepsisShock ? 1 : 0) + (virstaCrpGt190 ? 1 : 0);
+  }, [virstaAcquisition, virstaCrpGt190, virstaEmboli, virstaIntracardiacDevice, virstaIvdu, virstaMeningitis, virstaNativeValveDisease, virstaPersistentBacteremia48h, virstaPriorEndocarditis, virstaSevereSepsisShock, virstaVertebralOsteomyelitis]);
 
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setShareStatus("copied");
-      window.setTimeout(() => setShareStatus("idle"), 2000);
-    } catch {
-      setShareStatus("error");
-      window.setTimeout(() => setShareStatus("idle"), 2000);
-    }
-  }
+  const denovaScore = useMemo(() => [denovaDuration7d, denovaEmbolization, denovaNumPositive2, denovaOriginUnknown, denovaValveDisease, denovaAuscultationMurmur].filter(Boolean).length, [denovaDuration7d, denovaEmbolization, denovaNumPositive2, denovaOriginUnknown, denovaValveDisease, denovaAuscultationMurmur]);
 
-  // Apply item state w/ group exclusivity + step ordering
+  const handocScore = useMemo(() => {
+    const ap = HANDOC_SPECIES_POINTS[handocSpecies];
+    return (handocHeartMurmurValve ? 1 : 0) + ap + (handocNumPositive2 ? 1 : 0) + (handocDuration7d ? 1 : 0) + (handocOnlyOneSpecies ? 1 : 0) + (handocCommunityAcquired ? 1 : 0);
+  }, [handocSpecies, handocCommunityAcquired, handocDuration7d, handocHeartMurmurValve, handocNumPositive2, handocOnlyOneSpecies]);
+
+  useEffect(() => {
+    if (activeModule.id !== "endo") return;
+    const autoStates: Record<string, FindingState> = { endo_virsta_high: "unknown", endo_virsta_na: "unknown", endo_denova_high: "unknown", endo_denova_na: "unknown", endo_handoc_high: "unknown", endo_handoc_na: "unknown" };
+    if (useVirsta) autoStates.endo_virsta_high = virstaScore >= 3 ? "present" : "absent";
+    if (useDenova) autoStates.endo_denova_high = denovaScore >= 3 ? "present" : "absent";
+    if (useHandoc) autoStates.endo_handoc_high = handocScore >= 3 ? "present" : "absent";
+    setStates((prev) => { let c = false; const o = { ...prev }; for (const [id, n] of Object.entries(autoStates)) { if ((o[id] ?? "unknown") !== n) { o[id] = n; c = true; } } return c ? o : prev; });
+    setClickOrder((prev) => { const o = [...prev]; let c = false; for (const id of ENDO_SCORE_ITEM_IDS) { const d = autoStates[id] ?? "unknown"; const i = o.indexOf(id); if (d === "unknown") { if (i !== -1) { o.splice(i, 1); c = true; } continue; } if (i === -1) { o.push(id); c = true; } } return c ? o : prev; });
+  }, [denovaScore, handocScore, activeModule.id, useDenova, useHandoc, useVirsta, virstaScore]);
+
   function setItemState(item: LRItem, next: FindingState) {
     setStates((prev) => {
       const out = { ...prev, [item.id]: next };
-
-      // mutual exclusion
-      if (item.group && next !== "unknown") {
-        for (const other of activeModule.items) {
-          if (other.id !== item.id && other.group === item.group) out[other.id] = "unknown";
-        }
-      }
+      if (item.group && next !== "unknown") { for (const o of activeModule.items) { if (o.id !== item.id && o.group === item.group) out[o.id] = "unknown"; } }
       return out;
     });
-
-    // step order
     setClickOrder((prev) => {
-      const isActivating = next !== "unknown";
-
+      const isAct = next !== "unknown";
       let base = prev;
-      if (item.group && isActivating) {
-        base = prev.filter((id) => itemsById.get(id)?.group !== item.group);
-      }
-
-      if (isActivating) {
-        const without = base.filter((id) => id !== item.id);
-        return [...without, item.id];
-      }
+      if (item.group && isAct) base = prev.filter((id) => itemsById.get(id)?.group !== item.group);
+      if (isAct) { const w = base.filter((id) => id !== item.id); return [...w, item.id]; }
       return base.filter((id) => id !== item.id);
     });
   }
@@ -848,1625 +421,277 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   function resetAll() {
     setPresetId(activeModule.pretestPresets[0]?.id ?? "");
-    setStates({});
-    setClickOrder([]);
-    setCatalogQuery("");
-    setActiveFamily("Location");
-    setShowSelectedOnly(false);
-    setUtilityModifierState({});
-    setUseVapRiskModifiers(false);
-    setVapRiskState(DEFAULT_VAP_RISK_STATE);
-    setUseEndoRiskModifiers(false);
-    setEndoRiskState(DEFAULT_ENDO_RISK_STATE);
-    setUseVirsta(false);
-    setVirstaEmboli(false);
-    setVirstaMeningitis(false);
-    setVirstaIntracardiacDevice(false);
-    setVirstaPriorEndocarditis(false);
-    setVirstaNativeValveDisease(false);
-    setVirstaIvdu(false);
-    setVirstaPersistentBacteremia48h(false);
-    setVirstaVertebralOsteomyelitis(false);
-    setVirstaAcquisition("nosocomial");
-    setVirstaSevereSepsisShock(false);
-    setVirstaCrpGt190(false);
-    setUseDenova(false);
-    setDenovaDuration7d(false);
-    setDenovaEmbolization(false);
-    setDenovaNumPositive2(false);
-    setDenovaOriginUnknown(false);
-    setDenovaValveDisease(false);
-    setDenovaAuscultationMurmur(false);
-    setUseHandoc(false);
-    setHandocHeartMurmurValve(false);
-    setHandocSpecies("unspecified_other");
-    setHandocNumPositive2(false);
-    setHandocDuration7d(false);
-    setHandocOnlyOneSpecies(false);
-    setHandocCommunityAcquired(false);
+    setStates({}); setClickOrder([]); setCatalogQuery(""); setActiveFamily("Location"); setShowSelectedOnly(false); setUtilityModifierState({});
+    setUseVapRiskModifiers(false); setVapRiskState(DEFAULT_VAP_RISK_STATE);
+    setUseEndoRiskModifiers(false); setEndoRiskState(DEFAULT_ENDO_RISK_STATE);
+    setUseVirsta(false); setVirstaEmboli(false); setVirstaMeningitis(false); setVirstaIntracardiacDevice(false);
+    setVirstaPriorEndocarditis(false); setVirstaNativeValveDisease(false); setVirstaIvdu(false);
+    setVirstaPersistentBacteremia48h(false); setVirstaVertebralOsteomyelitis(false);
+    setVirstaAcquisition("nosocomial"); setVirstaSevereSepsisShock(false); setVirstaCrpGt190(false);
+    setUseDenova(false); setDenovaDuration7d(false); setDenovaEmbolization(false); setDenovaNumPositive2(false);
+    setDenovaOriginUnknown(false); setDenovaValveDisease(false); setDenovaAuscultationMurmur(false);
+    setUseHandoc(false); setHandocHeartMurmurValve(false); setHandocSpecies("unspecified_other");
+    setHandocNumPositive2(false); setHandocDuration7d(false); setHandocOnlyOneSpecies(false); setHandocCommunityAcquired(false);
   }
 
-  // Modal escape-close
   useEffect(() => {
     if (!catalogOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setCatalogOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    const h = (e: KeyboardEvent) => { if (e.key === "Escape") setCatalogOpen(false); };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
   }, [catalogOpen]);
 
-  function addLocation(pId: string) {
-    const p = activeModule.pretestPresets.find((x) => x.id === pId);
-    if (!p) return;
-    setPresetId(pId);
+  async function copyShareLink() {
+    if (typeof window === "undefined") return;
+    try { await navigator.clipboard.writeText(window.location.href); setShareStatus("copied"); setTimeout(() => setShareStatus("idle"), 2000); }
+    catch { setShareStatus("error"); setTimeout(() => setShareStatus("idle"), 2000); }
   }
-
-  function toggleVapRiskFactor(id: VapRiskFactorId) {
-    setVapRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
-  }
-
-  function toggleEndoRiskFactor(id: EndoRiskFactorId) {
-    setEndoRiskState((prev) => ({ ...prev, [id]: !prev[id] }));
-  }
-
-  function toggleUtilityModifier(id: string) {
-    setUtilityModifierState((prev) => ({ ...prev, [id]: !prev[id] }));
-  }
-
-  // Selected: show everything active (not unknown)
-  const activeSelected = useMemo(() => {
-    return activeModule.items
-      .filter((it) => (states[it.id] ?? "unknown") !== "unknown")
-      .map((it) => it.id);
-  }, [activeModule.items, states]);
-
-  const selectedItems = useMemo(
-    () =>
-      activeSelected
-        .map((id) => {
-          const item = itemsById.get(id);
-          if (!item) return null;
-          return {
-            id,
-            label: item.label,
-            state: states[id] ?? "unknown",
-          };
-        })
-        .filter((item): item is { id: string; label: string; state: FindingState } => item !== null),
-    [activeSelected, itemsById, states]
-  );
-
-  const presentSelected = useMemo(
-    () => selectedItems.filter((item) => item.state === "present"),
-    [selectedItems]
-  );
-
-  const absentSelected = useMemo(
-    () => selectedItems.filter((item) => item.state === "absent"),
-    [selectedItems]
-  );
-
-  const virstaScore = useMemo(() => {
-    const deviceOrPriorIePoints = virstaIntracardiacDevice || virstaPriorEndocarditis ? 4 : 0;
-    const acquisitionPoints = virstaAcquisition === "community_or_nhca" ? 2 : 0;
-
-    return (
-      (virstaEmboli ? 5 : 0) +
-      (virstaMeningitis ? 5 : 0) +
-      deviceOrPriorIePoints +
-      (virstaNativeValveDisease ? 3 : 0) +
-      (virstaIvdu ? 4 : 0) +
-      (virstaPersistentBacteremia48h ? 3 : 0) +
-      (virstaVertebralOsteomyelitis ? 2 : 0) +
-      acquisitionPoints +
-      (virstaSevereSepsisShock ? 1 : 0) +
-      (virstaCrpGt190 ? 1 : 0)
-    );
-  }, [
-    virstaAcquisition,
-    virstaCrpGt190,
-    virstaEmboli,
-    virstaIntracardiacDevice,
-    virstaIvdu,
-    virstaMeningitis,
-    virstaNativeValveDisease,
-    virstaPersistentBacteremia48h,
-    virstaPriorEndocarditis,
-    virstaSevereSepsisShock,
-    virstaVertebralOsteomyelitis,
-  ]);
-
-  const denovaScore = useMemo(
-    () =>
-      [
-        denovaDuration7d,
-        denovaEmbolization,
-        denovaNumPositive2,
-        denovaOriginUnknown,
-        denovaValveDisease,
-        denovaAuscultationMurmur,
-      ].filter(Boolean).length,
-    [
-      denovaDuration7d,
-      denovaEmbolization,
-      denovaNumPositive2,
-      denovaOriginUnknown,
-      denovaValveDisease,
-      denovaAuscultationMurmur,
-    ]
-  );
-
-  const handocScore = useMemo(() => {
-    const aetiologyPoints = HANDOC_SPECIES_POINTS[handocSpecies];
-    return (
-      (handocHeartMurmurValve ? 1 : 0) +
-      aetiologyPoints +
-      (handocNumPositive2 ? 1 : 0) +
-      (handocDuration7d ? 1 : 0) +
-      (handocOnlyOneSpecies ? 1 : 0) +
-      (handocCommunityAcquired ? 1 : 0)
-    );
-  }, [
-    handocSpecies,
-    handocCommunityAcquired,
-    handocDuration7d,
-    handocHeartMurmurValve,
-    handocNumPositive2,
-    handocOnlyOneSpecies,
-  ]);
-
-  useEffect(() => {
-    if (activeModule.id !== "endo") return;
-
-    const autoStates: Record<string, FindingState> = {
-      endo_virsta_high: "unknown",
-      endo_virsta_na: "unknown",
-      endo_denova_high: "unknown",
-      endo_denova_na: "unknown",
-      endo_handoc_high: "unknown",
-      endo_handoc_na: "unknown",
-    };
-
-    if (useVirsta) autoStates.endo_virsta_high = virstaScore >= 3 ? "present" : "absent";
-
-    if (useDenova) autoStates.endo_denova_high = denovaScore >= 3 ? "present" : "absent";
-    if (useHandoc) autoStates.endo_handoc_high = handocScore >= 3 ? "present" : "absent";
-
-    setStates((prev) => {
-      let changed = false;
-      const out = { ...prev };
-      for (const [id, next] of Object.entries(autoStates)) {
-        const current = out[id] ?? "unknown";
-        if (current !== next) {
-          out[id] = next;
-          changed = true;
-        }
-      }
-      return changed ? out : prev;
-    });
-
-    setClickOrder((prev) => {
-      const out = [...prev];
-      let changed = false;
-      for (const id of ENDO_SCORE_ITEM_IDS) {
-        const desired = autoStates[id] ?? "unknown";
-        const idx = out.indexOf(id);
-        if (desired === "unknown") {
-          if (idx !== -1) {
-            out.splice(idx, 1);
-            changed = true;
-          }
-          continue;
-        }
-        if (idx === -1) {
-          out.push(id);
-          changed = true;
-        }
-      }
-      return changed ? out : prev;
-    });
-  }, [
-    denovaScore,
-    handocScore,
-    activeModule.id,
-    useDenova,
-    useHandoc,
-    useVirsta,
-    virstaScore,
-  ]);
 
   const catalogQ = normalize(catalogQuery);
+  const selectedCount = activeModule.items.filter((it) => (states[it.id] ?? "unknown") !== "unknown").length;
 
   return (
-    <div className="idhub-tool-shell mx-auto max-w-6xl py-6 pb-28 lg:pb-6">
-      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.94))] p-6 shadow-[var(--shadow-medium)] lg:p-7">
-        <p className="idhub-kicker">Interactive Tool</p>
-        <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ProbID</h1>
-        <p className="mt-4 max-w-4xl text-[15px] leading-7 text-[var(--muted)]">
-          Build the case in three steps: choose the syndrome and setting, add findings and tests,
-          then compare the post-test probability with the treatment threshold. (Educational aid, not a guideline.)
-        </p>
-      </div>
-
-      <div className="hidden lg:grid lg:grid-cols-4 lg:gap-4">
-        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Syndrome</div>
-          <div className="mt-2 text-lg font-semibold text-gray-900">{activeModule.name}</div>
-        </div>
-        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Setting</div>
-          <div className="mt-2 text-lg font-semibold text-gray-900">{preset?.label}</div>
-          <div className="mt-1 text-sm text-gray-600">Pretest {formatPct(pretestP)}</div>
-        </div>
-        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Selected evidence</div>
-          <div className="mt-2 text-lg font-semibold text-gray-900">{selectedItems.length} items</div>
-          <div className="mt-1 text-sm text-gray-600">{presentSelected.length} present • {absentSelected.length} absent</div>
-        </div>
-        <div className="rounded-2xl border border-gray-200 bg-white/90 px-4 py-4 shadow-sm">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Current direction</div>
-          <div className="mt-2 flex items-center gap-2">
-            <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
-              {recommendationStatusLabel(recommendation)}
-            </span>
-            <span className="text-sm font-medium text-gray-700">Post-test {formatPct(postP)}</span>
-          </div>
-          <div className="mt-1 text-sm text-gray-600">Treat threshold {formatPct(treatmentThresholdP)}</div>
+    <div className="idhub-tool-shell mx-auto max-w-6xl pb-20 lg:pb-6">
+      {/* MOBILE: Verdict first */}
+      <div className="lg:hidden">
+        <ProbidVerdict
+          postP={postP} pretestP={pretestP} treatmentThresholdP={treatmentThresholdP}
+          combinedLR={lr} recommendation={recommendation}
+          recommendationHeadline={recHeadline} recommendationDetail={recDetail}
+          showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
+          syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
+          onCopyShareLink={copyShareLink} shareStatus={shareStatus}
+        />
+        <div className="mt-3">
+          <ProbidThresholdHighway
+            currentP={postP} treatThresholdP={treatmentThresholdP}
+            observeThresholdP={observeThresholdP} recommendation={recommendation} compact
+          />
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.9fr)_minmax(320px,0.95fr)] xl:gap-7">
-        {/* LEFT */}
-        <section className="order-1 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 1</div>
-              <h2 className="mt-1 text-lg font-semibold text-gray-900">Build the case</h2>
-              <p className="mt-1 text-sm text-gray-600">
-                Pick the syndrome and setting first, then add the findings or tests you actually have.
-              </p>
-            </div>
-            <button type="button" onClick={resetAll} className="text-sm text-gray-600 underline hover:text-gray-900">
-              Reset
-            </button>
-          </div>
+      {/* 2-column desktop / stacked mobile */}
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] xl:gap-7">
+        {/* LEFT: Build panel */}
+        <ProbidBuildPanel
+          activeModule={activeModule} presetId={presetId} states={states}
+          onSetModule={(id) => setModuleId(id)}
+          onSetPreset={(id) => setPresetId(id)}
+          onSetItemState={setItemState}
+          onOpenCatalog={() => setCatalogOpen(true)}
+          onReset={resetAll}
+          isAutoManagedLocked={isAutoManagedLocked}
+        />
 
-          {/* Syndrome toggle */}
-          <div className="mt-4">
-            <p className="text-sm font-medium text-gray-700">Clinical syndrome</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {modules.map((m) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => setModuleId(m.id)}
-                  className={[
-                    `rounded-full border px-3 py-1 text-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:shadow-none ${FOCUS_RING}`,
-                    m.id === activeModule.id ? "bg-gray-900 text-white border-gray-900" : "hover:bg-gray-50",
-                  ].join(" ")}
-                >
-                  {m.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Catalog button */}
-          <div className="mt-6">
-            <button
-              type="button"
-              onClick={() => setCatalogOpen(true)}
-              className={`w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-left text-sm transition-all duration-150 hover:-translate-y-0.5 hover:bg-gray-100 hover:shadow-sm active:translate-y-0 active:shadow-none ${FOCUS_RING}`}
-            >
-              <span className="block font-semibold text-gray-900">Add findings and tests</span>
-              <span className="mt-1 block text-xs text-gray-600">Open the catalog to mark items as present or absent.</span>
-            </button>
-          </div>
-
-          {/* Location summary */}
-          <div className="mt-6 rounded-xl border bg-gray-50 p-4 text-sm text-gray-700">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Setting</div>
-                <div className="mt-1">
-                  <span className="font-medium text-gray-900">{preset?.label}</span>
-                  <span className="ml-2 text-xs text-gray-600">Pretest {formatPct(basePretestP)}</span>
-                </div>
-                {showAdjustedPretest ? (
-                  <span className="ml-2 text-xs text-gray-600">
-                    (Risk-adjusted {formatPct(pretestP)})
-                  </span>
-                ) : null}
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveFamily("Location");
-                  setCatalogOpen(true);
-                }}
-                className={`text-xs text-gray-600 underline hover:text-gray-900 ${FOCUS_RING}`}
-              >
-                change
-              </button>
-            </div>
-          </div>
-
-          {selectedItems.length === 0 ? (
-            <div className="mt-6 rounded-2xl border border-blue-100 bg-[linear-gradient(180deg,#f8fbff,#eef6ff)] p-4 text-sm text-slate-700 shadow-sm">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700">First pass</div>
-              <div className="mt-1 text-base font-semibold text-slate-900">{onboarding.title}</div>
-              <p className="mt-2 leading-6 text-slate-700">{onboarding.summary}</p>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                {onboarding.prompts.map((prompt) => (
-                  <li key={prompt} className="flex gap-2">
-                    <span className="mt-1 text-sky-600">•</span>
-                    <span>{prompt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          <div className="mt-6 rounded-xl border bg-white p-4">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Step 2</div>
-                <div className="mt-1 text-sm font-semibold text-gray-900">Selected evidence</div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setCatalogOpen(true)}
-                className={`rounded-full border px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 ${FOCUS_RING}`}
-              >
-                Edit
-              </button>
-            </div>
-
-            <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
-              <div className="rounded-lg bg-gray-50 px-3 py-2">
-                <div className="text-gray-500">Total</div>
-                <div className="mt-1 text-lg font-semibold text-gray-900">{selectedItems.length}</div>
-              </div>
-              <div className="rounded-lg bg-emerald-50 px-3 py-2">
-                <div className="text-emerald-700">Present</div>
-                <div className="mt-1 text-lg font-semibold text-emerald-900">{presentSelected.length}</div>
-              </div>
-              <div className="rounded-lg bg-slate-100 px-3 py-2">
-                <div className="text-slate-600">Absent</div>
-                <div className="mt-1 text-lg font-semibold text-slate-900">{absentSelected.length}</div>
-              </div>
-            </div>
-
-            {selectedItems.length === 0 ? (
-              <p className="mt-3 text-sm text-gray-600">No findings selected yet.</p>
-            ) : (
-              <>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {selectedItems.slice(0, 6).map((item) => (
-                    <span
-                      key={item.id}
-                      className={[
-                        "rounded-full px-3 py-1 text-xs font-medium",
-                        item.state === "present" ? "bg-emerald-50 text-emerald-900" : "bg-slate-100 text-slate-800",
-                      ].join(" ")}
-                    >
-                      {item.state === "present" ? "+" : "-"} {item.label}
-                    </span>
-                  ))}
-                  {selectedItems.length > 6 ? (
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
-                      +{selectedItems.length - 6} more
-                    </span>
-                  ) : null}
-                </div>
-
-                <details className="group mt-4 rounded-lg border bg-gray-50 p-3 transition-colors open:bg-white">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-medium text-gray-900">
-                    <span>Review selected findings</span>
-                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-                  </summary>
-                  <div className="mt-3 divide-y rounded-lg border bg-white">
-                    {activeSelected.map((id) => {
-                      const it = itemsById.get(id);
-                      if (!it) return null;
-                      const locked = isAutoManagedLocked(it.id);
-                      return (
-                        <div key={id} className="px-3 py-2">
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                            <div className="min-w-0 flex-1">
-                              <LRItemToggle
-                                item={it}
-                                state={states[it.id] ?? "unknown"}
-                                disabled={locked}
-                                onChange={(next) => setItemState(it, next)}
-                              />
-                            </div>
-
-                            <button
-                              type="button"
-                              disabled={locked}
-                              onClick={() => setItemState(it, "unknown")}
-                              className="mt-1 shrink-0 self-start rounded-md border px-2 py-1 text-xs text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-                              title="Remove"
-                            >
-                              ×
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </details>
-              </>
-            )}
-          </div>
-
-          {activeModule.id === "vap" ? (
-            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
-              <div className="font-medium text-gray-900">VAP risk modifiers (pretest)</div>
-              <p className="mt-1 text-xs text-gray-600">
-                Optional: adjust the ICU time-based pretest using pooled VAP risk-factor associations (ORs), then apply
-                diagnostic LRs. These are not diagnostic test LRs.
-              </p>
-
-              <div className="mt-3 rounded-md border bg-white p-3">
-                <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                  <input
-                    type="checkbox"
-                    checked={useVapRiskModifiers}
-                    onChange={(e) => setUseVapRiskModifiers(e.target.checked)}
-                  />
-                  Apply VAP risk-factor pretest adjustment
-                </label>
-
-                {useVapRiskModifiers ? (
-                  <div className="mt-3 space-y-3">
-                    <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                      {VAP_RISK_FACTOR_OPTIONS.map((rf) => (
-                        <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
-                          <input
-                            type="checkbox"
-                            checked={vapRiskState[rf.id]}
-                            onChange={() => toggleVapRiskFactor(rf.id)}
-                          />
-                          <span>
-                            {rf.label} <span className="text-gray-500">(pooled OR {rf.pooledOr.toFixed(2)})</span>
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-
-                    <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
-                      <div>
-                        Selected factors: <span className="font-semibold">{vapSelectedRiskFactors.length}</span>
-                      </div>
-                      <div>
-                        Raw OR product: <span className="font-semibold">{vapRiskRawMultiplier.toFixed(2)}</span>
-                      </div>
-                      <div>
-                        Applied multiplier (sqrt shrink + cap):{" "}
-                        <span className="font-semibold">{vapRiskAppliedMultiplier.toFixed(2)}</span>
-                      </div>
-                      <div>
-                        Base pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → adjusted pretest{" "}
-                        <span className="font-semibold">{formatPct(pretestP)}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-[11px] text-gray-600">
-                      Conservative implementation to avoid over-amplifying correlated ICU exposures (for example,
-                      reintubation, tracheostomy, enteral feeding, and NGT use).
-                    </p>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          ) : null}
-
-          {activeModule.id === "endo" ? (
-            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
-              <div className="font-medium text-gray-900">Endocarditis host risk modifiers (pretest)</div>
-              <p className="mt-1 text-xs text-gray-600">
-                Optional: adjust the setting-based pretest using host-risk associations before applying diagnostic LRs.
-                These are pretest modifiers (OR-informed), not diagnostic test LRs.
-              </p>
-
-              <div className="mt-3 rounded-md border bg-white p-3">
-                <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                  <input
-                    type="checkbox"
-                    checked={useEndoRiskModifiers}
-                    onChange={(e) => setUseEndoRiskModifiers(e.target.checked)}
-                  />
-                  Apply endocarditis host-risk pretest adjustment
-                </label>
-
-                {useEndoRiskModifiers ? (
-                  <div className="mt-3 space-y-3">
-                    <div className="rounded border bg-gray-50 p-2">
-                      <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">
-                        General IE Host Risk (pretest)
-                      </div>
-                      <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
-                        {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "general_ie").map((rf) => (
-                          <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
-                            <input
-                              type="checkbox"
-                              checked={endoRiskState[rf.id]}
-                              onChange={() => toggleEndoRiskFactor(rf.id)}
-                            />
-                            <span>
-                              {rf.label} <span className="text-gray-500">(OR-like {rf.orLike.toFixed(2)})</span>
-                            </span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded border bg-gray-50 p-2">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">
-                          SAB Context (pretest)
-                        </div>
-                        {useVirsta ? (
-                          <span className="text-[10px] rounded border bg-white px-2 py-0.5 text-gray-600">
-                            suppressed while VIRSTA is enabled
-                          </span>
-                        ) : null}
-                      </div>
-                      <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
-                        {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "sab_context").map((rf) => (
-                          <label
-                            key={rf.id}
-                            className={`inline-flex items-center gap-2 text-xs ${useVirsta ? "text-gray-400" : "text-gray-700"}`}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={endoRiskState[rf.id]}
-                              onChange={() => toggleEndoRiskFactor(rf.id)}
-                              disabled={useVirsta}
-                            />
-                            <span>
-                              {rf.label} <span className="text-gray-500">(OR-like {rf.orLike.toFixed(2)})</span>
-                            </span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
-                      <div>
-                        Selected factors: <span className="font-semibold">{endoSelectedRiskFactors.length}</span>
-                        {endoSuppressedRiskFactors.length > 0 ? (
-                          <span className="ml-2 text-gray-500">
-                            ({endoSuppressedRiskFactors.length} SAB factor{endoSuppressedRiskFactors.length === 1 ? "" : "s"} excluded by VIRSTA)
-                          </span>
-                        ) : null}
-                      </div>
-                      <div>
-                        Applied factors: <span className="font-semibold">{endoAppliedRiskFactors.length}</span>
-                      </div>
-                      <div>
-                        Raw multiplier product: <span className="font-semibold">{endoRiskRawMultiplier.toFixed(2)}</span>
-                      </div>
-                      <div>
-                        Applied multiplier (sqrt shrink + cap):{" "}
-                        <span className="font-semibold">{endoRiskAppliedMultiplier.toFixed(2)}</span>
-                      </div>
-                      <div>
-                        Base pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → adjusted pretest{" "}
-                        <span className="font-semibold">{formatPct(pretestP)}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-[11px] text-gray-600">
-                      Conservative implementation to avoid over-amplifying correlated host factors. These values should be
-                      curated against score- and organism-specific populations over time.
-                    </p>
-
-                    <div className="rounded border bg-white px-2 py-2 text-[11px] text-gray-600 space-y-1">
-                      <div className="font-semibold text-gray-700">Sources</div>
-                      <div>
-                        General IE host-risk context:{" "}
-                        <a
-                          href="https://doi.org/10.1093/eurheartj/ehad193"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline underline-offset-2 hover:text-gray-900"
-                        >
-                          ESC Endocarditis Guideline (2023)
-                        </a>
-                      </div>
-                      <div>
-                        SAB-specific host/context variables overlap with VIRSTA components:{" "}
-                        <a
-                          href="https://doi.org/10.1016/j.jinf.2016.04.005"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline underline-offset-2 hover:text-gray-900"
-                        >
-                          VIRSTA derivation (Tubiana et al., 2016)
-                        </a>
-                        {" "}and{" "}
-                        <a
-                          href="https://doi.org/10.1093/cid/ciaa1844"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline underline-offset-2 hover:text-gray-900"
-                        >
-                          external validation (Peinado-Acevedo et al., 2021)
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          ) : null}
-
-          {activeModule.id === "endo" ? (
-            <div className="mt-6 rounded-lg border bg-gray-50 p-3 text-sm text-gray-700">
-              <div className="font-medium text-gray-900">Endocarditis score auto-compute</div>
-              <p className="mt-1 text-xs text-gray-600">
-                Enable a score, mark its components, and ProbID will auto-apply the threshold LR item.
-              </p>
-
-              <div className="mt-3 space-y-3">
-                <div className="rounded-md border bg-white p-3">
-                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                    <input
-                      type="checkbox"
-                      checked={useVirsta}
-                      onChange={(e) => setUseVirsta(e.target.checked)}
-                    />
-                    VIRSTA (for SAB)
-                  </label>
-
-                  {useVirsta ? (
-                    <div className="mt-3 space-y-2 text-xs text-gray-700">
-                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                        <label className="inline-flex items-center gap-2">
-                          <input type="checkbox" checked={virstaEmboli} onChange={(e) => setVirstaEmboli(e.target.checked)} />
-                          Cerebral/peripheral emboli (+5)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input type="checkbox" checked={virstaMeningitis} onChange={(e) => setVirstaMeningitis(e.target.checked)} />
-                          Meningitis (+5)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaIntracardiacDevice}
-                            onChange={(e) => setVirstaIntracardiacDevice(e.target.checked)}
-                          />
-                          Permanent intracardiac device (+4)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaPriorEndocarditis}
-                            onChange={(e) => setVirstaPriorEndocarditis(e.target.checked)}
-                          />
-                          Prior endocarditis (+4; shared bucket)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaNativeValveDisease}
-                            onChange={(e) => setVirstaNativeValveDisease(e.target.checked)}
-                          />
-                          Native valve disease (+3)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input type="checkbox" checked={virstaIvdu} onChange={(e) => setVirstaIvdu(e.target.checked)} />
-                          Injection drug use (+4)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaPersistentBacteremia48h}
-                            onChange={(e) => setVirstaPersistentBacteremia48h(e.target.checked)}
-                          />
-                          Persistent bacteremia &gt;48h (+3)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaVertebralOsteomyelitis}
-                            onChange={(e) => setVirstaVertebralOsteomyelitis(e.target.checked)}
-                          />
-                          Vertebral osteomyelitis (+2)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaSevereSepsisShock}
-                            onChange={(e) => setVirstaSevereSepsisShock(e.target.checked)}
-                          />
-                          Severe sepsis / septic shock (+1)
-                        </label>
-                        <label className="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            checked={virstaCrpGt190}
-                            onChange={(e) => setVirstaCrpGt190(e.target.checked)}
-                          />
-                          CRP &gt;190 mg/L (+1)
-                        </label>
-                      </div>
-
-                      <label className="space-y-1 block">
-                        <span className="block text-[11px] uppercase tracking-wide text-gray-500">Acquisition</span>
-                        <select
-                          value={virstaAcquisition}
-                          onChange={(e) => setVirstaAcquisition(e.target.value as VirstaAcquisition)}
-                          className="w-full rounded border px-2 py-1 text-xs"
-                        >
-                          <option value="nosocomial">Nosocomial (0)</option>
-                          <option value="community_or_nhca">Community or non-nosocomial healthcare-associated (+2)</option>
-                        </select>
-                      </label>
-
-                      <div className="rounded border bg-gray-50 px-2 py-1">
-                        VIRSTA score: <span className="font-semibold">{virstaScore}</span> (high if &gt;=3)
-                      </div>
-                      {useEndoRiskModifiers ? (
-                        <div className="rounded border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] text-amber-900">
-                          SAB-context host-risk modifiers in the pretest panel are suppressed while VIRSTA is enabled to avoid overlap.
-                        </div>
-                      ) : null}
-                      <div className="text-[11px] text-gray-600">
-                        Auto-applies the <span className="font-semibold">VIRSTA &gt;=3</span> LR item for SAB.
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-
-                <div className="rounded-md border bg-white p-3">
-                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                    <input
-                      type="checkbox"
-                      checked={useDenova}
-                      onChange={(e) => setUseDenova(e.target.checked)}
-                    />
-                    DENOVA (for E. faecalis bacteremia)
-                  </label>
-
-                  {useDenova ? (
-                    <div className="mt-3 space-y-2 text-xs text-gray-700">
-                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaDuration7d} onChange={(e) => setDenovaDuration7d(e.target.checked)} />Duration of symptoms &gt;=7 days</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaEmbolization} onChange={(e) => setDenovaEmbolization(e.target.checked)} />Embolization</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaNumPositive2} onChange={(e) => setDenovaNumPositive2(e.target.checked)} />Number of positive cultures &gt;=2</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaOriginUnknown} onChange={(e) => setDenovaOriginUnknown(e.target.checked)} />Origin unknown</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaValveDisease} onChange={(e) => setDenovaValveDisease(e.target.checked)} />Valve disease</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={denovaAuscultationMurmur} onChange={(e) => setDenovaAuscultationMurmur(e.target.checked)} />Auscultation murmur</label>
-                      </div>
-                      <div className="rounded border bg-gray-50 px-2 py-1">
-                        DENOVA score: <span className="font-semibold">{denovaScore}</span> (high if &gt;=3)
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-
-                <div className="rounded-md border bg-white p-3">
-                  <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                    <input
-                      type="checkbox"
-                      checked={useHandoc}
-                      onChange={(e) => setUseHandoc(e.target.checked)}
-                    />
-                    HANDOC (for NBHS bacteremia)
-                  </label>
-
-                  {useHandoc ? (
-                    <div className="mt-3 space-y-2 text-xs text-gray-700">
-                      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocHeartMurmurValve} onChange={(e) => setHandocHeartMurmurValve(e.target.checked)} />Heart murmur or valve disease</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocNumPositive2} onChange={(e) => setHandocNumPositive2(e.target.checked)} />Number of positive cultures &gt;=2</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocDuration7d} onChange={(e) => setHandocDuration7d(e.target.checked)} />Duration of symptoms &gt;=7 days</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocOnlyOneSpecies} onChange={(e) => setHandocOnlyOneSpecies(e.target.checked)} />Only one species in blood cultures</label>
-                        <label className="inline-flex items-center gap-2"><input type="checkbox" checked={handocCommunityAcquired} onChange={(e) => setHandocCommunityAcquired(e.target.checked)} />Community acquisition</label>
-                      </div>
-
-                      <label className="space-y-1">
-                        <span className="block text-[11px] uppercase tracking-wide text-gray-500">Species (Aetiology)</span>
-                        <select
-                          value={handocSpecies}
-                          onChange={(e) => setHandocSpecies(e.target.value as HandocSpecies)}
-                          className="w-full rounded border px-2 py-1 text-xs"
-                        >
-                          <option value="unspecified_other">Other / unspecified NBHS (0)</option>
-                          <option value="s_anginosus_group">S. anginosus group (-1)</option>
-                          <option value="s_gallolyticus_bovis_group">S. gallolyticus (bovis) group (+1)</option>
-                          <option value="s_mutans_group">S. mutans group (+1)</option>
-                          <option value="s_sanguinis_group">S. sanguinis group (+1)</option>
-                          <option value="s_mitis_oralis_group">S. mitis / S. oralis group (0)</option>
-                          <option value="s_salivarius_group">S. salivarius group (0)</option>
-                        </select>
-                      </label>
-
-                      <div className="rounded border bg-gray-50 px-2 py-1">
-                        HANDOC score: <span className="font-semibold">{handocScore}</span> (high if &gt;=3)
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          ) : null}
-
-        </section>
-
-        {/* MIDDLE */}
-        <section className="order-3 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm lg:order-2">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 4</div>
-          <h2 className="mt-1 text-lg font-semibold text-gray-900">See the math</h2>
-          <p className="mt-1 text-sm text-gray-600">
-            Expand this only when you want to see how each LR changed the probability estimate.
-          </p>
-
-          <details className="group mt-4 rounded-xl border bg-gray-50 p-4 transition-colors open:bg-white">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-gray-900">
-              <span>Stepwise update and nomogram</span>
-              <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-            </summary>
-
-            {steps.length === 0 ? (
-              <p className="mt-4 text-sm text-gray-700">Choose findings/tests to see stepwise probability updates.</p>
-            ) : (
-              <div className="mt-4 space-y-2 text-sm text-gray-700">
-                <div>
-                  Start: <span className="font-semibold">{formatPct(pretestP)}</span>
-                  {showAdjustedPretest ? (
-                    <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
-                  ) : null}
-                </div>
-                <ol className="mt-2 space-y-2">
-                  {steps.map((s, idx) => (
-                    <li key={s.id} className="rounded-lg border bg-white p-3">
-                      <div className="font-medium text-gray-900">
-                        {idx + 1}. {s.label}
-                      </div>
-                      <div className="mt-1 text-gray-700">
-                        {s.state === "present" ? "LR+" : "LR−"} {s.lrUsed.toFixed(2)} →{" "}
-                        <span className="font-semibold">{formatPct(s.pAfter)}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
-
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold text-gray-900">Fagan nomogram</h3>
-              <div className="mt-2 rounded-lg border bg-white p-3">
-                <FaganChart pretestP={pretestP} combinedLR={lr} />
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-lg border border-gray-200 bg-white p-3 text-xs leading-6 text-gray-600">
-              Multiplying LRs assumes conditional independence. Correlated inputs may overestimate certainty.
-            </div>
-          </details>
-        </section>
-
-        {/* RIGHT */}
-        <section id="probid-result" className="order-2 rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-6 shadow-sm lg:order-3 xl:sticky xl:top-6 xl:self-start">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Step 3</div>
-          <h2 className="mt-1 text-lg font-semibold text-gray-900">Interpret the result</h2>
-          <p className="mt-1 text-sm text-gray-600">
-            The post-test probability is the estimate. The threshold tells you when treatment becomes worth it.
-          </p>
-
-          <div className="mt-4 rounded-xl border bg-gray-50 p-4">
-            <div className="flex items-center justify-between gap-3">
-              <div className="font-semibold text-gray-900">Post-test probability</div>
-              <div className="text-sm text-gray-700">
-                {showAdjustedPretest ? (
-                  <>
-                    Base <span className="font-semibold">{formatPct(basePretestP)}</span>
-                    <span className="mx-1">•</span>
-                    Adjusted <span className="font-semibold">{formatPct(pretestP)}</span>
-                  </>
-                ) : (
-                  <>
-                    Pretest <span className="font-semibold">{formatPct(pretestP)}</span>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-2 text-5xl font-extrabold tracking-tight text-gray-900">{formatPct(postP)}</div>
-
-            <div className="mt-4 grid grid-cols-2 gap-3 text-xs sm:text-sm">
-              <div className="rounded-lg border bg-white px-3 py-2">
-                <div className="text-gray-500">Treatment threshold</div>
-                <div className="mt-1 font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</div>
-              </div>
-              <div className="rounded-lg border bg-white px-3 py-2">
-                <div className="text-gray-500">Combined LR</div>
-                <div className="mt-1 font-semibold text-gray-900">{lr.toFixed(2)}</div>
-              </div>
-            </div>
-
-            <details className="group mt-4 rounded-lg border bg-white p-3 text-xs text-gray-700 transition-colors open:bg-gray-50">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
-                <span>Quick guide: pretest, LR, threshold</span>
-                <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-              </summary>
-              <div className="mt-3 grid gap-2 sm:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 px-3 py-2">
-                  <div className="font-semibold text-gray-900">Pretest</div>
-                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("pretest")}</div>
-                </div>
-                <div className="rounded-lg bg-gray-50 px-3 py-2">
-                  <div className="font-semibold text-gray-900">Combined LR</div>
-                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("lr")}</div>
-                </div>
-                <div className="rounded-lg bg-gray-50 px-3 py-2">
-                  <div className="font-semibold text-gray-900">Threshold</div>
-                  <div className="mt-1 leading-5 text-gray-600">{explainDecisionTerm("threshold")}</div>
-                </div>
-              </div>
-            </details>
-
-          <div className="mt-3 text-xs text-gray-600">Educational estimate only. Always use clinical context.</div>
-          </div>
-
-          <div className="mt-4">
-            <MobileResultSummary
-              setting={preset?.label ?? activeModule.pretestPresets[0]?.label ?? "Unknown"}
-              selectedCount={selectedItems.length}
-              postP={postP}
-              treatmentThresholdP={treatmentThresholdP}
-              lr={lr}
+        {/* RIGHT: Result panel (desktop only on lg+, always on mobile below verdict) */}
+        <div className="space-y-4 lg:space-y-5">
+          {/* Desktop verdict */}
+          <div className="hidden lg:block">
+            <ProbidVerdict
+              postP={postP} pretestP={pretestP} treatmentThresholdP={treatmentThresholdP}
+              combinedLR={lr} recommendation={recommendation}
+              recommendationHeadline={recHeadline} recommendationDetail={recDetail}
+              showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
+              syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
+              onCopyShareLink={copyShareLink} shareStatus={shareStatus}
             />
           </div>
 
-          <div className={["mt-4 rounded-xl border px-4 py-4", recommendationUi.panel].join(" ")}>
-            <div className="flex items-center justify-between gap-3">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] opacity-80">Current recommendation</div>
-              <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
-                {recommendationStatusLabel(recommendation)}
-              </span>
-            </div>
-            <div className="mt-2 text-lg font-semibold">{recommendationCopy.headline}</div>
-            {recommendationCopy.detail ? (
-              <div className="mt-2 text-sm leading-6 opacity-90">{recommendationCopy.detail}</div>
-            ) : null}
-            <div className="mt-3 text-xs opacity-80">
-              Post-test {formatPct(postP)} versus threshold {formatPct(treatmentThresholdP)}.
-            </div>
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={copyShareLink}
-                className={`rounded-full border border-current/20 bg-white/70 px-3 py-1.5 text-xs font-semibold text-inherit transition hover:bg-white ${FOCUS_RING}`}
-              >
-                Copy share link
-              </button>
-              <span aria-live="polite" className="text-xs opacity-80">
-                {shareStatus === "copied"
-                  ? "Link copied"
-                  : shareStatus === "error"
-                    ? "Could not copy link"
-                    : "This case setup is kept in the URL."}
-              </span>
+          {/* Threshold highway (desktop full) */}
+          <div className="hidden lg:block">
+            <ProbidThresholdHighway
+              currentP={postP} treatThresholdP={treatmentThresholdP}
+              observeThresholdP={observeThresholdP} recommendation={recommendation}
+            />
+          </div>
+
+          {/* Syndrome-specific risk modifiers */}
+          {activeModule.id === "vap" && <VapRiskModifiers
+            useVapRiskModifiers={useVapRiskModifiers} setUseVapRiskModifiers={setUseVapRiskModifiers}
+            vapRiskState={vapRiskState} toggleVapRiskFactor={(id) => setVapRiskState((p) => ({ ...p, [id]: !p[id] }))}
+            vapSelectedRiskFactors={vapSelectedRiskFactors} vapRiskRawMultiplier={vapRiskRawMultiplier}
+            vapRiskAppliedMultiplier={vapRiskAppliedMultiplier} basePretestP={basePretestP} pretestP={pretestP}
+          />}
+          {activeModule.id === "endo" && <EndoRiskModifiers
+            useEndoRiskModifiers={useEndoRiskModifiers} setUseEndoRiskModifiers={setUseEndoRiskModifiers}
+            endoRiskState={endoRiskState} toggleEndoRiskFactor={(id) => setEndoRiskState((p) => ({ ...p, [id]: !p[id] }))}
+            endoAppliedRiskFactors={endoAppliedRiskFactors} endoSuppressedRiskFactors={endoSuppressedRiskFactors}
+            endoRiskRawMultiplier={endoRiskRawMultiplier}
+            endoRiskAppliedMultiplier={endoRiskAppliedMultiplier} basePretestP={basePretestP} pretestP={pretestP}
+            useVirsta={useVirsta}
+          />}
+          {activeModule.id === "endo" && <EndoScoreAutocompute
+            useVirsta={useVirsta} setUseVirsta={setUseVirsta} virstaScore={virstaScore}
+            virstaEmboli={virstaEmboli} setVirstaEmboli={setVirstaEmboli}
+            virstaMeningitis={virstaMeningitis} setVirstaMeningitis={setVirstaMeningitis}
+            virstaIntracardiacDevice={virstaIntracardiacDevice} setVirstaIntracardiacDevice={setVirstaIntracardiacDevice}
+            virstaPriorEndocarditis={virstaPriorEndocarditis} setVirstaPriorEndocarditis={setVirstaPriorEndocarditis}
+            virstaNativeValveDisease={virstaNativeValveDisease} setVirstaNativeValveDisease={setVirstaNativeValveDisease}
+            virstaIvdu={virstaIvdu} setVirstaIvdu={setVirstaIvdu}
+            virstaPersistentBacteremia48h={virstaPersistentBacteremia48h} setVirstaPersistentBacteremia48h={setVirstaPersistentBacteremia48h}
+            virstaVertebralOsteomyelitis={virstaVertebralOsteomyelitis} setVirstaVertebralOsteomyelitis={setVirstaVertebralOsteomyelitis}
+            virstaAcquisition={virstaAcquisition} setVirstaAcquisition={setVirstaAcquisition}
+            virstaSevereSepsisShock={virstaSevereSepsisShock} setVirstaSevereSepsisShock={setVirstaSevereSepsisShock}
+            virstaCrpGt190={virstaCrpGt190} setVirstaCrpGt190={setVirstaCrpGt190}
+            useDenova={useDenova} setUseDenova={setUseDenova} denovaScore={denovaScore}
+            denovaDuration7d={denovaDuration7d} setDenovaDuration7d={setDenovaDuration7d}
+            denovaEmbolization={denovaEmbolization} setDenovaEmbolization={setDenovaEmbolization}
+            denovaNumPositive2={denovaNumPositive2} setDenovaNumPositive2={setDenovaNumPositive2}
+            denovaOriginUnknown={denovaOriginUnknown} setDenovaOriginUnknown={setDenovaOriginUnknown}
+            denovaValveDisease={denovaValveDisease} setDenovaValveDisease={setDenovaValveDisease}
+            denovaAuscultationMurmur={denovaAuscultationMurmur} setDenovaAuscultationMurmur={setDenovaAuscultationMurmur}
+            useHandoc={useHandoc} setUseHandoc={setUseHandoc} handocScore={handocScore}
+            handocHeartMurmurValve={handocHeartMurmurValve} setHandocHeartMurmurValve={setHandocHeartMurmurValve}
+            handocSpecies={handocSpecies} setHandocSpecies={setHandocSpecies}
+            handocNumPositive2={handocNumPositive2} setHandocNumPositive2={setHandocNumPositive2}
+            handocDuration7d={handocDuration7d} setHandocDuration7d={setHandocDuration7d}
+            handocOnlyOneSpecies={handocOnlyOneSpecies} setHandocOnlyOneSpecies={setHandocOnlyOneSpecies}
+            handocCommunityAcquired={handocCommunityAcquired} setHandocCommunityAcquired={setHandocCommunityAcquired}
+            useEndoRiskModifiers={useEndoRiskModifiers}
+          />}
+
+          {/* Test Impact */}
+          <div>
+            <div className="text-sm font-semibold text-gray-900">What if you ordered more tests?</div>
+            <p className="mt-1 text-xs text-gray-600">
+              These tests could change the decision. Click to add them.
+            </p>
+            <div className="mt-3">
+              <ProbidTestImpact
+                entries={testImpactEntries}
+                treatThresholdP={treatmentThresholdP}
+                observeThresholdP={observeThresholdP}
+                currentP={postP}
+                onAddTest={(itemId, state) => {
+                  const item = itemsById.get(itemId);
+                  if (item) setItemState(item, state);
+                }}
+              />
             </div>
           </div>
 
-          {adjustedUtilityModel ? (
-            <details className="group mt-4 rounded-xl border p-4 transition-colors open:bg-gray-50">
-              <summary className="cursor-pointer list-none">
-                <span className="flex items-center justify-between gap-3">
-                  <span className="text-sm font-semibold text-gray-900">Patient factors</span>
-                  <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700">
-                    {activeUtilityModifierIds.length} selected
-                  </span>
-                  <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-                </span>
-              </summary>
-              <p className="mt-3 text-xs leading-5 text-gray-600">
-                Toggle factors that make missing CAP more harmful or empiric antibiotics less desirable.
-              </p>
-              <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {adjustedUtilityModel.model.modifiers.map((modifier) => (
-                  <label key={modifier.id} className="rounded-lg border bg-gray-50 px-3 py-3 text-xs text-gray-700">
-                    <span className="flex items-start gap-2">
-                      <input
-                        type="checkbox"
-                        checked={Boolean(utilityModifierState[modifier.id])}
-                        onChange={() => toggleUtilityModifier(modifier.id)}
-                        className="mt-0.5"
-                      />
-                      <span>
-                        <span className="block font-semibold text-gray-900">{modifier.label}</span>
-                        <span className="mt-1 block leading-5 text-gray-600">{modifier.description}</span>
-                      </span>
-                    </span>
-                  </label>
-                ))}
-              </div>
-              <p className="mt-3 text-[11px] leading-5 text-gray-600">
-                CAP v1 uses transparent structured utilities anchored to published lower-respiratory-infection burden data and CAP severity concepts.
-              </p>
-            </details>
-          ) : null}
+          {/* Patient factors */}
+          <ProbidPatientFactors
+            adjustedUtilityModel={adjustedUtilityModel}
+            utilityModifierState={utilityModifierState}
+            onToggleModifier={(id) => setUtilityModifierState((p) => ({ ...p, [id]: !p[id] }))}
+            expectedUtilityTreat={expectedUtilityResult?.treat ?? null}
+            expectedUtilityNoTreat={expectedUtilityResult?.noTreat ?? null}
+            expectedUtilityNetBenefit={expectedUtilityResult?.netBenefit ?? null}
+          />
 
-          <div className="mt-4 rounded-xl border p-4">
-            <div className="text-sm font-semibold text-gray-900">
-              {adjustedUtilityModel ? "When do antibiotics become worth it?" : "Decision thresholds"}
-            </div>
-            {adjustedUtilityModel ? (
-              <>
-                <p className="mt-1 text-xs text-gray-600">
-                  For CAP, treat empirically when the post-test probability rises above the threshold implied by the selected patient factors.
-                </p>
+          {/* Math details */}
+          <ProbidMathDetails
+            steps={steps} pretestP={pretestP} combinedLR={lr}
+            showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
+            harmEstimate={!adjustedUtilityModel ? { baseMissedDx: harmEstimate.baseMissedDx, baseUnnecessaryTx: harmEstimate.baseUnnecessaryTx, missedDx: harmEstimate.missedDx, unnecessaryTx: harmEstimate.unnecessaryTx, rationale: harmEstimate.rationale, missedDxDrivers: harmEstimate.missedDxDrivers, baseEvidence: harmEstimate.baseEvidence } : null}
+            adjustedUtilityModel={adjustedUtilityModel ?? undefined}
+          />
 
-                {expectedUtilityResult ? (
-                  <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
-                    <div className="rounded border bg-gray-50 px-3 py-2">
-                      <div className="text-gray-600">EU(treat)</div>
-                      <div className="text-lg font-semibold text-gray-900">{formatUtility(expectedUtilityResult.treat)}</div>
-                    </div>
-                    <div className="rounded border bg-gray-50 px-3 py-2">
-                      <div className="text-gray-600">EU(no treat)</div>
-                      <div className="text-lg font-semibold text-gray-900">{formatUtility(expectedUtilityResult.noTreat)}</div>
-                    </div>
-                  </div>
-                ) : null}
-
-                {expectedUtilityResult ? (
-                  <div className="mt-3 rounded border bg-gray-50 px-3 py-2 text-xs text-gray-700">
-                    Net utility advantage: <span className="font-semibold">{formatUtilityDelta(expectedUtilityResult.netBenefit)}</span>
-                  </div>
-                ) : null}
-
-                <div className="mt-3 text-sm text-gray-700">
-                  Antibiotics become worth it at: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
-                </div>
-
-                <div className="mt-2 space-y-2">
-                  <div className="relative h-3 overflow-hidden rounded-full bg-gray-200">
-                    <div
-                      className="absolute inset-y-0 left-0 bg-slate-200"
-                      style={{ width: `${Math.max(0, Math.min(100, treatmentThresholdP * 100))}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute inset-y-0 right-0 bg-emerald-100"
-                      style={{ width: `${Math.max(0, Math.min(100, 100 - treatmentThresholdP * 100))}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
-                      style={{ left: `${treatmentThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className={[
-                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
-                        recommendationUi.dot,
-                      ].join(" ")}
-                      style={{ left: `${postP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-gray-600">
-                    <span>0%</span>
-                    <span>Below threshold</span>
-                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
-                    <span>100%</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-gray-600">
-                    <div className="rounded-md bg-slate-100 px-2 py-1">Below threshold: keep reassessing</div>
-                    <div className="rounded-md bg-emerald-50 px-2 py-1 text-emerald-900">At/above threshold: empiric treatment is justified</div>
-                  </div>
-                </div>
-
-                <details className="group mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700 transition-colors open:bg-white">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
-                    <span>Why the threshold moved</span>
-                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-                  </summary>
-                  <div className="mt-2 space-y-2">
-                    {(["treatDisease", "noTreatDisease", "treatNoDisease", "noTreatNoDisease"] as const).map((key) => {
-                      const term = adjustedUtilityModel.terms[key];
-                      return (
-                        <div key={key}>
-                          <div className="flex items-center justify-between gap-3">
-                            <span>{term.label}</span>
-                            <span className="font-semibold">
-                              {formatUtility(term.baseValue)} → {formatUtility(term.adjustedValue)}
-                            </span>
-                          </div>
-                          <div className="mt-1 text-[11px] leading-5 text-gray-600">{term.rationale}</div>
-                          {term.evidence ? (
-                            <div className="mt-1 text-[11px] text-gray-500">
-                              Source:{" "}
-                              {term.evidence.url ? (
-                                <a
-                                  href={term.evidence.url}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  className="underline underline-offset-2 hover:text-gray-700"
-                                >
-                                  {term.evidence.short}
-                                </a>
-                              ) : (
-                                term.evidence.short
-                              )}
-                              {term.structuredEstimate ? " (structured estimate)" : ""}
-                            </div>
-                          ) : null}
-                        </div>
-                      );
-                    })}
-
-                    {adjustedUtilityModel.selectedModifiers.length > 0 ? (
-                      <div className="border-t pt-2">
-                        <div className="font-semibold text-gray-900">Selected factor shifts</div>
-                        <ul className="mt-1 list-disc space-y-1 pl-5 text-[11px] leading-5 text-gray-600">
-                          {adjustedUtilityModel.selectedModifiers.map((modifier) => (
-                            <li key={modifier.id}>
-                              <span className="font-medium text-gray-700">{modifier.label}:</span> {modifier.description}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-                </details>
-              </>
-            ) : (
-              <>
-                <p className="mt-1 text-xs text-gray-600">
-                  For non-CAP syndromes, the threshold uses estimated harms of missed diagnosis versus unnecessary treatment.
-                </p>
-
-                <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
-                  <div className="rounded border bg-gray-50 px-3 py-2">
-                    <div className="text-gray-600">Harm of missed diagnosis</div>
-                    <div className="text-lg font-semibold text-gray-900">{harmEstimate.missedDx}</div>
-                  </div>
-                  <div className="rounded border bg-gray-50 px-3 py-2">
-                    <div className="text-gray-600">Harm of unnecessary treatment</div>
-                    <div className="text-lg font-semibold text-gray-900">{harmEstimate.unnecessaryTx}</div>
-                  </div>
-                </div>
-
-                <div className="mt-3 text-sm text-gray-700">
-                  Treat at: <span className="font-semibold">{formatPct(treatmentThresholdP)}</span>
-                </div>
-                <div className="text-sm text-gray-700">
-                  Observe at or below: <span className="font-semibold">{formatPct(heuristicObserveThresholdP)}</span>
-                </div>
-
-                <div className="mt-2 space-y-2">
-                  <div className="relative h-3 overflow-hidden rounded-full bg-gray-200">
-                    <div
-                      className="absolute inset-y-0 left-0 bg-sky-100"
-                      style={{ width: `${Math.max(0, Math.min(100, heuristicObserveThresholdP * 100))}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute inset-y-0 bg-amber-100"
-                      style={{
-                        left: `${Math.max(0, Math.min(100, heuristicObserveThresholdP * 100))}%`,
-                        width: `${Math.max(0, Math.min(100, (treatmentThresholdP - heuristicObserveThresholdP) * 100))}%`,
-                      }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute inset-y-0 right-0 bg-emerald-100"
-                      style={{ width: `${Math.max(0, Math.min(100, 100 - treatmentThresholdP * 100))}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-500"
-                      style={{ left: `${heuristicObserveThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute top-1/2 h-3 w-0.5 -translate-y-1/2 bg-gray-900"
-                      style={{ left: `${treatmentThresholdP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className={[
-                        "absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full border",
-                        recommendationUi.dot,
-                      ].join(" ")}
-                      style={{ left: `${postP * 100}%` }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-gray-600">
-                    <span>0%</span>
-                    <span>Observe &le; {formatPct(heuristicObserveThresholdP)}</span>
-                    <span>Treat &ge; {formatPct(treatmentThresholdP)}</span>
-                    <span>100%</span>
-                  </div>
-                  <div className="grid gap-2 text-[11px] text-gray-600 sm:grid-cols-3">
-                    <div className="rounded-md bg-sky-50 px-2 py-1 text-sky-900">Low zone: observation is reasonable</div>
-                    <div className="rounded-md bg-amber-50 px-2 py-1 text-amber-900">Middle zone: gather more data</div>
-                    <div className="rounded-md bg-emerald-50 px-2 py-1 text-emerald-900">High zone: treatment is justified</div>
-                  </div>
-                </div>
-
-                <details className="group mt-3 rounded-md border bg-gray-50 p-3 text-xs text-gray-700 transition-colors open:bg-white">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-gray-900">
-                    <span>What is driving harm?</span>
-                    <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-                  </summary>
-                  <div className="mt-2 space-y-1">
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span>Baseline missed-diagnosis harm ({activeModule.name})</span>
-                        <span className="font-semibold">{harmEstimate.baseMissedDx}</span>
-                      </div>
-                      {harmEstimate.baseEvidence ? (
-                        <div className="text-[11px] text-gray-500">
-                          Source:{" "}
-                          {harmEstimate.baseEvidence.url ? (
-                            <a
-                              href={harmEstimate.baseEvidence.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="underline underline-offset-2 hover:text-gray-700"
-                            >
-                              {harmEstimate.baseEvidence.short}
-                            </a>
-                          ) : (
-                            harmEstimate.baseEvidence.short
-                          )}
-                        </div>
-                      ) : null}
-                    </div>
-                    {harmEstimate.missedDxDrivers.map((d, idx) => (
-                      <div key={`${d.label}-${idx}`}>
-                        <div className="flex items-center justify-between">
-                          <span>+ {d.label}</span>
-                          <span className="font-semibold">+{d.delta}</span>
-                        </div>
-                        {d.evidence ? (
-                          <div className="text-[11px] text-gray-500">
-                            Source:{" "}
-                            {d.evidence.url ? (
-                              <a
-                                href={d.evidence.url}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="underline underline-offset-2 hover:text-gray-700"
-                              >
-                                {d.evidence.short}
-                              </a>
-                            ) : (
-                              d.evidence.short
-                            )}
-                          </div>
-                        ) : null}
-                      </div>
-                    ))}
-                    <div className="mt-1 flex items-center justify-between border-t pt-1">
-                      <span>Total missed-diagnosis harm</span>
-                      <span className="font-semibold">{harmEstimate.missedDx}</span>
-                    </div>
-                  </div>
-                </details>
-              </>
-            )}
-
-            <div className="mt-3 text-xs text-gray-600">
-              {adjustedUtilityModel
-                ? adjustedUtilityModel.model.summary
-                : harmEstimate.rationale.length === 1 && harmEstimate.missedDxDrivers.length === 0
-                  ? harmEstimate.rationale[0]
-                  : "Harm estimates are heuristic and configurable in lib/probidDecision.ts."}
-            </div>
+          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-600">
+            Educational content only. Not medical advice.{" "}
+            <Link href="/probid/references" className="underline decoration-gray-400 underline-offset-2 hover:decoration-gray-900">
+              See references &amp; methodology.
+            </Link>
           </div>
-
-          {recommendationCopy.nextSteps.length > 0 ? (
-            <div className="mt-4 rounded-xl border border-gray-200 bg-white px-4 py-4">
-              <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">Suggested next steps</div>
-              <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-gray-700">
-                {recommendationCopy.nextSteps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          <details className="group mt-4 rounded-xl border p-4 transition-colors open:bg-gray-50">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-gray-900">
-              <span>What is driving the estimate?</span>
-              <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">v</span>
-            </summary>
-            {steps.length === 0 ? (
-              <p className="mt-2 text-sm text-gray-700">No selected findings yet.</p>
-            ) : (
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-gray-700">
-                {steps.slice(-5).map((s) => (
-                  <li key={s.id}>
-                    {s.label}: {s.state === "present" ? "LR+" : "LR−"} {s.lrUsed.toFixed(2)}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </details>
-        </section>
+        </div>
       </div>
 
-      {!catalogOpen ? (
-        <div className="fixed inset-x-3 bottom-3 z-40 lg:hidden">
-          <a
-            href="#probid-result"
-            className={`block rounded-2xl border border-gray-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur transition-transform duration-150 active:scale-[0.99] ${FOCUS_RING}`}
-          >
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">Current result</div>
-                <div className="mt-1 text-sm font-semibold text-gray-900">{recommendationCopy.headline}</div>
-              </div>
-              <span className={["rounded-full px-2.5 py-1 text-[11px] font-semibold", recommendationUi.pill].join(" ")}>
-                {recommendationStatusLabel(recommendation)}
-              </span>
-            </div>
-            <div className="mt-2 flex items-center gap-3 text-xs text-gray-600">
-              <span>Post-test <span className="font-semibold text-gray-900">{formatPct(postP)}</span></span>
-              <span>Treat at <span className="font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</span></span>
-            </div>
-          </a>
-        </div>
-      ) : null}
+      {/* Floating mobile bar */}
+      <ProbidFloatingBar
+        postP={postP} treatmentThresholdP={treatmentThresholdP}
+        recommendation={recommendation} recommendationHeadline={recHeadline}
+        onScrollToTop={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      />
 
-        <div className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 text-sm text-gray-600">
-            Educational content only. Not medical advice.{" "}
-            <Link
-                href="/probid/references"
-                className="underline decoration-gray-400 underline-offset-2 hover:decoration-gray-900"
-                >
-            See references & methodology.
-            </Link>
-        </div>
-
-
-      {/* =========================
-          CATALOG MODAL (2-pane)
-         ========================= */}
+      {/* CATALOG MODAL */}
       {catalogOpen && (
         <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4" role="dialog" aria-modal="true">
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/30" onClick={() => setCatalogOpen(false)} aria-hidden="true" />
-
-          {/* Panel */}
+          <div className="absolute inset-0 bg-black/30" onClick={() => setCatalogOpen(false)} />
           <div className="relative z-10 flex h-[92dvh] max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[1.5rem] border bg-white shadow-lg sm:h-[min(720px,calc(100dvh-1rem))] sm:max-h-[calc(100dvh-1rem)] sm:w-[min(980px,calc(100vw-1rem))] sm:rounded-[1.5rem]">
-            {/* Header */}
             <div className="flex items-start justify-between gap-4 border-b bg-white p-4">
-              <div className="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-gray-200 sm:hidden" aria-hidden="true" />
+              <div className="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-gray-200 sm:hidden" />
               <div className="min-w-0">
                 <div className="text-lg font-semibold text-gray-900">Browse catalog</div>
-                <div className="mt-1 text-sm text-gray-600">
-                  Pick a category on the left, then mark items as Present/Absent. (Esc to close.)
-                </div>
+                <div className="mt-1 text-sm text-gray-600">Pick a category, then mark items Present/Absent.</div>
                 <div className="mt-2 text-xs text-gray-500">
-                  Selected <span className="font-semibold text-gray-900">{activeSelected.length}</span>
-                  <span className="mx-2">•</span>
-                  Pretest <span className="font-semibold text-gray-900">{formatPct(pretestP)}</span>
+                  Selected <span className="font-semibold text-gray-900">{selectedCount}</span> · Pretest <span className="font-semibold text-gray-900">{formatPct(pretestP)}</span>
                 </div>
               </div>
-
-              <button
-                type="button"
-                onClick={() => setCatalogOpen(false)}
-                className="shrink-0 rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50"
-              >
-                Close
-              </button>
+              <button type="button" onClick={() => setCatalogOpen(false)} className="shrink-0 rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50">Close</button>
             </div>
 
-            {/* Top controls */}
             <div className="border-b bg-white p-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="w-full sm:max-w-md">
                   <label className="text-sm font-medium text-gray-700">Search</label>
-                  <input
-                    value={catalogQuery}
-                    onChange={(e) => setCatalogQuery(e.target.value)}
-                    placeholder="Search by label…"
-                    className="mt-2 w-full rounded-lg border px-3 py-2 text-sm"
-                  />
-                  {catalogQuery && (
-                    <button
-                      type="button"
-                      onClick={() => setCatalogQuery("")}
-                      className="mt-2 text-xs text-gray-600 underline hover:text-gray-900"
-                    >
-                      Clear search
-                    </button>
-                  )}
+                  <input value={catalogQuery} onChange={(e) => setCatalogQuery(e.target.value)} placeholder="Search by label…" className="mt-2 w-full rounded-lg border px-3 py-2 text-sm" />
+                  {catalogQuery && <button type="button" onClick={() => setCatalogQuery("")} className="mt-2 text-xs text-gray-600 underline hover:text-gray-900">Clear search</button>}
                 </div>
-
                 <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setShowSelectedOnly((v) => !v)}
-                    className={[
-                      "rounded-md border px-3 py-2 text-sm",
-                      showSelectedOnly ? "border-gray-900 bg-gray-900 text-white" : "hover:bg-gray-50",
-                    ].join(" ")}
-                  >
-                    {showSelectedOnly ? "Showing: Selected" : "Show selected only"}
-                  </button>
+                  <button type="button" onClick={() => setShowSelectedOnly((v) => !v)} className={["rounded-md border px-3 py-2 text-sm", showSelectedOnly ? "border-gray-900 bg-gray-900 text-white" : "hover:bg-gray-50"].join(" ")}>{showSelectedOnly ? "Showing: Selected" : "Show selected only"}</button>
                 </div>
               </div>
             </div>
 
-            {/* Body: 2-pane layout (right pane scrolls) */}
             <div className="flex min-h-0 flex-1 flex-col md:flex-row">
-              {/* LEFT: categories */}
               <aside className="sticky top-0 z-10 w-full border-b bg-gray-50 p-2 md:static md:w-52 md:border-b-0 md:border-r">
                 <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-600">Categories</div>
-
                 <div className="flex gap-2 overflow-x-auto pb-1 md:block md:overflow-visible md:pb-0">
                   {(["Location", ...FAMILY_ORDER.filter((f) => f !== "Location")] as string[]).map((fam) => {
                     const isActive = fam === activeFamily;
-
-                    const count =
-                      fam === "Location"
-                        ? activeModule.pretestPresets.length
-                        : activeModule.items.filter((it) => familyFor(it) === fam).length;
-
+                    const count = fam === "Location" ? activeModule.pretestPresets.length : activeModule.items.filter((it) => familyFor(it) === fam).length;
                     return (
-                      <button
-                        key={fam}
-                        type="button"
-                        onClick={() => setActiveFamily(fam)}
-                        className={[
-                          "mb-1 flex shrink-0 items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm md:w-full",
-                          isActive ? "bg-white border border-gray-200 shadow-sm" : "hover:bg-white/70",
-                        ].join(" ")}
-                      >
-                        <span className="truncate">{fam}</span>
-                        <span className="ml-2 text-xs text-gray-500">{count}</span>
+                      <button key={fam} type="button" onClick={() => setActiveFamily(fam)} className={["mb-1 flex shrink-0 items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm md:w-full", isActive ? "bg-white border border-gray-200 shadow-sm" : "hover:bg-white/70"].join(" ")}>
+                        <span className="truncate">{fam}</span><span className="ml-2 text-xs text-gray-500">{count}</span>
                       </button>
                     );
                   })}
                 </div>
               </aside>
 
-              {/* RIGHT: scrollable list */}
               <section className="min-w-0 flex-1 overflow-y-auto p-4" style={{ WebkitOverflowScrolling: "touch" }}>
                 {activeFamily === "Location" ? (
                   <div className="space-y-2">
                     <div className="text-sm font-semibold text-gray-900">Location / Setting</div>
                     <div className="text-xs text-gray-600">Choosing location sets the pretest probability.</div>
-
                     <div className="mt-3 space-y-2">
-                      {activeModule.pretestPresets
-                        .filter((p) => (!catalogQ ? true : p.label.toLowerCase().includes(catalogQ)))
-                        .map((p) => (
-                          <button
-                            key={p.id}
-                            type="button"
-                            onClick={() => addLocation(p.id)}
-                            className={[
-                              "w-full rounded-lg border px-3 py-2 text-left hover:bg-gray-50",
-                              p.id === presetId ? "border-gray-900 bg-gray-900 text-white hover:bg-gray-900" : "",
-                            ].join(" ")}
-                          >
-                            <div className="font-medium">{p.label}</div>
-                            <div className="text-xs opacity-90">Pretest {formatPct(p.p)}</div>
-                          </button>
-                        ))}
+                      {activeModule.pretestPresets.filter((p) => !catalogQ || p.label.toLowerCase().includes(catalogQ)).map((p) => (
+                        <button key={p.id} type="button" onClick={() => setPresetId(p.id)} className={["w-full rounded-lg border px-3 py-2 text-left hover:bg-gray-50", p.id === presetId ? "border-gray-900 bg-gray-900 text-white hover:bg-gray-900" : ""].join(" ")}>
+                          <div className="font-medium">{p.label}</div>
+                          <div className="text-xs opacity-90">Pretest {formatPct(p.p)}</div>
+                        </button>
+                      ))}
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <div className="min-w-0">
-                      <div className="text-sm font-semibold text-gray-900">{activeFamily}</div>
-                      <div className="text-xs text-gray-600">Mark each item as Present or Absent (or Clear).</div>
-                    </div>
-
+                    <div className="text-sm font-semibold text-gray-900">{activeFamily}</div>
                     {(() => {
-                      const items = activeModule.items
-                        .filter((it) => familyFor(it) === activeFamily)
-                        .filter((it) => (catalogQ ? matchesQuery(it, catalogQ) : true))
-                        .filter((it) => (!showSelectedOnly ? true : (states[it.id] ?? "unknown") !== "unknown"));
-
-                      if (items.length === 0) {
-                        return (
-                          <div className="rounded-lg border bg-gray-50 p-4 text-sm text-gray-700">No items found.</div>
-                        );
-                      }
-
+                      const items = activeModule.items.filter((it) => familyFor(it) === activeFamily).filter((it) => catalogQ ? matchesQuery(it, catalogQ) : true).filter((it) => !showSelectedOnly || (states[it.id] ?? "unknown") !== "unknown");
+                      if (items.length === 0) return <div className="rounded-lg border bg-gray-50 p-4 text-sm text-gray-700">No items found.</div>;
                       const byGroup: Record<string, LRItem[]> = {};
                       for (const it of items) (byGroup[it.group ?? "General"] ??= []).push(it);
-                      const groupKeys = Object.keys(byGroup).sort((a, b) => a.localeCompare(b));
-
                       return (
                         <div className="space-y-4">
-                          {groupKeys.map((gk) => (
+                          {Object.keys(byGroup).sort().map((gk) => (
                             <div key={gk} className="rounded-lg border">
-                              <div className="border-b bg-gray-50 px-3 py-2">
-                                <div className="text-xs font-semibold uppercase tracking-wide text-gray-700">{gk}</div>
-                              </div>
-
+                              <div className="border-b bg-gray-50 px-3 py-2"><div className="text-xs font-semibold uppercase tracking-wide text-gray-700">{gk}</div></div>
                               <div className="divide-y">
                                 {byGroup[gk].map((it) => {
                                   const st = states[it.id] ?? "unknown";
-                                  const isPresent = st === "present";
-                                  const isAbsent = st === "absent";
                                   const locked = isAutoManagedLocked(it.id);
-
                                   return (
                                     <div key={it.id} className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
                                       <div className="min-w-0">
                                         <div className="text-sm font-medium text-gray-900">{it.label}</div>
-                                        {it.notes ? (
-                                          <div className="mt-0.5 text-xs text-gray-600">{it.notes}</div>
-                                        ) : null}
-                                        {it.source ? (
-                                          <div className="mt-1 text-xs text-gray-600">
-                                            Source:{" "}
-                                            {it.source.url ? (
-                                              <a
-                                                href={it.source.url}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="underline underline-offset-2 hover:text-gray-900"
-                                              >
-                                                {it.source.short}
-                                                {it.source.year ? ` (${it.source.year})` : ""}
-                                              </a>
-                                            ) : (
-                                              <span>
-                                                {it.source.short}
-                                                {it.source.year ? ` (${it.source.year})` : ""}
-                                              </span>
-                                            )}
-                                          </div>
-                                        ) : null}
+                                        {it.notes ? <div className="mt-0.5 text-xs text-gray-600">{it.notes}</div> : null}
+                                        {it.source ? <div className="mt-1 text-xs text-gray-600">Source: {it.source.url ? <a href={it.source.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-gray-900">{it.source.short}{it.source.year ? ` (${it.source.year})` : ""}</a> : <span>{it.source.short}{it.source.year ? ` (${it.source.year})` : ""}</span>}</div> : null}
                                       </div>
-
                                       <div className="flex shrink-0 flex-wrap items-center gap-2">
-                                        <button
-                                          type="button"
-                                          disabled={locked}
-                                          onClick={() => setItemState(it, "present")}
-                                          className={[
-                                            "rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40",
-                                            isPresent
-                                              ? "border-gray-900 bg-gray-900 text-white"
-                                              : "hover:bg-gray-50",
-                                          ].join(" ")}
-                                        >
-                                          Present
-                                        </button>
-                                        <button
-                                          type="button"
-                                          disabled={locked}
-                                          onClick={() => setItemState(it, "absent")}
-                                          className={[
-                                            "rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40",
-                                            isAbsent
-                                              ? "border-gray-900 bg-gray-900 text-white"
-                                              : "hover:bg-gray-50",
-                                          ].join(" ")}
-                                        >
-                                          Absent
-                                        </button>
-                                        <button
-                                          type="button"
-                                          disabled={locked}
-                                          onClick={() => setItemState(it, "unknown")}
-                                          className="rounded-lg border px-3 py-2 text-xs font-medium hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-                                          title="Clear"
-                                        >
-                                          Clear
-                                        </button>
+                                        <button type="button" disabled={locked} onClick={() => setItemState(it, "present")} className={["rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40", st === "present" ? "border-gray-900 bg-gray-900 text-white" : "hover:bg-gray-50"].join(" ")}>Present</button>
+                                        <button type="button" disabled={locked} onClick={() => setItemState(it, "absent")} className={["rounded-lg border px-3 py-2 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-40", st === "absent" ? "border-gray-900 bg-gray-900 text-white" : "hover:bg-gray-50"].join(" ")}>Absent</button>
+                                        <button type="button" disabled={locked} onClick={() => setItemState(it, "unknown")} className="rounded-lg border px-3 py-2 text-xs font-medium hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40" title="Clear">Clear</button>
                                       </div>
                                     </div>
                                   );
@@ -2482,28 +707,263 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               </section>
             </div>
 
-            {/* Footer */}
             <div className="border-t bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="text-sm text-gray-700">
-                  Selected: <span className="font-semibold">{activeSelected.length}</span> • Pretest{" "}
-                  <span className="font-semibold">{formatPct(pretestP)}</span>
-                  {showAdjustedPretest ? (
-                    <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span>
-                  ) : null}
+                  Selected: <span className="font-semibold">{selectedCount}</span> · Pretest <span className="font-semibold">{formatPct(pretestP)}</span>
+                  {showAdjustedPretest ? <span className="ml-2 text-xs text-gray-600">(base {formatPct(basePretestP)})</span> : null}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setCatalogOpen(false)}
-                  className="rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50"
-                >
-                  Done
-                </button>
+                <button type="button" onClick={() => setCatalogOpen(false)} className="rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50">Done</button>
               </div>
             </div>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+function toFindingStateMap(value: unknown): Record<string, FindingState> {
+  if (!value || typeof value !== "object") return {};
+  const out: Record<string, FindingState> = {};
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (raw === "present" || raw === "absent" || raw === "unknown") out[key] = raw;
+  }
+  return out;
+}
+
+function toBooleanRecord(value: unknown): Record<string, boolean> {
+  if (!value || typeof value !== "object") return {};
+  const out: Record<string, boolean> = {};
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof raw === "boolean") out[key] = raw;
+  }
+  return out;
+}
+
+function toStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string");
+}
+
+function VapRiskModifiers({ useVapRiskModifiers, setUseVapRiskModifiers, vapRiskState, toggleVapRiskFactor, vapSelectedRiskFactors, vapRiskRawMultiplier, vapRiskAppliedMultiplier, basePretestP, pretestP }: {
+  useVapRiskModifiers: boolean; setUseVapRiskModifiers: (v: boolean) => void;
+  vapRiskState: Record<VapRiskFactorId, boolean>; toggleVapRiskFactor: (id: VapRiskFactorId) => void;
+  vapSelectedRiskFactors: VapRiskFactorOption[]; vapRiskRawMultiplier: number; vapRiskAppliedMultiplier: number;
+  basePretestP: number; pretestP: number;
+}) {
+  return (
+    <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+        <span className="text-sm font-semibold text-gray-900">VAP risk modifiers (pretest)</span>
+        <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">▾</span>
+      </summary>
+      <p className="mt-2 text-xs text-gray-600">Adjust the ICU time-based pretest using pooled VAP risk-factor ORs. These are not diagnostic test LRs.</p>
+      <div className="mt-3 rounded-md border bg-white p-3">
+        <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+          <input type="checkbox" checked={useVapRiskModifiers} onChange={(e) => setUseVapRiskModifiers(e.target.checked)} />
+          Apply VAP risk-factor pretest adjustment
+        </label>
+        {useVapRiskModifiers && (
+          <div className="mt-3 space-y-3">
+            <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+              {VAP_RISK_FACTOR_OPTIONS.map((rf) => (
+                <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
+                  <input type="checkbox" checked={vapRiskState[rf.id]} onChange={() => toggleVapRiskFactor(rf.id)} />
+                  {rf.label} <span className="text-gray-500">(OR {rf.pooledOr.toFixed(2)})</span>
+                </label>
+              ))}
+            </div>
+            <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
+              <div>Selected: <span className="font-semibold">{vapSelectedRiskFactors.length}</span></div>
+              <div>Raw OR: <span className="font-semibold">{vapRiskRawMultiplier.toFixed(2)}</span> → Applied: <span className="font-semibold">{vapRiskAppliedMultiplier.toFixed(2)}</span></div>
+              <div>Pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → <span className="font-semibold">{formatPct(pretestP)}</span></div>
+            </div>
+          </div>
+        )}
+      </div>
+    </details>
+  );
+}
+
+function EndoRiskModifiers({ useEndoRiskModifiers, setUseEndoRiskModifiers, endoRiskState, toggleEndoRiskFactor, endoAppliedRiskFactors, endoSuppressedRiskFactors, endoRiskRawMultiplier, endoRiskAppliedMultiplier, basePretestP, pretestP, useVirsta }: {
+  useEndoRiskModifiers: boolean; setUseEndoRiskModifiers: (v: boolean) => void;
+  endoRiskState: Record<EndoRiskFactorId, boolean>; toggleEndoRiskFactor: (id: EndoRiskFactorId) => void;
+  endoAppliedRiskFactors: EndoRiskFactorOption[]; endoSuppressedRiskFactors: EndoRiskFactorOption[];
+  endoRiskRawMultiplier: number; endoRiskAppliedMultiplier: number;
+  basePretestP: number; pretestP: number; useVirsta: boolean;
+}) {
+  return (
+    <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+        <span className="text-sm font-semibold text-gray-900">Endocarditis host risk (pretest)</span>
+        <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">▾</span>
+      </summary>
+      <div className="mt-3 rounded-md border bg-white p-3">
+        <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+          <input type="checkbox" checked={useEndoRiskModifiers} onChange={(e) => setUseEndoRiskModifiers(e.target.checked)} />
+          Apply host-risk pretest adjustment
+        </label>
+        {useEndoRiskModifiers && (
+          <div className="mt-3 space-y-3">
+            <div className="rounded border bg-gray-50 p-2">
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">General IE Host Risk</div>
+              <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
+                {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "general_ie").map((rf) => (
+                  <label key={rf.id} className="inline-flex items-center gap-2 text-xs text-gray-700">
+                    <input type="checkbox" checked={endoRiskState[rf.id]} onChange={() => toggleEndoRiskFactor(rf.id)} />
+                    {rf.label} <span className="text-gray-500">(OR {rf.orLike.toFixed(2)})</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div className="rounded border bg-gray-50 p-2">
+              <div className="flex items-center justify-between gap-2">
+                <div className="text-[11px] font-semibold uppercase tracking-wide text-gray-600">SAB Context</div>
+                {useVirsta && <span className="text-[10px] rounded border bg-white px-2 py-0.5 text-gray-600">suppressed by VIRSTA</span>}
+              </div>
+              <div className="mt-2 grid grid-cols-1 gap-1 sm:grid-cols-2">
+                {ENDO_RISK_FACTOR_OPTIONS.filter((rf) => rf.group === "sab_context").map((rf) => (
+                  <label key={rf.id} className={`inline-flex items-center gap-2 text-xs ${useVirsta ? "text-gray-400" : "text-gray-700"}`}>
+                    <input type="checkbox" checked={endoRiskState[rf.id]} onChange={() => toggleEndoRiskFactor(rf.id)} disabled={useVirsta} />
+                    {rf.label} <span className="text-gray-500">(OR {rf.orLike.toFixed(2)})</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div className="rounded border bg-gray-50 px-2 py-2 text-xs text-gray-700 space-y-1">
+              <div>Applied: <span className="font-semibold">{endoAppliedRiskFactors.length}</span> {endoSuppressedRiskFactors.length > 0 && <span className="text-gray-500">({endoSuppressedRiskFactors.length} SAB excluded by VIRSTA)</span>}</div>
+              <div>Raw: <span className="font-semibold">{endoRiskRawMultiplier.toFixed(2)}</span> → Applied: <span className="font-semibold">{endoRiskAppliedMultiplier.toFixed(2)}</span></div>
+              <div>Pretest <span className="font-semibold">{formatPct(basePretestP)}</span> → <span className="font-semibold">{formatPct(pretestP)}</span></div>
+            </div>
+          </div>
+        )}
+      </div>
+    </details>
+  );
+}
+
+function EndoScoreAutocompute(props: {
+  useVirsta: boolean; setUseVirsta: (v: boolean) => void; virstaScore: number;
+  virstaEmboli: boolean; setVirstaEmboli: (v: boolean) => void;
+  virstaMeningitis: boolean; setVirstaMeningitis: (v: boolean) => void;
+  virstaIntracardiacDevice: boolean; setVirstaIntracardiacDevice: (v: boolean) => void;
+  virstaPriorEndocarditis: boolean; setVirstaPriorEndocarditis: (v: boolean) => void;
+  virstaNativeValveDisease: boolean; setVirstaNativeValveDisease: (v: boolean) => void;
+  virstaIvdu: boolean; setVirstaIvdu: (v: boolean) => void;
+  virstaPersistentBacteremia48h: boolean; setVirstaPersistentBacteremia48h: (v: boolean) => void;
+  virstaVertebralOsteomyelitis: boolean; setVirstaVertebralOsteomyelitis: (v: boolean) => void;
+  virstaAcquisition: VirstaAcquisition; setVirstaAcquisition: (v: VirstaAcquisition) => void;
+  virstaSevereSepsisShock: boolean; setVirstaSevereSepsisShock: (v: boolean) => void;
+  virstaCrpGt190: boolean; setVirstaCrpGt190: (v: boolean) => void;
+  useDenova: boolean; setUseDenova: (v: boolean) => void; denovaScore: number;
+  denovaDuration7d: boolean; setDenovaDuration7d: (v: boolean) => void;
+  denovaEmbolization: boolean; setDenovaEmbolization: (v: boolean) => void;
+  denovaNumPositive2: boolean; setDenovaNumPositive2: (v: boolean) => void;
+  denovaOriginUnknown: boolean; setDenovaOriginUnknown: (v: boolean) => void;
+  denovaValveDisease: boolean; setDenovaValveDisease: (v: boolean) => void;
+  denovaAuscultationMurmur: boolean; setDenovaAuscultationMurmur: (v: boolean) => void;
+  useHandoc: boolean; setUseHandoc: (v: boolean) => void; handocScore: number;
+  handocHeartMurmurValve: boolean; setHandocHeartMurmurValve: (v: boolean) => void;
+  handocSpecies: HandocSpecies; setHandocSpecies: (v: HandocSpecies) => void;
+  handocNumPositive2: boolean; setHandocNumPositive2: (v: boolean) => void;
+  handocDuration7d: boolean; setHandocDuration7d: (v: boolean) => void;
+  handocOnlyOneSpecies: boolean; setHandocOnlyOneSpecies: (v: boolean) => void;
+  handocCommunityAcquired: boolean; setHandocCommunityAcquired: (v: boolean) => void;
+  useEndoRiskModifiers: boolean;
+}) {
+  return (
+    <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+        <span className="text-sm font-semibold text-gray-900">Endocarditis score auto-compute</span>
+        <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">▾</span>
+      </summary>
+      <p className="mt-2 text-xs text-gray-600">Enable a score, mark its components, and ProbID auto-applies the threshold LR item.</p>
+      <div className="mt-3 space-y-3">
+        {/* VIRSTA */}
+        <div className="rounded-md border bg-white p-3">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+            <input type="checkbox" checked={props.useVirsta} onChange={(e) => props.setUseVirsta(e.target.checked)} />
+            VIRSTA (for SAB)
+          </label>
+          {props.useVirsta && (
+            <div className="mt-3 space-y-2 text-xs text-gray-700">
+              <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaEmboli} onChange={(e) => props.setVirstaEmboli(e.target.checked)} />Emboli (5)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaMeningitis} onChange={(e) => props.setVirstaMeningitis(e.target.checked)} />Meningitis (5)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaIntracardiacDevice} onChange={(e) => props.setVirstaIntracardiacDevice(e.target.checked)} />Intracardiac device (4)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaPriorEndocarditis} onChange={(e) => props.setVirstaPriorEndocarditis(e.target.checked)} />Prior endocarditis (4)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaNativeValveDisease} onChange={(e) => props.setVirstaNativeValveDisease(e.target.checked)} />Native valve disease (3)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaIvdu} onChange={(e) => props.setVirstaIvdu(e.target.checked)} />IVDU (4)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaPersistentBacteremia48h} onChange={(e) => props.setVirstaPersistentBacteremia48h(e.target.checked)} />Persistent bacteremia &gt;48h (3)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaVertebralOsteomyelitis} onChange={(e) => props.setVirstaVertebralOsteomyelitis(e.target.checked)} />Vertebral osteomyelitis (2)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaSevereSepsisShock} onChange={(e) => props.setVirstaSevereSepsisShock(e.target.checked)} />Severe sepsis/shock (1)</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.virstaCrpGt190} onChange={(e) => props.setVirstaCrpGt190(e.target.checked)} />CRP &gt;190 (1)</label>
+              </div>
+              <label className="space-y-1">
+                <span className="block text-[11px] uppercase tracking-wide text-gray-500">Acquisition</span>
+                <select value={props.virstaAcquisition} onChange={(e) => props.setVirstaAcquisition(e.target.value as VirstaAcquisition)} className="w-full rounded border px-2 py-1 text-xs">
+                  <option value="nosocomial">Nosocomial (0)</option>
+                  <option value="community_or_nhca">Community or non-nosocomial healthcare-associated (+2)</option>
+                </select>
+              </label>
+              <div className="rounded border bg-gray-50 px-2 py-1">VIRSTA score: <span className="font-semibold">{props.virstaScore}</span> (high if &ge;3)</div>
+              {props.useEndoRiskModifiers && <div className="rounded border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] text-amber-900">SAB-context host-risk modifiers suppressed while VIRSTA is enabled.</div>}
+            </div>
+          )}
+        </div>
+        {/* DENOVA */}
+        <div className="rounded-md border bg-white p-3">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+            <input type="checkbox" checked={props.useDenova} onChange={(e) => props.setUseDenova(e.target.checked)} />
+            DENOVA (for E. faecalis)
+          </label>
+          {props.useDenova && (
+            <div className="mt-3 space-y-2 text-xs text-gray-700">
+              <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaDuration7d} onChange={(e) => props.setDenovaDuration7d(e.target.checked)} />Duration &ge;7 days</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaEmbolization} onChange={(e) => props.setDenovaEmbolization(e.target.checked)} />Embolization</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaNumPositive2} onChange={(e) => props.setDenovaNumPositive2(e.target.checked)} />&ge;2 positive cultures</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaOriginUnknown} onChange={(e) => props.setDenovaOriginUnknown(e.target.checked)} />Origin unknown</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaValveDisease} onChange={(e) => props.setDenovaValveDisease(e.target.checked)} />Valve disease</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.denovaAuscultationMurmur} onChange={(e) => props.setDenovaAuscultationMurmur(e.target.checked)} />Auscultation murmur</label>
+              </div>
+              <div className="rounded border bg-gray-50 px-2 py-1">DENOVA score: <span className="font-semibold">{props.denovaScore}</span> (high if &ge;3)</div>
+            </div>
+          )}
+        </div>
+        {/* HANDOC */}
+        <div className="rounded-md border bg-white p-3">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-900">
+            <input type="checkbox" checked={props.useHandoc} onChange={(e) => props.setUseHandoc(e.target.checked)} />
+            HANDOC (for NBHS)
+          </label>
+          {props.useHandoc && (
+            <div className="mt-3 space-y-2 text-xs text-gray-700">
+              <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.handocHeartMurmurValve} onChange={(e) => props.setHandocHeartMurmurValve(e.target.checked)} />Heart murmur/valve</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.handocNumPositive2} onChange={(e) => props.setHandocNumPositive2(e.target.checked)} />&ge;2 positive cultures</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.handocDuration7d} onChange={(e) => props.setHandocDuration7d(e.target.checked)} />Duration &ge;7 days</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.handocOnlyOneSpecies} onChange={(e) => props.setHandocOnlyOneSpecies(e.target.checked)} />Only one species</label>
+                <label className="inline-flex items-center gap-2"><input type="checkbox" checked={props.handocCommunityAcquired} onChange={(e) => props.setHandocCommunityAcquired(e.target.checked)} />Community acquired</label>
+              </div>
+              <label className="space-y-1">
+                <span className="block text-[11px] uppercase tracking-wide text-gray-500">Species</span>
+                <select value={props.handocSpecies} onChange={(e) => props.setHandocSpecies(e.target.value as HandocSpecies)} className="w-full rounded border px-2 py-1 text-xs">
+                  <option value="unspecified_other">Other (0)</option>
+                  <option value="s_anginosus_group">S. anginosus group (-1)</option>
+                  <option value="s_gallolyticus_bovis_group">S. gallolyticus (bovis) (+1)</option>
+                  <option value="s_mutans_group">S. mutans (+1)</option>
+                  <option value="s_sanguinis_group">S. sanguinis (+1)</option>
+                  <option value="s_mitis_oralis_group">S. mitis/oralis (0)</option>
+                  <option value="s_salivarius_group">S. salivarius (0)</option>
+                </select>
+              </label>
+              <div className="rounded border bg-gray-50 px-2 py-1">HANDOC score: <span className="font-semibold">{props.handocScore}</span> (high if &ge;3)</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </details>
   );
 }

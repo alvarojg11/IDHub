@@ -16,11 +16,10 @@ export async function GET(
   const entry = await getHistoridEntry(slug);
 
   const title = entry?.socialHeadline ?? entry?.title ?? "HistorID";
-  const hook = entry?.hook ?? entry?.description ?? "Historical fact";
-  const takeaway = entry?.takeaway ?? "Read the full historical brief on IDHub.";
+  const description = entry?.description ?? entry?.hook ?? "Historical fact";
   const category = entry?.categories[0] ? HISTORID_CATEGORY_LABELS[entry.categories[0]] : "HistorID";
   const heroImageUrl = entry?.heroImage ? `${new URL(req.url).origin}${entry.heroImage}` : null;
-  const facts = (entry?.socialFacts ?? []).slice(0, 2);
+  const facts = entry?.socialFacts ?? [];
 
   return new ImageResponse(
     (
@@ -90,10 +89,7 @@ export async function GET(
               {title}
             </div>
             <div style={{ display: "flex", marginTop: "24px", fontSize: 26, color: "#3f544c", lineHeight: 1.5 }}>
-              {hook}
-            </div>
-            <div style={{ display: "flex", marginTop: "22px", padding: "24px 28px", borderRadius: "22px", background: "#f1f6f4", border: "1px solid #dde5e2", fontSize: 24, color: "#102019", lineHeight: 1.5 }}>
-              {takeaway}
+              {description}
             </div>
 
             {facts.length ? (
