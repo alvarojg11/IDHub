@@ -1209,6 +1209,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 28-year-old woman undergoes appendectomy for acute appendicitis. Pathology reveals marked eosinophilic infiltrate and a nematode in the lumen with two prominent lateral alae. Her 5-year-old daughter scratches her bottom at night. What is the organism, and why is the right diagnostic test not a stool sample?",
     tags: { organisms: ["Enterobius vermicularis"], syndromes: ["Surgical Infection", "Helminth Infection", "Pediatric Infectious Disease"], concepts: ["Eosinophilic appendicitis", "Lateral alae", "Th2 IL-5 eosinophilia", "Scotch tape test", "Retroinfection", "Household treatment", "Pinworm", "Mebendazole", "Perianal eggs"] },
   },
+  {
+    title: "Salt and Iron",
+    slug: "vibrio-vulnificus-necrotizing-fasciitis",
+    description: "Necrotizing fasciitis with hemorrhagic bullae in a fisherman with hemochromatosis after a minor saltwater laceration — curved gram-negative rods and septic shock within 48 hours.",
+    enable: true,
+    ogImage: "/cases/vibrio-vulnificus-necrotizing-fasciitis/bullae.jpg",
+    teaser: "A 52-year-old commercial fisherman with hemochromatosis develops necrotizing fasciitis with hemorrhagic bullae and septic shock 36 hours after a minor seashell laceration while wading in the Gulf of Mexico. Gram stain of bulla fluid shows curved gram-negative rods. What is the organism, and why does iron overload make this infection lethal?",
+    tags: { organisms: ["Vibrio vulnificus"], syndromes: ["Necrotizing Fasciitis", "Sepsis & Bacteremia", "Wound Infection"], concepts: ["Halophilic organism", "Hemochromatosis iron overload", "Vulnibactin siderophore", "Ferric uptake regulator Fur", "Hemorrhagic bullae", "Doxycycline ceftazidime", "TCBS agar", "Gulf Coast", "Cytolysin VvhA"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

@@ -1,0 +1,386 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("vibrio-vulnificus-necrotizing-fasciitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Salt and Iron
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man presents to the emergency department in Galveston, Texas, with 12 hours of rapidly progressive pain, swelling, and discoloration of his right lower leg. He was wading in the Gulf of Mexico two days ago when he sustained a small laceration on his right shin from a seashell. The wound was minor and he did not clean or dress it. Approximately 24 hours after the injury, he noticed increasing pain and redness around the wound site, and over the past 12 hours the area has expanded dramatically, with the development of dark purple discoloration and fluid-filled blisters. He now reports fever, chills, nausea, and dizziness when standing.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    His past medical history is notable for hereditary hemochromatosis, diagnosed three years ago after an elevated ferritin was found on routine laboratory testing. Genetic testing confirmed HFE C282Y homozygosity. He was advised to undergo regular therapeutic phlebotomy but has been non-compliant, attending only two sessions in the past year. His most recent ferritin level was 1,842 ng/mL with a transferrin saturation of 92%. He takes no medications. He does not drink alcohol. He works as a commercial fisherman.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 39.4 C, heart rate 118/min, blood pressure 88/52 mmHg, respiratory rate 22/min, and oxygen saturation 96% on room air. He is diaphoretic, confused, and answers questions slowly. The right lower leg from the mid-shin to the ankle shows a 15 by 12 cm area of violaceous discoloration with overlying hemorrhagic bullae filled with dark fluid. The surrounding skin is erythematous, warm, and exquisitely tender. Crepitus is palpable on gentle compression. Sensation is diminished over the violaceous area. The dorsalis pedis pulse is palpable but diminished compared to the left.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show white blood cells 22.4 x 10^3/uL with 85% neutrophils, 6% bands, hemoglobin 12.1 g/dL, platelets 110 x 10^3/uL, creatinine 2.1 mg/dL (baseline 0.9), BUN 38 mg/dL, lactate 4.8 mmol/L, procalcitonin 48.6 ng/mL, CRP 312 mg/L, and INR 1.4. Total bilirubin is 1.8 mg/dL, ALT 62 U/L, and AST 78 U/L. Two sets of blood cultures are drawn. A Gram stain of fluid aspirated from one of the hemorrhagic bullae shows curved gram-negative rods, some in pairs with a seagull-wing morphology.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/vibrio-vulnificus-necrotizing-fasciitis/bullae.jpg"
+        alt="Clinical photograph showing hemorrhagic bullae and ecchymoses on the lower extremity, Gram stain of aspirated fluid, and MRI of the affected limb"
+        width={685}
+        height={417}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Clinical, microscopic, and radiographic findings in a patient with necrotizing soft-tissue infection and septic shock. Image from Yun &amp; Kim, Korean J Intern Med, 2018, CC BY-NC 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q1"
+  title="Question 1"
+  prompt="What is the most likely causative organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Aeromonas hydrophila",
+      feedback:
+        "Incorrect. Aeromonas hydrophila is a gram-negative rod that causes necrotizing soft-tissue infections in immunocompromised hosts, and it is a reasonable differential consideration. However, Aeromonas species are associated with freshwater exposure — lakes, rivers, and ponds — not saltwater or brackish coastal waters. A. hydrophila does not require NaCl for growth and is not halophilic. Additionally, while Aeromonas can cause septicemia in cirrhotic patients, it is not specifically associated with hemochromatosis or iron overload states in the way that Vibrio vulnificus is. The Gram stain morphology is also less characteristically curved. The combination of saltwater exposure, hemorrhagic bullae, septic shock, iron overload, and curved gram-negative rods points to a different halophilic organism.",
+    },
+    {
+      id: "B",
+      label:
+        "Streptococcus pyogenes",
+      feedback:
+        "Incorrect. Streptococcus pyogenes (group A Streptococcus) is the most common cause of necrotizing fasciitis overall, and it can cause rapidly progressive soft-tissue destruction with systemic toxicity. However, S. pyogenes is a gram-positive coccus that appears in chains on Gram stain — not a curved gram-negative rod. The bullae in streptococcal necrotizing fasciitis are typically serous rather than hemorrhagic, and the infection does not have a specific association with saltwater exposure or iron overload states. The Gram stain finding of curved gram-negative rods with seagull-wing morphology definitively excludes Streptococcus and points toward a Vibrio or Campylobacter species.",
+    },
+    {
+      id: "C",
+      label:
+        "Pseudomonas aeruginosa",
+      feedback:
+        "Incorrect. Pseudomonas aeruginosa can cause necrotizing soft-tissue infections, particularly ecthyma gangrenosum in neutropenic patients, and it is a gram-negative rod. However, P. aeruginosa appears as straight or slightly curved rods on Gram stain, not the distinctly comma-shaped or seagull-wing morphology described here. Ecthyma gangrenosum presents as indurated nodules that ulcerate and develop central black eschars, not the hemorrhagic bullae with violaceous discoloration seen in this patient. Pseudomonas has no specific association with saltwater exposure or hemochromatosis. The clinical context — saltwater laceration, iron overload, hemorrhagic bullae, curved gram-negative rods — points to a different organism.",
+    },
+    {
+      id: "D",
+      label:
+        "Erysipelothrix rhusiopathiae",
+      feedback:
+        "Incorrect. Erysipelothrix rhusiopathiae is a gram-positive rod associated with fish and shellfish handling that causes erysipeloid — a localized, well-demarcated, painful cellulitis of the hands and fingers. It is sometimes called fish handler's disease or whale finger. However, E. rhusiopathiae is a gram-positive rod (not gram-negative), does not cause systemic septic shock with hemorrhagic bullae in immunocompetent individuals, and does not have the rapidly progressive necrotizing course described here. Erysipeloid is typically a self-limited localized infection that resolves in 3 to 4 weeks without treatment. The systemic toxicity, hemorrhagic bullae, septic shock, curved gram-negative rods, and iron overload all point away from Erysipelothrix.",
+    },
+    {
+      id: "E",
+      label:
+        "Vibrio vulnificus",
+      correct: true,
+      feedback:
+        "Correct. The combination of a warm saltwater laceration, rapidly progressive necrotizing soft-tissue infection with hemorrhagic bullae, septic shock, hemochromatosis with severe iron overload (ferritin 1,842, transferrin saturation 92%), and curved gram-negative rods on Gram stain establishes the diagnosis of Vibrio vulnificus necrotizing fasciitis. V. vulnificus is a halophilic gram-negative curved rod found in warm coastal and estuarine waters, particularly along the Gulf Coast of the United States during summer months when water temperatures exceed 20 C. It causes three clinical syndromes: wound infection (which can progress to necrotizing fasciitis, as in this patient), primary septicemia (following ingestion of raw or undercooked seafood, especially oysters), and gastroenteritis. The wound infection form carries a mortality rate of approximately 20 to 30 percent, rising substantially when septic shock develops. Hemochromatosis and other iron overload states are the most potent risk factors for severe V. vulnificus infection, increasing the risk of septicemia by 80 to 100-fold compared to the general population. The hemorrhagic bullae are a clinical hallmark caused by the combined effects of a pore-forming cytolysin (VvhA), extracellular proteases, and endotoxin-driven vasculitis that produce vascular necrosis, tissue destruction, and hemorrhage within the skin and subcutaneous tissue.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q2"
+  title="Question 2"
+  prompt="Which mechanism best explains why hemochromatosis and other iron overload states dramatically increase susceptibility to severe infection with this organism?"
+  options={[
+    {
+      id: "A",
+      label:
+        "The organism produces a polysaccharide capsule that resists complement-mediated opsonophagocytosis, and iron overload impairs neutrophil oxidative burst, synergistically preventing bacterial clearance",
+      feedback:
+        "Incorrect. Vibrio vulnificus does produce a polysaccharide capsule that contributes to serum resistance and phagocytic evasion — this is a real virulence factor. However, iron overload does not primarily impair neutrophil oxidative burst. The enhanced susceptibility in hemochromatosis is not due to a neutrophil defect but rather to a direct effect of iron on the bacterium itself. The key mechanism involves iron acquisition: V. vulnificus has evolved sophisticated iron uptake systems that allow it to exploit the elevated free iron in hemochromatosis to grow faster, express more virulence factors, and resist complement-mediated killing. The capsule plays a role in virulence, but the iron-specific susceptibility is explained by a different mechanism.",
+    },
+    {
+      id: "B",
+      label:
+        "The organism secretes a potent exotoxin (cytolysin VvhA) that directly kills neutrophils and macrophages, and iron overload potentiates this toxin by facilitating its binding to host cell membranes via ferric iron bridges",
+      feedback:
+        "Incorrect. V. vulnificus does produce VvhA, a pore-forming cytolysin that contributes to tissue destruction and endothelial damage. However, VvhA does not specifically kill neutrophils and macrophages as its primary target, and its activity is not potentiated by ferric iron bridges on host cell membranes. The role of iron in V. vulnificus pathogenesis is fundamentally about bacterial growth and metabolic activation, not about enhancing toxin binding. The cytolysin is important for the hemorrhagic bullae and tissue destruction, but the reason hemochromatosis specifically predisposes to severe infection relates to iron acquisition systems and their regulation, not to toxin-membrane interactions.",
+    },
+    {
+      id: "C",
+      label:
+        "The organism forms a robust biofilm on iron-rich damaged tissue surfaces, and the elevated tissue iron concentration in hemochromatosis accelerates biofilm maturation and resistance to both antibiotics and host immune defenses",
+      feedback:
+        "Incorrect. While V. vulnificus can form biofilms in environmental contexts, biofilm formation is not the primary mechanism linking iron overload to enhanced virulence in human infection. The necrotizing infection described here is an acute, rapidly progressive process — the timeline (clinical deterioration within 24 to 36 hours of inoculation) is inconsistent with a biofilm-mediated process, which typically evolves over days to weeks. The iron-virulence connection in V. vulnificus is about growth rate and metabolic activation, not biofilm. Biofilm-mediated resistance to antibiotics and immune clearance is more relevant to chronic device-related infections caused by organisms like Staphylococcus epidermidis or Pseudomonas aeruginosa.",
+    },
+    {
+      id: "D",
+      label:
+        "Endotoxin (lipopolysaccharide) from the organism activates complement consumption via the alternative pathway, producing a functional complement deficiency that is worsened by iron-mediated inhibition of C3 convertase",
+      feedback:
+        "Incorrect. V. vulnificus lipopolysaccharide does activate inflammatory cascades and contributes to septic shock, and the organism has some resistance to complement-mediated killing. However, the specific predisposition of hemochromatosis patients is not due to iron-mediated inhibition of C3 convertase or complement consumption. While complement resistance is a feature of encapsulated V. vulnificus strains, this resistance is enhanced by iron through a different mechanism — iron upregulates the expression of capsule and other surface antigens that interfere with complement deposition. The primary reason hemochromatosis predisposes to severe V. vulnificus infection is that iron directly fuels bacterial growth and virulence factor production through dedicated iron acquisition systems.",
+    },
+    {
+      id: "E",
+      label:
+        "The organism possesses siderophore-mediated iron acquisition systems (vulnibactin) and heme uptake transporters (HupA) regulated by the ferric uptake regulator (Fur); in hemochromatosis, elevated non-transferrin-bound iron bypasses normal transferrin sequestration, providing freely available iron that dramatically accelerates growth, upregulates virulence factor expression, and enhances resistance to complement-mediated killing",
+      correct: true,
+      feedback:
+        "Correct. This is the central mechanism linking iron overload to catastrophic V. vulnificus infection. Under normal physiologic conditions, serum iron is tightly bound to transferrin, which maintains a free iron concentration that is bacteriostatic — sufficient iron is sequestered to prevent most bacteria from acquiring enough to grow rapidly. Transferrin is normally only 25 to 35 percent saturated. In hemochromatosis, transferrin saturation can exceed 80 to 90 percent, and the excess iron circulates as non-transferrin-bound iron (NTBI) — loosely complexed to citrate, albumin, and other low-affinity ligands. This NTBI is freely available to bacteria that possess the appropriate uptake systems. V. vulnificus is uniquely equipped to exploit this: it produces the siderophore vulnibactin, which chelates ferric iron with high affinity and delivers it to the bacterium via specific outer membrane receptors. It also expresses HupA, a heme uptake transporter that acquires iron from hemoglobin and heme compounds. These systems are regulated by the ferric uptake regulator (Fur), which functions as an iron-sensing transcription factor: when iron is abundant, Fur-Fe complexes repress iron acquisition genes and activate virulence genes, including those encoding the cytolysin, extracellular proteases, and the polysaccharide capsule. In hemochromatosis, the flood of NTBI means that Fur is constitutively loaded with iron, virulence genes are maximally expressed from the earliest stages of infection, and the organism grows at rates 100 to 1,000 times faster than it could in normal serum. This iron-fueled growth and virulence expression is why V. vulnificus infection in hemochromatosis patients can progress from a trivial wound to fatal septic shock within 24 to 48 hours.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q3"
+  title="Question 3"
+  prompt="The microbiology laboratory reports that the curved gram-negative rods grew on blood agar but failed to grow on standard MacConkey agar. When subcultured onto blood agar with added NaCl, growth was robust. What explains this growth pattern?"
+  options={[
+    {
+      id: "A",
+      label:
+        "The organism is a fastidious anaerobe that cannot grow in the presence of the bile salts present in MacConkey agar",
+      feedback:
+        "Incorrect. Vibrio vulnificus is a facultative anaerobe, not a strict anaerobe — it grows well in both aerobic and anaerobic conditions. Bile salts are indeed present in MacConkey agar, where they serve as selective agents to inhibit gram-positive bacteria and some fastidious gram-negatives. However, the reason V. vulnificus fails to grow on standard MacConkey is not bile salt sensitivity. In fact, the standard selective medium for Vibrio species is TCBS (thiosulfate-citrate-bile salts-sucrose) agar, which contains even higher concentrations of bile salts than MacConkey, and V. vulnificus grows readily on TCBS. The failure to grow on MacConkey is due to a different requirement that standard MacConkey does not provide.",
+    },
+    {
+      id: "B",
+      label:
+        "The organism lacks lactose permease and cannot utilize lactose as a carbon source on MacConkey agar, preventing colony formation",
+      feedback:
+        "Incorrect. V. vulnificus does not ferment lactose, and on MacConkey agar it would appear as colorless (non-lactose-fermenting) colonies — similar to many Salmonella and Shigella species. However, the inability to ferment lactose would not prevent the organism from growing on MacConkey agar. MacConkey agar contains peptone as a nutrient source in addition to lactose, and non-lactose-fermenting organisms grow well on it using peptone as a carbon and energy source. The failure to grow at all on MacConkey is not about sugar fermentation but about a specific ionic requirement that standard MacConkey does not meet.",
+    },
+    {
+      id: "C",
+      label:
+        "The organism is inhibited by the crystal violet in MacConkey agar, which is selectively toxic to this species at the standard concentration",
+      feedback:
+        "Incorrect. Crystal violet in MacConkey agar is included to inhibit gram-positive bacteria — it disrupts the thick peptidoglycan layer of gram-positive organisms. Gram-negative bacteria, including V. vulnificus, have an outer membrane that provides intrinsic resistance to crystal violet at the concentrations used in MacConkey agar. V. vulnificus is not uniquely sensitive to crystal violet among gram-negatives. The failure to grow on MacConkey is due to a nutritional/ionic deficiency in the medium, not to inhibition by crystal violet.",
+    },
+    {
+      id: "D",
+      label:
+        "Vibrio vulnificus is halophilic and requires sodium ions for growth, membrane transport, flagellar motility, and enzyme function; standard MacConkey agar does not contain sufficient NaCl to support halophilic organisms, whereas blood agar provides adequate sodium from the blood supplement",
+      correct: true,
+      feedback:
+        "Correct. This is the defining laboratory feature of Vibrio species: they are halophilic (salt-loving) organisms that require sodium ions for fundamental cellular processes including membrane transport, flagellar assembly and motility, and optimal enzyme function. V. vulnificus grows optimally at NaCl concentrations of 1 to 3 percent. Standard MacConkey agar contains approximately 0.5 percent NaCl, which is insufficient to support the growth of most Vibrio species. Blood agar, by contrast, contains sufficient sodium from the sheep or horse blood supplement (blood has a sodium concentration of approximately 140 mEq/L) to support the growth of many halophilic organisms at low inoculum. When NaCl is deliberately added to the medium, growth becomes robust. This sodium requirement is the basis for the standard selective medium for Vibrio species: TCBS (thiosulfate-citrate-bile salts-sucrose) agar, which contains 1 percent NaCl and selects for halophilic organisms while inhibiting non-halophilic enteric bacteria. On TCBS, V. vulnificus appears as green (sucrose-negative) colonies, distinguishing it from V. cholerae and V. alginolyticus, which are yellow (sucrose-positive). The halophilic requirement is also the ecological reason V. vulnificus inhabits warm coastal and estuarine waters — these environments provide the sodium concentration the organism needs.",
+    },
+    {
+      id: "E",
+      label:
+        "The organism requires X factor (hemin) and V factor (NAD) for growth, which are present in blood agar but absent in MacConkey agar",
+      feedback:
+        "Incorrect. The requirement for X factor (hemin) and V factor (NAD, nicotinamide adenine dinucleotide) is characteristic of Haemophilus species, not Vibrio. Haemophilus influenzae requires both X and V factors, while H. ducreyi requires only X factor. V. vulnificus does not have these specific growth factor requirements. While iron is important for V. vulnificus virulence (as discussed in the previous question), the organism does not require exogenous hemin or NAD supplementation to grow. The failure to grow on MacConkey is explained by the sodium requirement, not by missing growth factors. This distractor is designed to test whether the trainee confuses fastidious growth factor requirements with halophilic ionic requirements — two fundamentally different concepts in clinical microbiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q4"
+  title="Question 4"
+  prompt="Which approach to treatment is most appropriate?"
+  options={[
+    {
+      id: "A",
+      label:
+        "Vancomycin plus piperacillin-tazobactam intravenously with bedside wound debridement if no improvement at 24 hours",
+      feedback:
+        "Incorrect. Vancomycin plus piperacillin-tazobactam is a reasonable empiric regimen for polymicrobial necrotizing fasciitis covering MRSA, streptococci, anaerobes, and most gram-negative bacilli — but it does not reliably cover Vibrio vulnificus. While piperacillin-tazobactam has some activity against Vibrio in vitro, the standard and evidence-based treatment for V. vulnificus is doxycycline plus a third-generation cephalosporin (ceftazidime or cefotaxime), which provides synergistic bactericidal activity. Furthermore, delaying surgical debridement for 24 hours is unacceptable in any necrotizing soft-tissue infection, regardless of the causative organism. The time to debridement is the single most important determinant of survival in necrotizing fasciitis, and each hour of delay increases mortality. Immediate operative exploration and radical debridement of all non-viable tissue is mandatory, not a wait-and-see approach.",
+    },
+    {
+      id: "B",
+      label:
+        "Ceftriaxone plus metronidazole intravenously with planned surgical debridement after 48 hours of antibiotic therapy to reduce operative bleeding risk",
+      feedback:
+        "Incorrect on two critical counts. First, while ceftriaxone has activity against some Vibrio species, the recommended third-generation cephalosporin for V. vulnificus is ceftazidime or cefotaxime, which have more reliable in vitro activity and established clinical evidence. Metronidazole adds anaerobic coverage but is not a component of the standard V. vulnificus regimen and adds no activity against this aerobic gram-negative rod. Second, and more importantly, delaying surgical debridement for 48 hours to reduce bleeding risk would be fatal in this patient. He is already in septic shock with extensive necrotizing infection, and the infection will continue to spread during any delay in source control. The concept of reducing operative bleeding risk with preoperative antibiotics is not supported by evidence in necrotizing fasciitis, where the urgency of debridement supersedes all other considerations.",
+    },
+    {
+      id: "C",
+      label:
+        "Ciprofloxacin 400 mg intravenously every 12 hours as monotherapy, with aggressive irrigation and wound care but no surgical debridement given the extent of tissue involvement",
+      feedback:
+        "Incorrect. Fluoroquinolones such as ciprofloxacin and levofloxacin do have in vitro activity against V. vulnificus and have been used successfully as monotherapy in some case series, particularly in Taiwan and Korea. However, the recommended first-line regimen remains doxycycline plus ceftazidime, which provides synergistic activity and a broader evidence base. More critically, the decision to forgo surgical debridement is wrong regardless of the antibiotic chosen. Necrotizing fasciitis is a surgical emergency — antibiotics alone cannot penetrate devascularized necrotic tissue, and the bacterial burden in the wound must be mechanically removed. The extent of tissue involvement makes surgery more urgent, not less. Foregoing debridement in established necrotizing fasciitis with septic shock is associated with near-universal mortality.",
+    },
+    {
+      id: "D",
+      label:
+        "Doxycycline 100 mg intravenously every 12 hours plus ceftazidime 2 grams intravenously every 8 hours, with immediate operative exploration and radical surgical debridement of all non-viable tissue",
+      correct: true,
+      feedback:
+        "Correct. The treatment of Vibrio vulnificus necrotizing fasciitis has two non-negotiable components: antimicrobial therapy and immediate surgical source control. The antibiotic regimen of choice is doxycycline plus ceftazidime (or cefotaxime), which provides synergistic bactericidal activity against V. vulnificus. Doxycycline is a tetracycline that inhibits bacterial protein synthesis by binding to the 30S ribosomal subunit, and it has excellent intracellular and tissue penetration, which is critical for an organism that invades deep soft tissue. Ceftazidime is a third-generation cephalosporin that inhibits cell wall synthesis by binding to penicillin-binding proteins, and it has demonstrated reliable in vitro activity against V. vulnificus with low MICs. The combination has been shown in retrospective studies and case series to be superior to either agent alone, with lower mortality than alternative regimens. Alternative regimens include fluoroquinolone monotherapy (ciprofloxacin or levofloxacin) or doxycycline plus cefotaxime. However, antibiotics alone are insufficient. Immediate operative exploration with radical debridement of all necrotic skin, subcutaneous tissue, fascia, and muscle is essential. The surgeon must expose the entire extent of the infection, remove all non-viable tissue, and leave the wound open for reassessment and repeat debridement within 24 to 48 hours. Multiple repeat debridements are typically required. Amputation may be necessary if the infection cannot be controlled with local debridement. Aggressive ICU supportive care including volume resuscitation, vasopressors, blood product transfusion, and renal replacement therapy as needed is essential. The time from diagnosis to operative debridement is the single greatest determinant of survival: mortality increases approximately 2 percent per hour of delay.",
+    },
+    {
+      id: "E",
+      label:
+        "Clindamycin 900 mg intravenously every 8 hours plus penicillin G 4 million units intravenously every 4 hours, with immediate fasciotomy and decompression of all involved compartments",
+      feedback:
+        "Incorrect. Clindamycin plus penicillin G is the classic regimen for clostridial myonecrosis (gas gangrene) and group A streptococcal necrotizing fasciitis. Clindamycin is included for its antitoxin effect — it suppresses bacterial protein synthesis and thereby reduces production of streptococcal exotoxins and clostridial alpha-toxin. Penicillin G targets the organism directly. This regimen has no reliable activity against V. vulnificus, a gram-negative rod that is inherently resistant to penicillin G and has variable susceptibility to clindamycin. While the emphasis on immediate surgical intervention is correct, the antibiotic choice is fundamentally wrong for this organism. The fasciotomy component is also somewhat misleading: while compartment release may be needed, the primary surgical intervention for V. vulnificus necrotizing fasciitis is radical debridement of necrotic tissue, not fasciotomy for compartment syndrome alone.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Vibrio vulnificus</em> is a halophilic, gram-negative, curved rod found in warm coastal and estuarine waters worldwide. It is a member of the family Vibrionaceae and is closely related to <em>V. cholerae</em> and <em>V. parahaemolyticus</em>. Unlike <em>V. cholerae</em>, which is primarily a gastrointestinal pathogen, <em>V. vulnificus</em> causes invasive disease — wound infections and primary septicemia — with mortality rates among the highest of any bacterial infection.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The organism is strictly halophilic, requiring sodium ions for growth, membrane transport, flagellar motility, and optimal enzyme function. It grows optimally at NaCl concentrations of 1 to 3 percent and water temperatures above 20 C, which explains its geographic distribution along the Gulf Coast, Atlantic seaboard, and warm-water coastlines worldwide, particularly during summer months. In the laboratory, V. vulnificus grows on blood agar but typically fails to grow on standard MacConkey agar, which contains insufficient NaCl. The selective medium of choice is TCBS (thiosulfate-citrate-bile salts-sucrose) agar, where V. vulnificus appears as green (sucrose-negative) colonies, distinguishing it from V. cholerae and V. alginolyticus (yellow, sucrose-positive).
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The association between iron overload and catastrophic V. vulnificus infection is one of the most striking examples of a specific host-pathogen metabolic interaction in clinical infectious diseases. Under normal physiologic conditions, serum iron is tightly bound to transferrin, which is typically 25 to 35 percent saturated. This tight binding keeps free iron at concentrations that are bacteriostatic — most bacteria cannot acquire enough iron from transferrin to support rapid growth. In hereditary hemochromatosis, transferrin saturation exceeds 70 to 90 percent, and the excess iron circulates as non-transferrin-bound iron (NTBI), loosely associated with citrate, albumin, and other low-affinity ligands.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    V. vulnificus is uniquely equipped to exploit this freely available iron through three iron acquisition systems: (1) the siderophore vulnibactin, which chelates ferric iron and delivers it to the bacterium via the receptor VuuA; (2) the heme uptake system HupA, which acquires iron from hemoglobin and heme; and (3) direct ferrous iron uptake via the Feo system. These systems are regulated by the ferric uptake regulator (Fur), an iron-sensing transcription factor. When intracellular iron is abundant — as it rapidly becomes in hemochromatosis — Fur-Fe complexes repress iron acquisition genes and derepress virulence genes, including those encoding the cytolysin VvhA, extracellular proteases, and the polysaccharide capsule. The result is that in iron-overloaded hosts, V. vulnificus grows 100 to 1,000 times faster than in normal serum, expresses maximal virulence from the outset of infection, and is more resistant to complement-mediated killing. This iron-fueled virulence explosion explains why hemochromatosis patients develop fulminant septicemia and necrotizing fasciitis within 24 to 48 hours of inoculation, while immunocompetent individuals with normal iron status typically experience only mild, self-limited wound infections.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The characteristic hemorrhagic bullae seen in V. vulnificus soft-tissue infection result from the combined effects of multiple virulence factors acting on the cutaneous vasculature and subcutaneous tissue. The cytolysin VvhA is a 56-kDa pore-forming toxin that inserts into cholesterol-containing membranes of endothelial cells and erythrocytes, causing cell lysis, vascular injury, and hemorrhage. Extracellular proteases (including VvpE, a metalloprotease) degrade collagen, elastin, and basement membrane components, destroying tissue planes and facilitating bacterial spread through fascial layers. Lipopolysaccharide endotoxin activates Toll-like receptor 4 on innate immune cells, triggering massive release of TNF-alpha, IL-1, and IL-6, which produce vasculitis, thrombosis of small dermal blood vessels, and hemorrhagic necrosis of the overlying skin. The combination of direct endothelial destruction, proteolytic tissue invasion, and endotoxin-driven vasculitis produces the pathognomonic clinical picture of violaceous discoloration with hemorrhagic bullae.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires two simultaneous interventions: antimicrobial therapy and immediate surgical debridement. The antibiotic regimen of choice is doxycycline (100 mg IV every 12 hours) plus ceftazidime (2 g IV every 8 hours) or cefotaxime (2 g IV every 8 hours). This combination provides synergistic bactericidal activity, with doxycycline inhibiting protein synthesis and achieving excellent tissue penetration, and ceftazidime inhibiting cell wall synthesis with proven activity against V. vulnificus. Alternative regimens include fluoroquinolone monotherapy (ciprofloxacin 400 mg IV every 12 hours or levofloxacin 750 mg IV daily). Surgical debridement must be performed immediately — the time from diagnosis to operative intervention is the single greatest determinant of survival, with mortality increasing approximately 2 percent per hour of delay. All necrotic tissue must be excised, and planned re-exploration with repeat debridement at 24 to 48 hours is standard. Amputation may be necessary when infection cannot be controlled with local debridement. Aggressive supportive care in an intensive care unit setting, including volume resuscitation, vasopressor support, blood product transfusion, and renal replacement therapy, is essential. Despite optimal management, mortality for V. vulnificus necrotizing fasciitis with septic shock ranges from 30 to 50 percent.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-vibrio-vulnificus-necrotizing-fasciitis-q4">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Hemochromatosis and iron overload increase V. vulnificus septicemia risk 80-100 fold via siderophore (vulnibactin) and heme uptake (HupA) systems that exploit non-transferrin-bound iron for accelerated growth and virulence factor expression.
+    </li>
+    <li>
+      V. vulnificus is halophilic — requires NaCl for growth and will not grow on standard MacConkey; TCBS agar (green sucrose-negative colonies) is the selective medium.
+    </li>
+    <li>
+      Hemorrhagic bullae are the clinical hallmark, caused by cytolysin VvhA (endothelial pore formation) + extracellular proteases (tissue plane destruction) + LPS-driven vasculitis and microvascular thrombosis.
+    </li>
+    <li>
+      Treatment is doxycycline + ceftazidime (or cefotaxime) plus immediate radical surgical debridement — mortality increases approximately 2 percent per hour of surgical delay.
+    </li>
+    <li>
+      Curved gram-negative rods + warm saltwater exposure + iron overload state = V. vulnificus necrotizing infection until proven otherwise; the Ferric uptake regulator (Fur) links iron sensing to virulence gene activation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Oliver JD. Wound infections caused by <em>Vibrio vulnificus</em> and other marine bacteria. <em>Epidemiology and Infection</em>. 2005;133(3):383-391.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1017/S0950268805003894"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1017/S0950268805003894
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hor LI, Chang TT, Wang ST. Survival of <em>Vibrio vulnificus</em> in whole blood from patients with hemochromatosis: implication for pathogenesis. <em>Journal of Infectious Diseases</em>. 1999;180(6):1951-1956.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/315153"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/315153
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Liu JW, Lee IK, Tang HJ, et al. Prognostic factors and antibiotics in <em>Vibrio vulnificus</em> septicemia. <em>Archives of Internal Medicine</em>. 2006;166(19):2117-2123.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/archinte.166.19.2117"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/archinte.166.19.2117
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Yun NR, Kim DM. <em>Vibrio vulnificus</em> infection: a persistent threat to public health. <em>Korean Journal of Internal Medicine</em>. 2018;33(6):1070-1078.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3904/kjim.2018.159"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3904/kjim.2018.159
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Webster AC, Gottfried E, Bopp C. <em>Vibrio vulnificus</em> wound infections from the Mississippi Gulf Coastal waters. <em>Journal of Clinical Microbiology</em>. 1991;29(10):2323-2325.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/jcm.29.10.2323-2325.1991"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/jcm.29.10.2323-2325.1991
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
