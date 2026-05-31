@@ -97,36 +97,36 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
 <CaseQuestion
   pollId="case-whipple-endocarditis-q1"
   title="Question 1"
-  prompt="Based on the clinical presentation of culture-negative endocarditis, a five-year history of seronegative polyarthralgias, and PAS-positive, diastase-resistant foamy macrophages on duodenal biopsy, which of the following organisms is most likely responsible for this patient's endocarditis?"
+  prompt="What is the most likely diagnosis?"
   options={[
     {
       id: "A",
-      label: "Coxiella burnetii",
+      label: "Q fever endocarditis",
       feedback:
         "Incorrect. Coxiella burnetii (the causative agent of Q fever) is an important cause of culture-negative endocarditis that should be on the differential. It preferentially infects previously damaged or prosthetic valves and is classically associated with a history of animal exposure — particularly parturient cats, cattle, sheep, or goats. However, C. burnetii does not produce PAS-positive macrophages in intestinal or valve tissue. The histopathology in chronic Q fever endocarditis typically shows necrotizing granulomatous inflammation or fibrinous vegetations without the characteristic foamy, PAS-positive macrophages seen here. Diagnosis of Q fever endocarditis relies on phase I and phase II antibody titers, not on PAS staining. This patient also lacks the typical epidemiologic exposure history.",
     },
     {
       id: "B",
-      label: "Tropheryma whipplei",
+      label: "Whipple's endocarditis",
       correct: true,
       feedback:
         "Correct. The combination of culture-negative endocarditis, a years-long history of seronegative polyarthralgias preceding the cardiac presentation, and PAS-positive, diastase-resistant foamy macrophages on duodenal biopsy is the pathognomonic triad of Tropheryma whipplei infection with endocarditis. T. whipplei is a gram-positive actinomycete that cannot be cultured on routine microbiologic media. The organism resides intracellularly within macrophages, where it appears as PAS-positive, diastase-resistant granular material on histopathology. This is one of the most specific histologic findings in clinical infectious diseases — PAS-positive, diastase-resistant macrophages in the lamina propria of the small intestine in the right clinical context essentially clinch the diagnosis before molecular confirmation arrives. The five-year history of seronegative polyarthralgias is a critical clue: arthralgias precede the onset of cardiac or gastrointestinal manifestations by a median of six years in classic Whipple's disease, and they are present in up to 75% of patients with T. whipplei endocarditis. The chronic diarrhea and the pale, yellow-white patches seen on endoscopy further support intestinal involvement, which is the classic tissue tropism of this organism. The expanded villi and foamy macrophages in the lamina propria are the histopathologic signature of intestinal Whipple's disease.",
     },
     {
       id: "C",
-      label: "Bartonella henselae",
+      label: "Bartonella endocarditis",
       feedback:
         "Incorrect. Bartonella species (particularly B. henselae and B. quintana) are well-known causes of culture-negative endocarditis, especially in homeless or alcoholic patients. B. henselae is associated with cat exposure and cat fleas, while B. quintana is transmitted by the human body louse. On histopathology, Bartonella endocarditis shows vegetations with necrotic debris and an inflammatory infiltrate, and the organisms can be visualized with Warthin-Starry silver stain as small, pleomorphic, curved bacilli — not as PAS-positive foamy macrophages. This patient has no cat exposure, no louse exposure, and the histopathology does not match. Serology and PCR from valve tissue are used for Bartonella diagnosis.",
     },
     {
       id: "D",
-      label: "A HACEK organism (e.g., Cardiobacterium hominis)",
+      label: "HACEK endocarditis",
       feedback:
         "Incorrect. The HACEK group (Haemophilus species, Aggregatibacter species, Cardiobacterium hominis, Eikenella corrodens, Kingella kingae) are fastidious gram-negative organisms that cause culture-negative endocarditis. However, they do grow in standard blood culture media with prolonged incubation — typically flagging positive within five to seven days — and the six negative culture sets over five days in this case make HACEK organisms less likely. Furthermore, HACEK endocarditis does not produce PAS-positive foamy macrophages on histopathology. The organisms are small gram-negative rods or coccobacilli that can be seen on Gram stain of valve tissue, unlike this case where the Gram stain was negative. The five-year history of polyarthralgias is also not a feature of HACEK endocarditis.",
     },
     {
       id: "E",
-      label: "Abiotrophia defectiva",
+      label: "Abiotrophia defectiva endocarditis",
       feedback:
         "Incorrect. Abiotrophia and Granulicatella species (formerly nutritionally variant streptococci) are a recognized cause of culture-negative endocarditis. They fail to grow on standard blood agar unless supplemented with pyridoxal (vitamin B6) or when streaked adjacent to other bacteria that provide the necessary growth factors (satellite phenomenon). However, they are gram-positive cocci in pairs and chains that would be visible on Gram stain of valve tissue, not associated with PAS-positive foamy macrophages. The clinical presentation — seronegative polyarthralgias for years, chronic diarrhea, and the specific histopathology — does not fit Abiotrophia. Furthermore, these organisms typically grow in blood culture bottles with extended incubation.",
     },
@@ -140,7 +140,7 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
 <CaseQuestion
   pollId="case-whipple-endocarditis-q2"
   title="Question 2"
-  prompt="The histopathology is highly suggestive of Tropheryma whipplei infection. Which of the following is the most appropriate next diagnostic test to confirm the etiology of this patient's endocarditis?"
+  prompt="What is the best test to confirm the diagnosis?"
   options={[
     {
       id: "A",
@@ -183,7 +183,50 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
 <CaseQuestion
   pollId="case-whipple-endocarditis-q3"
   title="Question 3"
-  prompt="16S rRNA PCR from the duodenal biopsy confirms Tropheryma whipplei. The patient is started on intravenous ceftriaxone 2 g every 24 hours for two weeks as induction therapy. Which of the following is the most appropriate long-term oral maintenance regimen?"
+  prompt="What is the best initial treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Oral doxycycline plus hydroxychloroquine alone",
+      feedback:
+        "Incorrect. Doxycycline plus hydroxychloroquine is the preferred long-term oral maintenance regimen, but it is not the usual first step in a patient with active Whipple's endocarditis. Initial therapy should begin with an intravenous induction phase to rapidly reduce organism burden in invasive disease before transitioning to oral maintenance.",
+    },
+    {
+      id: "B",
+      label: "Intravenous ceftriaxone for 2 weeks",
+      correct: true,
+      feedback:
+        "Correct. The standard initial treatment for Whipple's disease with endocarditis is intravenous induction therapy, most commonly ceftriaxone 2 g daily for 2 weeks, with meropenem as an alternative. This is then followed by prolonged oral maintenance therapy. The induction phase is used because this is invasive systemic disease, not isolated luminal infection.",
+    },
+    {
+      id: "C",
+      label: "Intravenous vancomycin plus gentamicin for 6 weeks",
+      feedback:
+        "Incorrect. This is a reasonable empiric regimen for some cases of culture-positive gram-positive endocarditis, but it is not the directed initial treatment for confirmed Tropheryma whipplei infection. Once Whipple's disease is diagnosed, therapy should shift to ceftriaxone or meropenem induction rather than conventional empiric native-valve endocarditis regimens.",
+    },
+    {
+      id: "D",
+      label: "Oral trimethoprim-sulfamethoxazole alone",
+      feedback:
+        "Incorrect. TMP-SMX has been used historically as maintenance therapy, but oral therapy alone is not the best initial treatment for invasive Whipple's disease presenting with endocarditis. The preferred approach begins with an intravenous induction phase before any oral step-down regimen.",
+    },
+    {
+      id: "E",
+      label: "No treatment until valve tissue PCR is available",
+      feedback:
+        "Incorrect. The diagnosis has already been established from the duodenal biopsy. Waiting for a surgical specimen would unnecessarily delay therapy in a patient with active endocarditis. Treatment should begin promptly once the organism is identified.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-whipple-endocarditis-q4"
+  title="Question 4"
+  prompt="What is the best oral maintenance regimen?"
   options={[
     {
       id: "A",
@@ -202,7 +245,7 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
       label: "Doxycycline 100 mg twice daily plus hydroxychloroquine 200 mg three times daily for at least 12 months",
       correct: true,
       feedback:
-        "Correct. The combination of oral doxycycline plus hydroxychloroquine for at least 12 months is the recommended long-term maintenance regimen for Whipple's disease, as established by the Marseille group led by Raoult and colleagues. The rationale for this combination is elegant and mechanistically grounded. T. whipplei is an intracellular pathogen that survives and replicates within macrophage phagolysosomes. These compartments maintain an acidic pH (approximately 4.5 to 5.0), which impairs the activity of doxycycline — an antibiotic whose bacteriostatic effect depends on the local pH being near neutral. Hydroxychloroquine is a lysosomotropic weak base that accumulates within acidic intracellular compartments and raises their pH toward neutrality. By alkalinizing the phagolysosome, hydroxychloroquine creates an environment in which doxycycline can effectively inhibit T. whipplei protein synthesis. This synergistic combination has demonstrated superior outcomes compared to TMP-SMX in the treatment of Whipple's disease, with lower relapse rates and better tolerance. The minimum treatment duration is 12 months, though some authorities recommend extending therapy to 18 to 24 months depending on clinical response and the extent of disease. IV ceftriaxone or meropenem induction for the first two weeks addresses the initial bacteremic burden before transitioning to the oral maintenance phase.",
+        "Correct. The combination of oral doxycycline plus hydroxychloroquine for at least 12 months is the recommended long-term maintenance regimen for Whipple's disease, as established by the Marseille group led by Raoult and colleagues. The rationale for this combination is elegant and mechanistically grounded. T. whipplei is an intracellular pathogen that survives and replicates within macrophage phagolysosomes. These compartments maintain an acidic pH (approximately 4.5 to 5.0), which impairs the activity of doxycycline — an antibiotic whose bacteriostatic effect depends on the local pH being near neutral. Hydroxychloroquine is a lysosomotropic weak base that accumulates within acidic intracellular compartments and raises their pH toward neutrality. By alkalinizing the phagolysosome, hydroxychloroquine creates an environment in which doxycycline can effectively inhibit T. whipplei protein synthesis. This synergistic combination has demonstrated superior outcomes compared to TMP-SMX in the treatment of Whipple's disease, with lower relapse rates and better tolerance. The minimum treatment duration is 12 months, though some authorities recommend extending therapy to 18 to 24 months depending on clinical response and the extent of disease.",
     },
     {
       id: "D",
@@ -214,7 +257,7 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
       id: "E",
       label: "Amoxicillin 500 mg three times daily for 12 months",
       feedback:
-        "Incorrect. While beta-lactams such as penicillin G and amoxicillin have been used historically in the treatment of Whipple's disease — and IV ceftriaxone is used for induction therapy — oral amoxicillin monotherapy is not an appropriate long-term maintenance regimen. Beta-lactams are primarily active against extracellular bacteria and have limited efficacy against intracellular pathogens like T. whipplei that reside within the protected phagolysosomal compartment. Oral amoxicillin would not achieve adequate intracellular concentrations to eradicate the organism and would not address the phagolysosomal pH barrier. The rationale for IV ceftriaxone during induction is to rapidly reduce the bacterial burden during the acute phase, but maintenance therapy requires an oral regimen that can penetrate the intracellular niche — which is precisely what the doxycycline-hydroxychloroquine combination accomplishes.",
+        "Incorrect. While beta-lactams such as penicillin G and amoxicillin have been used historically in the treatment of Whipple's disease — and IV ceftriaxone is used for induction therapy — oral amoxicillin monotherapy is not an appropriate long-term maintenance regimen. Beta-lactams are primarily active against extracellular bacteria and have limited efficacy against intracellular pathogens like T. whipplei that reside within the protected phagolysosomal compartment. Oral amoxicillin would not achieve adequate intracellular concentrations to eradicate the organism and would not address the phagolysosomal pH barrier.",
     },
   ]}
 />
@@ -223,7 +266,7 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
 <hr className="border-gray-200" />
 <div className="my-6" />
 
-<CaseReveal pollId="case-whipple-endocarditis-q3">
+<CaseReveal pollId="case-whipple-endocarditis-q4">
 <h2 className="text-2xl font-bold text-gray-900 mb-6">
   Rationale
 </h2>
@@ -316,7 +359,7 @@ export const metadata = buildCaseMetadata("whipple-endocarditis");
 <div className="my-12" />
 </CaseReveal>
 
-<CaseReveal pollId="case-whipple-endocarditis-q3">
+<CaseReveal pollId="case-whipple-endocarditis-q4">
 <h2 className="text-2xl font-bold text-gray-900 mb-6">
   Teaching Points
 </h2>
