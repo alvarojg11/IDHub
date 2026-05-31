@@ -55,10 +55,15 @@ export const BASE_HARM_BY_MODULE: Record<
     unnecessaryTx: 8,
     evidence: { short: "Cortes-Penfield et al. Clin Infect Dis", url: "https://doi.org/10.1093/cid/ciac992" },
   },
-  inv_mold: {
+  inv_aspergillosis: {
     missedDx: 18,
     unnecessaryTx: 9,
     evidence: { short: "Donnelly et al. Clin Infect Dis", url: "https://doi.org/10.1093/cid/ciz1008" },
+  },
+  inv_mucormycosis: {
+    missedDx: 22,
+    unnecessaryTx: 10,
+    evidence: { short: "Cornely et al. Lancet Infect Dis 2019", url: "https://doi.org/10.1016/S1473-3099(19)30312-3" },
   },
   inv_candida: {
     missedDx: 16,
@@ -176,7 +181,7 @@ export function estimateHarms(moduleId: string, states: Record<string, FindingSt
     }
   }
 
-  if (moduleId === "inv_mold") {
+  if (moduleId === "inv_aspergillosis") {
     if (has("imi_host_neutropenia_hsct") || has("imi_host_hematologic_malignancy")) {
       addMissedDxDriver(4, "High-risk mold host profile selected.", {
         short: "Donnelly et al. Clin Infect Dis",
@@ -184,13 +189,39 @@ export function estimateHarms(moduleId: string, states: Record<string, FindingSt
       });
     }
     if (
-      has("imi_mucorales_pcr_bal") ||
       has("imi_aspergillus_pcr_bal") ||
       has("imi_aspergillus_pcr_plasma") ||
       has("imi_aspergillus_culture_resp")
     ) {
-      addMissedDxDriver(2, "Specific mold microbiology selected.", {
-        short: "Aspergillus/Mucorales PCR studies",
+      addMissedDxDriver(2, "Specific Aspergillus microbiology selected.", {
+        short: "Aspergillus PCR/culture studies",
+      });
+    }
+  }
+
+  if (moduleId === "inv_mucormycosis") {
+    if (has("muc_host_neutropenia_hsct") || has("muc_host_hematologic_malignancy")) {
+      addMissedDxDriver(5, "Very high-risk mucormycosis host profile selected.", {
+        short: "Gouzien et al. Lancet Reg Health Eur 2024",
+        url: "https://doi.org/10.1016/j.lanepe.2024.101010",
+      });
+    }
+    if (has("muc_host_dka")) {
+      addMissedDxDriver(3, "Diabetes/DKA — major mucormycosis risk factor.", {
+        short: "Jeong et al. Clin Microbiol Infect 2019",
+        url: "https://doi.org/10.1016/j.cmi.2018.07.011",
+      });
+    }
+    if (has("muc_host_iron_overload")) {
+      addMissedDxDriver(3, "Iron overload/deferoxamine — key mucormycosis virulence mechanism.", {
+        short: "Ibrahim. Mycoses 2014",
+        url: "https://doi.org/10.1111/myc.12232",
+      });
+    }
+    if (has("muc_mucorales_pcr_bal") || has("muc_mucorales_pcr_blood")) {
+      addMissedDxDriver(2, "Positive Mucorales PCR selected.", {
+        short: "Brown et al. EClinicalMedicine 2025",
+        url: "https://doi.org/10.1016/j.eclinm.2025.103115",
       });
     }
   }

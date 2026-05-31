@@ -1,0 +1,472 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("whipple-endocarditis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Joint Pain Before the Murmur
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 54-year-old male carpenter is referred to the hospital by his primary
+    care physician for evaluation of six weeks of progressive fatigue,
+    low-grade fevers, drenching night sweats, and a 20-pound unintentional
+    weight loss. He describes worsening exertional dyspnea over the past
+    three weeks, now limiting him to one flight of stairs. For the past three
+    months he has also noticed intermittent watery diarrhea occurring three
+    to four times per week, which he attributed to dietary changes. He has
+    no recent travel, sick contacts, dental procedures, animal exposures,
+    or intravenous drug use.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    His past medical history is notable for a five-year history of
+    seronegative polyarthralgias affecting the knees, ankles, and wrists.
+    Rheumatoid factor and anti-CCP antibodies have been repeatedly negative.
+    He has been managed with ibuprofen and intermittent prednisone tapers,
+    the most recent completed six months ago. He underwent colonoscopy two
+    years ago for the diarrhea workup, which was unremarkable. His only
+    other medication is omeprazole. He drinks alcohol occasionally and does
+    not smoke.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is febrile to 38.3&#176;C, heart rate 92 bpm, blood
+    pressure 132/78 mmHg, respiratory rate 20 breaths per minute, and
+    oxygen saturation 96% on room air. He appears chronically ill with
+    temporal wasting. Cardiac auscultation reveals a new harsh diastolic
+    murmur radiating to the right sternal border, best heard at the right
+    second intercostal space. Conjunctival petechiae are present bilaterally.
+    Splinter hemorrhages are noted on the left thumbnail and right index
+    fingernail. The abdomen is soft and non-tender with no
+    hepatosplenomegaly. There is no peripheral edema. Examination of the
+    joints reveals mild bogginess and tenderness of both knees and the
+    right wrist without overt synovitis. The remainder of the examination
+    is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 11,400/&#956;L with 74% neutrophils.
+    Hemoglobin is 10.8 g/dL with a mean corpuscular volume of 84 fL.
+    Platelet count is 310,000/&#956;L. ESR is 68 mm/hr and CRP is 54 mg/L.
+    Basic metabolic panel and liver function tests are within normal limits.
+    Six sets of blood cultures are drawn from separate peripheral sites
+    over five days — all are negative at five days of incubation.
+    Transthoracic echocardiography demonstrates a 1.4 cm mobile
+    echodense mass on the aortic valve with moderate aortic regurgitation.
+    Given the combination of culture-negative endocarditis, chronic
+    diarrhea, and years of seronegative polyarthralgias, the team
+    pursues additional diagnostic workup. Upper endoscopy with duodenal
+    biopsies is performed. The duodenal mucosa appears mildly edematous
+    with pale, yellow-white patches but no frank ulceration.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Histopathologic examination of the duodenal biopsies reveals
+    numerous foamy macrophages filling the lamina propria and expanding
+    the villi. Periodic acid-Schiff staining demonstrates abundant
+    PAS-positive, diastase-resistant granular material within these
+    macrophages. No acid-fast organisms are seen. Gram stain of the
+    tissue is negative.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/whipple-endocarditis/pas-stain.png"
+        alt="PAS stain of duodenal biopsy demonstrating foamy macrophages in the lamina propria filled with PAS-positive, diastase-resistant granular material"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      PAS stain of duodenal biopsy: foamy macrophages in the lamina
+      propria distended with PAS-positive, diastase-resistant intracellular
+      granular material.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-whipple-endocarditis-q1"
+  title="Question 1"
+  prompt="Based on the clinical presentation of culture-negative endocarditis, a five-year history of seronegative polyarthralgias, and PAS-positive, diastase-resistant foamy macrophages on duodenal biopsy, which of the following organisms is most likely responsible for this patient's endocarditis?"
+  options={[
+    {
+      id: "A",
+      label: "Coxiella burnetii",
+      feedback:
+        "Incorrect. Coxiella burnetii (the causative agent of Q fever) is an important cause of culture-negative endocarditis that should be on the differential. It preferentially infects previously damaged or prosthetic valves and is classically associated with a history of animal exposure — particularly parturient cats, cattle, sheep, or goats. However, C. burnetii does not produce PAS-positive macrophages in intestinal or valve tissue. The histopathology in chronic Q fever endocarditis typically shows necrotizing granulomatous inflammation or fibrinous vegetations without the characteristic foamy, PAS-positive macrophages seen here. Diagnosis of Q fever endocarditis relies on phase I and phase II antibody titers, not on PAS staining. This patient also lacks the typical epidemiologic exposure history.",
+    },
+    {
+      id: "B",
+      label: "Tropheryma whipplei",
+      correct: true,
+      feedback:
+        "Correct. The combination of culture-negative endocarditis, a years-long history of seronegative polyarthralgias preceding the cardiac presentation, and PAS-positive, diastase-resistant foamy macrophages on duodenal biopsy is the pathognomonic triad of Tropheryma whipplei infection with endocarditis. T. whipplei is a gram-positive actinomycete that cannot be cultured on routine microbiologic media. The organism resides intracellularly within macrophages, where it appears as PAS-positive, diastase-resistant granular material on histopathology. This is one of the most specific histologic findings in clinical infectious diseases — PAS-positive, diastase-resistant macrophages in the lamina propria of the small intestine in the right clinical context essentially clinch the diagnosis before molecular confirmation arrives. The five-year history of seronegative polyarthralgias is a critical clue: arthralgias precede the onset of cardiac or gastrointestinal manifestations by a median of six years in classic Whipple's disease, and they are present in up to 75% of patients with T. whipplei endocarditis. The chronic diarrhea and the pale, yellow-white patches seen on endoscopy further support intestinal involvement, which is the classic tissue tropism of this organism. The expanded villi and foamy macrophages in the lamina propria are the histopathologic signature of intestinal Whipple's disease.",
+    },
+    {
+      id: "C",
+      label: "Bartonella henselae",
+      feedback:
+        "Incorrect. Bartonella species (particularly B. henselae and B. quintana) are well-known causes of culture-negative endocarditis, especially in homeless or alcoholic patients. B. henselae is associated with cat exposure and cat fleas, while B. quintana is transmitted by the human body louse. On histopathology, Bartonella endocarditis shows vegetations with necrotic debris and an inflammatory infiltrate, and the organisms can be visualized with Warthin-Starry silver stain as small, pleomorphic, curved bacilli — not as PAS-positive foamy macrophages. This patient has no cat exposure, no louse exposure, and the histopathology does not match. Serology and PCR from valve tissue are used for Bartonella diagnosis.",
+    },
+    {
+      id: "D",
+      label: "A HACEK organism (e.g., Cardiobacterium hominis)",
+      feedback:
+        "Incorrect. The HACEK group (Haemophilus species, Aggregatibacter species, Cardiobacterium hominis, Eikenella corrodens, Kingella kingae) are fastidious gram-negative organisms that cause culture-negative endocarditis. However, they do grow in standard blood culture media with prolonged incubation — typically flagging positive within five to seven days — and the six negative culture sets over five days in this case make HACEK organisms less likely. Furthermore, HACEK endocarditis does not produce PAS-positive foamy macrophages on histopathology. The organisms are small gram-negative rods or coccobacilli that can be seen on Gram stain of valve tissue, unlike this case where the Gram stain was negative. The five-year history of polyarthralgias is also not a feature of HACEK endocarditis.",
+    },
+    {
+      id: "E",
+      label: "Abiotrophia defectiva",
+      feedback:
+        "Incorrect. Abiotrophia and Granulicatella species (formerly nutritionally variant streptococci) are a recognized cause of culture-negative endocarditis. They fail to grow on standard blood agar unless supplemented with pyridoxal (vitamin B6) or when streaked adjacent to other bacteria that provide the necessary growth factors (satellite phenomenon). However, they are gram-positive cocci in pairs and chains that would be visible on Gram stain of valve tissue, not associated with PAS-positive foamy macrophages. The clinical presentation — seronegative polyarthralgias for years, chronic diarrhea, and the specific histopathology — does not fit Abiotrophia. Furthermore, these organisms typically grow in blood culture bottles with extended incubation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-whipple-endocarditis-q2"
+  title="Question 2"
+  prompt="The histopathology is highly suggestive of Tropheryma whipplei infection. Which of the following is the most appropriate next diagnostic test to confirm the etiology of this patient's endocarditis?"
+  options={[
+    {
+      id: "A",
+      label: "Coxiella burnetii phase I and phase II antibody titers",
+      feedback:
+        "Incorrect. While it is good practice to evaluate for multiple causes of culture-negative endocarditis simultaneously, Coxiella burnetii serology would not confirm a T. whipplei diagnosis. Q fever serology measures phase I and phase II antibody titers — elevated phase I IgG titers (typically greater than or equal to 1:800) suggest chronic Q fever endocarditis. This test would be negative in a patient with Whipple's endocarditis and would not address the diagnostic question at hand. The histopathology has already provided a strong presumptive diagnosis, and the confirmatory test should target the suspected organism directly.",
+    },
+    {
+      id: "B",
+      label: "16S ribosomal RNA gene PCR from the duodenal biopsy tissue",
+      correct: true,
+      feedback:
+        "Correct. Broad-range 16S ribosomal RNA gene polymerase chain reaction (PCR) performed directly on the duodenal biopsy tissue is the most appropriate confirmatory test. T. whipplei cannot be cultured on routine microbiologic media — it is an intracellular pathogen that requires specialized cell culture systems not available in most clinical laboratories. The 16S rRNA gene is present in all bacteria and contains both conserved and variable regions that allow species-level identification by comparing the amplified sequence against reference databases. In the context of culture-negative endocarditis with PAS-positive macrophages on duodenal biopsy, 16S rRNA PCR provides rapid, specific molecular confirmation of T. whipplei. Alternatively, T. whipplei-specific PCR targeting unique genomic sequences can be performed when the differential is narrow. Molecular methods have become the gold standard for diagnosing T. whipplei infections, as the organism was one of the first bacterial pathogens to be identified primarily through molecular techniques — it was originally characterized by 16S rRNA sequencing from clinical specimens before it could be cultured in the laboratory. The combination of PAS-positive macrophages on histopathology and molecular confirmation by PCR is considered diagnostic.",
+    },
+    {
+      id: "C",
+      label: "Culture of the valve tissue on buffered charcoal yeast extract (BCYE) agar",
+      feedback:
+        "Incorrect. BCYE agar is used to isolate Legionella species and certain other fastidious organisms. T. whipplei cannot be cultured on BCYE agar or any standard microbiologic media. While T. whipplei was eventually cultured in 2000 using human embryonic lung fibroblast (HEL) cell lines, this technique remains a research tool and is not available in clinical microbiology laboratories. The organism's requirement for intracellular growth conditions makes standard culture approaches futile. Attempting to culture T. whipplei from biopsy tissue would delay diagnosis and yield no useful information. The diagnostic approach must rely on molecular methods.",
+    },
+    {
+      id: "D",
+      label: "Warthin-Starry silver stain of the duodenal biopsy",
+      feedback:
+        "Incorrect. The Warthin-Starry silver stain is used to visualize spirochetes (Treponema, Borrelia, Leptospira), Bartonella species, and Helicobacter pylori in tissue sections. T. whipplei is not reliably visualized with the Warthin-Starry stain. The organism can sometimes be seen on electron microscopy as a rod-shaped bacillus within macrophages, but this is not a routine diagnostic approach. The PAS stain already performed in this case is the correct histologic stain for T. whipplei — PAS-positive, diastase-resistant macrophages are the hallmark. The next step is molecular confirmation by PCR, not an alternative histochemical stain.",
+    },
+    {
+      id: "E",
+      label: "Repeat blood cultures with extended incubation for 21 days",
+      feedback:
+        "Incorrect. Extended incubation of blood cultures is useful for detecting slow-growing organisms such as the HACEK group, Brucella species, and certain fungi. However, T. whipplei does not grow in standard blood culture media regardless of incubation duration. The organism is not merely slow-growing — it is an obligate intracellular pathogen that cannot replicate extracellularly in broth-based culture systems. Six sets of blood cultures were already negative over five days in this case, and repeating them with longer incubation would not change the result. The diagnosis requires a fundamentally different approach: molecular detection by PCR from infected tissue.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-whipple-endocarditis-q3"
+  title="Question 3"
+  prompt="16S rRNA PCR from the duodenal biopsy confirms Tropheryma whipplei. The patient is started on intravenous ceftriaxone 2 g every 24 hours for two weeks as induction therapy. Which of the following is the most appropriate long-term oral maintenance regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Trimethoprim-sulfamethoxazole one double-strength tablet twice daily for 6 months",
+      feedback:
+        "Incorrect on two counts. First, the duration is too short. Whipple's disease requires prolonged antimicrobial therapy — typically at least 12 months — because the organism persists intracellularly and relapse is common with shorter courses. Second, while trimethoprim-sulfamethoxazole (TMP-SMX) was historically the standard oral maintenance therapy for Whipple's disease and remains widely used, it has several limitations. TMP-SMX resistance has been documented in T. whipplei, and treatment failures and relapses have been reported despite prolonged courses. Additionally, TMP-SMX does not adequately penetrate the central nervous system in the setting of potential CNS involvement, and Whipple's disease can affect the brain even when it initially presents as endocarditis. A minimum of 12 months of therapy is required regardless of the oral agent chosen.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline 100 mg twice daily as monotherapy for 12 months",
+      feedback:
+        "Incorrect. Doxycycline monotherapy is not sufficient for T. whipplei infection. The organism resides within macrophage phagolysosomes — acidic intracellular compartments that impair the activity of doxycycline, whose antibacterial effect is pH-dependent and significantly reduced in acidic environments. Using doxycycline alone without an agent that modifies the phagolysosomal pH would leave the organism in a protected niche where the antibiotic cannot fully exert its effect. This is precisely why hydroxychloroquine — a weak base that alkalinizes the phagolysosome — must be co-administered. Doxycycline monotherapy has been associated with higher rates of relapse and treatment failure in Whipple's disease.",
+    },
+    {
+      id: "C",
+      label: "Doxycycline 100 mg twice daily plus hydroxychloroquine 200 mg three times daily for at least 12 months",
+      correct: true,
+      feedback:
+        "Correct. The combination of oral doxycycline plus hydroxychloroquine for at least 12 months is the recommended long-term maintenance regimen for Whipple's disease, as established by the Marseille group led by Raoult and colleagues. The rationale for this combination is elegant and mechanistically grounded. T. whipplei is an intracellular pathogen that survives and replicates within macrophage phagolysosomes. These compartments maintain an acidic pH (approximately 4.5 to 5.0), which impairs the activity of doxycycline — an antibiotic whose bacteriostatic effect depends on the local pH being near neutral. Hydroxychloroquine is a lysosomotropic weak base that accumulates within acidic intracellular compartments and raises their pH toward neutrality. By alkalinizing the phagolysosome, hydroxychloroquine creates an environment in which doxycycline can effectively inhibit T. whipplei protein synthesis. This synergistic combination has demonstrated superior outcomes compared to TMP-SMX in the treatment of Whipple's disease, with lower relapse rates and better tolerance. The minimum treatment duration is 12 months, though some authorities recommend extending therapy to 18 to 24 months depending on clinical response and the extent of disease. IV ceftriaxone or meropenem induction for the first two weeks addresses the initial bacteremic burden before transitioning to the oral maintenance phase.",
+    },
+    {
+      id: "D",
+      label: "Ciprofloxacin 500 mg twice daily for 12 months",
+      feedback:
+        "Incorrect. Fluoroquinolones such as ciprofloxacin have limited activity against T. whipplei and are not recommended as monotherapy for Whipple's disease. While the organism may show some in vitro susceptibility to certain fluoroquinolones, clinical experience with fluoroquinolone monotherapy is limited and has not demonstrated reliable efficacy. Ciprofloxacin does not address the intracellular phagolysosomal niche where the organism resides, and it lacks the alkalinization strategy that makes the doxycycline-hydroxychloroquine combination effective. Furthermore, ciprofloxacin has poor CNS penetration and would not protect against CNS relapse, which is a feared complication of inadequately treated Whipple's disease.",
+    },
+    {
+      id: "E",
+      label: "Amoxicillin 500 mg three times daily for 12 months",
+      feedback:
+        "Incorrect. While beta-lactams such as penicillin G and amoxicillin have been used historically in the treatment of Whipple's disease — and IV ceftriaxone is used for induction therapy — oral amoxicillin monotherapy is not an appropriate long-term maintenance regimen. Beta-lactams are primarily active against extracellular bacteria and have limited efficacy against intracellular pathogens like T. whipplei that reside within the protected phagolysosomal compartment. Oral amoxicillin would not achieve adequate intracellular concentrations to eradicate the organism and would not address the phagolysosomal pH barrier. The rationale for IV ceftriaxone during induction is to rapidly reduce the bacterial burden during the acute phase, but maintenance therapy requires an oral regimen that can penetrate the intracellular niche — which is precisely what the doxycycline-hydroxychloroquine combination accomplishes.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-whipple-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Whipple's disease is a rare, chronic, systemic infection caused by
+    <em> Tropheryma whipplei</em>, a gram-positive actinomycete first
+    identified by George Hoyt Whipple in 1907 when he described a
+    36-year-old physician with arthralgias, chronic diarrhea, and
+    mesenteric lymphadenopathy. The organism remained uncultured for
+    nearly a century until 2000, when Raoult and colleagues successfully
+    propagated it in human embryonic lung fibroblast cell lines. Molecular
+    characterization using 16S ribosomal RNA sequencing had previously
+    established its phylogenetic position within the
+    <em> Actinomycetia</em>, and the name <em>Tropheryma</em> reflects
+    this lineage — from the Greek <em>trophe</em> (nourishment) and
+    <em>eryma</em> (barrier), describing the tropism for nutrient-absorbing
+    tissues. The species name <em>whipplei</em> honors the original
+    observer.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Classic Whipple's disease presents as a triad of chronic diarrhea,
+    weight loss, and migratory polyarthralgias, but the clinical spectrum
+    has expanded substantially with the advent of molecular diagnostics.
+    Isolated endocarditis caused by <em>T. whipplei</em> — without overt
+    gastrointestinal manifestations — is increasingly recognized as a
+    distinct clinical entity. In the largest published series, 28 cases of
+    <em> T. whipplei</em> endocarditis diagnosed in Marseille, France were
+    compared with cases reported in the literature: the disease occurred
+    almost exclusively in men aged 40 to 80, of whom 75% had arthralgias
+    and only a minority had gastrointestinal symptoms at presentation.
+    The aortic valve was most commonly involved, and Duke criteria for
+    infective endocarditis were frequently insensitive before surgical
+    valve analysis, because blood cultures are invariably negative and
+    the clinical presentation lacks the typical microbiologic anchors
+    that satisfy the diagnostic criteria.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic approach to <em>T. whipplei</em> endocarditis reflects
+    the organism's unique biology. <em>T. whipplei</em> cannot be cultured
+    on routine microbiologic media — it is an obligate intracellular
+    pathogen that requires living eukaryotic cells for replication. Blood
+    cultures are universally negative, regardless of the number of sets
+    drawn or the duration of incubation. The histopathologic hallmark is
+    the presence of foamy macrophages distended with PAS-positive,
+    diastase-resistant granular material on tissue biopsy — classically
+    seen in the lamina propria of the small intestine, where the expanded
+    villi filled with organism-laden macrophages produce the pale,
+    yellow-white mucosal patches visible on endoscopy. The PAS positivity
+    reflects the abundant glycoprotein-rich bacterial cell wall material
+    within the macrophages, and diastase resistance distinguishes it from
+    glycogen. Molecular confirmation is achieved by 16S ribosomal RNA
+    PCR or <em>T. whipplei</em>-specific PCR performed on duodenal biopsy
+    tissue, valve tissue, saliva, stool, or other clinical specimens.
+    PCR from intestinal or valve tissue has the highest diagnostic yield.
+    Serum anti-<em>T. whipplei</em> antibodies are neither sensitive nor
+    specific enough for diagnostic use, as seroprevalence is high in
+    the general population and does not correlate with active disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment of Whipple's disease has evolved considerably. Early regimens
+    relied on prolonged courses of trimethoprim-sulfamethoxazole after IV
+    induction with ceftriaxone or penicillin G, based on the observation
+    that the organism was susceptible to sulfonamides in vitro. However,
+    TMP-SMX resistance, treatment failures, and CNS relapses prompted
+    the development of alternative strategies. The doxycycline-hydroxychloroquine
+    combination, pioneered by the Marseille group, exploits a specific
+    mechanistic vulnerability of the organism.
+    <em> T. whipplei</em> survives within macrophage phagolysosomes, which
+    maintain an acidic pH that impairs the activity of doxycycline.
+    Hydroxychloroquine, a lysosomotropic weak base, accumulates within
+    acidic intracellular compartments and raises the phagolysosomal pH
+    toward neutrality, restoring the antibacterial activity of doxycycline.
+    This pH-dependent synergy has been validated in both in vitro and
+    clinical studies. The recommended regimen consists of IV ceftriaxone
+    (or meropenem) for two weeks as induction, followed by oral
+    doxycycline 100 mg twice daily plus hydroxychloroquine 200 mg three
+    times daily for at least 12 months. Treatment should be prolonged to
+    18 to 24 months in patients with CNS involvement or extensive disease.
+    Without treatment, classic Whipple's disease is universally fatal.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-whipple-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Tropheryma whipplei</em> endocarditis is a cause of
+      culture-negative endocarditis that should be suspected in
+      middle-aged men with seronegative polyarthralgias and negative
+      blood cultures. Arthralgias precede cardiac and GI manifestations
+      by years.
+    </li>
+    <li>
+      PAS-positive, diastase-resistant foamy macrophages on small bowel
+      biopsy are the histopathologic hallmark of Whipple's disease. This
+      finding in the lamina propria is highly specific and should
+      immediately trigger molecular confirmation.
+    </li>
+    <li>
+      <em>T. whipplei</em> cannot be cultured on routine media. Diagnosis
+      relies on 16S rRNA PCR or <em>T. whipplei</em>-specific PCR from
+      infected tissue. Blood cultures are always negative regardless of
+      duration or number of sets.
+    </li>
+    <li>
+      The doxycycline-hydroxychloroquine combination works because
+      hydroxychloroquine alkalinizes the acidic phagolysosome where
+      <em> T. whipplei</em> resides, restoring the pH-dependent activity
+      of doxycycline. This is a mechanistically elegant example of
+      antibiotic-host cell synergy.
+    </li>
+    <li>
+      Treatment requires IV ceftriaxone induction for two weeks followed
+      by oral doxycycline plus hydroxychloroquine for at least 12 months.
+      Shorter courses carry a high risk of relapse. Untreated Whipple's
+      disease is fatal.
+    </li>
+    <li>
+      Duke criteria for infective endocarditis are frequently insensitive
+      for <em>T. whipplei</em> endocarditis because blood cultures are
+      always negative. Histopathology and molecular testing from
+      surgical specimens are the diagnostic anchors.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Fenollar F, C&#233;lard M, Lagier JC, Lepidi H, Fournier PE,
+      Raoult D. <em>Tropheryma whipplei</em> endocarditis.
+      <em> Emerging Infectious Diseases</em>. 2013;19(11):1721-1730.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3201/eid1911.121356"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3201/eid1911.121356
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Dolmans RA, Boel CH, Lacle MM, Kusters JG. Clinical manifestations,
+      treatment, and diagnosis of <em>Tropheryma whipplei</em> infections.
+      <em> Clinical Microbiology Reviews</em>. 2017;30(2):529-555.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00033-16"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.00033-16
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Boumaza A, Ben Azzouz E, Arrindell J, Lepidi H, Mezouar S,
+      Desnues B. Whipple's disease and <em>Tropheryma whipplei</em>
+      infections: from bench to bedside. <em>Lancet Infectious
+      Diseases</em>. 2022;22(10):e280-e291.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(22)00128-1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(22)00128-1
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Marth T, Moos V, M&#252;ller C, Biagi F, Schneider T.
+      <em> Tropheryma whipplei</em> infection and Whipple's disease.
+      <em> Lancet Infectious Diseases</em>. 2016;16(3):e13-e22.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(15)00537-X"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(15)00537-X
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      McGee M, Brienesse S, Chong B, Levendel A, Lai K.
+      <em> Tropheryma whipplei</em> endocarditis: case presentation and
+      review of the literature. <em>Open Forum Infectious Diseases</em>.
+      2018;6(1):ofy330.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/ofid/ofy330"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/ofid/ofy330
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

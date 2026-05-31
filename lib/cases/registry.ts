@@ -1227,6 +1227,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 67-year-old man with three weeks of fever, night sweats, and 15-pound weight loss has a new aortic valve vegetation and blood cultures growing gram-positive cocci in pairs and chains. The colonies are alpha-hemolytic, bile esculin-positive, and PYR-negative. What organism is this — and why does the answer change everything about his workup?",
     tags: { organisms: ["Streptococcus gallolyticus", "S. bovis/equinus group"], syndromes: ["Endocarditis", "Sepsis & Bacteremia", "GI & Hepatic"], concepts: ["Colorectal cancer screening", "Alpha-hemolysis", "Bile esculin-positive", "Pilus-mediated adhesion", "Gallo2179", "Taxonomy reclassification", "Penicillin susceptibility", "PYR-negative"] },
   },
+  {
+    title: "The Joint Pain Before the Murmur",
+    slug: "whipple-endocarditis",
+    description: "Culture-negative endocarditis, chronic arthralgias, and PAS-positive macrophages on valve tissue.",
+    enable: true,
+    ogImage: "/cases/whipple-endocarditis/pas-stain.png",
+    teaser: "A 54-year-old carpenter with five years of seronegative polyarthralgias develops culture-negative aortic valve endocarditis. Six sets of blood cultures are negative. Duodenal biopsy shows PAS-positive, diastase-resistant foamy macrophages in the lamina propria. What organism explains both the joints and the heart?",
+    tags: { organisms: ["Tropheryma whipplei"], syndromes: ["Endocarditis", "Culture-Negative Endocarditis", "Cardiovascular"], concepts: ["Culture-negative endocarditis", "PAS-positive macrophages", "16S rRNA PCR", "Doxycycline hydroxychloroquine", "Phagolysosome alkalinization", "Seronegative polyarthralgia", "Diastase-resistant"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

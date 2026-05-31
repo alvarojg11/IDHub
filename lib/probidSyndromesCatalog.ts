@@ -25,8 +25,15 @@ export const SYNDROME_GROUPS: SyndromeGroup[] = [
     label: "Bloodstream",
     syndromes: [
       { moduleId: "endo", label: "Endocarditis", shortDescription: "Infective endocarditis" },
+    ],
+  },
+  {
+    id: "invasive_fungal",
+    label: "Invasive Fungal",
+    syndromes: [
       { moduleId: "inv_candida", label: "Inv. Candida", shortDescription: "Invasive candidiasis" },
-      { moduleId: "inv_mold", label: "Inv. Mold", shortDescription: "Invasive mold infection" },
+      { moduleId: "inv_aspergillosis", label: "Inv. Aspergillosis", shortDescription: "Invasive aspergillosis" },
+      { moduleId: "inv_mucormycosis", label: "Mucormycosis", shortDescription: "Mucormycosis (Mucorales)" },
     ],
   },
   {

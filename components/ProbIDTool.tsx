@@ -115,14 +115,19 @@ function recommendationHeadline(moduleId: string, recommendation: "treat" | "tes
     if (recommendation === "observe") return "Watch without antibiotics";
     return "Not enough probability for antibiotics yet";
   }
-  if (moduleId !== "inv_mold") {
-    if (recommendation === "treat") return "Treatment is supported";
-    if (recommendation === "observe") return "Observe and reassess";
-    return "Get more diagnostic data";
+  if (moduleId === "inv_aspergillosis") {
+    if (recommendation === "treat") return "Start mold-active treatment";
+    if (recommendation === "observe") return "Aspergillus is less likely right now";
+    return "Keep aspergillosis on the differential";
   }
-  if (recommendation === "treat") return "Start mold-active treatment";
-  if (recommendation === "observe") return "Mold is less likely right now";
-  return "Keep mold on the differential";
+  if (moduleId === "inv_mucormycosis") {
+    if (recommendation === "treat") return "Start mucormycosis treatment";
+    if (recommendation === "observe") return "Mucormycosis is less likely right now";
+    return "Keep mucormycosis on the differential";
+  }
+  if (recommendation === "treat") return "Treatment is supported";
+  if (recommendation === "observe") return "Observe and reassess";
+  return "Get more diagnostic data";
 }
 
 function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
@@ -131,14 +136,19 @@ function recommendationDetail(moduleId: string, recommendation: "treat" | "test"
     if (recommendation === "test") return "The current probability is still below the CAP treatment threshold, so more data or reassessment makes more sense than empiric antibiotics.";
     return "Current data support monitoring rather than empiric antibiotics.";
   }
-  if (moduleId !== "inv_mold") {
-    if (recommendation === "treat") return "The current probability is high enough that treatment is reasonable now.";
-    if (recommendation === "test") return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
-    return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
+  if (moduleId === "inv_aspergillosis") {
+    if (recommendation === "treat") return "Invasive aspergillosis is concerning enough that empiric mold-active therapy is reasonable while the workup continues.";
+    if (recommendation === "test") return "Aspergillosis remains possible, but better microbiology or tissue confirmation would help before treating this as established disease.";
+    return "The current data do not strongly support invasive aspergillosis, so competing diagnoses should stay front and center.";
   }
-  if (recommendation === "treat") return "Invasive mold is concerning enough that empiric mold-active therapy is reasonable while the workup continues.";
-  if (recommendation === "test") return "Invasive mold remains possible, but better microbiology or tissue confirmation would help before treating this as established disease.";
-  return "The current data do not strongly support invasive mold, so competing diagnoses should stay front and center.";
+  if (moduleId === "inv_mucormycosis") {
+    if (recommendation === "treat") return "Mucormycosis is concerning enough that empiric treatment (liposomal amphotericin B ± surgical evaluation) is reasonable while the workup continues.";
+    if (recommendation === "test") return "Mucormycosis remains possible, but Mucorales PCR, tissue biopsy, or further imaging would help confirm before committing to treatment.";
+    return "The current data do not strongly support mucormycosis. Consider whether invasive aspergillosis or another diagnosis is more likely.";
+  }
+  if (recommendation === "treat") return "The current probability is high enough that treatment is reasonable now.";
+  if (recommendation === "test") return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
+  return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
 }
 
 export function ProbIDTool({ modules, defaultModuleId }: Props) {
@@ -204,7 +214,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     try {
       const p = JSON.parse(raw) as Record<string, unknown>;
       suppressModuleResetRef.current = true;
-      if (typeof p.moduleId === "string") setModuleId(p.moduleId);
+      if (typeof p.moduleId === "string") setModuleId(p.moduleId === "inv_mold" ? "inv_aspergillosis" : p.moduleId);
       if (typeof p.presetId === "string") setPresetId(p.presetId);
       setStates(toFindingStateMap(p.states));
       setClickOrder(toStringArray(p.clickOrder));

@@ -54,6 +54,8 @@ export const PINNED_BY_SYNDROME: Record<string, string[]> = {
   cdi: ["cdi_abx", "cdi_watery", "cdi_wbc15", "cdi_naat_pos", "cdi_test_neg"],
   uti: ["uti_dysuria", "uti_freq", "ua_le_pos", "ua_nit_pos", "ua_pyuria", "uti_cx_pos"],
   endo: ["endo_fever", "endo_murmur_new", "bcx_typical", "echo_veg", "echo_negative"],
+  inv_aspergillosis: ["imi_host_neutropenia_hsct", "imi_ct_halo_sign", "imi_serum_gm_odi10", "imi_bal_gm_odi10", "imi_aspergillus_pcr_bal"],
+  inv_mucormycosis: ["muc_host_neutropenia_hsct", "muc_host_dka", "muc_ct_reverse_halo", "muc_mucorales_pcr_bal", "muc_mucorales_pcr_blood"],
 };
 
 export function normalize(s: string) {
