@@ -1236,6 +1236,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 54-year-old carpenter with five years of seronegative polyarthralgias develops culture-negative aortic valve endocarditis. Six sets of blood cultures are negative. Duodenal biopsy shows PAS-positive, diastase-resistant foamy macrophages in the lamina propria. What organism explains both the joints and the heart?",
     tags: { organisms: ["Tropheryma whipplei"], syndromes: ["Endocarditis", "Culture-Negative Endocarditis", "Cardiovascular"], concepts: ["Culture-negative endocarditis", "PAS-positive macrophages", "16S rRNA PCR", "Doxycycline hydroxychloroquine", "Phagolysosome alkalinization", "Seronegative polyarthralgia", "Diastase-resistant"] },
   },
+  {
+    title: "Legs from the Bush",
+    slug: "african-tick-bite-fever",
+    description: "A safari traveler returns with fever, regional nodes, and multiple eschars on the legs.",
+    enable: true,
+    ogImage: "/cases/african-tick-bite-fever/eschar.jpg",
+    teaser: "A 34-year-old man returns from a South African safari with four days of fever, headache, myalgias, and three black-crusted lesions on his legs where he removed ticks. Malaria testing is negative, but tender inguinal nodes and multiple eschars narrow the field fast. What diagnosis fits, what test works best early, and how should he be treated?",
+    tags: { organisms: ["Rickettsia africae"], syndromes: ["Travel Medicine", "Vector-Borne", "Fever & Rash"], concepts: ["African tick-bite fever", "Multiple eschars", "Amblyomma tick", "Eschar swab PCR", "Doxycycline", "Safari exposure", "Regional lymphadenopathy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

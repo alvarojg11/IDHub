@@ -1,0 +1,381 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("african-tick-bite-fever");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Legs from the Bush
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old previously healthy man presents in late summer with four days of
+    fever, severe headache, myalgias, and profound fatigue that began two days after
+    returning from a 10-day safari in South Africa. He spent most of the trip hiking
+    through brush in Kruger and the surrounding game reserves while wearing shorts in
+    the heat. He recalls removing several ticks from his socks and calves during the
+    trip but did not seek medical attention because he felt well at the time.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two days before presentation he noticed three dark, tender spots on his lower
+    legs where he had removed ticks. Since then he has developed subjective fevers,
+    drenching sweats, neck stiffness without photophobia, and aching in the shoulders
+    and thighs. He denies cough, diarrhea, dysuria, or confusion. He took two doses
+    of atovaquone-proguanil that he had left over from a prior trip because he worried
+    this might be malaria, but his symptoms continued to worsen.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is ill-appearing but alert. Temperature is 38.8&#176;C, heart rate
+    104 bpm, blood pressure 118/72 mmHg, respiratory rate 18 breaths per minute, and
+    oxygen saturation 98% on room air. Three 1 cm necrotic inoculation eschars with
+    surrounding erythema are present over the right shin and left ankle. There is
+    tender right inguinal lymphadenopathy and a faint scattered papular eruption over
+    the trunk, sparing the palms and soles. No meningismus, conjunctivitis, or murmur
+    is present.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 5,100/&#956;L, platelet count 132,000/&#956;L, AST 68 U/L, ALT
+    61 U/L, and C-reactive protein 74 mg/L. Creatinine is normal. Thick and thin
+    smears for malaria are negative, and a rapid malaria antigen test is also
+    negative. Because the combination of safari exposure, fever, regional nodes, and
+    multiple eschars strongly suggests a spotted fever group rickettsiosis, the team
+    focuses on confirming the diagnosis without waiting for delayed serologic
+    conversion.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/african-tick-bite-fever/eschar.jpg"
+        alt="Necrotic eschar on the leg with a dark crusted center and surrounding erythema, typical of African tick-bite fever"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Typical inoculation eschar of African tick-bite fever on the lower extremity.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-african-tick-bite-fever-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Mediterranean spotted fever",
+      feedback:
+        "Incorrect. Mediterranean spotted fever caused by Rickettsia conorii belongs on the differential for a traveler returning from Africa with fever and an eschar. However, R. conorii more often causes a single eschar and a more prominent generalized rash, whereas African tick-bite fever classically presents with multiple eschars, regional lymphadenopathy, and a milder illness after rural safari exposure.",
+    },
+    {
+      id: "B",
+      label: "African tick-bite fever",
+      correct: true,
+      feedback:
+        "Correct. This is African tick-bite fever caused by Rickettsia africae, the most common spotted fever group rickettsiosis in travelers returning from sub-Saharan Africa. The clinical signature is fever after rural exposure with one or more inoculation eschars, tender regional lymph nodes, headache, myalgias, and often either no rash or only a faint one. Multiple eschars are a particularly useful clue because Amblyomma ticks readily bite more than once and are strongly associated with R. africae transmission.",
+    },
+    {
+      id: "C",
+      label: "Dengue fever",
+      feedback:
+        "Incorrect. Dengue can cause fever, myalgias, thrombocytopenia, and rash in a returning traveler, but it does not cause necrotic inoculation eschars or focal regional lymphadenopathy at tick bite sites. The clustered black crusted lesions on the legs point to an inoculation process rather than a mosquito-borne viremia.",
+    },
+    {
+      id: "D",
+      label: "Enteric fever",
+      feedback:
+        "Incorrect. Typhoid or paratyphoid fever may cause persistent fever, headache, and mild transaminitis after travel, but they do not produce eschars. The exam here is driven by cutaneous inoculation lesions and regional nodal findings, which are much more characteristic of a rickettsiosis.",
+    },
+    {
+      id: "E",
+      label: "Malaria",
+      feedback:
+        "Incorrect. Malaria must always be considered in a febrile traveler from sub-Saharan Africa, which is why the negative thick and thin smears matter. But malaria does not explain three necrotic eschars on the legs or localized inguinal adenopathy. The lesion pattern points away from parasitemia and toward a tick-borne spotted fever infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-african-tick-bite-fever-q2"
+  title="Question 2"
+  prompt="Which test is most sensitive in the first week?"
+  options={[
+    {
+      id: "A",
+      label: "Acute-phase indirect immunofluorescence serology",
+      feedback:
+        "Incorrect. Indirect immunofluorescence is the standard serologic test for spotted fever group rickettsioses, but acute-phase serology is often negative during the first week of illness. Antibodies commonly appear only later, which makes early treatment decisions based on serology unreliable.",
+    },
+    {
+      id: "B",
+      label: "PCR of an eschar swab",
+      correct: true,
+      feedback:
+        "Correct. PCR from an eschar swab is the most useful early confirmatory test because it samples the site where rickettsial burden is highest and can be obtained noninvasively. Several traveler series show that eschar swab or biopsy PCR can be positive when acute serology is still nonreactive, making it the best first-week diagnostic strategy when an inoculation lesion is present.",
+    },
+    {
+      id: "C",
+      label: "Whole-blood bacterial culture",
+      feedback:
+        "Incorrect. Rickettsiae are obligate intracellular organisms and do not grow on routine blood culture systems. Sending standard blood cultures may be reasonable to exclude other causes of fever, but it is not a sensitive way to diagnose African tick-bite fever.",
+    },
+    {
+      id: "D",
+      label: "Whole-blood PCR",
+      feedback:
+        "Incorrect. Whole-blood PCR may occasionally detect spotted fever group rickettsiae, but its sensitivity is lower than testing material from an eschar because circulating organism burden can be low. When an eschar is present, swabbing the lesion is the higher-yield first-week specimen.",
+    },
+    {
+      id: "E",
+      label: "Convalescent IgG serology in 3 weeks",
+      feedback:
+        "Incorrect. Convalescent serology is often helpful retrospectively because seroconversion confirms the diagnosis, but it is not useful for the question being asked here: what is most sensitive during the first week. By the time convalescent titers return, the treatment decision should have already been made.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-african-tick-bite-fever-q3"
+  title="Question 3"
+  prompt="What is the best treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Azithromycin 500 mg by mouth daily for 3 days",
+      feedback:
+        "Incorrect. Macrolides can be considered in selected patients who cannot take doxycycline, such as some pregnant patients or children when alternatives are needed, but they are not the preferred first-line therapy for uncomplicated African tick-bite fever in adults. Doxycycline remains the treatment of choice because clinical response is rapid and reliable.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline 100 mg by mouth twice daily for 7 days",
+      correct: true,
+      feedback:
+        "Correct. Doxycycline is first-line therapy for African tick-bite fever and should be started as soon as the syndrome is suspected rather than delayed for laboratory confirmation. Most patients improve quickly, often within 24 to 48 hours, and a 7-day course is a standard regimen for uncomplicated disease.",
+    },
+    {
+      id: "C",
+      label: "Ceftriaxone 2 g intravenously daily for 14 days",
+      feedback:
+        "Incorrect. Ceftriaxone may be used for many invasive bacterial infections in returning travelers, but it is not the preferred therapy for rickettsioses. Delaying doxycycline in favor of broad beta-lactam coverage is a common mistake when clinicians anchor on sepsis rather than the inoculation lesions.",
+    },
+    {
+      id: "D",
+      label: "Amoxicillin-clavulanate 875/125 mg by mouth twice daily for 10 days",
+      feedback:
+        "Incorrect. This would treat routine bacterial skin and soft tissue infection but not an obligate intracellular spotted fever group rickettsiosis. The eschars in African tick-bite fever are inoculation lesions, not standard pyogenic cellulitis requiring beta-lactam therapy.",
+    },
+    {
+      id: "E",
+      label: "No treatment until serology converts",
+      feedback:
+        "Incorrect. Waiting for seroconversion misses the central management principle of rickettsial disease: treat on clinical suspicion. Serology often lags behind symptoms, while early doxycycline shortens illness and helps prevent progression.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-african-tick-bite-fever-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    African tick-bite fever is a spotted fever group rickettsiosis caused by
+    <em> Rickettsia africae</em>, transmitted primarily by <em>Amblyomma hebraeum</em>
+    and <em>Amblyomma variegatum</em> ticks in sub-Saharan Africa and parts of the
+    Caribbean. Among travelers returning from southern Africa, it is one of the most
+    common causes of febrile illness after malaria. The disease usually follows rural
+    exposure rather than urban travel: game parks, brush, cattle fields, and safari
+    walking routes are classic settings.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The bedside clue is the eschar, often accompanied by regional lymphadenopathy,
+    headache, myalgias, and fever. Rash may be faint or absent, which is one reason
+    the diagnosis is missed. Multiple eschars are especially suggestive of
+    <em> R. africae</em> because <em>Amblyomma</em> ticks frequently bite more than once;
+    this feature helps separate African tick-bite fever from Mediterranean spotted
+    fever caused by <em>Rickettsia conorii</em>, which more often produces a solitary
+    tache noire and a more florid rash.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis in the first week is a practical problem because standard serology often
+    lags behind the illness. Indirect immunofluorescence may be negative early and
+    only become useful on convalescent testing. When an eschar is present, PCR of an
+    eschar swab or biopsy offers the best early yield because it samples the site of
+    direct inoculation. Traveler surveillance data show that acute serology can be
+    nonreactive even when eschar PCR is already positive, which is exactly why the
+    lesion itself should not be ignored.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is straightforward: doxycycline should be started as soon as the disease
+    is suspected. Most patients defervesce rapidly, often within 24 to 48 hours. The
+    illness is usually self-limited and less severe than some other rickettsioses, but
+    that relative mildness is not a reason to wait. In returning travelers, the right
+    move is often to treat presumptively while confirming the diagnosis with an eschar
+    specimen rather than waiting for the antibodies to catch up.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-african-tick-bite-fever-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>Rickettsia africae</em> is among the most common causes of fever in travelers
+      returning from rural sub-Saharan Africa.
+    </li>
+    <li>
+      Multiple eschars are a high-yield clue for African tick-bite fever and help
+      distinguish it from Mediterranean spotted fever.
+    </li>
+    <li>
+      Acute serology is often negative in the first week; PCR from an eschar swab or
+      biopsy is the best early confirmatory test.
+    </li>
+    <li>
+      <em>Amblyomma</em> ticks are the major vector and frequently bite more than once,
+      which explains the clustered leg lesions seen in many cases.
+    </li>
+    <li>
+      Doxycycline should be started on clinical suspicion rather than delayed for
+      serologic confirmation.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Jensenius M, Fournier PE, Kelly P, Myrvang B, Raoult D. African tick bite fever.
+      <em> Lancet Infectious Diseases</em>. 2003;3(9):557-564.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(03)00739-4"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(03)00739-4
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Frean J, Grayson W. South African tick bite fever: an overview.
+      <em> Dermatopathology</em>. 2019;6(2):70-76.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1159/000495475"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1159/000495475
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Silva-Ramos CR, Faccini-Martinez AA. Clinical, epidemiological, and laboratory
+      features of <em>Rickettsia africae</em> infection, African tick-bite fever: a
+      systematic review. <em>Le Infezioni in Medicina</em>. 2021;29(3):366-377.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.53854/liim-2903-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.53854/liim-2903-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Cherry CC, Denison AM, Kato CY, Thornton K, Paddock CD. Diagnosis of spotted
+      fever group rickettsioses in U.S. travelers returning from Africa, 2007-2016.
+      <em> American Journal of Tropical Medicine and Hygiene</em>. 2018;99(1):136-142.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4269/ajtmh.17-0882"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.4269/ajtmh.17-0882
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Harrison N, Burgmann H, Forstner C, et al. Molecular diagnosis of African tick
+      bite fever using eschar swabs in a traveller returning from Tanzania.
+      <em> Wiener Klinische Wochenschrift</em>. 2016;128(15-16):602-605.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s00508-016-1047-0"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s00508-016-1047-0
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
