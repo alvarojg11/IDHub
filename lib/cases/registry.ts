@@ -1242,7 +1242,7 @@ export const CASES: CaseMeta[] = [
     description: "A safari traveler returns with fever, regional nodes, and multiple eschars on the legs.",
     enable: true,
     ogImage: "/cases/african-tick-bite-fever/eschar.jpg",
-    teaser: "A 34-year-old man returns from a South African safari with four days of fever, headache, myalgias, and three black-crusted lesions on his legs where he removed ticks. Malaria testing is negative, but tender inguinal nodes and multiple eschars narrow the field fast. What diagnosis fits, what test works best early, and how should he be treated?",
+    teaser: "A 34-year-old man returns from a South African safari with four days of fever, headache, myalgias, and three black-crusted lesions on his legs after multiple insect bites. Malaria testing is negative, but tender inguinal nodes and the lesion pattern narrow the field fast. What diagnosis fits, what test works best early, and how should he be treated?",
     tags: { organisms: ["Rickettsia africae"], syndromes: ["Travel Medicine", "Vector-Borne", "Fever & Rash"], concepts: ["African tick-bite fever", "Multiple eschars", "Amblyomma tick", "Eschar swab PCR", "Doxycycline", "Safari exposure", "Regional lymphadenopathy"] },
   },
 ].filter((c) => c.enable !== false);
