@@ -1,0 +1,270 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-delayed-flight-that-found-a-virus",
+  title: "The Delayed Flight That Found a Virus",
+  description:
+    "In 1964, Anthony Epstein, Yvonne Barr, and Bert Achong found the first human cancer virus — after a fog-diverted flight accidentally solved the cell culture problem that had stalled them for years.",
+  publishedAt: "2026-06-01",
+  historicalDateLabel: "1961–1964",
+  historicalYearSort: 1964,
+  categories: ["organisms", "people-illness"],
+  tags: [
+    "Epstein-Barr virus",
+    "EBV",
+    "Anthony Epstein",
+    "Yvonne Barr",
+    "Bert Achong",
+    "Denis Burkitt",
+    "Burkitt lymphoma",
+    "oncogenic virus",
+    "tumor virology",
+    "herpesvirus",
+    "infectious mononucleosis",
+    "HHV-4",
+  ],
+  hook:
+    "Barr noticed that Epstein was throwing out cells that were still alive. Then a flight from Uganda got stuck in fog, and a sample that should have been ruined turned out to be exactly what they needed.",
+  takeaway:
+    "The discovery of EBV proved that viruses could cause human cancer. It also proved something simpler: sometimes the person who can keep cells alive matters as much as the person with the hypothesis.",
+  heroImage: "/historid/the-delayed-flight-that-found-a-virus/hero.jpg",
+  heroImageAlt:
+    "Electron micrograph showing three Epstein-Barr virus particles colorized pink.",
+  heroImageCredit: "NIAID",
+  heroImageSourceUrl:
+    "https://www.flickr.com/photos/niaid/53583885309/",
+  heroImageLicense: "Public domain via NIAID",
+  hookImageFit: "cover",
+  socialHeadline: "The Delayed Flight That Found a Virus",
+  socialDek:
+    "Years of failed cell cultures, a PhD student who spotted the error, and a foggy night that accidentally created the right conditions — the discovery of EBV in 1964.",
+  socialFacts: [
+    "Yvonne Barr joined Epstein's lab in 1963 and immediately saw he was discarding viable cells before they could establish in culture.",
+    "A flight from Uganda carrying Burkitt lymphoma samples was diverted to Manchester by fog; the delayed samples arrived cloudy — but the cloudiness was free-floating tumor cells, not bacteria.",
+    "Barr grew those cells into the first-ever human lymphocyte suspension culture, designated EB cells.",
+    "Bert Achong, an electron microscopist, captured the images; Epstein identified the herpesvirus-like particles. Their 1964 Lancet paper showed viral particles in a human tumor for the first time.",
+    "Barr went on to characterize the virus's morphology in a follow-up paper, earned her PhD in 1966, moved to Australia, couldn't find a research job, and spent the rest of her career teaching high school science.",
+  ],
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In 1961, a lecturer from Uganda stood before an audience in London and
+    showed a map. Denis Burkitt had been documenting aggressive jaw tumors in
+    African children — tumors that grew fast, killed young, and followed a
+    geographic belt that overlapped neatly with the malaria map. It looked
+    like the work of an infectious agent. In the audience sat Anthony Epstein,
+    a pathologist who had spent years studying cancer-causing viruses in
+    chickens. He walked out of that lecture with a new fixation: find the virus
+    behind Burkitt lymphoma.
+  </p>
+
+  <h2>Historical Scene</h2>
+  <p>
+    The early 1960s were not friendly to the idea that human cancers could be
+    viral. Animal tumor viruses were well established — Rous sarcoma virus in
+    chickens, Shope papillomavirus in rabbits — but the jump to humans felt
+    implausible to most cancer biologists. Epstein disagreed. He secured NIH
+    funding, established a collaboration with Burkitt to fly fresh tumor
+    biopsies from Kampala to London, and set to work. For two years, he tried
+    to culture the lymphoma cells. For two years, they died in the dish.
+  </p>
+  <p>
+    In 1963, Epstein used his grant to hire a research assistant. He chose
+    Yvonne Barr, an Irish zoologist who had graduated from Trinity College
+    Dublin and spent the intervening decade building an unusually strong set of
+    laboratory skills: cell culture work on the leprosy bacterium at the
+    National Institute for Medical Research in London, then viral work on
+    canine distemper at the University of Toronto. Epstein's second hire was
+    Bert Achong, a Trinidad-born electron microscopist with a reputation for
+    precision imaging. The three of them — the pathologist chasing a hunch, the
+    cell culture specialist, and the man behind the microscope — would form the
+    team that finally made the discovery.
+  </p>
+
+  <h2>What Happened</h2>
+  <p>
+    Barr saw the problem quickly. Epstein had been checking his cultures for
+    signs of growth and discarding anything that did not look obviously viable.
+    But Barr had spent years coaxing difficult cells to grow. She recognized
+    that the discarded material still contained living cells — they just needed
+    more time and gentler handling. Her cell culture methods gave the lymphoma
+    cells the conditions they needed to survive.
+  </p>
+  <p>
+    Then came the fog. On a winter night in December 1963, a flight from
+    Entebbe carrying fresh tumor biopsies was meant to land at Heathrow. Thick
+    fog over London forced a diversion to Manchester. By the time the samples
+    reached the Middlesex Hospital lab, the transport medium looked cloudy.
+    Everyone assumed bacteria had contaminated it — the sample was ruined.
+  </p>
+  <p>
+    Under the microscope, Barr saw something different. The cloudiness was not
+    bacteria. It was an enormous number of viable, free-floating lymphoma cells
+    — suspended in the fluid, alive, and dividing. The delay and the agitation
+    of the diverted journey had physically shaken tumor cells loose from the
+    tissue. It was an accident that produced what deliberate effort could not:
+    the first continuous suspension culture of human lymphocyte-derived cells.
+    They called it the EB cell line.
+  </p>
+  <p>
+    Achong prepared the cells for electron microscopy. In February 1964, the
+    images came back. Inside the cultured lymphoblasts, Epstein identified
+    particles with the unmistakable morphology of a herpesvirus — icosahedral
+    capsids, enveloped virions, roughly 120 nanometers across. No one had ever
+    seen viral particles in a human tumor before. The paper, "Virus particles
+    in cultured lymphoblasts from Burkitt's lymphoma," appeared in
+    <em>The Lancet</em> on March 28, 1964. Authors: Epstein, Achong, and Barr.
+  </p>
+  <p>
+    Barr continued the work. In 1965, she was a co-author on the follow-up
+    paper in <em>The Journal of Experimental Medicine</em> that characterized
+    the virus's morphology and biological properties in detail — the definitive
+    description of what was now being called Epstein-Barr virus. She received
+    her PhD from the University of London in 1966. That same year, she married,
+    moved to Australia, and applied for research positions. None materialized.
+    Yvonne Barr, the scientist whose cell culture expertise made the discovery
+    possible, spent the rest of her career teaching physics, biology,
+    chemistry, and mathematics at private high schools in Melbourne. She died
+    in 2016 at age 83. It took until March 2024 — when <em>The New York
+    Times</em> featured her in its "Overlooked No More" series — for her
+    central role to be broadly recognized.
+  </p>
+
+  <h2>Why It Changed Infectious Diseases</h2>
+  <p>
+    EBV was the first virus shown to cause cancer in humans. That single fact
+    cracked open a new field: human tumor virology. Before 1964, the link
+    between viruses and human cancer was speculative. Afterward, it was a
+    research program. Hepatitis B virus and hepatocellular carcinoma, human
+    papillomavirus and cervical cancer, human herpesvirus 8 and Kaposi sarcoma
+    — all of these discoveries trace their intellectual lineage back to a lab
+    in Middlesex Hospital where three researchers looked at an electron
+    micrograph and saw something they were not supposed to see.
+  </p>
+  <p>
+    The discovery also changed how clinicians understood the virus itself. In
+    1968, Werner and Gertrude Henle's lab at the University of Pennsylvania
+    showed that EBV caused infectious mononucleosis — a disease that had
+    puzzled physicians for decades. A technician in the Henle lab who lacked
+    EBV antibodies developed classic mono, and the seroconversion told the
+    story. Suddenly a single virus connected an African childhood cancer, a
+    common adolescent illness, and a paradigm shift in oncology.
+  </p>
+
+  <h2>Why It Still Matters Now</h2>
+  <p>
+    EBV infects more than ninety percent of adults worldwide. It persists for
+    life in memory B cells, reactivates periodically, and is shed in saliva. It
+    causes infectious mononucleosis in a third to half of adolescents who
+    acquire it. It is tightly linked to Burkitt lymphoma, Hodgkin lymphoma,
+    nasopharyngeal carcinoma, gastric cancer, post-transplant
+    lymphoproliferative disorder, and oral hairy leukoplakia in HIV. In 2022, a
+    study of ten million US military personnel over twenty years showed that
+    recent EBV infection increased the risk of developing multiple sclerosis
+    thirty-two-fold — the strongest causal link yet between a virus and MS. The
+    World Health Organization estimates roughly two hundred thousand cancers
+    per year are attributable to EBV.
+  </p>
+  <p>
+    There is no approved vaccine. None of the candidates tested so far have
+    prevented EBV infection. The virus's complex latency programs, its
+    manipulation of B cell biology, and the fact that it rarely causes severe
+    disease in childhood — when the immune system handles it without drama —
+    make vaccine development uniquely difficult.
+  </p>
+  <p>
+    And then there is the quieter lesson of the discovery itself. Anthony
+    Epstein had the hypothesis, the grant, and the name on the virus. But he
+    could not grow the cells. Yvonne Barr could. She saw what he was discarding
+    and knew it was still alive. Bert Achong knew how to reveal what was inside
+    them. Three people with three different kinds of expertise, and the
+    discovery needed all three. Infectious diseases history is full of stories
+    like this — the lab scientist, the field clinician, the microscopist, the
+    student technician — and only some of their names make it into the virus.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Epstein MA, Achong BG, Barr YM. Virus particles in cultured
+        lymphoblasts from Burkitt's lymphoma. <em>Lancet</em>.
+        1964;1(7335):702-703.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1016/S0140-6736(64)91524-7"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1016/S0140-6736(64)91524-7
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Epstein MA, Henle G, Achong BG, Barr YM. Morphological and biological
+        studies on a virus in cultured lymphoblasts from Burkitt's lymphoma.
+        <em>J Exp Med</em>. 1965;121(5):761-770.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1084/jem.121.5.761"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1084/jem.121.5.761
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Epstein A. Burkitt lymphoma and the discovery of Epstein-Barr virus.
+        <em>Br J Haematol</em>. 2012;156(6):777-779.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1111/j.1365-2141.2011.09008.x"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1111/j.1365-2141.2011.09008.x
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        McGrath P. Cancer virus discovery helped by delayed flight. <em>BBC
+        News</em>. April 6, 2014.
+      </p>
+      <p>
+        <a
+          href="https://www.bbc.co.uk/news/health-26857610"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: https://www.bbc.co.uk/news/health-26857610
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Ricks D. Overlooked No More: Yvonne Barr, who helped discover a
+        cancer-causing virus. <em>The New York Times</em>. March 21, 2024.
+      </p>
+      <p>
+        <a
+          href="https://www.nytimes.com/2024/03/21/obituaries/yvonne-barr-overlooked.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: https://www.nytimes.com/2024/03/21/obituaries/yvonne-barr-overlooked.html
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

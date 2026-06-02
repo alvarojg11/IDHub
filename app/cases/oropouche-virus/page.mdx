@@ -1,0 +1,387 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("oropouche-virus");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Bite You Didn't Feel
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 31-year-old graduate student presents with four days of abrupt fever,
+    severe frontal headache, retroorbital pain, diffuse myalgias, and aching
+    wrists and knees that began two days after returning from Manaus, Brazil.
+    She had spent two weeks in the Amazon assisting with a field ecology project
+    along floodplain forest margins and sleeping in screened but not sealed
+    housing near the river. She also spent one afternoon wading through shallow
+    flooded trails to reach a sampling site after heavy rain. She took no daily
+    medications and had no chronic medical problems.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    During the trip she had frequent daytime mosquito exposure and, near dusk,
+    repeated swarms of nearly invisible insects around her legs and forearms
+    despite repellent. She noticed small pruritic papules by morning but paid
+    little attention to them. Two days before presentation she developed shaking
+    chills and a pounding headache, followed by fatigue so intense she had
+    trouble climbing stairs. The next day a faint erythematous rash appeared
+    over the trunk and proximal arms, along with nausea and one loose stool. She
+    has had no cough, conjunctivitis, bleeding, or jaundice.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination her temperature is 39.1&#176;C, heart rate 101 bpm, blood
+    pressure 112/68 mmHg, respiratory rate 16 breaths per minute, and oxygen
+    saturation 99% on room air. She appears miserable but nontoxic. A faint
+    maculopapular eruption is visible across the chest and upper back. There is
+    no eschar, no meningismus, no synovitis, and no hepatosplenomegaly. The
+    remainder of the examination is unrevealing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 4,300/&#956;L, platelet count 128,000/&#956;L, AST 52 U/L,
+    ALT 47 U/L, and creatinine is normal. Thick and thin smears for malaria are
+    negative twice. Dengue NS1 antigen and dengue RT-PCR are negative. With
+    malaria and dengue testing unrevealing, the team broadens the workup for
+    other tropical viral syndromes and a few non-viral mimics.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/oropouche-virus/forest.jpg"
+        alt="Satellite view of dense Amazon rainforest cut by winding rivers and patches of cleared land"
+        width={5568}
+        height={3712}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Satellite view of the Amazon rainforest, where a wide range of arboviral
+      infections circulate in overlapping ecological niches.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-oropouche-virus-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Chikungunya virus infection",
+      feedback:
+        "Incorrect. Chikungunya can cause fever, rash, and marked arthralgias, but it is more strongly associated with striking, often incapacitating polyarthralgia that can persist for weeks to months. In this vignette the Amazon exposure, negative dengue testing, subtle rash, and history of nearly imperceptible dusk bites point more strongly toward another arbovirus that is increasingly recognized in northern South America.",
+    },
+    {
+      id: "B",
+      label: "Leptospirosis",
+      feedback:
+        "Incorrect. Leptospirosis can follow freshwater or rodent exposure and cause fever, myalgias, headache, and mild transaminitis. But the faint viral exanthem, retroorbital pain, and epidemiologic context here are more consistent with an arboviral illness than a spirochetal infection. She also lacks conjunctival suffusion, jaundice, renal injury, and the exposure pattern that would make leptospirosis the leading diagnosis.",
+    },
+    {
+      id: "C",
+      label: "Dengue fever",
+      feedback:
+        "Incorrect. Dengue is the most important initial alternative in a traveler returning from the Amazon with fever, headache, rash, and mild cytopenias, which is why the negative NS1 antigen and RT-PCR matter. Dengue can never be dismissed lightly, but this case is framed around a dengue-like syndrome that remains after dengue testing is unrevealing.",
+    },
+    {
+      id: "D",
+      label: "Oropouche virus infection",
+      correct: true,
+      feedback:
+        "Correct. Oropouche fever is an increasingly important arboviral infection in the Amazon basin and can closely mimic dengue, chikungunya, and other tropical viral syndromes. Typical features include abrupt fever, severe headache, retroorbital pain, myalgias, arthralgias, and a transient maculopapular rash. In a traveler from Manaus with negative malaria and dengue testing, Oropouche virus deserves a prominent place on the differential.",
+    },
+    {
+      id: "E",
+      label: "Zika virus infection",
+      feedback:
+        "Incorrect. Zika often produces a milder illness characterized by rash, low-grade fever, conjunctivitis, and arthralgias. This patient instead has high fever, severe headache, and a more toxic febrile syndrome, which fits Oropouche better than Zika. The absence of conjunctivitis also makes Zika less likely.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-oropouche-virus-q2"
+  title="Question 2"
+  prompt="Which vector most likely transmitted this infection?"
+  options={[
+    {
+      id: "A",
+      label: "Aedes aegypti mosquito",
+      feedback:
+        "Incorrect. Aedes mosquitoes transmit dengue, Zika, yellow fever, and chikungunya, which is why they remain part of the initial mental model for a returning traveler with fever and rash. But Oropouche virus is classically associated with a different small biting fly that many travelers do not recognize as an important vector.",
+    },
+    {
+      id: "B",
+      label: "Culicoides biting midge",
+      correct: true,
+      feedback:
+        "Correct. The principal urban vector of Oropouche virus is the biting midge, especially Culicoides paraensis. These insects are tiny, often active around dusk, and their bites may be noticed only afterward as itchy papules. That small detail in the exposure history is one of the most useful clues in the whole case because many clinicians default automatically to mosquitoes when thinking about tropical arboviruses.",
+    },
+    {
+      id: "C",
+      label: "Ixodes tick",
+      feedback:
+        "Incorrect. Ixodes ticks are associated with Lyme disease, babesiosis, and anaplasmosis in other geographic settings, not with Oropouche fever in the Amazon. The syndrome here is arboviral, not tick-borne in the usual North American sense.",
+    },
+    {
+      id: "D",
+      label: "Anopheles mosquito",
+      feedback:
+        "Incorrect. Anopheles mosquitoes transmit malaria, which was appropriately excluded with repeated thick and thin smears. They are not the primary vector for Oropouche virus.",
+    },
+    {
+      id: "E",
+      label: "Lutzomyia sandfly",
+      feedback:
+        "Incorrect. Sandflies are important vectors for leishmaniasis and some phleboviruses, but they are not the classic transmitting vector for Oropouche virus. The trick in this question is recognizing that not every tropical febrile exanthem transmitted by a flying insect comes from a mosquito or sandfly.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-oropouche-virus-q3"
+  title="Question 3"
+  prompt="What is the most appropriate management?"
+  options={[
+    {
+      id: "A",
+      label: "Begin doxycycline empirically for 7 days",
+      feedback:
+        "Incorrect. Empiric doxycycline is appropriate when the syndrome suggests rickettsiosis, ehrlichiosis, leptospirosis, or another treatable vector-borne bacterial infection. Oropouche virus is an arboviral illness, and doxycycline does not change its course.",
+    },
+    {
+      id: "B",
+      label: "Start oseltamivir immediately",
+      feedback:
+        "Incorrect. Oseltamivir is active against influenza neuraminidase, not orthobunyaviruses. This patient's exposure history and clinical pattern are not suggestive of influenza as the unifying diagnosis.",
+    },
+    {
+      id: "C",
+      label: "Treat with intravenous acyclovir",
+      feedback:
+        "Incorrect. Acyclovir would be appropriate for concern about herpesvirus encephalitis, but this patient has no encephalopathic features, focal neurologic findings, or compatible syndrome. Oropouche fever is not treated with acyclovir.",
+    },
+    {
+      id: "D",
+      label: "Start ribavirin for 5 days",
+      feedback:
+        "Incorrect. There is no established antiviral therapy for uncomplicated Oropouche virus infection, and ribavirin is not standard treatment. Reaching for an antiviral here reflects therapeutic instinct, not evidence-based management.",
+    },
+    {
+      id: "E",
+      label: "Provide supportive care with hydration and analgesics",
+      correct: true,
+      feedback:
+        "Correct. Management of Oropouche fever is supportive. Treatment centers on hydration, rest, antipyretics, analgesics, and monitoring for complications or alternative diagnoses. The most important clinical move is recognizing the syndrome, confirming it with appropriate testing such as RT-PCR early in illness when available, and avoiding unnecessary antibacterial or antiviral therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-oropouche-virus-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Oropouche virus is an orthobunyavirus that has emerged from relative obscurity to
+    become one of the most important causes of non-malarial febrile illness in the
+    Amazon basin. Clinically it behaves like a master imitator. Patients often present
+    with abrupt high fever, severe headache, retroorbital pain, myalgias, arthralgias,
+    and sometimes a transient maculopapular rash. In the first pass, many of these
+    patients are labeled as possible dengue, chikungunya, or Zika, which is exactly
+    why Oropouche should enter the differential once the usual tests turn negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The epidemiology is the memorable part. Unlike the better-known tropical
+    arboviruses transmitted by mosquitoes, Oropouche virus is classically spread in
+    urban cycles by biting midges, especially <em>Culicoides paraensis</em>. These
+    insects are tiny enough that travelers may remember swarms, itching, or papules
+    without clearly recalling being bitten. That detail matters because it helps the
+    clinician move away from the default mosquito framework and toward a virus many
+    otherwise would not consider.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis depends on timing. During the acute phase, RT-PCR from serum is the most
+    useful test when available, whereas serology is often retrospective and
+    cross-reactivity with other arboviruses can complicate interpretation. In recent
+    outbreaks, genomic surveillance has also clarified that Oropouche virus is not a
+    static curiosity but a re-emerging pathogen with reassortant lineages capable of
+    rapid spread across the Americas. For the bedside clinician, though, the key point
+    is simpler: if a traveler returns from the Amazon with a dengue-like illness and
+    negative dengue testing, keep going.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment is supportive because no proven antiviral therapy exists. Most cases are
+    self-limited, but the syndrome is still worth recognizing accurately for several
+    reasons: it prevents unnecessary antimicrobial therapy, sharpens counseling about
+    vector avoidance, and contributes to outbreak awareness and reporting. Oropouche
+    fever is one of those infections that becomes easier to diagnose the moment it is
+    remembered.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-oropouche-virus-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Oropouche virus causes a dengue-like febrile illness with headache,
+      retroorbital pain, myalgias, arthralgias, and sometimes a faint rash.
+    </li>
+    <li>
+      The principal urban vector is the biting midge, not a mosquito, so patients may
+      describe nearly imperceptible dusk bites rather than obvious mosquito exposure.
+    </li>
+    <li>
+      Negative malaria and dengue testing in a traveler returning from the Amazon
+      should prompt consideration of Oropouche fever.
+    </li>
+    <li>
+      RT-PCR during the acute phase is the most useful diagnostic test when available;
+      serology is often delayed and can be harder to interpret.
+    </li>
+    <li>
+      Treatment is supportive because no specific antiviral therapy has proven benefit.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Wesselmann KM, Postigo-Hidalgo I, Pezzi L, de Oliveira-Filho EF, Fischer C,
+      de Lamballerie X, Drexler JF. Emergence of Oropouche fever in Latin America:
+      a narrative review. <em>Lancet Infectious Diseases</em>. 2024;24(7):e439-e452.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(23)00740-5"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(23)00740-5
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Scachetti GC, Forato J, Claro IM, Hua X, Salgado BB, Vieira A, et al.
+      Re-emergence of Oropouche virus between 2023 and 2024 in Brazil: an
+      observational epidemiological study. <em>Lancet Infectious Diseases</em>.
+      2025;25(2):166-175.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(24)00619-4"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(24)00619-4
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Naveca FG, Almeida TAP, Souza V, Nascimento V, Silva D, Nascimento F, et al.
+      Human outbreaks of a novel reassortant Oropouche virus in the Brazilian Amazon
+      region. <em>Nature Medicine</em>. 2024;30(12):3509-3521.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/s41591-024-03300-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1038/s41591-024-03300-3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rojas A, Stittleburg V, Cardozo F, Bopp N, Cantero C, Lopez S, et al.
+      Real-time RT-PCR for the detection and quantitation of Oropouche virus.
+      <em>Diagnostic Microbiology and Infectious Disease</em>. 2020;96(1):114894.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.diagmicrobio.2019.114894"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.diagmicrobio.2019.114894
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Travassos da Rosa JF, de Souza WM, Pinheiro FP, Figueiredo ML, Cardoso JF,
+      Acrani GO, Nunes MRT. Oropouche virus: clinical, epidemiological, and molecular
+      aspects of a neglected orthobunyavirus. <em>American Journal of Tropical
+      Medicine and Hygiene</em>. 2017;96(5):1019-1030.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4269/ajtmh.16-0672"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.4269/ajtmh.16-0672
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

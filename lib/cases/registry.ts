@@ -1245,6 +1245,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 34-year-old man returns from a South African safari with four days of fever, headache, myalgias, and three black-crusted lesions on his legs after multiple insect bites. Malaria testing is negative, but tender inguinal nodes and the lesion pattern narrow the field fast. What diagnosis fits, what test works best early, and how should he be treated?",
     tags: { organisms: ["Rickettsia africae"], syndromes: ["Travel Medicine", "Vector-Borne", "Fever & Rash"], concepts: ["African tick-bite fever", "Multiple eschars", "Amblyomma tick", "Eschar swab PCR", "Doxycycline", "Safari exposure", "Regional lymphadenopathy"] },
   },
+  {
+    title: "The Bite You Didn't Feel",
+    slug: "oropouche-virus",
+    description: "An Amazon traveler returns with a dengue-like illness and a vector most clinicians do not think to ask about.",
+    enable: true,
+    ogImage: "/cases/oropouche-virus/forest.jpg",
+    teaser: "A 31-year-old traveler returns from Manaus with four days of high fever, retroorbital pain, joint aches, thrombocytopenia, and a faint truncal rash after Amazon fieldwork with both daytime mosquitoes and dusk insect swarms. Malaria smears and dengue testing are negative. What diagnosis fits, what transmitted it, and how should she be treated?",
+    tags: { organisms: ["Oropouche virus"], syndromes: ["Travel Medicine", "Vector-Borne", "Fever & Rash"], concepts: ["Amazon basin", "Biting midge", "Dengue mimic", "Retroorbital pain", "RT-PCR", "Supportive care", "Brazil travel"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
