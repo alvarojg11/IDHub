@@ -1254,6 +1254,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 31-year-old traveler returns from Manaus with four days of high fever, retroorbital pain, joint aches, thrombocytopenia, and a faint truncal rash after Amazon fieldwork with both daytime mosquitoes and dusk insect swarms. Malaria smears and dengue testing are negative. What diagnosis fits, what transmitted it, and how should she be treated?",
     tags: { organisms: ["Oropouche virus"], syndromes: ["Travel Medicine", "Vector-Borne", "Fever & Rash"], concepts: ["Amazon basin", "Biting midge", "Dengue mimic", "Retroorbital pain", "RT-PCR", "Supportive care", "Brazil travel"] },
   },
+  {
+    title: "Phase I vs Phase II",
+    slug: "coxiella-endocarditis",
+    description: "Culture-negative endocarditis, seronegative arthralgias, and a serologic pattern that flips the expected phase response.",
+    enable: true,
+    ogImage: "/cases/coxiella-endocarditis/echo.jpg",
+    teaser: "A 58-year-old sheep farmer with a bicuspid aortic valve, three months of fevers and weight loss, six negative blood cultures, and a 1.3 cm aortic vegetation. His barn cat had kittens and he drinks raw goat milk. Which serologic pattern clinches the diagnosis?",
+    tags: { organisms: ["Coxiella burnetii"], syndromes: ["Endocarditis", "Culture-Negative Endocarditis", "Zoonoses"], concepts: ["Q fever endocarditis", "Phase I vs Phase II serology", "Hydroxychloroquine alkalinization", "Bicuspid aortic valve", "Parturient animal exposure", "Unpasteurized dairy"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

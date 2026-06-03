@@ -27,6 +27,7 @@ const CONTENT_CONFIG = {
     ogDir: (root, slug) => path.join(root, "OG", "HistorID", slug),
     instagramAssets: (slug) => [
       { route: `/api/ig/historid/${slug}`, fileName: "hook.png" },
+      { route: `/api/ig/historid/${slug}/teaser`, fileName: "teaser.png" },
       { route: `/api/ig/historid/${slug}/teaching`, fileName: "teaching.png" },
       { route: `/api/ig/historid/${slug}/cta`, fileName: "cta.png" },
       { route: `/api/ig/historid/${slug}/story`, fileName: "story.png" },

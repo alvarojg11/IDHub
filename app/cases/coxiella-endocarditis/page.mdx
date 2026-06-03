@@ -1,0 +1,418 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("coxiella-endocarditis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Phase I vs Phase II
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old sheep farmer from rural Vermont presents with three months of
+    low-grade fevers, drenching night sweats, a 15-pound weight loss, and
+    progressive exertional dyspnea. He was diagnosed with a bicuspid aortic
+    valve at age 40 after a heart murmur was detected on a routine insurance
+    examination, but he has never required cardiac surgery. Over the past year
+    he has also complained of intermittent bilateral knee and wrist pain that his
+    primary care physician attributed to osteoarthritis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Six months ago his barn cat delivered a litter of kittens in the hayloft. He
+    handled the animals frequently during and after the birth, cleaning the
+    bedding and feeding the queen by hand. He also drinks unpasteurized goat milk
+    from a neighboring farm several times a week and has done so for years. He
+    denies IV drug use, recent dental work, and international travel. He has no
+    history of rheumatic fever, congenital heart disease beyond the bicuspid
+    valve, or prior endocarditis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he appears chronically ill. Temperature is 37.9&#176;C, heart rate
+    92 bpm, blood pressure 134/68 mmHg. A grade 3/6 harsh systolic murmur is
+    heard best at the right upper sternal border with an early diastolic
+    component. Two splinter hemorrhages are present on the right thumbnail. The
+    remainder of the examination is notable for tenderness and mild swelling of
+    the wrists and knees without overt synovitis, and a palpable spleen tip.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    White blood cell count is 8,400/&#956;L with a normal differential, hemoglobin
+    10.1 g/dL (MCV 84), platelet count 198,000/&#956;L, ESR 74 mm/hr, CRP 52 mg/L,
+    and creatinine 1.0 mg/dL. Six sets of blood cultures drawn over 48 hours are
+    all negative at five days. Transthoracic echocardiography reveals a bicuspid
+    aortic valve with a 1.3 cm mobile echodensity on the right coronary cusp and
+    moderate aortic regurgitation. The team sends additional serologic and
+    molecular studies to pursue culture-negative endocarditis.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/coxiella-endocarditis/echo.jpg"
+        alt="Echocardiogram demonstrating a valvular vegetation"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Echocardiogram demonstrating a valvular vegetation (arrow).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-coxiella-endocarditis-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Bartonella henselae endocarditis",
+      feedback:
+        "Incorrect. Bartonella is a legitimate member of the culture-negative endocarditis differential, and the cat exposure brings it onto the list. However, Bartonella endocarditis typically presents on previously damaged valves with subacute constitutional symptoms and is diagnosed by serology or valve PCR, but the combination of a sheep farming occupation, raw goat milk consumption, parturient animal contact, pre-existing bicuspid valve, and the serologic pattern described below makes Coxiella burnetii far more likely.",
+    },
+    {
+      id: "B",
+      label: "Brucella melitensis endocarditis",
+      feedback:
+        "Incorrect. Brucella can cause culture-negative endocarditis and raw goat milk is a classic exposure. However, Brucella endocarditis is rare, usually causes more acute systemic symptoms with hepatosplenomegaly and arthritis, and blood cultures in brucellosis may be positive with prolonged incubation. The chronic low-grade course, the sheep and parturient cat exposure, and the Phase I serologic dominance favor a different organism.",
+    },
+    {
+      id: "C",
+      label: "Q fever endocarditis",
+      correct: true,
+      feedback:
+        "Correct. This is chronic Q fever endocarditis caused by Coxiella burnetii. The diagnostic trifecta is present: a pre-existing valvular abnormality (bicuspid aortic valve), prolonged culture-negative endocarditis with constitutional symptoms, and a characteristic zoonotic exposure profile including sheep farming, parturient cat contact, and raw goat milk consumption. The serologic confirmation shows Phase I IgG titers that equal or exceed Phase II IgG, which is the hallmark of chronic infection. Acute Q fever produces the opposite pattern: Phase II dominates.",
+    },
+    {
+      id: "D",
+      label: "HACEK endocarditis",
+      feedback:
+        "Incorrect. HACEK organisms are fastidious gram-negative bacteria that can cause culture-negative endocarditis, but they typically require extended incubation rather than being truly negative at five days. They are not associated with zoonotic exposures, arthralgias, or the specific environmental context described here. The farming, raw milk, and parturient animal clues point away from HACEK and toward an intracellular pathogen.",
+    },
+    {
+      id: "E",
+      label: "Whipple endocarditis",
+      feedback:
+        "Incorrect. Tropheryma whipplei causes culture-negative endocarditis and can present with chronic arthralgias, which might seem fitting. However, the patient has no gastrointestinal symptoms, no malabsorption, and the occupational and dietary exposures (sheep farming, raw goat milk, parturient cat) strongly favor Coxiella burnetii. Whipple endocarditis is not linked to zoonotic exposure patterns.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-coxiella-endocarditis-q2"
+  title="Question 2"
+  prompt="Serology returns with Phase I IgG 1:2048 and Phase II IgG 1:512. Which statement about this serologic pattern is correct?"
+  options={[
+    {
+      id: "A",
+      label: "Phase II IgG dominance confirms acute Q fever",
+      feedback:
+        "Incorrect. The result actually shows Phase I IgG dominance (1:2048) over Phase II IgG (1:512), not the reverse. Acute Q fever is characterized by Phase II IgG predominance, reflecting the immune response to the more antigenically expressed Phase II variants of the organism. Phase I dominance is the signature of chronic infection.",
+    },
+    {
+      id: "B",
+      label: "Phase I IgG ≥ Phase II IgG with both ≥ 1:800 is the diagnostic criterion for chronic Q fever endocarditis",
+      correct: true,
+      feedback:
+        "Correct. The defining serologic pattern of chronic Q fever is Phase I IgG at or above Phase II IgG, with both titers ≥ 1:800. Phase I IgG ≥ 1:800 specifically suggests chronic infection, and titers above 1:1600 are considered strongly diagnostic of endocarditis in the right clinical context. The Phase I/Phase II antibody response reflects antigenic variation: Phase I is the virulent, full-length lipopolysaccharide form associated with persistent intracellular infection, while Phase II represents the truncated LPS seen in acute infection.",
+    },
+    {
+      id: "C",
+      label: "Blood cultures on BCYE agar are required for confirmation",
+      feedback:
+        "Incorrect. Coxiella burnetii is an obligate intracellular organism that does not grow on routine or enriched media including buffered charcoal yeast extract agar. Diagnosis relies on serology by immunofluorescence, PCR from serum or tissue, or immunohistochemistry on resected valve material. Blood cultures cannot confirm Q fever.",
+    },
+    {
+      id: "D",
+      label: "A single elevated Phase II IgM is sufficient for diagnosis",
+      feedback:
+        "Incorrect. Phase II IgM may be present during acute Q fever but is neither sensitive nor specific enough alone to diagnose chronic Q fever endocarditis. Chronic infection is defined by the Phase I IgG response, not by IgM. The diagnostic weight rests on the IgG phase titer relationship and the absolute titer thresholds.",
+    },
+    {
+      id: "E",
+      label: "The titers are equivocal and valve 16S rRNA PCR is the only way to confirm",
+      feedback:
+        "Incorrect. While 16S rRNA PCR from resected valve tissue can identify Coxiella burnetii and is useful when surgery is performed, the serologic pattern shown here is diagnostic of chronic Q fever. Phase I IgG of 1:2048 with Phase II at 1:512 in a patient with culture-negative endocarditis and a compatible exposure history is sufficient to establish the diagnosis without tissue PCR.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-coxiella-endocarditis-q3"
+  title="Question 3"
+  prompt="What is the optimal antimicrobial regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Doxycycline 100 mg twice daily for 6 weeks",
+      feedback:
+        "Incorrect. Doxycycline monotherapy for 6 weeks is a standard regimen for many forms of culture-positive endocarditis but is inadequate for Q fever endocarditis. C. burnetii replicates within the acidic phagolysosome of infected cells, where the low pH inhibits doxycycline's bactericidal activity. Without an alkalinizing agent, prolonged monotherapy fails to eradicate the organism, and relapse rates are unacceptably high.",
+    },
+    {
+      id: "B",
+      label: "Ceftriaxone 2 g IV daily plus gentamicin for 6 weeks",
+      feedback:
+        "Incorrect. This combination is used for enterococcal endocarditis or as empiric therapy for culture-positive native valve endocarditis in certain settings. Coxiella burnetii is an obligate intracellular pathogen, and beta-lactams like ceftriaxone do not achieve effective intracellular concentrations in the phagolysosomal compartment. This regimen would not treat Q fever.",
+    },
+    {
+      id: "D",
+      label: "TMP-SMX plus rifampin for 12 months",
+      feedback:
+        "Incorrect. This combination has no established role in Q fever endocarditis. TMP-SMX does not effectively penetrate the Coxiella-containing phagolysosome, and rifampin lacks demonstrated clinical efficacy for this indication. The standard regimen targets the unique intracellular niche of C. burnetii with a specific drug combination designed to restore doxycycline activity.",
+    },
+    {
+      id: "E",
+      label: "Vancomycin plus gentamicin for 6 weeks",
+      feedback:
+        "Incorrect. This is a regimen for methicillin-resistant staphylococcal endocarditis. It has no activity against Coxiella burnetii, an obligate intracellular organism that resides in the phagolysosome. Neither vancomycin nor gentamicin achieves adequate concentrations in that compartment.",
+    },
+    {
+      id: "C",
+      label: "Doxycycline 100 mg twice daily plus hydroxychloroquine 200 mg three times daily for at least 18 months",
+      correct: true,
+      feedback:
+        "Correct. The standard treatment for Q fever endocarditis on a native valve is doxycycline plus hydroxychloroquine for a minimum of 18 months. Hydroxychloroquine alkalinizes the phagolysosomal vacuole where C. burnetii replicates, restoring the bactericidal activity of doxycycline that is otherwise suppressed by the acidic environment. For prosthetic valve endocarditis, the recommended duration extends to 24 months. Serologic monitoring every 3 to 6 months guides the endpoint: a fourfold decline in Phase I IgG predicts cure, while stable or rising titers warrant treatment extension. Relapse can occur even years after completion, making long-term serologic follow-up essential.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-coxiella-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Coxiella burnetii is the agent of Q fever and one of the classic causes of
+    culture-negative endocarditis worldwide. The organism is an obligate
+    intracellular bacterium that replicates within the phagolysosome of infected
+    monocytes and macrophages, a niche that renders it invisible to routine blood
+    culture systems and resistant to many antibiotics that cannot penetrate or
+    function in an acidic intracellular compartment.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chronic Q fever endocarditis develops almost exclusively in patients with
+    pre-existing valvular pathology. Bicuspid aortic valve, prosthetic valves,
+    rheumatic valve disease, and other structural abnormalities create the
+    substrate on which the organism establishes persistent infection. In the
+    Queensland series covering 16 years of cases, 92% of confirmed Q fever
+    endocarditis patients had an underlying valvular defect. The disease is
+    indolent: fevers may be low-grade or absent, and the dominant presentation
+    is often months of fatigue, weight loss, and arthralgias that mimic a
+    rheumatologic condition before a murmur or embolic event triggers cardiac
+    evaluation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The zoonotic reservoirs are farm animals, particularly sheep, cattle, and
+    goats. Parturient cats are a well-documented source because the organism
+    reaches enormous concentrations in the placenta and birth products of
+    infected animals. Amniotic fluid, placental tissue, and contaminated dust
+    from birthing environments can transmit infection through aerosolized
+    particles that travel considerable distances. Unpasteurized milk from
+    infected goats or cows is another recognized route. The patient in this case
+    had multiple overlapping exposures: a sheep farming occupation, direct
+    contact with a parturient cat and newborn kittens in a barn, and regular
+    raw goat milk consumption.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic key is the Phase I and Phase II IgG serology by indirect
+    immunofluorescence. C. burnetii undergoes antigenic variation between Phase
+    I (smooth, full-length lipopolysaccharide, virulent form) and Phase II
+    (rough, truncated lipopolysaccharide, avirulent in immunocompetent hosts).
+    Acute Q fever generates a dominant Phase II IgG response. Chronic infection
+    flips this pattern: Phase I IgG rises to equal or exceed Phase II, and the
+    absolute Phase I titer climbs above 1:800. Titers above 1:1600 are
+    considered highly specific for endocarditis when the clinical context fits.
+    This inversion is not a laboratory artifact; it reflects the immune
+    system's ongoing struggle with a pathogen that persists inside cells by
+    adapting its surface antigens.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment targets the intracellular niche. Doxycycline alone is insufficient
+    because the acidic pH of the Coxiella-containing phagolysosome neutralizes
+    its bactericidal mechanism. Hydroxychloroquine raises the phagolysosomal pH,
+    restoring doxycycline activity and converting the regimen from bacteriostatic
+    to bactericidal in vitro. The combination of doxycycline 100 mg twice daily
+    with hydroxychloroquine 200 mg three times daily for at least 18 months in
+    native valve infection, and 24 months for prosthetic valve infection, is the
+    regimen with the most clinical experience. The Million 26-year survey of 104
+    patients demonstrated that 18 months of treatment was sufficient to
+    sterilize valves in nearly all native valve cases, while relapse was
+    associated with shorter courses. Monitoring Phase I IgG titers every 3 to 6
+    months guides the treatment endpoint: a fourfold decline predicts cure, and
+    patients should be followed serologically for at least 5 years because late
+    relapse remains a risk.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-coxiella-endocarditis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Coxiella burnetii is a leading cause of culture-negative endocarditis in
+      patients with pre-existing valvular disease, including bicuspid aortic
+      valves.
+    </li>
+    <li>
+      Chronic Q fever is serologically defined by Phase I IgG ≥ Phase II IgG,
+      with Phase I IgG ≥ 1:800; titers above 1:1600 are highly specific for
+      endocarditis.
+    </li>
+    <li>
+      Hydroxychloroquine alkalinizes the phagolysosome, restoring doxycycline's
+      bactericidal activity against an organism that otherwise thrives in acidic
+      intracellular compartments.
+    </li>
+    <li>
+      Treatment duration is at least 18 months for native valves and 24 months
+      for prosthetic valves, with serologic monitoring every 3 to 6 months to
+      guide the endpoint.
+    </li>
+    <li>
+      Key zoonotic exposures include sheep, cattle, and goats; parturient cats;
+      and unpasteurized dairy. The organism is concentrated in placental tissue
+      and birth products and can transmit via aerosolized dust.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Million M, Thuny F, Richet H, Raoult D. Long-term outcome of Q fever
+      endocarditis: a 26-year personal survey. <em>Lancet Infectious
+      Diseases</em>. 2010;10(8):527-535.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1473-3099(10)70135-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1473-3099(10)70135-3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Delahaye A, Eldin C, Bleibtreu A, Djossou F, Marrie TJ, Ghanem-Zoubi N,
+      et al. Treatment of persistent focalized Q fever: time has come for an
+      international randomized controlled trial. <em>Journal of Antimicrobial
+      Chemotherapy</em>. 2024;79(8):1725-1747.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/jac/dkae145"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/jac/dkae145
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Armstrong MR, McCarthy KL, Horvath RL. A contemporary 16-year review of
+      Coxiella burnetii infective endocarditis in a tertiary cardiac center in
+      Queensland, Australia. <em>Infectious Diseases</em>. 2018;50(7):531-538.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1080/23744235.2018.1445279"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1080/23744235.2018.1445279
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rodr&#237;guez-Fern&#225;ndez M, Esp&#237;ndola G&#243;mez R, Trigo-Rodr&#237;guez M, et al.
+      High incidence of asymptomatic Phase I IgG seroconversion after an acute Q
+      fever episode: implications for chronic Q fever diagnosis. <em>Clinical
+      Infectious Diseases</em>. 2022;74(12):2122-2128.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciab843"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciab843
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stahl JP, Varon E, Bru JP. Treatment of Coxiella burnetii endocarditis
+      with hydroxychloroquine. Is it evidence-based? <em>Clinical Microbiology
+      and Infection</em>. 2022;28(5):637-639.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.cmi.2022.02.008"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.cmi.2022.02.008
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
