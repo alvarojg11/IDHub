@@ -1,0 +1,410 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("antibiotic-mechanisms-polymicrobial");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  When Mechanisms Collide
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 55-year-old man with decompensated cirrhosis (MELD-Na 22) and type 2
+    diabetes presents to the emergency department with eighteen hours of severe
+    diffuse abdominal pain, fever to 39.4&#176;C, and hypotension. His abdomen is
+    rigid and diffusely tender. He takes no immunosuppressive medications. CT of
+    the abdomen and pelvis demonstrates pneumoperitoneum with moderate free fluid
+    consistent with a perforated sigmoid diverticulum.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He undergoes emergency laparotomy with Hartmann's procedure. Intraoperative
+    findings include frank purulent peritonitis with fecal contamination
+    throughout the peritoneal cavity. Two sets of blood cultures drawn in the
+    emergency department before any antibiotics are administered become positive
+    at 24 hours. The Gram stain of the blood culture bottle shows gram-negative
+    rods, gram-positive cocci in pairs and short chains, and budding yeast forms.
+    Final identification reveals three organisms: an extended-spectrum
+    beta-lactamase (ESBL)-producing <em>Escherichia coli</em>,
+    vancomycin-resistant <em>Enterococcus faecium</em> (VRE), and <em>Candida
+    glabrata</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The infectious diseases team recommends a three-drug regimen:
+    **meropenem** for the ESBL-producing <em>E. coli</em>, **linezolid** for the
+    VRE, and **micafungin** for the <em>C. glabrata</em>. Each drug was chosen
+    not only for its spectrum but for its mechanism of action, which targets a
+    fundamentally different microbial structure.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/antibiotic-mechanisms-polymicrobial/gram-stain.jpg"
+        alt="Gram stain of a positive blood culture demonstrating gram-negative rods and gram-positive cocci in polymicrobial bacteremia"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Gram stain of a positive blood culture demonstrating gram-negative rods and
+      gram-positive cocci in polymicrobial bacteremia.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-antibiotic-mechanisms-polymicrobial-q1"
+  title="Question 1"
+  prompt="By what mechanism does meropenem achieve bactericidal activity against the ESBL-producing E. coli?"
+  options={[
+    {
+      id: "A",
+      label: "Inhibition of DNA gyrase and topoisomerase IV, preventing bacterial DNA supercoiling and replication",
+      feedback:
+        "Incorrect. This is the mechanism of fluoroquinolones such as ciprofloxacin and levofloxacin. Fluoroquinolones trap DNA gyrase and topoisomerase IV in a cleaved-complex state, generating double-strand breaks that are lethal to replicating bacteria. Meropenem does not interact with DNA-processing enzymes.",
+    },
+    {
+      id: "B",
+      label: "Acylation of penicillin-binding proteins, inhibiting the transpeptidation step of peptidoglycan cross-linking and causing cell wall failure",
+      correct: true,
+      feedback:
+        "Correct. Meropenem is a carbapenem beta-lactam antibiotic that exerts bactericidal activity by covalently acylating the active-site serine of penicillin-binding proteins (PBPs). PBPs are transpeptidase and carboxypeptidase enzymes responsible for catalyzing the cross-linking reaction between stem peptides of adjacent peptidoglycan strands. By irreversibly inhibiting transpeptidation, meropenem prevents the formation of the rigid peptidoglycan mesh that maintains bacterial cell wall integrity. The resulting structural weakness leads to osmotic lysis during active cell growth. Carbapenems resist ESBL-mediated hydrolysis because the trans configuration of the hydroxyethyl side chain at C-2 sterically shields the beta-lactam ring from the active site of extended-spectrum beta-lactamases.",
+    },
+    {
+      id: "C",
+      label: "Inhibition of dihydrofolate reductase, blocking the reduction of dihydrofolic acid to tetrahydrofolic acid and arresting nucleotide synthesis",
+      feedback:
+        "Incorrect. This is the mechanism of trimethoprim. Dihydrofolate reductase catalyzes the reduction of dihydrofolate to tetrahydrofolate, a required cofactor in thymidylate synthesis. Trimethoprim selectively inhibits the bacterial enzyme at concentrations far below those needed to inhibit the mammalian isoform. Meropenem does not interfere with folate metabolism.",
+    },
+    {
+      id: "D",
+      label: "Calcium-dependent insertion into the bacterial cytoplasmic membrane, causing rapid depolarization and cell death",
+      feedback:
+        "Incorrect. This is the mechanism of daptomycin, a cyclic lipopeptide that inserts into the phospholipid bilayer of gram-positive bacterial membranes in a calcium-dependent manner, forming oligomeric pores that dissipate the membrane potential and cause rapid cell death. Meropenem does not target the cytoplasmic membrane and is not calcium-dependent.",
+    },
+    {
+      id: "E",
+      label: "Binding to the 30S ribosomal subunit, causing misreading of mRNA and production of nonfunctional proteins",
+      feedback:
+        "Incorrect. This is the mechanism of aminoglycosides such as gentamicin and amikacin. Aminoglycosides bind irreversibly to the 30S subunit at the decoding site, inducing conformational changes that allow near-cognate tRNAs to enter the ribosome and generate aberrant polypeptides. Meropenem does not interact with the ribosome.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-antibiotic-mechanisms-polymicrobial-q2"
+  title="Question 2"
+  prompt="By what mechanism does linezolid inhibit protein synthesis in vancomycin-resistant E. faecium?"
+  options={[
+    {
+      id: "A",
+      label: "Binds the 30S ribosomal subunit and blocks aminoacyl-tRNA entry at the acceptor site",
+      feedback:
+        "Incorrect. This is the mechanism of tetracyclines. Tetracyclines bind reversibly to the 30S subunit at the A site, physically preventing the aminoacyl end of incoming tRNA from engaging the ribosome. Protein synthesis stalls at the elongation step. Linezolid does not interact with the 30S subunit or the tRNA acceptor site.",
+    },
+    {
+      id: "B",
+      label: "Binds the 50S ribosomal subunit at the peptidyl transferase center, preventing formation of the 70S initiation complex",
+      correct: true,
+      feedback:
+        "Correct. Linezolid is an oxazolidinone antibiotic that binds the 23S ribosomal RNA component of the 50S subunit at the peptidyl transferase center in the vicinity of the A and P sites. Its primary action is to prevent the formation of the functional 70S initiation complex by blocking the placement of the initiator N-formylmethionyl-tRNA into the P site. This distinguishes linezolid from other protein synthesis inhibitors that act during elongation: macrolides and clindamycin bind the nascent peptide exit tunnel and block translocation, while aminoglycosides cause miscoding at the decoding center on the 30S subunit. Linezolid's unique binding site is also the reason it retains activity against vancomycin-resistant enterococci, which are resistant to vancomycin through modification of the D-alanyl-D-alanine terminal peptide in the cell wall rather than through any ribosomal mechanism.",
+    },
+    {
+      id: "C",
+      label: "Binds the 50S ribosomal subunit and blocks translocation of the peptidyl-tRNA from the A site to the P site during elongation",
+      feedback:
+        "Incorrect. This is the mechanism of macrolides such as azithromycin and clarithromycin, and of clindamycin (a lincosamide). These drugs bind the 23S rRNA in the nascent peptide exit tunnel of the 50S subunit and prevent the translocation step of elongation, effectively stalling the ribosome after a few peptide bonds have been formed. Linezolid acts earlier in protein synthesis, at the initiation step rather than during elongation.",
+    },
+    {
+      id: "D",
+      label: "Inhibits bacterial RNA polymerase by binding the beta subunit and blocking transcription initiation",
+      feedback:
+        "Incorrect. This is the mechanism of rifamycins such as rifampin. Rifampin binds the beta subunit of bacterial DNA-dependent RNA polymerase at a site that overlaps with the path of the elongating RNA transcript, physically blocking RNA chain elongation after the first two or three nucleotides. Linezolid does not interact with RNA polymerase; its target is the ribosome.",
+    },
+    {
+      id: "E",
+      label: "Inhibits DNA-dependent RNA synthesis by intercalating between base pairs and generating reactive oxygen species",
+      feedback:
+        "Incorrect. This description does not correspond to linezolid. DNA intercalation is more characteristic of certain antineoplastic agents, while reactive oxygen species generation is associated with some antimalarial and antiparasitic drugs. Linezolid's target is the bacterial ribosome, not nucleic acids.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-antibiotic-mechanisms-polymicrobial-q3"
+  title="Question 3"
+  prompt="By what mechanism does micafungin kill Candida glabrata?"
+  options={[
+    {
+      id: "A",
+      label: "Inhibition of lanosterol 14-alpha-demethylase, depleting ergosterol from the fungal cell membrane",
+      feedback:
+        "Incorrect. This is the mechanism of azole antifungals such as fluconazole, voriconazole, and posaconazole. These drugs bind the heme iron in the active site of lanosterol 14-alpha-demethylase (encoded by ERG11 in Candida species), preventing the demethylation step required for ergosterol biosynthesis. The resulting accumulation of toxic methylated sterol intermediates and the depletion of functional ergosterol increase membrane permeability and inhibit fungal growth. Micafungin does not target the cell membrane or sterol biosynthesis.",
+    },
+    {
+      id: "B",
+      label: "Inhibition of thymidylate synthase, blocking the conversion of dUMP to dTMP and arresting fungal DNA synthesis",
+      feedback:
+        "Incorrect. Thymidylate synthase is a target of antineoplastic agents such as 5-fluorouracil and its prodrug capecitabine, as well as certain antiparasitic drugs. This enzyme catalyzes the methylation of deoxyuridine monophosphate to deoxythymidine monophosphate, a committed step in thymidine biosynthesis. Micafungin does not interfere with pyrimidine metabolism or DNA synthesis.",
+    },
+    {
+      id: "C",
+      label: "Formation of transmembrane pores in the fungal membrane, causing rapid depolarization and cell death",
+      feedback:
+        "Incorrect. This is the mechanism of amphotericin B, a polyene antifungal that binds ergosterol in the fungal cell membrane and forms concentration-dependent pores that allow leakage of intracellular contents. Amphotericin B's affinity for ergosterol over cholesterol underlies its relative selectivity, though nephrotoxicity remains a dose-limiting adverse effect. Micafungin does not form pores or directly disrupt the cell membrane.",
+    },
+    {
+      id: "D",
+      label: "Inhibition of squalene epoxidase, blocking the conversion of squalene to lanosterol in the sterol biosynthesis pathway",
+      feedback:
+        "Incorrect. This is the mechanism of terbinafine, an allylamine antifungal used primarily for dermatophyte infections of the skin and nails. Squalene epoxidase catalyzes the first step in the cyclization portion of sterol biosynthesis. Inhibiting it causes accumulation of toxic squalene and depletes downstream sterols. Micafungin does not target any enzyme in the sterol pathway.",
+    },
+    {
+      id: "E",
+      label: "Inhibition of beta-1,3-glucan synthase, depleting beta-1,3-glucan from the fungal cell wall and causing osmotic instability",
+      correct: true,
+      feedback:
+        "Correct. Micafungin is an echinocandin antifungal that non-competitively inhibits beta-1,3-glucan synthase, a membrane-associated enzyme complex (encoded by the FKS gene family in Candida species) that polymerizes UDP-glucose into beta-1,3-glucan. Beta-1,3-glucan is the principal structural polysaccharide of the Candida cell wall, providing the mechanical strength that protects the organism from osmotic stress. Depletion of this glucan layer weakens the cell wall and leads to osmotic lysis, which is the basis for the fungicidal activity of echinocandins against most Candida species. Because mammalian cells lack a cell wall and do not synthesize beta-1,3-glucan, this target provides a high degree of selective toxicity. Echinocandin resistance in Candida glabrata typically arises through point mutations in the FKS1 or FKS2 genes that reduce the enzyme's affinity for the drug.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-antibiotic-mechanisms-polymicrobial-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Polymicrobial bacteremia arising from gastrointestinal perforation reflects
+    the complex ecology of the intestinal lumen, where aerobic gram-negative
+    bacilli, facultative anaerobic gram-positive cocci, and yeast coexist in
+    intimate association with the anaerobic flora. When the mucosal barrier
+    fails, as it did here through sigmoid diverticular perforation, organisms
+    from all three groups gain simultaneous access to the bloodstream. The
+    resulting bacteremia is not a single-pathogen event but a multi-kingdom
+    invasion that demands a mechanistically rational antibiotic strategy rather
+    than empiric breadth alone.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>Meropenem</strong> was selected for the ESBL-producing <em>E.
+    coli</em>. As a carbapenem beta-lactam, meropenem covalently acylates the
+    active-site serine of penicillin-binding proteins, the transpeptidase
+    enzymes that catalyze the cross-linking of peptidoglycan stem peptides
+    during cell wall biosynthesis. This irreversible inhibition of
+    transpeptidation produces a structurally deficient cell wall that cannot
+    withstand the osmotic pressure of the surrounding medium, resulting in
+    rapid lysis of actively dividing cells. The carbapenem scaffold is
+    distinguished from penicillins and cephalosporins by the trans
+    configuration of its hydroxyethyl side chain at C-2, which sterically
+    shields the beta-lactam carbonyl from hydrolysis by extended-spectrum
+    beta-lactamases. This structural feature is the reason meropenem retains
+    reliable activity against ESBL-producing Enterobacterales while
+    third-generation cephalosporins do not.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>Linezolid</strong> was chosen for the vancomycin-resistant <em>E.
+    faecium</em>. Linezolid is an oxazolidinone that binds the 23S ribosomal
+    RNA of the 50S subunit at the peptidyl transferase center, in a region
+    that overlaps the aminoacyl-tRNA acceptor site. Its principal
+    pharmacologic action is to prevent the formation of the functional 70S
+    initiation complex by blocking the correct placement of the initiator
+    N-formylmethionyl-tRNA into the peptidyl site of the ribosome. This
+    mechanism distinguishes linezolid from other protein synthesis inhibitors
+    that operate during the elongation phase: macrolides and clindamycin bind
+    within the nascent peptide exit tunnel and arrest translocation, while
+    aminoglycosides bind the decoding center on the 30S subunit and induce
+    miscoding. By acting at the initiation step, linezolid halts protein
+    synthesis before the first peptide bond is formed. Its activity against
+    VRE is independent of the vancomycin resistance mechanism, which involves
+    replacement of the D-alanyl-D-alanine terminal dipeptide of the cell wall
+    precursor with D-alanyl-D-lactate, reducing vancomycin binding affinity by
+    three orders of magnitude. Because linezolid targets the ribosome rather
+    than the cell wall, this modification has no impact on its efficacy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <strong>Micafungin</strong> was initiated for the <em>Candida
+    glabrata</em> fungemia. Micafungin is an echinocandin that
+    non-competitively inhibits beta-1,3-glucan synthase, the
+    membrane-associated enzyme complex encoded by the FKS genes that
+    polymerizes UDP-glucose into beta-1,3-glucan polymers. Beta-1,3-glucan is
+    the principal load-bearing polysaccharide of the Candida cell wall,
+    forming a fibrillar network that interlinks with other structural
+    carbohydrates and mannoproteins to maintain wall integrity under osmotic
+    stress. When beta-1,3-glucan synthase is inhibited, the wall loses its
+    structural competence and the cell undergoes osmotic lysis, which is the
+    basis for the fungicidal activity of echinocandins against most Candida
+    species. This target has no mammalian counterpart: human cells lack a cell
+    wall and do not synthesize beta-1,3-glucan, which accounts for the
+    favorable toxicity profile of the echinocandin class. Resistance in
+    <em> C. glabrata</em> emerges through point mutations in the hot-spot
+    regions of FKS1 and FKS2 that reduce the enzyme's affinity for the drug,
+    raising the minimum inhibitory concentration and conferring clinical
+    failure at standard doses.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-antibiotic-mechanisms-polymicrobial-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Meropenem achieves bactericidal activity by covalently acylating
+      penicillin-binding proteins, inhibiting the transpeptidation step of
+      peptidoglycan cross-linking and leading to cell wall failure and osmotic
+      lysis.
+    </li>
+    <li>
+      Carbapenems resist ESBL-mediated hydrolysis because the trans
+      configuration of the hydroxyethyl side chain at C-2 sterically shields
+      the beta-lactam ring from the active site of extended-spectrum
+      beta-lactamases.
+    </li>
+    <li>
+      Linezolid binds 23S rRNA at the peptidyl transferase center of the 50S
+      subunit and prevents formation of the 70S initiation complex, a mechanism
+      distinct from macrolides and aminoglycosides that act during elongation.
+    </li>
+    <li>
+      Micafungin inhibits beta-1,3-glucan synthase, an enzyme complex absent in
+      mammalian cells, depleting the principal structural polysaccharide of the
+      fungal cell wall and causing osmotic lysis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lade H, Kim JS. Bacterial targets of antibiotics in methicillin-resistant
+      <em> Staphylococcus aureus</em>. <em>Antibiotics (Basel)</em>.
+      2021;10(4):398.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3390/antibiotics10040398"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3390/antibiotics10040398
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Zhanel GG, Love R, Adam H, et al. Tedizolid: a novel oxazolidinone with
+      potent activity against multidrug-resistant gram-positive pathogens.
+      <em> Drugs</em>. 2015;75(3):253-270.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s40265-015-0352-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s40265-015-0352-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Emri T, Majoros L, T&#243;th V, P&#243;csi I. Echinocandins: production and
+      applications. <em>Applied Microbiology and Biotechnology</em>.
+      2013;97(8):3267-3284.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s00253-013-4761-9"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s00253-013-4761-9
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Aruanno M, Glampedakis E, Lamoth F. Echinocandins for the treatment of
+      invasive aspergillosis: from laboratory to bedside. <em>Antimicrobial
+      Agents and Chemotherapy</em>. 2019;63(8):e00399-19.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.00399-19"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/AAC.00399-19
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kurup A, Liau KH, Ren J, et al. Antibiotic management of complicated
+      intra-abdominal infections in adults: the Asian perspective. <em>Annals
+      of Medicine and Surgery</em>. 2014;3(3):85-91.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.amsu.2014.06.005"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.amsu.2014.06.005
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

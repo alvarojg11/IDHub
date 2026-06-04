@@ -1263,6 +1263,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 58-year-old sheep farmer with a bicuspid aortic valve, three months of fevers and weight loss, six negative blood cultures, and a 1.3 cm aortic vegetation. His barn cat had kittens and he drinks raw goat milk. Which serologic pattern clinches the diagnosis?",
     tags: { organisms: ["Coxiella burnetii"], syndromes: ["Endocarditis", "Culture-Negative Endocarditis", "Zoonoses"], concepts: ["Q fever endocarditis", "Phase I vs Phase II serology", "Hydroxychloroquine alkalinization", "Bicuspid aortic valve", "Parturient animal exposure", "Unpasteurized dairy"] },
   },
+  {
+    title: "When Mechanisms Collide",
+    slug: "antibiotic-mechanisms-polymicrobial",
+    description: "Three organisms, three kingdoms, and three antibiotic mechanisms of action tested in a single case of polymicrobial bacteremia from bowel perforation.",
+    enable: true,
+    ogImage: "/cases/antibiotic-mechanisms-polymicrobial/gram-stain.jpg",
+    teaser: "A cirrhotic patient with a perforated sigmoid diverticulum grows ESBL E. coli, VRE, and Candida glabrata in blood cultures. Three drugs are chosen — each targeting a different microbial structure through a distinct mechanism. Can you identify all three?",
+    tags: { organisms: ["Escherichia coli", "Enterococcus faecium", "Candida glabrata"], syndromes: ["Sepsis & Bacteremia", "Intra-Abdominal Infection", "Antimicrobial Pharmacology"], concepts: ["Antibiotic mechanism of action", "Penicillin-binding protein", "Transpeptidation", "50S ribosomal subunit", "Peptidyl transferase", "Beta-1,3-glucan synthase", "ESBL", "VRE", "Echinocandin", "Carbapenem", "Oxazolidinone", "Polymicrobial bacteremia"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
