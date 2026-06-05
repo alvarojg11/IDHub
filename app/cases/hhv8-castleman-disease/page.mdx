@@ -1,0 +1,422 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("hhv8-castleman-disease");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Cytokine Storm Within
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old man with HIV infection diagnosed three years ago presents with
+    six weeks of drenching night sweats, progressive fatigue, and a 20-pound
+    weight loss. His antiretroviral therapy consists of bictegravir,
+    emtricitabine, and tenofovir alafenamide, and his most recent HIV viral load
+    was less than 20 copies/mL three months ago. His CD4 count at that time was
+    185 cells/&#956;L. He denies cough, dysuria, diarrhea, or new skin lesions. He has
+    no recent travel, sick contacts, or known tuberculosis exposure.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he appears chronically ill and fatigued. Temperature is
+    38.2&#176;C, heart rate 104 bpm, blood pressure 112/68 mmHg. Bilateral
+    cervical, axillary, and inguinal lymph nodes are enlarged, firm, non-tender,
+    and mobile, ranging from 1.5 to 3 cm. The spleen is palpable 4 cm below the
+    left costal margin. No skin lesions, oral ulcers, or petechiae are present.
+    The remainder of the examination is unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies reveal hemoglobin 9.2 g/dL (MCV 86), white blood cell
+    count 6,800/&#956;L with a normal differential, platelet count 135,000/&#956;L,
+    albumin 2.4 g/dL, CRP 128 mg/L, and ESR 95 mm/hr. Creatinine, liver
+    enzymes, and lactate dehydrogenase are within normal limits. Thick and thin
+    blood smears are negative. Serum cryptococcal antigen is negative.
+    Quantiferon-TB Gold is negative. Blood cultures show no growth at five days.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CT of the chest, abdomen, and pelvis demonstrates diffusely enlarged
+    mediastinal, retroperitoneal, and mesenteric lymph nodes with a dominant
+    8.5 cm intensely enhancing retroperitoneal mass containing scattered
+    calcifications. The spleen is enlarged at 16 cm. No pulmonary infiltrates or
+    hepatic lesions are seen. An excisional biopsy of a right cervical lymph
+    node is performed. Pathology reveals Castleman disease histology with
+    expanded mantles, penetrating hyalinized vessels, and scattered plasmablasts
+    in the interfollicular regions.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/hhv8-castleman-disease/ct-scan.jpg"
+        alt="CT scan of the abdomen demonstrating a large enhancing retroperitoneal mass with intratumoral calcifications"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      CT scan of the abdomen demonstrating a large, enhancing retroperitoneal
+      mass with intratumoral calcifications consistent with Castleman disease.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-hhv8-castleman-disease-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Hodgkin lymphoma",
+      feedback:
+        "Incorrect. Hodgkin lymphoma can cause constitutional symptoms, diffuse lymphadenopathy, and splenomegaly in an HIV-infected patient, and the B symptoms with weight loss would be consistent. However, the lymph node biopsy shows Castleman disease histology — expanded mantle zones with penetrating hyalinized vessels and plasmablasts — rather than Reed-Sternberg cells in an inflammatory background. The intensely enhancing retroperitoneal mass with calcifications is also more characteristic of Castleman disease than Hodgkin lymphoma, which typically presents with homogeneous soft-tissue attenuation nodes without the marked enhancement pattern seen here.",
+    },
+    {
+      id: "B",
+      label: "Disseminated Mycobacterium avium complex infection",
+      feedback:
+        "Incorrect. Disseminated MAC can cause fever, weight loss, lymphadenopathy, and splenomegaly in HIV-infected patients with CD4 counts below 200, and the elevated CRP and anemia fit. However, the lymph node pathology does not show the granulomatous inflammation with acid-fast bacilli that would be expected in MAC. The Castleman disease histology with hyalinized vessels and plasmablasts points in a different direction. Additionally, the patient is on effective ART with a suppressed viral load, which reduces the likelihood of disseminated MAC even at this CD4 count.",
+    },
+    {
+      id: "C",
+      label: "HHV-8-associated multicentric Castleman disease",
+      correct: true,
+      feedback:
+        "Correct. This is HHV-8-associated multicentric Castleman disease. The clinical presentation — an HIV-infected patient with diffuse lymphadenopathy, splenomegaly, marked systemic inflammation (CRP 128, ESR 95), anemia, hypoalbuminemia, and thrombocytopenia — is characteristic. The lymph node biopsy showing Castleman disease histology with plasmablasts in the interfollicular regions is the pathologic hallmark of the HHV-8-associated variant, as these plasmablasts represent cells latently infected with the virus. The intensely enhancing retroperitoneal mass on CT with calcifications is a classic imaging appearance of Castleman disease. In an HIV-positive patient, multicentric Castleman disease is strongly associated with HHV-8 infection, distinguishing it from the HHV-8-negative idiopathic form.",
+    },
+    {
+      id: "D",
+      label: "Idiopathic multicentric Castleman disease",
+      feedback:
+        "Incorrect. Idiopathic multicentric Castleman disease (iMCD) shares many clinical features with the HHV-8-associated form, including diffuse lymphadenopathy, systemic inflammation, and constitutional symptoms. However, the presence of plasmablasts on the lymph node biopsy is a specific pathologic feature of HHV-8-associated MCD that is absent in iMCD. Furthermore, iMCD occurs in both immunocompetent and immunocompromised hosts, while HHV-8-associated MCD has a strong predilection for HIV-infected or otherwise immunosuppressed patients. In this HIV-positive patient with plasmablasts on biopsy, the HHV-8-associated form is far more likely.",
+    },
+    {
+      id: "E",
+      label: "Kaposi sarcoma with lymph node involvement",
+      feedback:
+        "Incorrect. Kaposi sarcoma can involve lymph nodes in HIV-infected patients and is also caused by HHV-8, which makes it a reasonable consideration. However, the lymph node biopsy shows Castleman disease histology with hyalinized vessels and mantle zone expansion, not the spindle cell proliferation with slit-like vascular spaces and extravasated red blood cells that characterizes Kaposi sarcoma. The two diseases can coexist — patients with HHV-8-associated Castleman disease are at increased risk for concurrent Kaposi sarcoma — but the biopsy findings here are diagnostic of Castleman disease, not KS.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hhv8-castleman-disease-q2"
+  title="Question 2"
+  prompt="Which of the following best characterizes the most likely etiologic agent?"
+  options={[
+    {
+      id: "A",
+      label: "An enveloped, double-stranded DNA virus of the Gammaherpesvirinae subfamily",
+      correct: true,
+      feedback:
+        "Correct. The etiologic agent is human herpesvirus 8 (HHV-8), also known as Kaposi sarcoma-associated herpesvirus (KSHV). HHV-8 is an enveloped virus with a linear double-stranded DNA genome of approximately 165 kilobase pairs, classified in the genus Rhadinovirus of the Gammaherpesvirinae subfamily of Herpesviridae. This subfamily also includes Epstein-Barr virus (HHV-4). Gammaherpesviruses share a tropism for lymphocytes and the capacity to establish lifelong latency. HHV-8 establishes latency in B lymphocytes, where it expresses latency-associated nuclear antigen-1 (LANA-1), which tethers the viral episome to host chromatin and promotes cell survival. The same virus causes Kaposi sarcoma, primary effusion lymphoma, and the multicentric Castleman disease seen in this patient.",
+    },
+    {
+      id: "B",
+      label: "An enveloped, single-stranded RNA virus of the Retroviridae family",
+      feedback:
+        "Incorrect. This description fits HIV, which is indeed present in this patient and contributes to the immunosuppression that predisposes to HHV-8 reactivation. However, HIV is not the direct cause of Castleman disease. HIV is a single-stranded RNA virus that replicates through reverse transcription and integrates into the host genome. The direct etiologic agent of multicentric Castleman disease in this context is HHV-8, a double-stranded DNA virus, not HIV itself.",
+    },
+    {
+      id: "C",
+      label: "A non-enveloped, double-stranded DNA virus of the Polyomaviridae family",
+      feedback:
+        "Incorrect. This description fits JC virus and BK virus, non-enveloped double-stranded DNA viruses of the Polyomaviridae family. JC virus causes progressive multifocal leukoencephalopathy and BK virus causes nephropathy in transplant recipients and hemorrhagic cystitis. Neither virus is associated with Castleman disease or lymphoproliferative disorders of this type.",
+    },
+    {
+      id: "D",
+      label: "An enveloped, double-stranded DNA virus of the Alphaherpesvirinae subfamily",
+      feedback:
+        "Incorrect. This description fits herpes simplex virus types 1 and 2 (HHV-1, HHV-2) and varicella-zoster virus (HHV-3), which are all double-stranded DNA viruses in the Alphaherpesvirinae subfamily. Alphaherpesviruses are distinguished by their neurotropism and ability to establish latency in sensory ganglia, and they are not associated with Castleman disease, Kaposi sarcoma, or lymphoproliferative disorders. HHV-8 belongs to the Gammaherpesvirinae, not the Alphaherpesvirinae.",
+    },
+    {
+      id: "E",
+      label: "A non-enveloped, single-stranded RNA virus of the Reoviridae family",
+      feedback:
+        "Incorrect. This description fits rotavirus, a non-enveloped double-stranded RNA virus (Reoviridae family) that causes gastroenteritis. Rotavirus has a segmented double-stranded RNA genome and a triple-layered protein capsid without a lipid envelope. It has no association with lymphadenopathy, Castleman disease, or lymphoproliferative disorders.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-hhv8-castleman-disease-q3"
+  title="Question 3"
+  prompt="What is the most appropriate treatment?"
+  options={[
+    {
+      id: "A",
+      label: "Siltuximab (anti-IL-6 monoclonal antibody)",
+      feedback:
+        "Incorrect. Siltuximab is an anti-IL-6 monoclonal antibody approved for idiopathic multicentric Castleman disease (iMCD), the HHV-8-negative form. While it blocks human IL-6 signaling through the gp130/JAK/STAT pathway, it does not target the HHV-8-infected B-cell reservoir that drives this disease. In HHV-8-associated multicentric Castleman disease, the pathogenic mechanism involves viral IL-6 produced by infected plasmablasts in addition to human IL-6, and the appropriate therapy must address the infected B-cell population directly.",
+    },
+    {
+      id: "B",
+      label: "Rituximab (anti-CD20 monoclonal antibody)",
+      correct: true,
+      feedback:
+        "Correct. Rituximab is the treatment of choice for HHV-8-associated multicentric Castleman disease. As an anti-CD20 monoclonal antibody, rituximab depletes CD20-positive B lymphocytes, which serve as the primary cellular reservoir for HHV-8. By eliminating the pool of latently infected cells that produce viral IL-6 and other inflammatory mediators, rituximab addresses the root of the pathogenic cascade rather than merely blocking downstream cytokine signaling. Prospective cohort data from the Chelsea and Westminster group demonstrated that rituximab-based therapy in HIV-associated Castleman disease achieved 2-year overall survival of 94% and 5-year overall survival of 90%, compared with 42% and 33% respectively in the pre-rituximab era. The NCI protocol combining rituximab with liposomal doxorubicin for more aggressive disease further supports the central role of B-cell depletion in managing this condition.",
+    },
+    {
+      id: "C",
+      label: "CHOP chemotherapy (cyclophosphamide, doxorubicin, vincristine, prednisone)",
+      feedback:
+        "Incorrect. CHOP is a standard regimen for aggressive B-cell non-Hodgkin lymphomas but is overly toxic for Castleman disease as initial therapy. While combination chemotherapy may have a role in severe or refractory HHV-8-associated Castleman disease — particularly when concurrent lymphoma is present — it is not first-line treatment. Rituximab-based therapy provides a more targeted approach with superior tolerability and excellent outcomes in the majority of patients. CHOP would expose the patient to unnecessary cytotoxicity without the specific advantage of depleting the HHV-8-infected B-cell reservoir.",
+    },
+    {
+      id: "D",
+      label: "Optimization of antiretroviral therapy alone",
+      feedback:
+        "Incorrect. While effective antiretroviral therapy is essential for overall immune reconstitution in HIV-infected patients and may reduce the frequency of Castleman disease flares over time, ART alone is insufficient to treat active HHV-8-associated multicentric Castleman disease. This patient already has a suppressed HIV viral load on bictegravir-based therapy, yet his Castleman disease is clinically active with escalating systemic inflammation. The pathogenic driver here is viral IL-6 produced by HHV-8-infected B cells, not uncontrolled HIV replication, and the infected B-cell population requires direct targeting with rituximab.",
+    },
+    {
+      id: "E",
+      label: "Ganciclovir",
+      feedback:
+        "Incorrect. Ganciclovir is an antiviral agent active against several herpesviruses, including CMV and HHV-8, by inhibiting viral DNA polymerase. While ganciclovir can reduce HHV-8 lytic replication, the pathogenesis of Castleman disease is driven primarily by latently infected B cells expressing viral IL-6 rather than by active lytic replication. Ganciclovir does not effectively eliminate the latent reservoir and has not demonstrated sustained clinical responses as monotherapy for HHV-8-associated Castleman disease. The appropriate approach targets the infected B cells themselves through rituximab-mediated depletion.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-hhv8-castleman-disease-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Multicentric Castleman disease (MCD) is a lymphoproliferative disorder
+    characterized by systemic lymphadenopathy, splenomegaly, and pronounced
+    constitutional symptoms driven by a cytokine storm dominated by interleukin-6
+    signaling. Two major subtypes are recognized: HHV-8-associated MCD, which
+    occurs predominantly in immunosuppressed patients, and idiopathic MCD
+    (iMCD), which is HHV-8-negative. Distinguishing these entities is critical
+    because their treatment strategies differ fundamentally.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    HHV-8, also known as Kaposi sarcoma-associated herpesvirus (KSHV), is an
+    enveloped double-stranded DNA virus classified in the genus
+    <em> Rhadinovirus</em> within the <em>Gammaherpesvirinae</em> subfamily of
+    <em>Herpesviridae</em>. This is the same subfamily that includes
+    Epstein-Barr virus (HHV-4), and both viruses share a tropism for
+    lymphocytes and the capacity to establish lifelong latency. HHV-8
+    establishes latent infection in B lymphocytes, where the viral episome is
+    tethered to host chromatin by latency-associated nuclear antigen-1
+    (LANA-1). Immunohistochemical staining for LANA-1 on lymph node tissue is
+    the diagnostic gold standard for confirming HHV-8 involvement in Castleman
+    disease, as it identifies the virus within the scattered plasmablasts that
+    populate the interfollicular regions of affected nodes.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The pathogenic mechanism centers on viral interleukin-6 (vIL-6), a
+    homolog of human IL-6 encoded by the HHV-8 genome. Unlike human IL-6,
+    which requires binding to both the membrane-bound IL-6 receptor and the
+    gp130 signal-transducing subunit, vIL-6 can activate the gp130/JAK/STAT
+    signaling pathway directly without requiring the IL-6 receptor. This
+    receptor-independent signaling drives B-cell proliferation, stimulates
+    hepatic acute-phase reactant production, and generates the systemic
+    inflammatory phenotype that defines the disease: fever, night sweats,
+    weight loss, elevated CRP and ESR, anemia, and hypoalbuminemia. The
+    plasmablasts seen on biopsy are the primary source of vIL-6, and their
+    presence is what distinguishes HHV-8-associated MCD from the idiopathic
+    form on histopathology.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical presentation in this patient is characteristic. An
+    HIV-infected individual with a CD4 count below 200 cells/&#956;L develops
+    subacute systemic inflammation with diffuse lymphadenopathy,
+    splenomegaly, and laboratory evidence of a hyperinflammatory state. The
+    differential diagnosis is broad in this context and includes Hodgkin
+    lymphoma, disseminated mycobacterial infection, Kaposi sarcoma with
+    lymph node involvement, and idiopathic MCD. The lymph node biopsy
+    resolves the question: Castleman disease histology with plasmablasts in
+    the interfollicular zones identifies the HHV-8-associated form. On
+    imaging, the intensely enhancing retroperitoneal mass with calcifications
+    is a classic CT appearance of Castleman disease, reflecting the
+    hypervascular nature of the affected lymphoid tissue.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment of HHV-8-associated MCD targets the infected B-cell reservoir
+    with rituximab, a chimeric monoclonal antibody against CD20. By depleting
+    CD20-positive B lymphocytes, rituximab eliminates the cells that harbor
+    HHV-8 and produce vIL-6, interrupting the pathogenic cytokine cascade at
+    its source. This mechanistic rationale is supported by clinical outcomes:
+    a prospective cohort of 61 HIV-associated MCD patients treated with
+    rituximab-based therapy demonstrated 2-year overall survival of 94% and
+    5-year overall survival of 90%, a dramatic improvement over the 42% and
+    33% survival rates observed in the pre-rituximab era. In contrast,
+    siltuximab, an anti-IL-6 monoclonal antibody, is the approved treatment
+    for iMCD but does not address the viral reservoir and is not appropriate
+    for the HHV-8-associated form. Ganciclovir targets lytic viral
+    replication but does not effectively eradicate latently infected cells.
+    ART alone, while essential for long-term immune health, does not control
+    active Castleman disease when the HIV viral load is already suppressed.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-hhv8-castleman-disease-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      HHV-8-associated multicentric Castleman disease is a distinct entity
+      from idiopathic MCD, distinguished by the presence of plasmablasts on
+      lymph node biopsy and driven by viral IL-6 signaling that promotes
+      B-cell proliferation and systemic inflammation.
+    </li>
+    <li>
+      HHV-8 is an enveloped, double-stranded DNA virus of the
+      Gammaherpesvirinae subfamily that establishes latency in B lymphocytes
+      and also causes Kaposi sarcoma and primary effusion lymphoma.
+    </li>
+    <li>
+      Viral IL-6 is a homolog of human IL-6 that activates the gp130/JAK/STAT
+      pathway independently of the membrane-bound IL-6 receptor, generating
+      the constitutional symptoms, acute-phase reactant elevation, and
+      cytopenias that characterize the disease.
+    </li>
+    <li>
+      Rituximab depletes CD20-positive B cells that serve as the primary
+      HHV-8 reservoir, achieving durable remission with 2-year overall
+      survival exceeding 90% in HIV-associated multicentric Castleman disease.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bower M, Newsom-Davis T, Naresh K, et al. Clinical features and outcome
+      in HIV-associated multicentric Castleman's disease. <em>Journal of
+      Clinical Oncology</em>. 2011;29(18):2481-2486.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1200/JCO.2010.34.1909"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1200/JCO.2010.34.1909
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      van Rhee F, Voorhees P, Dispenzieri A, et al. International,
+      evidence-based consensus treatment guidelines for idiopathic multicentric
+      Castleman disease. <em>Blood</em>. 2018;132(20):2115-2124.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1182/blood-2018-07-862334"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1182/blood-2018-07-862334
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Uldrick TS, Polizzotto MN, Aleman K, et al. Rituximab plus liposomal
+      doxorubicin in HIV-infected patients with KSHV-associated multicentric
+      Castleman disease. <em>Blood</em>. 2014;124(24):3544-3552.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1182/blood-2014-07-586800"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1182/blood-2014-07-586800
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Carbone A, De Paoli P, Gloghini A, Vaccher E. KSHV-associated
+      multicentric Castleman disease: a tangle of different entities requiring
+      multitarget treatment strategies. <em>International Journal of
+      Cancer</em>. 2015;137(2):251-261.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/ijc.28923"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/ijc.28923
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nasir MW, Gao Y. Advances in KSHV research: molecular pathogenesis,
+      immune evasion, and evolving therapeutic horizon. <em>Journal of Medical
+      Virology</em>. 2025;97(11):e70695.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/jmv.70695"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/jmv.70695
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

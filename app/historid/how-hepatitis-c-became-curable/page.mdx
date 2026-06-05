@@ -1,0 +1,346 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "how-hepatitis-c-became-curable",
+  title: "How Hepatitis C Became Curable",
+  description:
+    "From a ghost disease with no name, no test, and a coin-flip cure, to 8 weeks of pills that cure over 95% of people. Four breakthroughs, fifty years, and the first chronic viral infection defeated by oral medication.",
+  publishedAt: "2026-06-04",
+  historicalDateLabel: "1970s–2013",
+  historicalYearSort: 2013,
+  categories: ["organisms", "diagnostics-vaccines"],
+  tags: [
+    "Hepatitis C",
+    "HCV",
+    "sofosbuvir",
+    "Harvey Alter",
+    "Michael Houghton",
+    "Ralf Bartenschlager",
+    "Michael Sofia",
+    "direct-acting antivirals",
+    "ProTide",
+    "replicon",
+    "NS5B",
+    "non-A non-B hepatitis",
+    "Pharmasset",
+    "Gilead",
+  ],
+  hook:
+    "Harvey Alter proved the virus existed. Michael Houghton cloned it without ever seeing it. Ralf Bartenschlager made it grow in a dish. And Michael Sofia designed a pill that killed it. Four breakthroughs across fifty years, and none of them could have happened without the one before.",
+  takeaway:
+    "Hepatitis C is the first chronic viral infection definitively curable with oral medication. But the cure was not a single eureka moment. It required four successive breakthroughs — clinical, molecular, technological, and chemical — each impossible without the previous one.",
+  heroImage: "/historid/how-hepatitis-c-became-curable/hero.jpg",
+  heroImageAlt:
+    "Portrait of Harvey J. Alter, Nobel laureate for hepatitis C virus discovery, in 2020.",
+  heroImageCredit: "National Institutes of Health",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Harvey_J_Alter_2020.jpg",
+  heroImageLicense: "Public domain via NIH",
+  hookImageFit: "contain",
+  socialHeadline: "How Hepatitis C Became Curable",
+  socialDek:
+    "48 weeks of injections and a coin-flip chance of survival became 8 weeks of pills. Four breakthroughs, fifty years, and the first chronic viral infection ever cured.",
+  socialFacts: [
+    "Harvey Alter proved a non-A, non-B hepatitis existed in the 1970s. The virus remained invisible for 15 more years.",
+    "The HCV genome was cloned in 1989 after screening 6 million DNA fragments from chimp blood — the first virus found entirely by molecular fishing.",
+    "A 1999 replicon system finally let researchers grow HCV in a dish. Without it, no drug could be tested or developed.",
+    "Sofosbuvir was invented in 2007 at Pharmasset, a company with fewer than 80 employees. Gilead bought them for $11 billion before approval.",
+    "Today, 8 weeks of pills cure over 95% of people — the first chronic viral infection defeated by oral medication.",
+  ],
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    In the 1970s, hepatitis was a blood-bank nightmare. Roughly one in three
+    transfusion recipients developed it. Screening for hepatitis B eliminated
+    many cases. But plenty remained. Harvey Alter, a young NIH researcher who
+    had already co-discovered the Australia antigen that made hep B testing
+    possible, was not satisfied. He collected serial blood samples from
+    transfusion recipients, tested them for every known hepatitis agent, and
+    proved something unsettling: a third hepatitis virus existed. He called it
+    non-A, non-B hepatitis. He shipped infected blood to a chimpanzee colony in
+    Texas, where Bob Purcell demonstrated transmissibility — a virus, not some
+    other toxin. Alter had defined the clinical footprint of a pathogen no one
+    could see, culture, or test for. That was the state of things for fifteen
+    years.
+  </p>
+
+  <h2>The Hunt</h2>
+  <p>
+    Finding a virus without growing it is like finding a specific grain of sand
+    on a beach without a metal detector. Michael Houghton and his team at
+    Chiron Corporation in Emeryville, California, attempted something that had
+    never been done. They extracted nucleic acid from the plasma of chimpanzees
+    infected with Alter's non-A, non-B inoculum, built a complementary DNA
+    library of millions of fragments, and screened each one against serum from
+    a patient with chronic NANBH. The bet was that somewhere in those millions
+    of clones, one would encode a viral protein the patient's immune system had
+    made antibodies against. After screening six million clones, they found
+    one. Clone 5-1-1. From that single fragment, Qui-Lim Choo and George Kuo
+    walked out along the genome in both directions, assembling the complete
+    sequence of what they called the hepatitis C virus. The result was
+    published in <em>Science</em> in April 1989. No one had ever identified a
+    virus this way. Houghton later described the work as trying to find a
+    needle in a haystack where you had never seen a needle and did not know
+    what a needle looked like.
+  </p>
+  <p>
+    The discovery was seismic. Within a year, blood banks had an HCV antibody
+    test. Transfusion-transmitted hepatitis C plummeted from roughly thirty
+    percent to near zero. But the virus itself was still a black box. You could
+    detect it. You could not grow it. And you certainly could not test drugs
+    against it. The standard treatment — forty-eight weeks of injected
+    interferon alpha plus oral ribavirin — had been developed empirically,
+    without any ability to screen compounds in cell culture. It cured roughly
+    half of patients with genotype 1 and caused flu-like symptoms, depression,
+    anemia, and bone marrow suppression so severe that many patients could not
+    complete the course.
+  </p>
+
+  <h2>The Tool</h2>
+  <p>
+    Ralf Bartenschlager, a young German virologist, had spent a postdoc at
+    Chiron just as HCV was being discovered. By 1999 he was running his own
+    laboratory at the University of Mainz. The problem he fixed was fundamental:
+    HCV replicated poorly in cell culture — so poorly that it was functionally
+    impossible to study. Bartenschlager engineered a stripped-down version of
+    the viral genome called a replicon: a subgenomic RNA that encoded only the
+    nonstructural proteins needed for replication, plus a selectable marker.
+    He put it into a human hepatoma cell line. The cells that survived
+    selection had the replicon replicating inside them. For the first time,
+    there was a system in which HCV RNA polymerase, protease, and helicase were
+    all active in a human cell — and in which you could add a drug and watch
+    what happened.
+  </p>
+  <p>
+    Charles Rice at Washington University, who had independently been working
+    toward the same goal, built on Bartenschlager's work. In 2005, Rice's lab
+    created the first fully infectious HCV cell culture system by finding a
+    clinical isolate that replicated robustly enough to produce infectious
+    virus particles. Now you could do everything: grow the virus, infect new
+    cells, and — critically — screen small molecules against every step of the
+    viral lifecycle. The starting gun for the drug race had fired.
+  </p>
+
+  <h2>The Cure</h2>
+  <p>
+    The first wave of direct-acting antivirals arrived in 2011: telaprevir and
+    boceprevir, both NS3 protease inhibitors from Vertex and Merck. They
+    boosted cure rates to roughly seventy percent for genotype 1 but still
+    required interferon and ribavirin as a backbone. The side effects remained
+    punishing. What everyone wanted was an all-oral, interferon-free regimen.
+    What made that possible was sofosbuvir.
+  </p>
+  <p>
+    Michael Sofia had spent years working on antiviral chemistry at Bristol-Myers
+    Squibb and then at a tiny biotech called Pharmasset, tucked away in
+    Princeton, New Jersey. Pharmasset had fewer than eighty employees. Sofia
+    was trying to solve an old problem: how to get a nucleoside analog — a fake
+    building block that stops viral RNA polymerase — into liver cells in its
+    active triphosphate form. Nucleoside analogs are chemically simple, but the
+    first phosphorylation step is usually too slow in human cells to produce
+    useful drug levels. Sofia used an approach called ProTide, first developed
+    by Chris McGuigan at Cardiff University. The prodrug carries a pre-built
+    phosphate masked by chemical groups that let it slip across cell membranes.
+    Once inside a hepatocyte, cellular enzymes strip the mask and release the
+    monophosphate, which the cell's own kinases rapidly convert to the active
+    triphosphate. The triphosphate then competes with natural uridine for
+    incorporation into the growing viral RNA by the NS5B polymerase — and once
+    incorporated, it terminates the chain.
+  </p>
+  <p>
+    Sofia's team built a uridine nucleotide analog with a fluorine at the
+    2' position and a methyl group on the ribose ring. They named it PSI-7977,
+    later sofosbuvir. In early clinical trials, the results were startling.
+    Patients who received sofosbuvir showed viral-load drops so steep and so
+    sustained that investigators could see a cure coming in the pharmacokinetic
+    curves. In 2011, before sofosbuvir was even approved, Gilead Sciences
+    acquired Pharmasset for eleven billion dollars. At the time, many analysts
+    called the price insane. Within two years, it looked like a bargain.
+  </p>
+  <p>
+    The FDA approved sofosbuvir in December 2013. For genotypes 2 and 3, it
+    was the first interferon-free regimen — just the pill plus ribavirin for
+    twelve weeks. In 2014, Gilead combined sofosbuvir with ledipasvir, an NS5A
+    inhibitor, into a single-tablet regimen called Harvoni. One pill a day.
+    Eight to twelve weeks. Cure rates exceeding ninety-five percent for
+    genotype 1, the most common and previously hardest-to-treat strain. No
+    interferon. No injections. Side effects: mild fatigue, mild headache.
+    In 2016, the FDA approved Epclusa — sofosbuvir plus velpatasvir — effective
+    against all six major HCV genotypes. By 2017, AbbVie's glecaprevir plus
+    pibrentasvir offered an eight-week pan-genotypic course.
+  </p>
+  <p>
+    The Nobel Prize in Physiology or Medicine went to Alter, Houghton, and Rice
+    in 2020. It was awarded for the discovery, not the cure. But the two are
+    inseparable. Without Alter's clinical detective work, there is nothing to
+    look for. Without Houghton's molecular fishing expedition, there is no
+    genome. Without Bartenschlager's replicon and Rice's culture system, there
+    is no way to test drugs. And without Sofia's chemistry, there is no pill
+    that makes the whole thing curable. Four different kinds of genius, stacked
+    across half a century.
+  </p>
+
+  <h2>Why It Changed Infectious Diseases</h2>
+  <p>
+    Hepatitis C is the first chronic viral infection definitively curable with
+    oral medication. HIV requires lifelong therapy. Herpesviruses establish
+    latency that current drugs suppress but do not eliminate. Hepatitis B can
+    be controlled but rarely cured. HCV stands alone: a finite course of pills
+    that permanently clears the virus. The sustained virologic response — no
+    detectable HCV RNA twelve weeks after completing treatment — is considered
+    a cure. Liver inflammation resolves. Fibrosis can regress. The risk of
+    hepatocellular carcinoma drops. The virus is gone.
+  </p>
+  <p>
+    The HCV story also changed the relationship between basic science and drug
+    development. The replicon system was not an incremental advance. It was an
+    enabling platform — an entire field unlocked by one laboratory innovation.
+    The ProTide prodrug approach that made sofosbuvir possible became a
+    template for antiviral drug design more broadly, now applied to HIV,
+    SARS-CoV-2, and other RNA viruses. And the clinical trials that proved
+    sofosbuvir's efficacy demonstrated something that shaped regulatory
+    thinking ever after: with a sufficiently potent antiviral, you can
+    measure viral kinetics in the first days of dosing and know whether the
+    drug will cure.
+  </p>
+
+  <h2>Why It Still Matters Now</h2>
+  <p>
+    An estimated fifty-eight million people live with chronic hepatitis C
+    worldwide. Roughly four hundred thousand die from it each year, mostly from
+    cirrhosis and hepatocellular carcinoma. The World Health Organization set a
+    goal of eliminating HCV as a public health threat by 2030. With current
+    treatments, that goal is biologically achievable — cure the reservoir, stop
+    the transmission. What stands in the way is not science. It is access.
+    Sofosbuvir launched in the United States at a list price of a thousand
+    dollars per pill, or eighty-four thousand dollars for a twelve-week course.
+    Generic licensing agreements have since made treatment available for under
+    a hundred dollars in many low-income countries, but middle-income nations
+    remain caught between. The tools exist. The question is whether the world
+    will use them.
+  </p>
+  <p>
+    There is still no vaccine for hepatitis C. The virus mutates too quickly
+    and the envelope glycoproteins are shielded by lipoproteins in ways that
+    frustrate antibody responses. The RNA-dependent RNA polymerase has no
+    proofreading function. Every infected person carries a swarm of viral
+    quasispecies. These are the same properties that make HCV hard to vaccinate
+    against and hard to treat with a single drug — which is why the cure
+    required combining agents that hit multiple viral targets simultaneously.
+  </p>
+  <p>
+    The longer lesson of this story is that a cure is never one thing. It is
+    always a chain. Someone names the problem. Someone finds the agent. Someone
+    builds the tool. Someone designs the molecule. And someone else, years
+    earlier and entirely by accident, invents the chemistry that makes the
+    molecule possible. The ProTide technology sat in a lab at Cardiff
+    University for over a decade before anyone applied it to a nucleoside analog
+    that could cure a disease. Harvey Alter was still working at the NIH — still
+    publishing, still seeing patients — when the 2020 Nobel was announced, more
+    than fifty years after he first proved the ghost disease was real.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Choo QL, Kuo G, Weiner AJ, Overby LR, Bradley DW, Houghton M.
+        Isolation of a cDNA clone derived from a blood-borne non-A, non-B
+        viral hepatitis genome. <em>Science</em>. 1989;244(4902):359-362.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1126/science.2523562"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1126/science.2523562
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Lohmann V, Korner F, Koch JO, Herian U, Theilmann L, Bartenschlager R.
+        Replication of subgenomic hepatitis C virus RNAs in a hepatoma cell
+        line. <em>Science</em>. 1999;285(5424):110-113.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1126/science.285.5424.110"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1126/science.285.5424.110
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Sofia MJ, Bao D, Chang W, et al. Discovery of a
+        beta-d-2'-deoxy-2'-alpha-fluoro-2'-beta-C-methyluridine nucleotide
+        prodrug (PSI-7977) for the treatment of hepatitis C virus.
+        <em>J Med Chem</em>. 2010;53(19):7202-7218.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1021/jm100863x"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1021/jm100863x
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Lawitz E, Mangia A, Wyles D, et al. Sofosbuvir for previously
+        untreated chronic hepatitis C infection. <em>N Engl J Med</em>.
+        2013;368(20):1878-1887.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1056/NEJMoa1214853"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1056/NEJMoa1214853
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        The Nobel Assembly at Karolinska Institutet. Press release: The Nobel
+        Prize in Physiology or Medicine 2020. October 5, 2020.
+      </p>
+      <p>
+        <a
+          href="https://www.nobelprize.org/prizes/medicine/2020/press-release/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link: https://www.nobelprize.org/prizes/medicine/2020/press-release/
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        McHutchison JG, Lawitz EJ, Shiffman ML, et al. Peginterferon alfa-2b
+        or alfa-2a with ribavirin for treatment of hepatitis C infection.
+        <em>N Engl J Med</em>. 2009;361(6):580-593.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1056/NEJMoa0808010"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: https://doi.org/10.1056/NEJMoa0808010
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

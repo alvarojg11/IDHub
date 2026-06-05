@@ -1272,6 +1272,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A cirrhotic patient with a perforated sigmoid diverticulum grows ESBL E. coli, VRE, and Candida glabrata in blood cultures. Three drugs are chosen — each targeting a different microbial structure through a distinct mechanism. Can you identify all three?",
     tags: { organisms: ["Escherichia coli", "Enterococcus faecium", "Candida glabrata"], syndromes: ["Sepsis & Bacteremia", "Intra-Abdominal Infection", "Antimicrobial Pharmacology"], concepts: ["Antibiotic mechanism of action", "Penicillin-binding protein", "Transpeptidation", "50S ribosomal subunit", "Peptidyl transferase", "Beta-1,3-glucan synthase", "ESBL", "VRE", "Echinocandin", "Carbapenem", "Oxazolidinone", "Polymicrobial bacteremia"] },
   },
+  {
+    title: "The Cytokine Storm Within",
+    slug: "hhv8-castleman-disease",
+    description: "Diffuse lymphadenopathy, a hyperinflammatory state, and plasmablasts in an HIV-positive patient with an enhancing retroperitoneal mass.",
+    enable: true,
+    ogImage: "/cases/hhv8-castleman-disease/ct-scan.jpg",
+    teaser: "A 38-year-old man with HIV (CD4 185 cells/\u03BCL, viral load <20 copies/mL) develops six weeks of night sweats, diffuse lymphadenopathy, splenomegaly, and a CRP of 128. LN biopsy shows Castleman disease histology with plasmablasts. What drives this cytokine storm, and how do you treat it?",
+    tags: { organisms: ["Human herpesvirus 8", "HHV-8", "KSHV"], syndromes: ["HIV/AIDS", "Lymphoproliferative Disorders", "Viral Infections"], concepts: ["Multicentric Castleman disease", "HHV-8", "Viral IL-6", "Gammaherpesvirinae", "LANA-1", "Plasmablasts", "Rituximab", "Anti-CD20", "gp130 JAK STAT", "Kaposi sarcoma-associated herpesvirus"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
