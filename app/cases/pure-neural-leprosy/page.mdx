@@ -1,0 +1,339 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("pure-neural-leprosy");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Nerve Below the Surface
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 38-year-old man originally from rural Maharashtra, India, presents to a neurology clinic in Houston with eight months of progressive right foot weakness and left hand numbness. He has lived in the United States for five years and works as a software engineer. He has no significant past medical history, takes no medications, and does not use tobacco or alcohol. He was born and raised in a village near Nagpur where several neighbors were known to have chronic skin disease, though he never received a formal diagnosis himself. He recalls no rashes, skin patches, or nodules at any point in his life.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The right foot weakness began as occasional tripping on curbs and progressed to catching his toes on stairs and frequent near-falls. He can no longer walk on his right heel. Concurrently, he developed numbness in the left little finger and half of the ring finger, with dropping objects and difficulty buttoning shirts. He also reports intermittent burning pain in both feet that worsens at night. He denies back pain, bowel or bladder dysfunction, fevers, weight loss, rash, or skin changes. His primary care physician obtained a complete blood count, comprehensive metabolic panel, hemoglobin A1c, thyroid-stimulating hormone, and vitamin B12 level, all of which were normal, and referred him to neurology.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, right foot dorsiflexion is 3/5 and eversion is 3+/5. Left first dorsal interosseous and abductor digiti minimi strength is 4-/5. Sensory testing reveals decreased pinprick sensation in the right lateral leg and dorsum of the foot in an L5 distribution and in the left little finger and medial half of the ring finger in an ulnar distribution. Bilateral ulnar nerves are palpably thickened and mildly tender at the olecranon grooves. The right common peroneal nerve is palpably enlarged behind the fibular head. No hypopigmented patches, erythematous plaques, nodules, or skin lesions are found on full-body skin examination. The remainder of the neurological examination is normal, with no upper motor neuron signs, no cranial nerve deficits, and no detectable sensory level. Laboratory studies show ESR 28 mm/hr, CRP 12 mg/L, ANA negative, ANCA negative, serum protein electrophoresis without monoclonal protein, RPR nonreactive, HIV antigen/antibody negative, fasting glucose 86 mg/dL, and hemoglobin A1c 5.1%. Lumbar puncture yields clear CSF with protein 38 mg/dL, glucose 62 mg/dL, and 2 white blood cells; oligoclonal bands are absent.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Electromyography and nerve conduction studies demonstrate a mononeuritis multiplex pattern with demyelinating features and secondary axonal loss in the right common peroneal and left ulnar nerves. Sensory nerve action potentials are absent in the right sural and left ulnar distributions. High-resolution nerve ultrasound is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/pure-neural-leprosy/nerve-ultrasound.png"
+        alt="High-resolution ultrasound of the left ulnar nerve at the cubital tunnel demonstrating fusiform enlargement with loss of normal fascicular echotexture"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      High-resolution ultrasound of the ulnar nerve (transverse view) proximal to the cubital tunnel showing neural thickening and enlarged fascicles in a leprosy patient. Image adapted from De Martino Luppi et al., PLoS ONE (2024), CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-pure-neural-leprosy-q1"
+  title="Question 1"
+  prompt="What is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Chronic inflammatory demyelinating polyneuropathy (CIDP)",
+      feedback:
+        "Incorrect. CIDP is a legitimate consideration in a patient with progressive polyneuropathy and demyelinating features on nerve conduction studies. However, several key features argue against it. CIDP typically produces symmetric proximal and distal weakness with generalized areflexia, whereas this patient has a strikingly asymmetric mononeuritis multiplex pattern with selective involvement of the right common peroneal and left ulnar nerves. CSF protein is characteristically elevated in CIDP, often exceeding 100 mg/dL, but this patient's CSF protein is normal at 38 mg/dL. Nerve ultrasound in CIDP shows diffuse, uniform nerve enlargement rather than the asymmetric, segmental, fusiform enlargement seen here. The palpably thickened ulnar and common peroneal nerves in a patient from a leprosy-endemic region of India should redirect the differential toward a granulomatous neuropathy.",
+    },
+    {
+      id: "B",
+      label: "Vasculitic mononeuritis multiplex",
+      feedback:
+        "Incorrect. Mononeuritis multiplex is the correct nerve involvement pattern, and vasculitis is the classic non-infectious cause. However, vasculitic neuropathy typically presents acutely or subacutely with painful stepwise deficits and is associated with systemic features such as weight loss, fever, purpura, or glomerulonephritis. ANCA is negative, there is no constitutional syndrome, and the time course spans eight months of progressive rather than stepwise deterioration. The palpable nerve thickening and the specific pattern of nerve enlargement on ultrasound — fusiform, segmental, with altered echotexture — favor a granulomatous infiltrative process rather than a necrotizing vasculitis. Nerve biopsy in vasculitis would show necrotizing inflammation of the vasa nervorum with fibrinoid necrosis, not the epithelioid granulomas expected in this clinical context.",
+    },
+    {
+      id: "C",
+      label: "Pure neural leprosy",
+      correct: true,
+      feedback:
+        "Correct. Pure neural leprosy (PNL) is a form of Hansen disease in which Mycobacterium leprae infects peripheral nerves without producing any visible skin lesions. The combination of an asymmetric mononeuritis multiplex pattern, palpably thickened and tender peripheral nerves, eight months of progressive neuropathic symptoms in a patient from a highly endemic region of India, normal CSF protein, and the characteristic nerve ultrasound findings — asymmetric fusiform enlargement with loss of the normal fascicular honeycomb pattern and increased intraneural vascularity — is the signature presentation of PNL. The key bedside clue that separates PNL from other causes of mononeuritis multiplex is the palpable nerve thickening: enlarged ulnar nerves at the olecranon grooves and an enlarged common peroneal nerve behind the fibular head are not features of vasculitic, diabetic, or hereditary neuropathies. M. leprae has a unique tropism for Schwann cells and preferentially infects nerves in cooler superficial locations, which explains the predilection for the ulnar, common peroneal, median, and posterior tibial nerves.",
+    },
+    {
+      id: "D",
+      label: "Hereditary neuropathy with liability to pressure palsies (HNPP)",
+      feedback:
+        "Incorrect. HNPP is an autosomal dominant demyelinating neuropathy caused by PMP22 gene deletion that produces recurrent episodic pressure palsies at common compression sites. While the ulnar and common peroneal nerves are indeed classic compression sites in HNPP, the clinical pattern is wrong. HNPP produces episodic, recurrent mononeuropathies that often recover between episodes, not eight months of continuous progressive deterioration. There is no family history of similar neuropathy. The nerve ultrasound in HNPP shows focal enlargement limited to compression sites rather than the diffuse fusiform enlargement and altered echotexture seen here. Genetic testing for PMP22 deletion would be the definitive test, but the clinical context — progressive asymmetric neuropathy with palpable nerve thickening and an endemic exposure history — points elsewhere.",
+    },
+    {
+      id: "E",
+      label: "Diabetic lumbosacral radiculoplexus neuropathy",
+      feedback:
+        "Incorrect. Diabetic amyotrophy or lumbosacral radiculoplexus neuropathy can produce asymmetric lower extremity weakness and pain, but this patient has no history of diabetes and his fasting glucose and hemoglobin A1c are normal. Furthermore, diabetic radiculoplexus neuropathy primarily affects the lumbosacral plexus with proximal thigh pain and weakness, not a mononeuritis multiplex pattern involving the right common peroneal and left ulnar nerves simultaneously. The palpable nerve thickening and the upper extremity involvement are not features of diabetic radiculoplexus neuropathy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pure-neural-leprosy-q2"
+  title="Question 2"
+  prompt="Slit-skin smears obtained from three sites (both earlobes and the forehead) are negative for acid-fast bacilli. Nerve conduction studies confirm the mononeuritis multiplex pattern. What is the most appropriate next diagnostic step?"
+  options={[
+    {
+      id: "A",
+      label: "Repeat slit-skin smear from six additional body sites",
+      feedback:
+        "Incorrect. In pure neural leprosy, M. leprae is confined to peripheral nerve tissue and does not produce bacillary infiltration of the skin. Slit-skin smears are negative because there are no skin lesions and no dermal bacillary burden. Repeating smears from additional sites has very low diagnostic yield in PNL and delays the definitive investigation. A negative slit-skin smear in a patient with neuropathic findings consistent with PNL should not be used to exclude the diagnosis; it should redirect the diagnostic strategy toward nerve tissue.",
+    },
+    {
+      id: "B",
+      label: "Serum anti-PGL-1 antibody ELISA",
+      feedback:
+        "Incorrect. Anti-phenolic glycolipid-1 (PGL-1) antibodies have been studied as a serologic marker of M. leprae infection, and they may be positive in multibacillary disease with skin involvement. However, sensitivity in pure neural leprosy is limited to approximately 50 to 60 percent, and a negative result does not exclude the diagnosis. Serology cannot replace tissue diagnosis and does not provide the granulomatous pathology needed to confirm PNL and classify it on the Ridley-Jopling spectrum.",
+    },
+    {
+      id: "C",
+      label: "Sural nerve biopsy",
+      correct: true,
+      feedback:
+        "Correct. Nerve biopsy is the gold standard for diagnosing pure neural leprosy. When no skin lesions exist, slit-skin smears and skin biopsy are uninformative, and the diagnosis must come from nerve tissue itself. The sural nerve is the most commonly biopsied nerve because it is purely sensory and its removal produces only a limited sensory deficit in the lateral foot. Histopathological findings that confirm PNL include epithelioid non-caseating granulomas within the endoneurium and perineurium, perineurial thickening and inflammation, endoneurial fibrosis, and acid-fast bacilli demonstrable on Fite-Faraco stain. In the Shukla et al. prospective series of 100 PNL patients, nerve biopsy revealed borderline tuberculoid pathology in 78 percent and AFB in approximately 75 percent of cases. Even when AFB are not found, the combination of perineurial thickening, endoneurial granulomatous inflammation, and loss of myelinated fibers in a patient with the clinical and sonographic features described here is sufficient for a probable PNL diagnosis.",
+    },
+    {
+      id: "D",
+      label: "MR neurography of the bilateral upper and lower extremities",
+      feedback:
+        "Incorrect. MR neurography can demonstrate nerve enlargement, signal abnormality, and enhancement patterns and is useful for characterizing the extent of nerve involvement. However, it cannot provide a tissue diagnosis. The nerve ultrasound already performed shows the characteristic enlargement pattern, so additional imaging does not change the diagnostic strategy. What is needed now is tissue confirmation, not further imaging.",
+    },
+    {
+      id: "E",
+      label: "Skin punch biopsy from clinically normal skin for intraepidermal nerve fiber density",
+      feedback:
+        "Incorrect. Skin punch biopsy for intraepidermal nerve fiber density (IENFD) is an excellent test for documenting small-fiber neuropathy and can confirm the presence of a neuropathy. However, it does not identify the etiology. In PNL, the IENFD may be reduced, but this finding is nonspecific and does not distinguish leprosy from diabetic, toxic, or idiopathic small-fiber neuropathy. The biopsy needed here must come from the affected nerve tissue to demonstrate the pathognomonic granulomatous inflammation.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-pure-neural-leprosy-q3"
+  title="Question 3"
+  prompt="Sural nerve biopsy shows epithelioid non-caseating granulomas within the endoneurium and perineurium with perineurial thickening and rare acid-fast bacilli on Fite-Faraco stain. What is the most appropriate treatment regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Paucibacillary multidrug therapy (monthly rifampin plus daily dapsone) for 6 months",
+      feedback:
+        "Incorrect. Although the WHO has historically classified PNL as paucibacillary for treatment purposes, this classification is controversial and many leprosy experts consider it inadequate. The patient has demonstrable acid-fast bacilli on nerve biopsy and an unknown total bacillary load confined to nerve tissue that cannot be sampled. A 6-month paucibacillary regimen has been associated with higher relapse rates in PNL compared to multibacillary treatment. Furthermore, paucibacillary therapy does not include clofazimine, which has anti-inflammatory properties beneficial for neuritis control. India itself updated its national program in 2025 to add clofazimine to the paucibacillary regimen, reflecting growing consensus that the traditional 6-month PB regimen is insufficient.",
+    },
+    {
+      id: "B",
+      label: "Multibacillary multidrug therapy (monthly rifampin, daily dapsone, daily and monthly clofazimine) for 12 months plus prednisone for neuritis",
+      correct: true,
+      feedback:
+        "Correct. The appropriate treatment for PNL is the full multibacillary multidrug therapy regimen: rifampin 600 mg once monthly under supervision, dapsone 100 mg daily, and clofazimine 300 mg once monthly plus 50 mg daily, continued for 12 months. The WHO classifies PNL as paucibacillary for treatment purposes in official guidelines, but most experts and many national programs now treat PNL with the multibacillary regimen because the bacillary load within nerve tissue is unknown and cannot be assessed by slit-skin smear. Some authorities extend treatment to 24 months for extensive nerve involvement. Corticosteroids are essential adjunctive therapy: prednisone 40 to 60 mg daily with a structured taper over 12 to 24 weeks is recommended for neuritis to prevent irreversible axonal loss and permanent disability. Jardim et al. demonstrated in a prospective case series that combined use of MDT and corticosteroids prevented nerve damage progression in PNL patients, whereas MDT alone was insufficient to halt neuropathy. The priority is preserving motor function during the treatment window before irreversible axonal degeneration occurs.",
+    },
+    {
+      id: "C",
+      label: "Multibacillary multidrug therapy for 6 months without corticosteroids",
+      feedback:
+        "Incorrect. This regimen has two critical errors. First, 6 months is the duration for paucibacillary leprosy, not multibacillary treatment; the standard MB-MDT duration is 12 months. Second, omitting corticosteroids in a patient with active neuritis and progressive motor deficits allows continued inflammatory nerve damage during the months when antimicrobial therapy is reducing the bacillary load but has not yet controlled the immune-mediated neuropathy. The neuritis in PNL is driven by both bacillary proliferation and the host granulomatous immune response; antimicrobial therapy alone does not suppress the latter. Without corticosteroids, the patient's foot drop and hand weakness are likely to worsen or become permanent.",
+    },
+    {
+      id: "D",
+      label: "Intravenous immunoglobulin 2 g/kg divided over 5 days followed by maintenance infusions",
+      feedback:
+        "Incorrect. IVIG is the standard treatment for CIDP and some antibody-mediated neuropathies. This patient does not have CIDP; he has granulomatous neuropathy caused by M. leprae infection confirmed by nerve biopsy. IVIG has no antimicrobial activity against M. leprae and no role in the treatment of leprosy or leprosy-associated neuritis. Administering IVIG would delay appropriate antimicrobial and anti-inflammatory therapy and allow further irreversible nerve damage.",
+    },
+    {
+      id: "E",
+      label: "Rituximab 1 g/m&#178; for two doses separated by two weeks",
+      feedback:
+        "Incorrect. Rituximab is used for antibody-mediated vasculitis and some autoimmune neuropathies. This patient does not have vasculitis or an autoimmune neuropathy; he has an infectious granulomatous neuropathy with a demonstrated acid-fast organism on nerve biopsy. Rituximab has no activity against M. leprae and would further compromise immune function, potentially worsening the intracellular infection. The treatment is antimicrobial therapy with adjunctive corticosteroids for neuritis, not B-cell depletion.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-pure-neural-leprosy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Mycobacterium leprae is an obligate intracellular acid-fast bacillus with a unique tropism for Schwann cells of peripheral nerves. The organism binds to the G-domain of laminin-2 in the basal lamina of Schwann cells via its surface lectin phenolic glycolipid-1, gaining entry through the alpha-dystroglycan receptor complex and the ErbB2 receptor tyrosine kinase. Once inside, it subverts the host cell by promoting demyelination, inhibiting apoptosis, and reprogramming Schwann cells into a stem cell-like phenotype that facilitates bacillary survival and dissemination along the nerve. The clinical result is a granulomatous neuropathy that preferentially affects nerves in cooler superficial anatomical locations: the ulnar nerve at the olecranon groove, the common peroneal nerve at the fibular head, the median nerve at the carpal tunnel, the posterior tibial nerve at the medial malleolus, and the great auricular nerve.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Pure neural leprosy accounts for approximately 2 to 10 percent of all new leprosy cases depending on the geographic region, with the highest prevalence reported from India, Brazil, Indonesia, and Nepal. It is defined by the absence of skin lesions at presentation and throughout the course of disease, with clinical involvement limited to peripheral nerves. The incubation period of leprosy averages 3 to 5 years but can extend beyond a decade, which explains why patients may present years after leaving an endemic area. The mononeuritis multiplex pattern is the most common nerve involvement pattern in PNL, occurring in approximately half of cases, followed by mononeuropathy and asymmetric polyneuropathy. The most frequently affected nerves are the common peroneal, producing foot drop, and the ulnar, producing claw hand deformity. Up to 20 percent of PNL patients develop skin lesions on follow-up, at which point they are reclassified on the Ridley-Jopling spectrum.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic challenge in PNL is that the standard tools of leprosy diagnosis — slit-skin smear and skin biopsy — are negative because the bacilli are confined to nerve tissue. The bedside clues that should raise suspicion for PNL in any patient presenting with neuropathy are: asymmetric nerve involvement in a mononeuritis multiplex distribution, palpably thickened and tender peripheral nerves at characteristic anatomical sites, a patient originating from or having lived in a leprosy-endemic country, and a normal CSF protein that argues against CIDP. High-resolution nerve ultrasound has emerged as a powerful noninvasive diagnostic tool that can demonstrate the characteristic asymmetric segmental nerve enlargement with loss of the normal fascicular honeycomb pattern, altered echotexture, and increased intraneural vascularity on Doppler. The sonographic pattern in leprosy differs from CIDP, which produces uniform symmetric enlargement, and from compression neuropathy, which produces focal enlargement limited to entrapment sites. In the 2025 study by Roy et al., ultrasound-guided fine needle aspiration cytology of enlarged nerves achieved diagnostic confirmation in 82.8 percent of PNL cases. However, nerve biopsy remains the gold standard, demonstrating epithelioid granulomas within the endoneurium and perineurium with perineurial thickening and, in approximately 75 percent of cases, acid-fast bacilli on Fite-Faraco stain.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires both antimicrobial therapy and anti-inflammatory management. Multibacillary multidrug therapy with rifampin, dapsone, and clofazimine for 12 months is the standard, though some experts extend treatment to 24 months for extensive nerve involvement. Corticosteroids are essential adjunctive therapy for neuritis, starting at prednisone 40 to 60 mg daily with a structured taper over 12 to 24 weeks. The Jardim et al. prospective case series demonstrated that combined MDT and corticosteroids prevented nerve damage progression in PNL, whereas antimicrobial therapy alone was insufficient. The window for preventing irreversible axonal loss is narrow: motor deficits such as foot drop and claw hand become permanent once Wallerian degeneration is complete. Disability prevention — including ankle-foot orthoses for foot drop, hand therapy for ulnar neuropathy, and education on protective footwear to prevent plantar trophic ulcers — must begin concurrently with antimicrobial and anti-inflammatory therapy. Leprosy reactions, particularly type 1 reversal reactions, can occur during or after MDT and may cause acute worsening of neuritis, requiring immediate corticosteroid escalation and serial nerve function monitoring.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-pure-neural-leprosy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Pure neural leprosy presents without skin lesions; palpably thickened tender peripheral nerves in a mononeuritis multiplex distribution in a patient from an endemic region should raise suspicion for PNL even when the skin exam is completely normal.
+    </li>
+    <li>
+      Slit-skin smears are typically negative in PNL because bacilli are confined to nerve tissue; a negative smear does not exclude leprosy and should redirect the diagnostic strategy toward nerve imaging and nerve biopsy.
+    </li>
+    <li>
+      High-resolution nerve ultrasound showing asymmetric fusiform enlargement with loss of the fascicular honeycomb pattern is a powerful noninvasive screening tool; sural nerve biopsy demonstrating epithelioid granulomas within the endoneurium with or without acid-fast bacilli on Fite-Faraco stain is the gold standard for diagnosis.
+    </li>
+    <li>
+      PNL is treated with multibacillary MDT (rifampin, dapsone, clofazimine) for 12 months regardless of official WHO paucibacillary classification, with adjunctive prednisone for neuritis to prevent irreversible motor disability from foot drop and claw hand.
+    </li>
+    <li>
+      The incubation period of leprosy can exceed a decade; patients from endemic countries may present with PNL years after immigration, making travel and origin history essential in the evaluation of any unexplained asymmetric neuropathy.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Shukla B, Verma R, Kumar V, Kumar M, Malhotra KP, Garg RK, et al. Pathological, ultrasonographic, and electrophysiological characterization of clinically diagnosed cases of pure neuritic leprosy. <em>Journal of the Peripheral Nervous System</em>. 2020;25(2):154-163.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/jns.12372"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/jns.12372
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Roy U, Panwar A, Cartwright MS, Srivastava AK, Mukherjee B, Vaibhaw H, et al. High resolution nerve ultrasound in the diagnosis of pure neuritic leprosy. <em>Journal of Clinical Ultrasound</em>. 2025;53(6):748-757.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1002/jcu.24081"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1002/jcu.24081
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Jardim MR, Illarramendi X, Nascimento OJM, Nery JAC, Sales AM, Sampaio EP, Sarno EN. Pure neural leprosy: steroids prevent neuropathy progression. <em>Arquivos de Neuro-Psiquiatria</em>. 2007;65(4):969-973.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1590/s0004-282x2007000600009"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1590/S0004-282X2007000600009
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      AlOtaibi MK, AlQahtani BG, AlQawahmed RM. Unmasking the mimic: Leprosy neuropathy misdiagnosed as chronic inflammatory demyelinating polyneuropathy. <em>Neurosciences</em>. 2025;30(2):128-131.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.17712/nsj.2025.2.20240057"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.17712/nsj.2025.2.20240057
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hui M, Uppin MS, Challa S, Meena AK, Kaul S. Pure neuritic leprosy: resolving diagnostic issues in acid fast bacilli (AFB)-negative nerve biopsies. <em>Annals of Indian Academy of Neurology</em>. 2015;18(3):306-312.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.4103/0972-2327.162284"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.4103/0972-2327.162284
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Razdan N, V B, Sadhu S. Pure neuritic leprosy: latest advancements and diagnostic modalities. <em>Diagnostic Microbiology and Infectious Disease</em>. 2024;100(4):116529.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.diagmicrobio.2024.116529"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.diagmicrobio.2024.116529
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

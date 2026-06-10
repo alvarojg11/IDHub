@@ -1,0 +1,337 @@
+1. J Clin Ultrasound. 2025 Nov-Dec;53(9):1966-1978. doi: 10.1002/jcu.24081. Epub 
+2025 Jun 2.
+
+High Resolution Nerve Ultrasound in the Diagnosis of Pure Neuritic Leprosy.
+
+Roy U(1), Panwar A(2), Cartwright MS(3), Srivastava AK(4), Mukherjee B(5), 
+Vaibhaw H(6), Singh SB(7), Sharma R(8), Rani N(9), Singh I(8), Roy C(10).
+
+Author information:
+(1)Department of Neurology, Roy Neuro Care Centre, Ranchi, India.
+(2)Department of Neurology, Rotary Ambala Cancer and General Hospital, Ambala, 
+India.
+(3)Department of Neurology, Wake Forest School of Medicine, Winston-Salem, North 
+Carolina, USA.
+(4)Department of Neurology, All India Institute of Medical Sciences, New Delhi, 
+India.
+(5)Department of Pathology, Orchid Medical Centre, Ranchi, India.
+(6)Department of Pathology, Roy Neuro Care Centre, Ranchi, India.
+(7)Department of Community Medicine, Rajendra Institute of Medical Sciences, 
+Ranchi, India.
+(8)Stanley Browne Laboratory, TLM Community Hospital, Delhi, India.
+(9)Department of Dermatology, Skin Bliss Clinic, Ranchi, India.
+(10)Department of Community Medicine, Darbhanga Medical College, Darbhanga, 
+India.
+
+OBJECTIVES: We aimed to compare the clinical, electrophysiologic, and 
+sonographic characteristics of commonly affected peripheral nerves in suspected 
+cases of pure neuritic leprosy (PNL) and to describe an ultrasound-guided fine 
+needle aspiration cytology (FNAC) procedure to improve diagnostic capabilities 
+in PNL.
+METHODS: This retrospective study was carried out at Roy Neuro Care Centre, 
+Ranchi, Jharkhand, India through revisiting charts of suspected cases of PNL 
+from October 2022 to June 2024. The charts of individuals with a history, 
+examination, and nerve ultrasound consistent with PNL were reviewed. We 
+retrospectively analyzed the diagnostic steps, including the skin biopsy (which 
+had been guided by electrophysiology and/or nerve ultrasound) and the 
+ultrasound-guided FNAC of nerves that had been sent for histopathological 
+examination, acid-fast bacilli (AFB) staining, and polymerase chain reaction 
+(PCR).
+RESULTS: Charts of 52 patients derived from the records of those with 
+mononeuropathy or mononeuritis multiplex suspected to have PNL during October 
+2022-June 2024 were evaluated. The skin biopsy was diagnostic of PNL in 23 
+patients, while 29 patients had an inconclusive result. Those with an 
+inconclusive result had an ultrasound-guided FNAC followed by cytology and AFB 
+staining. The review of the records of these cases revealed that in 24 (82.8%) 
+cases there were features suggestive of PNL, while 5 patients had negative 
+cytology and AFB staining. Three of these individuals had PCR, with a positive 
+result in 1 (33.3%). A positive correlation was noted between the duration of 
+illness and markers of progressive involvement of nerves, as determined by 
+electrodiagnosis and ultrasound.
+CONCLUSION: Nerve ultrasound and ultrasound-guided nerve FNAC can assist in the 
+early diagnosis of PNL.
+
+© 2025 Wiley Periodicals LLC.
+
+DOI: 10.1002/jcu.24081
+PMID: 40457577 [Indexed for MEDLINE]
+
+
+2. Rev Assoc Med Bras (1992). 2021 Jan;67(1):140-149. doi: 
+10.1590/1806-9282.67.01.20200422.
+
+Pure neural leprosy or amyloid neuropathy? Systematic review and clinical case 
+report.
+
+Santos LOD(1), Fernandes TRMO(2), Barbosa TRS(1), Batista JADS(1), Souza CDF(2).
+
+Author information:
+(1)Universidade Federal do Vale do Francisco, School of Medicine - Petrolina 
+(PB), Brasil.
+(2)Universidade Federal de Alagoas, Medical Degree - Arapiraca (AL), Brasil.
+
+OBJECTIVE: To review the literature and to report a clinical case with initial 
+suspicion of pure neural leprosy and final diagnosis of amyloid neuropathy.
+METHODS: The study was conducted in two stages. In stage one, a systematic 
+literature review was carried out, with searches performed in the PubMed, 
+Medline, and Lilacs databases, as well as in the leprosy sectoral library of the 
+Virtual Health Library, using the following descriptors: neuritic leprosy, pure 
+neural leprosy, primary neural leprosy, pure neuritic leprosy, amyloid 
+polyneuropathy, amyloid neuropathies, and amyloid polyneuropathy. The search was 
+carried out on May 28, 2020. Clinical trials, cohort studies, cross-sectional 
+studies, clinical cases, and case studies published in Portuguese, English or 
+Spanish between 2010 and 2020 were included. Stage two reports a case with 
+initial suspicion of pure neural leprosy. Laboratory tests, 
+electroneuromyography, ultrasound, and biopsy of the sural nerve were requested.
+RESULTS: Twenty-three scientific texts were included. No publications were found 
+that contained both topics together. The challenging diagnosis of pure neural 
+leprosy and the possibility of using auxiliary resources in diagnosis were the 
+most emphasized themes in the studies. In the clinical case, the patient's 
+electroneuromyography showed sensitive and motor polyneuropathy of the lower 
+limbs, which was predominantly sensory and axonal, symmetrical, of moderate 
+intensity, and the mixed type (axonal-demyelinating). Ultrasonography of the 
+sural nerve revealed changes in the contour of the deep fibular nerves; biopsy 
+of the sural nerve showed an accumulation of amorphous eosinophilic material in 
+the nerve path, and Congo red stain showed apple-green birefringence of the 
+deposit under polarized light. The final diagnosis was amyloid neuropathy.
+CONCLUSIONS: The final clinical diagnosis was amyloid neuropathy. The diagnosis 
+of pure neural leprosy in endemic areas in Brasil is still a challenge for the 
+health system.
+
+DOI: 10.1590/1806-9282.67.01.20200422
+PMID: 34161469 [Indexed for MEDLINE]
+
+
+3. Indian J Dermatol Venereol Leprol. 2016 May-Jun;82(3):252-61. doi: 
+10.4103/0378-6323.179086.
+
+Pure neuritic leprosy: Current status and relevance.
+
+Rao PN(1), Suneetha S.
+
+Author information:
+(1)Department of Dermatology, Bhaskar Medical College, Hyderabad, India.
+
+Pure neuritic leprosy has always been an enigma due to its clinical and 
+management ambiguities. Although only the Indian Association of Leprologist's 
+classification recognizes 'pure neuritic leprosy' as a distinct sub group of 
+leprosy, cases nonetheless are reported from various countries of Asia, Africa, 
+South America and Europe, indicating its global relevance. It is important to 
+maintain pure neuritic leprosy as a subgroup as it constitutes a good percentage 
+of leprosy cases reported from India, which contributes to more than half of 
+global leprosy numbers. Unfortunately, a high proportion of these patients 
+present with Grade 2 disability at the time of initial reporting itself due to 
+the early nerve involvement. Although skin lesions are absent by definition, 
+when skin biopsies were performed from the skin along the distribution of the 
+affected nerve, a proportion of patients demonstrated leprosy pathology, 
+revealing sub-clinical skin involvement. In addition on follow-up, skin lesions 
+are noted to develop in up to 20% of pure neuritic leprosy cases, indicating its 
+progression to manifest cutaneous disease. Over the decades, the confirmation of 
+diagnosis of pure neuritic leprosy has been subjective, however, with the 
+arrival and use of high-resolution ultrasonography (HRUS) for nerve imaging, we 
+have a tool not only to objectively measure and record the nerve thickening but 
+also to assess the morphological alterations in the nerve including echo 
+texture, fascicular pattern and vascularity. Management of pure neuritic leprosy 
+requires multidrug therapy along with appropriate dose of systemic 
+corticosteroids, for both acute and silent neuritis. Measures for pain relief, 
+self-care of limbs and physiotherapy are important to prevent as well as manage 
+disabilities in this group of patients.
+
+DOI: 10.4103/0378-6323.179086
+PMID: 27088926 [Indexed for MEDLINE]
+
+
+4. Diagn Microbiol Infect Dis. 2024 Dec;110(4):116529. doi: 
+10.1016/j.diagmicrobio.2024.116529. Epub 2024 Sep 11.
+
+Pure neuritic leprosy: Latest advancements and diagnostic modalities: Diagnosis 
+of Pure Neuritic Leprosy.
+
+Razdan N(1), V B(2), Sadhu S(3).
+
+Author information:
+(1)Department of Life Sciences, Sharda School of Basic Sciences and Research, 
+Sharda University, Greater Noida, UP 201310, India; Stanley Browne Research 
+Laboratory, TLM Hospital, Shahdara, Delhi, India.
+(2)Department of Life Sciences, Sharda School of Basic Sciences and Research, 
+Sharda University, Greater Noida, UP 201310, India.
+(3)Department of Life Sciences, Sharda School of Basic Sciences and Research, 
+Sharda University, Greater Noida, UP 201310, India. Electronic address: 
+soumi.sadhu@sharda.ac.in.
+
+Pure neuritic leprosy (PNL) is characterized by exclusive peripheral neuropathy 
+without dermatological alterations. Diagnosis is difficult since skin lesions 
+and acid-fast bacilli (AFB) in slit smears are absent. Presently, the gold 
+standard for diagnosis is the histopathological examination of peripheral nerve 
+biopsy. Even then, the detection of bacteria is difficult, and histological 
+findings may be non-specific. Nerve biopsy is an invasive procedure that is 
+possible only in specialized centers and limited to certain sensory nerves. 
+Therefore, the establishment of serological, immunological, and molecular 
+laboratory tests could be more beneficial for diagnosing pure neuritic leprosy 
+to achieve effective treatment and reduction in its consequent disabilities. 
+This review suggests that the presence of Mycobacterium leprae (M.leprae) in PNL 
+cases can be proven by using non-invasive procedures, viz., multiplex polymerase 
+chain reaction (M-PCR), serological findings, immunological profiling, and 
+improved nerve-imaging. Findings also indicate the necessity for improving the 
+sensitivity of PCR and further research on specificity in ruling out other 
+clinical conditions that may mimic PNL.
+
+Copyright © 2024 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.diagmicrobio.2024.116529
+PMID: 39278136 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+have declared no conflict of interest.
+
+
+5. Cureus. 2024 Jul 28;16(7):e65578. doi: 10.7759/cureus.65578. eCollection 2024 
+Jul.
+
+Unmasking Carpal Tunnel Syndrome by High-Resolution Ultrasonography in 
+Misdiagnosed Pure Neuritic Leprosy: A Case Report.
+
+Dalave K(1), Patil P(1), Raman T(1), Agarwal U(2).
+
+Author information:
+(1)Dermatology, Dr. D. Y. Patil Medical College, Hospital and Research Centre, 
+Dr. D. Y. Patil Vidyapeeth, Pune, IND.
+(2)Radiodiagnosis, Dr. D. Y. Patil Medical College, Hospital and Research 
+Centre, Dr. D. Y. Patil Vidyapeeth, Pune, IND.
+
+We present a case of a woman in her 70s who was initially diagnosed with pure 
+neuritic leprosy due to bilateral hand numbness and tingling with associated 
+muscle weakness. However, after undergoing high-resolution ultrasonography 
+(HRUS), it was found that she had bilateral carpal tunnel syndrome (CTS). This 
+case highlights the importance of considering other possible causes of 
+peripheral neuropathy, such as CTS, in patients with suspected Hansen's disease. 
+It also establishes the role of HRUS in the prompt diagnosis of CTS. Appropriate 
+treatment of CTS can prevent unnecessary and potentially harmful treatment for 
+Hansen's disease.
+
+Copyright © 2024, Dalave et al.
+
+DOI: 10.7759/cureus.65578
+PMCID: PMC11348948
+PMID: 39192940
+
+Conflict of interest statement: Human subjects: Consent was obtained or waived 
+by all participants in this study. Conflicts of interest: In compliance with the 
+ICMJE uniform disclosure form, all authors declare the following: 
+Payment/services info: All authors have declared that no financial support was 
+received from any organization for the submitted work. Financial relationships: 
+All authors have declared that they have no financial relationships at present 
+or within the previous three years with any organizations that might have an 
+interest in the submitted work. Other relationships: All authors have declared 
+that there are no other relationships or activities that could appear to have 
+influenced the submitted work.
+
+
+6. J Neurosurg. 2015 Nov;123(5):1238-43. doi: 10.3171/2014.9.JNS142210. Epub 2015
+ Jun 5.
+
+Pure neuritic leprosy presenting as ulnar nerve neuropathy: a case report of 
+electrodiagnostic, radiographic, and histopathological findings.
+
+Payne R(1), Baccon J(2), Dossett J(3), Scollard D(4), Byler D(5), Patel A(1), 
+Harbaugh K(1).
+
+Author information:
+(1)Departments of 1 Neurosurgery.
+(2)Pathology.
+(3)Pediatric Infectious Disease, and.
+(4)National Hansen's Disease Programs Laboratory, Baton Rouge, Louisiana.
+(5)Neurology, Penn State Milton S. Hershey Medical Center, Hershey, 
+Pennsylvania; and.
+
+Hansen's disease, or leprosy, is a chronic infectious disease with many 
+manifestations. Though still a major health concern and leading cause of 
+peripheral neuropathy in the developing world, it is rare in the United States, 
+with only about 150 cases reported each year. Nevertheless, it is imperative 
+that neurosurgeons consider it in the differential diagnosis of neuropathy. The 
+causative organism is Mycobacterium leprae, which infects and damages Schwann 
+cells in the peripheral nervous system, leading first to sensory and then to 
+motor deficits. A rare presentation of Hansen's disease is pure neuritic 
+leprosy. It is characterized by nerve involvement without the characteristic 
+cutaneous stigmata. The authors of this report describe a case of pure neuritic 
+leprosy presenting as ulnar nerve neuropathy with corresponding radiographic, 
+electrodiagnostic, and histopathological data. This 11-year-old, otherwise 
+healthy male presented with progressive right-hand weakness and numbness with no 
+cutaneous abnormalities. Physical examination and electrodiagnostic testing 
+revealed findings consistent with a severe ulnar neuropathy at the elbow. 
+Magnetic resonance imaging revealed diffuse thickening and enhancement of the 
+ulnar nerve and narrowing at the cubital tunnel. The patient underwent ulnar 
+nerve decompression with biopsy. Pathology revealed acid-fast organisms within 
+the nerve, which was pathognomonic for Hansen's disease. He was started on 
+antibiotic therapy, and on follow-up he had improved strength and sensation in 
+the ulnar nerve distribution. Pure neuritic leprosy, though rare in the United 
+States, should be considered in the differential diagnosis of those presenting 
+with peripheral neuropathy and a history of travel to leprosy-endemic areas. The 
+long incubation period of M. leprae, the ability of leprosy to mimic other 
+conditions, and the low sensitivity of serological tests make clinical, 
+electrodiagnostic, and radiographic evaluation necessary for diagnosis. Prompt 
+diagnosis and treatment is imperative to prevent permanent neurological injury.
+
+DOI: 10.3171/2014.9.JNS142210
+PMID: 26047418 [Indexed for MEDLINE]
+
+
+7. Sci Rep. 2024 May 6;14(1):10374. doi: 10.1038/s41598-024-60457-0.
+
+Neurological features of Hansen disease: a retrospective, multicenter cohort 
+study.
+
+Chen X(1)(2), Di L(3), Qian M(4), Shen D(4), Feng X(5), Zhang X(6).
+
+Author information:
+(1)Leprosy Department, Beijing Tropical Medicine Research Institute, Beijing 
+Friendship Hospital, Capital Medical University, Beijing, China. 
+hannahchen2003@163.com.
+(2)Beijing Key Laboratory for Research On Prevention and Treatment of Tropical 
+Diseases, Capital Medical University, Beijing, China. hannahchen2003@163.com.
+(3)Department of Neurology, Beijing Xuanwu Hospital, Capital Medical University, 
+Beijing, China.
+(4)Department of Neurology, Peking Union Medical College Hospital (PUMCH), 
+Chinese Academy of Medical Sciences and Peking Union Medical College (CAMS & 
+PUMC), Beijing, China.
+(5)Department of Neurology, School of Clinical Medicine, Beijing Tsinghua 
+Changgung Hospital, Tsinghua University, Beijing, China.
+(6)Department of Neurology, Beijing Junyi Traditional Chinese Medicine Hospital, 
+Beijing, China.
+
+To elucidate the neurological features of Hansen disease. The medical records of 
+patients with confirmed Hansen disease transferred from the neurology department 
+were reviewed, and all medical and neurological manifestations of Hansen disease 
+were assessed. Eleven patients with confirmed Hansen disease, 10 with newly 
+detected Hansen disease and 1 with relapsed Hansen disease, who visited 
+neurology departments were enrolled. The newly detected patients with Hansen 
+disease were classified as having lepromatous leprosy (LL, n = 1), borderline 
+lepromatous leprosy (BL, n = 2), borderline leprosy (BB, n = 2), borderline 
+tuberculoid leprosy (BT, n = 1), tuberculoid leprosy (TT, n = 2), or pure neural 
+leprosy (PNL, n = 2). All of the patients with confirmed Hansen were diagnosed 
+with peripheral neuropathy (100.00%, 11/11). The symptoms and signs presented 
+were mainly limb numbness (100.00%, 11/11), sensory and motor dysfunction 
+(100.00%, 11/11), decreased muscle strength (90.90%, 10/11), and skin lesions 
+(81.81%, 9/11). Nerve morphological features in nerve ultrasonography (US) 
+included peripheral nerve asymmetry and segmental thickening (100.00%, 9/9). For 
+neuro-electrophysiology feature, the frequency of no response of sensory nerves 
+was significantly higher than those of motor nerves [(51.21% 42/82) vs (24.70%, 
+21/85)(P = 0.0183*)] by electrodiagnostic (EDX) studies. Nerve histological 
+features in nerve biopsy analysis included demyelination (100.00%, 5/5) and 
+axonal damage (60.00%, 3/5). In addition to confirmed diagnoses by acid-fast 
+bacteria (AFB) staining (54.54%, 6/11) and skin pathology analysis (100.00%, 
+8/8), serology and molecular technology were positive in 36.36% (4/11) and 
+100.00% (11/11) of confirmed patients of Hansen disease, respectively. It is not 
+uncommon for patients of Hansen disease to visit neurology departments due to 
+peripheral neuropathy. The main pathological features of affected nerves are 
+demyelination and axonal damage. The combination of nerve US, EDX studies, nerve 
+biopsy, and serological and molecular tests can improve the diagnosis of Hansen 
+disease.
+
+© 2024. The Author(s).
+
+DOI: 10.1038/s41598-024-60457-0
+PMCID: PMC11074337
+PMID: 38710787 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests.

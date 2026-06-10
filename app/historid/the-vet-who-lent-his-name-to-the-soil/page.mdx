@@ -1,0 +1,327 @@
+import HistorIDShell from "@/components/HistorIDShell";
+import { buildHistoridMetadata } from "@/lib/historid/seo";
+
+export const fact = {
+  slug: "the-vet-who-lent-his-name-to-the-soil",
+  title: "The Vet Who Lent His Name to the Soil",
+  description:
+    "Edmond Nocard was a French veterinarian at Pasteur's institute when he isolated a branching filament from a dying cow in 1888. The genus that bears his name turned out to live in soil worldwide, cause brain abscesses in transplant patients, and spend a full century resisting correct classification.",
+  publishedAt: "2026-06-09",
+  historicalDateLabel: "1888-2006",
+  historicalYearSort: 1888,
+  categories: ["organisms"],
+  tags: [
+    "Nocardia",
+    "Nocardia asteroides",
+    "Nocardia farcinica",
+    "Edmond Nocard",
+    "bovine farcy",
+    "brain abscess",
+    "nocardiosis",
+    "TMP-SMX",
+    "acid-fast",
+    "actinomycete",
+    "Pasteur Institute",
+    "transplant",
+  ],
+  hook:
+    "Edmond Nocard was a veterinarian at a school outside Paris when he pulled a strange branching filament from the lymph nodes of a dying cow. He could not have known that the same organism lived in the soil beneath the pasture, that it would be renamed in his honor within a year, or that it would spend the next century confusing microbiologists and killing immunocompromised patients in ways they were slow to recognize.",
+  takeaway:
+    "Nocardia is a genus of aerobic actinomycetes found in soil worldwide. Edmond Nocard, a French veterinarian working at the Pasteur Institute, isolated the organism from bovine farcy in 1888. Trevisan named the genus in his honor in 1889. The first human case, a brain abscess, was described by Eppinger in 1891. What followed was over a century of taxonomic confusion: the original type strain kept in two collections turned out to be two different organisms entirely, and what everyone called N. asteroides was actually a complex of species with different drug susceptibility profiles, only disentangled by molecular methods in the 2000s. Nocardia remains a significant pathogen in transplant recipients and immunocompromised patients, with brain abscess as its most lethal manifestation.",
+  heroImage: "/historid/the-vet-who-lent-his-name-to-the-soil/hero.jpg",
+  heroImageAlt:
+    "Portrait photograph of Edmond Nocard (1850-1903), French veterinarian and microbiologist, who discovered the organism that would bear his name while studying bovine farcy at the veterinary school in Alfort.",
+  heroImageCredit:
+    "Unknown author, from Victor Fraitot, Une page d'histoire du XIXe siècle - Pasteur, Paris: Librairie Vuibert, 1905.",
+  heroImageSourceUrl:
+    "https://commons.wikimedia.org/wiki/File:Edmond_Nocard-portrait.jpg",
+  heroImageLicense: "Public domain (published 1905, unknown author, France)",
+  socialHeadline: "The Vet Who Lent His Name to the Soil",
+  socialDek:
+    "Edmond Nocard was a veterinarian, not a physician. He isolated a branching filament from a cow in 1888. The genus named after him lives in dirt worldwide and still causes brain abscesses in transplant patients.",
+  socialFacts: [
+    "Edmond Nocard was a veterinarian at the École Vétérinaire de Maisons-Alfort who helped Pasteur and Roux with the anthrax vaccination experiments at Pouilly-le-Fort. His student Camille Guérin went on to co-develop the BCG vaccine.",
+    "The original type strain of Nocardia farcinica was kept in two culture collections. When scientists finally compared them carefully, one turned out to be a Mycobacterium and the other a Nocardia. They were never the same organism.",
+    "Nocardia farcinica carries two copies of the RNA polymerase beta subunit gene: one rifampin-sensitive, one rifampin-resistant. It is the first known bacterium with this dual-gene arrangement, a pre-built escape hatch against a drug class that did not exist when Nocard was alive.",
+    "Up to 44 percent of patients with systemic nocardiosis develop brain abscesses. Mortality for CNS disease approaches 80 percent. The organism reaches the brain through hematogenous spread from the lungs, usually in an immunocompromised host.",
+    "What everyone called Nocardia asteroides for a century was actually a complex of multiple species, each with different antibiotic susceptibility. The separation only became clear after 16S rRNA sequencing in the 2000s. Treating them all the same way had been a mistake with real consequences.",
+  ],
+  hookImageFit: "contain",
+  featured: false,
+};
+
+export const metadata = buildHistoridMetadata(fact);
+
+<HistorIDShell fact={fact}>
+  <p>
+    Edmond Nocard was a veterinarian at a school outside Paris when he pulled
+    a strange branching filament from the lymph nodes of a dying cow. He called
+    it <em>Streptothrix farcinica</em>. He could not have known that the same
+    organism lived in the soil beneath the pasture, that it would be renamed in
+    his honor within a year, or that it would spend the next century confusing
+    microbiologists and killing immunocompromised patients in ways they were
+    slow to recognize.
+  </p>
+
+  <h2>Historical scene</h2>
+  <p>
+    In 1888, Nocard was working at the École Vétérinaire de Maisons-Alfort,
+    the oldest veterinary school in France, just southeast of Paris. He was
+    forty-eight, a graduate of Alfort himself, and had spent his career on the
+    diseases of animals: bovine tuberculosis, contagious mastitis, peripneumonia.
+    He was also a member of the first editorial board of the <em>Annales de
+    l'Institut Pasteur</em>, the journal Pasteur had just founded to organize
+    the flood of discoveries pouring out of his laboratory on Rue Dutot. Nocard
+    was not a physician. He was firmly inside the Pasteur orbit, but his daily
+    work was cattle, not humans.
+  </p>
+
+  <p>
+    He had been there for the anthrax vaccination at Pouilly-le-Fort in 1881,
+    the public demonstration where Pasteur's attenuated vaccine protected sheep
+    and goats before a crowd of farmers, veterinarians, and journalists. He had
+    traveled to Egypt with Roux and Thuiller in 1883 during a cholera epidemic.
+    His students included Camille Guérin, who would later co-develop the BCG
+    vaccine with Albert Calmette. Nocard moved through the same corridors as the
+    giants of French microbiology, but his own discoveries came from the barn and
+    the slaughterhouse, not the ward.
+  </p>
+
+  <h2>What happened</h2>
+  <p>
+    The disease Nocard was investigating was bovine farcy, a chronic
+    suppurative lymphangitis of cattle characterized by abscesses along the
+    lymphatic vessels of the limbs. It caused economic losses large enough to
+    attract attention but had resisted etiological explanation. When Nocard
+    isolated the organism in 1888 and examined it under the microscope, he saw
+    thin, branching filaments that looked more like a fungus than a bacterium.
+    He placed it in the genus <em>Streptothrix</em> and named it{" "}
+    <em>Streptothrix farcinica</em>, the "farcy" organism. The name was
+    descriptive and temporary. It did not last a year.
+  </p>
+
+  <p>
+    In 1889, the Italian botanist Vittore Trevisan proposed a new genus,{" "}
+    <em>Nocardia</em>, to honor Nocard, and reclassified the organism as{" "}
+    <em>Nocardia farcinica</em>. The genus name was a tribute. The species name
+    preserved the disease. Both were reasonable. Neither turned out to be stable.
+  </p>
+
+  <p>
+    In 1890 or 1891, the pathologist Eppinger described the first human case.
+    A patient presented with pneumonia and a brain abscess. From the abscess,
+    Eppinger recovered a branching filamentous organism that he named{" "}
+    <em>Cladothrix asteroides</em>. The species epithet <em>asteroides</em>{" "}
+    referred to the star-like, stellate colonies the organism formed on solid
+    media. In 1896, Blanchard reclassified Eppinger's organism into Nocard's
+    genus, and it became <em>Nocardia asteroides</em>. What had been a
+    veterinary pathogen now had a human counterpart. The two species would spend
+    the next century in a taxonomic tangle that no one fully resolved until
+    molecular methods arrived in the 1990s.
+  </p>
+
+  <p>
+    The confusion between <em>Nocardia</em> and <em>Actinomyces</em> was the
+    worst of it. Both formed branching filaments under the microscope, and for
+    decades they were treated as close relatives. But they are not.{" "}
+    <em>Actinomyces</em> is anaerobic, part of the normal oral flora, and not
+    acid-fast. <em>Nocardia</em> is aerobic, lives in soil, and is partially
+    acid-fast when stained with a weak decolorizer. The distinction matters
+    because the diseases they cause require different treatments. It took most of
+    the twentieth century for this separation to become routine in clinical
+    laboratories.
+  </p>
+
+  <p>
+    The taxonomy got stranger before it got straight. In 1954,{" "}
+    <em>N. farcinica</em> was designated the type species of the genus. But the
+    original type strain had been maintained in two different culture collections:
+    NCTC 4524 and ATCC 3318T. When Gordon and Mihm studied them carefully in the
+    1960s, they found that the two supposedly identical strains were not
+    identical at all. One was a <em>Mycobacterium</em>. The other was a{" "}
+    <em>Nocardia</em>. They petitioned the Judicial Commission to merge{" "}
+    <em>N. farcinica</em> and <em>N. asteroides</em> into a single species under
+    the name <em>N. asteroides</em>, which became the new type. The merger stood
+    for decades. When molecular methods finally separated them again in the
+    1990s, it turned out that <em>N. farcinica</em> was not only a distinct
+    species but one of the most drug-resistant members of the genus. The
+    confusion had not been academic. It had clinical consequences.
+  </p>
+
+  <p>
+    And what everyone called <em>N. asteroides</em> was not one species either.
+    In 1988, Wallace and colleagues showed that isolates identified as{" "}
+    <em>N. asteroides</em> fell into at least six different drug susceptibility
+    patterns. In the 1990s and 2000s, 16S rRNA gene sequencing pulled these
+    apart into separate species: <em>N. abscessus</em>,{" "}
+    <em>N. cyriacigeorgica</em>, <em>N. veterana</em>,{" "}
+    <em>N. kruczakiae</em>, and others. Each had a different susceptibility
+    profile. The organism that had been treated as a single pathogen for a
+    century was actually a complex, and treating all of its members the same way
+    had been a mistake.
+  </p>
+
+  <h2>Why it changed infectious diseases</h2>
+  <p>
+    <em>Nocardia</em> was one of the first organisms that clearly bridged
+    veterinary and human medicine. Nocard found it in a cow. Eppinger found it in
+    a human brain. The same genus did both, and it took decades for clinicians
+    to accept that a soil organism inhaled from dust could travel to the lungs
+    and then seed the brain in an immunocompromised host.
+  </p>
+
+  <p>
+    The organism also forced laboratories to adapt. <em>Nocardia</em> is
+    partially acid-fast, but it loses its color when standard Ziehl-Neelsen
+    staining uses strong acid decolorizers. It requires a modified technique,
+    either 1% sulfuric acid instead of the usual hydrochloric acid, or the
+    Fite-Faraco method, to preserve the delicate beaded filaments. Under the
+    microscope, those filaments branch at right angles and show a characteristic
+    beading that distinguishes <em>Nocardia</em> from{" "}
+    <em>Actinomyces</em>, which does not stain acid-fast, and{" "}
+    <em>Mycobacterium</em>, which does not branch. This three-way distinction is
+    still taught in microbiology courses because it still matters at the bench.
+  </p>
+
+  <p>
+    <em>Nocardia</em> also changed how clinicians think about brain abscesses.
+    The spread from lung to brain is so consistent that a ring-enhancing
+    intracranial lesion alongside a pulmonary infiltrate in an
+    immunocompromised host should trigger the thought almost automatically.
+    Untreated CNS nocardiosis kills roughly 80 percent of the time.
+  </p>
+
+  <h2>Why the name still matters now</h2>
+  <p>
+    The organism is not receding. The expanding population of transplant
+    recipients, patients on biologic therapies, and long-term corticosteroid
+    users has made nocardiosis more common, not less. Solid organ transplant
+    recipients, especially lung transplant patients, carry an incidence of 0.6 to
+    3 percent. TMP-SMX prophylaxis for <em>Pneumocystis</em> provides some
+    protection, but breakthrough infections occur, particularly with intermittent
+    dosing. And <em>N. farcinica</em>, the species that started the whole story
+    in Nocard's cow, is often resistant to TMP-SMX. The original organism is
+    also one of the hardest to treat.
+  </p>
+
+  <p>
+    Species-level identification now guides therapy in ways that were impossible
+    when everything was called <em>N. asteroides</em>. <em>N. farcinica</em> is
+    often multidrug-resistant. <em>N. nova</em> is usually susceptible to most
+    agents. <em>N. brasiliensis</em> is the dominant cause of cutaneous disease,
+    especially mycetoma, in tropical regions. <em>N. otitidiscaviarum</em> is
+    often resistant to TMP-SMX but susceptible to fluoroquinolones. The clinician
+    who knows the species has a meaningful head start on treatment.
+  </p>
+
+  <p>
+    Two details from the 2004 genome sequence of <em>N. farcinica</em> are
+    worth remembering. The organism carries two copies of the RNA polymerase beta
+    subunit gene, <em>rpoB</em>. One is rifampin-sensitive. The other is
+    rifampin-resistant. This dual-gene system, the first known in any bacterium,
+    is a pre-built escape hatch: the organism is ready for rifampin exposure
+    without needing to acquire new resistance genes. And the genome encodes at
+    least 103 oxygenases and 27 cytochrome P450 enzymes, a metabolic toolkit
+    that helps explain how <em>Nocardia</em> survives in both decaying soil and
+    living tissue. It is a generalist. That is what makes it dangerous.
+  </p>
+
+  <p>
+    The name <em>Nocardia</em> means "of Nocard." Edmond Nocard died in 1903,
+    fifteen years after his discovery. He was fifty-three. The organism he
+    pulled from a cow's lymph node turned out to live in soil on every
+    continent, cause brain abscesses in transplant patients, carry a pre-built
+    resistance mechanism against a drug class invented long after his death, and
+    spend a full century being misidentified in laboratories around the world.
+    The name is a tribute to a veterinarian. The organism is a reminder that
+    soil bacteria do not respect the boundary between veterinary and human
+    medicine, and that a name on a culture report can carry a hundred years of
+    mistaken identity inside it.
+  </p>
+
+  <h2>References</h2>
+  <ol>
+    <li>
+      <p>
+        Nocard E. Note sur la maladie des boeufs de la Guadeloupe connue sous le
+        nom de farcin. <em>Ann Inst Pasteur (Paris)</em>. 1888;2:293-302.
+      </p>
+    </li>
+    <li>
+      <p>
+        Trevisan V. Genere e specie nuove delle micobatteriacee.{" "}
+        <em>Ann Inst Pasteur (Paris)</em>. 1889;3:599-603.
+      </p>
+    </li>
+    <li>
+      <p>
+        Eppinger H. Über eine neue pathogene Cladothrix und eine durch sie
+        hervorgerufene Pseudotuberculosis. <em>Beitr Pathol Anat Allg Pathol</em>
+        . 1891;9:287-328.
+      </p>
+    </li>
+    <li>
+      <p>
+        Brown-Elliott BA, Brown JM, Conville PS, Wallace RJ. Clinical and
+        laboratory features of the <em>Nocardia</em> spp. based on current
+        molecular taxonomy. <em>Clin Microbiol Rev</em>. 2006;19(2):259-282.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1128/CMR.19.2.259-282.2006"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: 10.1128/CMR.19.2.259-282.2006
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Ishikawa J, Yamashita A, Mikami Y, et al. The complete genomic sequence
+        of <em>Nocardia farcinica</em> IFM 10152. <em>Proc Natl Acad Sci USA</em>
+        . 2004;101(41):14925-14930.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1073/pnas.0406410101"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: 10.1073/pnas.0406410101
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wilson JW. Nocardiosis: updates and clinical overview. <em>Mayo Clin Proc</em>
+        . 2012;87(4):403-407.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1016/j.mayocp.2011.12.016"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: 10.1016/j.mayocp.2011.12.016
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        Wallace RJ, Steele LC, Sumter G, Smith JM. Antimicrobial susceptibility
+        patterns of <em>Nocardia asteroides</em>. <em>Antimicrob Agents Chemother</em>
+        . 1988;32(12):1776-1779.
+      </p>
+      <p>
+        <a
+          href="https://doi.org/10.1128/AAC.32.12.1776"
+          target="_blank"
+          rel="noreferrer"
+        >
+          DOI: 10.1128/AAC.32.12.1776
+        </a>
+      </p>
+    </li>
+  </ol>
+</HistorIDShell>

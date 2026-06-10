@@ -1,0 +1,457 @@
+1. Arq Neuropsiquiatr. 2013 Sep;71(9B):661-6. doi: 10.1590/0004-282X20130146.
+
+Leprosy neuropathy: clinical presentations.
+
+Nascimento OJ.
+
+Leprosy is a chronic infectious peripheral neuropathy caused by Mycobacterium 
+leprae. The different clinical presentations of the disease are determined by 
+the quality of the host immune response. Early detection of leprosy and 
+treatment by multidrug therapy are the most important steps in preventing 
+deformity and disability. Thus the early recognition of the clinical leprosy 
+presentation is essential. Mononeuritis, mononeuritis multiplex (MM), 
+polyneuritis (MM summation) are the most frequent. The frequent anesthetic skin 
+lesions are absent in the pure neuritic leprosy presentation form. Isolated 
+peripheral nerve involvement is common, including the cranial ones. Arthritic 
+presentation is occasionally seen, usually misdiagnosed as rheumatoid arthritis. 
+Attention should be given to autonomic dysfunctions in leprosy. There are 
+clinical presentations with severe neuropathic pain - painful small-fiber 
+neuropathy. Leprous late-onset neuropathy (LLON) clinical presentation should be 
+considered facing a patient who develop an inflammatory neuropathy many years 
+after a previous skin leprosy treatment.
+
+DOI: 10.1590/0004-282X20130146
+PMID: 24141500 [Indexed for MEDLINE]
+
+
+2. PLoS Negl Trop Dis. 2026 Apr 10;20(4):e0014212. doi: 
+10.1371/journal.pntd.0014212. eCollection 2026 Apr.
+
+Diagnosis and therapeutic outcomes of biopsy-confirmed Pure Neuritic Leprosy: A 
+two-decade experience.
+
+Sarkar S(1), Miraclin T A(1), Jayachandran R(2), Jasper A(3), Eapen RA(2), 
+Mathew L(4), Sathishkumar D(4), Peter D(4), George L(4), Vanjare HA(3), Bal 
+D(1), R H(1), Nair AV(1), Ahmed SAI(1), Prabhakar AT(1), Mathew V(1), Aaron 
+S(1), Pulimood S(4), Sathyakumar R(2), Chacko G(2), Sivadasan A(1).
+
+Author information:
+(1)Department of Neurological Sciences, Christian Medical College, Vellore, 
+Tamil Nadu, India.
+(2)Department of General Pathology (Division of Neuropathology), Christian 
+Medical College, Vellore, Tamil Nadu, India.
+(3)Department of Radiodiagnosis, Christian Medical College, Vellore, Tamil Nadu, 
+India.
+(4)Department of Dermatology, Christian Medical College, Vellore, Tamil Nadu, 
+India.
+
+BACKGROUND: Pure neuritic leprosy (PNL) is a distinct form of leprosy 
+characterized by peripheral nerve involvement without skin lesions. Diagnosis is 
+often delayed, and 'silent neuritis' contributes to progressive and irreversible 
+nerve damage. Despite appropriate therapy, many patients develop long-term 
+disability. This study describes the clinical profile, diagnostic patterns, 
+therapeutic outcomes, and predictors of disability in biopsy-confirmed PNL.
+METHODS: We conducted a retrospective observational cohort study at a tertiary 
+referral centre in South India, enrolling biopsy-confirmed PNL cases from 
+January 2003 to May 2023. Demographic, clinical, electrophysiological, and 
+histopathological data were collected. The primary outcome was the proportion of 
+patients with high disability at follow-up (WHO grade 2). Predictors of 
+disability were identified using multivariate analysis.
+RESULTS: Ninety-five patients were included (mean age 43.02 years (SD 15.32); 
+77% male). Over half (55%) presented 1-5 years after symptom onset. Sensory 
+deficits were most common (80%), followed by foot drop (51%), ulnar claw (38%), 
+and trophic ulcers (25%). Electrophysiology revealed mononeuritis multiplex in 
+52.6% and axonal polyneuropathy in 22.2%. Nerve biopsy showed borderline 
+tuberculoid pathology in 78% and borderline lepromatous in 15.7%. Notably, 6 
+patients with mononeuropathy had lepromatous pathology. All patients received 
+multidrug therapy; 41 experienced lepra reactions. Higher severity at treatment 
+initiation was significantly associated with persistent disability.
+CONCLUSIONS: PNL often presents late, with many patients already experiencing 
+nerve damage. A substantial subset of clinically mononeuritis patients 
+demonstrated lepromatous pathology, emphasizing the need for nerve biopsy in all 
+suspected cases. Early detection and timely treatment may reduce disability 
+burden. These findings highlight critical gaps in current diagnostic strategies 
+and underscore the importance of aggressive early intervention in PNL.
+
+Copyright: © 2026 Sarkar et al. This is an open access article distributed under 
+the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.pntd.0014212
+PMCID: PMC13095098
+PMID: 41961892 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.
+
+
+3. Front Immunol. 2025 May 12;16:1550687. doi: 10.3389/fimmu.2025.1550687. 
+eCollection 2025.
+
+Gene expression profiling in pure neural leprosy: insights into pathogenesis and 
+diagnostic biomarkers.
+
+de Athaide MM(1), Leal-Calvo T(2), Da Silva TP(1), Rosa TLSA(3), Ferreira H(1), 
+Pascarelli BMO(1), Siquara de Sousa AC(1), Jardim MR(1)(4)(5)(6)(7), Pinheiro 
+RO(1)(6)(7).
+
+Author information:
+(1)Leprosy Laboratory, Oswaldo Cruz Institute, Oswaldo Cruz Foundation, Rio de 
+Janeiro, Brazil.
+(2)Innovative Genomics Institute, University of California, Berkeley, Berkeley, 
+CA, United States.
+(3)Cellular Microbiology Laboratory, Oswaldo Cruz Foundation, Rio de Janeiro, 
+Brazil.
+(4)Post-graduate Program in Neurology, Federal University of the State of Rio de 
+Janeiro, Rio de Janeiro, Brazil.
+(5)Department of Neurology, Pedro Ernesto University Hospital, Rio de Janeiro 
+State University, Rio de Janeiro, Brazil.
+(6)Rio de Janeiro Research Network on Neuroinflammation, Oswaldo Cruz Institute, 
+Oswaldo Cruz Foundation, Rio de Janeiro, Brazil.
+(7)National Institute of Science and Technology on Neuroimmunomodulation, 
+Oswaldo Cruz Institute, Oswaldo Cruz Foundation, Rio de Janeiro, Brazil.
+
+INTRODUCTION: Leprosy may affect skin and nerves, leading to permanent 
+disabilities and deformities. Pure neural leprosy (PNL) lacks skin lesions, 
+complicating diagnosis. Moreover there is no a specific treatment to control 
+neural damage. Transcriptomic profiling may reveals unique gene expression 
+changes in PNL nerves, shedding light on immune response and pathogenesis. These 
+findings may guide early diagnosis and improve patient outcome.
+METHODS: In the present study, we investigated the gene profiling of nerve 
+samples from patients with PNL and revealed significant transcriptomic 
+alterations compared to non-leprosy controls.
+RESULTS: Principal Component Analysis (PCA) of the 500 most differentially 
+expressed genes separated the groups, with 1,199 genes showing differential 
+expression (|log2FC| ≥ 1, FDR ≤ 0.1). Downregulated genes included GAS2L2, 
+TRIM67, IL1RAPL1, MAP1LC3B2, and NTNG1, implicated in neuronal development and 
+autophagy, while upregulated genes were linked to immune responses. Functional 
+analyses highlighted inflammasome activation and autophagy impairment in PNL, 
+correlating with nerve inflammation and architecture loss.
+DISCUSSION: We hope that our data will aid in identifying new markers, fostering 
+strategies for early diagnosis, preventing disabilities, and improving the 
+management of PNL patients.
+
+Copyright © 2025 de Athaide, Leal-Calvo, Da Silva, Rosa, Ferreira, Pascarelli, 
+Siquara de Sousa, Jardim and Pinheiro.
+
+DOI: 10.3389/fimmu.2025.1550687
+PMCID: PMC12104059
+PMID: 40421009 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+4. Neurol India. 2020 Jul-Aug;68(4):922-926. doi: 10.4103/0028-3886.293485.
+
+Mononeuritis Multiplex as Initial Manifestation of Pure Neuritic Leprosy-A 
+Forgotten Cause: Clinical, Electrodiagnostic and Pathologic Correlations.
+
+Shelley BP(1), Chakraborti S(2), Manjunath MM(3).
+
+Author information:
+(1)Department of Neurology, Yenepoya Medical College, Yenepoya (deemed to be) 
+University, Mangalore, Karnataka, India.
+(2)Department of Pathology, Kasturba Medical College, Mangalore, (Manipal 
+University), Karnataka, India.
+(3)Department of Dermatology, Yenepoya Medical College, Yenepoya (deemed to be) 
+University, Mangalore, Karnataka, India.
+
+Despite being common, polyneuropathy remains a diagnostic challenge for most 
+clinicians. Mononeuritis multiplex (MM) refers to involvement of several or many 
+peripheral nerves at the same or different points in time by a disease process. 
+This report describes a case of an atypical presentation of Hansen's disease 
+(HD) as mononeuritis multiplex in the left lower limb with corresponding 
+radiographic, electrodiagnostic, and histopathological data that confirmed pure 
+neuritic leprosy (PNL). We reiterate that although the incidence of PNL is 
+exceedingly low characterized by nerve involvement without the characteristic 
+cutaneous stigmata, leprosy is still the commonest cause of MM in the Indian 
+sub-continent.This report underscores the crucial need for a heightened 
+multi-disciplinary awareness of this "forgotten and uncommon" presentation of 
+PNL. It is imperative that the treating physician should also understand the 
+various neurological presentations, both mimics and chameleons, of this 
+treatable disease to prevent permanent neuropathic injury and disability.
+
+DOI: 10.4103/0028-3886.293485
+PMID: 32859845 [Indexed for MEDLINE]
+
+Conflict of interest statement: None
+
+
+5. Acta Neurol Belg. 2024 Jun;124(3):935-941. doi: 10.1007/s13760-024-02503-2.
+Epub  2024 Mar 4.
+
+From periphery to center, untold story of pure neuritic leprosy: an 
+electrophysiological study.
+
+Bhoi SK(1), Lahre Y(2), Jha M(2), Naik S(3), Purkait S(4), Samal P(2), Saharia 
+GK(5), Kumar M(2), Behera P(2).
+
+Author information:
+(1)Department of Neurology, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, 751019, India. sanjeev_bhoi@rediffmail.com.
+(2)Department of Neurology, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, 751019, India.
+(3)Department of Radiodiagnosis, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, 751019, India.
+(4)Department of Pathology and Laboratory Medicine, All India Institute of 
+Medical Sciences, Bhubaneswar, Odisha, 751019, India.
+(5)Department of Biochemistry, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, 751019, India.
+
+BACKGROUND: Pure neuritic leprosy (PNL) is uncommon form of leprosy involving 
+peripheral nerves. Some isolated case reports have shown imaging changes in the 
+central nervous system (CNS) and also impairment in visual evoked potential 
+(VEP), somatosensory evoked potential (SSEP) and brain stem auditory-evoked 
+potentials (BAEPs) parameters in PNL, but there is lack of large study. This 
+prospective observational study evaluates impairment in these central conduction 
+studies among PNL patients.
+METHODS: We screened patients with leprosy presenting with features of 
+neuropathy and/or thickened nerves. Patients with bacilli-positive nerve 
+biopsies were included in the study and subjected to routine tests along with 
+nerve conduction study (NCS), VEP, tibial SSEP and BAEPs. Parameters of these 
+studies were analyzed based on data from previous studies.
+RESULTS: Of 76 patients screened for PNL 49 had positive findings in biopsy. 
+Most of patients were male and mean age group was 46.35 ± 15.35 years. 
+Mononeuritis multiplex was most common NCS pattern in 46.93% (23/49) patients. 
+We found abnormal VEP in 13 out of 35 patients (37.14%). Similarly abnormal SSEP 
+and BAEPs among 42.85% and 40% patients respectively.
+DISCUSSION: This study shows that in PNL significant number of patients have 
+subclinical CNS involvement. Exact pathophysiology of CNS involvement is not 
+known till now but study of VEP, SSEP and BAEPs parameter may help in early 
+diagnosis of PNL.
+
+© 2024. The Author(s) under exclusive licence to Belgian Neurological Society.
+
+DOI: 10.1007/s13760-024-02503-2
+PMID: 38438636 [Indexed for MEDLINE]
+
+
+6. Rev Neurol (Paris). 2003 Nov;159(11):979-95.
+
+[Neurological manifestations of leprosy].
+
+[Article in French]
+
+Grimaud J(1), Vallat JM.
+
+Author information:
+(1)Service de Médecine Interne, Neurologie et Rhumatologie, Hôpital Louis 
+Pasteur, Chartres. jgrimaud@ch-chartres.fr
+
+Leprosy, also known as Hansen's disease, is a chronic, infectious disease caused 
+by Mycobacterium leprae. Bacilli localize preferentially in the skin and 
+peripheral nerves and have a propensity to cause nerve damage. The resulting 
+disability has caused great suffering for victims in many countries. Despite 
+recent advances in the immunopathogenesis, epidemiology and prognostic factors 
+of leprosy nerve damage, many aspects of the disease have remained enigmatic. 
+The spectrum of clinical and pathological manifestations of the disease ranges 
+from lepromatous to tuberculoid, depending on the host's T-cell-mediated immune 
+response. Diagnosis is based on three criteria: characteristic skin lesions in 
+association with thickened nerves, demonstration of acid fast bacilli in slit 
+skin smears, and histopathology of skin biopsies. Nerve biopsy is necessary to 
+establish the diagnosis of pure "neural leprosy". In developed countries, the 
+diagnosis is suspected when a patient who has stayed in an endemic area suffers 
+from a peripheral neuropathy of unknown etiology. To facilitate determination of 
+the appropriate antibiotic regimen, patients are classified as either 
+paucibacillary or multibacillary. Some patients may have multibacillary leprosy 
+in nerves and paucibacillary leprosy in skin, which emphasizes the usefulness of 
+nerve biopsy. The course of the disease is often complicated by immune mediated 
+"reactions", which can rapidly lead to further nerve damage, namely reversal 
+reaction and erythema nodosum leprosy. However, nerves are often functionally 
+impaired before developing obvious symptoms such as skin reactions or nevralgia 
+(silent neuropathy). Early recognition and prompt treatment with corticosteroids 
+of leprous reactions and "silent neuropathies" is very important to prevent 
+disability with all its attendant problems. Research progress from clinical 
+trials may improve current methods of prevention and treatment of nerve damage 
+in leprosy.
+
+PMID: 14710019 [Indexed for MEDLINE]
+
+
+7. J Clin Ultrasound. 2025 Nov-Dec;53(9):1966-1978. doi: 10.1002/jcu.24081. Epub 
+2025 Jun 2.
+
+High Resolution Nerve Ultrasound in the Diagnosis of Pure Neuritic Leprosy.
+
+Roy U(1), Panwar A(2), Cartwright MS(3), Srivastava AK(4), Mukherjee B(5), 
+Vaibhaw H(6), Singh SB(7), Sharma R(8), Rani N(9), Singh I(8), Roy C(10).
+
+Author information:
+(1)Department of Neurology, Roy Neuro Care Centre, Ranchi, India.
+(2)Department of Neurology, Rotary Ambala Cancer and General Hospital, Ambala, 
+India.
+(3)Department of Neurology, Wake Forest School of Medicine, Winston-Salem, North 
+Carolina, USA.
+(4)Department of Neurology, All India Institute of Medical Sciences, New Delhi, 
+India.
+(5)Department of Pathology, Orchid Medical Centre, Ranchi, India.
+(6)Department of Pathology, Roy Neuro Care Centre, Ranchi, India.
+(7)Department of Community Medicine, Rajendra Institute of Medical Sciences, 
+Ranchi, India.
+(8)Stanley Browne Laboratory, TLM Community Hospital, Delhi, India.
+(9)Department of Dermatology, Skin Bliss Clinic, Ranchi, India.
+(10)Department of Community Medicine, Darbhanga Medical College, Darbhanga, 
+India.
+
+OBJECTIVES: We aimed to compare the clinical, electrophysiologic, and 
+sonographic characteristics of commonly affected peripheral nerves in suspected 
+cases of pure neuritic leprosy (PNL) and to describe an ultrasound-guided fine 
+needle aspiration cytology (FNAC) procedure to improve diagnostic capabilities 
+in PNL.
+METHODS: This retrospective study was carried out at Roy Neuro Care Centre, 
+Ranchi, Jharkhand, India through revisiting charts of suspected cases of PNL 
+from October 2022 to June 2024. The charts of individuals with a history, 
+examination, and nerve ultrasound consistent with PNL were reviewed. We 
+retrospectively analyzed the diagnostic steps, including the skin biopsy (which 
+had been guided by electrophysiology and/or nerve ultrasound) and the 
+ultrasound-guided FNAC of nerves that had been sent for histopathological 
+examination, acid-fast bacilli (AFB) staining, and polymerase chain reaction 
+(PCR).
+RESULTS: Charts of 52 patients derived from the records of those with 
+mononeuropathy or mononeuritis multiplex suspected to have PNL during October 
+2022-June 2024 were evaluated. The skin biopsy was diagnostic of PNL in 23 
+patients, while 29 patients had an inconclusive result. Those with an 
+inconclusive result had an ultrasound-guided FNAC followed by cytology and AFB 
+staining. The review of the records of these cases revealed that in 24 (82.8%) 
+cases there were features suggestive of PNL, while 5 patients had negative 
+cytology and AFB staining. Three of these individuals had PCR, with a positive 
+result in 1 (33.3%). A positive correlation was noted between the duration of 
+illness and markers of progressive involvement of nerves, as determined by 
+electrodiagnosis and ultrasound.
+CONCLUSION: Nerve ultrasound and ultrasound-guided nerve FNAC can assist in the 
+early diagnosis of PNL.
+
+© 2025 Wiley Periodicals LLC.
+
+DOI: 10.1002/jcu.24081
+PMID: 40457577 [Indexed for MEDLINE]
+
+
+8. Neurol India. 2021 Sep-Oct;69(5):1349-1353. doi: 10.4103/0028-3886.329620.
+
+Pure Neuritic Leprosy with Bilateral Foot Drop and Central Nervous Involvement: 
+A Clinical, Electrophysiological, and MR Correlation.
+
+Bhoi SK(1), Naik S(2), Purkait S(3).
+
+Author information:
+(1)Department of Neurology, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, India.
+(2)Department of Radiodiagnosis, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, India.
+(3)Department of Pathology, All India Institute of Medical Sciences, 
+Bhubaneswar, Odisha, India.
+
+BACKGROUND: Central nervous system (CNS) involvement in leprosy is sparsely 
+documented. Neurophysiological tests and magnetic resonance imaging (MRI) helps 
+in demonstrating CNS involvement in the patient of pure neuritic leprosy.
+OBJECTIVES: To demonstrate CNS involvement in pure neuritic leprosy.
+METHODS: Detailed clinical presentation and skin lesions were evaluated. Sural 
+nerve biopsy, MRI diffusion tensor imaging of spinal cord and optic nerve were 
+performed. Visual evoked potential and tibial somatosensory evoked potential 
+were done. Their clinical, electrophysiological, and MRI were done at follow-up 
+visits.
+RESULTS: We report three patients of pure neuritic leprosy with bilateral foot 
+drop as the initial presentation. MRI T2W sequence of cervico dorsal cord showed 
+dorsal column hyperintensity in two patients. Diffusion-weighted MR revealed 
+decrease fractional anisotropy and an increase in the apparent diffusion 
+coefficient. Similar findings were also noted in the optic nerves. The patients 
+were managed with multidrug therapy multibacillary regimen and steroid in 
+tapering dose. At follow-up, they showed clinical improvement in vision and 
+power of ankle dorsiflexor.
+CONCLUSIONS: Patients of pure neuritic leprosy may manifest with bilateral foot 
+drop with the involvement of posterior column and cranial nerves.
+
+DOI: 10.4103/0028-3886.329620
+PMID: 34747810 [Indexed for MEDLINE]
+
+Conflict of interest statement: None
+
+
+9. Kathmandu Univ Med J (KUMJ). 2019 Jan.-Mar;17(65):73-76.
+
+Neuritic Leprosy; An Intriguing Re-visit to a Forbidden Ailment.
+
+Shrestha BK (1), Ranabhat K (2), Pant R (3), Sapkota S (1), Shrestha S (1).
+
+Author information:
+(1)Department of Neurosurgery, Upendra Devkota Memorial National Institute of 
+Neurological and Allied Sciences, Bansbari, Kathmandu.
+(2)Department of Radiology, Upendra Devkota Memorial National Institute of 
+Neurological and Allied Sciences, Bansbari, Kathmandu.
+(3)Department of Pathology, Upendra Devkota Memorial National Institute of 
+Neurological and Allied Sciences, Bansbari, Kathmandu.
+
+Leprosy is a chronic infectious disease that presents with varied 
+manifestations. Pure neuritic leprosy is one of the rarest forms of the disease 
+which is characterized by nerve involvement without the characteristic cutaneous 
+stigmata. Eleven year old, healthy male presented with progressively increasing 
+painful swelling at the medial aspect of the arm near to the right elbow joint 
+with difficulty in extending right ring and little fingers at interphalangeal 
+joint and numbness in the same region for last 1 year with no cutaneous 
+abnormalities. Physical examination revealed 6x3 cm firm, tender lesion 3 cm 
+proximal to the right elbow joint with positive tinel's sign, without signs of 
+inflammation, along with characteristic claw hand deformity of right hand and 
+atrophy of hypothenar and interossei muscle. Electro-diagnostic testing revealed 
+findings consistent with a right ulnar axonal neuropathy above the elbow. 
+Magnetic resonance imaging revealed well defined heterogeneously hyper intense 
+linear lesion along the course of thickened ulnar nerve in the distal arm 
+extending posterior to the medial condyle. It also showed an oval shaped lesion 
+(2.1x1.0 cm) arising from the same segment of the nerve, without any bony or 
+muscular involvement of that area. The patient underwent surgical exploration 
+and ulnar nerve decompression with biopsy. Pathology revealed necrotizing 
+granulomatous inflammatory acid fast bacilli stain negative lesion, which was 
+histologically consistent with caseous abscess caused by tuberculoid leprosy, 
+pathognomonic for Hansen's disease. He has been started on antibiotic therapy 
+and is referred to leprosy center for further course of management. Pure 
+neuritic leprosy, though rare, should be considered as differential diagnosis in 
+cases presenting with peripheral neuropathy at leprosy-endemic areas. Prompt 
+diagnosis and treatment is imperative to prevent permanent neurological injury.
+
+PMID: 31734684 [Indexed for MEDLINE]
+
+
+10. J Peripher Nerv Syst. 2020 Jun;25(2):191-203. doi: 10.1111/jns.12372. Epub
+2020  Apr 23.
+
+Pathological, ultrasonographic, and electrophysiological characterization of 
+clinically diagnosed cases of pure neuritic leprosy.
+
+Shukla B(1), Verma R(1), Kumar V(2), Kumar M(3), Malhotra KP(4), Garg RK(1), 
+Malhotra HS(1), Sharma PK(1), Kumar N(1), Uniyal R(1), Pandey S(1), Rizvi I(1).
+
+Author information:
+(1)Department of Neurology, KGMU, Lucknow, India.
+(2)Department of Plastic Surgery, KGMU, Lucknow, India.
+(3)Department of Radiology, KGMU, Lucknow, India.
+(4)Department of Pathology, RMLIMS, Lucknow, India.
+
+A subset of neuritic form of leprosy, called pure neuritic leprosy (PNL), seen 
+in a minority of leprosy patients, is characterized by peripheral neuropathy 
+without skin lesions and an absence of acid-fast bacilli on skin smears. 
+Patients with PNL are often started on drug therapy without confirmation of 
+diagnosis. We, therefore, did a prospective study of clinically diagnosed PNL 
+patients with correlation of ultrasonographic and biopsy findings. A total of 
+100 consecutive patients with PNL, diagnosed according to the consensus case 
+definition, were included in the study. All patients underwent nerve conduction 
+study, peripheral nerve ultrasonography, and sural nerve biopsy. Multiple 
+mononeuropathies were present in 75% of cases, mononeuropathy in 18%, and 
+polyneuropathy in the remaining 7%. Compared to clinical examination, 
+ultrasonographic assessment of the peripheral nerves was not only better at the 
+detection of thickening but also helped in characterization of their fascicular 
+architecture, echogenicity, and vascularity. A total of 32 cases were confirmed 
+on nerve biopsy, out of which 75% had demonstrable lepra bacilli. Cranial nerve 
+involvement, presence of trophic ulcers, and bilateral thickening of the great 
+auricular nerve were significantly associated with the positivity of lepra 
+bacilli. A significant improvement in the disability score happened after 
+multidrug therapy. A comprehensive electrophysiologic, ultrasonographic, and 
+histological evaluation may be helpful in establishing a diagnosis of PNL with 
+greater confidence, while ruling out other non-leprosy diagnoses.
+
+© 2020 Peripheral Nerve Society.
+
+DOI: 10.1111/jns.12372
+PMID: 32250546 [Indexed for MEDLINE]

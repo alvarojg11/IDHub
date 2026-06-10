@@ -1,0 +1,22 @@
+{
+  "user_prompt": "High-resolution nerve ultrasound image of the ulnar nerve at the cubital tunnel showing asymmetric fusiform enlargement. Cross-sectional view of the nerve displaying: (1) the normal left ulnar nerve on the left side with intact honeycomb fascicular pattern and normal cross-sectional area (8 mm\u00b2), and (2) the enlarged right ulnar nerve on the right side with loss of normal fascicular architecture, increased cross-sectional area (14 mm\u00b2), heterogeneous echotexture with hypoechogenic areas, and increased intraneural vascularity shown with color Doppler flow signals. Include labels for cross-sectional area measurements, fascicular pattern, echotexture, and vascularity. Medical ultrasound grayscale style with blue/red Doppler signals. Clinical imaging style, dark background with white labels and measurement calipers.",
+  "doc_type": "presentation",
+  "quality_threshold": 6.5,
+  "iterations": [
+    {
+      "iteration": 1,
+      "success": false,
+      "error": "API request failed (HTTP 402): {'message': 'Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits', 'code': 402}"
+    },
+    {
+      "iteration": 2,
+      "success": false,
+      "error": "API request failed (HTTP 402): {'message': 'Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits', 'code': 402}"
+    }
+  ],
+  "final_image": null,
+  "final_score": 0.0,
+  "success": false,
+  "early_stop": false,
+  "early_stop_reason": null
+}
