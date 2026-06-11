@@ -1,0 +1,339 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("candida-meningitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Negative CrAg
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man with newly diagnosed acute myeloid leukemia is admitted 28 days ago for induction chemotherapy with cytarabine and daunorubicin. He developed profound neutropenia with an absolute neutrophil count below 100 cells/μL lasting 18 days. On day 14 of neutropenia, two sets of blood cultures grew <em>Candida tropicalis</em>, later confirmed susceptible to fluconazole (MIC 0.5 mcg/mL), micafungin, and amphotericin B. Micafungin 100 mg IV daily was started, the tunneled central venous catheter was removed, and repeat blood cultures cleared by day 17. He received filgrastim and achieved neutrophil recovery on hospital day 23 with an ANC of 1,200.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Five days after neutrophil recovery, on hospital day 28, he develops a new fever to 39.2°C, severe holocranial headache, photophobia, and progressive confusion. He is oriented to person but not to place or date and cannot recall his hematologist's name. He reports nausea without vomiting. There is no cough, dysuria, diarrhea, or new skin rash. The oncology team obtains blood cultures, starts vancomycin and meropenem empirically, and consults neurology and infectious diseases.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 39.2°C, heart rate 104 bpm, blood pressure 112/68 mmHg, and oxygen saturation 97% on room air. He is alert but confused, oriented only to person. Nuchal rigidity is present with positive Kernig and Brudzinski signs. Right cranial nerve VI palsy is noted with inability to abduct the right eye. Motor strength is 5/5 throughout, and sensory examination is intact. There are no skin lesions, no oral thrush, and no retinal lesions on bedside fundoscopy. White blood cell count is 4,200/μL (ANC 1,800, lymphocytes 1,400), hemoglobin 8.1 g/dL, platelet count 42,000/μL, CRP 88 mg/L, and creatinine 1.1 mg/dL. Serum (1,3)-beta-D-glucan returns at >500 pg/mL (positive, cutoff 80 pg/mL). Two sets of blood cultures show no growth at 48 hours.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Lumbar puncture reveals an opening pressure of 28 cm H₂O. CSF analysis shows WBC 185/μL (72% lymphocytes, 18% neutrophils, 10% monocytes), RBC 12/μL, protein 124 mg/dL, and glucose 28 mg/dL (simultaneous serum glucose 104 mg/dL). CSF Gram stain shows no organisms. CSF India ink preparation is negative. CSF cryptococcal antigen lateral flow assay is negative. CSF bacterial culture shows no growth at 48 hours. CSF fungal culture is pending. MRI brain with gadolinium contrast is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/candida-meningitis/mri.png"
+        alt="Brain MRI showing multiple ring-enhancing Candida abscesses in the basal ganglia and right parietal white matter"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Brain MRI showing multiple rounded ring-enhancing lesions in the basal ganglia and right parietal white matter, with fungal abscess morphology in confirmed cerebral candidiasis. Image: Neves N et al., <em>BMC Res Notes</em> 2014;7:837 (doi:10.1186/1756-0500-7-837), CC-BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-candida-meningitis-q1"
+  title="Question 1"
+  prompt="Given the clinical presentation, CSF findings, negative cryptococcal antigen, and MRI, what is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Cryptococcal meningitis",
+      feedback:
+        "Incorrect. Cryptococcal meningitis is the correct reflex consideration in any immunocompromised patient with subacute meningitis, and the lymphocytic CSF pleocytosis with elevated protein and low glucose would be consistent. However, two findings definitively exclude it. First, the CSF cryptococcal antigen lateral flow assay is negative. The CrAg LFA has a sensitivity exceeding 99 percent for Cryptococcus neoformans and C. gattii, making a negative result effectively diagnostic in excluding cryptococcal meningitis. Second, the India ink preparation is negative, reflecting the absence of a polysaccharide capsule. Candida species do not produce a capsule, which explains both the negative India ink and the negative CrAg. The prior documented C. tropicalis candidemia provides the mechanistic link: prolonged bloodstream infection during neutropenia seeded the central nervous system hematogenously, producing meningoencephalitis with microabscesses.",
+    },
+    {
+      id: "B",
+      label: "Candida meningoencephalitis",
+      correct: true,
+      feedback:
+        "Correct. This is Candida meningoencephalitis caused by hematogenous dissemination of the previously documented C. tropicalis bloodstream infection. The diagnostic logic is built on three pillars. First, the negative CrAg LFA and negative India ink exclude Cryptococcus, the most common fungal meningitis in immunocompromised hosts. Candida species lack a polysaccharide capsule, producing negative results on both tests. Second, the patient has a documented source: C. tropicalis candidemia during prolonged neutropenia, with bloodstream infection lasting at least three days before clearance. Prolonged candidemia in neutropenic patients seeds sanctuary sites including the CNS, eyes, and heart. Third, the MRI pattern of scattered ring-enhancing microabscesses in the basal ganglia and deep parenchyma is characteristic of disseminated Candida infection, producing a granulomatous microabscess pattern distinct from the dilated Virchow-Robin spaces and cryptococcomas of cryptococcal disease or the basal meningitis with tuberculomas of tuberculosis. The serum (1,3)-beta-D-glucan >500 pg/mL further supports an invasive fungal process.",
+    },
+    {
+      id: "C",
+      label: "Tuberculous meningitis",
+      feedback:
+        "Incorrect. Tuberculous meningitis can produce a lymphocytic CSF pleocytosis with elevated protein and low glucose in an immunocompromised host. However, several features argue against it. The MRI shows multifocal fungal-appearing ring-enhancing lesions rather than the thick basal meningitis with tuberculomas characteristic of TB meningitis. There is no basal cistern predilection, no tuberculomas, and no hydrocephalus typical of TB. The temporal relationship to documented C. tropicalis candidemia five days prior is compelling evidence for hematogenous Candida seeding rather than reactivation of latent TB. The serum beta-D-glucan is markedly positive, which would not be expected in tuberculous meningitis, as mycobacteria do not produce (1,3)-beta-D-glucan.",
+    },
+    {
+      id: "D",
+      label: "Bacterial meningitis",
+      feedback:
+        "Incorrect. Bacterial meningitis typically presents acutely with neutrophilic CSF pleocytosis, and organisms are often visible on Gram stain. This patient's CSF shows a lymphocytic predominance (72 percent lymphocytes), the Gram stain is negative, and 48-hour bacterial cultures show no growth. The subacute onset over days rather than hours, the markedly positive serum beta-D-glucan, the microabscesses on MRI, and the documented prior candidemia all point away from a pyogenic bacterial etiology. Vancomycin and meropenem were appropriately started empirically but will not address the true pathogen.",
+    },
+    {
+      id: "E",
+      label: "Herpes simplex encephalitis",
+      feedback:
+        "Incorrect. HSV encephalitis typically presents with fever, confusion, and seizures, and can occur in immunocompromised hosts. However, the MRI pattern is wrong: HSV encephalitis preferentially affects the mesial temporal lobes and orbitofrontal regions with hemorrhagic necrosis, not the multifocal ring-enhancing deep parenchymal abscesses seen here. The CSF in HSV encephalitis typically shows a lymphocytic pleocytosis with elevated RBCs reflecting hemorrhagic necrosis, and the CSF HSV PCR would be positive. The markedly elevated serum beta-D-glucan and the documented C. tropicalis candidemia point to a fungal etiology.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-candida-meningitis-q2"
+  title="Question 2"
+  prompt="The patient was receiving micafungin 100 mg IV daily at the time meningitis developed, and blood cultures had cleared. Which statement best explains why this regimen failed to prevent CNS involvement?"
+  options={[
+    {
+      id: "A",
+      label: "The micafungin dose was subtherapeutic; candidemia requires 150 mg daily for adequate clearance",
+      feedback:
+        "Incorrect. Micafungin 100 mg IV daily is the standard recommended dose for invasive candidiasis in adults. The drug was effective in clearing the bloodstream infection, as evidenced by negative blood cultures by day 17. The failure was not one of dosing but of pharmacology: the drug does not penetrate the central nervous system at therapeutic concentrations. Increasing the dose would not overcome this fundamental pharmacokinetic limitation.",
+    },
+    {
+      id: "B",
+      label: "Echinocandins have poor CNS penetration and do not achieve therapeutic concentrations in the CSF",
+      correct: true,
+      feedback:
+        "Correct. This is the central pharmacokinetic pitfall of the echinocandin class. Micafungin, caspofungin, and anidulafungin are large lipophilic molecules with high protein binding that do not cross the blood-brain barrier in clinically meaningful concentrations. CSF levels of echinocandins are low or undetectable. The drug successfully cleared the bloodstream infection because plasma concentrations are adequate, but the central nervous system served as a sanctuary site where C. tropicalis could establish infection unimpeded. This is one of the most important antifungal pharmacology concepts: an echinocandin can clear candidemia from the blood while simultaneously failing to prevent or treat hematogenous seeding of the CSF, vitreous body, or cardiac valves. When Candida meningitis develops in a patient on an echinocandin, the drug must be changed to an agent with proven CNS penetration, not merely dose-escalated.",
+    },
+    {
+      id: "C",
+      label: "C. tropicalis is intrinsically resistant to all echinocandins",
+      feedback:
+        "Incorrect. C. tropicalis is generally susceptible to echinocandins, and the organism was confirmed susceptible to micafungin in this case. Intrinsic echinocandin resistance is not a recognized feature of C. tropicalis, although acquired resistance via FKS hotspot mutations can emerge during prolonged therapy. The failure of micafungin to prevent CNS involvement was not due to resistance but to inadequate drug delivery to the site of infection. The bloodstream was sterilized; the CNS was not reached.",
+    },
+    {
+      id: "D",
+      label: "The patient was neutropenic at the time of CNS seeding, and no antifungal is effective during neutropenia",
+      feedback:
+        "Incorrect. Antifungal agents remain effective against fungal organisms during neutropenia; they do not require neutrophil cooperation for their primary mechanism of action. Amphotericin B disrupts fungal cell membranes by binding ergosterol, fluconazole inhibits lanosterol 14-alpha-demethylase, and echinocandins inhibit beta-1,3-glucan synthase — none of these mechanisms depend on neutrophil function. Neutropenia increases the risk of dissemination by impairing host immune containment, but it does not render antifungal drugs inactive. The issue here is purely one of drug distribution: micafungin was present in the blood but absent from the CSF.",
+    },
+    {
+      id: "E",
+      label: "Micafungin was started too late; candidemia was present for more than 48 hours before therapy began",
+      feedback:
+        "Incorrect. While delayed initiation of antifungal therapy for candidemia is associated with increased mortality and a higher risk of metastatic complications, the timing of micafungin initiation does not explain why the drug failed to treat the CNS infection once it was started. The key issue is that even with prompt initiation, micafungin cannot treat an infection in a compartment it does not penetrate. Candidemia may have seeded the CNS before micafungin was started, but the drug's inability to reach therapeutic CSF concentrations is why the CNS infection persisted and progressed despite adequate bloodstream clearance.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-candida-meningitis-q3"
+  title="Question 3"
+  prompt="CSF fungal culture grows Candida tropicalis (fluconazole MIC 0.5 mcg/mL, susceptible). What is the most appropriate antifungal regimen?"
+  options={[
+    {
+      id: "A",
+      label: "Continue micafungin 100 mg IV daily for 6 weeks",
+      feedback:
+        "Incorrect. Micafungin has poor CNS penetration and cannot treat documented Candida meningitis. Continuing an echinocandin for a CNS infection that the drug cannot reach would be a fundamental pharmacokinetic error. While the organism is susceptible to micafungin in vitro, susceptibility without drug delivery to the site of infection is clinically meaningless. The IDSA 2016 guidelines explicitly recommend against echinocandins as primary therapy for CNS candidiasis due to inadequate CSF concentrations.",
+    },
+    {
+      id: "B",
+      label: "Switch to fluconazole 400 mg IV daily for 4 weeks",
+      feedback:
+        "Incorrect. Fluconazole has good CSF penetration and is the appropriate step-down agent, but it is fungistatic rather than fungicidal against Candida. Starting with fluconazole monotherapy for active CNS disease with microabscesses and cranial nerve involvement is suboptimal because fungistatic agents may not achieve rapid enough fungal burden reduction in a closed compartment where drug penetration depends on inflammation. The correct approach is to begin with fungicidal induction therapy using liposomal amphotericin B plus flucytosine, then transition to fluconazole after clinical improvement and CSF sterilization. Additionally, 4 weeks is the minimum duration after CSF sterilization, not the total treatment duration.",
+    },
+    {
+      id: "C",
+      label: "Liposomal amphotericin B 5 mg/kg IV daily plus flucytosine 25 mg/kg PO four times daily, then step down to fluconazole 400-800 mg daily after clinical response and CSF sterilization",
+      correct: true,
+      feedback:
+        "Correct. This is the IDSA 2016 guideline-recommended regimen for CNS candidiasis. Liposomal amphotericin B provides dose-dependent fungicidal activity against Candida and achieves detectable therapeutic concentrations in the CSF despite limited overall CNS distribution. Flucytosine is a critical adjunct because it achieves excellent CSF penetration at approximately 70 to 80 percent of serum levels and is synergistic with amphotericin B. The combination of amphotericin B plus flucytosine reduces relapse rates and improves outcomes compared to amphotericin B alone in CNS fungal infections. After the patient demonstrates clinical improvement and repeat CSF cultures are sterile, typically after two or more weeks of induction therapy, step-down to fluconazole 400 to 800 mg daily is appropriate for a fluconazole-susceptible isolate. Total treatment duration should be a minimum of 4 to 6 weeks after documented CSF sterilization, with some experts extending to 8 to 12 weeks for microabscesses or slow clinical response. Flucytosine requires monitoring for bone marrow suppression and hepatotoxicity, which is especially important in a patient with recent chemotherapy-induced cytopenias.",
+    },
+    {
+      id: "D",
+      label: "Voriconazole 6 mg/kg IV twice daily for two doses, then 4 mg/kg twice daily for 6 weeks",
+      feedback:
+        "Incorrect. Voriconazole has activity against most Candida species and achieves moderate CSF penetration, making it a reasonable alternative in specific situations, particularly for fluconazole-resistant species such as C. krusei. However, it is not the first-line recommended regimen for CNS candidiasis. Voriconazole is primarily fungistatic against Candida, and the IDSA guidelines prefer the fungicidal combination of liposomal amphotericin B plus flucytosine for initial therapy of active CNS disease. Voriconazole could be considered as a step-down agent in cases of azole-resistant species where fluconazole is not an option.",
+    },
+    {
+      id: "E",
+      label: "Liposomal amphotericin B 5 mg/kg IV daily as monotherapy for 6 weeks",
+      feedback:
+        "Incorrect. While liposomal amphotericin B is a necessary component of the regimen, using it as monotherapy is suboptimal. The addition of flucytosine provides synergistic fungicidal activity and excellent CSF penetration that amphotericin B alone cannot match. In CNS fungal infections, combination therapy with amphotericin B plus flucytosine has been associated with better outcomes than amphotericin B monotherapy. The flucytosine component is particularly important because it reaches CSF concentrations of 70 to 80 percent of serum levels, providing direct antifungal activity at the site of infection that amphotericin B's limited CSF distribution cannot fully achieve. Omitting flucytosine reduces the efficacy of the regimen without providing a meaningful simplification benefit.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-candida-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Candida species are commensal organisms of the human gastrointestinal tract and skin that cause invasive disease when mucosal barriers and immune defenses are disrupted. Among the non-albicans Candida species, C. tropicalis has a particular propensity for tissue invasion and dissemination in neutropenic hosts, producing higher rates of deep-organ seeding compared to C. albicans. In the setting of prolonged neutropenia following chemotherapy for acute leukemia, translocation of Candida from the gut to the bloodstream occurs across damaged intestinal mucosa, and the absence of neutrophil-mediated fungal killing allows sustained candidemia with hematogenous dissemination to sanctuary sites including the central nervous system, eyes, and heart valves.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The critical diagnostic insight in this case is the negative cryptococcal antigen. In immunocompromised patients with subacute lymphocytic meningitis, Cryptococcus neoformans is the reflex diagnosis, and appropriately so — it accounts for the vast majority of fungal meningitis in this population. However, the CrAg lateral flow assay has a sensitivity exceeding 99 percent for Cryptococcus, meaning that a negative result effectively excludes the diagnosis. Unlike Cryptococcus, Candida species do not produce a polysaccharide capsule, so both the India ink preparation and the CrAg are consistently negative. The serum (1,3)-beta-D-glucan provides the critical bridging data: it is a nonspecific marker of invasive fungal infection that is positive in Candida infections because beta-1,3-glucan is a major cell wall component. A markedly elevated BDG in the setting of negative CrAg and prior documented candidemia should immediately redirect the differential toward Candida CNS infection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The echinocandin sanctuary-site failure is one of the most important antifungal pharmacology concepts in clinical practice. Echinocandins inhibit beta-1,3-glucan synthase, an enzyme essential for fungal cell wall synthesis, and are first-line therapy for candidemia and invasive candidiasis. However, they are large, highly protein-bound molecules that do not cross the blood-brain barrier, achieving low or undetectable concentrations in the CSF. This means that a patient can have sterile blood cultures on an echinocandin while harboring active, untreated fungal infection in the CNS, vitreous humor, or on cardiac valves. When CNS candidiasis is diagnosed in a patient receiving an echinocandin, the drug must be changed to liposomal amphotericin B, which achieves detectable therapeutic CSF concentrations despite limited overall CNS distribution, and flucytosine, which penetrates the CSF at 70 to 80 percent of serum levels and provides synergistic fungicidal activity.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The IDSA 2016 guidelines recommend liposomal amphotericin B at 3 to 5 mg/kg/day plus flucytosine at 25 mg/kg orally four times daily as initial therapy for CNS candidiasis, with transition to fluconazole 400 to 800 mg daily after clinical improvement and CSF sterilization. The minimum treatment duration is 4 to 6 weeks after documented CSF clearance, with longer courses for persistent microabscesses or slow clinical response. Flucytosine monitoring requires twice-weekly complete blood counts and liver function tests due to risks of bone marrow suppression and hepatotoxicity, a particular concern in patients with recent chemotherapy-induced cytopenias. All patients with documented candidemia should undergo dilated fundoscopic examination to evaluate for Candida endophthalmitis and echocardiography to evaluate for Candida endocarditis, as these sanctuary-site infections frequently coexist and affect treatment duration and approach.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-candida-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      A negative cryptococcal antigen in an immunocompromised patient with subacute meningitis does not exclude fungal meningitis — it excludes Cryptococcus and should broaden the differential to include Candida, which lacks the polysaccharide capsule that produces positive CrAg and India ink results.
+    </li>
+    <li>
+      Candida species have no polysaccharide capsule; both India ink and CrAg are negative. CSF (1,3)-beta-D-glucan is the key adjunctive marker supporting a fungal etiology while culture is pending.
+    </li>
+    <li>
+      Echinocandins have poor CNS penetration and cannot treat Candida meningitis; a patient who develops CNS infection while on an echinocandin must be switched to liposomal amphotericin B-based therapy regardless of in vitro susceptibility.
+    </li>
+    <li>
+      IDSA-recommended initial therapy for CNS candidiasis is liposomal amphotericin B plus flucytosine for fungicidal induction, with step-down to fluconazole after clinical response and CSF sterilization, for a minimum of 4 to 6 weeks.
+    </li>
+    <li>
+      Prolonged candidemia in neutropenic patients seeds sanctuary sites including the CNS, eyes, and heart; documented candidemia warrants dilated fundoscopic examination and echocardiography even after blood cultures clear.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pappas PG, Kauffman CA, Andes DR, Clancy CJ, Marr KA, Ostrosky-Zeichner L, et al. Clinical Practice Guideline for the Management of Candidiasis: 2016 Update by the Infectious Diseases Society of America. <em>Clinical Infectious Diseases</em>. 2016;62(4):e1-50.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/civ933"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/civ933
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Pappas PG, Lionakis MS, Arendrup MC, Ostrosky-Zeichner L, Kullberg BJ. Invasive candidiasis. <em>Nature Reviews Disease Primers</em>. 2018;4:18026.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/nrdp.2018.26"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1038/nrdp.2018.26
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      G&#243;ralska K, Blaszkowska J, Dzikowiec M. Neuroinfections caused by fungi &#8212; a review. <em>Infection</em>. 2018;46(4):443-459.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s15010-018-1152-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s15010-018-1152-2
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Sigera LSM, Denning DW. Flucytosine (5-FC) and its clinical usage. <em>Therapeutic Advances in Infectious Disease</em>. 2023;10:20499361231161387.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1177/20499361231161387"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1177/20499361231161387
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Davis C, Wheat LJ, Myint T, Barros S, Bamberger DM, Spec A, et al. Efficacy of Cerebrospinal Fluid Beta-d-Glucan Diagnostic Testing for Fungal Meningitis: a Systematic Review. <em>Journal of Clinical Microbiology</em>. 2020;58(4):e02094-19.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/JCM.02094-19"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/JCM.02094-19
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Snarr BD, Drummond RA, Lionakis MS. It's all in your head: antifungal immunity in the brain. <em>Current Opinion in Microbiology</em>. 2020;58:41-46.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.mib.2020.07.011"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.mib.2020.07.011
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

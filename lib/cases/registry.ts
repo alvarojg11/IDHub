@@ -1290,6 +1290,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 38-year-old man from rural India presents with eight months of progressive right foot drop, left hand numbness, and palpably thickened ulnar and common peroneal nerves. No skin lesions. CSF protein is normal. EMG shows mononeuritis multiplex. What is the diagnosis, and how do you confirm it when slit-skin smears are negative?",
     tags: { organisms: ["Mycobacterium leprae"], syndromes: ["Tropical & Neglected Disease", "Neuroinfection", "Mycobacterial"], concepts: ["Pure neural leprosy", "Mononeuritis multiplex", "Nerve ultrasound", "Sural nerve biopsy", "Fite-Faraco stain", "Multibacillary MDT", "Palpable nerve thickening", "CIDP mimic"] },
   },
+  {
+    title: "The Negative CrAg",
+    slug: "candida-meningitis",
+    description: "A leukemia patient with cleared candidemia on micafungin develops meningitis with a negative cryptococcal antigen — and a sanctuary-site drug failure.",
+    enable: true,
+    ogImage: "/cases/candida-meningitis/mri.png",
+    teaser: "A 52-year-old man with AML and recently cleared C. tropicalis candidemia on micafungin develops fever, meningismus, and confusion. CSF shows lymphocytic pleocytosis, the CrAg is negative, and serum beta-D-glucan is >500 pg/mL. Why did the antifungal fail, and what is the correct regimen?",
+    tags: { organisms: ["Candida tropicalis", "Candida"], syndromes: ["Fungal Infections", "Neuroinfection", "Healthcare-Associated Infections"], concepts: ["Candida meningitis", "Echinocandin CNS penetration", "Negative CrAg", "Liposomal amphotericin B", "Flucytosine", "Beta-D-glucan", "Sanctuary-site infection", "Neutropenic fever", "Candidemia complications"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
