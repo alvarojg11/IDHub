@@ -1312,6 +1312,15 @@ export const CASES: CaseMeta[] = [
       concepts: ["Acute acquired toxoplasmosis", "Cervical lymphadenopathy", "IgG avidity", "Mononucleosis-like illness", "Undercooked meat", "Cat exposure", "Self-limited infection", "Posterior cervical nodes", "Heterophile-negative mononucleosis"],
     },
   },
+  {
+    title: "The Color of the Cure",
+    slug: "clofazimine-pigmentation",
+    description: "A patient on a clofazimine-containing MDR-TB regimen develops progressive purple skin, ichthyosis, and a borderline QTc.",
+    enable: true,
+    ogImage: "/cases/clofazimine-pigmentation/pigmentation.jpg",
+    teaser: "A 29-year-old man from the Philippines with multidrug-resistant tuberculosis is four months into a WHO longer regimen including clofazimine and bedaquiline. His sputum has converted and he is gaining weight, but his skin has turned progressively purple and his QTc is climbing. What explains the discoloration, and what should you do about it?",
+    tags: { organisms: ["Mycobacterium tuberculosis"], syndromes: ["Mycobacterial", "Drug Toxicity", "Dermatology"], concepts: ["Clofazimine", "Skin pigmentation", "MDR-TB", "QTc prolongation", "Crystal enteropathy", "Ichthyosis", "Bedaquiline", "Riminophenazine dye", "Ceroid-lipofuscin"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

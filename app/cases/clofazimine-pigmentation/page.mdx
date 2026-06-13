@@ -1,0 +1,378 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("clofazimine-pigmentation");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Color of the Cure
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 29-year-old man from Manila, Philippines, presents to the drug-resistant tuberculosis clinic for a routine month 4 follow-up. He was diagnosed with pulmonary multidrug-resistant tuberculosis four months ago after presenting with three months of productive cough, night sweats, and a 6-kilogram weight loss. Sputum culture grew <em>Mycobacterium tuberculosis</em> resistant to rifampin and isoniazid and susceptible to fluoroquinolones, aminoglycosides, ethionamide, and clofazimine. Chest radiograph at diagnosis showed bilateral upper lobe cavitary infiltrates with apical pleural thickening. He was started on an all-oral World Health Organization longer regimen consisting of levofloxacin 750 mg daily, bedaquiline 200 mg three times weekly after a two-week daily loading phase, linezolid 600 mg daily, clofazimine 100 mg daily, and cycloserine 500 mg twice daily. His baseline QTc was 410 milliseconds. He has no other medical conditions and takes no other medications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    His tuberculosis treatment is succeeding. By the end of month 2, sputum smears converted from 3+ positivity to negative, and cultures obtained at that time are now finalized as negative. He has gained 5 kilograms, his cough has resolved, and he no longer reports night sweats or fever. He tolerates the regimen without nausea, peripheral neuropathy, or psychiatric symptoms. Linezolid was reduced to 300 mg daily at month 3 after he developed mild distal paresthesias and a platelet count of 118,000 per microliter. The rest of the regimen has been unchanged since initiation.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The reason for today's visit is not his tuberculosis. Over the past six weeks, his family and coworkers have noticed a progressive darkening of his skin. It began as a faint reddish tint on the face and ears and has spread to the neck, trunk, arms, and hands, deepening to a reddish-brown and violaceous hue that prompted a coworker to ask whether he had been bruised. His nails have turned brownish-black. He has developed dry, scaly, flaky skin on both shins and forearms that cracks with minor friction. He also reports a three-week history of intermittent crampy periumbilical abdominal pain with two to three loose stools per day, without blood or fever. He is increasingly distressed about his appearance and asks whether the medication is poisoning him.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 36.9 C, heart rate 78/min, blood pressure 118/74 mmHg, and oxygen saturation 98% on room air. The skin shows a diffuse reddish-brown to violaceous discoloration most pronounced on the face, pinnae, neck, and dorsal hands, with relative sparing of the palms and soles. There is no oral mucosal pigmentation, no palmar crease darkening, and no scar hyperpigmentation. Ichthyotic scaling with fine fissures is present on the bilateral anterior shins and volar forearms. The nails of the hands and feet show brownish-gray discoloration. The bulbar conjunctivae have a faint brown tint without injection. The abdomen is soft with mild epigastric tenderness and normal bowel sounds, without guarding, rigidity, or organomegaly. Neurologic examination is intact. Laboratory studies show sodium 138 mEq/L, potassium 4.0 mEq/L, magnesium 1.8 mg/dL, calcium 8.9 mg/dL, blood urea nitrogen 12 mg/dL, creatinine 0.9 mg/dL, AST 28 U/L, ALT 22 U/L, alkaline phosphatase 85 U/L, total bilirubin 0.6 mg/dL, hemoglobin 13.2 g/dL, white blood cell count 6.8 x 10^3/uL with normal differential, and platelet count 145,000/uL. Thyroid-stimulating hormone is 1.8 mIU/L. A morning serum cortisol is 22 mcg/dL with an ACTH of 30 pg/mL. Stool studies including culture, Clostridioides difficile testing, ova and parasites, and fecal leukocytes are negative. An electrocardiogram demonstrates a QTc of 476 milliseconds.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/clofazimine-pigmentation/pigmentation.jpg"
+        alt="Generalized reddish-brown to black hyperpigmentation of the face in a patient receiving clofazimine for MDR-TB"
+        width={703}
+        height={987}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Generalized reddish-brown to black skin hyperpigmentation in a patient receiving clofazimine for multidrug-resistant tuberculosis. Image adapted from Karnan &amp; Ledwani, Pan African Medical Journal (2024), CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-clofazimine-pigmentation-q1"
+  title="Question 1"
+  prompt="What best explains the patient's skin discoloration?"
+  options={[
+    {
+      id: "A",
+      label: "Bedaquiline-induced photosensitivity drug eruption",
+      feedback:
+        "Incorrect. Bedaquiline has been associated with photosensitivity reactions and elevated liver enzymes, and this patient is receiving bedaquiline. However, photosensitivity eruptions are typically limited to sun-exposed skin and present as erythematous patches, urticarial plaques, or vesicles rather than a diffuse, uniform, dose-dependent discoloration involving the conjunctivae and nails. There is no history of rash preceding the pigmentation, no pruritus, and the distribution includes non-sun-exposed areas such as the pinnae and volar forearms. The ichthyotic scaling and nail discoloration point to a systemic drug pigment rather than a phototoxic reaction.",
+    },
+    {
+      id: "B",
+      label: "Adrenal insufficiency from disseminated tuberculosis causing mucocutaneous hyperpigmentation",
+      feedback:
+        "Incorrect. Tuberculosis can involve the adrenal glands and produce Addison's disease with primary adrenal insufficiency, and mucocutaneous hyperpigmentation from elevated pro-opiomelanocortin and melanocyte-stimulating hormone is a hallmark. This is a strong distractor because the patient has active tuberculosis and skin darkening. However, several features exclude it. Addisonian pigmentation preferentially affects sun-exposed areas, flexural creases, palmar creases, oral mucosa, scars, and pressure points. This patient has no mucosal, palmar, or scar pigmentation, and his discoloration spares the palms and soles. His morning cortisol is normal at 22 mcg/dL with a normal ACTH, and his serum sodium and potassium are normal. The reddish-violaceous hue, the conjunctival tint, the ichthyosis, and the nail changes do not fit an adrenal mechanism.",
+    },
+    {
+      id: "C",
+      label: "Acquired porphyria cutanea tarda triggered by tuberculosis and drug therapy",
+      feedback:
+        "Incorrect. Porphyria cutanea tarda can cause skin fragility, bullae, and hyperpigmentation on sun-exposed surfaces, and it can be triggered by infections, alcohol, and drugs. However, the morphology is wrong. Porphyria cutanea tarda produces bullous lesions, milia, hypertrichosis, and scarring on the dorsal hands and face, not a diffuse reddish-violaceous discoloration with ichthyosis. There are no bullae, no skin fragility, and no hypertrichosis. The nail discoloration and conjunctival tint would be atypical for porphyria. A normal liver profile and the tight temporal relationship to clofazimine make this diagnosis unlikely without further evidence such as an elevated urine porphyrin profile.",
+    },
+    {
+      id: "D",
+      label: "Clofazimine-induced skin pigmentation",
+      correct: true,
+      feedback:
+        "Correct. Clofazimine is a red riminophenazine dye that produces a characteristic dose-dependent reddish-brown to violaceous skin discoloration in the majority of patients receiving prolonged therapy, with onset typically at 4 to 8 weeks. The clinical picture is diagnostic: the reddish-violaceous hue, the ichthyotic scaling on the shins and forearms, the brownish conjunctival tint, the nail discoloration, the absence of mucosal involvement, and the temporal relationship to clofazimine exposure are the signature constellation. Body fluids including sweat, tears, sputum, and urine may also be discolored. This patient has been on clofazimine 100 mg daily for four months, which is the expected window for peak visible pigmentation. The normal cortisol and electrolytes exclude Addison's disease, and the distribution and associated findings exclude photosensitivity and porphyria.",
+    },
+    {
+      id: "E",
+      label: "Linezolid-associated hyperpigmentation",
+      feedback:
+        "Incorrect. Linezolid can cause reversible hyperpigmentation in rare case reports, but the pattern is typically patchy and limited, and linezolid is far better known for myelosuppression, peripheral and optic neuropathy, lactic acidosis, and serotonin syndrome. The patient is on a reduced linezolid dose and his platelet count has recovered from 118,000 to 145,000, suggesting the hematologic toxicity is resolving. The diffuse reddish-violaceous hue, ichthyosis, conjunctival pigmentation, and nail changes are not features of linezolid toxicity. The timeline and clinical constellation point squarely at clofazimine.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-clofazimine-pigmentation-q2"
+  title="Question 2"
+  prompt="What is the primary mechanism by which clofazimine produces skin discoloration?"
+  options={[
+    {
+      id: "A",
+      label: "Partitioning of soluble clofazimine free-base into subcutaneous fat, with crystal-like drug inclusions and secondary ceroid-lipofuscin accumulation in dermal macrophages",
+      correct: true,
+      feedback:
+        "Correct. Clofazimine-induced skin pigmentation has three overlapping components. First, the soluble free-base form of clofazimine partitions into subcutaneous fat, producing the reddish-brown tint that is visible across the entire body surface. Murashov and colleagues demonstrated in 2018 that a non-crystallizing clofazimine analog still produced skin pigmentation, proving that crystal formation is not required for the discoloration. Second, clofazimine accumulates inside macrophage phagolysosomes as crystal-like drug inclusions, producing darker pigmentation in macrophage-rich tissues. Third, the chronic presence of clofazimine crystals within macrophages leads to secondary accumulation of ceroid-lipofuscin, a lipid peroxidation product that deepens the color to brownish-black, particularly within lesional skin where macrophage density is highest. None of these components involve melanin.",
+    },
+    {
+      id: "B",
+      label: "Stimulation of melanocyte-stimulating hormone causing increased melanin synthesis by epidermal melanocytes",
+      feedback:
+        "Incorrect. This is the mechanism of adrenal insufficiency-associated hyperpigmentation, where elevated pro-opiomelanocortin is cleaved into alpha-melanocyte-stimulating hormone, driving melanin overproduction. Clofazimine pigmentation is not melanin-driven. The reddish-violaceous hue is inconsistent with melanin deposition, which produces brown, gray, or black discoloration. The drug is itself a red dye, and its color contribution is mechanistically distinct from melanocyte activation. This distinction is clinically important because it explains why clofazimine pigmentation reverses with drug clearance rather than with melanin-suppressing therapies.",
+    },
+    {
+      id: "C",
+      label: "Eccrine secretion of clofazimine metabolites causing surface staining of the stratum corneum",
+      feedback:
+        "Incorrect. Clofazimine is excreted in sweat, sebum, tears, and other body fluids, and these secretions can indeed be discolored pink, orange, or reddish-brown. However, the skin pigmentation itself is not from surface staining. If it were, washing or exfoliation would remove it, and the color would be limited to sweat-prone areas. The discoloration in this patient is uniform, deep, and involves non-secretory areas such as the conjunctivae and nail beds. Murashov and colleagues confirmed that skin cryosections show clofazimine distributed throughout subcutaneous fat and within macrophages, not merely on the skin surface.",
+    },
+    {
+      id: "D",
+      label: "Deposition of iron-laden macrophages from clofazimine-induced chronic hemolysis",
+      feedback:
+        "Incorrect. Clofazimine does not cause hemolysis, and there is no evidence of hemolytic anemia in this patient. His hemoglobin is normal at 13.2 g/dL. Iron deposition from hemolysis, as seen in hemochromatosis or chronic transfusional iron overload, produces a bronze or grayish-bronze discoloration, not the reddish-violaceous hue seen here. Clofazimine's pigmentation is intrinsic to the drug molecule itself, which is a red riminophenazine dye, not an iron-mediated process.",
+    },
+    {
+      id: "E",
+      label: "Bilirubin deposition in skin from clofazimine-induced intrahepatic cholestasis",
+      feedback:
+        "Incorrect. Clofazimine does not typically cause cholestatic hepatotoxicity, and this patient's liver profile is entirely normal with a total bilirubin of 0.6 mg/dL. Jaundice produces a yellow skin discoloration, not a reddish-violaceous one, and is accompanied by scleral icterus rather than a faint brown conjunctival tint. The mechanism of clofazimine pigmentation involves direct drug deposition in tissues, not hepatic dysfunction.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-clofazimine-pigmentation-q3"
+  title="Question 3"
+  prompt="Given the QTc of 476 milliseconds, the intermittent abdominal cramping with loose stools, and the patient's distress about his appearance, what is the best management approach?"
+  options={[
+    {
+      id: "A",
+      label: "Stop both bedaquiline and clofazimine due to QTc above 470 milliseconds and switch to a delamanid-based regimen",
+      feedback:
+        "Incorrect. Discontinuing both QT-prolonging drugs is not indicated at a QTc of 476 milliseconds. The additive QT effect of bedaquiline and clofazimine is well recognized, but severe prolongation above 500 milliseconds occurs in only 2 to 5 percent of patients on combined therapy, and permanent discontinuation is rarely required. The correct first step is electrolyte optimization, serial monitoring, and clinical assessment. Removing both drugs simultaneously would compromise the regimen backbone and risks treatment failure. Delamanid, the proposed substitute, also prolongs the QT interval, so the cardiac risk is not eliminated. The threshold for drug interruption is generally a QTc above 500 milliseconds or symptomatic arrhythmia, not 470 milliseconds.",
+    },
+    {
+      id: "B",
+      label: "Continue clofazimine at current dose; replete magnesium; perform serial ECGs every two weeks; evaluate gastrointestinal symptoms with endoscopy if persistent; apply emollients for ichthyosis; counsel that pigmentation will gradually fade over months to years after treatment completion",
+      correct: true,
+      feedback:
+        "Correct. This approach manages each issue concurrently without compromising the tuberculosis regimen. The skin pigmentation is cosmetic, dose-dependent, and reversible; counseling the patient on its expected resolution after treatment completion is essential for adherence. Ichthyosis responds to emollients and urea-based moisturizers. The QTc of 476 milliseconds is above the treatment baseline of 410 milliseconds and warrants attention: magnesium should be repleted to maintain levels above 2.0 mg/dL, potassium and calcium should be kept in the normal range, and serial electrocardiograms should be performed every two weeks to monitor for further prolongation. A QTc exceeding 500 milliseconds, or an increase exceeding 60 milliseconds from baseline with concerning symptoms, would prompt temporary interruption of bedaquiline or clofazimine. The gastrointestinal symptoms require evaluation for clofazimine crystal enteropathy, a recognized complication characterized by crystal-laden macrophages in the small bowel lamina propria that can produce abdominal pain, diarrhea, and malabsorption. If symptoms persist or worsen, endoscopy with biopsies should be pursued, and the histopathologist should be alerted to process frozen sections because clofazimine crystals dissolve in the alcohol used in routine paraffin embedding and are invisible on standard hematoxylin and eosin stains.",
+    },
+    {
+      id: "C",
+      label: "Reduce clofazimine to 50 mg every other day to minimize further darkening; apply topical corticosteroids for the ichthyosis",
+      feedback:
+        "Incorrect on both counts. Reducing clofazimine to a subtherapeutic dose jeopardizes the regimen and risks treatment failure or relapse of multidrug-resistant tuberculosis. The World Health Organization recommends 100 mg daily for patients weighing at least 33 kilograms, and underdosing is inappropriate when the drug is effective and the pigmentation is cosmetic. Topical corticosteroids are not the treatment for clofazimine-induced ichthyosis, which is a keratinization disorder rather than an inflammatory dermatitis. The correct dermatologic approach is emollients and keratolytic moisturizers, not steroids.",
+    },
+    {
+      id: "D",
+      label: "Continue all medications unchanged; reassure the patient that the QTc, abdominal pain, and skin changes will all resolve spontaneously without intervention",
+      feedback:
+        "Incorrect. While reassurance about the skin pigmentation is appropriate, failing to address the QTc prolongation and gastrointestinal symptoms is inadequate management. The QTc has increased by 66 milliseconds from baseline, magnesium is borderline low at 1.8 mg/dL, and the patient is on two QT-prolonging drugs. Electrolyte repletion, serial electrocardiographic monitoring, and clinical vigilance are required. The abdominal symptoms warrant investigation for crystal enteropathy, which can progress to malabsorption, intestinal obstruction, or perforation if left unmonitored. Passive reassurance without active monitoring misses the opportunity to detect toxicity before it becomes severe.",
+    },
+    {
+      id: "E",
+      label: "Discontinue clofazimine immediately and substitute delamanid; refer to dermatology for pigmentation reversal treatment",
+      feedback:
+        "Incorrect. This is an overreaction to a cosmetic side effect. Clofazimine-induced skin pigmentation is not dangerous and is not a reason to remove a drug that is contributing to a regimen that is working. Furthermore, delamanid also prolongs the QT interval, so substituting one QT-prolonging drug for another does not solve the cardiac concern. Dermatology referral for pigmentation reversal is premature; no topical or systemic agent accelerates clofazimine clearance from tissue, and the color will fade over months to years after drug completion. The correct approach is to continue clofazimine while addressing the real clinical issues: the QTc and the gastrointestinal symptoms.",
+    },
+  ]}
+/>
+
+<CaseReveal pollId="case-clofazimine-pigmentation-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Clofazimine is a riminophenazine dye first synthesized in 1954 at Trinity College, Dublin, as part of a program to develop new antituberculosis compounds derived from phenazine. It was initially disappointing against <em>Mycobacterium tuberculosis</em> in animal models but proved highly active against <em>Mycobacterium leprae</em>, becoming a cornerstone of multidrug therapy for leprosy by the 1980s. Six decades later, with the emergence of drug-resistant tuberculosis and the repurposing of older agents, clofazimine re-entered the tuberculosis armamentarium as a World Health Organization Group B drug for longer individualized regimens, positioned after the Group A priority drugs levofloxacin or moxifloxacin, bedaquiline, and linezolid. Its return to tuberculosis therapy is a case study in drug repurposing: the same pharmacologic properties that made it effective against leprosy, particularly its accumulation in macrophage-rich tissues and its long half-life, also make it a useful companion drug against drug-resistant tuberculosis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The antimicrobial mechanism of clofazimine is multifactorial and not fully resolved, which is consistent with the observation that target-specific resistance mutations are rare. The drug competes with menaquinone as a substrate of type 2 NADH dehydrogenase in the mycobacterial electron transport chain, diverting electrons away from respiration. The reduced drug is spontaneously re-oxidized by molecular oxygen, generating bactericidal reactive oxygen species inside the bacillus. Clofazimine also stimulates mycobacterial phospholipase A2 activity, leading to accumulation of lysophospholipids that disrupt membrane integrity and inhibit potassium transport. A fourth mechanism, direct binding to guanine-rich regions of mycobacterial DNA with inhibition of template function, was identified in early studies and may contribute to the drug's antimicrobial activity. The redundancy of these mechanisms explains why clofazimine retains activity against drug-resistant tuberculosis and why high-level resistance is uncommon.
+  </p>
+
+  <figure className="my-8">
+    <div className="mx-auto max-w-3xl rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/clofazimine-pigmentation/mechanism.jpg"
+        alt="Diagram of clofazimine mechanisms of action at the mycobacterial cell membrane showing NDH-2 redox cycling with ROS generation and phospholipase A2 lysophospholipid pathway with potassium transport inhibition"
+        width={708}
+        height={408}
+        className="rounded-lg mx-auto w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Putative mechanisms of clofazimine action at the mycobacterial cell membrane: (A) NDH-2 redox cycling with reactive oxygen species generation, (B) phospholipase A2 activation leading to lysophospholipid accumulation and potassium transport inhibition. Image adapted from Stadler et al., Frontiers in Pharmacology (2023), CC BY.
+    </figcaption>
+  </figure>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The skin pigmentation that brought this patient to clinic is the drug's signature adverse effect and occurs through a mechanism entirely distinct from melanin-driven hyperpigmentation. Clofazimine is itself a red dye, and three overlapping processes produce the visible discoloration. First, the soluble free-base form of the drug partitions into subcutaneous fat throughout the body, producing the diffuse reddish-brown tint. The 2018 study by Murashov and colleagues was definitive on this point: a structural analog of clofazimine that could not form intracellular crystals still produced skin pigmentation in mice, demonstrating that crystal formation is not required for the color change. Second, clofazimine accumulates inside tissue macrophage phagolysosomes as crystal-like drug inclusions, which darken the hue in macrophage-rich areas. Third, the chronic intracellular presence of clofazimine crystals drives secondary accumulation of ceroid-lipofuscin, a lipid peroxidation product that deepens the color to brownish-black, particularly in lesional skin where macrophage density is highest. The clinical result is a dose-dependent reddish-brown to violaceous discoloration that typically appears within 4 to 8 weeks of starting therapy, intensifies over months, and affects the skin, conjunctivae, nails, hair, and body fluids including sweat, tears, sputum, and urine.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Distinguishing clofazimine pigmentation from adrenal insufficiency, which was the key diagnostic question in this case, relies on morphology, distribution, and laboratory data. Addisonian hyperpigmentation is driven by melanocyte-stimulating hormone and preferentially affects sun-exposed areas, flexural creases, palmar creases, oral mucosa, recent scars, and pressure points. Clofazimine pigmentation is diffuse, spares the palms and soles, lacks mucosal involvement, and is accompanied by ichthyosis, conjunctival tint, and nail changes that have no counterpart in adrenal disease. The normal morning cortisol and electrolytes in this patient exclude adrenal insufficiency. The reddish-violaceous hue, absent in melanin-driven processes, is itself a diagnostic clue: the patient looks as though a red dye has been infused into his skin, which is essentially what has happened.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The management decision in this case hinges on recognizing which toxicities are cosmetic and which require active intervention. The skin pigmentation is not dangerous. It is dose-dependent, does not indicate systemic harm, and will fade gradually over months to years after drug discontinuation, with the slow timeline reflecting the drug's extraordinarily long half-life of approximately 70 days and its massive accumulation in adipose tissue and macrophage-rich organs. Patients should be counseled about the expected timeline and reassured that the discoloration is reversible. Ichthyosis, which results from clofazimine's interference with epidermal lipid metabolism, responds to emollients and urea-based or lactic acid-containing moisturizers. Neither pigmentation nor ichthyosis warrants dose reduction or drug discontinuation when the underlying mycobacterial infection is responding to therapy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The two findings that do require active management are the QTc prolongation and the gastrointestinal symptoms. Clofazimine prolongs the QT interval, likely through blockade of the delayed rectifier potassium current, and when co-administered with bedaquiline, the effect is additive and pharmacodynamic rather than pharmacokinetic. Lin and colleagues, in a 2024 study of 321 patients with rifampicin-resistant tuberculosis in Taiwan, found that clofazimine independently increased the risk of QTcF exceeding 501 milliseconds with an adjusted hazard ratio of 4.35, and that combining clofazimine with high-dose moxifloxacin further increased the risk. However, severe QT prolongation requiring permanent drug discontinuation is uncommon: in the South African cohort reported by Brust and colleagues, only 4 of 195 patients on concurrent bedaquiline and clofazimine had a QTcF above 500 milliseconds, and none required permanent discontinuation. The standard approach at a QTc of 476 milliseconds is electrolyte optimization with particular attention to magnesium, potassium, and calcium, followed by serial electrocardiograms every two weeks. The threshold for temporary drug interruption is generally a QTc above 500 milliseconds, a change exceeding 60 milliseconds from baseline accompanied by symptoms, or any sustained arrhythmia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The gastrointestinal symptoms in this patient raise concern for clofazimine crystal enteropathy, an underrecognized toxicity distinct from the drug's more familiar skin effects. Clofazimine accumulates as crystal-like drug inclusions within macrophages of the small bowel lamina propria, particularly in the terminal ileum and Peyer's patches, producing three histologic patterns: an eosinophilic enteritis, a Crohn-like granulomatous pattern, and crystal-storing histiocytosis. The clinical presentation ranges from mild abdominal pain and diarrhea to severe malabsorption, weight loss, gastrointestinal bleeding, and even intestinal obstruction requiring surgery. A crucial diagnostic pitfall is that clofazimine crystals dissolve in the alcohol and organic solvents used in routine paraffin tissue processing, rendering them invisible on standard hematoxylin and eosin stains, where they appear only as clear crystal-shaped spaces within macrophages. On frozen section, the crystals are bright red with red birefringence. Endoscopy may reveal black or purple pigmentation of the duodenal or ileal mucosa. If this patient's symptoms persist or progress, endoscopic evaluation with biopsies and specific instructions to the pathology laboratory regarding frozen section processing would be the next diagnostic step. Mild cases may resolve with symptomatic management and drug continuation, but severe crystal enteropathy with malabsorption or obstruction warrants dose reduction or discontinuation.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-clofazimine-pigmentation-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Clofazimine causes dose-dependent reddish-brown to violaceous skin pigmentation through three mechanisms: partitioning of the soluble drug free-base into subcutaneous fat, crystal-like drug inclusions within dermal macrophages, and secondary ceroid-lipofuscin accumulation. The process is not melanin-driven and does not respond to melanin-suppressing therapies.
+    </li>
+    <li>
+      Skin pigmentation is cosmetic, dose-dependent, and reversible over months to years after treatment completion, reflecting the drug's approximately 70-day half-life and massive tissue accumulation. It is not a reason to discontinue clofazimine when the underlying mycobacterial infection is responding to therapy.
+    </li>
+    <li>
+      Clofazimine and bedaquiline additively prolong the QT interval through independent pharmacodynamic effects, with no significant pharmacokinetic interaction. Baseline and serial ECGs every 2 to 4 weeks, electrolyte optimization (magnesium, potassium, calcium), and a QTc threshold of 500 milliseconds for temporary drug interruption are the standard monitoring approach.
+    </li>
+    <li>
+      Clofazimine crystal enteropathy is an underrecognized gastrointestinal toxicity. The crystals dissolve in alcohol-based tissue processing and are invisible on routine H&amp;E stain, appearing only as clear spaces; frozen section reveals red birefringent crystals. Endoscopy may show black or purple mucosal pigmentation. Mild cases can continue therapy with monitoring; severe malabsorption or obstruction warrants dose reduction or discontinuation.
+    </li>
+    <li>
+      Ichthyosis, conjunctival and corneal pigmentation, nail discoloration, and discoloration of body fluids (sweat, tears, sputum, urine) are common clofazimine effects. Emollients and urea-based moisturizers manage ichthyosis; patient counseling about reversibility and cosmetic impact is essential for treatment adherence.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stadler JAM, Maartens G, Meintjes G, Wasserman S. Clofazimine for the treatment of tuberculosis. <em>Frontiers in Pharmacology</em>. 2023;14:1100488.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3389/fphar.2023.1100488"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Stadler et al.: Clofazimine for the Treatment of Tuberculosis (Front Pharmacol 2023)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Murashov MD, LaLone V, Rzeczycki PM, et al. The physicochemical basis of clofazimine-induced skin pigmentation. <em>Journal of Investigative Dermatology</em>. 2018;138(3):697-703.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jid.2017.09.031"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Murashov et al.: Physicochemical Basis of Clofazimine Skin Pigmentation
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Karnan A, Ledwani A. Clofazimine-induced skin pigmentation. <em>Pan African Medical Journal</em>. 2024;47:86.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.11604/pamj.2024.47.86.42513"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Karnan &amp; Ledwani: Clofazimine-Induced Skin Pigmentation (image source, CC BY 4.0)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Szeto W, Garcia-Buitrago MT, Abbo L, et al. Clofazimine enteropathy: a rare and underrecognized complication of mycobacterial therapy. <em>Open Forum Infectious Diseases</em>. 2016;3(3):ofw004.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/ofid/ofw004"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Szeto et al.: Clofazimine Enteropathy (Open Forum Infect Dis 2016, CC BY 4.0)
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Brust JCM, Gandhi NR, Wasserman S, et al. Effectiveness and cardiac safety of bedaquiline-based therapy for drug-resistant tuberculosis: a prospective cohort study. <em>Clinical Infectious Diseases</em>. 2021;73(11):2083-2092.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciab335"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Brust et al.: Cardiac Safety of Bedaquiline-Based Therapy
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lin CJ, Chen JH, Chien ST, et al. Clofazimine and QT prolongation in the treatment of rifampicin-resistant tuberculosis: findings of aDSM in Taiwan. <em>Journal of Microbiology, Immunology and Infection</em>. 2024;57(5):791-800.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.jmii.2024.08.002"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Lin et al.: Clofazimine and QT Prolongation in RR-TB
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lange C, Dheda K, Chesov D, et al. Management of drug-resistant tuberculosis. <em>Lancet</em>. 2019;394(10202):953-966.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(19)31882-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        Lange et al.: Management of Drug-Resistant Tuberculosis (Lancet 2019)
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
