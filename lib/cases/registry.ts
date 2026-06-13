@@ -1299,6 +1299,19 @@ export const CASES: CaseMeta[] = [
     teaser: "A 52-year-old man with AML and recently cleared C. tropicalis candidemia on micafungin develops fever, meningismus, and confusion. CSF shows lymphocytic pleocytosis, the CrAg is negative, and serum beta-D-glucan is >500 pg/mL. Why did the antifungal fail, and what is the correct regimen?",
     tags: { organisms: ["Candida tropicalis", "Candida"], syndromes: ["Fungal Infections", "Neuroinfection", "Healthcare-Associated Infections"], concepts: ["Candida meningitis", "Echinocandin CNS penetration", "Negative CrAg", "Liposomal amphotericin B", "Flucytosine", "Beta-D-glucan", "Sanctuary-site infection", "Neutropenic fever", "Candidemia complications"] },
   },
+  {
+    title: "Undercooked",
+    slug: "acute-acquired-toxoplasmosis",
+    description: "A veterinary technician with steak tartare, two cats, and three weeks of fever and posterior cervical lymphadenopathy.",
+    enable: true,
+    ogImage: "/cases/acute-acquired-toxoplasmosis/ct-neck.png",
+    teaser: "A 26-year-old veterinary technician who prepares steak tartare weekly and owns two indoor-outdoor cats develops three weeks of low-grade fevers, fatigue, and bilateral posterior cervical lymphadenopathy. EBV, CMV, and HIV testing are negative. Toxoplasma IgM and IgG are both positive. What is the diagnosis, how do you confirm it is acute, and does she need treatment?",
+    tags: {
+      organisms: ["Toxoplasma gondii"],
+      syndromes: ["Parasitic Infection", "Zoonoses", "HIV/AIDS Differential"],
+      concepts: ["Acute acquired toxoplasmosis", "Cervical lymphadenopathy", "IgG avidity", "Mononucleosis-like illness", "Undercooked meat", "Cat exposure", "Self-limited infection", "Posterior cervical nodes", "Heterophile-negative mononucleosis"],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

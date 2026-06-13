@@ -412,6 +412,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-06-10T08:00:00-07:00",
     modifiedAt: "2026-06-10T08:00:00-07:00",
   },
+  "acute-acquired-toxoplasmosis": {
+    publishedAt: "2026-06-12T08:00:00-07:00",
+    modifiedAt: "2026-06-12T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {

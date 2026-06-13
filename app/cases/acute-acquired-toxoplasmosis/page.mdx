@@ -1,0 +1,285 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("acute-acquired-toxoplasmosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Undercooked
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 26-year-old veterinary technician presents with three weeks of low-grade fevers, fatigue, and progressive swelling on both sides of her neck. She reports temperatures to 38.3 °C each evening, generalized myalgias, and a 2.7 kg weight loss despite a stable appetite. She denies sore throat, rash, night sweats, cough, and genital symptoms. Her past medical history is notable only for mild persistent asthma managed with an albuterol inhaler. She takes no other medications and has no known allergies. She was born in the United States and has not traveled internationally in the past two years.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She owns two indoor-outdoor cats and estimates she has prepared steak tartare at home roughly once per week for the past year, using commercially sourced beef. She does not consume unpasteurized dairy products, does not hunt or eat wild game, and has no occupational needlestick or animal-bite exposures. She is sexually active with one male partner and uses oral contraceptives. Her last menstrual period was nine days ago.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination, temperature is 37.9 °C, heart rate 88 beats per minute, blood pressure 118/74 mmHg, respiratory rate 14 breaths per minute, and oxygen saturation 99% on room air. The oropharynx is clear without exudate or petechiae. Bilateral posterior cervical lymph nodes are palpable, measuring 2 to 3 cm each, firm, mobile, and non-tender. No axillary or inguinal lymphadenopathy is appreciated. The abdomen is soft and non-tender with no hepatosplenomegaly. Skin examination is unremarkable without rash, eschar, or inoculation lesion. The remainder of the examination is normal.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show a white blood cell count of 6.8 x 10<sup>3</sup>/uL with 48% neutrophils, 40% lymphocytes, 9% monocytes, and 3% eosinophils. No atypical lymphocytes are identified on the peripheral smear. Hemoglobin is 13.4 g/dL and platelet count is 228 x 10<sup>3</sup>/uL. Comprehensive metabolic panel is notable for an AST of 68 U/L and ALT of 72 U/L; the remaining values are within normal limits. Erythrocyte sedimentation rate is 32 mm/hr. A heterophile antibody test (Monospot) is negative. EBV viral capsid antigen IgM is negative and IgG is positive, consistent with prior remote infection. CMV IgM is negative. HIV fourth-generation antigen-antibody combination test is negative. Blood cultures show no growth at five days. Toxoplasma gondii IgM is reported as positive and Toxoplasma IgG is positive at 8.4 IU/mL (reference less than 1.1 IU/mL). Contrast-enhanced CT of the neck is performed.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/acute-acquired-toxoplasmosis/ct-neck.png"
+        alt="Contrast-enhanced CT of the neck in axial and coronal planes demonstrating multiple bilateral enlarged cervical lymph nodes (arrows), the largest measuring 2.4 cm, without central necrosis or matted appearance."
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Contrast-enhanced CT of the neck, axial and coronal planes, demonstrating bilateral cervical lymphadenopathy (arrows). Image adapted from Leong et al., <em>Diagnostics</em> 2023; CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-acute-acquired-toxoplasmosis-q1"
+  title="Question 1"
+  prompt="Given the clinical presentation and initial laboratory results, which of the following is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Infectious mononucleosis due to Epstein-Barr virus",
+      feedback:
+        "Incorrect. EBV mononucleosis is a leading consideration in a young adult with fever and cervical lymphadenopathy, but several features point away from it here. The patient has no pharyngitis or tonsillar exudate, no splenomegaly, and no atypical lymphocytes on the peripheral smear — all common in EBV infection. The heterophile antibody (Monospot) is negative, and EBV VCA IgM is negative while IgG is positive, indicating past remote infection rather than acute disease. The positive Toxoplasma IgM and IgG in this epidemiological context (cat exposure, raw meat consumption) point toward a different diagnosis.",
+    },
+    {
+      id: "B",
+      label: "Acute acquired toxoplasmosis",
+      correct: true,
+      feedback:
+        "Correct. This presentation is classic for acute acquired Toxoplasma gondii infection in an immunocompetent adult. The triad of prolonged low-grade fever, prominent posterior cervical lymphadenopathy, and mildly elevated transaminases — in the setting of regular raw meat consumption and cat exposure — with positive Toxoplasma IgM and IgG, negative EBV and CMV serologies, absent pharyngitis, absent splenomegaly, and absent atypical lymphocytes — converges on acute acquired toxoplasmosis. The posterior cervical chain is the most commonly affected nodal group in acute toxoplasmosis, and the mononucleosis-like presentation without pharyngeal involvement is characteristic. IgG avidity testing should be sent to confirm recent acquisition rather than past infection.",
+    },
+    {
+      id: "C",
+      label: "Cat-scratch disease due to Bartonella henselae",
+      feedback:
+        "Incorrect. Cat-scratch disease is a reasonable consideration given her cat exposure and cervical lymphadenopathy. However, cat-scratch disease typically presents with a unilateral, tender lymphadenopathy in the drainage basin of a detectable inoculation papule or pustule at the site of a cat scratch or bite. This patient has bilateral, non-tender posterior cervical lymphadenopathy without any identified skin lesion at an inoculation site. The positive Toxoplasma serology, the regular raw meat consumption, and the bilateral non-tender node distribution are more consistent with toxoplasmosis.",
+    },
+    {
+      id: "D",
+      label: "Cytomegalovirus mononucleosis",
+      feedback:
+        "Incorrect. CMV mononucleosis can cause a heterophile-negative mononucleosis-like illness with fever and lymphadenopathy, and it is appropriately included in the differential. However, CMV mononucleosis more commonly produces generalized lymphadenopathy rather than predominantly posterior cervical involvement, and it is often accompanied by atypical lymphocytes on the peripheral smear — neither of which is present here. The negative CMV IgM serology argues against acute CMV infection. The positive Toxoplasma serology provides a more parsimonious explanation.",
+    },
+    {
+      id: "E",
+      label: "Hodgkin lymphoma",
+      feedback:
+        "Incorrect. Hodgkin lymphoma can present with painless cervical lymphadenopathy, fever, and weight loss, and should remain on the differential for any patient with persistent lymphadenopathy. However, the relatively acute three-week presentation with daily fevers, the bilateral posterior cervical distribution, the mildly elevated transaminases suggesting a systemic inflammatory or infectious process, and the positive Toxoplasma serology all favor an infectious etiology. Hodgkin lymphoma would not explain the positive Toxoplasma IgM, the transaminitis, or the clinical timeline. If the lymphadenopathy does not resolve, biopsy should be considered.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-acute-acquired-toxoplasmosis-q2"
+  title="Question 2"
+  prompt="Serology returns positive Toxoplasma IgM and positive IgG. Which additional test best confirms that this represents a recently acquired infection rather than a past exposure?"
+  options={[
+    {
+      id: "A",
+      label: "Toxoplasma gondii PCR from whole blood",
+      feedback:
+        "Incorrect. Toxoplasma PCR from blood has utility in immunocompromised patients, particularly for detecting disseminated or reactivation disease in the setting of HIV/AIDS, hematopoietic stem cell transplantation, or organ transplantation. However, in immunocompetent hosts with acute acquired toxoplasmosis, the sensitivity of blood PCR is low because the parasitemia is brief and the organism rapidly encysts in tissues. A negative PCR would not exclude acute infection, and a positive PCR, while supportive, does not date the infection as precisely as avidity testing. PCR is more useful for confirming infection in immunocompromised patients or in the setting of congenital infection using amniotic fluid.",
+    },
+    {
+      id: "B",
+      label: "IgG avidity testing",
+      correct: true,
+      feedback:
+        "Correct. IgG avidity testing is the preferred method for determining whether Toxoplasma infection was acquired recently or in the distant past. During the initial immune response, B cells produce IgG antibodies with low binding affinity (low avidity) for the Toxoplasma antigen. Over the following weeks to months, affinity maturation occurs, and the IgG produced has progressively higher binding strength (high avidity). A low-avidity result indicates infection was likely acquired within the past three to five months, while a high-avidity result excludes very recent infection (within the past 3 to 5 months) and indicates past exposure. This distinction is critical because Toxoplasma IgM can persist for months to years after acute infection in up to 25% of patients, leading to potential misclassification of remote infection as acute. IgG avidity testing resolves this ambiguity without requiring serial serologic draws.",
+    },
+    {
+      id: "C",
+      label: "Repeat IgG titers in four weeks to document rising values",
+      feedback:
+        "Incorrect. Serial IgG titers can demonstrate seroconversion when the initial specimen is IgG-negative and the follow-up specimen becomes positive, or can show a rising titer indicating active serologic response. However, this approach requires a delay of several weeks to obtain the convalescent specimen, assumes correct timing relative to infection onset, and is subject to inter-assay variability. It is less practical and less precise than IgG avidity testing, which can be performed on the current specimen immediately. In this patient who already has positive IgG, demonstrating a significant titer rise would be difficult without a known baseline, and the four-week delay postpones definitive characterization of the infection.",
+    },
+    {
+      id: "D",
+      label: "Excisional lymph node biopsy with histopathologic examination",
+      feedback:
+        "Incorrect. Lymph node biopsy in toxoplasmosis reveals a characteristic but not fully pathognomonic triad of reactive follicular hyperplasia, epithelioid histiocytes encroaching on germinal centers, and monocytoid B-cell hyperplasia in sinuses. While this pattern is highly suggestive of toxoplasmosis, it is an invasive procedure reserved for cases where the diagnosis remains uncertain after serologic evaluation, or where lymphoma must be excluded in a patient with persistent lymphadenopathy. In this case, the positive Toxoplasma IgM and IgG in the appropriate clinical and epidemiological context, combined with IgG avidity testing, should establish the diagnosis without the need for biopsy. Biopsy would be appropriate if lymphadenopathy persists beyond four to six weeks without a confirmed diagnosis.",
+    },
+    {
+      id: "E",
+      label: "Toxoplasma SAG1 Western blot",
+      feedback:
+        "Incorrect. Western blot analysis using specific Toxoplasma antigens such as SAG1 (p30) can provide additional serologic characterization and has been used in some reference laboratories to confirm infection. However, it does not reliably differentiate recent from past infection. It is primarily used as a supplementary confirmatory test when standard ELISA results are equivocal or discordant. IgG avidity testing is the established and recommended method for dating Toxoplasma infection and distinguishing acute from chronic seropositivity.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-acute-acquired-toxoplasmosis-q3"
+  title="Question 3"
+  prompt="IgG avidity returns low, confirming recent acquisition. The patient's symptoms are moderately bothersome but she has no evidence of chorioretinitis, myocarditis, pneumonitis, or other organ involvement. She is not pregnant. Which of the following is the most appropriate management?"
+  options={[
+    {
+      id: "A",
+      label: "Pyrimethamine, sulfadiazine, and leucovorin for four weeks",
+      feedback:
+        "Incorrect. This regimen — pyrimethamine (200 mg loading dose, then 50 to 75 mg daily) combined with sulfadiazine (1 to 1.5 g every 6 hours) and leucovorin (10 to 25 mg daily) — is the standard first-line therapy for severe or life-threatening toxoplasmosis, including cerebral toxoplasmosis in HIV/AIDS, chorioretinitis, and disseminated disease in immunocompromised hosts. It is not indicated for uncomplicated acute acquired toxoplasmosis in immunocompetent patients. The drugs carry significant toxicity: pyrimethamine can cause dose-dependent bone marrow suppression (neutropenia, thrombocytopenia, megaloblastic anemia), sulfadiazine carries risk of hypersensitivity reactions and crystalluria, and the regimen requires monitoring of complete blood counts twice weekly. Subjecting an immunocompetent patient with self-limited disease to this toxicity is not warranted.",
+    },
+    {
+      id: "B",
+      label: "Trimethoprim-sulfamethoxazole for two weeks",
+      feedback:
+        "Incorrect. Trimethoprim-sulfamethoxazole (TMP-SMX) has activity against Toxoplasma gondii and is the standard prophylactic agent against reactivation disease in immunocompromised patients (HIV with CD4 below 100 cells/uL, post-transplant seropositive recipients). It has also been used as an alternative treatment regimen for cerebral toxoplasmosis when pyrimethamine or sulfadiazine cannot be used. However, there is no evidence supporting the routine use of TMP-SMX for uncomplicated acute acquired toxoplasmosis in immunocompetent patients. The infection is self-limited in the vast majority of cases, and the indications for specific antimicrobial therapy are limited to severe, persistent, or organ-involving disease. Unnecessary antibiotic exposure carries risks of adverse effects and promotes resistance.",
+    },
+    {
+      id: "C",
+      label: "Symptomatic management with follow-up; specific anti-toxoplasma therapy only if symptoms persist beyond several weeks or organ involvement develops",
+      correct: true,
+      feedback:
+        "Correct. Acute acquired toxoplasmosis in immunocompetent adults is self-limited in the vast majority of cases. Lymphadenopathy typically resolves within one to two months in approximately 60% of patients, though resolution may take up to six months in a minority. Specific anti-toxoplasma therapy is not routinely indicated. Treatment should be reserved for patients with severe or persistent symptoms (typically beyond several weeks), visceral organ involvement (chorioretinitis, myocarditis, pneumonitis, or hepatitis), or those who are pregnant or immunocompromised. When treatment is required, the standard regimen is pyrimethamine combined with sulfadiazine and leucovorin, or pyrimethamine with clindamycin and leucovorin for sulfa-allergic patients. This patient should be counseled about expected disease course, advised to return for worsening symptoms or new visual changes (suggesting chorioretinitis), and followed to document resolution of lymphadenopathy.",
+    },
+    {
+      id: "D",
+      label: "Prednisone 1 mg/kg daily for two weeks to accelerate resolution of lymphadenopathy",
+      feedback:
+        "Incorrect. Corticosteroids have no role in the management of uncomplicated acute acquired toxoplasmosis. While prednisone may reduce lymph node size and inflammation, it suppresses the cell-mediated immune response (Th1 response, IFN-gamma production, macrophage activation) that is essential for controlling the intracellular tachyzoite phase of Toxoplasma gondii. Administering corticosteroids to a patient with active toxoplasmosis could theoretically impair parasitic clearance, promote dissemination, and increase the risk of tissue cyst formation in the brain, heart, and skeletal muscle. Corticosteroids are used in cerebral toxoplasmosis only when significant mass effect and perilesional edema pose a risk of herniation — a completely different clinical scenario. In this immunocompetent patient with self-limited disease, prednisone would be harmful and unnecessary.",
+    },
+    {
+      id: "E",
+      label: "No treatment or follow-up is necessary; reassure the patient and discharge from clinic",
+      feedback:
+        "Incorrect. While specific anti-toxoplasma therapy is not indicated for this patient, she does require follow-up. Lymphadenopathy that persists beyond four to six weeks, worsens, or becomes fixed or matted should prompt excisional biopsy to exclude lymphoma. She should also be counseled about warning signs of organ involvement — particularly visual changes (chorioretinitis), chest pain or dyspnea (myocarditis or pneumonitis), and persistent high fevers — that would warrant immediate reevaluation and potentially initiate specific therapy. Complete discharge without a follow-up plan risks missing complications or an alternative diagnosis such as lymphoma masquerading as toxoplasmosis. The recommended approach is symptomatic management with a scheduled follow-up visit in two to four weeks.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-acute-acquired-toxoplasmosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Toxoplasma gondii is an obligate intracellular apicomplexan parasite with a complex life cycle that completes its sexual phase only in felids. Human infection occurs through two principal routes: ingestion of tissue cysts containing bradyzoites in undercooked or raw meat (particularly lamb, pork, and wild game), and ingestion of oocysts shed in cat feces that have sporulated in the environment. This patient had both exposures: regular consumption of raw beef tartare and two indoor-outdoor cats capable of hunting and shedding oocysts. Less commonly, transmission occurs through contaminated water, unwashed produce, organ transplantation, or congenital routes. Global seroprevalence ranges from approximately 10% in the United States to over 60% in parts of Latin America, sub-Saharan Africa, and Southeast Asia, reflecting dietary habits, climate (oocyst survival is favored by warm humid conditions), and cat population density.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    In immunocompetent adults, acute acquired toxoplasmosis most commonly presents as a mononucleosis-like illness. Cervical lymphadenopathy — particularly of the posterior cervical chain — is the hallmark, present in over 80% of symptomatic patients. Nodes are typically enlarged (1 to 3 cm), firm, mobile, and non-tender, distinguishing them from the tender, fluctuant nodes of bacterial lymphadenitis or the matted, fixed nodes of tuberculous or malignant disease. Systemic symptoms include low-grade fever, fatigue, myalgias, and headache. Mild transaminitis occurs in approximately 25% of patients. Crucially, pharyngitis, tonsillar exudate, splenomegaly, and atypical lymphocytes — all features of EBV infectious mononucleosis — are typically absent in toxoplasmosis, providing important clinical discrimination. Most patients recover spontaneously within one to two months, though lymphadenopathy may persist for up to six months in a minority.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The differential diagnosis of heterophile-negative mononucleosis-like illness with cervical lymphadenopathy includes CMV infection, acute HIV seroconversion, cat-scratch disease (Bartonella henselae), toxoplasmosis, and lymphoma. CMV more often produces generalized lymphadenopathy and atypical lymphocytes on smear. Acute HIV seroconversion can cause fever and lymphadenopathy but is typically accompanied by a rash, mucocutaneous ulcers, and a more acute onset within two to four weeks of exposure. Cat-scratch disease usually presents with unilateral tender lymphadenopathy and a visible inoculation papule at the site of a cat scratch. Hodgkin lymphoma causes painless lymphadenopathy but is not associated with the fever pattern, transaminitis, or positive Toxoplasma serology seen here. The combination of positive Toxoplasma IgM and IgG, bilateral non-tender posterior cervical lymphadenopathy, raw meat and cat exposure, and negative EBV, CMV, and HIV testing makes acute acquired toxoplasmosis the leading diagnosis.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Serologic diagnosis of acute toxoplasmosis relies on IgM and IgG antibody detection, but interpretation requires care. Toxoplasma IgG appears within one to two weeks of infection, peaks at one to two months, and persists for life — its presence confirms exposure but does not distinguish acute from remote infection. IgM appears within the first week and can persist for months to years in up to 25% of patients, making a positive IgM result suggestive but not definitive for acute infection. False-positive IgM results also occur with many commercial ELISA kits due to cross-reactivity or rheumatoid factor interference. IgG avidity testing resolves this ambiguity: during the early immune response, IgG antibodies have low binding affinity for Toxoplasma antigens. Over the subsequent three to five months, affinity maturation produces high-avidity IgG. A low-avidity result on the current specimen confirms recent acquisition, while a high-avidity result excludes infection within the past three to five months. This test can be performed on the initial serum sample without requiring serial draws.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The management of acute acquired toxoplasmosis in immunocompetent patients is predominantly supportive. The disease is self-limited, and specific anti-toxoplasma therapy is not indicated for uncomplicated cases. Treatment with pyrimethamine combined with sulfadiazine and leucovorin — the standard regimen for cerebral toxoplasmosis, ocular toxoplasmosis, and disseminated disease — is reserved for patients with severe or persistent symptoms (typically beyond four to six weeks), organ involvement (chorioretinitis, myocarditis, pneumonitis), or immunocompromise. The rationale for restraint is that the drug regimen carries significant toxicity: pyrimethamine causes dose-dependent bone marrow suppression requiring twice-weekly complete blood count monitoring, and sulfadiazine carries risks of hypersensitivity, crystalluria, and acute interstitial nephritis. In an immunocompetent host whose immune system is effectively controlling the infection, the risk-benefit calculus favors observation. Patients should be counseled about expected disease course, advised to report new visual changes (chorioretinitis may develop in up to 2% of acute cases), and scheduled for follow-up in two to four weeks. Persistent or worsening lymphadenopathy beyond four to six weeks should prompt excisional biopsy to exclude lymphoma.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-acute-acquired-toxoplasmosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>Acute acquired toxoplasmosis in immunocompetent adults presents as a mononucleosis-like illness with prominent posterior cervical lymphadenopathy, low-grade fever, and fatigue — but without the pharyngitis, splenomegaly, and atypical lymphocytes that characterize EBV infectious mononucleosis.</li>
+    <li>The two principal transmission routes are ingestion of tissue cysts in undercooked or raw meat (lamb, pork, wild game) and ingestion of oocysts from cat feces contaminating soil, water, or produce.</li>
+    <li>Toxoplasma IgM can persist for months to years and may yield false-positive results; IgG avidity testing is the preferred method for confirming recent acquisition, as low avidity indicates infection within the past three to five months.</li>
+    <li>Most cases of acute acquired toxoplasmosis in immunocompetent hosts are self-limited and do not require specific anti-toxoplasma therapy. Treatment with pyrimethamine, sulfadiazine, and leucovorin is reserved for severe, persistent, or organ-involving disease.</li>
+    <li>Persistent lymphadenopathy beyond four to six weeks should prompt excisional lymph node biopsy to exclude lymphoma, and patients should be counseled to report visual changes that may indicate chorioretinitis.</li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Montoya JG, Liesenfeld O. Toxoplasmosis. <em>Lancet</em>. 2004;363(9425):1965-1976.
+    </p>
+    <p className="mt-3">
+      <a href="https://doi.org/10.1016/S0140-6736(04)16412-X" target="_blank" rel="noreferrer" className="text-sm font-semibold text-blue-600 hover:underline">
+        DOI: 10.1016/S0140-6736(04)16412-X
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Robert-Gangneux F, Dardé ML. Epidemiology of and diagnostic strategies for toxoplasmosis. <em>Clin Microbiol Rev</em>. 2012;25(2):264-296.
+    </p>
+    <p className="mt-3">
+      <a href="https://doi.org/10.1128/CMR.05013-11" target="_blank" rel="noreferrer" className="text-sm font-semibold text-blue-600 hover:underline">
+        DOI: 10.1128/CMR.05013-11
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Garnaud C, Fricker-Hidalgo H, Brenier-Pinchart MP, Pelloux H. Toxoplasma gondii-specific IgG avidity testing in pregnant women. <em>Clin Microbiol Infect</em>. 2020;26(9):1155-1160.
+    </p>
+    <p className="mt-3">
+      <a href="https://doi.org/10.1016/j.cmi.2020.04.014" target="_blank" rel="noreferrer" className="text-sm font-semibold text-blue-600 hover:underline">
+        DOI: 10.1016/j.cmi.2020.04.014
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hurt C, Tammaro D. Diagnostic evaluation of mononucleosis-like illnesses. <em>Am J Med</em>. 2007;120(10):911.e1-911.e8.
+    </p>
+    <p className="mt-3">
+      <a href="https://doi.org/10.1016/j.amjmed.2006.12.011" target="_blank" rel="noreferrer" className="text-sm font-semibold text-blue-600 hover:underline">
+        DOI: 10.1016/j.amjmed.2006.12.011
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Jones JL, Dargelas V, Roberts J, et al. Foodborne toxoplasmosis. <em>Clin Infect Dis</em>. 2012;55(6):845-851.
+    </p>
+    <p className="mt-3">
+      <a href="https://doi.org/10.1093/cid/cis508" target="_blank" rel="noreferrer" className="text-sm font-semibold text-blue-600 hover:underline">
+        DOI: 10.1093/cid/cis508
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
