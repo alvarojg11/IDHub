@@ -1,0 +1,429 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cmv-resistance-sot");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The PCR That Climbed
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man with idiopathic pulmonary fibrosis underwent bilateral
+    lung transplantation fourteen months ago. Pre-transplant CMV serology
+    demonstrated a seropositive donor and seronegative recipient (D+/R&minus;).
+    He completed twelve months of valganciclovir prophylaxis, which was
+    discontinued two months ago. His current immunosuppressive regimen includes
+    tacrolimus (trough 7.4 ng/mL), mycophenolate mofetil 1000 mg twice daily,
+    and prednisone 5 mg daily. He has had no episodes of acute rejection.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He presents to the transplant clinic with two weeks of persistent fever
+    (maximum temperature 38.3 &deg;C), progressive fatigue, myalgias, and
+    anorexia. He reports no cough, dyspnea, diarrhea, or abdominal pain. On
+    examination, temperature is 38.1 &deg;C, heart rate 96/min, blood pressure
+    128/76 mmHg, oxygen saturation 97% on room air. The chest is clear to
+    auscultation, and the surgical incision is well healed. There is no
+    hepatosplenomegaly, no oral lesions, and no focal neurological findings.
+    Laboratory studies reveal a white blood cell count of 2.8 k/mcL with an
+    absolute neutrophil count of 1.2 k/mcL and absolute lymphocyte count of
+    0.4 k/mcL, hemoglobin 10.8 g/dL, platelets 112 k/mcL, and serum creatinine
+    1.1 mg/dL (baseline). Serum CMV quantitative PCR returns at 48,000 IU/mL.
+    Chest CT shows no new infiltrates or nodules. Stool studies are negative.
+    CMV syndrome is diagnosed, and the patient is admitted for intravenous
+    ganciclovir 5 mg/kg every 12 hours, dosed appropriately for his renal
+    function.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    During the admission the pharmacy team confirms that the ganciclovir dose
+    is weight-based and appropriately renal-adjusted, with no missed doses.
+    The tacrolimus trough and mycophenolate dose are unchanged. Weekly serum
+    CMV PCR monitoring is initiated. The viral load trajectory is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl">
+    <div className="flex items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/cmv-resistance-sot/viral-load-trend.png"
+        alt="Line chart showing serum CMV quantitative PCR rising from 48,000 to 52,000 to 76,000 IU/mL over four weeks despite IV ganciclovir therapy, demonstrating virologic failure"
+        width={1000}
+        height={650}
+        className="rounded-lg mx-auto w-full h-auto object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Serum CMV quantitative PCR trajectory: viral load rises despite four
+      weeks of weight-based, renal-adjusted IV ganciclovir.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-cmv-resistance-sot-q1"
+  title="Question 1"
+  prompt="After four weeks of weight-based, renal-adjusted IV ganciclovir with confirmed adherence and no missed doses, the CMV PCR has risen from 48,000 to 76,000 IU/mL. What is the most appropriate next step?"
+  options={[
+    {
+      id: "A",
+      label: "Increase the ganciclovir dose to 7.5 mg/kg every 8 hours",
+      feedback:
+        "Incorrect. While dose optimization should always be verified early in treatment failure, the scenario explicitly confirms weight-based, renal-adjusted dosing with documented adherence and no missed doses. The concept of overcoming resistance simply by increasing the dose is a common misconception. Ganciclovir resistance arises from mutations in the viral UL97 kinase or UL54 DNA polymerase that fundamentally alter the drug-target interaction at the molecular level. For UL97 mutations, the kinase cannot phosphorylate ganciclovir regardless of drug concentration, because the mutation changes the substrate-binding or catalytic site. Increasing the dose will not restore enzymatic activity. After four weeks of confirmed adequate dosing with a rising viral load, the priority shifts to resistance testing, not dose escalation.",
+    },
+    {
+      id: "B",
+      label: "Send plasma genotypic resistance testing targeting UL97 and UL54",
+      correct: true,
+      feedback:
+        "Correct. Rising CMV PCR after four weeks of appropriately dosed IV ganciclovir is the canonical clinical presentation of ganciclovir resistance, and genotypic resistance testing is the definitive next step. The CMV UL97 gene encodes the serine-threonine kinase responsible for the initial phosphorylation of ganciclovir, which is the rate-limiting step in drug activation. Mutations in UL97 account for approximately 85 to 90 percent of clinical ganciclovir resistance, most commonly at codons 460, 594, or 595. Mutations in UL54, the viral DNA polymerase gene, account for the remainder and confer broader cross-resistance patterns. Genotypic testing is performed by PCR amplification and Sanger or next-generation sequencing of UL97 and UL54 directly from plasma, with a typical turnaround time of one to two weeks. Unlike phenotypic susceptibility testing, which requires viral culture and can take four to six weeks, genotypic testing provides actionable results within a clinically meaningful timeframe. The 2018 International Consensus Guidelines on CMV in Solid-Organ Transplantation recommend genotypic resistance testing for any patient with rising or non-declining CMV DNAemia after at least two weeks of appropriately dosed antiviral therapy. In this patient, four weeks of treatment failure with rising viremia from 48,000 to 76,000 IU/mL clearly meets this threshold.",
+    },
+    {
+      id: "C",
+      label: "Add CMV intravenous immunoglobulin (CytoGam) to the current regimen",
+      feedback:
+        "Incorrect. CMV hyperimmune intravenous immunoglobulin (CytoGam) provides passive anti-CMV antibodies and has a limited evidence base in the treatment of established CMV disease in solid organ transplant recipients. It may have a role as adjunctive therapy in select high-risk scenarios, such as CMV pneumonitis in lung transplant recipients or life-threatening primary CMV disease in seronegative recipients, but it does not address the molecular mechanism of ganciclovir resistance. Adding CytoGam to a failing ganciclovir regimen without investigating for UL97 or UL54 mutations will not restore antiviral activity at the drug target and delays the necessary switch to an alternative agent.",
+    },
+    {
+      id: "D",
+      label: "Switch to oral valganciclovir 900 mg twice daily for improved outpatient adherence",
+      feedback:
+        "Incorrect. Valganciclovir is the oral prodrug of ganciclovir and has equivalent antiviral activity, as it is hydrolyzed to ganciclovir in vivo and relies on the same UL97-mediated phosphorylation pathway for activation. If the virus has acquired a UL97 or UL54 mutation conferring ganciclovir resistance, it will be equally resistant to valganciclovir. Switching from IV ganciclovir to oral valganciclovir does not bypass the resistance mechanism. Furthermore, switching from IV to oral therapy during virologic failure reduces the certainty of drug exposure and complicates monitoring. Valganciclovir is appropriate for step-down therapy after virologic response has been achieved on IV ganciclovir, not as a strategy to overcome resistance.",
+    },
+    {
+      id: "E",
+      label: "Check a plasma ganciclovir trough level to confirm therapeutic exposure",
+      feedback:
+        "Incorrect. While therapeutic drug monitoring of ganciclovir can be useful in specific situations, such as suspected malabsorption, extreme body weight, or uncertain renal function, the scenario explicitly confirms weight-based, renal-adjusted dosing with documented adherence. Checking a ganciclovir level at this stage would delay the critical intervention. More importantly, even if the ganciclovir level is within the expected range, it does not rule out resistance. The issue is not drug exposure but rather the virus's ability to render the drug pharmacologically inert through UL97 or UL54 mutations. A therapeutic ganciclovir level in the setting of a resistant virus is entirely expected and does not help guide management. Resistance testing is the priority.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cmv-resistance-sot-q2"
+  title="Question 2"
+  prompt="Genotypic resistance testing returns two weeks later and reveals a UL97 A594V mutation. No UL54 mutation is detected. The CMV PCR is now 94,000 IU/mL. Based on this result, which statement best describes the antiviral susceptibility profile of this CMV isolate?"
+  options={[
+    {
+      id: "A",
+      label: "The isolate is resistant to ganciclovir, foscarnet, and cidofovir because all three agents depend on UL97-mediated phosphorylation for activation",
+      feedback:
+        "Incorrect. This statement contains a critical pharmacologic error. While ganciclovir does require UL97-mediated phosphorylation as its initial activation step, foscarnet and cidofovir do not. Foscarnet is an inorganic pyrophosphate analog that directly inhibits the viral DNA polymerase at the pyrophosphate binding site without requiring any phosphorylation or enzymatic activation. Cidofovir is an acyclic nucleotide phosphonate that already contains a monophosphate-like phosphonate group and is further phosphorylated to its active diphosphate metabolite by host cellular kinases, not by the viral UL97 kinase. Therefore, UL97 mutations confer resistance to ganciclovir and valganciclovir but NOT to foscarnet or cidofovir. Understanding this mechanistic distinction is essential for selecting appropriate alternative therapy when ganciclovir resistance is confirmed.",
+    },
+    {
+      id: "B",
+      label: "The isolate is resistant to ganciclovir and maribavir because both drugs target the UL97 kinase",
+      feedback:
+        "Incorrect. While it is true that both ganciclovir and maribavir involve the UL97 kinase, their relationships with UL97 are fundamentally different and lead to opposite resistance patterns. Ganciclovir is a substrate of UL97 — it requires the kinase to phosphorylate and activate it, so UL97 mutations that eliminate this phosphorylation confer ganciclovir resistance. Maribavir, by contrast, is an inhibitor of UL97 — it binds to and blocks the kinase's enzymatic activity, which the virus needs for DNA encapsidation and nuclear egress. Because maribavir does not require UL97 for its own activation, most ganciclovir-resistance UL97 mutations, including A594V, do NOT confer maribavir resistance. Maribavir resistance is associated with distinct mutations at different codons, most commonly T409M and substitutions at codon 411 in the UL97 ATP-binding region. Therefore, a UL97 A594V mutant is expected to retain susceptibility to maribavir.",
+    },
+    {
+      id: "C",
+      label: "The isolate is resistant to ganciclovir only; foscarnet and cidofovir retain activity because they do not depend on UL97 for activation, and maribavir is predicted to be active because it inhibits rather than requires UL97",
+      correct: true,
+      feedback:
+        "Correct. The UL97 A594V mutation is one of the most common ganciclovir resistance mutations and is located in the kinase domain of the UL97 protein. It reduces the enzyme's ability to phosphorylate ganciclovir by approximately five- to tenfold, resulting in clinical resistance despite adequate drug exposure. The resistance phenotype is specific to ganciclovir and its prodrug valganciclovir, because only these drugs depend on UL97-mediated initial phosphorylation for activation. Foscarnet is a pyrophosphate analog that directly binds the pyrophosphate acceptance site on the viral DNA polymerase (UL54), blocking nucleotide incorporation during DNA elongation. It requires no enzymatic activation by any viral kinase. Cidofovir is an acyclic nucleotide phosphonate that already possesses a phosphonate group and is phosphorylated by host cellular enzymes to its active diphosphate metabolite. Neither foscarnet nor cidofovir depends on the viral UL97 kinase. Maribavir, which directly inhibits UL97 as its mechanism of action, is also expected to retain activity because A594V is a substrate-recognition mutation that does not significantly alter maribavir binding at the ATP pocket. The clinical implication is that the patient should be switched from ganciclovir to foscarnet, which is the consensus first-line therapy for UL97-mediated ganciclovir resistance. Cidofovir is an alternative but carries a higher risk of nephrotoxicity, particularly in transplant recipients receiving calcineurin inhibitors. Maribavir, while also active against most UL97-mutant strains, is generally reserved for refractory disease or when foscarnet is not tolerated. The absence of a UL54 mutation is also important: if a UL54 mutation were present, the cross-resistance pattern would depend on the specific codon affected, with some mutations conferring resistance to ganciclovir plus cidofovir and others conferring resistance to ganciclovir plus foscarnet.",
+    },
+    {
+      id: "D",
+      label: "The isolate is resistant to ganciclovir and letermovir because UL97 mutations confer cross-resistance to the viral terminase complex",
+      feedback:
+        "Incorrect. Letermovir targets the viral terminase complex, specifically the UL56 subunit and to a lesser extent UL89 and UL51, which is an entirely distinct viral target from the UL97 kinase. UL97 mutations do not confer letermovir resistance. Letermovir resistance, when it occurs, is mediated by mutations in UL56, most commonly at codon 325 (C325Y or C325F). However, letermovir is FDA-approved only for CMV prophylaxis in hematopoietic stem cell transplant recipients, not for treatment of active CMV disease in solid organ transplant recipients. It has no established role in treating ganciclovir-resistant CMV, regardless of the mutation profile.",
+    },
+    {
+      id: "E",
+      label: "The UL97 A594V mutation confers only low-level resistance that can be overcome with high-dose ganciclovir and immunosuppression reduction",
+      feedback:
+        "Incorrect. The UL97 A594V mutation confers a clinically significant level of ganciclovir resistance, typically a five- to tenfold shift in the inhibitory concentration (IC50), that cannot be reliably overcome by dose escalation. The mutation fundamentally alters the kinase's ability to perform the initial phosphorylation of ganciclovir, and higher drug concentrations cannot restore this enzymatic activity. While immunosuppression reduction, particularly decreasing or holding mycophenolate mofetil, is an important adjunctive strategy in transplant recipients with CMV disease, it is not sufficient to overcome pharmacologic resistance as monotherapy. Continuing or escalating ganciclovir in the face of confirmed UL97-mediated resistance prolongs viremia, increases the risk of progression to tissue-invasive disease, and may allow the emergence of additional resistance mutations, including UL54 mutations that confer broader cross-resistance to foscarnet or cidofovir.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cmv-resistance-sot-q3"
+  title="Question 3"
+  prompt="The patient is switched to foscarnet 90 mg/kg every 12 hours with pre-hydration and electrolyte monitoring. After two weeks, the CMV PCR declines to 18,000 IU/mL. However, his creatinine rises from 1.1 to 2.8 mg/dL. He develops severe hypokalemia (2.8 mEq/L), hypocalcemia, and hypomagnesemia despite aggressive repletion. What is the most appropriate next step?"
+  options={[
+    {
+      id: "A",
+      label: "Continue foscarnet with dose reduction for renal function and intensified electrolyte repletion",
+      feedback:
+        "Incorrect. While dose adjustment for renal function is a standard component of foscarnet management, this patient's degree of nephrotoxicity, with creatinine more than doubling from 1.1 to 2.8 mg/dL, represents clinically significant acute kidney injury that is unlikely to be safely managed by dose reduction alone. Foscarnet nephrotoxicity occurs through multiple mechanisms, including crystalline nephropathy, acute tubular necrosis, and intrarenal vasoconstriction. The concurrent severe electrolyte wasting (hypokalemia, hypocalcemia, hypomagnesemia) reflects direct toxicity to the renal tubules, where foscarnet complexes with divalent cations and impairs their reabsorption. In a lung transplant recipient already receiving tacrolimus, itself nephrotoxic through afferent arteriolar vasoconstriction, continuing foscarnet even at reduced doses risks progressive and potentially irreversible renal injury. A non-nephrotoxic alternative is needed.",
+    },
+    {
+      id: "B",
+      label: "Switch to cidofovir 5 mg/kg every two weeks with probenecid and saline hydration",
+      feedback:
+        "Incorrect. Cidofovir does bypass the UL97 phosphorylation requirement and retains activity against UL97-mutant CMV, but it is significantly more nephrotoxic than foscarnet. It carries a boxed warning for dose-dependent nephrotoxicity through accumulation in proximal tubular cells via the organic anion transporter-1. In a patient who has already developed acute kidney injury on foscarnet, switching to cidofovir would compound the renal injury. The required co-administration of probenecid and intravenous hydration adds complexity, and probenecid interacts with many transplant medications. Cidofovir is generally considered a third-line option for resistant CMV, reserved for cases where both foscarnet and maribavir have failed or are not tolerated.",
+    },
+    {
+      id: "C",
+      label: "Switch to maribavir 400 mg twice daily orally — a UL97 inhibitor approved for refractory or resistant CMV with a favorable renal profile",
+      correct: true,
+      feedback:
+        "Correct. Maribavir is the most appropriate next agent in this patient with significant foscarnet-induced nephrotoxicity and electrolyte wasting. Maribavir is a benzimidazole L-riboside that directly inhibits the CMV UL97 protein kinase, blocking its role in viral DNA encapsidation and nuclear egress. Unlike ganciclovir, it does not require UL97-mediated phosphorylation for activation — it binds to and inhibits UL97 as its mechanism of action. This distinction explains why most ganciclovir-resistance UL97 mutations, including A594V, do not confer maribavir resistance: the mutations that prevent ganciclovir phosphorylation are located in the substrate-recognition region of the kinase, while maribavir interacts with the ATP-binding site, and resistance to maribavir arises from mutations at different codons (most commonly T409M and substitutions at codon 411). The FDA approved maribavir in November 2021 for the treatment of post-transplant CMV infection and disease that is refractory or resistant to conventional therapy (ganciclovir, valganciclovir, cidofovir, or foscarnet). The approval was based on the SOLSTICE trial, a Phase 3 open-label randomized study comparing maribavir 400 mg twice daily to investigator-initiated therapy (valganciclovir, foscarnet, or cidofovir) in 352 transplant recipients with refractory or resistant CMV. Maribavir achieved the primary endpoint — confirmed CMV DNA clearance at Week 8 maintained through Week 16 — in 55.7 percent of patients compared with 23.9 percent in the investigator-initiated therapy arm. From a practical standpoint, maribavir offers several advantages in this patient: it is orally bioavailable, does not require renal dose adjustment, has no significant nephrotoxicity, and eliminates the IV access and electrolyte monitoring burdens of foscarnet. The most common adverse effects are taste disturbance (approximately 47 percent of patients, typically described as metallic or altered), nausea, and diarrhea. An important clinical caveat is that paradoxical CMV DNA increases can occur during the first weeks of maribavir therapy. In the SOLSTICE trial, some patients had transient viral load rises despite eventual clearance, thought to reflect maribavir's unique mechanism of inhibiting viral encapsidation and egress rather than DNA replication. These increases should not be automatically interpreted as treatment failure if the patient is otherwise clinically improving.",
+    },
+    {
+      id: "D",
+      label: "Switch to letermovir 480 mg daily for oral treatment of resistant CMV",
+      feedback:
+        "Incorrect. Letermovir, a viral terminase complex inhibitor targeting UL56, is FDA-approved only for CMV prophylaxis in hematopoietic stem cell transplant recipients, not for treatment of active CMV disease in any transplant population. While it has a favorable safety profile and oral formulation, there are no established efficacy data for treating active resistant CMV disease with letermovir monotherapy. Additionally, letermovir has a low genetic barrier to resistance, with UL56 C325Y mutations conferring high-level resistance after only brief exposure. Using letermovir as monotherapy for treatment of active CMV disease risks rapid resistance emergence and is not supported by guidelines or clinical trial evidence. Off-label letermovir is occasionally considered in combination regimens for multidrug-resistant CMV, but only in expert consultation and never as monotherapy.",
+    },
+    {
+      id: "E",
+      label: "Discontinue all antiviral therapy, reduce mycophenolate mofetil, and monitor CMV PCR weekly",
+      feedback:
+        "Incorrect. While reduction of immunosuppression, particularly mycophenolate mofetil, is an important adjunctive strategy in transplant recipients with CMV disease, it is not sufficient as sole management of ganciclovir-resistant CMV with documented high-level viremia and ongoing CMV syndrome. Immunosuppression reduction allows partial recovery of CMV-specific T-cell immunity, which contributes to viral control, but the rate of immune reconstitution is too slow to control active replication of a resistant viral strain in the absence of effective antiviral therapy. This patient has a CMV PCR of 94,000 IU/mL, symptomatic CMV syndrome, and profound leukopenia. Stopping all antivirals risks progression to tissue-invasive disease, including CMV pneumonitis, colitis, or disseminated disease, which carries significant mortality in lung transplant recipients. Immunosuppression reduction should accompany, not replace, active antiviral therapy with an agent to which the virus is susceptible.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-cmv-resistance-sot-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Cytomegalovirus remains the single most important opportunistic viral
+    pathogen in solid organ transplantation, and lung transplant recipients
+    carry the highest risk of CMV disease among all SOT populations. The
+    transplanted lung contains a large reservoir of latently infected cells
+    in donor airway and parenchymal tissue, and the intense immunosuppression
+    required to prevent allograft rejection profoundly suppresses the
+    CMV-specific CD4 and CD8 T-cell responses that control viral reactivation.
+    The D+/R&minus; serostatus represents the highest-risk donor-recipient
+    mismatch: the recipient lacks pre-existing CMV-specific cellular immunity,
+    and the donor organ transmits both latent virus and potentially replicating
+    CMV in donor-derived leukocytes. Even with twelve months of valganciclovir
+    prophylaxis, the extended duration recommended for D+/R&minus; lung
+    transplant recipients, late-onset CMV disease occurs in a substantial
+    proportion of patients after prophylaxis discontinuation. Late CMV disease
+    reflects the failure to develop adequate de novo CMV-specific T-cell
+    immunity during the period of pharmacologic viral suppression, leaving the
+    patient vulnerable once antiviral pressure is removed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Ganciclovir is the cornerstone of CMV treatment. It is a nucleoside analog
+    that requires sequential phosphorylation to its active triphosphate form,
+    with the critical first phosphorylation step catalyzed by the viral UL97
+    serine-threonine kinase. Mutations in UL97 account for 85 to 90 percent of
+    clinical ganciclovir resistance and most commonly occur at codons 460,
+    594, and 595. These mutations reduce or eliminate the kinase's ability to
+    phosphorylate ganciclovir, rendering the drug pharmacologically inert
+    regardless of dose. The incidence of ganciclovir resistance in SOT
+    recipients treated for CMV disease is approximately 5 to 10 percent
+    overall but rises significantly in D+/R&minus; recipients, those with high
+    pretreatment viral loads, those receiving prolonged antiviral exposure,
+    and those with intense immunosuppression, all of which are present in this
+    lung transplant patient. Clinical recognition of resistance is paramount:
+    rising or non-declining CMV PCR after two to three weeks of appropriately
+    dosed IV ganciclovir should trigger genotypic resistance testing rather
+    than dose escalation or the addition of immunoglobulin products.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Genotypic resistance testing by PCR-based sequencing of UL97 and UL54 from
+    plasma is the diagnostic standard for suspected ganciclovir resistance,
+    offering clinically actionable results within one to two weeks. The
+    genotypic result has direct therapeutic implications because the resistance
+    mechanism determines which alternative agents retain activity. For UL97
+    mutations such as this patient's A594V, foscarnet and cidofovir are
+    predicted to retain activity because neither drug depends on UL97 for
+    activation. Foscarnet directly inhibits the viral DNA polymerase at the
+    pyrophosphate binding site, and cidofovir is phosphorylated by host
+    cellular kinases. Foscarnet is the consensus first-line therapy for
+    UL97-mediated resistance, but it carries substantial toxicity:
+    nephrotoxicity through crystalline nephropathy and acute tubular necrosis,
+    severe electrolyte wasting from tubular cation chelation, and genital
+    ulceration from urinary excretion. In transplant recipients already
+    receiving nephrotoxic calcineurin inhibitors, foscarnet-induced renal
+    injury can be rapidly progressive. If UL54 mutations are present, the
+    cross-resistance profile is more complex: specific UL54 mutations confer
+    resistance to ganciclovir plus cidofovir, others confer resistance to
+    ganciclovir plus foscarnet, and some confer pan-resistance to all three
+    agents. The absence of UL54 mutations in this patient simplified the
+    therapeutic decision by preserving multiple active alternatives.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Maribavir represents a mechanistically novel approach to CMV therapy. As
+    a benzimidazole L-riboside, it binds directly to the ATP-binding pocket of
+    the UL97 protein kinase and inhibits its enzymatic activity, blocking
+    viral DNA encapsidation and nuclear egress. Because maribavir inhibits
+    rather than depends on UL97, most ganciclovir-resistance UL97 mutations
+    do not confer maribavir resistance. The FDA approved maribavir in November
+    2021 based on the SOLSTICE trial, a Phase 3 open-label study of 352
+    transplant recipients with post-transplant CMV refractory or resistant to
+    conventional therapy. Maribavir 400 mg orally twice daily achieved
+    confirmed CMV DNA clearance at Week 8 sustained through Week 16 in 55.7
+    percent of patients versus 23.9 percent with investigator-initiated
+    therapy. Its oral bioavailability, absence of nephrotoxicity, and
+    favorable hematologic profile make it particularly valuable in transplant
+    recipients with renal dysfunction or cytopenias. Two clinical caveats are
+    important: taste disturbance occurs in nearly half of patients and can
+    affect adherence, and paradoxical CMV DNA increases may occur in the first
+    weeks of therapy, thought to reflect the drug's unique mechanism of
+    inhibiting viral egress rather than DNA replication. These transient rises
+    should not be misinterpreted as treatment failure in a clinically
+    improving patient.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cmv-resistance-sot-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Rising CMV PCR after two to three weeks of appropriately dosed,
+      weight-based, renal-adjusted IV ganciclovir is ganciclovir resistance
+      until proven otherwise. The first and most important step is to send
+      plasma genotypic resistance testing targeting UL97 and UL54, not to
+      increase the ganciclovir dose.
+    </li>
+    <li>
+      UL97 kinase mutations account for approximately 85 to 90 percent of
+      ganciclovir resistance and prevent drug phosphorylation, but they do not
+      affect foscarnet (direct DNA polymerase inhibitor) or cidofovir
+      (host-kinase phosphorylated). UL54 DNA polymerase mutations confer
+      broader, mutation-dependent cross-resistance that can include foscarnet
+      or cidofovir.
+    </li>
+    <li>
+      Foscarnet is the consensus first-line therapy for UL97-mediated
+      ganciclovir resistance but carries substantial nephrotoxicity
+      (crystalline nephropathy, acute tubular necrosis) and electrolyte
+      wasting (hypokalemia, hypocalcemia, hypomagnesemia). In transplant
+      recipients on calcineurin inhibitors, renal toxicity may be rapidly
+      progressive.
+    </li>
+    <li>
+      Maribavir (400 mg orally twice daily) is FDA-approved for post-transplant
+      CMV refractory or resistant to conventional therapy. It inhibits UL97
+      rather than requiring it for activation, so most ganciclovir-resistance
+      UL97 mutations do not confer maribavir resistance. The SOLSTICE trial
+      demonstrated superiority over investigator-initiated therapy (55.7%
+      versus 23.9% clearance at Week 8 maintained through Week 16).
+    </li>
+    <li>
+      Paradoxical CMV DNA increases can occur during the first weeks of
+      maribavir therapy, likely reflecting its unique mechanism of inhibiting
+      viral encapsidation and egress rather than DNA replication. These
+      transient rises should not be misinterpreted as treatment failure in a
+      clinically improving patient. Taste disturbance occurs in approximately
+      47% of patients and may affect adherence.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kotton CN, Kumar D, Caliendo AM, et al. The Third International Consensus
+      Guidelines on the Management of Cytomegalovirus in Solid-Organ
+      Transplantation. <em>Transplantation</em>. 2018;102(6):900-931.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/TP.0000000000002191"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/TP.0000000000002191
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Avery RK, Alain S, Alexander BD, et al. Maribavir for Refractory
+      Cytomegalovirus Infections with or without Resistance Post-Transplant:
+      Results from the Phase 3 Randomized SOLSTICE Trial. <em>Clinical
+      Infectious Diseases</em>. 2022;75(4):690-701.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciac081"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciac081
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Lurain NS, Chou S. Antiviral drug resistance of human cytomegalovirus.
+      <em> Clinical Microbiology Reviews</em>. 2010;23(4):689-712.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/CMR.00009-10"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/CMR.00009-10
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Chou S. Approach to drug-resistant cytomegalovirus in transplant
+      recipients. <em>Current Opinion in Infectious Diseases</em>.
+      2015;28(4):293-299.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/QCO.0000000000000180"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/QCO.0000000000000180
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

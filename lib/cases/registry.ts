@@ -1321,6 +1321,15 @@ export const CASES: CaseMeta[] = [
     teaser: "A 29-year-old man from the Philippines with multidrug-resistant tuberculosis is four months into a WHO longer regimen including clofazimine and bedaquiline. His sputum has converted and he is gaining weight, but his skin has turned progressively purple and his QTc is climbing. What explains the discoloration, and what should you do about it?",
     tags: { organisms: ["Mycobacterium tuberculosis"], syndromes: ["Mycobacterial", "Drug Toxicity", "Dermatology"], concepts: ["Clofazimine", "Skin pigmentation", "MDR-TB", "QTc prolongation", "Crystal enteropathy", "Ichthyosis", "Bedaquiline", "Riminophenazine dye", "Ceroid-lipofuscin"] },
   },
+  {
+    slug: "cmv-resistance-sot",
+    title: "The PCR That Climbed",
+    description: "A lung transplant recipient's rising CMV viral load despite ganciclovir leads through resistance genotyping, foscarnet toxicity, and ultimately to maribavir.",
+    enable: true,
+    ogImage: "/cases/cmv-resistance-sot/viral-load-trend.png",
+    teaser: "A D+/R− lung transplant recipient develops CMV syndrome and is treated with weight-based IV ganciclovir. Despite four weeks of appropriate therapy, the viral load keeps climbing. When do you suspect resistance, and what do you reach for when each drug fails in turn?",
+    tags: { organisms: ["Cytomegalovirus", "CMV"], syndromes: ["Transplant & Immunocompromised", "Opportunistic Infection", "Antiviral Resistance"], concepts: ["Ganciclovir resistance", "UL97 kinase mutation", "A594V", "UL54 DNA polymerase", "Genotypic resistance testing", "Foscarnet", "Maribavir", "SOLSTICE trial", "CMV syndrome", "Lung transplant", "D+/R− serostatus", "Late CMV disease", "Cross-resistance", "Foscarnet nephrotoxicity"] },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
