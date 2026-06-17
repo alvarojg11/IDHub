@@ -1330,6 +1330,30 @@ export const CASES: CaseMeta[] = [
     teaser: "A D+/R− lung transplant recipient develops CMV syndrome and is treated with weight-based IV ganciclovir. Despite four weeks of appropriate therapy, the viral load keeps climbing. When do you suspect resistance, and what do you reach for when each drug fails in turn?",
     tags: { organisms: ["Cytomegalovirus", "CMV"], syndromes: ["Transplant & Immunocompromised", "Opportunistic Infection", "Antiviral Resistance"], concepts: ["Ganciclovir resistance", "UL97 kinase mutation", "A594V", "UL54 DNA polymerase", "Genotypic resistance testing", "Foscarnet", "Maribavir", "SOLSTICE trial", "CMV syndrome", "Lung transplant", "D+/R− serostatus", "Late CMV disease", "Cross-resistance", "Foscarnet nephrotoxicity"] },
   },
+  {
+    title: "The Shield Down the Drain",
+    slug: "nephrotic-pneumococcal-pneumonia",
+    description: "Invasive pneumococcal disease as the first clue to an acquired immunodeficiency.",
+    enable: true,
+    ogImage: "/cases/nephrotic-pneumococcal-pneumonia/gram-stain.png",
+    teaser: "An adult with known membranous-nephropathy nephrotic syndrome presents with fever, purulent cough, and a dense right lower lobe pneumonia, and blood cultures grow gram-positive lancet-shaped diplococci. Why did his kidneys leave him undefended against an encapsulated organism — and what prevents the next episode?",
+    tags: {
+      organisms: ["Streptococcus pneumoniae"],
+      syndromes: ["Pulmonary Infection", "Immunocompromised Host", "Opportunistic Infection"],
+      concepts: [
+        "Nephrotic syndrome",
+        "Acquired immunodeficiency",
+        "Factor B",
+        "Alternative complement pathway",
+        "Opsonization",
+        "Encapsulated organisms",
+        "Hypogammaglobulinemia",
+        "Pneumococcal vaccination",
+        "Transferrin",
+        "Membranous nephropathy",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

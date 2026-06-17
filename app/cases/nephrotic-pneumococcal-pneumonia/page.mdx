@@ -1,0 +1,384 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("nephrotic-pneumococcal-pneumonia");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Shield Down the Drain
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man with biopsy-proven membranous nephropathy is managed in
+    the nephrology clinic for a persistently nephrotic state. Despite treatment
+    with tacrolimus and prednisone, his most recent studies show proteinuria of
+    8.5 g/day, serum albumin 1.9 g/dL, total cholesterol 324 mg/dL, and serum
+    IgG 312 mg/dL (reference 700&ndash;1600). He has 2+ lower-extremity edema
+    but has otherwise been stable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    He presents to the emergency department after two days of fever to 39.1
+    &deg;C, rigors, purulent cough, right-sided pleuritic chest pain, and
+    progressive dyspnea. On examination his respiratory rate is 26/min, oxygen
+    saturation 90% on room air, and he has focal crackles over the right lower
+    lobe. The white blood cell count is 14.8 x 10<sup>3</sup>/&micro;L with a
+    left shift. Chest radiography reveals a dense right lower lobe
+    consolidation, and blood cultures are obtained before antibiotics are
+    administered.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Within twenty-four hours the blood culture bottles flag positive, and the
+    Gram stain is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/nephrotic-pneumococcal-pneumonia/gram-stain.png"
+        alt="Gram stain of a positive blood culture showing gram-positive lancet-shaped diplococci arranged in pairs, consistent with Streptococcus pneumoniae"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Blood culture Gram stain: gram-positive lancet-shaped diplococci in pairs
+      (<em>Streptococcus pneumoniae</em>). Credit: CDC/Janice Carr &amp; Dr.
+      Richard Facklam, Public Health Image Library (public domain).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-nephrotic-pneumococcal-pneumonia-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this patient's pneumonia and bacteremia?"
+  options={[
+    {
+      id: "A",
+      label: "Streptococcus agalactiae (group B streptococcus)",
+      feedback:
+        "Incorrect. Group B streptococci are encapsulated and do cause invasive disease in adults with diabetes, hepatic failure, or immunocompromise, so this is a serious contender. However, on Gram stain they appear as gram-positive cocci in chains rather than lancet-shaped diplococci in pairs, and they are not the encapsulated organism classically linked to the humoral and alternative-complement defect of nephrotic syndrome. The morphology in the blood culture points elsewhere.",
+    },
+    {
+      id: "B",
+      label: "Streptococcus pneumoniae",
+      correct: true,
+      feedback:
+        "Correct. Gram-positive lancet-shaped diplococci arranged in pairs are the signature morphology of Streptococcus pneumoniae, and it is the prototypical encapsulated organism responsible for invasive disease when opsonization is impaired. In a nephrotic host with heavy proteinuria, hypoalbuminemia, and a profoundly low serum IgG, impaired humoral and alternative-complement defense against encapsulated organisms is the expected defect, and pneumococcus is the classic pathogen that exploits it.",
+    },
+    {
+      id: "C",
+      label: "Staphylococcus aureus",
+      feedback:
+        "Incorrect. Staphylococcus aureus is a gram-positive coccus, but it classically appears in clusters rather than pairs and lacks the lancet shape. S. aureus pneumonia is typically post-viral (e.g., after influenza) or healthcare-associated, often necrotizing, and is not the encapsulated organism predicted by the humoral/complement defect of nephrotic syndrome. The paired diplococcal morphology argues strongly against it.",
+    },
+    {
+      id: "D",
+      label: "Enterococcus faecium",
+      feedback:
+        "Incorrect. Enterococci are gram-positive cocci that can appear in pairs and chains, but they are not lancet-shaped and rarely cause primary community-acquired pneumonia. When enterococci cause bacteremia in this kind of patient it is usually from a gastrointestinal, biliary, or urinary source rather than the lung. The respiratory source and the diplococcal morphology do not fit.",
+    },
+    {
+      id: "E",
+      label: "Streptococcus pyogenes (group A streptococcus)",
+      feedback:
+        "Incorrect. Group A streptococci are gram-positive cocci in chains that can occasionally cause pneumonia, often with a rapidly progressive or necrotizing course and early empyema. They do not form lancet-shaped diplococci, however, and they are not the encapsulated organism whose clearance depends on the IgG and alternative-complement pathways depleted in nephrotic syndrome. The Gram stain morphology excludes them here.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-nephrotic-pneumococcal-pneumonia-q2"
+  title="Question 2"
+  prompt="Which mechanism best accounts for this patient's increased susceptibility to this organism?"
+  options={[
+    {
+      id: "A",
+      label: "Impaired neutrophil oxidative burst from defective NADPH oxidase",
+      feedback:
+        "Incorrect. A defective respiratory burst (chronic granulomatous disease) predisposes to catalase-positive organisms such as Staphylococcus aureus, Burkholderia, Serratia, Nocardia, and Aspergillus &mdash; not to the pneumococcus, which is catalase-negative. CGD is also typically diagnosed in childhood, not as a new susceptibility in a nephrotic adult. The clue here is the heavy proteinuria and low IgG, which point to a loss of immune proteins rather than a neutrophil killing defect.",
+    },
+    {
+      id: "B",
+      label: "Functional asplenia with defective clearance of encapsulated organisms",
+      feedback:
+        "Incorrect. Functional asplenia (as in sickle cell disease or after splenectomy) is a major risk factor for overwhelming encapsulated-organism infection, including pneumococcus, because the spleen clears opsonized bacteria from the blood. This patient has no sickle disease, surgical absence, or autoinfarction, however, and the key laboratory clues &mdash; nephrotic-range proteinuria, hypoalbuminemia, and a markedly low serum IgG &mdash; point to urinary loss of immune mediators rather than impaired splenic clearance.",
+    },
+    {
+      id: "C",
+      label: "Urinary loss of IgG and alternative-pathway Factor B, impairing opsonization of encapsulated bacteria",
+      correct: true,
+      feedback:
+        "Correct. Nephrotic-range proteinuria is not simply a renal problem; it produces a secondary (acquired) immunodeficiency by leaking immune effector proteins into the urine. Two losses are central. First, IgG is lost in the urine, producing the low serum IgG seen here and reducing antibody-mediated opsonization. Second, the alternative complement pathway components Factor B and Factor D are small enough to be filtered and catabolized or wasted in the urine, depleting the C3 convertase that amplifies opsonization of encapsulated organisms. Because pneumococcus resists the classical lytic pathway and relies heavily on opsonin-mediated phagocytosis, a nephrotic host is uniquely vulnerable to it. The low IgG plus heavy proteinuria is the tell.",
+    },
+    {
+      id: "D",
+      label: "Iron overload promoting growth of siderophilic organisms",
+      feedback:
+        "Incorrect. Iron overload (as in hemochromatosis) favors siderophilic organisms such as Vibrio vulnificus and Listeria, not the pneumococcus. Nephrotic patients in fact tend toward the opposite abnormality: they lose transferrin in the urine, which lowers total iron-binding capacity and can increase available iron &mdash; but that is a different mechanism from hereditary iron overload and is not the dominant explanation for pneumococcal susceptibility, which is humoral and complement-mediated.",
+    },
+    {
+      id: "E",
+      label: "Advanced HIV with CD4+ T-cell depletion",
+      feedback:
+        "Incorrect. Advanced HIV with CD4 depletion predisposes to opportunistic infections (Pneumocystis, cryptococcus, CMV, toxoplasmosis) and to bacterial pneumonia, but there is no evidence of HIV here, and T-cell deficiency is not the mechanism by which nephrotic syndrome predisposes to encapsulated organisms. The low IgG and heavy proteinuria indicate a B-cell/complement (humoral) defect rather than a T-cell defect.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-nephrotic-pneumococcal-pneumonia-q3"
+  title="Question 3"
+  prompt="After appropriate empiric and definitive antibiotics, which measure is most important for reducing the risk of recurrent invasive pneumococcal disease in this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Lifelong penicillin V prophylaxis",
+      feedback:
+        "Incorrect. Daily penicillin prophylaxis is recommended for anatomical or functional asplenia (and young children with sickle cell disease), where the spleen is permanently absent and clearance of encapsulated organisms is irreversibly impaired. Nephrotic susceptibility is a reversible or fluctuating humoral/complement defect tied to ongoing proteinuria, so the preventive strategy is vaccination plus remission rather than open-ended antibiotic prophylaxis, which would also drive resistance.",
+    },
+    {
+      id: "B",
+      label: "Monthly intravenous immunoglobulin (IVIG) infusions",
+      feedback:
+        "Incorrect. Although serum IgG is low, routine IVIG replacement is not standard in nephrotic syndrome, because the offending losses are ongoing and continuous, antibody responses are heterogeneous, and the alternative-complement factor loss (which IVIG does not correct) is at least as important as IgG. IVIG is reserved for exceptional cases of profound, persistent hypogammaglobulinemia with recurrent severe infection despite remission-directed therapy. It is not the primary preventive measure.",
+    },
+    {
+      id: "C",
+      label: "Pneumococcal vaccination (PCV series followed by PPSV23) plus therapy aimed at remission of the nephrotic syndrome",
+      correct: true,
+      feedback:
+        "Correct. The most effective prevention has two pillars. The first is pneumococcal vaccination: current ACIP guidance recommends a conjugate vaccine (PCV15 or PCV20) for immunocompromised adults, followed by PPSV23 when PCV15 is used; PCV20 alone completes the series. Vaccination should ideally be given when the patient is in or near remission and before B-cell&ndash;depleting therapy (e.g., rituximab), since response is blunted by heavy proteinuria and immunosuppression. The second pillar is achieving remission of the nephrotic syndrome, which halts the urinary loss of IgG and alternative-complement factors and restores opsonic defense at its root. Together these reduce the risk of recurrent invasive pneumococcal disease far more than prophylactic antibiotics or IVIG.",
+    },
+    {
+      id: "D",
+      label: "Increasing the glucocorticoid dose to more fully suppress glomerular inflammation",
+      feedback:
+        "Incorrect. Escalating immunosuppression may be appropriate for the underlying membranous disease, but as an infection-prevention strategy it moves in the wrong direction: higher-dose steroids further suppress cell-mediated and innate immunity and independently raise the risk of invasive bacterial and opportunistic infection. Prevention of pneumococcal recurrence comes from vaccination and remission, not from intensifying immunosuppression.",
+    },
+    {
+      id: "E",
+      label: "Oral iron supplementation to correct the anemia of nephrotic syndrome",
+      feedback:
+        "Incorrect. Iron repletion may be needed for true iron deficiency, but untargeted iron supplementation can be counterproductive in active infection: free iron is a growth factor for many bacteria, and in nephrotic patients the iron-binding protein transferrin is itself lost in the urine, lowering the capacity to safely chelate iron. Iron status should be addressed carefully, but it is not the measure that prevents recurrent pneumococcal disease.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-nephrotic-pneumococcal-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Nephrotic syndrome is best understood not only as a renal sodium and protein
+    handling disorder but also as a secondary, acquired immunodeficiency. The
+    defining lesion &mdash; sustained glomerular leakage of protein &mdash; does
+    not discriminate between albumin and the immune effector proteins that
+    circulate at similar or smaller molecular size. Immunoglobulins, principally
+    IgG, are lost into the urine, producing the hypogammaglobulinemia that
+    accounts for this patient's serum IgG of 312 mg/dL. Equally important, the
+    alternative complement pathway components Factor B and Factor D are small
+    enough to be filtered, and they are both wasted and catabolized in the
+    kidney tubule, depleting the amplification C3 convertase on which
+    opsonization of encapsulated bacteria depends. Additional contributors
+    include urinary loss of transferrin (reducing iron-binding capacity),
+    zinc depletion (impairing lymphocyte function), the presence of edema fluid
+    as a protein-rich culture medium, and the iatrogenic effects of steroids,
+    calcineurin inhibitors, and B-cell&ndash;depleting agents used to treat the
+    underlying glomerular disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The net effect is a host who cannot opsonize and clear encapsulated
+    organisms normally. <em>Streptococcus pneumoniae</em>, <em>Haemophilus
+    influenzae</em>, and enteric gram-negative bacilli bearing capsular
+    polysaccharide therefore predominate. The pneumococcus is the archetype: its
+    thick polysaccharide capsule resists the classical membrane-attack pathway,
+    so clearance depends almost entirely on IgG and C3b-mediated opsonization
+    and splenic filtration &mdash; precisely the defenses that nephrotic
+    proteinuria erodes. Invasive pneumococcal pneumonia with bacteremia, primary
+    (spontaneous) peritonitis, cellulitis complicating edematous limbs, and
+    meningitis are the classical syndromes. Recognizing that the low IgG and
+    heavy proteinuria are the explanation &mdash; rather than searching for
+    occult malignancy, asplenia, or HIV &mdash; reframes the problem as a
+    functional, often reversible immune defect.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis rests on standard microbiology: blood and sputum cultures with
+    Gram stain and susceptibility testing, interpreted in the context of the
+    chest radiograph. The Gram stain of lancet-shaped diplococci in pairs,
+    together with alpha-hemolysis and bile solubility/(optochin) confirmation,
+    identifies the pneumococcus. Severity and the presence of metastatic
+    infection (meningitis, endocarditis, empyema) should be assessed because
+    they alter both the regimen and the duration.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management combines acute treatment with prevention. Empiric therapy for
+    inpatient community-acquired pneumonia with bacteremia uses a beta-lactam
+    (ceftriaxone or ampicillin-sulbactam) with atypical coverage (a macrolide
+    or doxycycline) until pneumococcus is confirmed and the patient responds,
+    with vancomycin or linezolid added if meningitis is possible or if
+    penicillin-resistant pneumococci are a concern. The durable answer,
+    however, is preventive. Current ACIP guidance gives immunocompromised
+    adults a pneumococcal conjugate vaccine (PCV15 followed by PPSV23, or PCV20
+    alone), and KDIGO specifically recommends pneumococcal vaccination in
+    patients with nephrotic syndrome. Vaccination is most effective when given
+    during remission and before rituximab, because heavy proteinuria and
+    immunosuppression blunt the antibody response. Above all, achieving
+    remission of the nephrotic syndrome stops the urinary leak of IgG and
+    alternative-complement factors and restores opsonic defense at its source.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-nephrotic-pneumococcal-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Nephrotic syndrome is an acquired (secondary) immunodeficiency driven by
+      sustained urinary loss of immune effector proteins &mdash; not just
+      albumin.
+    </li>
+    <li>
+      Encapsulated organisms (<em>S. pneumoniae</em>, <em>H. influenzae</em>,
+      capsulated enteric gram-negatives) predominate because IgG and the
+      alternative-pathway factors B and D are lost in the urine, crippling
+      opsonization.
+    </li>
+    <li>
+      A low serum IgG with heavy proteinuria and hypoalbuminemia is the
+      biochemical fingerprint of the humoral/complement defect &mdash; distinct
+      from asplenia, CGD, iron overload, or HIV.
+    </li>
+    <li>
+      Secondary contributors include urinary transferrin loss (reduced
+      iron-binding, more available iron), zinc deficiency, edema as a culture
+      medium, and iatrogenic immunosuppression (steroids, calcineurin
+      inhibitors, rituximab).
+    </li>
+    <li>
+      Prevention is pneumococcal vaccination (PCV15 + PPSV23, or PCV20) timed to
+      remission and before B-cell depletion, plus therapy aimed at remission
+      &mdash; the definitive way to stop the immune-protein leak.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ponticelli C, Moroni G. Nephrotic syndrome: pathophysiology and
+      consequences. <em>Journal of Nephrology</em>. 2023;36(8):2179-2190.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s40620-023-01697-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s40620-023-01697-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ogi M, Yokoyama H, Tomosugi N, et al. Risk factors for infection and
+      immunoglobulin replacement therapy in adult nephrotic syndrome.
+      <em> American Journal of Kidney Diseases</em>. 1994;24(3):427-436.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/s0272-6386(12)80899-7"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/s0272-6386(12)80899-7
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kidney Disease: Improving Global Outcomes (KDIGO) Glomerular Diseases
+      Work Group. KDIGO 2021 Clinical Practice Guideline for the Management of
+      Glomerular Diseases. <em>Kidney International</em>. 2021;100(4S):S1-S276.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.kint.2021.05.021"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.kint.2021.05.021
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kobayashi M, Pilishvili T, Farrar JL, et al. Pneumococcal Vaccine for
+      Adults Aged &ge;19 Years: Recommendations of the Advisory Committee on
+      Immunization Practices, United States, 2023. <em>MMWR Recommendations
+      and Reports</em>. 2023;72(3):1-39.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.15585/mmwr.rr7203a1"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.15585/mmwr.rr7203a1
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
