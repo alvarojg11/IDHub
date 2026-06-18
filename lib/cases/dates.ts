@@ -428,6 +428,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-06-16T08:00:00-07:00",
     modifiedAt: "2026-06-16T08:00:00-07:00",
   },
+  "malaria-prophylaxis-pregnancy": {
+    publishedAt: "2026-06-17T08:00:00-07:00",
+    modifiedAt: "2026-06-17T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {

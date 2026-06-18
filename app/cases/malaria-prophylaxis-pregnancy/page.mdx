@@ -1,0 +1,386 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("malaria-prophylaxis-pregnancy");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Border She Couldn't Cross
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 29-year-old primigravida at 20 weeks' gestation is seen in the pre-travel
+    clinic. Her pregnancy has been uncomplicated, with a normal anatomy
+    ultrasound and reassuring prenatal labs. She takes only a prenatal vitamin,
+    has no chronic medical conditions, no known glucose-6-phosphate
+    dehydrogenase (G6PD) deficiency, and no personal or family history of
+    psychiatric illness, seizures, or cardiac conduction disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    She is planning a seven-week trip in three weeks. The itinerary begins with
+    three weeks on safari and in rural communities in Kenya and Tanzania,
+    continues with two weeks in rural and urban India, and ends with two weeks
+    along the Thai&ndash;Cambodian border, where she will visit family. She is
+    meticulous about food and water precautions and has already received the
+    required and recommended vaccines. She now wants to know how to protect
+    herself and her baby from malaria across all three legs.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is afebrile with a blood pressure of 112/68 mmHg and a
+    fundal height appropriate for dates. The remainder of her examination is
+    unremarkable. The vector responsible for transmitting malaria in each of her
+    destinations is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/malaria-prophylaxis-pregnancy/anopheles-gambiae.jpg"
+        alt="A mosquito obtaining a blood meal from human skin"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      The vector she is trying to avoid.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-malaria-prophylaxis-pregnancy-q1"
+  title="Question 1"
+  prompt="Her itinerary includes a final two-week leg along the Thai–Cambodian border. What is the most appropriate recommendation regarding this portion of her trip?"
+  options={[
+    {
+      id: "A",
+      label: "Switch to doxycycline for the Thai leg only",
+      feedback:
+        "Incorrect. Doxycycline is an effective prophylactic agent against malaria, but it is contraindicated throughout pregnancy. Tetracyclines bind to developing tooth enamel and bone, producing dental discoloration and impaired fetal skeletal growth, and they are avoided after the first trimester and entirely when a safe alternative exists. A short 'Thai-leg-only' course is still in pregnancy, so this is not an option for her at any point in the itinerary.",
+    },
+    {
+      id: "B",
+      label: "Use atovaquone-proguanil for the Thai leg only",
+      feedback:
+        "Incorrect. Atovaquone-proguanil is a popular traveler's choice because of its tolerability and short post-travel course, but it is not recommended for prophylaxis during pregnancy because adequate safety data in pregnant women are lacking. Even restricting it to a single leg of the trip does not overcome the pregnancy contraindication, so this cannot be the recommendation.",
+    },
+    {
+      id: "C",
+      label: "Continue mefloquine and add high-concentration DEET repellent for the Thai leg",
+      feedback:
+        "Incorrect. DEET is safe and recommended in pregnancy (at concentrations up to 50%), and personal protection measures matter greatly, but no amount of repellent overcomes drug resistance. The Thai–Cambodian border is a well-characterized zone of documented mefloquine-resistant Plasmodium falciparum, so relying on mefloquine there would leave her under-protected. This is precisely the problem that makes the border leg the hardest part of her itinerary.",
+    },
+    {
+      id: "D",
+      label: "Strongly advise against travel to the Thai–Cambodian border region, because mefloquine resistance there leaves no chemoprophylaxis that is both effective and safe in pregnancy; recommend she defer or re-route this leg",
+      correct: true,
+      feedback:
+        "Correct. This is the one part of her trip that cannot be safely protected. Chloroquine-resistant P. falciparum is present in sub-Saharan Africa, the Indian subcontinent, and Southeast Asia, which rules out chloroquine. Doxycycline, atovaquone-proguanil, and primaquine-type drugs are all off-limits in pregnancy. That leaves mefloquine as the single chemoprophylactic agent endorsed for chloroquine-resistant areas in pregnancy &mdash; but multi-drug-resistant, including mefloquine-resistant, falciparum malaria is documented along the Thai–Cambodian (Greater Mekong) border. With no effective and pregnancy-safe option remaining, the correct guidance is to avoid that leg: either defer the border visit until after delivery or re-route to a region without documented resistance where mefloquine would still protect her.",
+    },
+    {
+      id: "E",
+      label: "Carry a standby artesunate course for self-treatment while on the Thai leg",
+      feedback:
+        "Incorrect. Stand-by emergency self-treatment is occasionally recommended for travelers going to remote areas where reliable medical care is unavailable, but it is not recommended for pregnant travelers. Malaria in pregnancy can escalate rapidly to severe disease, and a pregnant woman with any febrile illness in a malarious area needs prompt professional evaluation and diagnostic testing, not self-administered empiric therapy. Standby treatment also does nothing to prevent infection in the first place and does not solve the core problem that no prophylactic agent is both effective and safe for her on the Thai–Cambodian border.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-malaria-prophylaxis-pregnancy-q2"
+  title="Question 2"
+  prompt="For the East African and Indian portions of her trip, which chemoprophylactic regimen is the safest and most appropriate?"
+  options={[
+    {
+      id: "A",
+      label: "Atovaquone-proguanil, started 1–2 days before departure and continued for 7 days after leaving",
+      feedback:
+        "Incorrect. Although atovaquone-proguanil's short course and tolerability make it attractive for travelers, it is not recommended for prophylaxis during pregnancy because of insufficient safety data. She needs an agent with established safety in pregnancy, which this does not have. The short 7-day tail is a convenience feature, not a safety feature, and it does not override the pregnancy contraindication.",
+    },
+    {
+      id: "B",
+      label: "Doxycycline, started 1–2 days before departure and continued for 4 weeks after",
+      feedback:
+        "Incorrect. Doxycycline is an effective blood-stage prophylactic agent, but tetracyclines are contraindicated in pregnancy because they deposit in fetal teeth and bone and inhibit skeletal growth. The 4-week post-travel tail is also relevant: at 20 weeks she would be taking it through a critical window of fetal development. A pregnancy-safe alternative must be chosen instead.",
+    },
+    {
+      id: "C",
+      label: "Mefloquine, started 2 weeks before departure and continued weekly for the duration of travel and for 4 weeks after leaving",
+      correct: true,
+      feedback:
+        "Correct. For chloroquine-resistant destinations, mefloquine is the only chemoprophylactic agent recommended by CDC and WHO for use in pregnancy across all trimesters. Large pharmacovigilance studies and a meta-analysis of over 30,000 mefloquine-exposed pregnancies found no increase in congenital anomalies, stillbirth, or fetal death, and the FDA removed the first-trimester contraindication for prophylactic use in 2022. Starting 2 weeks before travel both achieves protective blood levels and allows detection of intolerable neuropsychiatric side effects before she leaves. She should continue weekly during travel and for 4 weeks after leaving the malarious area. Her absence of psychiatric or cardiac conduction disease makes her a suitable candidate. (Recall that the Thai–Cambodian border leg remains inadvisable because of mefloquine resistance, addressed separately.)",
+    },
+    {
+      id: "D",
+      label: "Chloroquine, started 1–2 weeks before departure and continued weekly for the duration of travel and for 4 weeks after",
+      feedback:
+        "Incorrect. Chloroquine is safe in pregnancy, which is its one virtue here, but it is ineffective for her destinations. Chloroquine-resistant P. falciparum is well established throughout sub-Saharan Africa and the Indian subcontinent, so chloroquine would leave her unprotected against the most dangerous species. Chloroquine prophylaxis is now reserved for the few areas where resistance has not been documented, such as Central America west of the Panama Canal, Haiti, and the Dominican Republic &mdash; none of which are on her itinerary.",
+    },
+    {
+      id: "E",
+      label: "Primaquine, started 1–2 days before departure and continued for 7 days after",
+      feedback:
+        "Incorrect. Primaquine is used primarily for primary prophylaxis in areas mainly threatened by P. vivax and for terminal (anti-relapse) prophylaxis against liver hypnozoites, but it is contraindicated in pregnancy. The fetal G6PD status cannot be reliably determined in utero, and a G6PD-deficient fetus exposed to primaquine could develop severe hemolytic anemia. The same restriction applies to tafenoquine. A pregnant traveler must use a blood-stage prophylactic agent with established safety instead.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-malaria-prophylaxis-pregnancy-q3"
+  title="Question 3"
+  prompt="She completes the East African and Indian legs on her prophylaxis and returns at 27 weeks' gestation feeling well. Knowing the regions she visited have substantial P. vivax and P. ovale transmission, she asks whether she should take a radical-cure course now to prevent a late relapse. What is the most appropriate recommendation?"
+  options={[
+    {
+      id: "A",
+      label: "Begin primaquine now, after confirming her own G6PD is normal",
+      feedback:
+        "Incorrect. G6PD testing is indeed mandatory before any 8-aminoquinoline, but confirming the mother's G6PD status does not make primaquine safe in pregnancy. The decisive problem is the fetus: fetal G6PD status cannot be reliably determined in utero, and a G6PD-deficient fetus could suffer life-threatening hemolysis from primaquine transferred across the placenta. For this reason primaquine is contraindicated during pregnancy regardless of the mother's enzyme result. Maternal G6PD testing becomes relevant only postpartum, when fetal exposure is no longer a concern.",
+    },
+    {
+      id: "B",
+      label: "Begin tafenoquine now as a single dose, after confirming G6PD",
+      feedback:
+        "Incorrect. Tafenoquine, like primaquine, is an 8-aminoquinoline active against liver hypnozoites, and its single-dose convenience is appealing. But it shares the same contraindication in pregnancy for the same fetal-hemolysis reason, and it additionally requires G6PD testing because its long half-life makes a hemolytic episode more prolonged and harder to manage. A normal maternal G6PD still does not protect a potentially deficient fetus, so tafenoquine cannot be given during pregnancy.",
+    },
+    {
+      id: "C",
+      label: "Defer all anti-relapse therapy until the postpartum period, then administer primaquine after confirming a normal G6PD",
+      correct: true,
+      feedback:
+        "Correct. The only drugs that eradicate P. vivax and P. ovale hypnozoites &mdash; the dormant liver forms responsible for relapse &mdash; are the 8-aminoquinolines primaquine and tafenoquine, and both are contraindicated during pregnancy because of the risk of hemolysis in a G6PD-deficient fetus whose status cannot be determined before birth. The standard management is therefore to defer radical cure until after delivery. Because mefloquine (and other blood-stage prophylactic agents) do not kill hypnozoites, the relapse risk persists into the postpartum period, so this is not a question of whether to give radical cure but of when. After delivery, a normal maternal G6PD is confirmed and a 14-day course of primaquine (or a single dose of tafenoquine where available, in a confirmed G6PD-normal, non-pregnant patient) is given to eradicate any dormant liver stages and prevent future relapse.",
+    },
+    {
+      id: "D",
+      label: "No anti-relapse therapy is needed, because her mefloquine prophylaxis already eliminated any hypnozoites",
+      feedback:
+        "Incorrect. Mefloquine, like atovaquone-proguanil, doxycycline, and chloroquine, is a blood-stage schizonticide: it kills parasites in the erythrocytic cycle but has no effect on the dormant hypnozoite forms of P. vivax and P. ovale that sleep in the liver for weeks to years. Prophylaxis suppresses blood-stage infection during travel but does not prevent a late relapse seeded from a hypnozoite after the drug is stopped. The relapse risk therefore remains, and it must be addressed &mdash; just not during pregnancy.",
+    },
+    {
+      id: "E",
+      label: "Prescribe weekly chloroquine for the remainder of the pregnancy to suppress any relapse",
+      feedback:
+        "Incorrect. In some vivax-endemic settings, weekly chloroquine is used as suppressive prophylaxis during pregnancy to blunt relapses, but it does not eradicate hypnozoites and therefore is not a radical cure &mdash; which is what she is asking about. Chloroquine also faces rising P. vivax resistance, and for a returned traveler who is no longer being exposed, the standard approach is not indefinite suppressive therapy but a properly timed radical cure after delivery. Offering chloroquine suppression would delay, not replace, the definitive anti-relapse treatment.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-malaria-prophylaxis-pregnancy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Malaria is among the most dangerous infections a pregnant traveler can
+    acquire. Pregnancy reduces cell-mediated immunity and increases parasite
+    sequestration in the placenta, so both <em>P. falciparum</em> and the
+    relapsing species <em>P. vivax</em> and <em>P. ovale</em> carry higher risks
+    of severe disease, anemia, miscarriage, stillbirth, preterm delivery, and
+    low birth weight. Prevention &mdash; through chemoprophylaxis and personal
+    protection against the <em>Anopheles</em> vector &mdash; is therefore the
+    central task, and the pregnant traveler's toolkit is narrow because most
+    prophylactic drugs are either contraindicated or lack safety data in
+    pregnancy.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Doxycycline is excluded throughout pregnancy because tetracyclines discolor
+    fetal teeth and inhibit bone growth. Atovaquone-proguanil is not recommended
+    because robust safety data in pregnancy are lacking. The 8-aminoquinolines
+    primaquine and tafenoquine are excluded because fetal G6PD status cannot be
+    determined in utero and a deficient fetus could hemolyze. Chloroquine is
+    safe in pregnancy but is defeated by chloroquine-resistant <em>P.
+    falciparum</em>, which is now endemic across sub-Saharan Africa, the Indian
+    subcontinent, and most of Southeast Asia. That leaves <strong>mefloquine as
+    the only chemoprophylactic agent recommended by CDC and WHO for
+    chloroquine-resistant areas in pregnancy</strong>, endorsed for all
+    trimesters on the strength of large studies showing no increase in
+    congenital anomalies, stillbirth, or fetal death. The FDA removed the
+    first-trimester prophylactic-use contraindication in 2022. Mefloquine is
+    started two weeks before travel to achieve protective levels and to surface
+    intolerable neuropsychiatric effects (anxiety, insomnia, vivid dreams, and
+    rarely psychosis) before departure, so candidates should be screened for
+    psychiatric and cardiac conduction disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The single exception that defeats even mefloquine is multi-drug resistance.
+    Along the Thai&ndash;Cambodian (Greater Mekong) border, <em>P.
+    falciparum</em> has acquired documented resistance to chloroquine,
+    mefloquine, and in places artemisinin derivatives. Because mefloquine is the
+    only effective, pregnancy-safe agent and it no longer works there, no
+    chemoprophylactic option remains for that region. The correct advice for a
+    pregnant traveler is to avoid the border leg entirely &mdash; defer the
+    visit until after delivery or re-route to a region without documented
+    resistance where mefloquine can still protect her. Stand-by self-treatment
+    with an artemisinin combination is never a substitute for continuous
+    prophylaxis in pregnancy, because malaria in pregnancy can deteriorate
+    rapidly and demands urgent professional care.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The relapsing species add a final wrinkle that does not end at the airport.
+    <em>P. vivax</em> and <em>P. ovale</em> deposit dormant hypnozoites in the
+    liver that can reactivate weeks to months later, causing relapses long after
+    return. Blood-stage prophylactic agents &mdash; mefloquine included &mdash;
+    do not kill hypnozoites, so the relapse risk persists into the postpartum
+    period. The only radical cure is an 8-aminoquinoline (primaquine or
+    tafenoquine), but both are contraindicated in pregnancy for the same
+    fetal-hemolysis reason. Management is therefore one of timing: defer
+    radical cure until after delivery, then confirm a normal maternal G6PD and
+    administer a 14-day primaquine course (or single-dose tafenoquine where the
+    G6PD status is confidently normal and the patient is no longer pregnant) to
+    eradicate the dormant liver forms and prevent future relapse.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-malaria-prophylaxis-pregnancy-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Malaria in pregnancy carries higher risks of severe disease, anemia,
+      miscarriage, stillbirth, and low birth weight, so prevention &mdash; not
+      standby treatment &mdash; is the goal.
+    </li>
+    <li>
+      <strong>Mefloquine is the only chemoprophylaxis recommended for
+      chloroquine-resistant areas in pregnancy</strong>, endorsed for all
+      trimesters; start 2 weeks pre-travel and continue 4 weeks post-travel,
+      screening first for psychiatric and cardiac conduction disease.
+    </li>
+    <li>
+      Doxycycline (tooth/bone effects), atovaquone-proguanil (insufficient
+      safety data), and primaquine/tafenoquine (fetal G6PD hemolysis) are all
+      contraindicated or not recommended in pregnancy; chloroquine is safe but
+      ineffective against resistant <em>P. falciparum</em>.
+    </li>
+    <li>
+      The Thai&ndash;Cambodian (Greater Mekong) border has documented
+      mefloquine-resistant <em>P. falciparum</em>; with no effective
+      pregnancy-safe prophylaxis left, the correct advice is to avoid, defer, or
+      re-route that leg.
+    </li>
+    <li>
+      <em>P. vivax</em> and <em>P. ovale</em> hypnozoites survive blood-stage
+      prophylaxis and can relapse months later; radical cure with an
+      8-aminoquinoline is deferred until the postpartum period after confirming
+      a normal maternal G6PD.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tan KRB, Saunders DL, Cappaert TC, et al. Mefloquine Chemoprophylaxis
+      During Pregnancy: A Review of the Evidence for Drug-Associated
+      Teratogenicity. <em>Journal of Travel Medicine</em>. 2024;31(3):taae049.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/jtm/taae049"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/jtm/taae049
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. The Pre-Travel Consultation:
+      Malaria. In: <em>CDC Yellow Book 2024: Health Information for
+      International Travel</em>. Oxford University Press; 2025.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://wwwnc.cdc.gov/travel/yellowbook/2024/infections-diseases/malaria"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC Yellow Book: Malaria
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. <em>Guidelines for Malaria</em>. Geneva: World
+      Health Organization; 2023.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.who.int/publications/i/item/guidelines-for-malaria"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        WHO Guidelines for Malaria
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Schlagenhauf P, Blumentals WA, Suter P, et al. Pregnancy and fetal
+      outcomes after exposure to mefloquine in the pre- and periconception
+      period and during pregnancy. <em>Clinical Infectious Diseases</em>.
+      2012;54(11):e124-e131.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis215"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cis215
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

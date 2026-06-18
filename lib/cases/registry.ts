@@ -1354,6 +1354,33 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    title: "The Border She Couldn't Cross",
+    slug: "malaria-prophylaxis-pregnancy",
+    description: "Choosing malaria chemoprophylaxis when the patient is pregnant and the itinerary hits a resistance border.",
+    enable: true,
+    ogImage: "/cases/malaria-prophylaxis-pregnancy/anopheles-gambiae.jpg",
+    teaser: "A 29-year-old woman at 20 weeks' gestation plans a seven-week trip through Kenya, India, and the Thai–Cambodian border. Which malaria prophylaxis is safe in pregnancy, what should she do about the border leg, and can she take a radical cure for P. vivax before delivery?",
+    tags: {
+      organisms: ["Plasmodium falciparum", "Plasmodium vivax", "Plasmodium ovale"],
+      syndromes: ["Travel Medicine", "Vector-Borne", "Parasitic Infection", "Maternal-Fetal Medicine"],
+      concepts: [
+        "Malaria chemoprophylaxis in pregnancy",
+        "Mefloquine",
+        "Mefloquine resistance",
+        "Thai-Cambodian border",
+        "Atovaquone-proguanil",
+        "Doxycycline contraindication",
+        "Primaquine contraindication",
+        "Tafenoquine",
+        "Hypnozoite",
+        "Radical cure deferral",
+        "G6PD deficiency",
+        "Chloroquine resistance",
+        "Anopheles vector",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
