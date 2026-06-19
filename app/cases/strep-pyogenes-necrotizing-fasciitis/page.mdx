@@ -1,0 +1,407 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("strep-pyogenes-necrotizing-fasciitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Margin That Moved by the Hour
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 52-year-old man with no significant medical history scrapes his left shin
+    on a rose trellis while gardening. He rinses the abrasion at home and thinks
+    little of it. He takes no medications, drinks alcohol in moderation, and has
+    no history of diabetes, immunosuppression, or chronic liver or kidney
+    disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Roughly thirty hours later he presents to the emergency department with
+    severe, unremitting leg pain that seems far worse than the wound appears,
+    along with fevers and shaking chills. Over the next six hours the erythema
+    advances across his shin at a rate the nurses document in centimeters per
+    hour, crossing the knee and creeping up the thigh despite elevation, and he
+    becomes increasingly confused.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 39.4 &deg;C, heart rate 132/min, blood
+    pressure 82/50 mmHg, and respiratory rate 26/min. The left leg is tense,
+    hot, and wood-hard to palpation, with a dusky violaceous patch and a flaccid
+    hemorrhagic bulla; tenderness extends well beyond the visible margin, yet
+    light touch over the central area is paradoxically blunted, suggesting
+    cutaneous nerve destruction. Laboratory studies show a white blood cell
+    count of 27.5 &times; 10<sup>3</sup>/&micro;L with 19% bands, sodium 131
+    mmol/L, creatinine 2.3 mg/dL (baseline 0.9), INR 1.7, platelets 88 &times;
+    10<sup>3</sup>/&micro;L, lactate 4.8 mmol/L, and creatine kinase 2,400 U/L.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Blood cultures and fluid aspirated from a fresh bulla are obtained. Within
+    twelve hours the blood culture bottles flag positive, and the Gram stain is
+    shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/strep-pyogenes-necrotizing-fasciitis/gram-stain.jpg"
+        alt="Gram stain of the positive blood culture showing gram-positive cocci in chains"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Gram stain of the positive blood culture demonstrating gram-positive cocci
+      in chains. Credit: Gary E. Kaiser, Ph.D., via Wikimedia Commons (CC BY
+      3.0).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-strep-pyogenes-necrotizing-fasciitis-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this patient's necrotizing fasciitis and toxic shock?"
+  options={[
+    {
+      id: "A",
+      label: "Staphylococcus aureus",
+      feedback:
+        "Incorrect. Staphylococcus aureus is a gram-positive coccus and a genuine cause of necrotizing soft-tissue infection, particularly community-associated MRSA, but on Gram stain it classically appears in grape-like clusters rather than chains. The morphology here &mdash; cocci arranged in long chains &mdash; points away from the staphylococci, and this patient lacks the abscess-forming, often post-viral or skin-and-skin-structure context typical of S. aureus necrotizing infection.",
+    },
+    {
+      id: "B",
+      label: "Streptococcus pyogenes (group A streptococcus)",
+      correct: true,
+      feedback:
+        "Correct. Gram-positive cocci in chains are the signature morphology of the pyogenic streptococci, and Streptococcus pyogenes (group A streptococcus, GAS) is the prototype cause of monomicrobial (type II) necrotizing fasciitis complicated by streptococcal toxic shock syndrome. It is beta-hemolytic, bacitracin-susceptible, PYR-positive, and notoriously afflicts previously healthy people after seemingly trivial trauma &mdash; exactly this clinical picture. Rapid bedside confirmation is possible with a group A carbohydrate antigen test on blood or tissue, but the Gram stain morphology together with the fulminant, toxin-mediated presentation already make GAS the overwhelming favorite.",
+    },
+    {
+      id: "C",
+      label: "Streptococcus agalactiae (group B streptococcus)",
+      feedback:
+        "Incorrect. Group B streptococci also appear as gram-positive cocci in chains and are beta-hemolytic, so they are a serious morphologic mimic. They cause cellulitis, bacteremia, and occasionally necrotizing infection, but classically in adults with diabetes, hepatic failure, or other immunocompromise rather than in an otherwise healthy host, and they are bacitracin-resistant and CAMP-positive. The fulminant, toxin-driven shock syndrome in a previously well patient is far more characteristic of group A streptococcus.",
+    },
+    {
+      id: "D",
+      label: "Streptococcus dysgalactiae (large-colony group C/G streptococcus)",
+      feedback:
+        "Incorrect. Group C and G streptococci (Streptococcus dysgalactiae) are beta-hemolytic, chain-forming gram-positive cocci that can, like GAS, produce streptococcal pyrogenic exotoxins and cause invasive disease with a toxic-shock&ndash;like picture, so this is the closest competitor. They remain substantially less common than GAS as a cause of community-acquired necrotizing fasciitis, however, and the prototypical monomicrobial necrotizing fasciitis with streptococcal toxic shock in a healthy host after minor trauma is group A streptococcus. A rapid group A antigen test or Lancefield grouping settles it.",
+    },
+    {
+      id: "E",
+      label: "Enterococcus faecalis",
+      feedback:
+        "Incorrect. Enterococci can appear as gram-positive cocci in pairs and short chains, but they are not beta-hemolytic (they are typically gamma-hemolytic) and are an uncommon cause of community-acquired necrotizing fasciitis. When enterococci are recovered from a soft-tissue infection it is usually within a polymicrobial, healthcare- or gastrointestinal-associated context rather than as a sole toxin-producing pathogen in a healthy gardener. The fulminant, beta-hemolytic picture does not fit.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-strep-pyogenes-necrotizing-fasciitis-q2"
+  title="Question 2"
+  prompt="Which virulence mechanism of S. pyogenes best explains the patient's rapid progression to hypotension and multi-organ failure?"
+  options={[
+    {
+      id: "A",
+      label: "M protein binding Factor H to resist complement-mediated opsonization and phagocytosis",
+      feedback:
+        "Incorrect. M protein is the major antiphagocytic virulence factor of GAS: by recruiting Factor H and other regulators it blunts C3b deposition and helps the organism evade neutrophil killing, which explains why infection becomes invasive and bacteremic. Resistance to opsonophagocytosis, however, does not by itself generate the explosive cytokine release responsible for hypotension and multi-organ failure. The shock phenotype is driven by a different class of virulence determinants that act on the immune system rather than hide from it.",
+    },
+    {
+      id: "B",
+      label: "Streptococcal pyrogenic exotoxins (SpeA, SpeC) acting as superantigens",
+      correct: true,
+      feedback:
+        "Correct. The streptococcal toxic shock syndrome is a superantigen-mediated disease. SpeA and SpeC bind simultaneously to MHC class II on antigen-presenting cells and to the variable beta region of the T-cell receptor, bypassing normal antigen processing and activating up to one in five T cells at once. The result is a massive, polyclonal cytokine release &mdash; tumor necrosis factor-alpha, interleukin-1, interleukin-2, and interferon-gamma &mdash; that produces capillary leak, profound vasodilatory hypotension, coagulopathy, and multi-organ failure, all out of proportion to the local bacterial burden. This is precisely why a patient with a small soft-tissue focus can be in refractory shock within hours, and it is the reason therapy must include agents that shut down toxin synthesis rather than kill bacteria alone.",
+    },
+    {
+      id: "C",
+      label: "Hyaluronidase hydrolyzing the connective-tissue ground substance",
+      feedback:
+        "Incorrect. Hyaluronidase is the classic 'spreading factor,' digesting hyaluronic acid in fascial planes and connective tissue and thereby facilitating the rapid centrifugal spread of infection along tissue planes that defines necrotizing fasciitis. It explains the centimeters-per-hour advance of the erythematous margin, but it is a tissue-invasion enzyme, not a systemic toxin, and it does not account for the hemodynamic collapse and end-organ dysfunction that characterize streptococcal toxic shock.",
+    },
+    {
+      id: "D",
+      label: "Streptolysin O lysing erythrocytes, leukocytes, and platelets",
+      feedback:
+        "Incorrect. Streptolysin O is a cholesterol-dependent, oxygen-labile cytolysin that punches pores in the membranes of host cells, contributing to local tissue injury, hemolysis, and leukocyte death; it is also the antigen measured by the antistreptolysin O (ASO) titer. While it participates in tissue destruction and immune evasion, the diffuse, cytokine-driven vasodilatory shock picture is not its mechanism. The key to STSS is immune activation rather than direct cell lysis.",
+    },
+    {
+      id: "E",
+      label: "C5a peptidase cleaving complement component C5a",
+      feedback:
+        "Incorrect. C5a peptidase degrades the potent neutrophil chemoattractant C5a, blunting the recruitment of neutrophils to the site of infection and helping GAS evade the innate response. Like M protein, this is an immune-evasion strategy that promotes establishment and spread of infection, but it does not generate the cytokine storm responsible for hypotension and multi-organ failure. The hallmark of streptococcal toxic shock is superantigen-driven immune activation, not complement evasion.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-strep-pyogenes-necrotizing-fasciitis-q3"
+  title="Question 3"
+  prompt="In addition to aggressive fluid resuscitation and vasopressor support, which intervention is most critical for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Intravenous penicillin G monotherapy",
+      feedback:
+        "Incorrect. Penicillin G remains the bactericidal drug of choice for GAS, which is universally susceptible, so it must be part of the regimen. Used alone in necrotizing fasciitis, however, it is insufficient. Penicillin kills only actively dividing bacteria by targeting cell-wall synthesis, and in the enormous, slow-growing, stationary-phase inoculum within necrotic tissue its efficacy falls off &mdash; the so-called Eagle effect. Penicillin also does not suppress the synthesis of M protein or superantigen exotoxins that are driving this patient's shock, and it cannot penetrate an avascular, necrotic soft-tissue sanctuary. Source control and a protein-synthesis inhibitor must be added.",
+    },
+    {
+      id: "B",
+      label: "Intravenous vancomycin plus piperacillin-tazobactam",
+      feedback:
+        "Incorrect. This combination is a reasonable, broad empiric regimen for severely ill patients when the organism and its susceptibilities are unknown. Once gram-positive cocci in chains are seen and an invasive streptococcus is suspected, however, it is not the tailored answer: it lacks the specific toxin-suppressive rationale of clindamycin, over-treats gram-negative and resistant organisms that are not the problem here, and &mdash; most importantly &mdash; antibiotics of any kind are no substitute for operative removal of necrotic tissue, without which mortality climbs hour by hour.",
+    },
+    {
+      id: "C",
+      label: "Immediate surgical exploration with fasciotomy and debridement, plus intravenous penicillin G and clindamycin",
+      correct: true,
+      feedback:
+        "Correct. This patient needs three things at once. First and most importantly, urgent surgical source control: necrotizing fasciitis is a surgical emergency, necrotic fascia and muscle are an antibiotic-poor sanctuary, and survival correlates directly with the speed and completeness of debridement. Second, intravenous penicillin G to kill the organism. Third, intravenous clindamycin, which works at the ribosome to suppress synthesis of M protein and the superantigen exotoxins that are driving the shock, and which retains full activity even against stationary-phase bacteria &mdash; thereby sidestepping the Eagle effect that blunts penicillin in these high-inoculum infections. Clindamycin also inhibits bacterial protein synthesis directly. Many experts add intravenous immunoglobulin (IVIG) as an adjunct to neutralize circulating superantigens in proven streptococcal toxic shock, acknowledging that the evidence is mixed but the benefit, when present, appears greatest in the sickest patients.",
+    },
+    {
+      id: "D",
+      label: "Intravenous clindamycin plus intravenous immunoglobulin without operative source control",
+      feedback:
+        "Incorrect. This pairing thoughtfully addresses the toxin-mediated component &mdash; clindamycin to suppress new exotoxin synthesis and IVIG to neutralize circulating superantigen &mdash; but it omits the single most important intervention. Without surgical debridement the necrotic, avascular tissue that harbors the organism remains in place, antibiotics and antibodies cannot reach it, and the infection and toxin load continue to rise. It also omits penicillin, the bactericidal backbone. Antibiotic and immunoglobulin therapy are adjuncts to, not replacements for, source control.",
+    },
+    {
+      id: "E",
+      label: "Intravenous ceftriaxone monotherapy",
+      feedback:
+        "Incorrect. Ceftriaxone is active against GAS and would be appropriate for many uncomplicated streptococcal infections, but in necrotizing fasciitis with toxic shock it is the wrong single agent. Like penicillin it is a cell-wall agent whose activity is reduced in the stationary-phase, high-inoculum necrotic milieu, and it offers no suppression of M protein or superantigen synthesis. It also provides no source control. For known invasive GAS disease, penicillin plus clindamycin with urgent surgery is preferred over any single beta-lactam.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-strep-pyogenes-necrotizing-fasciitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Necrotizing fasciitis exists in two main microbiologic forms. Type I is
+    polymicrobial, a mixed aerobic&ndash;anaerobic synergy that typically arises
+    in patients with diabetes, peripheral vascular disease, or immunocompromise
+    and often follows surgery or perineal infection. Type II is monomicrobial,
+    and <em>Streptococcus pyogenes</em> (group A streptococcus) is its
+    archetype &mdash; notorious for striking previously healthy people after
+    trivial trauma through strains that frequently belong to the emm1 or emm3
+    lineages. The cardinal clinical lesson is that necrotizing fasciitis is
+    first and foremost a bedside diagnosis: pain that is out of proportion to
+    the visible erythema, induration that is hard or woody, rapid spread of the
+    margin over hours, hemorrhagic bullae, cutaneous anesthesia from nerve
+    destruction, and systemic toxicity out of step with the size of the
+    cutaneous wound. An early lesion can look deceptively like cellulitis, and
+    waiting for the classic dusky, necrotic, gas-containing appearance costs
+    lives.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    What distinguishes GAS is its armamentarium of virulence determinants, of
+    which the superantigen exotoxins are the most clinically consequential in
+    this scenario. SpeA and SpeC bypass conventional antigen presentation,
+    cross-linking MHC class II with the T-cell receptor V-beta chain and
+    activating a large fraction of T cells simultaneously. The ensuing cytokine
+    storm &mdash; tumor necrosis factor-alpha, interleukin-1, interleukin-2,
+    interferon-gamma &mdash; produces the capillary leak, vasodilatory shock,
+    coagulopathy, and multi-organ failure that define streptococcal toxic shock
+    syndrome, often with only a small soft-tissue focus as the source. Other
+    factors have distinct roles: M protein resists opsonophagocytosis, the
+    cysteine protease SpeB degrades tissue and immunoglobulins to fuel necrosis
+    and spread, hyaluronidase opens fascial planes, and C5a peptidase disarms
+    neutrophil recruitment. Knowing which factor drives which phenotype is not
+    academic &mdash; it is the rationale for adding a toxin-suppressing agent to
+    the regimen.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis relies on clinical recognition confirmed by Gram stain and culture
+    of blood and deep tissue. Gram-positive cocci in chains from a patient with
+    this presentation are GAS until proven otherwise, and a rapid group A
+    carbohydrate antigen test can confirm it within minutes. Imaging should
+    never delay operative exploration in a patient with a compatible clinical
+    picture; computed tomography may show fascial thickening, gas, or fluid
+    tracking along planes, and the Laboratory Risk Indicator for Necrotizing
+    Fasciitis (LRINEC) score can support the suspicion, but both have limited
+    sensitivity and a normal result does not exclude the diagnosis. The
+    definitive diagnostic step &mdash; operative inspection of the fascia with
+    frozen-section biopsy &mdash; is also therapeutic, because it is the moment
+    at which debridement begins.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management rests on three pillars applied simultaneously. The first is
+    urgent, aggressive surgical debridement of all necrotic tissue, repeated as
+    necessary until the wound is clean; mortality rises with every hour of
+    delay. The second is intravenous penicillin G to kill the organism. The
+    third is intravenous clindamycin, added not for redundant gram-positive
+    coverage but for a specific mechanistic purpose: by inhibiting bacterial
+    protein synthesis at the ribosome it suppresses manufacture of M protein and
+    superantigen exotoxins and remains fully active against stationary-phase
+    organisms, overcoming the Eagle effect that limits penicillin in the dense,
+    slowly replicating inoculum of necrotic tissue. Intravenous immunoglobulin
+    is frequently added to neutralize circulating superantigens in confirmed
+    streptococcal toxic shock; the evidence is inconsistent and largely
+    observational, but any benefit appears concentrated in the most severely
+    ill. With source control, dual antimicrobial therapy, and aggressive
+    intensive-care support, even patients presenting in profound shock can
+    survive.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-strep-pyogenes-necrotizing-fasciitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Monomicrobial (type II) necrotizing fasciitis is classically <em>
+      Streptococcus pyogenes</em> &mdash; frequently emm1 or emm3 strains &mdash;
+      in a previously healthy host after minor trauma, distinct from
+      polymicrobial type I disease in diabetics and the immunocompromised.
+    </li>
+    <li>
+      Pain out of proportion to the exam, a rapidly advancing margin,
+      wood-hard induration, hemorrhagic bullae, cutaneous anesthesia, and
+      systemic toxicity define necrotizing fasciitis; never be reassured by an
+      early cellulitis-like appearance.
+    </li>
+    <li>
+      Streptococcal toxic shock is driven by superantigen exotoxins (SpeA,
+      SpeC) that cross-link MHC II and the T-cell receptor to unleash a
+      cytokine storm &mdash; mechanistically distinct from M protein
+      (antiphagocytosis), SpeB (tissue protease), and hyaluronidase (spread).
+    </li>
+    <li>
+      Penicillin plus clindamycin is synergistic: clindamycin suppresses
+      M-protein and exotoxin synthesis and overcomes the Eagle effect, the
+      reduced killing of cell-wall agents against high-density
+      stationary-phase inoculum; add IVIG to neutralize superantigens in
+      confirmed STSS.
+    </li>
+    <li>
+      Urgent surgical debridement is the single most important determinant of
+      survival &mdash; necrotic tissue is an antibiotic sanctuary, and
+      antibiotics alone fail. LRINEC and CT are adjuncts, not rule-out tests.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stevens DL, Bisno AL, Chambers HF, et al. Practice Guidelines for the
+      Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update
+      by the Infectious Diseases Society of America. <em>Clinical Infectious
+      Diseases</em>. 2014;59(2):e10-52.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciu296"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciu296
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Stevens DL, Bryant AE. Necrotizing Soft-Tissue Infections. <em>New
+      England Journal of Medicine</em>. 2017;377(23):2253-2265.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMra1600673"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMra1600673
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      The Working Group on Severe Streptococcal Infections. Defining the Group
+      A Streptococcal Toxic Shock Syndrome: Rationale and Consensus Definition.
+      <em> Journal of the American Medical Association</em>.
+      1993;269(3):390-391.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jama.1993.03500030088036"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jama.1993.03500030088036
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kaul R, McGeer A, Low DE, Green K, Schwartz B. Intravenous Immunoglobulin
+      Therapy for Streptococcal Toxic Shock Syndrome &mdash; A Comparative
+      Observational Study. <em>Clinical Infectious Diseases</em>.
+      1999;29(4):800-807.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1086/520434"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1086/520434
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

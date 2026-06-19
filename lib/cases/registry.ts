@@ -1381,6 +1381,34 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    title: "The Margin That Moved by the Hour",
+    slug: "strep-pyogenes-necrotizing-fasciitis",
+    description:
+      "A healthy gardener develops necrotizing fasciitis with streptococcal toxic shock after a minor abrasion.",
+    enable: true,
+    ogImage: "/cases/strep-pyogenes-necrotizing-fasciitis/gram-stain.jpg",
+    teaser:
+      "A 52-year-old healthy gardener develops pain out of proportion to exam, rapidly advancing erythema, hemorrhagic bullae, and shock within 30 hours of a minor leg abrasion. Blood cultures grow gram-positive cocci in chains. What is the organism, which virulence factor drives the shock, and what treatment can't wait for the OR?",
+    tags: {
+      organisms: ["Streptococcus pyogenes", "Group A Streptococcus"],
+      syndromes: ["Skin & Soft Tissue", "Sepsis & Bacteremia"],
+      concepts: [
+        "Necrotizing fasciitis",
+        "Streptococcal toxic shock syndrome",
+        "Superantigen",
+        "SpeA",
+        "M protein",
+        "Eagle effect",
+        "Clindamycin",
+        "Penicillin G",
+        "Surgical debridement",
+        "Intravenous immunoglobulin",
+        "Pain out of proportion",
+        "Hyaluronidase",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
