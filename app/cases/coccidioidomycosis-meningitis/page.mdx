@@ -1,0 +1,460 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("coccidioidomycosis-meningitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Dust That Wouldn't Settle
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old Filipino-American construction worker from Phoenix, Arizona
+    presents to the emergency department with six weeks of progressively
+    worsening headache. The pain is bifrontal, constant, and worse in the
+    morning. Over the past two weeks he has developed horizontal diplopia and
+    intermittent nausea without vomiting. He reports three months of
+    intermittent low-grade fevers, drenching night sweats, and an 8-pound
+    unintentional weight loss. Three months earlier he had a self-resolved
+    "chest cold" with dry cough and pleuritic chest pain that began the day
+    after a major dust storm at a excavation site. He takes no medications, has
+    no significant medical history, and is not immunosuppressed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 37.8 &deg;C, heart rate 92/min, blood
+    pressure 124/78 mmHg. He is alert but mildly slow in his responses.
+    Cranial nerve examination reveals bilateral sixth nerve palsies. There is
+    mild nuchal rigidity without photophobia; Kernig and Brudzinski signs are
+    absent. The remainder of the neurologic and general examination is
+    unremarkable.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show a peripheral white blood cell count of 9.8 &times;
+    10<sup>3</sup>/&micro;L with a normal differential, hemoglobin 13.1 g/dL,
+    and a normal basic metabolic panel. HIV serology is negative. A contrast
+    MRI of the brain is obtained and is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/coccidioidomycosis-meningitis/mri.jpg"
+        alt="Axial T1 post-contrast brain MRI demonstrating leptomeningeal enhancement in the basal cisterns"
+        width={750}
+        height={371}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Axial T1 post-contrast MRI demonstrating leptomeningeal enhancement in the
+      basal cisterns (arrows), characteristic of chronic granulomatous basilar
+      meningitis. Image from Smith AD, Lauinger AR, Goel M, et al. Management of
+      Coccidioidal Meningitis Outside the Endemic Region. <em>Cureus</em>.
+      2026;18(3):e105643. CC BY 4.0.
+    </figcaption>
+  </div>
+</figure>
+
+<p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+  Lumbar puncture reveals an opening pressure of 28 cm H<sub>2</sub>O.
+  Cerebrospinal fluid analysis shows 220 white blood cells/&micro;L with 68%
+  lymphocytes, 14% eosinophils, and 18% neutrophils; glucose 22 mg/dL (serum
+  98 mg/dL); protein 168 mg/dL; and a Gram stain with no organisms. Serum
+  <em> Coccidioides</em> enzyme immunoassay is IgM-positive and IgG-positive,
+  with a complement-fixation titer of 1:64. CSF <em>Coccidioides</em>
+  complement-fixation antibody is positive at a titer of 1:8. CSF bacterial and
+  fungal cultures are pending.
+</p>
+
+<CaseQuestion
+  pollId="case-coccidioidomycosis-meningitis-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this patient's basilar meningitis?"
+  options={[
+    {
+      id: "A",
+      label: "Mycobacterium tuberculosis",
+      feedback:
+        "Incorrect. Tuberculous meningitis is a critical consideration in any patient with chronic basilar meningitis and would share many of this patient's CSF findings &mdash; lymphocytic pleocytosis, low glucose, and elevated protein. However, several features point elsewhere. The CSF eosinophilia (14% of 220 cells, roughly 31 eosinophils) is highly atypical for TB, in which CSF eosinophils are rare. The patient's serum and CSF Coccidioides complement-fixation antibodies are positive, and the exposure history is classic: a Filipino-American construction worker in Phoenix who inhaled arthroconidia during a dust storm three months before symptom onset. While TB meningitis must always be on the differential for chronic basilar meningitis, this patient's epidemiology, CSF eosinophilia, and positive Coccidioides serology make TB a secondary consideration rather than the leading diagnosis.",
+    },
+    {
+      id: "B",
+      label: "Coccidioides immitis",
+      correct: true,
+      feedback:
+        "Correct. This is a classic presentation of coccidioidal meningitis. The clinical synthesis is nearly pathognomonic: a Filipino-American man from the highly endemic Phoenix area, a pulmonary prodrome after dust-storm exposure consistent with primary coccidioidomycosis, followed weeks later by a chronic basilar meningitis with cranial nerve (CN VI) palsies, CSF lymphocytic pleocytosis with eosinophilia, markedly low glucose, elevated protein, and positive serum and CSF Coccidioides complement-fixation antibodies. Filipino ancestry carries a dramatically elevated risk of disseminated coccidioidomycosis &mdash; on the order of 175-fold higher than non-Hispanic whites &mdash; likely reflecting immunogenetic differences in the Th17 response to the organism. The MRI pattern of basilar leptomeningeal enhancement is the expected neuroimaging correlate of chronic granulomatous meningitis. The positive CSF complement-fixation antibody is essentially diagnostic.",
+    },
+    {
+      id: "C",
+      label: "Cryptococcus neoformans / gattii",
+      feedback:
+        "Incorrect. Cryptococcal meningitis is an important consideration in chronic lymphocytic meningitis, and Cryptococcus gattii can affect immunocompetent hosts. However, several features argue strongly against it here. The patient is HIV-negative with no known immunocompromise. CSF cryptococcal antigen (CrAg) would be expected to be positive, and CSF eosinophilia is not a feature of cryptococcal disease. The markedly low glucose (22 mg/dL) is more typical of coccidioidal or tuberculous meningitis than cryptococcosis, which tends to produce a milder CSF glucose depression. Most importantly, the positive serum and CSF Coccidioides complement-fixation antibodies and the epidemiologic context make Coccidioides the overwhelming favorite. A CSF CrAg should still be sent as part of the diagnostic workup of any chronic meningitis, but it is not the answer here.",
+    },
+    {
+      id: "D",
+      label: "Histoplasma capsulatum",
+      feedback:
+        "Incorrect. Disseminated histoplasmosis can cause chronic meningitis, particularly in immunocompromised hosts, and Histoplasma shares endemic regions with Coccidioides in parts of the Americas. However, Histoplasma is endemic to the Ohio and Mississippi River Valleys, not the desert Southwest, and this patient's exposure history is quintessentially coccidioidal: dust-storm inhalation in Phoenix. CSF eosinophilia is uncommon in histoplasmosis. The positive Coccidioides serology and CSF complement-fixation antibody would be cross-reactive at most with Histoplasma testing but are highly specific when using immunodiffusion and complement-fixation methods. Histoplasma meningitis would require demonstration of the organism by culture, antigen detection, or histopathology, none of which are suggested here.",
+    },
+    {
+      id: "E",
+      label: "Blastomyces dermatitidis",
+      feedback:
+        "Incorrect. Blastomyces dermatitidis is another dimorphic fungus capable of causing chronic meningitis, but its endemic range centers on the Ohio and Mississippi River Valleys and the Great Lakes region, not the desert Southwest. Furthermore, disseminated blastomycosis typically presents with cutaneous verrucous lesions, osteomyelitis, or prominent pulmonary disease &mdash; none of which are described here. The patient's dust-storm exposure in Phoenix, Filipino ancestry, CSF eosinophilia, and positive Coccidioides complement-fixation antibodies in both serum and CSF make Blastomyces a much less likely diagnosis. The positive complement-fixation result is specific for Coccidioides and does not reflect Blastomyces infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-coccidioidomycosis-meningitis-q2"
+  title="Question 2"
+  prompt="What is the most appropriate initial treatment approach for this patient?"
+  options={[
+    {
+      id: "A",
+      label: "Intravenous liposomal amphotericin B 5 mg/kg daily for 6 weeks, then reassess",
+      feedback:
+        "Incorrect. While amphotericin B is the most fungicidal antifungal available, it is a poor choice as first-line therapy for coccidioidal meningitis for a specific pharmacologic reason: amphotericin B penetrates the cerebrospinal fluid poorly, achieving CSF concentrations that are only a small fraction of serum levels. Even liposomal formulations, which achieve higher tissue concentrations than the deoxycholate preparation, do not reliably achieve therapeutic CSF levels. Historically, intrathecal or intraventricular amphotericin B administered directly via an Ommaya reservoir was the only available therapy before the azole era, and while it transformed a universally fatal disease into a survivable one, it was extraordinarily morbid &mdash; causing chemical arachnoiditis, neurotoxicity, and procedural complications &mdash; and is now reserved for refractory disease or azole failure. Systemic IV amphotericin B has a role in pregnancy (azoles are teratogenic) or in rapidly progressive, life-threatening disease, but it is not the first-line initial approach for uncomplicated coccidioidal meningitis.",
+    },
+    {
+      id: "B",
+      label: "Oral fluconazole 400 mg daily for 12 months, then stop if the CSF normalizes",
+      feedback:
+        "Incorrect. This option gets the drug right but fails on two critical counts. First, the dose is too low: for coccidioidal meningitis the recommended fluconazole dose is 800 to 1,200 mg daily, not the 400 mg daily used for non-meningeal disease such as diffuse pulmonary involvement. Second, the duration is fundamentally wrong. There are no validated criteria for stopping therapy in coccidioidal meningitis, and relapse rates after cessation are alarmingly high &mdash; approximately 71% in one cohort. A 12-month course with planned discontinuation virtually guarantees relapse and risks irreversible neurologic damage. Coccidioidal meningitis requires lifelong suppressive therapy from the outset; it is never treated as a finite course.",
+    },
+    {
+      id: "C",
+      label: "Oral fluconazole 800 mg daily, continued indefinitely as lifelong chronic suppressive therapy",
+      correct: true,
+      feedback:
+        "Correct. High-dose oral fluconazole (800&ndash;1,200 mg daily) is the first-line treatment for coccidioidal meningitis, and the cornerstone of its selection is pharmacologic: fluconazole achieves cerebrospinal fluid concentrations that exceed 50 to 70% of simultaneous serum levels (CSF-to-plasma ratio of approximately 0.5&ndash;0.9), far surpassing the CNS penetration of itraconazole, voriconazole, and amphotericin B. This property was established by Tucker and colleagues in 1988 and is the single most important reason fluconazole replaced intrathecal amphotericin B as the treatment of choice. Therapy is initiated at 800 mg daily and can be escalated to 1,200 mg if the clinical or CSF response is inadequate. Crucially, treatment is continued indefinitely: there are no validated stopping criteria, and relapse rates after cessation approach 71%. This means the clinician is initiating a lifelong chronic suppressive regimen from day one &mdash; not a time-limited course, and not a plan to reassess at a fixed interval.",
+    },
+    {
+      id: "D",
+      label: "Oral itraconazole 200 mg twice daily, continued indefinitely",
+      feedback:
+        "Incorrect. This option correctly identifies the need for lifelong therapy but selects the wrong azole. Itraconazole is effective for many forms of non-meningeal coccidioidomycosis (for example, bone and joint disease), but it penetrates the cerebrospinal fluid poorly relative to fluconazole. Itraconazole is highly protein-bound and lipophilic, and its CSF concentrations are a small fraction of plasma levels. This pharmacologic disadvantage makes it a second-line agent for CNS disease. Additionally, itraconazole has more complex drug interactions (potent CYP3A4 inhibition), unpredictable oral bioavailability requiring therapeutic drug monitoring, and a less favorable side-effect profile than fluconazole. For coccidioidal meningitis, fluconazole is preferred over itraconazole specifically because of its superior CSF penetration and predictable oral pharmacokinetics.",
+    },
+    {
+      id: "E",
+      label: "Intrathecal amphotericin B deoxycholate via Ommaya reservoir as long-term therapy",
+      feedback:
+        "Incorrect. Before the azole era, intrathecal or intraventricular amphotericin B was the only effective therapy for coccidioidal meningitis, and it did transform the disease from universally fatal to survivable in approximately 70% of patients. However, the procedure is extremely morbid: it requires surgical placement of an Ommaya reservoir, and the instillation of amphotericin into the CSF causes chemical arachnoiditis, seizures, transient neurologic deficits, and chronic pain. Since the demonstration that oral fluconazole achieves therapeutic CSF concentrations and controls the disease effectively, intrathecal amphotericin B has been relegated to a salvage role for patients who fail or cannot tolerate azole therapy. It is not appropriate as the initial treatment approach when an effective, well-tolerated oral agent with excellent CSF penetration is available.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-coccidioidomycosis-meningitis-q3"
+  title="Question 3"
+  prompt="How should this patient's response to therapy be monitored?"
+  options={[
+    {
+      id: "A",
+      label: "Monthly serum complement-fixation titer; repeat lumbar puncture only if symptoms worsen",
+      feedback:
+        "Incorrect. While serum complement-fixation titers can provide some information about overall disease burden, they do not reliably reflect central nervous system disease activity. The CSF Coccidioides complement-fixation titer, not the serum titer, is the relevant marker for monitoring meningitis response. Furthermore, avoiding repeat lumbar punctures until symptoms worsen is dangerous: CSF parameters (cell count, glucose, protein, and CF titer) can remain markedly abnormal even after clinical improvement, and the goal of therapy is to normalize the CSF, not merely to keep the patient asymptomatic. Relying on serum titers and symptoms alone risks missing persistent subclinical CNS inflammation that can lead to irreversible damage, hydrocephalus, or vasculitic infarction.",
+    },
+    {
+      id: "B",
+      label: "Serial lumbar punctures tracking CSF cell count, glucose, protein, and complement-fixation titer until normalization, then less frequent monitoring",
+      correct: true,
+      feedback:
+        "Correct. The cornerstone of monitoring response to therapy in coccidioidal meningitis is serial cerebrospinal fluid analysis. After initiating high-dose fluconazole, repeat lumbar punctures should be performed at regular intervals &mdash; typically every 4 to 12 weeks initially, depending on disease severity &mdash; to track four parameters: CSF white blood cell count (with differential), glucose, protein, and Coccidioides complement-fixation antibody titer. The goal is a downward trend in cell count, rising glucose, falling protein, and declining CF titer toward normalization. As these parameters improve and stabilize, the interval between lumbar punctures can be lengthened. Opening pressure should also be measured, since persistent elevation may signal developing hydrocephalus requiring shunt placement. Importantly, some patients never achieve complete CSF normalization yet remain clinically stable; in these cases the goal is a stable, improved CSF profile rather than perfect normality. MRI with contrast is a useful adjunct for monitoring complications such as hydrocephalus, infarcts, or progressive leptomeningeal disease, but it does not replace serial CSF analysis as the primary monitoring tool.",
+    },
+    {
+      id: "C",
+      label: "Annual MRI brain with contrast; no routine need for repeat CSF analysis",
+      feedback:
+        "Incorrect. MRI with contrast is a valuable adjunct in the management of coccidioidal meningitis and should be used to monitor for complications such as hydrocephalus, vasculitic infarction, cranial nerve enhancement, and progressive leptomeningeal disease. However, it cannot replace serial CSF analysis as the primary tool for monitoring treatment response. The CSF cell count, glucose, protein, and complement-fixation titer provide direct, quantitative evidence of ongoing meningeal inflammation and fungal antigenic burden that MRI cannot assess. A patient's MRI may show stable or improving leptomeningeal enhancement while the CSF remains highly abnormal, and vice versa. Relying on MRI alone would leave the clinician blind to the microbiologic and inflammatory status of the CNS compartment that directly guides therapeutic decisions.",
+    },
+    {
+      id: "D",
+      label: "Monthly fluconazole trough levels with dose adjustment to maintain serum level above 10 mg/L",
+      feedback:
+        "Incorrect. Therapeutic drug monitoring of fluconazole is not routinely recommended in the management of coccidioidal meningitis. Unlike itraconazole &mdash; which has unpredictable oral bioavailability and requires monitoring of trough levels &mdash; fluconazole has excellent (>90%) and predictable oral bioavailability, a long half-life, linear pharmacokinetics, and reliable CSF penetration. Consensus therapeutic serum ranges for fluconazole in coccidioidal meningitis have not been established. While some experts check azole levels in patients with inadequate response or concerns about absorption or adherence, fluconazole level monitoring is an adjunctive consideration at most, not the primary means of assessing treatment response. The direct assessment of meningeal inflammation through serial CSF analysis is far more informative.",
+    },
+    {
+      id: "E",
+      label: "Clinical symptoms alone; repeat lumbar puncture only if new neurological deficits appear",
+      feedback:
+        "Incorrect. Monitoring clinical symptoms is obviously important, but relying on symptoms alone is inadequate and dangerous. Coccidioidal meningitis can smolder in the subarachnoid space with ongoing inflammation, progressive CSF abnormalities, and cumulative neurologic damage even when the patient feels well. By the time new neurological deficits appear &mdash; such as a new cranial nerve palsy, cognitive decline, or signs of hydrocephalus &mdash; irreversible injury may have already occurred. The purpose of serial CSF monitoring is to detect and address persistent or worsening inflammation before it manifests clinically, and to document the biochemical response to therapy that guides decisions about dose escalation, salvage therapy, or complication management. Waiting for symptoms to drive repeat CSF testing inverts the appropriate monitoring paradigm.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-coccidioidomycosis-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Coccidioidal meningitis is the most devastating manifestation of
+    <em> Coccidioides immitis</em> or <em>C. posadasii</em> infection. It
+    develops in approximately 1% of all symptomatic coccidioidal infections but
+    is far more frequent in certain high-risk populations. Filipino ancestry
+    carries a dramatically elevated risk of disseminated disease &mdash; on the
+    order of 175-fold higher than non-Hispanic whites &mdash; followed by
+    African Americans at roughly 10-fold elevated risk. The mechanism is not
+    fully elucidated but is considered immunogenetic, likely involving
+    differences in innate and Th17-mediated immune responses to the organism's
+    spherule phase. Other risk factors for dissemination include HIV/AIDS (CD4
+    count below 250 cells/&micro;L), solid organ transplantation, TNF-alpha
+    inhibitor therapy, high-dose corticosteroids, pregnancy (especially late
+    third trimester and postpartum), and diabetes mellitus. This patient had no
+    overt immunosuppression, but his Filipino ancestry and occupational dust
+    exposure in Phoenix placed him at substantially elevated risk.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical hallmark of coccidioidal meningitis is a subacute to chronic
+    progressive headache, often evolving over weeks to months and frequently the
+    earliest and most prominent symptom. Meningeal signs such as nuchal rigidity
+    and Kernig/Brudzinski responses are frequently absent or subtle, which can
+    delay diagnosis. Cranial nerve palsies &mdash; particularly bilateral sixth
+    (abducens) nerve palsy, as seen in this patient &mdash; reflect the
+    predilection of the basilar inflammatory exudate for the skull base
+    cisterns through which the cranial nerves traverse. The CSF pattern is
+    characteristic: lymphocytic pleocytosis, markedly depressed glucose,
+    elevated protein, and, in a meaningful minority of patients, CSF
+    eosinophilia. The presence of eosinophils in the CSF is a valuable clue
+    that should prompt consideration of coccidioidal meningitis, particularly in
+    an endemic area, though it is not universally present. Neuroimaging with
+    contrast MRI typically shows basilar leptomeningeal enhancement, reflecting
+    the gravity-dependent accumulation of granulomatous exudate at the skull
+    base. Hydrocephalus &mdash; usually communicating, from impaired CSF
+    resorption at the basal cisterns &mdash; and vasculitic infarcts from
+    involvement of penetrating vessels are important complications that may
+    develop during the disease course.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic cornerstone for coccidioidal meningitis is the CSF
+    <em> Coccidioides</em> complement-fixation antibody, which is positive in
+    roughly 70 to 80% of cases and is highly specific; a positive result is
+    essentially diagnostic. CSF enzyme immunoassay is more sensitive but less
+    specific and is useful as a screening adjunct. CSF culture is frequently
+    negative &mdash; a negative culture never excludes the diagnosis &mdash;
+    and when positive grows slowly, often requiring weeks. Importantly,
+    <em> Coccidioides</em> is a BSL-3 pathogen, and laboratory-acquired
+    infections have occurred from culture manipulation, making safe handling in
+    a BSL-3 facility essential. Serum serology (EIA, immunodiffusion, and
+    complement fixation) should always be obtained in parallel, but the CSF
+    complement-fixation titer is the critical result for both diagnosis and
+    monitoring. Histopathologic demonstration of spherules in tissue or CSF
+    sediment is 100% specific when found but has low sensitivity, since spherules
+    are rarely visualized in CSF.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The treatment of coccidioidal meningitis underwent a paradigm shift with the
+    introduction of fluconazole in the late 1980s. Tucker and colleagues
+    demonstrated in 1988 that fluconazole achieves CSF concentrations exceeding
+    50 to 70% of serum levels &mdash; a CSF-to-plasma ratio far superior to any
+    other available antifungal. This property, combined with excellent oral
+    bioavailability and tolerability, made high-dose oral fluconazole
+    (800&ndash;1,200 mg daily) the first-line therapy, replacing the historical
+    standard of intrathecal or intraventricular amphotericin B administered via
+    an Ommaya reservoir. Intrathecal amphotericin, while life-saving in the
+    pre-azole era, was extraordinarily morbid, causing chemical arachnoiditis,
+    seizures, and procedural complications. It is now reserved for refractory
+    disease or azole failure. Itraconazole has poor CSF penetration and is not
+    preferred for meningitis; voriconazole and isavuconazole are used as salvage
+    agents when fluconazole fails, which occurs in approximately 25% of patients.
+    Systemic IV amphotericin B penetrates CSF poorly but is used in pregnancy
+    (azoles are teratogenic) or in rapidly progressive disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Perhaps the most critical management principle is that coccidioidal
+    meningitis requires lifelong therapy. There are no validated criteria for
+    discontinuation, and the relapse rate after cessation is alarmingly high
+    &mdash; approximately 71% in one of the largest cohorts &mdash; with the
+    central nervous system having the highest relapse rate of any coccidioidal
+    syndrome. This means the clinician is initiating a chronic suppressive
+    regimen from the first day of treatment, not a time-limited course. Response
+    is monitored through serial lumbar punctures tracking CSF white blood cell
+    count, glucose, protein, and complement-fixation titer until they normalize
+    or stabilize, with the interval between punctures gradually lengthening as
+    improvement is documented. Opening pressure should be measured at each tap,
+    since persistent elevation signals developing hydrocephalus that may require
+    ventriculoperitoneal shunt placement. The shunt manages the pressure
+    complication but does not replace the underlying lifelong antifungal
+    therapy. Clinicians must also remain vigilant for vasculitic infarcts,
+    cranial nerve dysfunction, and &mdash; in the rare HIV co-infected patient
+    &mdash; immune reconstitution inflammatory syndrome upon ART initiation.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-coccidioidomycosis-meningitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Filipino ancestry confers an approximately 175-fold increased risk of
+      disseminated coccidioidomycosis (and African Americans approximately
+      10-fold), likely from immunogenetic differences in Th17-mediated immunity;
+      a Filipino-American patient from the desert Southwest with chronic
+      headache demands consideration of coccidioidal meningitis.
+    </li>
+    <li>
+      The CSF pattern &mdash; lymphocytic pleocytosis with eosinophilia,
+      markedly low glucose, and elevated protein &mdash; combined with basilar
+      leptomeningeal enhancement on contrast MRI, defines the chronic
+      granulomatous basilar meningitis syndrome shared by coccidioidal,
+      tuberculous, and other chronic meningitides.
+    </li>
+    <li>
+      CSF <em>Coccidioides</em> complement-fixation antibody (positive in
+      ~70&ndash;80%, highly specific) is the diagnostic cornerstone; CSF culture
+      is often negative, and when positive the organism is a BSL-3 biohazard
+      requiring specialized handling.
+    </li>
+    <li>
+      High-dose oral fluconazole (800&ndash;1,200 mg daily) is first-line
+      therapy because it penetrates the CSF at 50&ndash;70% of serum levels
+      (Tucker 1988), far surpassing itraconazole and amphotericin B;
+      intrathecal amphotericin B is reserved for azole-refractory disease.
+    </li>
+    <li>
+      Treatment is lifelong &mdash; there are no validated stopping criteria,
+      and relapse rates after cessation approach 71%; response is monitored with
+      serial lumbar punctures tracking CSF cell count, glucose, protein, and CF
+      titer, with MRI as an adjunct for complications.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Galgiani JN, Ampel NM, Blair JE, et al. 2016 Infectious Diseases Society of
+      America (IDSA) Clinical Practice Guideline for the Treatment of
+      Coccidioidomycosis. <em>Clinical Infectious Diseases</em>.
+      2016;63(6):e112-e146.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw360"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciw360
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Johnson R, Ho J, Fowler P, Heidari A. Coccidioidal Meningitis: A Review on
+      Diagnosis, Treatment, and Management of Complications. <em>Current
+      Neurology and Neuroscience Reports</em>. 2018;18(4):19.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s11910-018-0824-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s11910-018-0824-8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Tucker RM, Williams PL, Arathoon EG, et al. Pharmacokinetics of
+      fluconazole in cerebrospinal fluid and serum in human coccidioidal
+      meningitis. <em>Antimicrobial Agents and Chemotherapy</em>.
+      1988;32(3):369-373.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1128/AAC.32.3.369"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1128/AAC.32.3.369
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Crum NF, Lederman ER, Stafford CM, et al. Coccidioidomycosis: a descriptive
+      survey of a reemerging disease. <em>Medicine (Baltimore)</em>.
+      2004;83(3):149-175.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/01.md.0000126762.91040.fd"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/01.md.0000126762.91040.fd
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Valley Fever
+      (Coccidioidomycosis): Clinical Overview. Updated January 2025.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/valley-fever/hcp/clinical-overview/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC Valley Fever Clinical Overview
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

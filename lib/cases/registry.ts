@@ -1409,6 +1409,29 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    title: "The Dust That Wouldn't Settle",
+    slug: "coccidioidomycosis-meningitis",
+    description: "Subacute basilar meningitis in a Filipino-American construction worker from Arizona.",
+    enable: true,
+    ogImage: "/cases/coccidioidomycosis-meningitis/mri.jpg",
+    teaser: "A 34-year-old Filipino-American construction worker from Phoenix presents with six weeks of progressive headache, night sweats, and new horizontal diplopia after a dust-storm exposure. CSF shows lymphocytic pleocytosis with eosinophilia, glucose of 22, and positive Coccidioides complement-fixation antibody. MRI reveals basilar leptomeningeal enhancement. What is the diagnosis, and why is the treatment plan unlike any other meningitis you have managed?",
+    tags: {
+      organisms: ["Coccidioides immitis"],
+      syndromes: ["Neuroinfection", "Meningitis", "Mycology"],
+      concepts: [
+        "Coccidioidal meningitis",
+        "Basilar leptomeningeal enhancement",
+        "CSF eosinophilia",
+        "Filipino ancestry dissemination risk",
+        "Fluconazole CSF penetration",
+        "Lifelong azole therapy",
+        "Complement-fixation antibody",
+        "Intrathecal amphotericin B",
+        "Serial CSF monitoring",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
