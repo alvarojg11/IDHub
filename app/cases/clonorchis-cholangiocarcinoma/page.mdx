@@ -1,0 +1,444 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("clonorchis-cholangiocarcinoma");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Fluke in the Bile Duct
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 58-year-old man who immigrated to the United States from South Korea
+    twelve years ago presents with three months of progressive yellowing of his
+    skin and eyes, generalized pruritus, pale stools, dark urine, and a 15-pound
+    unintentional weight loss. He denies abdominal pain, fever, or night sweats.
+    He has no history of hepatitis, alcohol use disorder, gallstones, or
+    metabolic liver disease. He takes no medications and has no surgical
+    history.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination he is deeply icteric with excoriations on his extremities
+    from scratching. His temperature is 36.9 &deg;C, heart rate 78/min, blood
+    pressure 132/82 mmHg. The abdomen is soft and non-tender. The liver span is
+    14 cm on percussion; no Murphy sign is elicited. Laboratory studies show
+    total bilirubin 14.2 mg/dL (direct 11.8), AST 124 U/L, ALT 156 U/L,
+    alkaline phosphatase 620 U/L, and CA 19-9 842 U/mL. Viral hepatitis
+    serologies are negative.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Contrast CT of the abdomen reveals a 3-cm perihilar mass causing upstream
+    dilation of the intrahepatic biliary ducts, with diffuse, uniform dilation
+    extending to the periphery of both lobes. The gallbladder and extrahepatic
+    ducts are normal in caliber. ERCP is performed for biliary decompression,
+    and during the procedure several small, translucent, leaf-shaped flukes
+    measuring approximately 15 mm are extracted from the common bile duct. When
+    asked about dietary habits, the patient reports that he ate raw freshwater
+    fish (<em>hoe</em>) regularly while living in Korea, a practice he continued
+    on annual visits home.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Stool examination for ova and parasites is sent, and the microscopy is shown
+    below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-md">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/clonorchis-cholangiocarcinoma/egg.jpg"
+        alt="Microscopy of Clonorchis sinensis egg showing operculum and opercular shoulders"
+        width={700}
+        height={460}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Stool microscopy demonstrating a small operculate egg measuring
+      approximately 29 &times; 16 &micro;m, with characteristic opercular
+      shoulders and a terminal knob at the abopercular end. Image from the
+      CDC Public Health Image Library (#659), public domain.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-clonorchis-cholangiocarcinoma-q1"
+  title="Question 1"
+  prompt="Which organism is most likely responsible for this patient's biliary infestation, and how was it acquired?"
+  options={[
+    {
+      id: "A",
+      label: "Opisthorchis viverrini, acquired by eating raw freshwater fish in Southeast Asia",
+      feedback:
+        "Incorrect &mdash; though closer than you might think. Opisthorchis viverrini is the Southeast Asian liver fluke, and like Clonorchis sinensis it is an IARC Group 1 biological carcinogen that resides in the intrahepatic bile ducts and causes cholangiocarcinoma through the same chronic inflammatory mechanism. However, O. viverrini is endemic to Thailand, Laos, Vietnam, and Cambodia &mdash; not Korea. The classic cultural association is with koi-pla, a raw fish dish in northeastern Thailand. This patient's epidemiology points squarely to the Chinese liver fluke, which is the dominant biliary fluke in Korea, China, and northern Vietnam.",
+    },
+    {
+      id: "B",
+      label: "Clonorchis sinensis, acquired by eating raw or undercooked freshwater fish containing metacercariae",
+      correct: true,
+      feedback:
+        "Correct. The combination of a Korean immigrant with a decades-long history of eating raw freshwater fish (hoe), leaf-shaped flukes extracted from the bile ducts at ERCP, and small operculate eggs (~29 &micro;m) on stool microscopy is classic for Clonorchis sinensis, the Chinese liver fluke. C. sinensis is endemic throughout East Asia &mdash; particularly China, Korea, Taiwan, and northern Vietnam &mdash; and is transmitted by ingestion of metacercariae encysted in the muscle of freshwater cyprinid fish (the carp family). After excysting in the duodenum, the larvae migrate through the ampulla of Vater into the biliary tree, where they mature into adult flukes that can live for 20 to 30 years. The perihilar mass and markedly elevated CA 19-9 raise the urgent concern for cholangiocarcinoma, the most feared complication of chronic infection and the reason C. sinensis is classified as an IARC Group 1 biological carcinogen.",
+    },
+    {
+      id: "C",
+      label: "Fasciola hepatica, acquired by eating contaminated watercress",
+      feedback:
+        "Incorrect. Fasciola hepatica is a liver fluke that can infest the biliary tree, but it is acquired by ingesting metacercariae on aquatic vegetation such as watercress, not from raw fish. The patient has no watercress exposure and has a clear raw-fish dietary history. Furthermore, Fasciola is not classified as a carcinogen by the IARC and is not associated with cholangiocarcinoma &mdash; a critical teaching distinction from the C. sinensis / O. viverrini pair. The egg morphology also differs: Fasciola eggs are larger (~130&ndash;150 &micro;m) and operculate but lack the small size (~29 &micro;m) and the terminal knob of Clonorchis eggs.",
+    },
+    {
+      id: "D",
+      label: "Echinococcus granulosus, acquired from contact with sheep-herding dogs",
+      feedback:
+        "Incorrect. Echinococcus granulosus causes cystic echinococcosis (hydatid disease), which produces large fluid-filled cysts in the liver parenchyma &mdash; not adult flukes within the bile ducts. It is acquired from ingesting eggs shed in the feces of infected dogs (the definitive host), typically in sheep-farming communities, and the patient has no such exposure. The ERCP finding of live flukes in the bile duct and the operculate eggs on stool microscopy are entirely incompatible with Echinococcus, whose eggs are morphologically indistinguishable from Taenia eggs (not operculate) and are not typically recovered from stool in hepatic disease. Echinococcus is also not associated with cholangiocarcinoma.",
+    },
+    {
+      id: "E",
+      label: "Ascaris lumbricoides, acquired by ingesting embryonated eggs from contaminated soil",
+      feedback:
+        "Incorrect. Ascaris lumbricoides can migrate into the biliary tree and cause biliary colic, obstructive jaundice, and even ascending cholangitis &mdash; but the worm is a large roundworm (15&ndash;35 cm), not a 15-mm leaf-shaped fluke. Ascaris is transmitted via the fecal-oral route by ingesting embryonated eggs from soil, not from raw fish. Its eggs are large (~55&ndash;75 &micro;m), rough-shelled, and decorticated, not the small operculate eggs seen here. Most importantly, Ascaris is not associated with cholangiocarcinoma and is not classified as a carcinogen. The combination of raw-fish exposure, bile duct flukes, operculate eggs, and a hilar mass pointing to cholangiocarcinoma is diagnostic of C. sinensis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-clonorchis-cholangiocarcinoma-q2"
+  title="Question 2"
+  prompt="By what mechanism does chronic Clonorchis sinensis infection lead to cholangiocarcinoma?"
+  options={[
+    {
+      id: "A",
+      label: "Direct integration of fluke-derived DNA into the bile duct epithelial genome, activating oncogenes",
+      feedback:
+        "Incorrect. This mechanism does not apply to Clonorchis sinensis. Direct DNA integration into the host genome is a mechanism of viral oncogenesis &mdash; classically seen with human papillomavirus (HPV) integrating E6 and E7 into host DNA, or hepatitis B virus DNA integration near cancer-related genes. Parasitic helminths do not insert genetic material into host cells. The carcinogenic mechanism of C. sinensis is entirely different: it is a chronic, inflammation-driven process in which the physical presence and activity of the fluke in the bile duct generates decades of injury and reparative proliferation, not a molecular insertion event.",
+    },
+    {
+      id: "B",
+      label: "Mechanical injury from the fluke's suckers plus chronic inflammatory ROS and RNS causing oxidative DNA damage, progressing through adenomatous hyperplasia to carcinoma",
+      correct: true,
+      feedback:
+        "Correct. Clonorchis sinensis is classified as an IARC Group 1 biological carcinogen (along with Opisthorchis viverrini), and its mechanism of carcinogenesis is a multi-step process driven by physical and inflammatory injury over decades. The adult flukes anchor to the bile duct epithelium using their oral and ventral suckers, causing mechanical erosion, ulceration, and desquamation of the ductal lining. This chronic injury recruits inflammatory cells that generate large quantities of reactive oxygen species (ROS) and reactive nitrogen species (RNS), particularly nitric oxide. These oxidizing and nitrosating agents cause DNA strand breaks, base modifications, and inhibition of DNA repair enzymes, leading to genomic instability. The bile duct epithelium responds with regenerative hyperplasia, progressing to adenomatous ('mulberry-like') proliferation and, ultimately, cholangiocarcinoma. A dose-response relationship exists: heavier and longer infections carry proportionally greater cancer risk. This is why C. sinensis and O. viverrini are two of only a handful of biological agents classified as definitive human carcinogens by the IARC.",
+    },
+    {
+      id: "C",
+      label: "Secretion of a genotoxic toxin by the fluke that directly mutates biliary epithelial DNA",
+      feedback:
+        "Incorrect. While it is possible that metabolic products of the fluke contribute to the inflammatory milieu, there is no evidence that C. sinensis secretes a specific genotoxic carcinogen that directly mutates host DNA in the manner of, for example, aflatoxin or aristolochic acid. The carcinogenic mechanism is overwhelmingly one of chronic physical injury and inflammation-driven oxidative and nitrosative stress, not direct toxin-mediated mutagenesis. The fluke does not produce a discrete chemical carcinogen; rather, it is the host's own inflammatory response to the parasite's physical presence that generates the DNA-damaging species responsible for malignant transformation.",
+    },
+    {
+      id: "D",
+      label: "Immunosuppression of the biliary mucosa allowing secondary viral oncogenesis",
+      feedback:
+        "Incorrect. Clonorchis sinensis does not cause immunosuppression of the biliary mucosa in the way that, for example, HIV creates systemic immunodeficiency that permits oncogenic viral infections. The fluke's interaction with the immune system is one of chronic Th2-skewed granulomatous inflammation and eosinophilia, not immune suppression. There is no evidence that the parasite creates an immunologically permissive environment that permits secondary viral oncogenesis in the bile ducts. The cholangiocarcinoma arises directly from the inflammatory consequences of the fluke's physical presence, not from immune evasion enabling another oncogenic agent.",
+    },
+    {
+      id: "E",
+      label: "Obstruction of bile flow causing accumulation of toxic bile acids that are directly carcinogenic",
+      feedback:
+        "Incorrect. Biliary obstruction and altered bile acid metabolism may contribute to the inflammatory environment, but this is not the primary or defining mechanism of C. sinensis-associated carcinogenesis. Bile stasis from any cause &mdash; gallstones, strictures, or tumors &mdash; can cause secondary bacterial cholangitis and inflammation, but these do not carry the same cancer risk as liver fluke infection. The distinguishing feature of C. sinensis carcinogenesis is the sucker-mediated mechanical injury combined with the specific inflammatory mediator profile (ROS, RNS, nitric oxide) generated by the host response to the living parasite. Simply obstructing bile flow does not replicate this mechanism, and non-parasitic biliary obstruction is not classified as carcinogenic by the IARC.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-clonorchis-cholangiocarcinoma-q3"
+  title="Question 3"
+  prompt="Praziquantel is prescribed to treat the fluke infection. Which statement best describes the role of deworming in this patient's cancer risk?"
+  options={[
+    {
+      id: "A",
+      label: "Praziquantel will cure the fluke infection and eliminate the patient's risk of cholangiocarcinoma progression",
+      feedback:
+        "Incorrect. This is a dangerous misconception. While praziquantel (25 mg/kg TID for 2 days) is highly effective at killing the adult flukes &mdash; with cure rates of 85&ndash;100% &mdash; it does not reverse the decades of sucker-mediated mechanical injury and inflammation-driven genomic damage that have already occurred in the bile duct epithelium. If premalignant adenomatous changes or early carcinoma are already established, eliminating the fluke does not reliably halt or reverse the carcinogenic process. Deworming removes the ongoing source of injury and is always indicated, but it is not a guarantee against cancer development. This patient already has a hilar mass concerning for established cholangiocarcinoma, and treating the fluke does not treat the cancer.",
+    },
+    {
+      id: "B",
+      label: "Praziquantel treats the fluke infection, but established premalignant or malignant changes mean deworming does not reliably prevent cancer; the cholangiocarcinoma itself requires oncologic management",
+      correct: true,
+      feedback:
+        "Correct. This is the most clinically important teaching point in liver-fluke-associated cholangiocarcinoma. Praziquantel works by increasing calcium permeability across the fluke tegument, causing sustained calcium influx, tetanic contraction, and paralysis of the parasite, followed by host immune clearance. It is highly effective at eradicating the fluke. However, the patient has already developed a hilar mass &mdash; biopsy-proven cholangiocarcinoma, given the clinical, radiographic, and tumor-marker findings. Decades of mechanical injury and inflammatory ROS/RNS exposure have already driven the biliary epithelium through adenomatous hyperplasia to invasive carcinoma. Removing the fluke stops ongoing damage but does not reverse established malignancy. The cholangiocarcinoma requires its own oncologic management: surgical resection with negative margins (R0) if the tumor is operable, or systemic chemotherapy with gemcitabine and cisplatin (established by the ABC-02 trial) for advanced disease, along with biliary stenting for palliation of obstruction. Deworming is a necessary but insufficient intervention in this patient &mdash; it treats the cause but not the consequence.",
+    },
+    {
+      id: "C",
+      label: "Praziquantel is contraindicated in the setting of active cholangiocarcinoma and should be withheld until after tumor resection",
+      feedback:
+        "Incorrect. Praziquantel is not contraindicated in the setting of cholangiocarcinoma. There is no pharmacologic interaction between praziquantel and chemotherapeutic agents, and no evidence that deworming worsens cancer outcomes. Active fluke infection should be treated regardless of the cancer status, because ongoing mechanical and inflammatory injury continues to drive the carcinogenic process and because the flukes cause additional morbidity (cholangitis, pancreatitis, biliary obstruction). Withholding treatment until after tumor resection would needlessly expose the patient to continued parasitic injury and inflammation. Praziquantel should be given concurrently with oncologic management, not deferred.",
+    },
+    {
+      id: "D",
+      label: "Praziquantel is unnecessary because the flukes have already been physically removed during ERCP",
+      feedback:
+        "Incorrect. While ERCP extracted the flukes visible in the common bile duct, it is virtually certain that adult flukes remain deeper in the intrahepatic bile ducts, where they reside in the smaller peripheral ducts that are not accessible to endoscopic extraction. ERCP removes only the flukes visible at the level of the common bile duct and major intrahepatic ducts. Furthermore, eggs continue to be shed in the stool, confirming active infection. Pharmacologic treatment with praziquantel is necessary to eradicate the entire fluke burden, including those in the peripheral intrahepatic ducts. Physical extraction at ERCP is diagnostic and provides biliary decompression, but it is not therapeutic for the underlying parasitosis.",
+    },
+    {
+      id: "E",
+      label: "Albendazole for 7 days is preferred over praziquantel because it also provides anticancer activity",
+      feedback:
+        "Incorrect. Albendazole (10 mg/kg/day for 7 days) is listed as an alternative for clonorchiasis but is not the drug of choice; praziquantel achieves far higher cure rates and is the universally recommended first-line agent. Albendazole has lower efficacy against C. sinensis and is not FDA-approved for this indication. Furthermore, the claim of anticancer activity is not clinically relevant in this context: while albendazole has been studied for antineoplastic effects in other settings (e.g., echinococcosis-associated cyst growth), it has no established role in the treatment of cholangiocarcinoma. The cancer requires standard oncologic therapy, not antiparasitic agents with putative antitumor properties. Praziquantel remains the clear drug of choice for eradicating the fluke.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-clonorchis-cholangiocarcinoma-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    <em>Clonorchis sinensis</em>, the Chinese liver fluke, is a foodborne
+    trematode that infects an estimated 15 million people worldwide and is
+    endemic throughout East Asia, with the highest burden in China (particularly
+    Guangdong and Guangxi provinces), Korea, Taiwan, and northern Vietnam.
+    Humans acquire infection by eating raw or undercooked freshwater fish of the
+    family Cyprinidae (carp and their relatives), in whose muscle tissue the
+    infective metacercariae encyst. Lightly salted, smoked, or pickled fish may
+    still harbor viable organisms. Classic cultural dishes associated with
+    transmission include Korean <em>hoe</em> (raw freshwater fish), Vietnamese
+    <em>goi ca</em>, and Chinese raw-fish congee. Reservoir hosts include dogs,
+    cats, pigs, and rats, which maintain the zoonotic cycle. After ingestion,
+    metacercariae excyst in the duodenum and the immature flukes migrate through
+    the ampulla of Vater up into the intrahepatic bile ducts, where they mature
+    into adult flukes measuring 10 to 25 mm in length. They can survive for an
+    extraordinary 20 to 30 years in the human host, making even remote dietary
+    exposures clinically relevant decades later.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Most infections are asymptomatic or produce only vague abdominal discomfort,
+    and the fluke's presence may go undetected for decades. Heavier infections
+    cause recurrent pyogenic cholangitis, biliary colic, obstructive jaundice,
+    and pancreatitis; the flukes can also serve as nidi for gallstone formation.
+    The most devastating consequence is cholangiocarcinoma, which is why
+    <em> C. sinensis</em> was classified as an IARC Group 1 carcinogen in 2009
+    (published in the IARC Monograph Volume 100B, 2012) alongside its close
+    relative <em>Opisthorchis viverrini</em>, the Southeast Asian liver fluke.
+    Critically, <em>Fasciola hepatica</em> &mdash; another biliary trematode
+    &mdash; is not classified as carcinogenic, underscoring that the cancer risk
+    is not a generic property of biliary flukes but is specific to the sucker-
+    mediated injury pattern of <em>Clonorchis</em> and <em>Opisthorchis</em>.
+    A dose-response relationship exists between infection intensity, duration,
+    and cholangiocarcinoma risk.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The carcinogenic mechanism is a multi-step, inflammation-driven process.
+    Adult flukes anchor themselves to the bile duct epithelium using their oral
+    and ventral suckers, producing chronic mechanical erosion, ulceration, and
+    desquamation of the ductal lining. This persistent injury recruits
+    inflammatory cells &mdash; macrophages, neutrophils, and eosinophils &mdash;
+    that generate large quantities of reactive oxygen species (ROS) and reactive
+    nitrogen species (RNS), with nitric oxide playing a particularly important
+    role. These oxidizing and nitrosating agents cause DNA strand breaks, base
+    modifications, and inhibition of DNA repair enzymes, driving genomic
+    instability in the replicating biliary epithelium. The epithelium undergoes
+    progressive proliferative change: from simple hyperplasia to adenomatous
+    (&ldquo;mulberry-like&rdquo;) proliferation and finally to invasive
+    cholangiocarcinoma. This pathway &mdash; chronic injury, inflammation-driven
+    DNA damage, and regenerative proliferation culminating in cancer &mdash; is
+    a paradigm of inflammation-associated oncogenesis that shares mechanistic
+    features with Helicobacter pylori-associated gastric cancer and
+    schistosomiasis-associated bladder cancer.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis rests on demonstrating the characteristic operculate eggs in stool.
+    Three specimens on separate days are recommended because egg shedding can be
+    intermittent. The eggs are small (approximately 27&ndash;35 &micro;m),
+    yellowish-brown, and possess a distinct operculum with opercular shoulders
+    and a small terminal knob at the abopercular end &mdash; features that help
+    distinguish them from other trematode eggs, though they are nearly
+    indistinguishable from <em>Opisthorchis</em> eggs by routine microscopy.
+    Imaging with ultrasound, CT, or MRCP typically reveals diffuse, uniform
+    dilation of the peripheral intrahepatic bile ducts. ERCP is both diagnostic
+    and therapeutic: it may directly visualize adult flukes within the ducts and
+    permits biliary decompression and fluke extraction. Serologic testing (ELISA)
+    is available but cannot distinguish current from past infection and is not
+    useful for determining whether a prior fluke infection caused a present
+    cholangiocarcinoma.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The drug of choice is praziquantel, dosed at 25 mg/kg three times daily for
+    two consecutive days (total 75 mg/kg/day), with cure rates of 85 to 100%.
+    Praziquantel increases calcium permeability across the fluke's tegument,
+    causing a sustained influx of calcium that produces tetanic contraction and
+    paralysis of the parasite, after which the host immune system clears the
+    immobilized worms. However, the most critical counseling point for this
+    patient is that deworming treats the cause but not the consequence: decades
+    of mechanical and inflammatory injury have already driven the biliary
+    epithelium through adenomatous hyperplasia to invasive
+    cholangiocarcinoma, and eliminating the fluke does not reliably reverse or
+    halt this process once premalignant or malignant changes are established.
+    The cholangiocarcinoma requires its own oncologic management &mdash;
+    surgical resection with negative margins if the tumor is operable, or
+    systemic chemotherapy with gemcitabine and cisplatin (established by the
+    ABC-02 trial) for advanced disease &mdash; alongside biliary stenting for
+    palliation of obstruction. Praziquantel is necessary to stop ongoing
+    parasitic injury, but it is not cancer therapy.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-clonorchis-cholangiocarcinoma-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      <em>C. sinensis</em> is acquired by eating raw or undercooked freshwater
+      cyprinid fish; adult flukes live 20&ndash;30 years in the intrahepatic
+      bile ducts, making even remote dietary exposures clinically relevant.
+    </li>
+    <li>
+      <em>C. sinensis</em> and <em>O. viverrini</em> are IARC Group 1 biological
+      carcinogens; <em>Fasciola hepatica</em> is NOT &mdash; the cancer risk is
+      specific to the sucker-mediated injury pattern of these two flukes.
+    </li>
+    <li>
+      Carcinogenesis proceeds through sucker-mediated mechanical injury &rarr;
+      chronic inflammatory ROS/RNS (especially nitric oxide) causing oxidative
+      DNA damage &rarr; adenomatous &ldquo;mulberry&rdquo; hyperplasia &rarr;
+      cholangiocarcinoma, with a dose-response relationship to infection
+      intensity and duration.
+    </li>
+    <li>
+      Stool O&P showing small operculate eggs (~29 &micro;m, opercular shoulders,
+      terminal knob) is the diagnostic cornerstone; ERCP may directly visualize
+      and extract adult flukes from the bile ducts.
+    </li>
+    <li>
+      Praziquantel (25 mg/kg TID &times; 2 days) cures the fluke but does not
+      reverse established premalignant or malignant changes; cholangiocarcinoma
+      requires surgical resection if operable or gemcitabine/cisplatin for
+      advanced disease.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Qian MB, Utzinger J, Keiser J, Zhou XN. Clonorchiasis. <em>Lancet</em>.
+      2016;388(10066):800-810.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(15)00353-2"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(15)00353-2
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Bouvard V, Baan R, Straif K, et al. A review of human carcinogens &mdash;
+      Part B: Biological agents. <em>Lancet Oncology</em>.
+      2009;10(4):321-322.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S1470-2045(09)70096-8"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S1470-2045(09)70096-8
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Hong ST, Fang Y. <em>Clonorchis sinensis</em> and cholangiocarcinoma, an
+      update. <em>Parasitology International</em>. 2008;57(2):89-94.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.parint.2008.01.002"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.parint.2008.01.002
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Valle JW, Wasan H, Palmer DH, et al. Cisplatin plus gemcitabine versus
+      gemcitabine for biliary tract cancer (ABC-02). <em>New England Journal of
+      Medicine</em>. 2010;362(14):1273-1281.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa0908721"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa0908721
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Centers for Disease Control and Prevention. Clonorchis (Liver Flukes):
+      Clinical Overview. Updated February 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.cdc.gov/liver-flukes/hcp/clinical-overview-clonorchis/index.html"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        CDC Clonorchis Clinical Overview
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

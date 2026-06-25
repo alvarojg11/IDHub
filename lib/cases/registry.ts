@@ -1432,6 +1432,32 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    title: "The Fluke in the Bile Duct",
+    slug: "clonorchis-cholangiocarcinoma",
+    description: "Painless jaundice, a hilar mass, and bile duct flukes in a Korean immigrant with decades of raw fish consumption.",
+    enable: true,
+    ogImage: "/cases/clonorchis-cholangiocarcinoma/egg.jpg",
+    teaser: "A 58-year-old Korean immigrant presents with painless jaundice, a 15-pound weight loss, and a hilar mass on CT. ERCP extracts small leaf-shaped flukes from his bile ducts. He has eaten raw freshwater fish for decades. Stool microscopy shows tiny operculate eggs. What is the organism, how did it cause cancer, and does deworming still matter?",
+    tags: {
+      organisms: ["Clonorchis sinensis"],
+      syndromes: ["GI & Hepatic", "Parasitology", "Oncology"],
+      concepts: [
+        "Clonorchis sinensis",
+        "Cholangiocarcinoma",
+        "IARC Group 1 biological carcinogen",
+        "Raw freshwater fish",
+        "Opisthorchis viverrini",
+        "Sucker-mediated mechanical injury",
+        "Reactive oxygen species",
+        "Nitric oxide DNA damage",
+        "Mulberry adenomatous hyperplasia",
+        "Praziquantel",
+        "ABC-02 trial",
+        "Operculate egg",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
