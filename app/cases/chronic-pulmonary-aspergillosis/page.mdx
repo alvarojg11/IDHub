@@ -1,0 +1,514 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("chronic-pulmonary-aspergillosis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Cavity That Came Back
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 54-year-old man from Lima, Peru presents to the emergency department after
+    coughing up approximately 50 mL of frank blood. He was treated for pulmonary
+    tuberculosis eight years ago with a standard six-month regimen of rifampin,
+    isoniazid, pyrazinamide, and ethambutol and was declared cured, with
+    residual right upper lobe fibrocavitary scarring on follow-up imaging. He
+    has a 30 pack-year smoking history but no other medical problems and takes
+    no medications.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Over the past four months he has noticed progressive daily productive
+    cough, drenching night sweats, fatigue, and a 12-kg unintentional weight
+    loss. Six weeks ago he had a single episode of blood-streaked sputum that
+    he attributed to coughing. He did not seek care until the larger bleed three
+    days ago. At a local clinic three weeks ago, tuberculosis recurrence was
+    suspected; three consecutive sputum acid-fast bacillus smears were negative
+    and a single Xpert MTB/RIF was negative. A course of amoxicillin-clavulanate
+    produced no improvement.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination his temperature is 37.6 &deg;C, heart rate 94/min, blood
+    pressure 118/74 mmHg, respiratory rate 18/min, and oxygen saturation 95% on
+    room air. He appears cachectic (BMI 18.2). Coarse crackles are present over
+    the right upper lung field. There is no lymphadenopathy, no clubbing, and no
+    peripheral stigmata of endocarditis. He is not immunosuppressed.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Laboratory studies show a peripheral white blood cell count of 9.4 &times;
+    10<sup>3</sup>/&micro;L with 64% neutrophils (no neutropenia), hemoglobin
+    11.4 g/dL, platelets 312 &times; 10<sup>3</sup>/&micro;L, and C-reactive
+    protein 78 mg/L. HIV serology is negative. Serum
+    <em> Aspergillus</em> galactomannan is 0.2 optical density index (negative,
+    cutoff &lt; 0.5). A contrast chest CT is obtained and is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-2xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/chronic-pulmonary-aspergillosis/aspergilloma.jpg"
+        alt="Gross pathology of a pulmonary aspergilloma (fungal ball) lying free within an old tuberculous cavity"
+        width={1318}
+        height={1160}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Chest CT demonstrated an enlarging thin-walled right upper lobe cavity
+      containing a dependent rounded soft-tissue mass surrounded by a crescent of
+      air (air-crescent sign), with adjacent pleural thickening and a new second
+      cavity. Pictured: gross pathology of a pulmonary aspergilloma (fungal ball)
+      lying free within an old tuberculous cavity &mdash; the pathologic correlate
+      of the air-crescent sign. Image: Dr. Yale Rosen, Atlas of Pulmonary
+      Pathology. CC BY-SA 2.0.
+    </figcaption>
+  </div>
+</figure>
+
+<p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+  Three sputum fungal cultures grow <em>Aspergillus fumigatus</em>. Serum
+  <em> Aspergillus</em>-specific IgG (precipitins) returns strongly positive.
+  Serum 1,3-beta-D-glucan is 92 pg/mL (indeterminate). Repeat sputum AFB smear
+  and mycobacterial culture remain negative at six weeks.
+</p>
+
+<CaseQuestion
+  pollId="case-chronic-pulmonary-aspergillosis-q1"
+  title="Question 1"
+  prompt="Which diagnosis best unifies the chronic weight loss, hemoptysis, the intracavitary mass, and the laboratory findings?"
+  options={[
+    {
+      id: "A",
+      label: "Reactivation pulmonary tuberculosis",
+      feedback:
+        "Incorrect, though this was the working diagnosis at his local clinic and is the single most important condition to exclude. Tuberculosis recurrence is plausible in a patient from a high-burden country with prior TB and old upper-lobe scarring. However, three negative AFB smears and a negative Xpert MTB/RIF substantially lower the probability, and his symptoms failed to respond to standard antibacterial coverage. More importantly, the radiographic pattern points elsewhere: the development of a dependent intracavitary soft-tissue mass with an air-crescent sign, weight loss over months, and a strongly positive Aspergillus-specific IgG together form a syndrome that TB does not fully explain. TB must still be ruled out with mycobacterial cultures, but the assembled evidence favors chronic pulmonary aspergillosis complicating his old tuberculous cavity.",
+    },
+    {
+      id: "B",
+      label: "Chronic cavitary pulmonary aspergillosis (CCPA)",
+      correct: true,
+      feedback:
+        "Correct. The synthesis is classic for chronic cavitary pulmonary aspergillosis: an indolent illness over months of weight loss, night sweats, and hemoptysis; a pre-existing lung cavity (the residuum of treated tuberculosis eight years ago) that now contains a dependent fungal ball producing an air-crescent sign; radiographic progression with a new second cavity; a strongly positive Aspergillus-specific IgG; and growth of Aspergillus fumigatus in sputum. The host is not neutropenic and not transplant &mdash; this is the hallmark substrate for CPA, which colonizes and then progressively destroys a damaged lung cavity. The key distinction from a simple aspergilloma is the systemic symptoms and radiographic progression, which define the cavitary form of CPA and mandate antifungal treatment.",
+    },
+    {
+      id: "C",
+      label: "Nontuberculous mycobacterial pulmonary disease",
+      feedback:
+        "Incorrect. NTM disease such as Mycobacterium avium complex or M. kansasii certainly produces upper-lobe cavitary disease with weight loss and chronic cough in patients with prior lung damage, and it is a genuine part of the differential. However, NTM pulmonary disease would be expected to yield acid-fast bacilli on smear or grow mycobacteria in culture; his smears and cultures are negative. NTM would not generate a positive Aspergillus-specific IgG, nor would it produce a mobile intracavitary fungal ball with an air-crescent sign. It remains a consideration if the mycobacterial cultures turn positive, but the current evidence overwhelmingly favors aspergillosis. Note that Aspergillus colonization can coexist with NTM disease, so NTM cultures should still be followed.",
+    },
+    {
+      id: "D",
+      label: "Cavitary squamous cell lung carcinoma",
+      feedback:
+        "Incorrect, but it must be on the differential and actively excluded. Cavitary lung cancer can present with weight loss and hemoptysis, and a tumor with central necrosis can mimic a cavity. However, a squamous cell carcinoma does not produce a freely mobile, gravity-dependent intracavitary mass with a classic air-crescent sign, nor does it cause a strongly positive Aspergillus-specific IgG or grow Aspergillus in sputum. Because this patient has a significant smoking history and weight loss, a CT-guided biopsy or bronchoscopy may still be warranted if the radiographic appearance is atypical or if he does not respond to antifungal therapy, but the assembled clinical-biochemical-imaging picture is diagnostic of CPA.",
+    },
+    {
+      id: "E",
+      label: "Simple pulmonary aspergilloma",
+      feedback:
+        "Close, but incorrect &mdash; and this is the most important distinction to get right. A simple aspergilloma is a single fungal ball in a pre-existing, stable cavity in a patient who is otherwise well, with minimal or no symptoms and no radiographic progression. This patient has the opposite picture: months of weight loss and night sweats, recurrent hemoptysis, and radiographic progression with a new second cavity. Those features define chronic cavitary pulmonary aspergillosis (CCPA), the progressive form of the disease. The distinction matters profoundly for management: a simple aspergilloma may be observed or treated only if symptomatic, whereas CCPA requires prolonged antifungal therapy. Calling this 'just an aspergilloma' would undertreat a progressive infection.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chronic-pulmonary-aspergillosis-q2"
+  title="Question 2"
+  prompt="Given the clinical picture, which single test most strongly supports the diagnosis of chronic pulmonary aspergillosis?"
+  options={[
+    {
+      id: "A",
+      label: "Serum Aspergillus galactomannan",
+      feedback:
+        "Incorrect. Serum galactomannan is the cornerstone biomarker for invasive aspergillosis in neutropenic and transplant hosts, where angioinvasion releases the antigen into the bloodstream. In chronic pulmonary aspergillosis the organism is confined to the cavity wall and surrounding tissue without meaningful angioinvasion, so circulating galactomannan is usually absent &mdash; the test is negative in the large majority of CPA patients, as it is here (0.2 ODI). A negative serum galactomannan therefore does not exclude CPA; it is simply the wrong test for this entity. This is one of the most commonly confused points in pulmonary aspergillosis: galactomannan for invasive disease, Aspergillus IgG for chronic disease.",
+    },
+    {
+      id: "B",
+      label: "Sputum culture growing Aspergillus fumigatus",
+      feedback:
+        "Incorrect. Sputum culture is frequently positive in CPA and supports the presence of the organism, but it cannot establish the diagnosis on its own. Aspergillus is a ubiquitous environmental mold, and airway colonization &mdash; without tissue-invasive or progressive cavitary disease &mdash; is common, particularly in patients with bronchiectasis or chronic lung disease. A positive culture must be interpreted alongside imaging and an immunologic marker of tissue involvement. Culture is valuable primarily for species identification and antifungal susceptibility testing, especially given the global emergence of azole-resistant Aspergillus fumigatus, but it is not the test that confirms CPA.",
+    },
+    {
+      id: "C",
+      label: "Aspergillus-specific IgG (serum precipitins)",
+      correct: true,
+      feedback:
+        "Correct. Aspergillus-specific IgG &mdash; historically measured as immunodiffusion precipitins &mdash; is the single most useful diagnostic test for chronic pulmonary aspergillosis. It reflects a humoral immune response to sustained antigenic stimulation from Aspergillus growing in tissue, and it has a sensitivity and specificity of approximately 90% for CPA when validated assays are used. It is included in the diagnostic criteria of both the ERS/ATS consensus and the WHO 2024 guide. Importantly, it is the immunologic mirror image of the biomarker used in invasive disease: CPA is an IgG-driven diagnosis, whereas invasive aspergillosis is a galactomannan-driven diagnosis. In this patient the strongly positive IgG, combined with the characteristic imaging and growth of A. fumigatus, consolidates the diagnosis.",
+    },
+    {
+      id: "D",
+      label: "Bronchoalveolar lavage with galactomannan and fungal culture",
+      feedback:
+        "Incorrect. Bronchoscopy with BAL galactomannan and culture is an excellent test for invasive pulmonary aspergillosis, where BAL galactomannan substantially outperforms serum because it samples the site of infection directly. However, it is invasive, requires sedation, and is generally unnecessary in CPA when the imaging is characteristic and the serum Aspergillus IgG is positive &mdash; which is exactly this patient's situation. BAL may be considered when the diagnosis is uncertain, when sputum is not obtainable, or when malignancy or alternative diagnoses must be excluded by cytology, but it is not the single best first test to support CPA in a patient like this one.",
+    },
+    {
+      id: "E",
+      label: "Serum 1,3-beta-D-glucan",
+      feedback:
+        "Incorrect. Beta-D-glucan is a broad panfungal marker of cell-wall polysaccharide and can be elevated in chronic pulmonary aspergillosis, as it is here in the indeterminate range. However, it is entirely nonspecific: it is positive in Pneumocystis, Candida, and other fungal infections, is affected by hemodialysis, immunoglobulin, and certain antibiotics, and does not distinguish CPA from a long list of alternatives. A positive or indeterminate result adds little diagnostic weight in this context, and a negative result would not exclude CPA. It is not part of the recommended diagnostic criteria for CPA and should not be relied upon.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-chronic-pulmonary-aspergillosis-q3"
+  title="Question 3"
+  prompt="What is the most appropriate initial management for this patient, given the progressive disease and recurrent hemoptysis?"
+  options={[
+    {
+      id: "A",
+      label: "Intravenous voriconazole and liposomal amphotericin B",
+      feedback:
+        "Incorrect. This is the reflex regimen for invasive pulmonary aspergillosis in a neutropenic or transplant host, and applying it here reflects a misclassification of the disease. This patient has chronic cavitary aspergillosis, not invasive aspergillosis: he is not neutropenic, there is no angioinvasion, and the pace is indolent over months. Intravenous amphotericin B offers no advantage over an oral triazole in this setting and carries substantial nephrotoxicity and infusion-related toxicity. The mainstay of CPA therapy is a prolonged course of an oral triazole, which achieves excellent lung tissue levels and can be managed as an outpatient with therapeutic drug monitoring. Reserving intravenous agents for failure of, or intolerance to, oral therapy is the correct approach.",
+    },
+    {
+      id: "B",
+      label: "Observation with serial chest CT every six months",
+      feedback:
+        "Incorrect. Observation is appropriate only for a truly asymptomatic patient with a single, stable simple aspergilloma and no systemic symptoms or radiographic progression. This patient has four months of weight loss, night sweats, recurrent hemoptysis, and a new cavity on imaging &mdash; objective evidence of active, progressive CPA. Left untreated, CCPA causes relentless cavity enlargement, further hemoptysis (which can become life-threatening), and progressive pulmonary fibrosis with loss of lung function. The five-year mortality of untreated or inadequately treated CCPA is substantial. Observation in this setting would allow preventable progression of a treatable infection.",
+    },
+    {
+      id: "C",
+      label: "Surgical resection as first-line definitive therapy",
+      feedback:
+        "Incorrect as the initial step, though surgery has an important and defined role in CPA. Surgical resection is potentially curative for a single aspergilloma or for localized resectable CCPA in a fit patient with adequate pulmonary reserve, and it is the definitive treatment for recurrent hemoptysis when disease is localized. However, this patient has multifocal disease with a new second cavity adjacent to the original, and his underlying TB-related fibrosis likely compromises his pulmonary reserve &mdash; factors that make upfront surgery high-risk. Surgery is best reserved for localized disease or for control of hemoptysis unresponsive to embolization. The appropriate first move is medical therapy to control the infection, combined with bronchial artery embolization to address the active bleeding.",
+    },
+    {
+      id: "D",
+      label: "Oral itraconazole (or voriconazole) for at least six months with therapeutic drug monitoring, plus bronchial artery embolization for the hemoptysis",
+      correct: true,
+      feedback:
+        "Correct. This approach addresses both halves of the problem. First, the infection: oral itraconazole or voriconazole are the guideline-recommended first-line agents for CPA (ERS/ATS consensus, IDSA 2016, and WHO 2024 guide), given for a minimum of six months and often twelve or longer, with clinical, radiographic, and Aspergillus IgG monitoring. Therapeutic drug monitoring is essential because both drugs have variable oral bioavailability and concentration-dependent efficacy and toxicity. Second, the hemoptysis: recurrent or moderate hemoptysis warrants bronchial artery embolization, which occludes the hypertrophied systemic bronchial arteries that are the source of bleeding and serves as an effective bridge while antifungal therapy takes effect. This combined medical and interventional approach is the standard of care for symptomatic CCPA with bleeding, reserving surgery for localized disease or embolization failure.",
+    },
+    {
+      id: "E",
+      label: "Oral fluconazole for six weeks",
+      feedback:
+        "Incorrect on both the drug and the duration. Fluconazole has negligible reliable activity against Aspergillus &mdash; unlike Candida, Aspergillus possesses an intrinsic resistance mechanism to fluconazole, and it is not used for any form of aspergillosis. The appropriate agents are the mold-active triazoles itraconazole, voriconazole, isavuconazole, or posaconazole. Additionally, six weeks is far too short for CPA, which requires at least six months of therapy and often a year or more to achieve durable clinical and radiographic stability; stopping at six weeks would virtually guarantee relapse. This option fails on pharmacology and on duration.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-chronic-pulmonary-aspergillosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chronic pulmonary aspergillosis (CPA) is a distinct syndrome from invasive
+    pulmonary aspergillosis, and confusing the two leads to the wrong
+    diagnostics and the wrong treatment. CPA arises in patients with
+    pre-existing structural lung damage but without the profound
+    immunosuppression that characterizes invasive disease. The single most
+    common substrate is a residual tuberculous cavity; an estimated 1.2 million
+    people worldwide develop CPA as a sequela of pulmonary tuberculosis, with
+    the highest burden in TB-endemic regions such as Peru. Other substrates
+    include chronic obstructive pulmonary disease, non-CF bronchiectasis,
+    sarcoidosis, prior pneumothorax or pneumonectomy, and ankylosing
+    spondylitis. The pathogenesis is one of colonization followed by local
+    tissue invasion: inhaled <em>Aspergillus</em> conidia germinate in a
+    pre-existing cavity, proliferate into a tangled mycelial mass (the fungal
+    ball or aspergilloma), and progressively erode the cavity wall, generating
+    new cavities, surrounding inflammation, and the systemic symptoms of chronic
+    infection. Crucially, this is not an angioinvasive process in the typical
+    CPA patient, which is why the clinical course is indolent and the serum
+    biomarker profile differs from invasive disease.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    CPA encompasses several overlapping entities that the WHO 2024 guide and the
+    ERS/ATS consensus define along a spectrum. A <em>simple pulmonary
+    aspergilloma</em> is a single fungal ball in a single, stable cavity in an
+    otherwise asymptomatic patient, with no systemic symptoms and no
+    radiographic progression &mdash; it may simply be observed. <em>Chronic
+    cavitary pulmonary aspergillosis (CCPA)</em>, the diagnosis here, is
+    defined by one or more cavities (with or without fungal balls), radiographic
+    progression or new cavity formation, systemic symptoms such as weight loss
+    and night sweats, and a positive <em>Aspergillus</em>-specific IgG, present
+    for at least three months. Untreated CCPA can progress to <em>chronic
+    fibrosing pulmonary aspergillosis (CFPA)</em>, in which extensive
+    replacement of lung parenchyma by fibrosis causes major irreversible loss of
+    pulmonary function. <em>Subacute invasive pulmonary aspergillosis</em>
+    (formerly chronic necrotizing) sits closer to invasive disease, progressing
+    over one to three months with more tissue destruction and some degree of
+    angioinvasion, and is managed more aggressively. Recognizing where a patient
+    sits on this spectrum determines how urgently and aggressively to treat.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnostic approach to CPA rests on three pillars: characteristic
+    imaging, a compatible host, and immunologic or microbiologic evidence of
+    <em> Aspergillus</em>. On contrast chest CT, the hallmarks are an enlarging
+    or new cavity containing a dependent rounded soft-tissue mass surrounded by
+    a crescent of air &mdash; the air-crescent sign (also called Monad's sign)
+    &mdash; with pericavitary ground-glass infiltrate, cavity-wall thickening,
+    and adjacent pleural thickening. Because the fungal ball is gravity-dependent
+    and mobile, prone imaging may demonstrate a shift in its position, a useful
+    confirmatory maneuver. The immunologic cornerstone is
+    <em>Aspergillus</em>-specific IgG (historically measured as immunodiffusion
+    precipitins), which has roughly 90% sensitivity and specificity for CPA and
+    is incorporated into the diagnostic criteria. This is the mirror image of
+    invasive aspergillosis, where serum galactomannan &mdash; not IgG &mdash; is
+    the key biomarker; in CPA, serum galactomannan is usually negative because
+    there is no meaningful angioinvasion to release antigen into the
+    bloodstream. Sputum culture frequently grows <em>A. fumigatus</em> and is
+    valuable for speciation and susceptibility testing, but it cannot diagnose
+    CPA in isolation because airway colonization is common. Beta-D-glucan is
+    nonspecific and unhelpful for confirming the diagnosis. Mycobacterial
+    cultures should always be sent and followed, because active tuberculosis or
+    nontuberculous mycobacterial disease can coexist with CPA.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The treatment of CPA is nuanced, and the choice among the available options
+    depends on the subtype, the extent of disease, the severity of hemoptysis,
+    and the patient's pulmonary reserve and ability to tolerate prolonged
+    therapy. The foundation for symptomatic CCPA is a prolonged course of an
+    oral mold-active triazole. Both <em>itraconazole</em> and
+    <em>voriconazole</em> are guideline-recommended first-line agents (ERS/ATS
+    consensus, IDSA 2016, and WHO 2024 guide); azoles are the only class of oral
+    drugs with reliable activity against <em>Aspergillus</em>. Itraconazole is
+    the most affordable and widely available option, which is why the WHO guide
+    &mdash; written for TB-endemic, resource-limited settings &mdash; emphasizes
+    it; the oral solution is preferred over capsules because of superior and
+    more predictable bioavailability. Voriconazole achieves higher and more
+    consistent lung tissue concentrations and is generally preferred for the
+    more aggressive subacute invasive form or for severe disease. Both drugs
+    require therapeutic drug monitoring: itraconazole because of erratic
+    absorption and a wide concentration range, and voriconazole because of
+    CYP2C19 polymorphism that produces enormous inter-patient variability.
+    Isavuconazole, with more predictable pharmacokinetics and fewer drug
+    interactions, and posaconazole are effective second-line or salvage options
+    for intolerance, failure, or azole resistance. Fluconazole has no role
+    because <em>Aspergillus</em> is intrinsically resistant to it.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The duration of therapy is a frequent source of error. CPA is not a
+    two-week course. The minimum recommended duration is six months, and most
+    patients with CCPA require twelve months or longer to achieve durable
+    clinical and radiographic stability; some need long-term suppressive
+    therapy. Response is monitored with serial assessment of symptoms, chest
+    CT, and the Aspergillus-specific IgG titer, which should fall with
+    successful treatment. Stopping therapy too early &mdash; or choosing a drug
+    with inadequate activity &mdash; predictably leads to relapse. If oral
+    triazoles fail, are not tolerated, or meet azole resistance, intravenous
+    liposomal amphotericin B or an echinocandin can be used as salvage, but
+    these are inferior for long-term management because of toxicity (amphotericin
+    nephrotoxicity) and only fungistatic activity against
+    <em>Aspergillus</em> (echinocandins); they are reserved for subacute
+    invasive disease or refractory CPA, not for first-line use.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Hemoptysis is the most feared complication of CPA and merits its own
+    management ladder. The source of bleeding is not the pulmonary arterial
+    circulation but the hypertrophied systemic bronchial arteries that
+    neo-vascularize the cavity wall under the angiogenic drive of chronic
+    <em>Aspergillus</em> inflammation. Mild blood-streaked sputum can be
+    managed by initiating or optimizing antifungal therapy, which reduces
+    recurrence by controlling the underlying inflammation. Moderate, recurrent,
+    or life-threatening hemoptysis warrants <em>bronchial artery
+    embolization</em>, an interventional radiology procedure that selectively
+    occludes the feeding bronchial arteries; it is highly effective as an
+    acute measure but is a bridge rather than a cure, because revascularization
+    and rebleeding are common without definitive control of the infection.
+    <em>Surgical resection</em> is the definitive treatment for hemoptysis when
+    disease is localized &mdash; typically a single aspergilloma or a resectable
+    cavity in a patient with adequate pulmonary reserve, assessed by predicted
+    postoperative lung function. Surgery is also curative for localized
+    resectable CCPA, offering the best chance of eradication in the right
+    candidate. It is contraindicated in extensive bilateral disease or in
+    patients with such limited reserve that resection would leave them
+    ventilator-dependent; in those patients, lifelong medical management is the
+    only option. The correct sequencing for this patient &mdash; medical
+    therapy plus bronchial artery embolization for the active bleeding, with
+    surgery held in reserve for localized or refractory disease &mdash;
+    reflects this hierarchy.
+  </p>
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Two additional considerations shape modern CPA management. First,
+    azole-resistant <em>Aspergillus fumigatus</em> is an emerging global threat,
+    driven both by environmental exposure to agricultural azole fungicides
+    (the TR34/L98H mechanism) and by selection pressure during prolonged
+    patient therapy. Because resistance predicts treatment failure, isolates
+    from CPA patients should undergo antifungal susceptibility testing, and a
+    rising IgG titer or progressive imaging despite adequate drug levels should
+    prompt resistance testing and a switch to an alternative agent or class.
+    Second, deciding <em>not</em> to treat is occasionally the right answer: an
+    asymptomatic patient with a single, stable simple aspergilloma and no
+    systemic symptoms or radiographic progression can be observed, since oral
+    triazoles penetrate the cavity and fungal ball poorly and offer little
+    benefit when there is no progressive disease to suppress. The art of CPA
+    management lies in correctly classifying where a patient sits on the
+    spectrum and tailoring the intensity and modality of therapy accordingly.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-chronic-pulmonary-aspergillosis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Chronic pulmonary aspergillosis is <strong>not</strong> invasive
+      aspergillosis: it arises in a non-neutropenic host with pre-existing lung
+      damage (most often an old tuberculous cavity), runs an indolent course,
+      and is driven by <em>Aspergillus</em>-specific IgG &mdash; not serum
+      galactomannan &mdash; which is typically negative in CPA.
+    </li>
+    <li>
+      <em>Aspergillus</em>-specific IgG (precipitins) is the cornerstone
+      diagnostic test for CPA (sensitivity and specificity ~90%); serum
+      galactomannan is the test for invasive disease. This biomarker reversal
+      is the most commonly tested distinction in pulmonary aspergillosis.
+    </li>
+    <li>
+      First-line therapy is a prolonged oral triazole &mdash; itraconazole or
+      voriconazole &mdash; for a minimum of six months and often twelve or
+      longer, with therapeutic drug monitoring. Isavuconazole and posaconazole
+      are second-line/salvage. Fluconazole has no activity against
+      <em>Aspergillus</em>; intravenous amphotericin and echinocandins are
+      reserved for subacute invasive disease or failure of oral therapy.
+    </li>
+    <li>
+      Distinguish CCPA from a simple aspergilloma: systemic symptoms (weight
+      loss, night sweats), hemoptysis, and radiographic progression or new
+      cavities mandate treatment, whereas an asymptomatic, stable, single fungal
+      ball may simply be observed.
+    </li>
+    <li>
+      Hemoptysis arises from hypertrophied systemic bronchial arteries and is
+      managed in a ladder: mild bleeding responds to antifungal therapy;
+      moderate or recurrent bleeding warrants bronchial artery embolization as a
+      bridge; and surgical resection is definitive for localized, resectable
+      disease in a patient with adequate pulmonary reserve.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Denning DW, Cadranel J, Beigelman-Aubry C, et al. Chronic pulmonary
+      aspergillosis: rationale and clinical guidelines for diagnosis and
+      management. <em>European Respiratory Journal</em>. 2016;47(1):45-68.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1183/13993003.00883-2015"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1183/13993003.00883-2015
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      World Health Organization. <em>WHO guide for the diagnosis and management
+      of chronic pulmonary aspergillosis</em>. Geneva: World Health
+      Organization; 2024.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://www.who.int/publications/i/item/9789240094559"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        WHO 2024 CPA Guide
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Evans TJ, Lawal A, Kosmidis C, Denning DW. Chronic Pulmonary
+      Aspergillosis: Clinical Presentation and Management. <em>Seminars in
+      Respiratory and Critical Care Medicine</em>. 2024;45(1):88-101.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1055/s-0043-1776914"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1055/s-0043-1776914
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Patterson TF, Thompson GR 3rd, Denning DW, et al. Practice Guidelines for
+      the Diagnosis and Management of Aspergillosis: 2016 Update by the
+      Infectious Diseases Society of America. <em>Clinical Infectious
+      Diseases</em>. 2016;63(4):e1-e60.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/ciw326"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/ciw326
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Denning DW, Pleuvry A, Cole DC. Global burden of chronic pulmonary
+      aspergillosis as a sequel to pulmonary tuberculosis. <em>Bulletin of the
+      World Health Organization</em>. 2011;89(12):864-872.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.2471/BLT.11.089441"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.2471/BLT.11.089441
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

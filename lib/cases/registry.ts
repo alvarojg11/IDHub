@@ -1458,6 +1458,30 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    title: "The Cavity That Came Back",
+    slug: "chronic-pulmonary-aspergillosis",
+    description:
+      "A Peruvian man treated for TB years ago returns with weight loss, hemoptysis, and an old cavity now containing a fungal ball.",
+    enable: true,
+    ogImage: "/cases/chronic-pulmonary-aspergillosis/aspergilloma.jpg",
+    teaser:
+      "A 54-year-old man from Peru treated for pulmonary TB eight years ago presents with four months of weight loss, night sweats, and recurrent hemoptysis. Three sputum AFB smears and Xpert MTB/RIF are negative. Chest CT shows an old right upper lobe cavity now containing a dependent fungal ball with an air-crescent sign and a new second cavity. Serum Aspergillus galactomannan is negative. What is the diagnosis, which test confirms it, and how should he be treated?",
+    tags: {
+      organisms: ["Aspergillus fumigatus"],
+      syndromes: ["Mycology", "Pulmonary Infection", "Mycobacterial"],
+      concepts: [
+        "Chronic cavitary pulmonary aspergillosis",
+        "Aspergillus-specific IgG",
+        "Aspergilloma",
+        "Air-crescent sign",
+        "Itraconazole",
+        "Voriconazole",
+        "Bronchial artery embolization",
+        "Old tuberculous cavity",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {
