@@ -25,6 +25,7 @@ import { ProbidBuildPanel } from "@/components/ProbidBuildPanel";
 import { ProbidPatientFactors } from "@/components/ProbidPatientFactors";
 import { ProbidMathDetails } from "@/components/ProbidMathDetails";
 import { ProbidFloatingBar } from "@/components/ProbidFloatingBar";
+import { ProbidProbabilityTrace } from "@/components/ProbidProbabilityTrace";
 import Link from "next/link";
 
 type Props = {
@@ -599,6 +600,19 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               treatThresholdLabel={thresholdCopy.treatThresholdShortLabel}
             />
           </div>
+
+          <ProbidProbabilityTrace
+            pretestP={pretestP}
+            steps={steps}
+            currentP={postP}
+            observeThresholdP={observeThresholdP}
+            treatThresholdP={treatmentThresholdP}
+            observeZoneLabel={thresholdCopy.observeZoneLabel}
+            middleZoneLabel={thresholdCopy.testZoneLabel}
+            treatZoneLabel={thresholdCopy.treatZoneLabel}
+            observeThresholdLabel={thresholdCopy.observeThresholdLabel}
+            treatThresholdLabel={thresholdCopy.treatThresholdLabel}
+          />
 
           {/* Syndrome-specific risk modifiers */}
           {activeModule.id === "vap" && <VapRiskModifiers

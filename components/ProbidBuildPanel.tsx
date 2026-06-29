@@ -5,7 +5,6 @@ import type { FindingState, LRItem, SyndromeLRModule } from "@/lib/lrTypes";
 import { formatPct } from "@/lib/lrMath";
 import { FAMILY_ORDER, familyFor, matchesQuery, normalize } from "@/lib/probidCatalog";
 import { SYNDROME_GROUPS } from "@/lib/probidSyndromesCatalog";
-import { PINNED_BY_SYNDROME } from "@/lib/probidCatalog";
 import { LRItemToggle } from "@/components/LRItemToggle";
 
 type Props = {
@@ -31,6 +30,10 @@ export function ProbidBuildPanel({
   onReset,
   isAutoManagedLocked,
 }: Props) {
+  const noteFlowFamilies = useMemo(
+    () => FAMILY_ORDER.filter((fam) => !["Location", "Other"].includes(fam)),
+    []
+  );
   const activeGroupId = useMemo(() => {
     for (const g of SYNDROME_GROUPS) {
       if (g.syndromes.some((s) => s.moduleId === activeModule.id)) return g.id;
@@ -39,14 +42,16 @@ export function ProbidBuildPanel({
   }, [activeModule.id]);
 
   const [expandedGroup, setExpandedGroup] = useState<string>(activeGroupId);
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>("Host");
   const [searchQuery, setSearchQuery] = useState("");
 
+  React.useEffect(() => {
+    setExpandedGroup(activeGroupId);
+    setExpandedCategory("Host");
+    setSearchQuery("");
+  }, [activeGroupId, activeModule.id]);
+
   const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
-  const pinnedItems = useMemo(
-    () => (PINNED_BY_SYNDROME[activeModule.id] ?? []).map((id) => activeModule.items.find((it) => it.id === id)).filter((it): it is LRItem => it != null),
-    [activeModule.id, activeModule.items],
-  );
 
   const itemsByFamily = useMemo(() => {
     const map: Record<string, LRItem[]> = {};
@@ -54,8 +59,20 @@ export function ProbidBuildPanel({
       if (fam === "Location") continue;
       map[fam] = activeModule.items.filter((it) => familyFor(it) === fam);
     }
-    return map;
+      return map;
   }, [activeModule.items]);
+
+  const categorySummaries = useMemo(
+    () =>
+      noteFlowFamilies.flatMap((family) => {
+        const items = itemsByFamily[family] ?? [];
+        if (items.length === 0) return [];
+        const selected = items.filter((it) => (states[it.id] ?? "unknown") !== "unknown").length;
+        const present = items.filter((it) => (states[it.id] ?? "unknown") === "present").length;
+        return [{ family, items, selected, present }];
+      }),
+    [itemsByFamily, noteFlowFamilies, states]
+  );
 
   const filteredItemsByFamily = useMemo(() => {
     if (!searchQuery.trim()) return null;
@@ -185,35 +202,50 @@ export function ProbidBuildPanel({
         )}
       </div>
 
-      {pinnedItems.length > 0 && (
-        <div className="mt-4">
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">Start here</div>
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {pinnedItems.map((it) => {
-              const st = states[it.id] ?? "unknown";
+      {categorySummaries.length > 0 && (
+        <div className="mt-4 rounded-[1.2rem] border border-gray-200 bg-[linear-gradient(135deg,#fbfdff_0%,#f7f9fc_55%,#eef3f8_100%)] p-3">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Document in order</div>
+              <div className="mt-1 text-sm text-gray-600">Work through the same sequence you would use in an MSK or ID note.</div>
+            </div>
+            <div className="rounded-full border border-white/80 bg-white/80 px-2.5 py-1 text-[11px] font-medium text-gray-600 shadow-sm">
+              {categorySummaries.reduce((acc, item) => acc + item.selected, 0)} marked
+            </div>
+          </div>
+
+          <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
+            {categorySummaries.map((entry, index) => {
+              const isActive = expandedCategory === entry.family;
               return (
                 <button
-                  key={it.id}
+                  key={entry.family}
                   type="button"
-                  onClick={() => {
-                    const next: FindingState = st === "unknown" ? "present" : st === "present" ? "absent" : "unknown";
-                    onSetItemState(it, next);
-                  }}
-                  className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
-                    st === "present"
-                      ? "border-emerald-300 bg-emerald-100 text-emerald-900"
-                      : st === "absent"
-                        ? "border-slate-300 bg-slate-100 text-slate-700"
-                        : "border-gray-200 text-gray-600 hover:bg-gray-50"
+                  onClick={() => setExpandedCategory(isActive ? null : entry.family)}
+                  className={`group rounded-2xl border px-3 py-3 text-left transition-all ${
+                    isActive
+                      ? "border-gray-900 bg-gray-900 text-white shadow-sm"
+                      : entry.selected > 0
+                        ? "border-emerald-200 bg-white text-gray-900 shadow-sm hover:border-emerald-300"
+                        : "border-gray-200 bg-white/85 text-gray-900 hover:border-gray-300 hover:bg-white"
                   }`}
                 >
-                  {st === "present" ? "+ " : st === "absent" ? "− " : ""}
-                  {it.label}
-                  {st === "unknown" && (
-                    <span className="ml-1 text-[10px] text-gray-400">
-                      LR+{it.lrPos ?? "—"} LR−{it.lrNeg ?? "—"}
-                    </span>
-                  )}
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${isActive ? "text-white/70" : "text-gray-400"}`}>
+                        Step {index + 1}
+                      </div>
+                      <div className="mt-1 text-sm font-semibold">{entry.family}</div>
+                    </div>
+                    <div className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${isActive ? "bg-white/15 text-white" : entry.selected > 0 ? "bg-emerald-100 text-emerald-800" : "bg-gray-100 text-gray-500"}`}>
+                      {entry.selected}/{entry.items.length}
+                    </div>
+                  </div>
+                  <div className={`mt-2 text-xs leading-5 ${isActive ? "text-white/75" : "text-gray-600"}`}>
+                    {entry.selected > 0
+                      ? `${entry.present} present, ${entry.selected - entry.present} absent selected`
+                      : `No ${entry.family.toLowerCase()} items selected yet.`}
+                  </div>
                 </button>
               );
             })}

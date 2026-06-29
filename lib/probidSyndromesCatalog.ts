@@ -45,11 +45,17 @@ export const SYNDROME_GROUPS: SyndromeGroup[] = [
     ],
   },
   {
+    id: "msk",
+    label: "MSK",
+    syndromes: [
+      { moduleId: "pji", label: "PJI", shortDescription: "Periprosthetic joint infection" },
+    ],
+  },
+  {
     id: "other",
     label: "Other",
     syndromes: [
       { moduleId: "active_tb", label: "Active TB", shortDescription: "Active tuberculosis" },
-      { moduleId: "pji", label: "PJI", shortDescription: "Periprosthetic joint infection" },
     ],
   },
 ];
