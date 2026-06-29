@@ -17,7 +17,45 @@ type Props = {
   onOpenCatalog: () => void;
   onReset: () => void;
   isAutoManagedLocked: (itemId: string) => boolean;
+  patientFactorsStep?: {
+    selectedCount: number;
+    content: React.ReactNode;
+  } | null;
 };
+
+const PATIENT_FACTORS_STEP_ID = "__patient_factors__";
+
+type GuidedStep = {
+  id: string;
+  label: string;
+  items: LRItem[];
+  selectedCount: number;
+  presentCount: number;
+  kind: "findings" | "patient_factors";
+};
+
+function stepDescription(stepId: string) {
+  switch (stepId) {
+    case "Host":
+      return "Start with baseline context, host susceptibility, and revision-risk enrichers.";
+    case "Symptoms":
+      return "Document the symptom story before moving into objective data.";
+    case "Vitals":
+      return "Capture fever or other physiologic signals that shift suspicion.";
+    case "Exam":
+      return "Record wound findings, sinus tract, and local joint inflammation.";
+    case "Labs":
+      return "Choose one serum anchor and the aspiration-zone findings that best match the evidence.";
+    case "Micro":
+      return "Add culture or molecular confirmation when it is truly part of the case.";
+    case "Imaging":
+      return "Supportive imaging belongs late and should not outweigh stronger blocks.";
+    case PATIENT_FACTORS_STEP_ID:
+      return "Finish by showing why frailty, revision plans, and treatment burden change the decision thresholds.";
+    default:
+      return "Document the case in the same order you would write a clinical note.";
+  }
+}
 
 export function ProbidBuildPanel({
   activeModule,
@@ -29,6 +67,7 @@ export function ProbidBuildPanel({
   onOpenCatalog,
   onReset,
   isAutoManagedLocked,
+  patientFactorsStep,
 }: Props) {
   const noteFlowFamilies = useMemo(
     () => FAMILY_ORDER.filter((fam) => !["Location", "Other"].includes(fam)),
@@ -42,14 +81,10 @@ export function ProbidBuildPanel({
   }, [activeModule.id]);
 
   const [expandedGroup, setExpandedGroup] = useState<string>(activeGroupId);
-  const [expandedCategory, setExpandedCategory] = useState<string | null>("Host");
+  const [expandedStepId, setExpandedStepId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
-  React.useEffect(() => {
-    setExpandedGroup(activeGroupId);
-    setExpandedCategory("Host");
-    setSearchQuery("");
-  }, [activeGroupId, activeModule.id]);
+  const stepRefs = React.useRef<Record<string, HTMLDivElement | null>>({});
+  const hasMountedRef = React.useRef(false);
 
   const preset = activeModule.pretestPresets.find((p) => p.id === presetId) ?? activeModule.pretestPresets[0];
 
@@ -73,6 +108,50 @@ export function ProbidBuildPanel({
       }),
     [itemsByFamily, noteFlowFamilies, states]
   );
+
+  const guidedSteps = useMemo(() => {
+    const baseSteps: GuidedStep[] = categorySummaries.map((entry) => ({
+      id: entry.family,
+      label: entry.family,
+      items: entry.items,
+      selectedCount: entry.selected,
+      presentCount: entry.present,
+      kind: "findings" as const,
+    }));
+
+    if (patientFactorsStep) {
+      baseSteps.push({
+        id: PATIENT_FACTORS_STEP_ID,
+        label: "Patient factors",
+        items: [],
+        selectedCount: patientFactorsStep.selectedCount,
+        presentCount: patientFactorsStep.selectedCount,
+        kind: "patient_factors" as const,
+      });
+    }
+
+    return baseSteps;
+  }, [categorySummaries, patientFactorsStep]);
+
+  const defaultExpandedStepId = useMemo(
+    () => guidedSteps[0]?.id ?? null,
+    [guidedSteps]
+  );
+
+  React.useEffect(() => {
+    setExpandedGroup(activeGroupId);
+    setExpandedStepId(defaultExpandedStepId);
+    setSearchQuery("");
+  }, [activeGroupId, activeModule.id, defaultExpandedStepId]);
+
+  React.useEffect(() => {
+    if (!expandedStepId) return;
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+    stepRefs.current[expandedStepId]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [expandedStepId]);
 
   const filteredItemsByFamily = useMemo(() => {
     if (!searchQuery.trim()) return null;
@@ -202,51 +281,127 @@ export function ProbidBuildPanel({
         )}
       </div>
 
-      {categorySummaries.length > 0 && (
+      {guidedSteps.length > 0 && (
         <div className="mt-4 rounded-[1.2rem] border border-gray-200 bg-[linear-gradient(135deg,#fbfdff_0%,#f7f9fc_55%,#eef3f8_100%)] p-3">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Document in order</div>
-              <div className="mt-1 text-sm text-gray-600">Work through the same sequence you would use in an MSK or ID note.</div>
+              <div className="mt-1 text-sm text-gray-600">One open step at a time, just like building the assessment in a clinical note.</div>
             </div>
             <div className="rounded-full border border-white/80 bg-white/80 px-2.5 py-1 text-[11px] font-medium text-gray-600 shadow-sm">
-              {categorySummaries.reduce((acc, item) => acc + item.selected, 0)} marked
+              {guidedSteps.reduce((acc, step) => acc + step.selectedCount, 0)} marked
             </div>
           </div>
 
-          <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
-            {categorySummaries.map((entry, index) => {
-              const isActive = expandedCategory === entry.family;
+          <div className="mt-3 space-y-2">
+            {guidedSteps.map((step, index) => {
+              const isActive = expandedStepId === step.id;
+              const previousStep = index > 0 ? guidedSteps[index - 1] : null;
+              const nextStep = index < guidedSteps.length - 1 ? guidedSteps[index + 1] : null;
+
               return (
-                <button
-                  key={entry.family}
-                  type="button"
-                  onClick={() => setExpandedCategory(isActive ? null : entry.family)}
-                  className={`group rounded-2xl border px-3 py-3 text-left transition-all ${
+                <div
+                  key={step.id}
+                  ref={(node) => {
+                    stepRefs.current[step.id] = node;
+                  }}
+                  className={`overflow-hidden rounded-2xl border transition-all ${
                     isActive
-                      ? "border-gray-900 bg-gray-900 text-white shadow-sm"
-                      : entry.selected > 0
-                        ? "border-emerald-200 bg-white text-gray-900 shadow-sm hover:border-emerald-300"
-                        : "border-gray-200 bg-white/85 text-gray-900 hover:border-gray-300 hover:bg-white"
+                      ? "border-gray-900 bg-white shadow-sm"
+                      : step.selectedCount > 0
+                        ? "border-emerald-200 bg-white/90"
+                        : "border-gray-200 bg-white/75"
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
+                  <button
+                    type="button"
+                    onClick={() => setExpandedStepId(step.id)}
+                    className={`flex w-full items-start justify-between gap-3 px-4 py-3 text-left transition-colors ${
+                      isActive ? "bg-gray-900 text-white" : "hover:bg-white"
+                    }`}
+                  >
+                    <div className="min-w-0">
                       <div className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${isActive ? "text-white/70" : "text-gray-400"}`}>
                         Step {index + 1}
                       </div>
-                      <div className="mt-1 text-sm font-semibold">{entry.family}</div>
+                      <div className="mt-1 flex items-center gap-2">
+                        <span className="text-sm font-semibold">{step.label}</span>
+                        {isActive && (
+                          <span className="rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+                            Open
+                          </span>
+                        )}
+                      </div>
+                      <div className={`mt-1 max-w-2xl text-xs leading-5 ${isActive ? "text-white/75" : "text-gray-600"}`}>
+                        {stepDescription(step.id)}
+                      </div>
                     </div>
-                    <div className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${isActive ? "bg-white/15 text-white" : entry.selected > 0 ? "bg-emerald-100 text-emerald-800" : "bg-gray-100 text-gray-500"}`}>
-                      {entry.selected}/{entry.items.length}
+                    <div className="flex shrink-0 items-center gap-2">
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${isActive ? "bg-white/15 text-white" : step.selectedCount > 0 ? "bg-emerald-100 text-emerald-800" : "bg-gray-100 text-gray-500"}`}>
+                        {step.kind === "findings" ? `${step.selectedCount}/${step.items.length}` : `${step.selectedCount} selected`}
+                      </span>
+                      <span className={`text-xs transition-transform ${isActive ? "rotate-90 text-white/80" : "text-gray-400"}`} aria-hidden="true">
+                        ▸
+                      </span>
                     </div>
-                  </div>
-                  <div className={`mt-2 text-xs leading-5 ${isActive ? "text-white/75" : "text-gray-600"}`}>
-                    {entry.selected > 0
-                      ? `${entry.present} present, ${entry.selected - entry.present} absent selected`
-                      : `No ${entry.family.toLowerCase()} items selected yet.`}
-                  </div>
-                </button>
+                  </button>
+
+                  {isActive && (
+                    <div className="border-t bg-white px-4 py-4">
+                      {step.kind === "findings" ? (
+                        <div className="space-y-1">
+                          {step.items.map((it) => {
+                            const st = states[it.id] ?? "unknown";
+                            const locked = isAutoManagedLocked(it.id);
+                            return (
+                              <LRItemToggle
+                                key={it.id}
+                                item={it}
+                                state={st}
+                                disabled={locked}
+                                onChange={(next) => onSetItemState(it, next)}
+                              />
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div className="space-y-3">{patientFactorsStep?.content}</div>
+                      )}
+
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t pt-3">
+                        <div className="text-[11px] leading-5 text-gray-500">
+                          {step.kind === "findings"
+                            ? step.selectedCount > 0
+                              ? `${step.presentCount} present, ${step.selectedCount - step.presentCount} absent selected.`
+                              : "Nothing selected yet in this step."
+                            : step.selectedCount > 0
+                              ? `${step.selectedCount} patient factors selected.`
+                              : "No patient factors selected yet."}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {previousStep && (
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStepId(previousStep.id)}
+                              className="rounded-lg border px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50"
+                            >
+                              Back: {previousStep.label}
+                            </button>
+                          )}
+                          {nextStep && (
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStepId(nextStep.id)}
+                              className="rounded-lg border border-gray-900 bg-gray-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-gray-800"
+                            >
+                              Continue: {nextStep.label}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
@@ -303,40 +458,21 @@ export function ProbidBuildPanel({
         )}
       </div>
 
-      <div className="mt-4 space-y-1">
-        {filteredItemsByFamily ? (
-          Object.entries(filteredItemsByFamily).map(([fam, items]) => (
-            <CategorySection
+      {filteredItemsByFamily && (
+        <div className="mt-4 space-y-1">
+          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Search results</div>
+          {Object.entries(filteredItemsByFamily).map(([fam, items]) => (
+            <SearchSection
               key={fam}
               family={fam}
               items={items}
               states={states}
               isAutoManagedLocked={isAutoManagedLocked}
               onSetItemState={onSetItemState}
-              isExpanded={expandedCategory === fam}
-              onToggle={() => setExpandedCategory(expandedCategory === fam ? null : fam)}
-              forceOpen
             />
-          ))
-        ) : (
-          FAMILY_ORDER.filter((f) => f !== "Location").map((fam) => {
-            const items = itemsByFamily[fam] ?? [];
-            if (items.length === 0) return null;
-            return (
-              <CategorySection
-                key={fam}
-                family={fam}
-                items={items}
-                states={states}
-                isAutoManagedLocked={isAutoManagedLocked}
-                onSetItemState={onSetItemState}
-                isExpanded={expandedCategory === fam}
-                onToggle={() => setExpandedCategory(expandedCategory === fam ? null : fam)}
-              />
-            );
-          })
-        )}
-      </div>
+          ))}
+        </div>
+      )}
 
       <button
         type="button"
@@ -349,42 +485,25 @@ export function ProbidBuildPanel({
   );
 }
 
-function CategorySection({
+function SearchSection({
   family,
   items,
   states,
   isAutoManagedLocked,
   onSetItemState,
-  isExpanded,
-  onToggle,
-  forceOpen,
 }: {
   family: string;
   items: LRItem[];
   states: Record<string, FindingState>;
   isAutoManagedLocked: (id: string) => boolean;
   onSetItemState: (item: LRItem, state: FindingState) => void;
-  isExpanded: boolean;
-  onToggle: () => void;
-  forceOpen?: boolean;
 }) {
-  const open = forceOpen || isExpanded;
   const selectedInCategory = items.filter((it) => (states[it.id] ?? "unknown") !== "unknown").length;
 
   return (
     <div className="rounded-lg border">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left transition-colors hover:bg-gray-50"
-      >
+      <div className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left bg-gray-50/80">
         <div className="flex items-center gap-2">
-          <span
-            className={`text-xs transition-transform ${open ? "rotate-90" : ""}`}
-            aria-hidden="true"
-          >
-            ▸
-          </span>
           <span className="text-sm font-medium text-gray-900">{family}</span>
           <span className="text-xs text-gray-500">({items.length})</span>
         </div>
@@ -393,25 +512,23 @@ function CategorySection({
             {selectedInCategory}
           </span>
         )}
-      </button>
+      </div>
 
-      {open && (
-        <div className="border-t px-3 py-2">
-          {items.map((it) => {
-            const st = states[it.id] ?? "unknown";
-            const locked = isAutoManagedLocked(it.id);
-            return (
-              <LRItemToggle
-                key={it.id}
-                item={it}
-                state={st}
-                disabled={locked}
-                onChange={(next) => onSetItemState(it, next)}
-              />
-            );
-          })}
-        </div>
-      )}
+      <div className="border-t px-3 py-2">
+        {items.map((it) => {
+          const st = states[it.id] ?? "unknown";
+          const locked = isAutoManagedLocked(it.id);
+          return (
+            <LRItemToggle
+              key={it.id}
+              item={it}
+              state={st}
+              disabled={locked}
+              onChange={(next) => onSetItemState(it, next)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

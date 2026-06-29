@@ -16,6 +16,7 @@ type Props = {
   currentProbability: number;
   stopThresholdP: number | null;
   manageThresholdP: number | null;
+  embedded?: boolean;
 };
 
 export function ProbidPatientFactors({
@@ -29,6 +30,7 @@ export function ProbidPatientFactors({
   currentProbability,
   stopThresholdP,
   manageThresholdP,
+  embedded = false,
 }: Props) {
   const activeModel = adjustedActionThresholdModel ?? adjustedUtilityModel;
   if (!activeModel) return null;
@@ -37,28 +39,16 @@ export function ProbidPatientFactors({
   const selectedCount = activeModel.selectedModifiers.length;
   const isActionModel = adjustedActionThresholdModel != null;
 
-  return (
-    <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
-        <span className="text-sm font-semibold text-gray-900">Patient factors</span>
-        <div className="flex items-center gap-2">
-          <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700">
-            {selectedCount} selected
-          </span>
-          <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">
-            ▾
-          </span>
-        </div>
-      </summary>
-
-      <p className="mt-3 text-xs leading-5 text-gray-600">
+  const body = (
+    <>
+      <p className="text-xs leading-5 text-gray-600">
         {isActionModel
           ? "Toggle patient-specific factors that change when chronic-PJI work-up can stop and when the case should be managed as likely infection."
           : "Toggle factors that make missing the diagnosis more harmful or treatment less desirable."}
       </p>
 
       {adjustedActionThresholdModel && stopThresholdP != null && manageThresholdP != null && (
-        <div className="mt-3 rounded-lg border bg-white p-3 text-xs text-gray-700">
+        <div className="rounded-lg border bg-white p-3 text-xs text-gray-700">
           <div className="font-semibold text-gray-900">Current chronic-PJI action zone</div>
           <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
             <div>
@@ -81,7 +71,7 @@ export function ProbidPatientFactors({
       )}
 
       {adjustedUtilityModel && expectedUtilityTreat != null && expectedUtilityNoTreat != null && expectedUtilityNetBenefit != null && (
-        <div className="mt-3 rounded-lg border bg-white p-3 text-xs text-gray-700">
+        <div className="rounded-lg border bg-white p-3 text-xs text-gray-700">
           <div className="font-semibold text-gray-900">Current expected utility</div>
           <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
             <div>
@@ -100,7 +90,7 @@ export function ProbidPatientFactors({
         </div>
       )}
 
-      <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {modifiers.map((modifier) => (
           <label
             key={modifier.id}
@@ -121,6 +111,28 @@ export function ProbidPatientFactors({
           </label>
         ))}
       </div>
+    </>
+  );
+
+  if (embedded) {
+    return <div className="space-y-3">{body}</div>;
+  }
+
+  return (
+    <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+        <span className="text-sm font-semibold text-gray-900">Patient factors</span>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700">
+            {selectedCount} selected
+          </span>
+          <span className="text-xs text-gray-500 transition-transform duration-200 group-open:rotate-180">
+            ▾
+          </span>
+        </div>
+      </summary>
+
+      <div className="mt-3 space-y-3">{body}</div>
     </details>
   );
 }

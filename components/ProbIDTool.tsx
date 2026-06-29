@@ -412,6 +412,37 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
     }
     return "These tests could change the decision. Click to add them.";
   }, [activeModule.id]);
+  const patientFactorsStep = useMemo(() => {
+    if (!adjustedActionThresholdModel && !adjustedUtilityModel) return null;
+
+    return {
+      selectedCount: activeDecisionModifierIds.length,
+      content: (
+        <ProbidPatientFactors
+          embedded
+          adjustedUtilityModel={adjustedUtilityModel}
+          adjustedActionThresholdModel={adjustedActionThresholdModel}
+          utilityModifierState={utilityModifierState}
+          onToggleModifier={(id) => setUtilityModifierState((p) => ({ ...p, [id]: !p[id] }))}
+          expectedUtilityTreat={expectedUtilityResult?.treat ?? null}
+          expectedUtilityNoTreat={expectedUtilityResult?.noTreat ?? null}
+          expectedUtilityNetBenefit={expectedUtilityResult?.netBenefit ?? null}
+          currentProbability={postP}
+          stopThresholdP={adjustedActionThresholdModel ? observeThresholdP : null}
+          manageThresholdP={adjustedActionThresholdModel ? treatmentThresholdP : null}
+        />
+      ),
+    };
+  }, [
+    activeDecisionModifierIds.length,
+    adjustedActionThresholdModel,
+    adjustedUtilityModel,
+    expectedUtilityResult,
+    observeThresholdP,
+    postP,
+    treatmentThresholdP,
+    utilityModifierState,
+  ]);
 
   const steps = useMemo(() => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }), [pretestP, clickOrder, itemsById, states]);
 
@@ -568,6 +599,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           onOpenCatalog={() => setCatalogOpen(true)}
           onReset={resetAll}
           isAutoManagedLocked={isAutoManagedLocked}
+          patientFactorsStep={patientFactorsStep}
         />
 
         {/* RIGHT: Result panel (desktop only on lg+, always on mobile below verdict) */}
@@ -678,20 +710,6 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               />
             </div>
           </div>
-
-          {/* Patient factors */}
-          <ProbidPatientFactors
-            adjustedUtilityModel={adjustedUtilityModel}
-            adjustedActionThresholdModel={adjustedActionThresholdModel}
-            utilityModifierState={utilityModifierState}
-            onToggleModifier={(id) => setUtilityModifierState((p) => ({ ...p, [id]: !p[id] }))}
-            expectedUtilityTreat={expectedUtilityResult?.treat ?? null}
-            expectedUtilityNoTreat={expectedUtilityResult?.noTreat ?? null}
-            expectedUtilityNetBenefit={expectedUtilityResult?.netBenefit ?? null}
-            currentProbability={postP}
-            stopThresholdP={adjustedActionThresholdModel ? observeThresholdP : null}
-            manageThresholdP={adjustedActionThresholdModel ? treatmentThresholdP : null}
-          />
 
           {/* Math details */}
           <ProbidMathDetails
