@@ -8,6 +8,8 @@ type Props = {
   treatmentThresholdP: number;
   recommendation: "treat" | "test" | "observe";
   recommendationHeadline: string;
+  recommendationBadgeLabel?: string;
+  treatmentThresholdLabel?: string;
   onScrollToTop: () => void;
 };
 
@@ -28,6 +30,8 @@ export function ProbidFloatingBar({
   treatmentThresholdP,
   recommendation,
   recommendationHeadline,
+  recommendationBadgeLabel,
+  treatmentThresholdLabel = "Treat at",
   onScrollToTop,
 }: Props) {
   return (
@@ -48,11 +52,11 @@ export function ProbidFloatingBar({
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <span
-              className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider ${BADGE[recommendation]}`}
-            >
-              {LABEL[recommendation]}
-            </span>
+              <span
+                className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider ${BADGE[recommendation]}`}
+              >
+                {recommendationBadgeLabel ?? LABEL[recommendation]}
+              </span>
             <span className="text-gray-400" aria-hidden="true">
               ▲
             </span>
@@ -60,7 +64,7 @@ export function ProbidFloatingBar({
         </div>
         <div className="mt-2 flex items-center gap-3 text-xs text-gray-500">
           <span>
-            Treat at <span className="font-semibold text-gray-700">{formatPct(treatmentThresholdP)}</span>
+            {treatmentThresholdLabel} <span className="font-semibold text-gray-700">{formatPct(treatmentThresholdP)}</span>
           </span>
           <span>·</span>
           <span className="text-gray-400">Tap to scroll up</span>

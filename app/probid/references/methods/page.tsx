@@ -207,7 +207,7 @@ export default function ProbIDMethodsPage() {
           <p>
             ProbID now separates two questions: <span className="font-semibold text-[var(--foreground)]">how likely is the disease?</span> and{" "}
             <span className="font-semibold text-[var(--foreground)]">at what probability does treatment become worth it?</span>
-            The CAP module now uses an expected-utility treatment threshold; other modules still use a transparent heuristic fallback while they are being upgraded.
+            CAP uses an expected-utility treatment threshold, chronic hip/knee PJI uses a two-threshold action model, and other modules still use a transparent heuristic fallback while they are being upgraded.
           </p>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -250,20 +250,40 @@ export default function ProbIDMethodsPage() {
           </div>
 
           <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-            <div className="text-sm font-semibold text-[var(--foreground)]">C) Recommendation logic in the app</div>
+            <div className="text-sm font-semibold text-[var(--foreground)]">C) Chronic PJI action thresholds</div>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              The CAP module currently uses a binary decision threshold:
+              Chronic hip/knee PJI uses a lower <span className="font-semibold text-[var(--foreground)]">stop-work-up threshold</span> and an upper <span className="font-semibold text-[var(--foreground)]">manage-as-likely-PJI threshold</span> based on Pauker-Kassirer logic.
+            </p>
+            <div className="mt-3 space-y-3">
+              <Formula>T(stop) = H(test) / [H(test) + H(miss)]</Formula>
+              <Formula>T(manage) = H(overtreat) / [H(overtreat) + H(miss)]</Formula>
+            </div>
+            <p className="mt-3 text-sm text-[var(--muted)]">
+              The default chronic-PJI base case uses three explicit harms: additional invasive work-up, missed chronic PJI, and unnecessary PJI-directed management. Patient factors then move those harms multiplicatively, which shifts both thresholds in visible ways.
+            </p>
+            <p className="mt-3 text-sm text-[var(--muted)]">
+              The chronic-PJI evidence layer also uses a <span className="font-semibold text-[var(--foreground)]">block-representative approach</span> to reduce double counting: one serum inflammatory anchor, one aspiration-zone interpretation, and one reflex synovial adjunct rather than multiplying several correlated inflammatory tests at full weight.
+            </p>
+          </div>
+
+          <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+            <div className="text-sm font-semibold text-[var(--foreground)]">D) Recommendation logic in the app</div>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              Different syndromes can now use different decision layers:
             </p>
             <div className="mt-3 space-y-2">
               <Formula>If post-test p(CAP) ≥ T, empiric treatment is justified.</Formula>
+              <Formula>If post-test p(PJI) ≤ T(stop), stop further invasive chronic-PJI work-up.</Formula>
+              <Formula>If post-test p(PJI) ≥ T(manage), manage as likely chronic PJI.</Formula>
             </div>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
               <li>If post-test p(CAP) is below threshold, the app recommends reassessment or further testing rather than immediate empiric antibiotics.</li>
               <li>If post-test p(CAP) is above threshold, the app recommends empiric CAP treatment.</li>
+              <li>If post-test p(PJI) falls between the two PJI thresholds, the app recommends diagnostic clarification rather than stopping or fully committing.</li>
               <li>Modules without a true utility model still use the older heuristic observe/test/treat fallback.</li>
             </ul>
             <p className="mt-3 text-xs text-[var(--muted)]">
-              Utility-backed treatment models live in <span className="font-mono">lib/probidExpectedUtility.ts</span>. Heuristic fallback thresholds remain configurable in <span className="font-mono">lib/probidDecision.ts</span>.
+              Utility-backed treatment models live in <span className="font-mono">lib/probidExpectedUtility.ts</span>. PJI action-threshold models and heuristic fallbacks live in <span className="font-mono">lib/probidDecision.ts</span>.
             </p>
           </div>
         </Callout>
@@ -281,7 +301,7 @@ export default function ProbIDMethodsPage() {
                 <li>Selected syndrome and setting</li>
                 <li>Present and absent findings</li>
                 <li>Stepwise selection order</li>
-                <li>CAP utility modifiers</li>
+                <li>CAP and PJI decision modifiers</li>
                 <li>VAP and endocarditis pretest modifier selections</li>
                 <li>Score-panel inputs such as VIRSTA, DENOVA, and HANDOC</li>
               </ul>

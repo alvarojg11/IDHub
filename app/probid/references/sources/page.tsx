@@ -66,6 +66,12 @@ export default function ProbIDAllReferencesPage() {
       doi: "https://doi.org/10.1056/NEJM197507312930505",
     },
     {
+      section: "General Methods",
+      citation:
+        "Pauker SG, Kassirer JP. The threshold approach to clinical decision making. N Engl J Med. 1980;302(20):1109-1117.",
+      doi: "https://doi.org/10.1056/NEJM198005153022003",
+    },
+    {
       section: "Endocarditis",
       citation:
         "Delgado V, Ajmone Marsan N, de Waha S, et al. 2023 ESC Guidelines for the management of endocarditis. Eur Heart J. 2023;44(39):3948-4042.",
@@ -436,6 +442,66 @@ export default function ProbIDAllReferencesPage() {
       citation:
         "Cortes-Penfield NW, Kulkarni PA, Theel ES. Prosthetic Joint Infection: Diagnostic Challenges and New Developments. Clin Infect Dis. 2023;76(1):e181-e188.",
       doi: "https://doi.org/10.1093/cid/ciac992",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Sigmund IK, Dietz MJ, Sabater-Martos M, et al. Serum inflammatory markers for the screening and diagnosis of periprosthetic joint infection: a systematic review and meta-analysis. J Bone Jt Infect. 2025.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/41230391/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Sabater-Martos M, Clauss M, Ribau A, et al. Differential synovial fluid white blood cell count for the diagnosis of chronic peri-prosthetic joint infection: a systematic review and meta-analysis. J Bone Jt Infect. 2025;10:291-312.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/40385309/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Jacobs AME, Benard M, Meis JF, van Hellemondt G, Goosen JHM. The unsuspected prosthetic joint infection: incidence and consequences of positive intra-operative cultures in presumed aseptic knee and hip revisions. Bone Joint J. 2017;99-B(11):1482-1489.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/29092987/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Renard G, Laffosse JM, Tibbo M, et al. Periprosthetic joint infection in aseptic total hip arthroplasty revision. Int Orthop. 2020;44(5):735-740.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/31240360/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Neufeld ME, Lanting BA, Shehata M, et al. Prevalence and Outcomes of Unexpected Positive Intraoperative Cultures in Presumed Aseptic Revision Hip Arthroplasty. J Bone Joint Surg Am. 2021;103(14):1312-1319.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/33974575/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Neufeld ME, Lanting BA, Shehata M, et al. The Prevalence and Outcomes of Unexpected Positive Intraoperative Cultures in Presumed Aseptic Revision Knee Arthroplasty. J Arthroplasty. 2022;37(10):2043-2049.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/35598759/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Kloos J, Vandenneucker H, Berger P. Prevalence of unexpected intraoperative cultures in revision total knee arthroplasty and risk of periprosthetic joint infection. Arch Orthop Trauma Surg. 2024.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/39402142/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Parr J, Thai-Paquette V, Paranjape P, et al. Probability Score for the Diagnosis of Periprosthetic Joint Infection: Development and Validation of a Practical Multi-analyte Machine Learning Model. Cureus. 2025;17(5):e84636.",
+      doi: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12074866/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Sigmund IK, Luger M, Windhager R, McNally MA. Diagnosing periprosthetic joint infections: a comparison of infection definitions: EBJIS 2021, ICM 2018, and IDSA 2013. Bone Joint Res. 2022;11(9):608-618.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/36047011/",
+    },
+    {
+      section: "PJI",
+      citation:
+        "Chen W, Hu X, Gu C, et al. A machine learning-based model for 'In-time' prediction of periprosthetic joint infection. Digit Health. 2024;10:20552076241253218.",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/38766360/",
     },
     {
       section: "PJI",

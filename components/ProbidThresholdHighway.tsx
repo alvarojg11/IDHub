@@ -9,6 +9,11 @@ type Props = {
   observeThresholdP?: number | null;
   recommendation: "treat" | "test" | "observe";
   compact?: boolean;
+  observeZoneLabel?: string;
+  testZoneLabel?: string;
+  treatZoneLabel?: string;
+  observeThresholdLabel?: string;
+  treatThresholdLabel?: string;
 };
 
 const ZONE_COLORS = {
@@ -29,6 +34,11 @@ export function ProbidThresholdHighway({
   observeThresholdP,
   recommendation,
   compact = false,
+  observeZoneLabel = "Observe",
+  testZoneLabel = "Get more data",
+  treatZoneLabel = "Treat",
+  observeThresholdLabel = "Observe",
+  treatThresholdLabel = "Treat",
 }: Props) {
   const observeP = observeThresholdP ?? treatThresholdP * 0.5;
   const height = compact ? 44 : 60;
@@ -112,7 +122,7 @@ export function ProbidThresholdHighway({
             fontSize="10"
             fontWeight={600}
           >
-            Observe {formatPct(obs)}
+            {observeThresholdLabel} {formatPct(obs)}
           </text>
         )}
 
@@ -124,7 +134,7 @@ export function ProbidThresholdHighway({
           fontSize={compact ? 10 : 11}
           fontWeight={600}
         >
-          Treat {formatPct(treat)}
+          {treatThresholdLabel} {formatPct(treat)}
         </text>
 
         <polygon
@@ -149,25 +159,25 @@ export function ProbidThresholdHighway({
           {compact ? (
             <>
               <text x={padX} y={labelRowH - 2} fill="#0284c7" fontSize="9" fontWeight={600}>
-                OBS
+                {observeZoneLabel.toUpperCase()}
               </text>
               <text x={xPx(obs) + 6} y={labelRowH - 2} fill="#d97706" fontSize="9" fontWeight={600}>
-                TEST MORE
+                {testZoneLabel.toUpperCase()}
               </text>
               <text x={w - padX} y={labelRowH - 2} textAnchor="end" fill="#059669" fontSize="9" fontWeight={600}>
-                TREAT
+                {treatZoneLabel.toUpperCase()}
               </text>
             </>
           ) : (
             <>
               <text x={padX} y={labelRowH - 2} fill="#0284c7" fontSize="10" fontWeight={600}>
-                Observe
+                {observeZoneLabel}
               </text>
               <text x={xPx(obs) + 8} y={labelRowH - 2} fill="#d97706" fontSize="10" fontWeight={600}>
-                Get more data
+                {testZoneLabel}
               </text>
               <text x={w - padX} y={labelRowH - 2} textAnchor="end" fill="#059669" fontSize="10" fontWeight={600}>
-                Treat
+                {treatZoneLabel}
               </text>
             </>
           )}

@@ -16,6 +16,47 @@ export type HarmEstimate = {
   missedDxDrivers: Array<{ label: string; delta: number; evidence?: HarmEvidence }>;
 };
 
+export type ActionThresholdTermKey = "testHarm" | "missHarm" | "overtreatHarm";
+
+export type ActionThresholdTerm = {
+  label: string;
+  value: number;
+  rationale: string;
+  evidence?: HarmEvidence;
+};
+
+export type ActionThresholdModifier = {
+  id: string;
+  label: string;
+  description: string;
+  multipliers: Partial<Record<ActionThresholdTermKey, number>>;
+  evidence?: HarmEvidence;
+};
+
+export type ActionThresholdModel = {
+  syndromeId: string;
+  syndromeLabel: string;
+  summary: string;
+  thresholdsLabel: {
+    low: string;
+    high: string;
+  };
+  terms: Record<ActionThresholdTermKey, ActionThresholdTerm>;
+  modifiers: ActionThresholdModifier[];
+};
+
+export type AdjustedActionThresholdTerm = ActionThresholdTerm & {
+  baseValue: number;
+  adjustedValue: number;
+  appliedMultiplier: number;
+};
+
+export type AdjustedActionThresholdModel = {
+  model: ActionThresholdModel;
+  terms: Record<ActionThresholdTermKey, AdjustedActionThresholdTerm>;
+  selectedModifiers: ActionThresholdModifier[];
+};
+
 export const BASE_HARM_BY_MODULE: Record<
   string,
   { missedDx: number; unnecessaryTx: number; evidence?: HarmEvidence }
@@ -71,6 +112,166 @@ export const BASE_HARM_BY_MODULE: Record<
     evidence: { short: "Pappas et al. IDSA Candidiasis", url: "https://doi.org/10.1093/cid/civ933" },
   },
 };
+
+const PJI_ACTION_THRESHOLD_MODEL: ActionThresholdModel = {
+  syndromeId: "pji",
+  syndromeLabel: "Chronic hip/knee PJI",
+  summary:
+    "Two-threshold chronic-PJI action model using Pauker-Kassirer logic. The lower threshold asks when more invasive PJI work-up stops being worthwhile; the upper threshold asks when the case should be managed as likely PJI.",
+  thresholdsLabel: {
+    low: "Stop invasive work-up",
+    high: "Manage as likely PJI",
+  },
+  terms: {
+    testHarm: {
+      label: "Additional invasive work-up harm",
+      value: 0.05,
+      rationale:
+        "Reference burden for one more aspiration-focused or invasive diagnostic step in the chronic preoperative PJI pathway.",
+      evidence: {
+        short: "Pauker-Kassirer framework applied in Bayesian PJI study",
+      },
+    },
+    missHarm: {
+      label: "Missed chronic PJI harm",
+      value: 1,
+      rationale:
+        "Reference harm for leaving occult chronic PJI untreated or carrying it into revision planning.",
+      evidence: {
+        short: "Pauker-Kassirer framework applied in Bayesian PJI study",
+      },
+    },
+    overtreatHarm: {
+      label: "Unnecessary PJI-directed management harm",
+      value: 2.33,
+      rationale:
+        "Represents the burden of unnecessary infection-directed management, including surgery, prolonged antibiotics, and related downstream harms.",
+      evidence: {
+        short: "Pauker-Kassirer framework applied in Bayesian PJI study",
+      },
+    },
+  },
+  modifiers: [
+    {
+      id: "pji_factor_frailty",
+      label: "Frailty or poor physiologic reserve",
+      description: "Raises the burden of both further invasive work-up and PJI-directed treatment.",
+      multipliers: {
+        testHarm: 1.35,
+        overtreatHarm: 1.45,
+      },
+      evidence: {
+        short: "Bayesian PJI personalized-threshold companion model",
+      },
+    },
+    {
+      id: "pji_factor_testing_burden",
+      label: "High aspiration or invasive-testing burden",
+      description: "Raises the downside of more aspiration or invasive diagnostic steps.",
+      multipliers: {
+        testHarm: 1.6,
+      },
+      evidence: {
+        short: "Bayesian PJI personalized-threshold companion model",
+      },
+    },
+    {
+      id: "pji_factor_toxicity",
+      label: "High toxicity or treatment burden",
+      description: "Raises the downside of unnecessary chronic PJI-directed management.",
+      multipliers: {
+        overtreatHarm: 1.7,
+      },
+      evidence: {
+        short: "Bayesian PJI personalized-threshold companion model",
+      },
+    },
+    {
+      id: "pji_factor_revision_planned",
+      label: "Revision or reimplantation planned",
+      description: "Makes missed occult infection more consequential before definitive hardware management.",
+      multipliers: {
+        missHarm: 1.7,
+      },
+      evidence: {
+        short: "Bayesian PJI personalized-threshold companion model",
+      },
+    },
+    {
+      id: "pji_factor_missed_failure",
+      label: "High consequence if infection is missed",
+      description: "Further raises the harm of missing occult infection when soft tissue or implant failure would be costly.",
+      multipliers: {
+        missHarm: 1.4,
+      },
+      evidence: {
+        short: "Bayesian PJI personalized-threshold companion model",
+      },
+    },
+  ],
+};
+
+const ACTION_THRESHOLD_MODELS: Record<string, ActionThresholdModel> = {
+  pji: PJI_ACTION_THRESHOLD_MODEL,
+};
+
+export function getActionThresholdModel(syndromeId: string): ActionThresholdModel | null {
+  return ACTION_THRESHOLD_MODELS[syndromeId] ?? null;
+}
+
+export function applyActionThresholdModifiers(
+  model: ActionThresholdModel,
+  selectedModifierIds: string[]
+): AdjustedActionThresholdModel {
+  const selectedModifiers = model.modifiers.filter((modifier) => selectedModifierIds.includes(modifier.id));
+  const terms = {
+    testHarm: {
+      ...model.terms.testHarm,
+      baseValue: model.terms.testHarm.value,
+      adjustedValue: model.terms.testHarm.value,
+      appliedMultiplier: 1,
+    },
+    missHarm: {
+      ...model.terms.missHarm,
+      baseValue: model.terms.missHarm.value,
+      adjustedValue: model.terms.missHarm.value,
+      appliedMultiplier: 1,
+    },
+    overtreatHarm: {
+      ...model.terms.overtreatHarm,
+      baseValue: model.terms.overtreatHarm.value,
+      adjustedValue: model.terms.overtreatHarm.value,
+      appliedMultiplier: 1,
+    },
+  } satisfies Record<ActionThresholdTermKey, AdjustedActionThresholdTerm>;
+
+  for (const modifier of selectedModifiers) {
+    const keys = Object.keys(modifier.multipliers) as ActionThresholdTermKey[];
+    for (const key of keys) {
+      const multiplier = modifier.multipliers[key];
+      if (multiplier == null) continue;
+      terms[key].appliedMultiplier *= multiplier;
+      terms[key].adjustedValue = terms[key].baseValue * terms[key].appliedMultiplier;
+    }
+  }
+
+  return { model, terms, selectedModifiers };
+}
+
+export function deriveActionThresholdsFromHarms(terms: Record<ActionThresholdTermKey, AdjustedActionThresholdTerm>) {
+  const stopThresholdP = clamp(
+    terms.testHarm.adjustedValue / (terms.testHarm.adjustedValue + terms.missHarm.adjustedValue),
+    0.001,
+    0.999
+  );
+  const manageThresholdP = clamp(
+    terms.overtreatHarm.adjustedValue / (terms.overtreatHarm.adjustedValue + terms.missHarm.adjustedValue),
+    0.001,
+    0.999
+  );
+
+  return { stopThresholdP, manageThresholdP };
+}
 
 export function estimateHarms(moduleId: string, states: Record<string, FindingState>): HarmEstimate {
   const base = BASE_HARM_BY_MODULE[moduleId] ?? { missedDx: 10, unnecessaryTx: 4 };

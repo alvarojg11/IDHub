@@ -142,6 +142,20 @@ export function ProbidBuildPanel({
             <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">Setting</div>
             <div className="mt-1 text-sm font-medium text-gray-900">{preset?.label ?? "Select"}</div>
             <div className="text-xs text-gray-500">Pretest {formatPct(preset?.p ?? 0.05)}</div>
+            {preset?.notes ? (
+              <div className="mt-2 max-w-[34rem] text-xs leading-5 text-gray-600">{preset.notes}</div>
+            ) : null}
+            {preset?.source ? (
+              <div className="mt-2 text-[11px] text-gray-500">
+                Evidence: {preset.source.url ? (
+                  <a href={preset.source.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-gray-900">
+                    {preset.source.short}{preset.source.year ? ` (${preset.source.year})` : ""}
+                  </a>
+                ) : (
+                  <span>{preset.source.short}{preset.source.year ? ` (${preset.source.year})` : ""}</span>
+                )}
+              </div>
+            ) : null}
           </div>
           <button
             type="button"

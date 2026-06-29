@@ -7,8 +7,12 @@ type Props = {
   postP: number;
   pretestP: number;
   treatmentThresholdP: number;
+  treatmentThresholdLabel?: string;
+  observeThresholdP?: number | null;
+  observeThresholdLabel?: string;
   combinedLR: number;
   recommendation: "treat" | "test" | "observe";
+  recommendationBadgeLabel?: string;
   recommendationHeadline: string;
   recommendationDetail: string;
   showAdjustedPretest: boolean;
@@ -53,8 +57,12 @@ export function ProbidVerdict({
   postP,
   pretestP,
   treatmentThresholdP,
+  treatmentThresholdLabel = "Treat at",
+  observeThresholdP,
+  observeThresholdLabel = "Observe below",
   combinedLR,
   recommendation,
+  recommendationBadgeLabel,
   recommendationHeadline,
   recommendationDetail,
   showAdjustedPretest,
@@ -65,6 +73,12 @@ export function ProbidVerdict({
   shareStatus,
 }: Props) {
   const theme = RECOMMENDATION_THEME[recommendation];
+  const thresholdCards = [
+    { label: "Pretest", value: showAdjustedPretest ? `${formatPct(basePretestP)} → ${formatPct(pretestP)}` : formatPct(pretestP) },
+    { label: "Combined LR", value: combinedLR.toFixed(2) },
+    ...(observeThresholdP != null ? [{ label: observeThresholdLabel, value: formatPct(observeThresholdP) }] : []),
+    { label: treatmentThresholdLabel, value: formatPct(treatmentThresholdP) },
+  ];
 
   return (
     <div className={`rounded-2xl border p-5 ${theme.bg} ${theme.border}`}>
@@ -73,7 +87,7 @@ export function ProbidVerdict({
           Post-test probability
         </div>
         <span className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${theme.badge}`}>
-          {RECOMMENDATION_LABEL[recommendation]}
+          {recommendationBadgeLabel ?? RECOMMENDATION_LABEL[recommendation]}
         </span>
       </div>
 
@@ -86,27 +100,13 @@ export function ProbidVerdict({
         <div className="mt-1 text-sm leading-6 text-gray-600">{recommendationDetail}</div>
       )}
 
-      <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
-        <div className="rounded-lg bg-white/60 px-3 py-2">
-          <div className="text-gray-500">Pretest</div>
-          <div className="mt-1 font-semibold text-gray-900">
-            {showAdjustedPretest ? (
-              <>
-                {formatPct(basePretestP)} → {formatPct(pretestP)}
-              </>
-            ) : (
-              formatPct(pretestP)
-            )}
+      <div className={`mt-4 grid gap-2 text-xs ${thresholdCards.length === 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
+        {thresholdCards.map((card) => (
+          <div key={card.label} className="rounded-lg bg-white/60 px-3 py-2">
+            <div className="text-gray-500">{card.label}</div>
+            <div className="mt-1 font-semibold text-gray-900">{card.value}</div>
           </div>
-        </div>
-        <div className="rounded-lg bg-white/60 px-3 py-2">
-          <div className="text-gray-500">Combined LR</div>
-          <div className="mt-1 font-semibold text-gray-900">{combinedLR.toFixed(2)}</div>
-        </div>
-        <div className="rounded-lg bg-white/60 px-3 py-2">
-          <div className="text-gray-500">Treat at</div>
-          <div className="mt-1 font-semibold text-gray-900">{formatPct(treatmentThresholdP)}</div>
-        </div>
+        ))}
       </div>
 
       <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">

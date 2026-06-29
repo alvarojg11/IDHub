@@ -31,6 +31,15 @@ type Props = {
     selectedModifiers: Array<{ id: string; label: string; description: string }>;
     model: { summary: string };
   } | null;
+  adjustedActionThresholdModel?: {
+    terms: Record<string, { label: string; adjustedValue: number; baseValue: number; appliedMultiplier: number; rationale: string; evidence?: { short: string; url?: string } }>;
+    selectedModifiers: Array<{ id: string; label: string; description: string }>;
+    model: { summary: string; thresholdsLabel: { low: string; high: string } };
+  } | null;
+  actionThresholds?: {
+    stopThresholdP: number;
+    manageThresholdP: number;
+  } | null;
 };
 
 export function ProbidMathDetails({
@@ -41,6 +50,8 @@ export function ProbidMathDetails({
   basePretestP,
   harmEstimate,
   adjustedUtilityModel,
+  adjustedActionThresholdModel,
+  actionThresholds,
 }: Props) {
   return (
     <details className="group rounded-xl border p-4 transition-colors open:bg-gray-50/50">
@@ -91,6 +102,48 @@ export function ProbidMathDetails({
                 <span className="font-semibold">{harmEstimate.unnecessaryTx}</span>
               </div>
             </div>
+          </div>
+        )}
+
+        {adjustedActionThresholdModel && actionThresholds && (
+          <div className="rounded-lg border bg-white p-3 text-xs text-gray-700">
+            <div className="font-semibold text-gray-900">Action-threshold model</div>
+            <div className="mt-1 text-[11px] leading-5 text-gray-600">{adjustedActionThresholdModel.model.summary}</div>
+            <div className="mt-2 space-y-1">
+              {(["testHarm", "missHarm", "overtreatHarm"] as const).map((key) => {
+                const term = adjustedActionThresholdModel.terms[key];
+                return (
+                  <div key={key} className="flex items-center justify-between gap-3">
+                    <span>{term.label}</span>
+                    <span className="font-semibold">
+                      {term.baseValue.toFixed(2)} × {term.appliedMultiplier.toFixed(2)} = {term.adjustedValue.toFixed(2)}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-2 grid grid-cols-1 gap-2 border-t pt-2 sm:grid-cols-2">
+              <div>
+                <span className="text-gray-500">{adjustedActionThresholdModel.model.thresholdsLabel.low}:</span>{" "}
+                <span className="font-semibold">{formatPct(actionThresholds.stopThresholdP)}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">{adjustedActionThresholdModel.model.thresholdsLabel.high}:</span>{" "}
+                <span className="font-semibold">{formatPct(actionThresholds.manageThresholdP)}</span>
+              </div>
+            </div>
+            {adjustedActionThresholdModel.selectedModifiers.length > 0 && (
+              <div className="mt-2 border-t pt-2">
+                <div className="font-semibold text-gray-900">Active modifiers</div>
+                <ul className="mt-1 list-disc pl-4 text-[11px] text-gray-600">
+                  {adjustedActionThresholdModel.selectedModifiers.map((m) => (
+                    <li key={m.id}>
+                      <span className="font-medium text-gray-700">{m.label}:</span> {m.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
 

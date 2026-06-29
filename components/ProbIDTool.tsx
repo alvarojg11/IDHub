@@ -3,7 +3,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { FindingState, LRItem, SyndromeLRModule } from "@/lib/lrTypes";
 import { combinedLR, postTestProb, buildStepwisePath, formatPct, clamp } from "@/lib/lrMath";
-import { deriveDecisionThresholds, estimateHarms } from "@/lib/probidDecision";
+import {
+  applyActionThresholdModifiers,
+  deriveActionThresholdsFromHarms,
+  deriveDecisionThresholds,
+  estimateHarms,
+  getActionThresholdModel,
+} from "@/lib/probidDecision";
 import {
   applyUtilityModifiers,
   calculateExpectedUtilities,
@@ -110,6 +116,11 @@ function byId(mods: SyndromeLRModule[], id?: string) {
 }
 
 function recommendationHeadline(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "pji") {
+    if (recommendation === "treat") return "Manage as likely chronic PJI";
+    if (recommendation === "observe") return "Stop invasive PJI work-up for now";
+    return "Clarify the chronic PJI diagnosis";
+  }
   if (moduleId === "cap") {
     if (recommendation === "treat") return "Treat for CAP now";
     if (recommendation === "observe") return "Watch without antibiotics";
@@ -131,6 +142,11 @@ function recommendationHeadline(moduleId: string, recommendation: "treat" | "tes
 }
 
 function recommendationDetail(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "pji") {
+    if (recommendation === "treat") return "The current probability is above the personalized management threshold, so chronic PJI-directed management is reasonable now.";
+    if (recommendation === "test") return "The current probability still sits between the stop and manage thresholds, so more diagnostic clarification is more defensible than stopping or fully committing.";
+    return "The current probability is below the stop-work-up threshold for the selected patient factors, so more invasive PJI work-up is less likely to help right now.";
+  }
   if (moduleId === "cap") {
     if (recommendation === "treat") return "The current probability is above the CAP treatment threshold for the selected patient factors.";
     if (recommendation === "test") return "The current probability is still below the CAP treatment threshold, so more data or reassessment makes more sense than empiric antibiotics.";
@@ -149,6 +165,17 @@ function recommendationDetail(moduleId: string, recommendation: "treat" | "test"
   if (recommendation === "treat") return "The current probability is high enough that treatment is reasonable now.";
   if (recommendation === "test") return "The current probability sits in the middle zone, so extra testing or reassessment is the safer next step.";
   return "The current probability is low enough that observation and follow-up are more reasonable than treatment.";
+}
+
+function recommendationBadgeLabel(moduleId: string, recommendation: "treat" | "test" | "observe") {
+  if (moduleId === "pji") {
+    if (recommendation === "treat") return "MANAGE PJI";
+    if (recommendation === "observe") return "STOP WORK-UP";
+    return "CLARIFY";
+  }
+  if (recommendation === "treat") return "TREAT";
+  if (recommendation === "observe") return "OBSERVE";
+  return "GET MORE DATA";
 }
 
 export function ProbIDTool({ modules, defaultModuleId }: Props) {
@@ -319,8 +346,9 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
   const showAdjustedPretest = (activeModule.id === "vap" && useVapRiskModifiers) || (activeModule.id === "endo" && useEndoRiskModifiers);
 
   const itemsById = useMemo(() => new Map(activeModule.items.map((i) => [i.id, i])), [activeModule.items]);
-  const treatmentUtilityModel = useMemo(() => getTreatmentUtilityModel(activeModule.id), [activeModule.id]);
-  const activeUtilityModifierIds = useMemo(() => Object.entries(utilityModifierState).filter(([, v]) => v).map(([id]) => id), [utilityModifierState]);
+  const actionThresholdModel = useMemo(() => getActionThresholdModel(activeModule.id), [activeModule.id]);
+  const treatmentUtilityModel = useMemo(() => actionThresholdModel ? null : getTreatmentUtilityModel(activeModule.id), [activeModule.id, actionThresholdModel]);
+  const activeDecisionModifierIds = useMemo(() => Object.entries(utilityModifierState).filter(([, v]) => v).map(([id]) => id), [utilityModifierState]);
 
   const lr = useMemo(() => combinedLR(activeModule.items, states), [activeModule.items, states]);
   const postP = useMemo(() => postTestProb(pretestP, lr), [pretestP, lr]);
@@ -332,18 +360,57 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
 
   const harmEstimate = useMemo(() => estimateHarms(activeModule.id, harmStates), [activeModule.id, harmStates]);
   const { treatThresholdP: heuristicTreatThresholdP, observeThresholdP: heuristicObserveThresholdP } = useMemo(() => deriveDecisionThresholds(harmEstimate), [harmEstimate]);
-  const adjustedUtilityModel = useMemo(() => treatmentUtilityModel ? applyUtilityModifiers(treatmentUtilityModel, activeUtilityModifierIds) : null, [treatmentUtilityModel, activeUtilityModifierIds]);
+  const adjustedActionThresholdModel = useMemo(
+    () => actionThresholdModel ? applyActionThresholdModifiers(actionThresholdModel, activeDecisionModifierIds) : null,
+    [actionThresholdModel, activeDecisionModifierIds]
+  );
+  const actionThresholds = useMemo(
+    () => adjustedActionThresholdModel ? deriveActionThresholdsFromHarms(adjustedActionThresholdModel.terms) : null,
+    [adjustedActionThresholdModel]
+  );
+  const adjustedUtilityModel = useMemo(() => treatmentUtilityModel ? applyUtilityModifiers(treatmentUtilityModel, activeDecisionModifierIds) : null, [treatmentUtilityModel, activeDecisionModifierIds]);
   const expectedUtilityResult = useMemo(() => adjustedUtilityModel ? calculateExpectedUtilities(adjustedUtilityModel.terms, postP) : null, [adjustedUtilityModel, postP]);
   const utilityTreatmentThresholdP = useMemo(() => adjustedUtilityModel ? deriveTreatmentThresholdFromUtilities(adjustedUtilityModel.terms) : null, [adjustedUtilityModel]);
-  const treatmentThresholdP = utilityTreatmentThresholdP ?? heuristicTreatThresholdP;
-  const observeThresholdP = heuristicObserveThresholdP;
+  const treatmentThresholdP = actionThresholds?.manageThresholdP ?? utilityTreatmentThresholdP ?? heuristicTreatThresholdP;
+  const observeThresholdP = actionThresholds?.stopThresholdP ?? heuristicObserveThresholdP;
 
-  const recommendation: "treat" | "test" | "observe" = adjustedUtilityModel
+  const recommendation: "treat" | "test" | "observe" = adjustedActionThresholdModel
+    ? postP >= treatmentThresholdP ? "treat" : postP <= observeThresholdP ? "observe" : "test"
+    : adjustedUtilityModel
     ? postP >= treatmentThresholdP ? "treat" : "test"
     : postP >= treatmentThresholdP ? "treat" : postP <= heuristicObserveThresholdP ? "observe" : "test";
 
   const recHeadline = useMemo(() => recommendationHeadline(activeModule.id, recommendation), [activeModule.id, recommendation]);
   const recDetail = useMemo(() => recommendationDetail(activeModule.id, recommendation), [activeModule.id, recommendation]);
+  const recBadgeLabel = useMemo(() => recommendationBadgeLabel(activeModule.id, recommendation), [activeModule.id, recommendation]);
+  const thresholdCopy = useMemo(() => {
+    if (activeModule.id === "pji") {
+      return {
+        treatThresholdLabel: "Manage at",
+        observeThresholdLabel: "Stop below",
+        treatZoneLabel: "Manage as likely PJI",
+        testZoneLabel: "Clarify",
+        observeZoneLabel: "Stop work-up",
+        treatThresholdShortLabel: "Manage",
+        observeThresholdShortLabel: "Stop",
+      };
+    }
+    return {
+      treatThresholdLabel: "Treat at",
+      observeThresholdLabel: "Observe below",
+      treatZoneLabel: "Treat",
+      testZoneLabel: "Get more data",
+      observeZoneLabel: "Observe",
+      treatThresholdShortLabel: "Treat",
+      observeThresholdShortLabel: "Observe",
+    };
+  }, [activeModule.id]);
+  const testImpactIntro = useMemo(() => {
+    if (activeModule.id === "pji") {
+      return "These remaining tests are most likely to push the case below the stop threshold or above the manage-as-PJI threshold.";
+    }
+    return "These tests could change the decision. Click to add them.";
+  }, [activeModule.id]);
 
   const steps = useMemo(() => buildStepwisePath({ pretestP, orderedIds: clickOrder, itemsById, states }), [pretestP, clickOrder, itemsById, states]);
 
@@ -466,7 +533,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
       <div className="lg:hidden">
         <ProbidVerdict
           postP={postP} pretestP={pretestP} treatmentThresholdP={treatmentThresholdP}
+          treatmentThresholdLabel={thresholdCopy.treatThresholdLabel}
+          observeThresholdP={adjustedActionThresholdModel ? observeThresholdP : null}
+          observeThresholdLabel={thresholdCopy.observeThresholdLabel}
           combinedLR={lr} recommendation={recommendation}
+          recommendationBadgeLabel={recBadgeLabel}
           recommendationHeadline={recHeadline} recommendationDetail={recDetail}
           showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
           syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
@@ -476,6 +547,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           <ProbidThresholdHighway
             currentP={postP} treatThresholdP={treatmentThresholdP}
             observeThresholdP={observeThresholdP} recommendation={recommendation} compact
+            observeZoneLabel={activeModule.id === "pji" ? "Stop" : thresholdCopy.observeZoneLabel}
+            testZoneLabel={activeModule.id === "pji" ? "Clarify" : "Test more"}
+            treatZoneLabel={activeModule.id === "pji" ? "Manage" : thresholdCopy.treatZoneLabel}
+            observeThresholdLabel={activeModule.id === "pji" ? "Stop" : thresholdCopy.observeThresholdShortLabel}
+            treatThresholdLabel={activeModule.id === "pji" ? "Manage" : thresholdCopy.treatThresholdShortLabel}
           />
         </div>
       </div>
@@ -499,7 +575,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           <div className="hidden lg:block">
             <ProbidVerdict
               postP={postP} pretestP={pretestP} treatmentThresholdP={treatmentThresholdP}
+              treatmentThresholdLabel={thresholdCopy.treatThresholdLabel}
+              observeThresholdP={adjustedActionThresholdModel ? observeThresholdP : null}
+              observeThresholdLabel={thresholdCopy.observeThresholdLabel}
               combinedLR={lr} recommendation={recommendation}
+              recommendationBadgeLabel={recBadgeLabel}
               recommendationHeadline={recHeadline} recommendationDetail={recDetail}
               showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
               syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
@@ -512,6 +592,11 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
             <ProbidThresholdHighway
               currentP={postP} treatThresholdP={treatmentThresholdP}
               observeThresholdP={observeThresholdP} recommendation={recommendation}
+              observeZoneLabel={thresholdCopy.observeZoneLabel}
+              testZoneLabel={thresholdCopy.testZoneLabel}
+              treatZoneLabel={thresholdCopy.treatZoneLabel}
+              observeThresholdLabel={thresholdCopy.observeThresholdShortLabel}
+              treatThresholdLabel={thresholdCopy.treatThresholdShortLabel}
             />
           </div>
 
@@ -564,7 +649,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           <div>
             <div className="text-sm font-semibold text-gray-900">What if you ordered more tests?</div>
             <p className="mt-1 text-xs text-gray-600">
-              These tests could change the decision. Click to add them.
+              {testImpactIntro}
             </p>
             <div className="mt-3">
               <ProbidTestImpact
@@ -583,19 +668,25 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           {/* Patient factors */}
           <ProbidPatientFactors
             adjustedUtilityModel={adjustedUtilityModel}
+            adjustedActionThresholdModel={adjustedActionThresholdModel}
             utilityModifierState={utilityModifierState}
             onToggleModifier={(id) => setUtilityModifierState((p) => ({ ...p, [id]: !p[id] }))}
             expectedUtilityTreat={expectedUtilityResult?.treat ?? null}
             expectedUtilityNoTreat={expectedUtilityResult?.noTreat ?? null}
             expectedUtilityNetBenefit={expectedUtilityResult?.netBenefit ?? null}
+            currentProbability={postP}
+            stopThresholdP={adjustedActionThresholdModel ? observeThresholdP : null}
+            manageThresholdP={adjustedActionThresholdModel ? treatmentThresholdP : null}
           />
 
           {/* Math details */}
           <ProbidMathDetails
             steps={steps} pretestP={pretestP} combinedLR={lr}
             showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
-            harmEstimate={!adjustedUtilityModel ? { baseMissedDx: harmEstimate.baseMissedDx, baseUnnecessaryTx: harmEstimate.baseUnnecessaryTx, missedDx: harmEstimate.missedDx, unnecessaryTx: harmEstimate.unnecessaryTx, rationale: harmEstimate.rationale, missedDxDrivers: harmEstimate.missedDxDrivers, baseEvidence: harmEstimate.baseEvidence } : null}
+            harmEstimate={!adjustedUtilityModel && !adjustedActionThresholdModel ? { baseMissedDx: harmEstimate.baseMissedDx, baseUnnecessaryTx: harmEstimate.baseUnnecessaryTx, missedDx: harmEstimate.missedDx, unnecessaryTx: harmEstimate.unnecessaryTx, rationale: harmEstimate.rationale, missedDxDrivers: harmEstimate.missedDxDrivers, baseEvidence: harmEstimate.baseEvidence } : null}
             adjustedUtilityModel={adjustedUtilityModel ?? undefined}
+            adjustedActionThresholdModel={adjustedActionThresholdModel ?? undefined}
+            actionThresholds={actionThresholds ?? undefined}
           />
 
           <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-600">
@@ -611,6 +702,8 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
       <ProbidFloatingBar
         postP={postP} treatmentThresholdP={treatmentThresholdP}
         recommendation={recommendation} recommendationHeadline={recHeadline}
+        recommendationBadgeLabel={recBadgeLabel}
+        treatmentThresholdLabel={thresholdCopy.treatThresholdLabel}
         onScrollToTop={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       />
 
@@ -670,6 +763,12 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
                         <button key={p.id} type="button" onClick={() => setPresetId(p.id)} className={["w-full rounded-lg border px-3 py-2 text-left hover:bg-gray-50", p.id === presetId ? "border-gray-900 bg-gray-900 text-white hover:bg-gray-900" : ""].join(" ")}>
                           <div className="font-medium">{p.label}</div>
                           <div className="text-xs opacity-90">Pretest {formatPct(p.p)}</div>
+                          {p.notes ? <div className="mt-1 text-xs opacity-80">{p.notes}</div> : null}
+                          {p.source ? (
+                            <div className="mt-1 text-[11px] opacity-80">
+                              Evidence: {p.source.short}{p.source.year ? ` (${p.source.year})` : ""}
+                            </div>
+                          ) : null}
                         </button>
                       ))}
                     </div>
