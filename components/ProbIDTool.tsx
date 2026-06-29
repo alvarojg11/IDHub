@@ -19,7 +19,6 @@ import {
 import { computeTestImpact } from "@/lib/probidTestImpact";
 import { FAMILY_ORDER, familyFor, matchesQuery, normalize } from "@/lib/probidCatalog";
 import { ProbidVerdict } from "@/components/ProbidVerdict";
-import { ProbidThresholdHighway } from "@/components/ProbidThresholdHighway";
 import { ProbidTestImpact } from "@/components/ProbidTestImpact";
 import { ProbidBuildPanel } from "@/components/ProbidBuildPanel";
 import { ProbidPatientFactors } from "@/components/ProbidPatientFactors";
@@ -575,17 +574,6 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
           syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
           onCopyShareLink={copyShareLink} shareStatus={shareStatus}
         />
-        <div className="mt-3">
-          <ProbidThresholdHighway
-            currentP={postP} treatThresholdP={treatmentThresholdP}
-            observeThresholdP={observeThresholdP} recommendation={recommendation} compact
-            observeZoneLabel={activeModule.id === "pji" ? "Stop" : thresholdCopy.observeZoneLabel}
-            testZoneLabel={activeModule.id === "pji" ? "Clarify" : "Test more"}
-            treatZoneLabel={activeModule.id === "pji" ? "Manage" : thresholdCopy.treatZoneLabel}
-            observeThresholdLabel={activeModule.id === "pji" ? "Stop" : thresholdCopy.observeThresholdShortLabel}
-            treatThresholdLabel={activeModule.id === "pji" ? "Manage" : thresholdCopy.treatThresholdShortLabel}
-          />
-        </div>
       </div>
 
       {/* 2-column desktop / stacked mobile */}
@@ -617,19 +605,6 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
               showAdjustedPretest={showAdjustedPretest} basePretestP={basePretestP}
               syndromeName={activeModule.name} settingLabel={preset?.label ?? ""}
               onCopyShareLink={copyShareLink} shareStatus={shareStatus}
-            />
-          </div>
-
-          {/* Threshold highway (desktop full) */}
-          <div className="hidden lg:block">
-            <ProbidThresholdHighway
-              currentP={postP} treatThresholdP={treatmentThresholdP}
-              observeThresholdP={observeThresholdP} recommendation={recommendation}
-              observeZoneLabel={thresholdCopy.observeZoneLabel}
-              testZoneLabel={thresholdCopy.testZoneLabel}
-              treatZoneLabel={thresholdCopy.treatZoneLabel}
-              observeThresholdLabel={thresholdCopy.observeThresholdShortLabel}
-              treatThresholdLabel={thresholdCopy.treatThresholdShortLabel}
             />
           </div>
 
