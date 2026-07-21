@@ -1776,6 +1776,656 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
   },
+  {
+    slug: "hiv",
+    title: "HIV infection & opportunistic complications",
+    category: "Bloodborne & viral",
+    summary:
+      "HIV is now a chronic, manageable disease, and every Internal Medicine resident must know how to diagnose acute and chronic infection, start or confirm first-line antiretroviral therapy (ART), recognize the opportunistic infections that still present late, and counsel on U=U and PrEP. ART is recommended for everyone living with HIV regardless of CD4 count.",
+    readMins: 22,
+    difficulty: "core",
+    lastReviewed: "2026-07-21",
+    lastUpdated: "2026-07-21",
+    atAGlance: [
+      "ART is recommended for ALL patients with HIV, regardless of CD4 count — same day as diagnosis if possible (START, TEMPRANO).",
+      "U=U: sustained viral suppression (<200 copies/mL) eliminates sexual transmission of HIV.",
+      "Diagnose with a 4th-generation HIV Ag/Ab combo test; acute HIV mimics infectious mononucleosis and should be on every IM differential for fever + rash + adenopathy.",
+      "First-line ART is an integrase strand transfer inhibitor (INSTI) plus two NRTIs — bictegravir or dolutegravir-based single-tablet regimens (e.g., Biktarvy, Triumeq, Dovato). [VERIFY current DHHS preferred regimens]",
+      "CD4 < 200 cells/µL → start PCP prophylaxis (TMP-SMX); CD4 < 50 → consider MAC prophylaxis (azithromycin).",
+      "Immune reconstitution inflammatory syndrome (IRIS) paradoxically worsens OIs after ART starts — recognize it, don't stop ART.",
+      "Tenofovir-based PrEP (TDF/FTC or TAF/FTC) and long-acting cabotegravir prevent HIV in high-risk individuals.",
+    ],
+    objectives: [
+      "Diagnose acute, recent, and chronic HIV using the appropriate test for the clinical scenario and window period.",
+      "Initiate or confirm first-line ART and recognize the preferred INSTI-based regimens.",
+      "Apply CD4-based thresholds to start and stop opportunistic infection prophylaxis.",
+      "Recognize and manage the common opportunistic infections: PCP, cerebral toxoplasmosis, CMV, MAC, and cryptococcal meningitis.",
+      "Identify and manage immune reconstitution inflammatory syndrome (IRIS).",
+      "Counsel on U=U, PrEP, PEP, and prevention of vertical and sexual transmission.",
+      "Recognize key ART toxicities and drug interactions relevant to Internal Medicine.",
+    ],
+    keyConcepts: [
+      {
+        heading: "Why HIV still belongs on every IM differential",
+        prose:
+          "Antiretroviral therapy transformed HIV from a near-uniformly fatal illness into a chronic, manageable condition with near-normal life expectancy when started early. Yet late presentations still occur — the patient with 'pneumonia' who has PCP, the young adult with a mono-like illness who has acute HIV seroconversion, or the inpatient with unexplained wasting and oral candidiasis. Early diagnosis and rapid ART initiation improve individual outcomes and prevent transmission. The clinician's job is to test, treat early, prevent OIs, and engage patients in lifelong care.",
+        bullets: [
+          "About 1 in 7 people with HIV in the United States are unaware of their status — routine opt-out screening is recommended for everyone aged 13–64 at least once. [VERIFY prevalence]",
+          "Late presenters (CD4 < 200 at diagnosis) account for a substantial fraction of new diagnoses and drive most opportunistic complications.",
+          "U=U — sustained viral load suppression prevents sexual transmission; this is a powerful counseling and adherence tool.",
+        ],
+        question: {
+          pollId: "train-hiv-why-q1",
+          prompt:
+            "A 28-year-old presents with fever, sore throat, diffuse rash, and cervical adenopathy 2 weeks after a new sexual partner. Monospot is negative. What is the most important next diagnostic step?",
+          options: [
+            {
+              id: "A",
+              label: "Treat symptomatically and reassess in 2 weeks",
+              feedback:
+                "Missing the chance to diagnose acute HIV in the highly contagious seroconversion illness risks onward transmission and delays life-changing therapy.",
+            },
+            {
+              id: "B",
+              label: "HIV Ag/Ab combo test plus HIV RNA (viral load) if antibody is negative",
+              correct: true,
+              feedback:
+                "Correct. Acute HIV is a mononucleosis-like illness with a negative or evolving antibody; a 4th-generation Ag/Ab test plus an HIV RNA when antibody is negative captures acute infection.",
+            },
+            {
+              id: "C",
+              label: "EBV and CMV serologies only",
+              feedback:
+                "EBV/CMV testing is reasonable, but missing acute HIV in this scenario would be a serious error — HIV testing must accompany, not follow, the mono workup.",
+            },
+            {
+              id: "D",
+              label: "Reassure that a negative monospot rules out HIV",
+              feedback:
+                "Heterophile antibody (monospot) has nothing to do with HIV; a negative monospot does not address the most important differential here.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Diagnosis: the 4th-generation test, acute HIV, and the window period",
+        prose:
+          "The laboratory 4th-generation HIV antigen/antibody combination test detects p24 antigen (appearing ~2 weeks after exposure) and HIV-1/2 antibodies (appearing ~3–8 weeks). It narrows the window period to about 2–6 weeks. Acute HIV — the syndrome of high-level viremia in the weeks after acquisition — is the period when antibody may still be negative but p24 antigen and HIV RNA are positive. When acute HIV is suspected and the Ag/Ab test is negative, send an HIV RNA (viral load), which will be very high (often >1 million copies/mL).",
+        bullets: [
+          "4th-generation Ag/Ab: preferred screening test; p24 Ag narrows the window to ~2–6 weeks.",
+          "Acute HIV (seroconversion illness): fever, rash, pharyngitis, adenopathy, mucosal ulcers, arthralgia — mono-like; send HIV RNA if Ag/Ab is negative.",
+          "Rapid point-of-care antibody tests have a longer window (~3–12 weeks); a negative rapid test does not exclude acute HIV.",
+          "Confirm a reactive Ag/Ab with an HIV-1/HIV-2 differentiation immunoassay; acute infection may show a positive p24 with a partial antibody profile.",
+        ],
+        question: {
+          pollId: "train-hiv-dx-q1",
+          prompt:
+            "A patient has a reactive 4th-generation HIV Ag/Ab screen. The HIV-1/HIV-2 differentiation assay is negative for antibody but p24 antigen is reactive. What does this indicate?",
+          options: [
+            {
+              id: "A",
+              label: "False positive — no further action",
+              feedback:
+                "A reactive p24 with negative antibody is most consistent with acute HIV infection, not a false positive — confirm with HIV RNA.",
+            },
+            {
+              id: "B",
+              label: "Acute HIV-1 infection — confirm with HIV RNA viral load",
+              correct: true,
+              feedback:
+                "Correct. p24 Ag positivity before antibody appears defines acute infection; an HIV RNA (typically >1 million copies/mL) confirms and quantifies it.",
+            },
+            {
+              id: "C",
+              label: "HIV-2 infection",
+              feedback:
+                "HIV-2 is rare and would show on the differentiation assay; this pattern is acute HIV-1.",
+            },
+            {
+              id: "D",
+              label: "Advanced AIDS",
+              feedback:
+                "Advanced HIV has abundant antibody; the discordance here reflects acute (pre-antibody) infection, not late disease.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "ART principles: START early, U=U, INSTI-first",
+        prose:
+          "The START trial established that immediate ART — regardless of CD4 count — reduces serious AIDS and non-AIDS events and mortality. Current guidelines recommend ART for everyone living with HIV on the day of diagnosis if the patient is ready. Sustained viral suppression to undetectable levels eliminates sexual transmission (HPTN 052; PARTNER/PARTNER2). First-line regimens are built around an integrase strand transfer inhibitor (INSTI) — bictegravir or dolutegravir — combined with two NRTIs, often as a single-tablet regimen.",
+        bullets: [
+          "START (NEJM 2015): immediate ART reduced serious AIDS/non-AIDS events vs deferred therapy at CD4 ≤ 350 — treat everyone, immediately.",
+          "U=U (PARTNER, PARTNER2): zero linked sexual transmissions when viral load is suppressed (<200 copies/mL) — a core counseling message.",
+          "INSTI + 2 NRTIs is first-line: bictegravir (Biktarvy = BIC/FTC/TAF), dolutegravir (Triumeq = DTG/ABC/3TC; Dovato = DTG/3TC in selected patients). [VERIFY current DHHS preferred list]",
+          "HLA-B*5701 screening before abacavir (hypersensitivity); HBV co-infection mandates a tenofovir-containing regimen (don't use Dovato/Triumeq without HBV coverage).",
+        ],
+        question: {
+          pollId: "train-hiv-art-q1",
+          prompt:
+            "A 35-year-old newly diagnosed with HIV (CD4 480, viral load 32,000) has no comorbidities, normal renal function, and is HBV-immune. Which is the most appropriate first-line regimen?",
+          options: [
+            {
+              id: "A",
+              label: "Efavirenz/tenofovir/emtricitabine (Atripla)",
+              feedback:
+                "Efavirenz-based therapy has neuropsychiatric adverse effects and is no longer preferred; avoid in women who might conceive (first-trimester teratogenicity).",
+            },
+            {
+              id: "B",
+              label: "Bictegravir/tenofovir alafenamide/emtricitabine (Biktarvy)",
+              correct: true,
+              feedback:
+                "Correct. An INSTI (bictegravir) + 2 NRTIs is a DHHS-preferred first-line regimen — high barrier to resistance, well tolerated, single tablet.",
+            },
+            {
+              id: "C",
+              label: "Delay ART until CD4 drops below 350",
+              feedback:
+                "Deferring therapy is obsolete since START — start ART regardless of CD4 count.",
+            },
+            {
+              id: "D",
+              label: "Raltegravir + zidovudine + lamivudine",
+              feedback:
+                "Older agents with more toxicity and twice-daily dosing — not preferred when single-tablet INSTI regimens are available.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Opportunistic infections: the classic syndromes",
+        prose:
+          "OIs arise predominantly with CD4 < 200 cells/µL and remain the way many late presenters first come to medical attention. The pattern is recognizable: a dyspneic patient with a diffuse interstitial pneumonia and an elevated LDH has PCP until proven otherwise; a patient with headache, fever, and ring-enhancing brain lesions has cerebral toxoplasmosis; a patient with floaters and visual loss has CMV retinitis. Prophylaxis is effective and CD4-driven.",
+        bullets: [
+          "PCP (Pneumocystis jirovecii): subacute dyspnea, dry cough, fever, diffuse bilateral infiltrates, elevated LDH, often pneumothorax risk; treat with TMP-SMX, add steroids if severe (PaO₂ < 70 mmHg or A-a gradient ≥ 45).",
+          "Cerebral toxoplasmosis: multiple ring-enhancing lesions, seizures, headache; Toxo IgG usually positive; treat with pyrimethamine + sulfadiazine + leucovorin.",
+          "CMV retinitis: floaters, scotomata, visual loss; urgent ophthalmology; treat with valganciclovir or ganciclovir/foscarnet.",
+          "Disseminated Mycobacterium avium complex (MAC): fever, weight loss, anemia, hepatosplenomegaly at CD4 < 50; treat with azithromycin + ethambutol (± rifabutin).",
+          "Cryptococcal meningitis: subacute headache, fever, meningismus; serum/CSF cryptococcal antigen; treat with liposomal amphotericin + flucytosine induction, then fluconazole consolidation (AIIRS/ACTA). [VERIFY current induction regimen]",
+        ],
+        question: {
+          pollId: "train-hiv-oi-q1",
+          prompt:
+            "A patient with untreated HIV (CD4 60) presents with 2 weeks of progressive dyspnea, dry cough, and fever; chest X-ray shows bilateral interstitial infiltrates and LDH is 1,200 U/L. Room-air PaO₂ is 64 mmHg. Best empiric therapy?",
+          options: [
+            {
+              id: "A",
+              label: "Ceftriaxone for community-acquired pneumonia",
+              feedback:
+                "Bacterial CAP is always possible, but this clinical syndrome with CD4 60 and elevated LDH is classic PCP — add PCP coverage, don't wait.",
+            },
+            {
+              id: "B",
+              label: "TMP-SMX and add corticosteroids for severe PCP",
+              correct: true,
+              feedback:
+                "Correct. TMP-SMX is first-line for PCP; add corticosteroids (e.g., prednisone taper) when PaO₂ < 70 mmHg or A-a gradient ≥ 45 to reduce mortality.",
+            },
+            {
+              id: "C",
+              label: "Azithromycin for atypical pneumonia",
+              feedback:
+                "Azithromycin does not treat PCP; this presentation in a CD4-60 patient is PCP until proven otherwise.",
+            },
+            {
+              id: "D",
+              label: "Bronchoscopy before any treatment",
+              feedback:
+                "If the patient is hypoxemic, empiric TMP-SMX (and steroids) should begin immediately; bronchoscopy can confirm but should not delay therapy.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Immune reconstitution inflammatory syndrome (IRIS)",
+        prose:
+          "IRIS is a paradoxical worsening of a known or subclinical opportunistic infection within weeks of ART initiation, driven by the recovering immune system's exaggerated response to microbial antigens. It occurs most often in patients with very low baseline CD4 counts and presents as worsening fever, adenopathy, infiltrates, or inflammation around a known OI (TB, MAC, CMV retinitis, cryptococcal meningitis, herpes). ART is generally continued; treat the underlying OI and, in severe IRIS, use short-course corticosteroids or NSAIDs. Distinguish IRIS from ART toxicity, drug resistance, and a new OI.",
+        bullets: [
+          "Risk: low baseline CD4, high baseline viral load, rapid ART start with a subclinical OI, and specific pathogens (TB, MAC, Crypto, CMV).",
+          "Onset: typically within the first 4–8 weeks of ART, occasionally later.",
+          "Management: continue ART, treat the OI, and use corticosteroids for severe or organ-threatening IRIS (e.g., IRIS with respiratory failure or CNS inflammation).",
+          "Do not routinely delay ART for OI treatment in most cases — early ART reduces mortality (exceptions: cryptococcal meningitis and TB meningitis, where a short delay may be considered). [VERIFY timing recommendations]",
+        ],
+      },
+      {
+        heading: "ART toxicities & drug interactions every IM resident should know",
+        prose:
+          "Modern ART is well tolerated, but specific toxicities and interactions remain important. Tenofovir disoproxil fumarate (TDF) can cause nephrotoxicity and bone loss; tenofovir alafenamide (TAF) reduces these but can cause weight gain and lipid changes. Abacavir requires HLA-B*5701 screening (hypersensitivity). Dolutegravir and other INSTIs can cause weight gain and, rarely, neuropsychiatric symptoms. Efavirenz causes vivid dreams, depression, and is teratogenic in the first trimester. Ritonavir/cobicistat boosting creates major cytochrome P450 interactions — review all co-prescribed medications.",
+        bullets: [
+          "Tenofovir (TDF): nephrotoxicity (Fanconi-like), bone demineralization — prefer TAF in kidney disease or osteoporosis.",
+          "Abacavir: screen HLA-B*5701 — hypersensitivity (fever, rash, GI) can be fatal on rechallenge.",
+          "INSTIs (BIC, DTG, RAL): generally well tolerated; weight gain and rare neuropsychiatric symptoms (insomnia, mood) reported.",
+          "Efavirenz: CNS effects, depression, suicidality, teratogenicity — avoid in pregnancy planning.",
+          "PIs (darunavir, atazanavir): hyperlipidemia, hyperglycemia, GI; atazanavir causes indirect hyperbilirubinemia.",
+          "Pharmacokinetic boosters (ritonavir, cobicistat): potent CYP3A inhibition — check every new medication (statins, anticoagulants, steroids, PPIs).",
+        ],
+      },
+      {
+        heading: "Prevention: PrEP, PEP, U=U, and prevention of vertical transmission",
+        prose:
+          "HIV prevention is now as central as treatment. Pre-exposure prophylaxis (PrEP) with daily tenofovir-based therapy (TDF/FTC or TAF/FTC) is highly effective in high-risk individuals; long-acting injectable cabotegravir every 2 months is an alternative for those who prefer it. Post-exposure prophylaxis (PEP) is a 28-day regimen started within 72 hours of a high-risk exposure. Treatment as prevention (U=U) means that suppressed patients do not transmit HIV sexually. Perinatal transmission is preventable with maternal ART, planned delivery, and (when needed) neonatal prophylaxis.",
+        bullets: [
+          "PrEP: daily oral TDF/FTC (Truvada) or TAF/FTC (Descovy) in high-risk individuals; long-acting cabotegravir every 2 months is an alternative. [VERIFY current CDC PrEP guidance]",
+          "Test creatinine, HBV, and HIV before starting PrEP; follow every 3 months with HIV test, STI screen, and adherence counseling.",
+          "PEP: TDF/FTC + raltegravir or dolutegravir for 28 days, started within 72 hours of exposure (sooner is better).",
+          "Perinatal transmission: maternal viral suppression throughout pregnancy and delivery reduces transmission to <1%; planned C-section if viral load >1,000 near delivery; neonatal prophylaxis tailored to risk.",
+        ],
+        question: {
+          pollId: "train-hiv-prep-q1",
+          prompt:
+            "A 24-year-old MSM requests PrEP after a condom rupture with an HIV-positive partner on stable ART (viral load suppressed) last night. Best immediate management?",
+          options: [
+            {
+              id: "A",
+              label: "Start PrEP (daily TDF/FTC) and follow up in 3 months",
+              feedback:
+                "This is a single recent high-risk exposure within the last 72 hours — nPEP is more appropriate than PrEP for this acute exposure.",
+            },
+            {
+              id: "B",
+              label: "Reassure that U=U eliminates all risk — no medication needed",
+              feedback:
+                "U=U substantially reduces risk from the suppressed partner, but does not address other potential exposures and is not the standard for a defined acute exposure — discuss and offer nPEP.",
+            },
+            {
+              id: "C",
+              label: "Start nPEP (TDF/FTC + dolutegravir) for 28 days, baseline labs, and close follow-up",
+              correct: true,
+              feedback:
+                "Correct. A high-risk exposure within 72 hours warrants nPEP with a 3-drug regimen, baseline HIV/HBV/HCV and renal testing, and follow-up at 2–4 weeks and 3 months.",
+            },
+            {
+              id: "D",
+              label: "HIV testing today and treat only if positive",
+              feedback:
+                "Waiting to diagnose misses the window for effective post-exposure prophylaxis; offer nPEP now.",
+            },
+          ],
+        },
+      },
+    ],
+    scoringTools: [
+      {
+        name: "CD4-based opportunistic infection prophylaxis (adults with HIV)",
+        purpose:
+          "Stratifies when to start and stop primary OI prophylaxis based on CD4 count. Prophylaxis can generally be discontinued once the CD4 exceeds the threshold on two consecutive measurements while on ART.",
+        points: [
+          { factor: "CD4 < 200 cells/µL", score: "start PCP prophylaxis" },
+          { factor: "CD4 < 100 and Toxoplasma IgG positive", score: "add Toxo prophylaxis (TMP-SMX covers both)" },
+          { factor: "CD4 < 50 cells/µL", score: "consider MAC prophylaxis (azithromycin weekly)" },
+          { factor: "CD4 > 200 on ART (×2 measurements)", score: "discontinue PCP/Toxo prophylaxis" },
+        ],
+        interpretation: [
+          {
+            range: "≥ 200",
+            meaning: "Low risk for most OIs",
+            action: "No primary PCP/Toxo/MAC prophylaxis. Continue ART and routine monitoring.",
+          },
+          {
+            range: "< 200",
+            meaning: "PCP risk increased",
+            action: "Start TMP-SMX DS daily (or DS 3×/week). Alternatives: dapsone, atovaquone, aerosolized pentamidine. [VERIFY dosing]",
+          },
+          {
+            range: "< 100 (Toxo IgG+)",
+            meaning: "Cerebral toxoplasmosis risk",
+            action: "TMP-SMX DS daily covers both PCP and Toxo; if TMP-SMX not tolerated, dapsone + pyrimethamine + leucovorin.",
+          },
+          {
+            range: "< 50",
+            meaning: "Disseminated MAC risk",
+            action: "Azithromycin 1,200 mg weekly (or clarithromycin). Confirm no active MAC with a blood culture first. [VERIFY regimen]",
+          },
+        ],
+        source: "CDC/NIH/IDSA Guidelines for Prevention and Treatment of Opportunistic Infections in HIV-infected adults and adolescents. [VERIFY current version]",
+      },
+    ],
+    differentials: [
+      {
+        diagnosis: "Infectious mononucleosis (EBV)",
+        distinguishing:
+          "Heterophile-positive, atypical lymphocytes, lacks the rash of acute HIV; send HIV RNA if monospot is negative or the syndrome is atypical.",
+      },
+      {
+        diagnosis: "Cytomegalovirus (CMV) primary infection",
+        distinguishing:
+          "Similar mono-like illness; distinguish by CMV serology and HIV testing — CMV is a less common cause of acute mononucleosis than EBV.",
+      },
+      {
+        diagnosis: "Secondary syphilis",
+        distinguishing:
+          "Diffuse rash including palms/soles, mucous membrane patches, alopecia; distinguish by RPR/TPPA and HIV co-testing (syphilis and HIV frequently co-transmitted).",
+      },
+      {
+        diagnosis: "Streptococcal pharyngitis",
+        distinguishing:
+          "Exudative pharyngitis without rash or diarrhea; positive rapid strep. Acute HIV classically has rash and GI symptoms that GAS pharyngitis lacks.",
+      },
+      {
+        diagnosis: "Acute hepatitis A, B, or C",
+        distinguishing:
+          "Elevated transaminases predominate; acute HIV can have transaminitis but typically features fever, rash, and adenopathy more prominently.",
+      },
+      {
+        diagnosis: "Influenza or other viral respiratory illness",
+        distinguishing:
+          "Predominantly respiratory; lacks mucosal ulcers, rash, and persistent adenopathy of acute retroviral syndrome.",
+      },
+    ],
+    regimenTables: [
+      {
+        title: "Preferred first-line ART regimens (illustrative — confirm with current DHHS guideline)",
+        rows: [
+          {
+            scenario: "Treatment-naïve, no comorbidities",
+            regimen: "Bictegravir/TAF/emtricitabine (Biktarvy) — single tablet, daily",
+            duration: "Lifelong",
+            note: "INSTI + 2 NRTIs; high barrier to resistance. [VERIFY current preferred list]",
+          },
+          {
+            scenario: "Treatment-naïve, HLA-B*5701 negative",
+            regimen: "Dolutegravir/abacavir/lamivudine (Triumeq)",
+            duration: "Lifelong",
+            note: "Screen HLA-B*5701 before abacavir (hypersensitivity).",
+          },
+          {
+            scenario: "Treatment-naïve with HBV co-infection",
+            hostFactors: "Active HBV",
+            regimen: "Tenofovir (TDF or TAF) + emtricitabine or lamivudine + INSTI",
+            duration: "Lifelong",
+            note: "Tenofovir treats both HIV and HBV — do not use Dovato/Triumeq without HBV coverage.",
+          },
+          {
+            scenario: "Simplified regimen (selected patients)",
+            regimen: "Dolutegravir/lamivudine (Dovato)",
+            duration: "Lifelong",
+            note: "Only if HBV-negative, no resistance, viral load <500,000. [VERIFY eligibility]",
+          },
+        ],
+      },
+      {
+        title: "Opportunistic infection therapy (illustrative — confirm with current guideline)",
+        rows: [
+          {
+            scenario: "Pneumocystis pneumonia (PCP)",
+            regimen: "TMP-SMX (15–20 mg/kg/day TMP in divided doses); corticosteroids if severe",
+            duration: "21 days, then secondary prophylaxis until CD4 > 200",
+            note: "Add prednisone taper if PaO₂ < 70 mmHg or A-a gradient ≥ 45.",
+          },
+          {
+            scenario: "Cerebral toxoplasmosis",
+            regimen: "Pyrimethamine + sulfadiazine + leucovorin",
+            duration: "≥ 6 weeks, then chronic suppression until immune reconstitution",
+          },
+          {
+            scenario: "Disseminated MAC",
+            regimen: "Azithromycin + ethambutol (± rifabutin)",
+            duration: "≥ 12 months and until immune reconstitution",
+          },
+          {
+            scenario: "Cryptococcal meningitis",
+            regimen: "Liposomal amphotericin B + flucytosine (induction) → fluconazole (consolidation/maintenance)",
+            duration: "Induction 2 weeks, then consolidation/maintenance",
+            note: "Consider a brief delay in ART after crypto diagnosis (IRIS risk). [VERIFY ART timing]",
+          },
+          {
+            scenario: "CMV retinitis",
+            regimen: "Valganciclovir (or ganciclovir/foscarnet for sight-threatening disease)",
+            duration: "Until immune reconstitution; urgent ophthalmology",
+          },
+        ],
+      },
+      {
+        title: "Pre-exposure (PrEP) and post-exposure prophylaxis (PEP)",
+        rows: [
+          {
+            scenario: "PrEP — cisgender MSM, transgender women, others at risk",
+            regimen: "TDF/FTC (Truvada) or TAF/FTC (Descovy) daily; or long-acting cabotegravir q8 weeks",
+            duration: "Ongoing while risk persists",
+            note: "Confirm HIV-negative, creatinine, HBV status before start; follow every 3 months. [VERIFY current CDC PrEP]",
+          },
+          {
+            scenario: "nPEP after sexual or injection exposure",
+            regimen: "TDF/FTC + raltegravir or dolutegravir",
+            duration: "28 days, started within 72 h of exposure",
+            note: "Baseline HIV/HBV/HCV + renal; follow-up testing at 2–4 weeks and 3 months.",
+          },
+        ],
+      },
+    ],
+    complications: [
+      {
+        name: "Pneumocystis pneumonia (PCP)",
+        recognize:
+          "Subacute dyspnea, dry cough, fever, bilateral interstitial infiltrates (or normal X-ray early), elevated LDH, hypoxemia; pneumothorax in severe disease.",
+        manage:
+          "TMP-SMX (oral if mild, IV if severe); corticosteroids for PaO₂ < 70 mmHg or A-a gradient ≥ 45; start ART within 2 weeks of diagnosis (early ART reduces mortality).",
+      },
+      {
+        name: "Cerebral toxoplasmosis",
+        recognize:
+          "Headache, focal deficits, seizures; multiple ring-enhancing lesions on MRI; Toxoplasma IgG usually positive.",
+        manage:
+          "Pyrimethamine + sulfadiazine + leucovorin; alternative clindamycin + pyrimethamine; consider lymphoma if IgG-negative or solitary lesion.",
+      },
+      {
+        name: "Cryptococcal meningitis",
+        recognize:
+          "Subacute headache, fever, meningismus (may be subtle); serum/CSF cryptococcal antigen; elevated CSF opening pressure common.",
+        manage:
+          "Liposomal amphotericin B + flucytosine (induction) → fluconazole; manage raised intracranial pressure with therapeutic lumbar drains; delay ART ~2 weeks (IRIS risk).",
+      },
+      {
+        name: "Immune reconstitution inflammatory syndrome (IRIS)",
+        recognize:
+          "Paradoxical worsening of an OI within 4–8 weeks of ART; fever, infiltrates, adenopathy, or new inflammation around a known pathogen (TB, MAC, Crypto, CMV).",
+        manage:
+          "Continue ART, treat the underlying OI, and use short-course corticosteroids for severe or organ-threatening IRIS; distinguish from ART failure and new OI.",
+      },
+      {
+        name: "Disseminated Mycobacterium avium complex (MAC)",
+        recognize:
+          "Fever, night sweats, weight loss, anemia, hepatosplenomegaly, diarrhea at CD4 < 50; blood cultures positive.",
+        manage:
+          "Azithromycin + ethambutol (± rifabutin); start MAC therapy before ART, then start ART ~2 weeks later.",
+      },
+    ],
+    prognosis: [
+      { metric: "Life expectancy with early, effective ART", value: "Near-normal (approaching the general population) [VERIFY]" },
+      { metric: "Untreated HIV — median survival from AIDS diagnosis", value: "~3 years [VERIFY]" },
+      { metric: "Perinatal transmission risk with maternal viral suppression", value: "<1% [VERIFY]" },
+      { metric: "PCP mortality in hospitalized patients", value: "~10–20% [VERIFY]" },
+      { metric: "Cryptococcal meningitis mortality (with optimal therapy)", value: "~10–25% in 10 weeks [VERIFY]" },
+      { metric: "CD4 recovery on ART", value: "Depends on nadir; often incomplete if started late [VERIFY]" },
+    ],
+    specialPopulations: [
+      {
+        population: "Pregnancy",
+        considerations:
+          "ART for everyone, ideally before conception; dolutegravir is acceptable throughout pregnancy; avoid efavirenz first trimester and cobicistat-boosted regimens in late pregnancy (low levels). Plan delivery mode by viral load (C-section if >1,000 near delivery); neonatal prophylaxis tailored to risk. [VERIFY current perinatal guideline]",
+      },
+      {
+        population: "HBV co-infection",
+        considerations:
+          "Use a tenofovir (TDF or TAF) + emtricitabine or lamivudine regimen to treat both HIV and HBV; abrupt withdrawal risks HBV flare and hepatic decompensation.",
+      },
+      {
+        population: "HCV co-infection",
+        considerations:
+          "Direct-acting antiviral cure of HCV is feasible and recommended; review drug interactions between ART and DAAs; manage in concert with ID/hepatology.",
+      },
+      {
+        population: "Tuberculosis co-infection",
+        considerations:
+          "Start TB therapy first, then ART within 2 weeks for pulmonary TB with CD4 < 50 (and within 8 weeks otherwise); for TB meningitis, delay ART ~8 weeks. Beware rifampin interactions with PIs and INSTIs — use rifabutin or adjust ART.",
+      },
+      {
+        population: "Adolescents and young adults",
+        considerations:
+          "Tailor adherence support and confidentiality; long-acting injectable cabotegravir + rilpivirine is an option for virologically suppressed patients who prefer not to take daily pills.",
+      },
+      {
+        population: "People who inject drugs",
+        considerations:
+          "ART works and is recommended; treat opioid use disorder (buprenorphine, methadone); avoid efavirenz and abacavir if HLA-B*5701 unknown; address HCV co-infection.",
+      },
+    ],
+    prevention: [
+      {
+        modality: "Antiretroviral therapy (treatment as prevention)",
+        target: "All people with HIV",
+        detail:
+          "Sustained viral suppression (<200 copies/mL) prevents sexual transmission (U=U, HPTN 052, PARTNER).",
+      },
+      {
+        modality: "Pre-exposure prophylaxis (PrEP)",
+        target: "High-risk HIV-negative individuals",
+        detail:
+          "Daily TDF/FTC, TAF/FTC, or long-acting cabotegravir q8 weeks. Quarterly HIV/STI testing and adherence support. [VERIFY current CDC PrEP]",
+      },
+      {
+        modality: "Post-exposure prophylaxis (nPEP / oPEP)",
+        target: "Recent high-risk exposure (<72 h)",
+        detail:
+          "28-day 3-drug regimen (TDF/FTC + raltegravir or dolutegravir) with baseline labs and follow-up testing.",
+      },
+      {
+        modality: "Perinatal prevention",
+        target: "Pregnant patients with HIV",
+        detail:
+          "Maternal viral suppression throughout pregnancy and delivery reduces transmission to <1%; neonatal prophylaxis tailored to risk.",
+      },
+      {
+        modality: "Vaccination",
+        target: "All people with HIV",
+        detail:
+          "Pneumococcal (PCV20), influenza annually, COVID-19, Hepatitis A and B (with serology), HPV up to age 26 (45 if risk), zoster (Shingrix ≥50), and MMR if CD4 ≥ 200. [VERIFY schedule]",
+      },
+      {
+        modality: "Condoms and harm reduction",
+        target: "High-risk individuals",
+        detail:
+          "Condoms reduce sexual transmission; syringe services and opioid agonist therapy reduce injection-related transmission.",
+      },
+    ],
+    whenToRefer: [
+      "All newly diagnosed HIV to an HIV/ID specialist for ART initiation, resistance testing, and longitudinal care.",
+      "Pregnant patients with HIV — co-manage with a perinatal HIV specialist.",
+      "Suspected or confirmed opportunistic infection (PCP, cerebral toxoplasmosis, CMV retinitis, MAC, cryptococcal meningitis, disseminated TB).",
+      "Virologic failure or resistance — regimen change should involve ID/HIV expertise.",
+      "Significant ART–comedication interactions (transplant, chemotherapy, anticoagulants, anticonvulsants).",
+      "Co-infection with TB, HBV (with cirrhosis), or HCV requiring DAA therapy.",
+      "PrEP for complex patients (e.g., renal impairment, transgender care, cabotegravir).",
+      "IRIS — particularly with respiratory or CNS involvement.",
+    ],
+    followUp: [
+      "Baseline: CD4 count, HIV viral load, genotypic resistance, HBV/HCV serology, Toxoplasma IgG, G6PD, renal and hepatic panel, lipid panel, pregnancy test, Pap/anal cytology.",
+      "At ART initiation: 2–4 weeks for toxicity and adherence; viral load at 4–8 weeks to confirm a ≥ 1 log drop.",
+      "Every 3–6 months (first year): viral load, CD4, renal/hepatic panel, and adherence review.",
+      "Once virologically suppressed: viral load every 6–12 months; CD4 annually if stable (> 300).",
+      "Annual: STI screen (syphilis, gonorrhea, chlamydia), Pap/anal cytology, depression and substance use screening, vaccination review.",
+      "Discontinue PCP/Toxo prophylaxis once CD4 > 200 on two measurements; discontinue MAC prophylaxis once CD4 > 50–100 sustained.",
+    ],
+    evidence: [
+      {
+        title: "START — Immediate versus deferred ART for HIV infection",
+        source: "INSIGHT START Study Group. N Engl J Med. 2015;373:795–807 [VERIFY volume/pages]",
+        kind: "trial",
+        focus: "Immediate ART reduces serious AIDS and non-AIDS events regardless of baseline CD4 — treat everyone.",
+      },
+      {
+        title: "HPTN 052 — ART for prevention of HIV transmission",
+        source: "Cohen MS, et al. N Engl J Med. 2011;365:493–505 and 2016 [VERIFY]",
+        kind: "trial",
+        focus: "Early ART reduced HIV transmission by 96% in serodiscordant couples — treatment as prevention.",
+      },
+      {
+        title: "PARTNER and PARTNER2 — Sexual transmission when viral load is suppressed",
+        source: "Rodger AJ, et al. Lancet / JAMA. [VERIFY citations]",
+        kind: "trial",
+        focus: "Zero linked transmissions in serodiscordant couples when viral load was suppressed — U=U.",
+      },
+      {
+        title: "DHHS Panel on Antiretroviral Guidelines for Adults and Adolescents",
+        source: "Clinicalinfo.hiv.gov, current living guideline [VERIFY version]",
+        kind: "guideline",
+        focus: "The U.S. standard-of-care ART guideline — preferred regimens, monitoring, OIs, pregnancy.",
+      },
+      {
+        title: "CDC/NIH/IDSA OI Prevention and Treatment Guidelines",
+        source: "NIH Clinicalinfo, current living guideline [VERIFY version]",
+        kind: "guideline",
+        focus: "CD4-driven prophylaxis and treatment of opportunistic infections in adults and adolescents.",
+      },
+      {
+        title: "iPrEx — Preexposure chemoprophylaxis for HIV in MSM",
+        source: "Grant RM, et al. N Engl J Med. 2010;363:2587–2599 [VERIFY]",
+        kind: "trial",
+        focus: "Daily TDF/FTC reduced HIV acquisition by ~44% overall and ~92% among those with detectable drug levels.",
+      },
+      {
+        title: "DISCOVER — TAF/FTC vs TDF/FTC for PrEP",
+        source: "Mayer KH, et al. Lancet. 2020 [VERIFY]",
+        kind: "trial",
+        focus: "TAF/FTC non-inferior to TDF/FTC for PrEP with better bone and renal markers.",
+      },
+    ],
+    pearls: [
+      "START: treat everyone with HIV immediately, regardless of CD4 count.",
+      "U=U: undetectable viral load (<200 copies/mL) eliminates sexual transmission — counsel and reinforce.",
+      "First-line ART is an INSTI (bictegravir or dolutegravir) + 2 NRTIs.",
+      "Acute HIV is a mononucleosis-like illness — send a 4th-generation Ag/Ab test and an HIV RNA if the antibody is negative.",
+      "CD4 < 200 → PCP prophylaxis (TMP-SMX); CD4 < 100 with Toxo IgG+ → Toxo prophylaxis; CD4 < 50 → MAC prophylaxis.",
+      "HLA-B*5701 before abacavir; tenofovir covers HBV; never stop ART in HBV co-infection without HBV coverage (hepatic flare).",
+      "IRIS: paradoxical worsening after ART — continue ART, treat the OI, use steroids for severe cases.",
+      "Add corticosteroids for severe PCP (PaO₂ < 70 mmHg or A-a gradient ≥ 45) — it reduces mortality.",
+      "PrEP is highly effective; long-acting cabotegravir is a new option for those who prefer non-daily therapy.",
+      "Review every co-prescribed medication with boosted PIs and INSTIs — CYP3A interactions are common and serious.",
+    ],
+    syndromeTags: ["HIV", "Opportunistic Infection", "Sexually Transmitted Infection"],
+    conceptTags: [
+      "HIV",
+      "Antiretroviral therapy",
+      "ART",
+      "INSTI",
+      "Opportunistic infection",
+      "PCP",
+      "Cerebral toxoplasmosis",
+      "Cryptococcal meningitis",
+      "MAC",
+      "IRIS",
+      "PrEP",
+      "PEP",
+      "U=U",
+      "CD4",
+    ],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Antiretroviral drug classes and resistance mechanisms." },
+      { href: "/tools/spectrum", label: "Spectrum", why: "Coverage of antibiotics used for OIs and co-infections." },
+      { href: "/tools/doseid", label: "DoseID", why: "Renal-adjusted dosing for TMP-SMX, tenofovir, ganciclovir, and more." },
+    ],
+    furtherReading: [
+      {
+        title: "Guidelines for the Use of Antiretroviral Agents in Adults and Adolescents with HIV",
+        source: "DHHS Panel, clinicalinfo.hiv.gov [VERIFY current version]",
+        kind: "guideline",
+        focus: "The U.S. living guideline — preferred regimens, switching, OIs, pregnancy.",
+      },
+      {
+        title: "US Public Health Service PrEP Clinical Practice Guideline",
+        source: "CDC, current [VERIFY]",
+        kind: "guideline",
+        focus: "Daily oral and injectable PrEP — indications, monitoring, follow-up.",
+      },
+      {
+        title: "Guidelines for Prevention and Treatment of Opportunistic Infections in HIV-Infected Adults and Adolescents",
+        source: "CDC/NIH/IDSA, current [VERIFY]",
+        kind: "guideline",
+        focus: "CD4-driven prophylaxis and treatment of all major OIs.",
+      },
+    ],
+  },
 ];
 
 export function getCurriculumModule(slug: string): CurriculumModule | undefined {
