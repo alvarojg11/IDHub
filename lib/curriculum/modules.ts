@@ -1140,20 +1140,25 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     lastReviewed: "2026-07-21",
     lastUpdated: "2026-07-21",
     atAGlance: [
-      "The four pillars: right drug, right dose, right route, right duration.",
-      "De-escalate empiric broad therapy to the narrowest effective agent within 48–72 hours based on cultures.",
-      "Run an 'antibiotic timeout' at 48–72 hours: still needed? narrower? shorter?",
-      "Do not treat asymptomatic bacteriuria (except pregnancy and before urologic procedures).",
-      "Shorter is better: most common infections are treatable in ≤7 days; use the shortest effective duration.",
-      "Beta-lactams are time-dependent; aminoglycosides, fluoroquinolones, and daptomycin are concentration-dependent.",
+      "The four pillars: right drug, right dose, right route, right duration — and the fifth, no drug at all when not indicated.",
+      "De-escalate empiric broad therapy to the narrowest effective agent at 48–72 hours once cultures return.",
+      "Run an 'antibiotic timeout' at 48–72 hours on every antibiotic you start: still needed? narrower? shorter? oral?",
+      "Do not treat asymptomatic bacteriuria (except pregnancy and before urologic procedures with mucosal bleeding).",
+      "Shorter is better: 7 days is enough for most uncomplicated gram-negative bacteremia (PITT, BACTEREMIA meta-analysis).",
+      "Beta-lactams are time-dependent → maximize time above MIC with extended/continuous infusion in serious infection.",
+      "Vancomycin is dosed to AUC₀₋₂₄ 400–600 (Bayesian preferred); trough-only monitoring is obsolete for MRSA.",
+      "~9 of 10 patients labeled 'penicillin allergic' tolerate beta-lactams — delabel low-risk labels with PEN-FAST and an oral amoxicillin challenge.",
+      "Fluoroquinolones, linezolid, metronidazole, TMP-SMX, and fluconazole are ~100% orally bioavailable — convert IV→PO early.",
     ],
     objectives: [
       "Define antimicrobial stewardship and its goals (outcomes, resistance, C. difficile, cost).",
-      "Apply de-escalation and the antibiotic timeout in everyday practice.",
-      "Choose empiric therapy using the antibiogram and patient risk.",
-      "Recognize when antibiotics are not indicated.",
-      "Apply key PK/PD principles including beta-lactam optimization.",
-      "Identify the major antibiotic-associated adverse effects.",
+      "Apply de-escalation and the structured antibiotic timeout in everyday practice.",
+      "Choose empiric therapy using the syndrome, the antibiogram, and patient risk factors.",
+      "Recognize when antibiotics are not indicated (asymptomatic bacteriuria, colonization, viral syndromes).",
+      "Apply PK/PD principles: beta-lactam time above MIC, concentration-dependent agents, AUC-based vancomycin.",
+      "Delabel penicillin allergy in low-risk patients using PEN-FAST and oral amoxicillin challenge.",
+      "Select oral step-down therapy using drug bioavailability and clinical response.",
+      "Identify the major antibiotic-associated adverse effects and 'collateral damage' (VRE, ESBL, C. difficile).",
     ],
     keyConcepts: [
       {
@@ -1257,26 +1262,115 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       {
         heading: "Duration: less is more",
         prose:
-          "For decades, courses were long by tradition. Modern trials have repeatedly shown that shorter durations are as effective for many common infections and carry less risk of resistance and C. difficile. When a patient is improving and source control is adequate, default to the shortest evidence-based duration.",
+          "For decades, courses were long by tradition. Modern trials have repeatedly shown that shorter durations are as effective for many common infections and carry less risk of resistance and C. difficile. The 2022 BACTEREMIA individual-patient-data meta-analysis of 9 randomized trials and the PITT trial (von Dach et al. 2023) established that 7 days is non-inferior to 14 days for uncomplicated Enterobacterales bacteremia in clinically responding patients. When a patient is improving and source control is adequate, default to the shortest evidence-based duration.",
         bullets: [
-          "Uncomplicated cystitis: 3–5 days (nitrofurantoin 5 days, TMP-SMX 3 days).",
+          "Uncomplicated cystitis: 3–5 days (nitrofurantoin 5 days, TMP-SMX 3 days, fosfomycin single-dose).",
           "Pyelonephritis: 5–7 days (fluoroquinolone) or 7–14 days (beta-lactam).",
-          "Community-acquired pneumonia (responding): 5 days minimum if afebrile 48 hours and stable.",
+          "Community-acquired pneumonia (responding): ≥5 days minimum, if afebrile 48–72 h and clinically stable.",
           "Cellulitis (non-purulent): 5–6 days.",
-          "Uncomplicated gram-negative bacteremia: 7 days from first negative culture (short-course trials support this).",
-          "Intra-abdominal infection (source controlled): 4 days post-source-control.",
+          "Uncomplicated gram-negative bacteremia: 7 days from first negative culture (PITT; BACTEREMIA meta-analysis — non-inferior to 14 days). [VERIFY PITT inclusion criteria and 7-day definition]",
+          "Intra-abdominal infection (source-controlled): 4 days post-source-control (STOP-IT).",
+          "Do NOT shorten when: source control incomplete, endovascular infection, slow clinical response, metastatic foci, or immunocompromise.",
         ],
       },
       {
-        heading: "PK/PD: time- vs concentration-dependent",
+        heading: "PK/PD: time- vs concentration-dependent, and why it changes dosing",
         prose:
-          "Pharmacokinetic/pharmacodynamic (PK/PD) principles describe how a drug's exposure relates to its effect, and they guide dosing and optimization. Beta-lactams kill based on the time concentrations exceed the organism's MIC; aminoglycosides, fluoroquinolones, and daptomycin kill based on peak exposure (Cmax/MIC or AUC/MIC).",
+          "Pharmacokinetic/pharmacodynamic (PK/PD) principles describe how a drug's exposure relates to its effect and guide dosing and optimization. Beta-lactams kill based on the fraction of the dosing interval free drug concentrations exceed the organism's MIC (fT>MIC); aminoglycosides, fluoroquinolones, and daptomycin kill based on peak exposure (Cmax/MIC or AUC/MIC). Translating PK/PD to the bedside is the foundation of modern optimization — extended infusions, once-daily aminoglycosides, and AUC-guided vancomycin.",
         bullets: [
-          "Beta-lactams: maximize time above MIC — consider extended or continuous infusions for severe infection.",
-          "Aminoglycosides: high once-daily dosing exploits concentration-dependent killing and a post-antibiotic effect.",
-          "Vancomycin: AUC-based monitoring (target AUC 400–600) for MRSA — trough-based dosing is no longer recommended.",
-          "Daptomycin: concentration-dependent; dosing escalates with weight and indication.",
+          "Beta-lactams: maximize fT>MIC — for severe pseudomonal or resistant infection use extended (3–4 h) or continuous infusion of piperacillin-tazobactam, cefepime, or meropenem. [VERIFY outcome evidence]",
+          "Aminoglycosides: extended-interval (once-daily) dosing exploits concentration-dependent killing and a long post-antibiotic effect; monitor for nephro/ototoxicity.",
+          "Vancomycin: AUC₀₋₂₄ 400–600 for serious MRSA infection — Bayesian dosing (2 timed levels or software) is preferred over the 2-trapezoidal-level method; trough-only monitoring is no longer recommended (Rybak 2020 consensus). [VERIFY Bayesian vs trapezoidal recommendation strength]",
+          "Daptomycin: concentration-dependent; dosing escalates with weight and indication (6 mg/kg for S. aureus bacteremia; higher for VRE).",
+          "Vancomycin + piperacillin-tazobactam: associated with higher AKI than either alone — reconsider the combination when both are not essential. [VERIFY magnitude of AKI risk]",
         ],
+      },
+      {
+        heading: "IV-to-oral conversion: bioavailability drives the step-down",
+        prose:
+          "Early IV-to-oral switch shortens length of stay, line days, and cost without harming outcomes — provided the patient is hemodynamically stable, tolerating oral intake, and the chosen oral agent reaches the infection site. The decision rests almost entirely on oral bioavailability: drugs with near-complete bioavailability are pharmacokinetically equivalent IV and PO, so continuing IV therapy is purely a delivery issue, not an efficacy one.",
+        bullets: [
+          "Near-100% bioavailable (effectively interchangeable IV/PO): fluoroquinolones, linezolid, metronidazole, TMP-SMX, fluconazole, and doxycycline.",
+          "Good but variable bioavailability: beta-lactams (amoxicillin ~80%, cephalexin ~90%, cefuroxime ~50%), clindamycin (~90%), and azithromycin (~37%).",
+          "Convert when: clinically improving, afebrile 24–48 h, tolerating PO, hemodynamically stable, and an oral agent with adequate bioavailability and tissue penetration exists.",
+          "Avoid oral step-down when absorption is unreliable (ileus, neutropenic enterocolitis, severe shock, malabsorption) or the source is endovascular, CNS, or undrained.",
+        ],
+        question: {
+          pollId: "train-stewardship-ivpo-q1",
+          prompt:
+            "A patient with E. coli bacteremia from a urinary source is improving on IV ceftriaxone by day 3, tolerating a regular diet, and hemodynamically stable. Susceptibilities show an oral option with near-complete bioavailability. Best step-down?",
+          options: [
+            {
+              id: "A",
+              label: "Complete 14 days IV ceftriaxone before any change",
+              feedback:
+                "Prolonged IV therapy adds line and stay cost without outcome benefit when an active oral agent is available and the patient is stable.",
+            },
+            {
+              id: "B",
+              label: "Convert to an appropriate oral agent with high bioavailability (e.g., TMP-SMX, levofloxacin, or oral cephalexin if susceptible) once clinically stable",
+              correct: true,
+              feedback:
+                "Correct. With a controlled source, clinical improvement, and a bioavailable oral option, oral step-down is safe and standard for uncomplicated gram-negative bacteremia.",
+            },
+            {
+              id: "C",
+              label: "Switch to oral vancomycin because it has excellent tissue penetration",
+              feedback:
+                "Oral vancomycin is not systemically absorbed — it treats C. difficile, not bacteremia. It is the wrong drug for this infection.",
+            },
+            {
+              id: "D",
+              label: "Continue IV but add an oral agent for synergy",
+              feedback:
+                "There is no synergy rationale here, and dual therapy adds harm and resistance pressure.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Penicillin allergy delabeling: a high-yield stewardship intervention",
+        prose:
+          "Roughly 9 in 10 patients who carry a penicillin allergy label are not truly allergic, yet the label drives broader, more toxic alternatives (vancomycin, fluoroquinolones, aztreonam) and is associated with longer stays, more resistance, and worse outcomes. Delabeling is a core stewardship action and can be done safely at the bedside with a validated tool. The PEN-FAST score combines a brief history (PENicillin allergy, New reaction, Severe reaction, Time since last reaction) with a point score that stratifies risk and identifies candidates for direct oral amoxicillin challenge without skin testing.",
+        bullets: [
+          "PEN-FAST 0: very low risk — oral amoxicillin challenge (single dose, observed) without prior skin testing. [VERIFY exact PEN-FAST components and cutoffs]",
+          "PEN-FAST 1–2: low-moderate risk — skin testing or graded oral challenge under supervision.",
+          "PEN-FAST ≥3: higher risk — referral to allergy/immunology; consider skin testing or supervised challenge.",
+          "Side-chain cross-reactivity (not the beta-lactam ring) is what matters: cefazolin and ceftriaxone do not share side chains with penicillin and are safe in most penicillin-allergic patients without anaphylaxis.",
+          "Anaphylaxis, SJS/TEN, or severe delayed reactions (DRESS, AGEP) are NOT candidates for bedside delabeling — refer to allergy.",
+        ],
+        question: {
+          pollId: "train-stewardship-penfast-q1",
+          prompt:
+            "A 60-year-old with a 'penicillin allergy — rash as a child, 50 years ago, never re-exposed' needs ceftriaxone for pyelonephritis. The label is the only barrier. Best stewardship action?",
+          options: [
+            {
+              id: "A",
+              label: "Give aztreonam to be safe",
+              feedback:
+                "Aztreonam has poor gram-positive coverage and bypasses a delabeling opportunity; it is rarely the right empiric answer for this scenario.",
+            },
+            {
+              id: "B",
+              label: "Give vancomycin + aztreonam for full coverage",
+              feedback:
+                "Over-broad, exposes the patient to nephrotoxicity, and perpetuates an almost certainly obsolete allergy label.",
+            },
+            {
+              id: "C",
+              label: "Assess with PEN-FAST; if low-risk, give oral amoxicillin challenge (or ceftriaxone directly if bedside challenge impractical and reaction was non-severe)",
+              correct: true,
+              feedback:
+                "Correct. A childhood rash decades ago with no re-exposure is PEN-FAST 0 (or 1). Low-risk labels can be delabeled and the patient given the optimal beta-lactam, with documentation of the delabeling.",
+            },
+            {
+              id: "D",
+              label: "Refer to allergy for skin testing and withhold all antibiotics until then",
+              feedback:
+                "Skin testing is reasonable for higher-risk labels but is overkill and impractical when you need to treat now; bedside risk-stratification and challenge is appropriate.",
+            },
+          ],
+        },
       },
       {
         heading: "Adverse effects & toxicity",
@@ -1310,39 +1404,255 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         rows: [
           {
             scenario: "Uncomplicated cystitis (women)",
-            regimen: "Nitrofurantoin 5 days, or TMP-SMX 3 days, or a single dose of fosfomycin",
-            duration: "3–5 days",
+            regimen: "Nitrofurantoin 5 d, or TMP-SMX 3 d, or a single dose of fosfomycin",
+            duration: "3–5 d",
           },
           {
             scenario: "Acute uncomplicated pyelonephritis",
             regimen: "Fluoroquinolone or TMP-SMX (if susceptible); beta-lactam alternative",
-            duration: "5–7 days (FQ) or 7–14 days (beta-lactam)",
+            duration: "5–7 d (FQ) or 7–14 d (beta-lactam)",
           },
           {
             scenario: "Community-acquired pneumonia (responding)",
             regimen: "Standard empiric regimen",
-            duration: "≥5 days, if afebrile 48 h and clinically stable",
+            duration: "≥5 d, if afebrile 48–72 h and clinically stable",
           },
           {
             scenario: "Non-purulent cellulitis",
             regimen: "Beta-lactam active against streptococci (e.g., cephalexin)",
-            duration: "5–6 days",
+            duration: "5–6 d",
           },
           {
             scenario: "Uncomplicated gram-negative bacteremia",
             hostFactors: "Source identified and controlled; prompt response",
             regimen: "Directed by susceptibility",
-            duration: "~7 days from first negative culture",
-            note: "Short-course trials (e.g., PITT/BACTREM) support non-inferiority to 14 days.",
+            duration: "7 d from first negative culture",
+            note: "PITT (JAMA Intern Med 2023) and BACTEREMIA IPD meta-analysis (Yahav et al. JAMA 2022) — non-inferior to 14 d. [VERIFY]",
           },
           {
             scenario: "Intra-abdominal infection",
-            hostFactors: "Adequate source control",
+            hostFactors: "Adequate source control (STOP-IT)",
             regimen: "Directed by cultures",
-            duration: "4 days post-source-control",
+            duration: "4 d post-source-control",
           },
         ],
       },
+      {
+        title: "Oral bioavailability: when IV→PO switch is pharmacokinetically equivalent",
+        rows: [
+          {
+            scenario: "Near-complete bioavailability (≥90%) — IV→PO interchangeable",
+            regimen: "Fluoroquinolones (cipro/levo/moxi), linezolid, metronidazole, TMP-SMX, fluconazole, doxycycline",
+            duration: "Convert as soon as clinically stable",
+          },
+          {
+            scenario: "Good bioavailability (50–90%) — usually suitable for step-down",
+            regimen: "Amoxicillin (~80%), cephalexin (~90%), clindamycin (~90%), azithromycin (~37% with tissue accumulation)",
+            duration: "Convert when stable and tolerating PO",
+          },
+          {
+            scenario: "Low or unreliable bioavailability — not for serious infection step-down",
+            regimen: "Vancomycin (PO not absorbed — treats C. difficile only), aminoglycosides, polymyxins, IV azoles other than fluconazole",
+            duration: "Do not use PO for systemic infection",
+          },
+        ],
+      },
+      {
+        title: "Targeted empiric choices for resistant gram-negatives (illustrative — confirm with current IDSA guidance)",
+        rows: [
+          {
+            scenario: "ESBL-producing E. coli / Klebsiella bacteremia (MERINO)",
+            hostFactors: "Carbapenem-susceptible",
+            regimen: "Carbapenem (meropenem, ertapenem, imipenem) — NOT piperacillin-tazobactam",
+            duration: "Per syndrome; typically 7 d for uncomplicated bacteremia",
+            note: "MERINO (Harris et al. JAMA 2018): pip-tazo higher 30-d mortality vs ceftriaxone for ESBL E. coli bacteremia. [VERIFY MERINO-2 / ongoing data]",
+          },
+          {
+            scenario: "Difficult-to-treat (DTR) Pseudomonas (non-carbapenem-β-lactam-resistant)",
+            hostFactors: "Per 2024 IDSA AMR guidance [VERIFY]",
+            regimen: "Ceftolozane-tazobactam, ceftazidime-avibactam, imipenem-relebactam, or cefiderocol",
+            duration: "Per syndrome; consider extended infusion",
+          },
+          {
+            scenario: "AmpC-inducible Enterobacterales (Enterobacter, Citrobacter, Serratia)",
+            hostFactors: "Avoid 3rd-gen cephalosporins for serious infection",
+            regimen: "Cefepime or carbapenem",
+            duration: "Per syndrome",
+          },
+        ],
+      },
+    ],
+    scoringTools: [
+      {
+        name: "PEN-FAST — penicillin allergy risk stratification",
+        purpose:
+          "Identifies low-risk penicillin-allergy labels suitable for direct oral amoxicillin challenge without skin testing. About 9 in 10 'penicillin-allergic' patients tolerate beta-lactams.",
+        points: [
+          { factor: "Time since last reaction ≤ 5 years (F)", score: 1 },
+          { factor: "Time since last reaction > 5 years (F)", score: 0 },
+          { factor: "Anaphylaxis or angioedema (A) — IgE-mediated severe", score: 2 },
+          { factor: "Severe cutaneous adverse reaction: SJS, TEN, DRESS, AGEP (S)", score: 2 },
+          { factor: "Treatment required for reaction: epinephrine, ED visit, or admission (T)", score: 1 },
+        ],
+        interpretation: [
+          {
+            range: "0",
+            meaning: "Very low risk (<1% probability of true allergy)",
+            action: "Direct oral amoxicillin challenge (e.g., amoxicillin 250 mg, observed 1 h). Document and remove the allergy label. [VERIFY exact probability and challenge protocol]",
+          },
+          {
+            range: "1–2",
+            meaning: "Low-to-moderate risk (~5% probability)",
+            action: "Supervised oral challenge or skin testing before beta-lactam use; do not delabel at bedside. [VERIFY cutoff]",
+          },
+          {
+            range: "≥ 3 (or any 'A' or 'S' = 2)",
+            meaning: "Higher risk; do not challenge without testing",
+            action: "Refer to allergy/immunology for skin testing or supervised graded challenge. Not a bedside-delabeling candidate. [VERIFY]",
+          },
+        ],
+        source:
+          "Devchand M, et al. J Antimicrob Chemother 2019; Stone CA Jr, et al. JAMA 2020. [VERIFY exact citations, cutoffs, and challenge protocols]",
+      },
+    ],
+    complications: [
+      {
+        name: "Clostridioides difficile infection",
+        recognize:
+          "Watery diarrhea (≥3/day) within weeks of antibiotic exposure, leukocytosis, abdominal pain, and (severe) ileus or AKI; check stool toxin or nucleic acid amplification.",
+        manage:
+          "Stop the inciting antibiotic if possible; fidaxomicin (preferred) or oral vancomycin by severity; bezlotoxumab adjunct for high recurrence risk. [VERIFY current 2021 IDSA/SHEA first-line]",
+      },
+      {
+        name: "VRE colonization & bacteremia (collateral damage)",
+        recognize:
+          "Selected by prolonged vancomycin, piperacillin-tazobactam, cephalosporins, and long ICU stays; common in neutropenic and transplant patients.",
+        manage:
+          "Remove selective pressure; treat bacteremia with daptomycin (high dose) or linezolid per susceptibility; consult ID and review source.",
+      },
+      {
+        name: "ESBL and carbapenem-resistant Enterobacterales (CRE)",
+        recognize:
+          "Recent healthcare exposure, prior broad-spectrum antibiotics, and indwelling devices; suspect in pyelonephritis/bacteremia from endemic regions.",
+        manage:
+          "ESBL bacteremia → carbapenem (per MERINO); CRE → novel beta-lactam/beta-lactamase inhibitor per 2024 IDSA AMR guidance [VERIFY]; consult ID.",
+      },
+      {
+        name: "Cefepime neurotoxicity (encephalopathy)",
+        recognize:
+          "Confusion, myoclonus, non-convulsive seizures, or coma — especially with renal impairment and high cumulative dose.",
+        manage:
+          "Renal-dose adjust cefepime strictly; switch to another agent; monitor renal function daily; EEG if unexplained encephalopathy. [VERIFY incidence]",
+      },
+      {
+        name: "Fluoroquinolone harm",
+        recognize:
+          "QT prolongation, tendinopathy/rupture (Achilles), dysglycemia, CNS effects (delirium, seizures), aortic dissection/aneurysm warning — risk highest in elderly and on steroids.",
+        manage:
+          "Stop and avoid in elderly when possible; reserve for clear indications where alternatives are inferior.",
+      },
+    ],
+    prognosis: [
+      { metric: "Antibiotic stewardship programs — reduction in inappropriate use", value: "~30% [VERIFY]" },
+      { metric: "Stewardship impact on C. difficile rates", value: "~25–30% reduction in meta-analyses [VERIFY]" },
+      { metric: "Penicillin allergy delabeling — impact on length of stay", value: "shorter LOS and less broad-spectrum use [VERIFY point estimate]" },
+      { metric: "Vancomycin + piperacillin-tazobactam AKI vs either alone", value: "increased AKI; magnitude debated [VERIFY]" },
+      { metric: "Cefepime neurotoxicity incidence in severe renal impairment", value: "up to 1 in 5 [VERIFY]" },
+    ],
+    specialPopulations: [
+      {
+        population: "Renal impairment",
+        considerations:
+          "Renal-dose-adjust renally-cleared agents (vancomycin, beta-lactams, aminoglycosides, levofloxacin, TMP-SMX, daptomycin, linezolid is NOT renally adjusted); use therapeutic drug monitoring where available; reassess daily as renal function changes.",
+      },
+      {
+        population: "Hepatic impairment",
+        considerations:
+          "Caution with clindamycin, macrolides, metronidazole, tigecycline, and rifampin; dose-reduce or avoid; flucloxacillin/nafcillin hepatotoxicity risk.",
+      },
+      {
+        population: "Obesity",
+        considerations:
+          "Use weight-based dosing for aminoglycosides (adjusted body weight), vancomycin (initial by total body weight, cap consideration), and daptomycin; beta-lactams have larger volume of distribution — consider higher/extended-infusion dosing for severe infection.",
+      },
+      {
+        population: "Pregnancy and lactation",
+        considerations:
+          "Preferred: beta-lactams, nitrofurantoin (avoid at term), cephalosporins. Avoid: fluoroquinolones (cartilage), tetracyclines (teeth/bone), TMP-SMX (1st trimester folate, kernicterus near term), aminoglycosides (fetal ototoxicity), clarithromycin. Penicillin delabeling and challenge is safe and encouraged.",
+      },
+      {
+        population: "Older adults",
+        considerations:
+          "Avoid fluoroquinolones when possible (delirium, dysglycemia, tendinopathy, aortic risk); dose-adjust aggressively for renal function; minimize anticholinergic and CNS-active drugs (urinary antiseptics); shortest effective duration.",
+      },
+      {
+        population: "Neutropenic fever",
+        considerations:
+          "Prompt empiric anti-pseudomonal beta-lactam (cefepime, piperacillin-tazobactam, or meropenem) within 1 h; add MRSA coverage if line/cellulitis/pneumonia; narrow when cultures return; do not use prophylactic fluoroquinolone history as the sole empiric guide.",
+      },
+    ],
+    prevention: [
+      {
+        modality: "De-escalation",
+        target: "All empiric broad therapy",
+        detail:
+          "Reassess every antibiotic at 48–72 h once cultures return; stop redundant MRSA/anaerobic coverage; narrow to the most active single agent.",
+      },
+      {
+        modality: "Shortest effective duration",
+        target: "Common infections",
+        detail:
+          "Default to evidence-based short durations (e.g., 7 d gram-negative bacteremia; 5 d CAP; 5–6 d cellulitis) and document a stop date at order entry.",
+      },
+      {
+        modality: "Penicillin allergy delabeling",
+        target: "Patients with low-risk allergy labels",
+        detail:
+          "Use PEN-FAST; low-risk patients can be directly challenged and delabeled, restoring access to optimal beta-lactams.",
+      },
+      {
+        modality: "Asymptomatic bacteriuria — do not treat",
+        target: "Most patients with positive urine cultures",
+        detail:
+          "Do NOT treat except in pregnancy and before urologic procedures with mucosal bleeding; pyuria alone is not treatment indication. [VERIFY current IDSA ASB guidance]",
+      },
+      {
+        modality: "C. difficile prevention",
+        target: "All inpatients on antibiotics",
+        detail:
+          "Minimize duration and number of antibiotics; avoid unnecessary PPIs; prefer fidaxomicin for treatment; consider bezlotoxumab in high-recurrence-risk patients.",
+      },
+      {
+        modality: "Surgical prophylaxis",
+        target: "Perioperative patients",
+        detail:
+          "Single preoperative dose; stop within 24 h (48 h for cardiac); do not continue as 'coverage.' Avoid routine vancomycin unless MRSA risk.",
+      },
+      {
+        modality: "Restricted-antibiotic preauthorization & audit-feedback",
+        target: "Broad-spectrum and novel agents",
+        detail:
+          "Restrict daptomycin, linezolid, echinocandins, novel beta-lactamase inhibitors, and prolonged courses behind ID or stewardship review; combine preauthorization with post-prescription audit-feedback for maximal impact.",
+      },
+    ],
+    whenToRefer: [
+      "Staphylococcus aureus, Candida, or polymicrobial bacteremia — ID consultation improves outcomes.",
+      "Endocarditis, CNS infection, prosthetic-device infection, or any endovascular infection.",
+      "Multidrug-resistant organisms: ESBL, CRE, DTR Pseudomonas, Acinetobacter, Stenotrophomonas.",
+      "Persistent fever or fever of unknown origin (>72 h without source).",
+      "Restricted antimicrobials: daptomycin, linezolid, echinocandins, IV antifungals, ceftazidime-avibactam, ceftolozane-tazobactam, imipenem-relebactam, cefiderocol.",
+      "OPAT candidates, prolonged IV courses (>7 d), or complex oral step-down planning.",
+      "C. difficile that is severe, fulminant, or recurrent after first line.",
+      "Opportunistic infections in immunocompromised hosts (HIV, transplant, chemo).",
+      "Beta-lactam allergy in surgical prophylaxis or when optimal therapy requires a beta-lactam.",
+    ],
+    followUp: [
+      "Day 0: Place empiric order with a planned stop date and de-escalation reminder.",
+      "Day 3 (48–72 h): Structured antibiotic timeout — still needed? narrower? oral? shorter? Repeat cultures if persistent fever.",
+      "Day 5–7: Assess clinical response; finalize organism, susceptibility, source, and target duration.",
+      "Day 7+: Reassess ongoing need; convert to oral step-down when criteria met; arrange OPAT if needed.",
+      "Discharge: Reconcile antibiotics (right drug, dose, duration); communicate stop date to outpatient team and pharmacy.",
+      "Post-discharge: Confirm oral step-down is picked up; document final diagnosis, organism, and total duration for the record.",
     ],
     evidence: [
       {
@@ -1370,18 +1680,60 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         kind: "guideline",
         focus: "Establishes AUC-based vancomycin monitoring (target AUC 400–600).",
       },
+      {
+        title: "MERINO — Piperacillin-tazobactam vs ceftriaxone for ESBL E. coli / K. pneumoniae bacteremia",
+        source: "Harris PNA, et al. JAMA. 2018;320(10):984–994",
+        kind: "trial",
+        focus: "Piperacillin-tazobactam was inferior to carbapenems for ESBL bloodstream infection — use a carbapenem. [VERIFY volume/pages]",
+      },
+      {
+        title: "Seven versus 14 days of antibiotic therapy for uncomplicated gram-negative bacteremia (individual patient data meta-analysis)",
+        source: "Yahav D, et al. JAMA. 2022;327(4):335–345 [VERIFY — 9 RCTs IPD meta]",
+        kind: "trial",
+        focus: "7 days non-inferior to 14 days for uncomplicated Enterobacterales bacteremia across multiple trials.",
+      },
+      {
+        title: "Clinical Practice Guideline for Clostridioides difficile Infection (IDSA/SHEA)",
+        source: "McDonald LC, et al. Clin Infect Dis. 2018 [updated 2021; fidaxomicin preferred] [VERIFY current version]",
+        kind: "guideline",
+        focus: "Fidaxomicin first-line for initial and recurrent CDI; oral vancomycin alternative; bezlotoxumab for recurrence risk.",
+      },
+      {
+        title: "2024 IDSA Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections (AMR)",
+        source: "Tamma PD, et al. Clin Infect Dis. 2024 [VERIFY]",
+        kind: "guideline",
+        focus: "Carbapenem-sparing and targeted therapy for ESBL, CRE, and DTR Pseudomonas — including novel beta-lactamase inhibitors.",
+      },
+      {
+        title: "PEN-FAST — A tool for rapid risk stratification of penicillin allergy",
+        source: "Devchand M, et al. J Antimicrob Chemother. 2019;74(2):437–442 [VERIFY exact volume/pages]",
+        kind: "trial",
+        focus: "Validated 4-item score to identify low-risk penicillin-allergy labels for direct oral challenge without skin testing.",
+      },
+      {
+        title: "Risk stratification of penicillin allergy by clinical history (PEN-FAST review)",
+        source: "Stone CA Jr, et al. JAMA. 2020 [VERIFY]",
+        kind: "review",
+        focus: "Reviews PEN-FAST application, cross-reactivity, and the safety of direct oral challenge in low-risk patients.",
+      },
     ],
     pearls: [
       "Treat the patient, not the culture — asymptomatic bacteriuria and colonization are not infections.",
       "Stop double anaerobic and double MRSA coverage when cultures return.",
-      "Vancomycin troughs are out; AUC-based monitoring (target AUC 400–600) is in.",
-      "Fluoroquinolones carry QT, tendinopathy, dysglycemia, CNS, and aortic warnings — reserve for clear indications.",
+      "Vancomycin troughs are out; AUC-based monitoring (AUC₀₋₂₄ 400–600) is in — use Bayesian dosing when available.",
+      "Fluoroquinolones carry QT, tendinopathy, dysglycemia, CNS, and aortic warnings — reserve for clear indications, and avoid in the elderly when possible.",
       "Daptomycin is inactivated by surfactant — never use it for pneumonia.",
       "Check a creatine kinase if daptomycin is prolonged (myopathy).",
       "Linezolid beyond two weeks → watch thrombocytopenia, neuropathy, and serotonin syndrome.",
-      "Run an antibiotic timeout at 48–72 hours on every antibiotic you start.",
+      "Run an antibiotic timeout at 48–72 hours on every antibiotic you start — still needed? narrower? shorter? oral?",
+      "~9 of 10 'penicillin-allergic' patients tolerate beta-lactams — delabel low-risk labels with PEN-FAST and an oral amoxicillin challenge.",
+      "Fluoroquinolones, linezolid, metronidazole, TMP-SMX, and fluconazole are ~100% orally bioavailable — convert IV→PO early.",
+      "ESBL E. coli bacteremia → carbapenem, not piperacillin-tazobactam (MERINO).",
+      "Uncomplicated gram-negative bacteremia → 7 days is enough when the patient has responded (PITT, BACTEREMIA meta-analysis).",
+      "Watch for cefepime neurotoxicity (encephalopathy, myoclonus) in renal impairment — renal-dose adjust and reconsider.",
+      "Vancomycin + piperacillin-tazobactam is associated with more AKI than either alone — reconsider when both aren't essential.",
     ],
-    syndromeTags: ["Antimicrobial Adverse Effects", "Drug Toxicity"],
+    syndromeTags: ["Antimicrobial Adverse Effects", "Drug Toxicity", "Stewardship"],
     conceptTags: [
       "Stewardship",
       "De-escalation",
@@ -1389,6 +1741,14 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       "PK/PD",
       "Antibiogram",
       "Vancomycin AUC",
+      "Penicillin allergy delabeling",
+      "PEN-FAST",
+      "Oral bioavailability",
+      "IV-to-oral conversion",
+      "Collateral damage",
+      "Short-course therapy",
+      "ESBL",
+      "DTR Pseudomonas",
     ],
     tools: [
       { href: "/mechid", label: "MechID", why: "Mechanisms of action and resistance that drive empiric choices." },
@@ -1398,8 +1758,21 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     furtherReading: [
       {
         title: "Asymptomatic bacteriuria: what to do and what not to do",
-        source: "Nicolle LE, et al. Clin Infect Dis",
+        source: "Nicolle LE, et al. Clin Infect Dis. 2019 [VERIFY current version]",
         kind: "guideline",
+        focus: "Definitive IDSA guidance — do not treat except in pregnancy and before urologic procedures.",
+      },
+      {
+        title: "Therapeutic Drug Monitoring of Beta-Lactam Antibiotics",
+        source: "Wong G, et al. Clin Microbiol Rev. [VERIFY]",
+        kind: "review",
+        focus: "Beta-lactam TDM and target attainment — the frontier of PK/PD optimization.",
+      },
+      {
+        title: "Infectious Diseases Society of America Antimicrobial Resistant (AMR) Guidance",
+        source: "IDSA AMR Guidance Center, 2024 [VERIFY]",
+        kind: "guideline",
+        focus: "Living guidance for resistant gram-negatives, gram-positives, and fungi.",
       },
     ],
   },
