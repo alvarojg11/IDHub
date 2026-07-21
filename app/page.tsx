@@ -10,6 +10,7 @@ import { getCaseDirectoryEntries } from "@/lib/cases/directory";
 import { getBlogPosts } from "@/lib/blog/registry";
 import { getHistoridEntries } from "@/lib/historid/registry";
 import { RECOMMENDED_PROJECTS } from "@/lib/recommended-projects";
+import { CURRICULUM_MODULES } from "@/lib/curriculum/modules";
 
 const BASE_URL = "https://infectiousdiseasehub.com";
 
@@ -353,6 +354,38 @@ export default async function Home() {
               </p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* ID Training CTA */}
+      <section className="border-b border-[var(--border)] py-8">
+        <div className="grid gap-6 border border-[var(--border)] bg-[var(--background-soft)] p-6 sm:grid-cols-[1.4fr_1fr] sm:items-center sm:p-8">
+          <div>
+            <p className="idhub-kicker">For residents &amp; trainees</p>
+            <h2
+              className="mt-1 text-2xl font-semibold"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              ID Training — a structured curriculum
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--muted)]">
+              Objectives, key concepts, guidelines, pearls, cases, and
+              self-assessment questions across {CURRICULUM_MODULES.length} core
+              topics. Work through a module in order or jump to whatever you are
+              seeing on the wards.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 sm:items-end">
+            <Link
+              href="/training"
+              className="idhub-button-primary px-5 py-3 text-sm font-semibold"
+            >
+              Browse modules →
+            </Link>
+            <p className="text-xs text-[var(--muted)]">
+              Free · No login required
+            </p>
+          </div>
         </div>
       </section>
 

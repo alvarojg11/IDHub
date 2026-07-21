@@ -17,6 +17,7 @@ const sourceSerif = Source_Serif_4({
 
 const primaryNav = [
   { href: "/cases", label: "Cases" },
+  { href: "/training", label: "Training" },
   { href: "/blog", label: "Blog" },
   { href: "/historid", label: "HistorID" },
   { href: "/research", label: "Research" },
