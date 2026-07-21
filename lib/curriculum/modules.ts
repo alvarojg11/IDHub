@@ -45,6 +45,49 @@ export type ToolLink = {
   why?: string;
 };
 
+export type ScoringPoint = {
+  factor: string;
+  score: number | string;
+};
+
+export type ScoringInterpretation = {
+  range: string;
+  meaning: string;
+  action: string;
+};
+
+export type ScoringTool = {
+  name: string;
+  purpose: string;
+  points: ScoringPoint[];
+  interpretation: ScoringInterpretation[];
+  source?: string;
+};
+
+export type PreventionEntry = {
+  modality: string;
+  target: string;
+  detail: string;
+  source?: string;
+};
+
+export type SpecialPopulationEntry = {
+  population: string;
+  considerations: string;
+};
+
+export type ComplicationEntry = {
+  name: string;
+  recognize: string;
+  manage: string;
+};
+
+export type PrognosisEntry = {
+  metric: string;
+  value: string;
+  source?: string;
+};
+
 export type Difficulty = "core" | "intermediate" | "advanced";
 
 export type CurriculumModule = {
@@ -67,6 +110,13 @@ export type CurriculumModule = {
   conceptTags: string[];
   tools: ToolLink[];
   furtherReading?: Reading[];
+  scoringTools?: ScoringTool[];
+  prevention?: PreventionEntry[];
+  specialPopulations?: SpecialPopulationEntry[];
+  complications?: ComplicationEntry[];
+  prognosis?: PrognosisEntry[];
+  whenToRefer?: string[];
+  followUp?: string[];
 };
 
 export const CURRICULUM_CATEGORIES = [

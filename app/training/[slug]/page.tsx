@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import CaseQuestion from "@/components/caseQuestion";
 import CurriculumSectionNav from "@/components/CurriculumSectionNav";
 import RegimenTable from "@/components/RegimenTable";
+import ScoringTool from "@/components/ScoringTool";
 import SiteFooter from "@/components/SiteFooter";
 import { CASES } from "@/lib/cases/registry";
 import {
@@ -308,6 +309,20 @@ export default async function CurriculumModulePage({
             </div>
           </section>
 
+          {/* Scoring tools & criteria */}
+          {curriculumModule.scoringTools?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Scoring tools &amp; criteria
+              </h2>
+              <div className="mt-4">
+                {curriculumModule.scoringTools.map((tool, i) => (
+                  <ScoringTool key={i} tool={tool} />
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           {/* Differential diagnosis */}
           {curriculumModule.differentials?.length ? (
             <section className="mb-12">
@@ -348,6 +363,159 @@ export default async function CurriculumModulePage({
                   <RegimenTable key={i} table={table} />
                 ))}
               </div>
+            </section>
+          ) : null}
+
+          {/* Complications & management */}
+          {curriculumModule.complications?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Complications &amp; management
+              </h2>
+              <dl className="mt-4 grid gap-4">
+                {curriculumModule.complications.map((c, i) => (
+                  <div key={i} className="border border-[var(--border)] p-4">
+                    <dt className="font-semibold text-[var(--foreground)]">
+                      {c.name}
+                    </dt>
+                    <dd className="mt-2 grid gap-1 text-[0.92rem] leading-6 text-[var(--ink-soft)]">
+                      <span>
+                        <span className="font-semibold text-[var(--primary)]">
+                          Recognize:{" "}
+                        </span>
+                        {c.recognize}
+                      </span>
+                      <span>
+                        <span className="font-semibold text-[var(--primary)]">
+                          Manage:{" "}
+                        </span>
+                        {c.manage}
+                      </span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ) : null}
+
+          {/* Prognosis & outcomes */}
+          {curriculumModule.prognosis?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Prognosis &amp; outcomes
+              </h2>
+              <dl className="mt-4 grid gap-2.5">
+                {curriculumModule.prognosis.map((p, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-[1fr_auto] gap-x-4 border-b border-[var(--border)] pb-2.5 last:border-b-0"
+                  >
+                    <dt className="text-[0.92rem] text-[var(--ink-soft)]">
+                      {p.metric}
+                    </dt>
+                    <dd className="text-right text-[0.92rem] font-semibold text-[var(--foreground)]">
+                      {p.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ) : null}
+
+          {/* Special populations */}
+          {curriculumModule.specialPopulations?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Special populations
+              </h2>
+              <dl className="mt-4 grid gap-4">
+                {curriculumModule.specialPopulations.map((s, i) => (
+                  <div
+                    key={i}
+                    className="border-l-2 border-[var(--border-strong)] pl-4"
+                  >
+                    <dt className="font-semibold text-[var(--foreground)]">
+                      {s.population}
+                    </dt>
+                    <dd className="mt-1 text-[0.92rem] leading-6 text-[var(--muted)]">
+                      {s.considerations}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ) : null}
+
+          {/* Prevention & prophylaxis */}
+          {curriculumModule.prevention?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Prevention &amp; prophylaxis
+              </h2>
+              <dl className="mt-4 grid gap-4">
+                {curriculumModule.prevention.map((p, i) => (
+                  <div
+                    key={i}
+                    className="border-l-2 border-[var(--primary)] pl-4"
+                  >
+                    <dt className="font-semibold text-[var(--foreground)]">
+                      {p.modality}
+                      <span className="ml-2 text-[0.78rem] font-normal text-[var(--muted)]">
+                        — {p.target}
+                      </span>
+                    </dt>
+                    <dd className="mt-1 text-[0.92rem] leading-6 text-[var(--ink-soft)]">
+                      {p.detail}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ) : null}
+
+          {/* When to refer */}
+          {curriculumModule.whenToRefer?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                When to refer
+              </h2>
+              <ul className="mt-4 grid gap-2">
+                {curriculumModule.whenToRefer.map((r, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-2.5 text-[0.92rem] leading-6 text-[var(--ink-soft)]"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-[var(--primary)]"
+                    />
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          {/* Follow-up */}
+          {curriculumModule.followUp?.length ? (
+            <section className="mb-12">
+              <h2 className="border-b border-[var(--border)] pb-2 text-xl font-semibold text-[var(--foreground)]">
+                Follow-up
+              </h2>
+              <ul className="mt-4 grid gap-2">
+                {curriculumModule.followUp.map((f, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-2.5 text-[0.92rem] leading-6 text-[var(--ink-soft)]"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-[var(--primary)]"
+                    />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
             </section>
           ) : null}
 
