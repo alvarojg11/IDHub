@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import EditorialCard from "@/components/EditorialCard";
+import CrossContentTabs, { type FeedItem } from "@/components/CrossContentTabs";
 import SiteFooter from "@/components/SiteFooter";
 import { CASES } from "@/lib/cases/registry";
+import { getCaseDirectoryEntries } from "@/lib/cases/directory";
+import { getBlogPosts } from "@/lib/blog/registry";
+import { getHistoridEntries } from "@/lib/historid/registry";
 
 const BASE_URL = "https://infectiousdiseasehub.com";
 
@@ -44,47 +49,28 @@ const medicalWebPageSchema = {
   author: {
     "@type": "Person",
     name: "Alvaro Ayala, MD",
-    affiliation: {
-      "@type": "Organization",
-      name: "Stanford University",
-    },
+    affiliation: { "@type": "Organization", name: "Stanford University" },
     jobTitle: "Infectious Diseases Fellow",
   },
 };
 
-const authorSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Alvaro Ayala",
-  jobTitle: "Infectious Diseases Fellow",
-  affiliation: {
-    "@type": "Organization",
-    name: "Stanford University",
-  },
-  sameAs: [
-    "https://www.researchgate.net/profile/Alvaro-Ayala-3",
-    "https://infectiousdiseasehub.com/about",
-  ],
-};
+function formatDate(iso?: string | null) {
+  if (!iso) return undefined;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return undefined;
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
-const stats = [
-  { value: "6+", label: "interactive tools" },
-  { value: `${CASES.length}+`, label: "case-based learning modules" },
-  { value: "1", label: "home for ID reasoning" },
-];
-
-const featuredTools = [
+const clinicalTools = [
   {
     href: "/probid",
     title: "ProbID",
     desc: "Structured probability support for syndromes where pretest thinking matters.",
     tag: "Diagnostic framing",
-  },
-  {
-    href: "/tools/immunoid",
-    title: "ImmunoID",
-    desc: "An educational guide to immunosuppressive therapies, mechanisms, and infection risk.",
-    tag: "Host factors",
   },
   {
     href: "/mechid",
@@ -93,198 +79,246 @@ const featuredTools = [
     tag: "Antimicrobial reasoning",
   },
   {
+    href: "/tools/immunoid",
+    title: "ImmunoID",
+    desc: "An educational guide to immunosuppressive therapies, mechanisms, and infection risk.",
+    tag: "Host factors",
+  },
+  {
     href: "/tools/doseid",
     title: "DoseID",
     desc: "Practical antimicrobial dosing support built for real clinical decisions.",
     tag: "Dosing reference",
   },
-];
-
-const librarySections = [
-  {
-    href: "/cases",
-    title: "Cases",
-    desc: "Case-driven learning for syndromes, pathogens, and management choices.",
-  },
-  {
-    href: "/blog",
-    title: "Blog",
-    desc: "Short essays and teaching pieces on diagnostics, antimicrobial therapy, and uncertainty.",
-  },
-  {
-    href: "/historid",
-    title: "HistorID",
-    desc: "Historical facts and brief teaching stories on pathogens, antibiotics, outbreaks, and the people who shaped ID.",
-  },
   {
     href: "/tools/spectrum",
     title: "Spectrum",
     desc: "Searchable antimicrobial spectrum of activity chart for common organisms and antibiotics.",
+    tag: "Reference",
   },
   {
-    href: "/references",
-    title: "Organism & Syndrome Index",
-    desc: "Browse all IDHub cases by organism, syndrome, or clinical concept.",
-  },
-  {
-    href: "/research",
-    title: "Research",
-    desc: "A place to explore collaborations and medical education projects.",
-  },
-  {
-    href: "/recommended-projects",
-    title: "Recommended Projects",
-    desc: "A curated way to discover other thoughtful ID education projects and teaching tools.",
+    href: "/assistant",
+    title: "IDAssistant",
+    desc: "An interactive assistant for Infectious Diseases clinical reasoning.",
+    tag: "Assistant",
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const ogBySlug = new Map(CASES.map((c) => [c.slug, c.ogImage]));
+
+  const caseEntries = getCaseDirectoryEntries()
+    .filter((c) => CASES.find((x) => x.slug === c.slug)?.enable !== false)
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt ?? 0).getTime() -
+        new Date(a.publishedAt ?? 0).getTime(),
+    );
+
+  const featuredCase = caseEntries[0];
+  const recentCases = caseEntries.slice(0, 6);
+
+  const blogPosts = await getBlogPosts();
+  const historidEntries = await getHistoridEntries();
+  const featuredHistorid =
+    historidEntries.find((h) => h.featured) ?? historidEntries[0];
+
+  const caseFeed: FeedItem[] = recentCases.map((c) => ({
+    href: `/cases/${c.slug}`,
+    kicker: c.syndromes[0],
+    title: c.title,
+    dek: c.description,
+    imageSrc: ogBySlug.get(c.slug),
+    dateLabel: formatDate(c.publishedAt),
+  }));
+
+  const blogFeed: FeedItem[] = blogPosts.slice(0, 6).map((p) => ({
+    href: `/blog/${p.slug}`,
+    title: p.title,
+    dek: p.description,
+    dateLabel: formatDate(p.publishedAt),
+  }));
+
+  const historidFeed: FeedItem[] = historidEntries.slice(0, 6).map((h) => ({
+    href: h.url,
+    kicker: h.historicalDateLabel,
+    title: h.title,
+    dek: h.hook,
+    imageSrc: h.heroImage,
+    dateLabel: formatDate(h.publishedAt),
+  }));
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
-      />
 
-      <section className="pb-10 pt-6">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-stretch">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(236,245,241,0.92))] px-6 py-8 shadow-[var(--shadow-medium)] sm:px-8 sm:py-10">
-            <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,rgba(20,92,71,0.14),transparent_70%)]" />
-            <div className="relative">
-              <p className="idhub-kicker">Infectious Diseases Education</p>
-              <h1 className="mt-3 max-w-3xl text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
-                An educational platform for Infectious Diseases
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-                IDHub brings together cases, teaching essays, and decision-support tools so learners
-                and clinicians can approach uncertainty with more structure, nuance, and clarity.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/blog"
-                  className="rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(20,92,71,0.24)] hover:bg-[var(--primary-strong)]"
-                >
-                  Explore Blog
-                </Link>
-                <Link
-                  href="/cases"
-                  className="rounded-full border border-[var(--border-strong)] bg-white/85 px-5 py-3 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-                >
-                  Explore Cases
-                </Link>
-                <Link
-                  href="/about"
-                  className="rounded-full border border-transparent px-5 py-3 text-sm font-semibold text-[var(--muted)] hover:border-[var(--border)] hover:bg-white/60 hover:text-[var(--foreground)]"
-                >
-                  About IDHub
-                </Link>
-              </div>
-
-              <div className="mt-10 grid gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 text-sm text-[var(--muted)]">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* Featured Case */}
+      {featuredCase ? (
+        <section className="border-b border-[var(--border)] py-6">
+          <div className="mb-4 flex items-center justify-between">
+            <p className="idhub-kicker">Featured Case</p>
+            <Link
+              href="/cases"
+              className="text-sm font-semibold text-[var(--primary)] hover:underline"
+            >
+              All Cases →
+            </Link>
           </div>
+          <EditorialCard
+            href={`/cases/${featuredCase.slug}`}
+            kicker={featuredCase.syndromes[0]}
+            title={featuredCase.title}
+            dek={featuredCase.description}
+            imageSrc={ogBySlug.get(featuredCase.slug)}
+            dateLabel={formatDate(featuredCase.publishedAt)}
+            variant="lead"
+          />
+        </section>
+      ) : null}
 
-          <aside className="lg:h-full">
-            <div className="idhub-panel-strong flex h-full flex-col rounded-[1.75rem] p-6">
-              <p className="idhub-kicker">IDAssistant Mission</p>
-              <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
-                Infectious Diseases thinking, for everyone
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-                IDAssistant is designed to make Infectious Diseases clinical reasoning more
-                accessible to clinicians, learners, and care teams. Its purpose is not to replace
-                specialists, but to extend the habits of Infectious Diseases assessment: careful
-                syndrome framing, differential construction, interpretation of host factors, and
-                thoughtful antimicrobial decision-making.
-              </p>
-
-              <div className="mt-6 rounded-[1.4rem] border border-[var(--border)] bg-[var(--background-soft)] p-4">
-                <p className="text-sm font-semibold text-[var(--foreground)]">The vision</p>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                  IDAssistant helps bring the methods of Infectious Diseases consultation to more
-                  clinicians, more patients, and more care settings.
-                </p>
-              </div>
-
-              <Link
-                href="/assistant"
-                className="mt-auto inline-flex rounded-full border border-[var(--border-strong)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-              >
-                Open IDAssistant
-              </Link>
+      {/* Recent Cases list */}
+      <section className="border-b border-[var(--border)] py-8">
+        <div className="mb-5 flex items-end justify-between">
+          <h2 className="text-2xl font-semibold">Recent Cases</h2>
+          <Link
+            href="/cases"
+            className="text-sm font-semibold text-[var(--primary)] hover:underline"
+          >
+            See all →
+          </Link>
+        </div>
+        <div className="grid gap-x-8 sm:grid-cols-2">
+          {caseFeed.slice(0, 4).map((item) => (
+            <div
+              key={item.href}
+              className="border-b border-[var(--border)] last:border-b-0 sm:[&:nth-child(odd)]:border-r sm:[&:nth-child(odd)]:pr-8"
+            >
+              <EditorialCard {...item} variant="list" />
             </div>
-          </aside>
+          ))}
         </div>
       </section>
 
-      <section className="py-8">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="idhub-kicker">Core Tools</p>
-            <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
-              Core educational tools
-            </h2>
-          </div>
-        </div>
+      {/* Tabbed cross-content feed */}
+      <section className="border-b border-[var(--border)] py-8">
+        <h2 className="mb-5 text-2xl font-semibold">Latest across IDHub</h2>
+        <CrossContentTabs
+          cases={caseFeed}
+          blog={blogFeed}
+          historid={historidFeed}
+        />
+      </section>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {featuredTools.map((tool) => (
+      {/* From the Blog */}
+      {blogPosts.length > 0 ? (
+        <section className="border-b border-[var(--border)] py-8">
+          <div className="mb-5 flex items-end justify-between">
+            <h2 className="text-2xl font-semibold">From the Blog</h2>
+            <Link
+              href="/blog"
+              className="text-sm font-semibold text-[var(--primary)] hover:underline"
+            >
+              All essays →
+            </Link>
+          </div>
+          <div className="grid gap-x-6 gap-y-8 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map((p) => (
+              <EditorialCard
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                kicker="Essay"
+                title={p.title}
+                dek={p.description}
+                dateLabel={formatDate(p.publishedAt)}
+                variant="grid"
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {/* HistorID feature */}
+      {featuredHistorid ? (
+        <section className="border-b border-[var(--border)] py-8">
+          <div className="mb-5 flex items-end justify-between">
+            <div>
+              <p className="idhub-kicker">HistorID</p>
+              <h2 className="mt-1 text-2xl font-semibold">This week in ID history</h2>
+            </div>
+            <Link
+              href="/historid"
+              className="text-sm font-semibold text-[var(--primary)] hover:underline"
+            >
+              All entries →
+            </Link>
+          </div>
+          <EditorialCard
+            href={featuredHistorid.url}
+            kicker={featuredHistorid.historicalDateLabel}
+            title={featuredHistorid.title}
+            dek={featuredHistorid.hook}
+            imageSrc={featuredHistorid.heroImage}
+            imageAlt={featuredHistorid.heroImageAlt}
+            variant="lead"
+          />
+        </section>
+      ) : null}
+
+      {/* Clinical Tools band */}
+      <section className="border-b border-[var(--border)] bg-[var(--background-soft)] py-8">
+        <div className="mb-6">
+          <p className="idhub-kicker">Clinical Tools</p>
+          <h2 className="mt-1 text-2xl font-semibold">
+            Reasoning tools for the bedside
+          </h2>
+        </div>
+        <div className="grid gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          {clinicalTools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="group relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              className="group block border border-[var(--border)] bg-white p-5 hover:border-[var(--primary)]"
             >
-              <div className="absolute inset-x-6 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(20,92,71,0.14),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
-              <div className="relative">
-                <span className="inline-flex rounded-full bg-[var(--primary-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
-                  {tool.tag}
-                </span>
-                <h3 className="mt-5 text-3xl font-semibold text-[var(--foreground)]">
-                  {tool.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{tool.desc}</p>
-                <span className="mt-8 inline-flex text-sm font-semibold text-[var(--primary)]">
-                  Open section
-                </span>
-              </div>
+              <p className="idhub-kicker text-[0.6rem]">{tool.tag}</p>
+              <h3 className="mt-2 text-xl font-semibold group-hover:text-[var(--primary)]">
+                {tool.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+                {tool.desc}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="py-8">
-        <div className="mb-6">
-            <p className="idhub-kicker">Library</p>
-            <h2 className="mt-2 text-4xl font-semibold text-[var(--foreground)]">
-              Writing, tools, and collaborations for Infectious Diseases education
-            </h2>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {librarySections.map((section) => (
+      {/* Subscribe CTA */}
+      <section className="py-10">
+        <div className="border border-[var(--border)] bg-white px-6 py-8 text-center sm:px-10">
+          <p className="idhub-kicker">Stay Connected</p>
+          <h2 className="mx-auto mt-2 max-w-2xl text-[clamp(1.5rem,1.1rem+1.4vw,2.2rem)] font-semibold">
+            Keep up with new cases, essays, and tools
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[var(--muted)]">
+            IDHub is an educational platform for Infectious Diseases clinical
+            reasoning, diagnostic probability, and practical teaching resources.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
-              key={section.href}
-              href={section.href}
-              className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] p-5 shadow-[var(--shadow-soft)] hover:border-[var(--border-strong)] hover:bg-white"
+              href="/subscribe"
+              className="idhub-button-primary px-5 py-3 text-sm font-semibold"
             >
-              <h3 className="text-2xl font-semibold text-[var(--foreground)]">{section.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{section.desc}</p>
+              Subscribe
             </Link>
-          ))}
+            <Link
+              href="/about"
+              className="idhub-button-secondary px-5 py-3 text-sm font-semibold"
+            >
+              About IDHub
+            </Link>
+          </div>
         </div>
       </section>
 
