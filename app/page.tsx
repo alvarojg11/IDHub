@@ -120,8 +120,13 @@ export default async function Home() {
 
   const blogPosts = await getBlogPosts();
   const historidEntries = await getHistoridEntries();
-  const featuredHistorid =
-    historidEntries.find((h) => h.featured) ?? historidEntries[0];
+  const featuredHistorid = [...historidEntries]
+    .filter((h) => h.publishedAt)
+    .sort(
+      (a, b) =>
+        Date.parse(b.publishedAt as string) -
+        Date.parse(a.publishedAt as string),
+    )[0];
 
   const caseFeed: FeedItem[] = recentCases.map((c) => ({
     href: `/cases/${c.slug}`,
