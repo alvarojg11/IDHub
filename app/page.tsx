@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 import EditorialCard from "@/components/EditorialCard";
 import CrossContentTabs, { type FeedItem } from "@/components/CrossContentTabs";
@@ -8,6 +9,7 @@ import { CASES } from "@/lib/cases/registry";
 import { getCaseDirectoryEntries } from "@/lib/cases/directory";
 import { getBlogPosts } from "@/lib/blog/registry";
 import { getHistoridEntries } from "@/lib/historid/registry";
+import { RECOMMENDED_PROJECTS } from "@/lib/recommended-projects";
 
 const BASE_URL = "https://infectiousdiseasehub.com";
 
@@ -269,6 +271,61 @@ export default async function Home() {
             imageAlt={featuredHistorid.heroImageAlt}
             variant="lead"
           />
+        </section>
+      ) : null}
+
+      {/* Recommended Projects */}
+      {RECOMMENDED_PROJECTS.length > 0 ? (
+        <section className="border-b border-[var(--border)] py-8">
+          <div className="mb-5 flex items-end justify-between">
+            <div>
+              <p className="idhub-kicker">Recommended Projects</p>
+              <h2 className="mt-1 text-2xl font-semibold">
+                Projects worth following
+              </h2>
+            </div>
+            <Link
+              href="/recommended-projects"
+              className="text-sm font-semibold text-[var(--primary)] hover:underline"
+            >
+              See all →
+            </Link>
+          </div>
+          <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
+            {RECOMMENDED_PROJECTS.map((project) => (
+              <Link
+                key={project.name}
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-start gap-4 border border-[var(--border)] bg-white p-5 hover:border-[var(--primary)]"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden border border-[var(--border)] bg-[var(--background-soft)] p-1.5">
+                  <Image
+                    src={project.logoSrc}
+                    alt={project.logoAlt}
+                    width={48}
+                    height={48}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3
+                    className="text-lg font-semibold leading-snug text-[var(--foreground)] group-hover:text-[var(--primary)]"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="mt-1 text-xs uppercase tracking-[0.1em] text-[var(--muted)]">
+                    {project.tagline}
+                  </p>
+                  <span className="mt-2 inline-flex text-sm font-semibold text-[var(--primary)]">
+                    Visit →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
       ) : null}
 
