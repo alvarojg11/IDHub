@@ -1482,6 +1482,67 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    slug: "neutropenic-enterocolitis",
+    title: "The Right Lower Quadrant in the Wrong White Count",
+    description:
+      "A profoundly neutropenic patient on cisplatin-etoposide develops right lower quadrant pain and cecal wall thickening while on cefepime — testing whether the standard neutropenic fever regimen is enough for typhlitis.",
+    enable: true,
+    ogImage: "/cases/neutropenic-enterocolitis/ct.png",
+    teaser:
+      "A 59-year-old woman with metastatic poorly differentiated neuroendocrine carcinoma is on day 12 after cycle 2 of cisplatin-etoposide and has been on cefepime for febrile neutropenia. She now develops right lower quadrant pain, diarrhea, and a CT showing cecal wall thickening with pneumatosis intestinalis. What is the diagnosis, and why is cefepime monotherapy no longer enough?",
+    tags: {
+      organisms: [
+        "Clostridium septicum",
+        "Bacteroides fragilis",
+        "Pseudomonas aeruginosa",
+        "Candida",
+      ],
+      syndromes: [
+        "GI & Diarrheal",
+        "Opportunistic Infection",
+        "Transplant & Immunocompromised",
+        "Oncologic Infection",
+      ],
+      concepts: [
+        "Neutropenic enterocolitis",
+        "Typhlitis",
+        "Pneumatosis intestinalis",
+        "Febrile neutropenia",
+        "Anaerobic coverage",
+        "Cefepime monotherapy pitfall",
+        "G-CSF",
+        "Clostridium septicum myonecrosis",
+      ],
+    },
+  },
+  {
+    slug: "pembrolizumab-pneumonitis",
+    title: "Friendly Fire After the Infusion",
+    description:
+      "A patient on pembrolizumab for head and neck cancer develops subacute dyspnea, dry cough, and bilateral ground-glass opacities — a checkpoint inhibitor pneumonitis that mimics infection and demands immunosuppression, not broader antibiotics.",
+    enable: true,
+    ogImage: "/cases/pembrolizumab-pneumonitis/ct.jpg",
+    teaser:
+      "A 62-year-old man with recurrent HPV-positive oropharyngeal squamous cell carcinoma on pembrolizumab for six months presents with two weeks of progressive dyspnea, dry cough, low-grade fevers, and bilateral ground-glass opacities that worsen despite ceftriaxone and azithromycin. Bronchoscopy is negative. What is the diagnosis, and why are more antibiotics the wrong answer?",
+    tags: {
+      organisms: [],
+      syndromes: [
+        "Pulmonary Infection",
+        "Transplant & Immunocompromised",
+        "Oncologic Infection",
+        "Drug-Related Mimic",
+      ],
+      concepts: [
+        "Checkpoint inhibitor pneumonitis",
+        "Immune-related adverse event",
+        "Pembrolizumab",
+        "Ground-glass opacity",
+        "Corticosteroids",
+        "Diagnosis of exclusion",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

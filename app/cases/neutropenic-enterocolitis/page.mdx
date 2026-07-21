@@ -1,0 +1,427 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("neutropenic-enterocolitis");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Right Lower Quadrant in the Wrong White Count
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 59-year-old woman with metastatic poorly differentiated neuroendocrine
+    carcinoma of the pancreas is on day 12 after cycle 2 of cisplatin and
+    etoposide. Her course has been complicated by febrile neutropenia, and
+    empiric cefepime monotherapy was started 48 hours ago when she first spiked
+    a fever; blood cultures drawn at that time remain negative. She had been
+    afebrile for a day, but overnight she developed worsening crampy abdominal
+    pain that has localized to the right lower quadrant, along with six episodes
+    of non-bloody diarrhea and new nausea. She has no vomiting, no recent
+    antibiotic exposure beyond the chemotherapy and cefepime, and no sick
+    contacts.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination she is ill-appearing. Temperature 38.9 °C, heart rate 112,
+    blood pressure 104/64 mmHg, respiratory rate 20. The abdomen is soft but
+    markedly tender in the right lower quadrant with voluntary guarding; there
+    is no rigidity and no rebound. Bowel sounds are hypoactive. Laboratory
+    studies: WBC 0.4 k/mcL with an absolute neutrophil count of 180 cells/mcL,
+    hemoglobin 9.8 g/dL, platelets 42 k/mcL, serum creatinine 1.1 mg/dL,
+    lactate 2.1 mmol/L. A stool Clostridioides difficile nucleic acid
+    amplification test is negative. Blood cultures are redrawn.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Because she remains febrile on cefepime and has developed focal right lower
+    quadrant tenderness during profound neutropenia, a contrast-enhanced CT of
+    the abdomen and pelvis is performed. It demonstrates marked circumferential
+    wall thickening of the cecum and terminal ileum measuring up to 14 mm,
+    surrounding peri-cecal fat stranding, and curvilinear foci of gas within the
+    dependent cecal wall consistent with pneumatosis intestinalis. There is no
+    portomesenteric venous gas and no free intraperitoneal air or fluid. The
+    appendix is separately identified and normal. The imaging is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/neutropenic-enterocolitis/ct.png"
+        alt="Axial CT abdomen showing marked circumferential wall thickening of the cecum and right hemicolon with peri-colonic inflammatory stranding, consistent with neutropenic enterocolitis"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Axial contrast-enhanced CT of the abdomen: marked circumferential wall
+      thickening of the cecum and right hemicolon with peri-colonic
+      inflammatory stranding — the hallmark imaging pattern of neutropenic
+      enterocolitis (typhlitis).
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-neutropenic-enterocolitis-q1"
+  title="Question 1"
+  prompt="In this profoundly neutropenic patient on chemotherapy, what is the most likely diagnosis?"
+  options={[
+    {
+      id: "A",
+      label: "Acute appendicitis",
+      feedback:
+        "Incorrect. Acute appendicitis is always on the differential for right lower quadrant pain, and an enlarged, inflamed appendix can secondarily inflame the adjacent cecum. However, the CT here separately identifies a normal appendix while demonstrating circumferential thickening of both the cecum and terminal ileum with pneumatosis intestinalis — a pattern that extends beyond the appendiceal wall and is the signature of bowel wall injury from chemotherapy and neutropenia rather than appendiceal obstruction. Appendicitis also rarely produces pneumatosis. The clinical setting — profound neutropenia ten days after cytotoxic chemotherapy — is the epidemiologic fingerprint of neutropenic enterocolitis, not appendicitis.",
+    },
+    {
+      id: "B",
+      label: "Neutropenic enterocolitis (typhlitis)",
+      correct: true,
+      feedback:
+        "Correct. Neutropenic enterocolitis, also called typhlitis (from the Greek typhlon, meaning cecum), is an inflammatory and often infectious necrosis of the bowel wall that occurs in profoundly neutropenic patients after cytotoxic chemotherapy. The diagnosis is established when a neutropenic patient with abdominal pain has imaging evidence of bowel wall thickening — most commonly involving the cecum and terminal ileum — in the absence of an alternative explanation. This patient has every element of the canonical presentation: an ANC of 180 cells/mcL roughly ten to fourteen days after a myelosuppressive regimen (cisplatin–etoposide), right lower quadrant pain with fever, and a CT showing cecal and terminal ileal wall thickening up to 14 mm with peri-cecal stranding and pneumatosis intestinalis. A bowel wall thickness greater than 4 mm in the correct clinical context is the radiologic threshold most often cited. The negative C. difficile NAAT and the focal ileocecal distribution distinguish this from pseudomembranous colitis, while the normal appendix excludes appendicitis as the primary process.",
+    },
+    {
+      id: "C",
+      label: "Pseudomembranous Clostridioides difficile colitis",
+      feedback:
+        "Incorrect. C. difficile colitis is the single most important diagnosis to exclude in any neutropenic patient with diarrhea and abdominal pain, and it can coexist with typhlitis. However, several features argue against it here. The C. difficile NAAT is negative, and while a single negative test does not perfectly exclude infection, the focal cecal and terminal ileal thickening with pneumatosis is not the typical imaging pattern of pseudomembranous colitis, which usually produces diffuse, pancolonic wall thickening with oral contrast outlining plaquelike pseudomembranes (the 'accordion sign'). C. difficile colitis also tends to produce marked leukocytosis rather than the profound neutropenia driving this presentation. The key clinical principle is that a negative C. difficile test in a neutropenic patient with focal right-sided bowel wall thickening should redirect attention to typhlitis rather than trigger empiric oral vancomycin in lieu of the broader management this condition requires.",
+    },
+    {
+      id: "D",
+      label: "Acute mesenteric ischemia",
+      feedback:
+        "Incorrect. Mesenteric ischemia can produce bowel wall thickening and pneumatosis and must be considered in any acutely ill patient with abdominal pain. However, the pathophysiology here does not fit. This patient has no described vascular risk factors such as atrial fibrillation, recent myocardial infarction, or severe atherosclerotic disease, and the lactate of 2.1 mmol/L is only mildly elevated. Ischemic colitis typically affects watershed regions such as the splenic flexure and sigmoid colon rather than preferentially targeting the cecum and terminal ileum. Most importantly, the dominant clinical context is profound chemotherapy-induced neutropenia, which is the defining risk factor for typhlitis and is absent from the ischemia differential. CT would also be expected to show vascular occlusion or a geographic, segmental distribution corresponding to a vascular territory rather than the diffuse circumferential ileocecal thickening seen here.",
+    },
+    {
+      id: "E",
+      label: "Intussusception",
+      feedback:
+        "Incorrect. Ileocolic intussusception can cause right lower quadrant pain and a masslike fullness, and in adults it is often driven by a pathologic lead point such as a tumor. However, the diagnostic imaging finding of intussusception is a target or 'bowel-in-bowel' sign with invagination of one loop into another and an associated crescent of mesenteric fat — none of which is described here. The circumferential cecal and terminal ileal wall thickening with pneumatosis, occurring in the setting of profound neutropenia after chemotherapy, points to a bowel wall inflammatory process rather than a mechanical obstruction. Intussusception is also far less common in adults than in children and would not explain the pneumatosis intestinalis.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-neutropenic-enterocolitis-q2"
+  title="Question 2"
+  prompt="Which statement best describes the microbiology and evaluation of this condition?"
+  options={[
+    {
+      id: "A",
+      label: "Cefepime monotherapy provides adequate empiric coverage because gram-negative aerobes are the dominant pathogens",
+      feedback:
+        "Incorrect. This is a common and dangerous misconception. Cefepime is the workhorse empiric agent for uncomplicated neutropenic fever precisely because it covers Pseudomonas aeruginosa and other aerobic gram-negative bacilli, and it is a reasonable starting point. But neutropenic enterocolitis is a transmural infection of a damaged bowel wall, and the bowel lumen is densely populated with obligate anaerobes. Cefepime has unreliable activity against Bacteroides fragilis and other gut anaerobes. Continuing cefepime monotherapy in established typhlitis leaves the anaerobic component uncovered and is a recognized cause of treatment failure. The IDSA neutropenic fever framework assumes an uncomplicated, low-risk infection; typhlitis is a focal, high-risk intra-abdominal process that demands anaerobic coverage from the outset.",
+    },
+    {
+      id: "B",
+      label: "The process is typically polymicrobial — gram-negative bacilli, anaerobes, enterococci, and Candida — and Clostridium septicum is a feared pathogen that can progress to myonecrosis; colonoscopy should be avoided",
+      correct: true,
+      feedback:
+        "Correct. Neutropenic enterocolitis arises when chemotherapy damages the bowel mucosa and profound neutropenia cripples the innate immune response, permitting translocation of the gut's resident flora through an ulcerated wall. The microbiology is therefore polymicrobial and mirrors the colonic ecosystem: aerobic gram-negative bacilli such as Escherichia coli, Klebsiella, and Pseudomonas; obligate anaerobes including Bacteroides and Clostridium species; enterococci; and, with progressive or prolonged disease, Candida. Among the clostridia, Clostridium septicum deserves particular attention. It is classically associated with typhlitis and with underlying malignancy or neutropenia, and its alpha-toxin can transform a contained bowel wall infection into life-threatening clostridial myonecrosis and gas gangrene — so the appearance of soft tissue crepitus, rapidly spreading cellulitis, or hemodynamic collapse should trigger immediate surgical evaluation. Diagnostic colonoscopy and enemas must be avoided in suspected typhlitis because the fragile, thinned bowel wall is at high risk of perforation; the diagnosis rests on clinical context plus cross-sectional imaging, not endoscopy.",
+    },
+    {
+      id: "C",
+      label: "Blood cultures are rarely helpful, and surgical exploration is the gold standard for diagnosis",
+      feedback:
+        "Incorrect on both counts. Blood cultures are an essential part of the evaluation — they are positive in a substantial minority of patients with typhlitis, most often growing enteric gram-negative bacilli, anaerobes, or polymicrobial flora, and they guide de-escalation. They should always be obtained before or shortly after adjusting antibiotics. Surgical exploration is not a diagnostic tool in typhlitis; it is reserved for specific complications such as perforation, uncontrolled hemorrhage, or clinical deterioration refractory to medical therapy. The diagnosis is clinical, supported by CT imaging — invasive confirmation by laparotomy or endoscopy is neither required nor safe as a routine step.",
+    },
+    {
+      id: "D",
+      label: "The causative organism is almost always Clostridioides difficile, and oral vancomycin is the mainstay of therapy",
+      feedback:
+        "Incorrect. Clostridioides difficile is an important differential diagnosis and can coexist with typhlitis, but it is not the causative organism of neutropenic enterocolitis itself. Typhlitis is a polymicrobial, bowel-wall process driven by translocation of the resident colonic flora across chemotherapy-damaged mucosa in the setting of neutropenia — not a toxin-mediated colitis. Oral vancomycin has no role as the primary therapy for typhlitis. Conflating the two conditions is dangerous: treating what is actually typhlitis with oral vancomycin alone would leave anaerobes, Pseudomonas, and the risk of clostridial myonecrosis completely unaddressed.",
+    },
+    {
+      id: "E",
+      label: "Fungal involvement indicates a failure of antibacterial therapy and mandates immediate surgical resection",
+      feedback:
+        "Incorrect. Candida and, less commonly, mold can be recovered from patients with typhlitis, particularly when neutropenia is prolonged. Finding yeast in blood cultures or on surveillance is not by itself proof of antibacterial failure or an indication for emergent resection. It does, however, signal the need for antifungal therapy (typically an echinocandin for candidemia, escalated to a mold-active agent depending on persistence and risk) and heightens concern for deeper invasion. Surgical resection in typhlitis is dictated by mechanical and clinical complications — perforation, uncontrollable bleeding, or refractory deterioration — not by the isolation of a fungus alone.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-neutropenic-enterocolitis-q3"
+  title="Question 3"
+  prompt="The patient remains febrile with worsening right lower quadrant pain on cefepime. What is the most appropriate change in her antimicrobial and overall management?"
+  options={[
+    {
+      id: "A",
+      label: "Continue cefepime monotherapy and add G-CSF; withhold anaerobic coverage unless blood cultures grow anaerobes",
+      feedback:
+        "Incorrect. Waiting for blood culture speciation before adding anaerobic coverage is a hazardous delay. Blood cultures are negative in a substantial proportion of typhlitis cases, and anaerobes are fastidious and slow-growing — a negative or pending culture does not exclude an anaerobic component. Because typhlitis is a transmural infection of anaerobe-rich bowel, anaerobic coverage is mandatory from the moment the diagnosis is suspected, not after culture confirmation. G-CSF is a reasonable supportive adjunct to shorten neutropenia, but it is not a substitute for appropriate antimicrobial coverage. This patient's clinical status is worsening on a regimen that does not cover anaerobes, which is exactly the scenario in which continuing the same coverage leads to perforation, bacteremia, and septic shock.",
+    },
+    {
+      id: "B",
+      label: "Escalate to ensure anaerobic and anti-pseudomonal coverage (e.g., piperacillin-tazobactam or cefepime plus metronidazole), add G-CSF and bowel rest, and obtain early surgical consultation",
+      correct: true,
+      feedback:
+        "Correct. The central management error to recognize here is that cefepime monotherapy — entirely appropriate for uncomplicated neutropenic fever — is inadequate for established neutropenic enterocolitis because it lacks reliable anaerobic activity. The bowel wall in typhlitis is seeded by polymicrobial translocating flora, so anaerobic coverage is non-negotiable. Acceptable options include switching to a single agent with both anti-pseudomonal and anaerobic activity such as piperacillin-tazobactam or a carbapenem (meropenem, imipenem-cilastatin), or adding metronidazole to the existing cefepime. Vancomycin (or linezolid) should be added only for specific indications — severe mucositis, known MRSA colonization or prior infection, suspected catheter-related infection, or hemodynamic instability — and not reflexively, which is a key antimicrobial stewardship principle. Adjunctive measures are equally important: granulocyte colony-stimulating factor (G-CSF) to accelerate neutrophil recovery, strict bowel rest with nasogastric decompression if ileus develops, aggressive supportive care, and early surgical consultation so that a surgeon is already engaged if perforation, hemorrhage, or refractory sepsis supervenes. Antifungal therapy should be escalated if fever persists beyond four to seven days on appropriate broad-spectrum antibacterials (per IDSA guidance), reflecting the rising risk of invasive candidiasis and mold infection during prolonged neutropenia — but not on day one, which would be unnecessary broadening.",
+    },
+    {
+      id: "C",
+      label: "Switch to oral metronidazole and discontinue IV antibiotics once her ANC begins to recover",
+      feedback:
+        "Incorrect. Enteral therapy is inappropriate in active typhlitis for two reasons. First, the patient is being managed with bowel rest because the injured bowel wall must be decompressed, and oral medications are poorly absorbed and unreliable in the setting of ileus and mucosal destruction. Second, oral metronidazole alone would not provide the anti-pseudomonal gram-negative coverage that typhlitis requires. Intravenous therapy with both anti-pseudomonal and anaerobic activity is the standard, and transition to oral agents — if it occurs at all — happens only after clinical resolution and count recovery, not at the first sign of ANC improvement.",
+    },
+    {
+      id: "D",
+      label: "Add empiric caspofungin immediately on the first day of fever regardless of fever duration",
+      feedback:
+        "Incorrect as a blanket strategy, though antifungal escalation does have an important role. IDSA guidance recommends adding empirical antifungal therapy when fever persists despite four to seven days of appropriate broad-spectrum antibacterials (or earlier in the setting of specific risk factors such as prolonged neutropenia, prior fungal infection, or colonization). Starting an echinocandin or mold-active azole on day one of every neutropenic fever exposes patients to unnecessary drug burden, drug interactions, and resistance pressure, and violates antimicrobial stewardship principles. The decision to add an antifungal should be guided by persistence of fever, serial fungal markers such as galactomannan and beta-D-glucan, and high-resolution CT of the chest and sinuses, not reflexively on day one.",
+    },
+    {
+      id: "E",
+      label: "Perform urgent colonoscopy to obtain biopsies and confirm the diagnosis before changing antibiotics",
+      feedback:
+        "Incorrect and potentially dangerous. The diagnosis of typhlitis is established clinically — neutropenia, abdominal pain, and characteristic CT findings — without endoscopic confirmation. Colonoscopy and even enemas are contraindicated in suspected typhlitis because the inflamed, thinned, and potentially necrotic bowel wall is at high risk of iatrogenic perforation, which dramatically worsens outcomes. The correct next step is immediate adjustment of antimicrobial coverage to include anaerobes alongside the supportive and surgical measures described above; endoscopy has no diagnostic role here and should not delay appropriate therapy.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-neutropenic-enterocolitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Neutropenic enterocolitis, or typhlitis, is a necrotizing inflammation of
+    the bowel wall that complicates profound neutropenia, most often in the
+    window of maximal myelosuppression ten to fourteen days after cytotoxic
+    chemotherapy. The pathophysiology is a two-hit process: chemotherapy first
+    strips the rapidly dividing intestinal mucosa, producing denuded epithelium
+    and impaired barrier function, and the resulting neutropenia then removes
+    the phagocytic defense that would normally contain translocating bacteria.
+    The cecum is the classic site because it is the most distensible segment of
+    colon, with the thinnest wall and a relatively limited blood supply, making
+    it vulnerable to ischemia, distension-related injury, and stasis of its
+    microbe-rich contents. Although historically described in acute leukemia
+    induction and hematopoietic stem cell transplant conditioning, typhlitis is
+    increasingly recognized after intensive solid-tumor regimens such as the
+    cisplatin and etoposide used for high-grade neuroendocrine carcinoma, which
+    produce comparable depths and durations of neutropenia.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The diagnosis is clinical and radiographic, not endoscopic. In a neutropenic
+    patient with fever and abdominal pain — typically localizing to the right
+    lower quadrant — contrast-enhanced CT demonstrating circumferential bowel
+    wall thickening (greater than 4 mm) of the cecum and terminal ileum, with
+    peri-colonic fat stranding and sometimes pneumatosis intestinalis,
+    establishes the diagnosis. Crucially, C. difficile colitis must always be
+    excluded because it can mimic and coexist with typhlitis, but a negative
+    NAAT combined with a focal ileocecal pattern points away from
+    pseudomembranous colitis, which is typically diffuse and pancolonic.
+    Diagnostic colonoscopy is avoided because the fragile bowel wall is at high
+    risk of perforation. The microbiology reflects the source: polymicrobial
+    translocation of enteric gram-negative bacilli, obligate anaerobes,
+    enterococci, and, with prolonged neutropenia, Candida. Among the clostridia,
+    Clostridium septicum is classically linked to typhlitis and underlying
+    malignancy, and its alpha-toxin can convert a contained wall infection into
+    gas gangrene and myonecrosis — making any new crepitus or rapid hemodynamic
+    collapse a surgical emergency.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The management principle that this case turns on is that the standard
+    neutropenic fever regimen is not sufficient for typhlitis. Cefepime
+    monotherapy — the IDSA-recommended empiric backbone for uncomplicated
+    febrile neutropenia — covers Pseudomonas and aerobic gram-negatives but has
+    unreliable activity against the obligate anaerobes that populate the
+    ulcerated bowel wall. Typhlitis demands an agent that covers both
+    anti-pseudomonal gram-negatives and anaerobes from the outset, such as
+    piperacillin-tazobactam or a carbapenem as monotherapy, or the addition of
+    metronidazole to cefepime. Gram-positive coverage with vancomycin or
+    linezolid is reserved for specific indications — severe mucositis, known
+    MRSA risk, catheter-related infection, or hemodynamic instability — rather
+    than reflexive escalation, which is a core antimicrobial stewardship
+    principle. Antifungal escalation, typically to an echinocandin for
+    candidemia or a mold-active azole or amphotericin depending on risk and
+    imaging, follows the IDSA guidance of persistent fever despite four to seven
+    days of appropriate antibacterials, and is guided by serial fungal markers
+    and high-resolution imaging rather than reflex empiricism on day one.
+    Supportive therapy — G-CSF to hasten neutrophil recovery, strict bowel rest,
+    nasogastric decompression for ileus, and meticulous supportive care — is
+    essential, and early surgical consultation ensures that a surgeon is already
+    engaged if perforation, uncontrolled hemorrhage, or refractory sepsis
+    develops. Antibiotics are continued until clinical resolution and sustained
+    count recovery, and de-escalated according to culture data.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-neutropenic-enterocolitis-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Neutropenic enterocolitis (typhlitis) is a <strong>clinical and CT
+      diagnosis</strong> in a profoundly neutropenic patient with abdominal pain:
+      cecal and terminal ileal wall thickening greater than 4 mm, peri-colonic
+      stranding, and sometimes pneumatosis intestinalis. It is not confirmed by
+      colonoscopy — endoscopy is contraindicated due to perforation risk.
+    </li>
+    <li>
+      The <strong>standard neutropenic fever regimen is not enough for
+      typhlitis</strong>. Cefepime monotherapy covers Pseudomonas and aerobic
+      gram-negatives but lacks reliable anaerobic activity. Typhlitis demands
+      obligate anaerobic coverage from the outset — piperacillin-tazobactam or a
+      carbapenem as monotherapy, or cefepime plus metronidazole.
+    </li>
+    <li>
+      Always <strong>exclude C. difficile</strong>, but a negative NAAT with a
+      focal ileocecal pattern argues against pseudomembranous colitis, which is
+      typically diffuse and pancolonic.
+    </li>
+    <li>
+      The microbiology is <strong>polymicrobial</strong> — enteric
+      gram-negatives, anaerobes, enterococci, and Candida with prolonged
+      neutropenia. <strong>Clostridium septicum</strong> is classically linked
+      to typhlitis and can cause gas gangrene and myonecrosis; new crepitus or
+      rapid collapse is a surgical emergency.
+    </li>
+    <li>
+      Add <strong>vancomycin or linezolid only for specific indications</strong>
+      (severe mucositis, MRSA risk, catheter infection, instability) — not
+      reflexively. Add an <strong>antifungal</strong> for persistent fever
+      beyond four to seven days on appropriate antibacterials, guided by fungal
+      markers and imaging. Both are key antimicrobial stewardship principles.
+    </li>
+    <li>
+      Supportive therapy is essential: <strong>G-CSF</strong> to hasten count
+      recovery, <strong>bowel rest</strong> with nasogastric decompression for
+      ileus, and <strong>early surgical consultation</strong> for perforation,
+      uncontrolled hemorrhage, or refractory sepsis.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Nesher L, Rolston KV. Neutropenic enterocolitis, a growing concern in the
+      era of widespread use of aggressive chemotherapy.
+      <em>Clinical Infectious Diseases</em>. 2013;56(5):711-717.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cis998"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cis998
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Freifeld AG, Bow EJ, Sepkowitz KA, et al. Clinical practice guideline for
+      the use of antimicrobial agents in neutropenic patients with cancer: 2010
+      update by the Infectious Diseases Society of America.
+      <em>Clinical Infectious Diseases</em>. 2011;52(4):e56-e93.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/cid/cir073"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/cid/cir073
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Rodrigues FG, Dasilva G, Wexner SD. Neutropenic enterocolitis.
+      <em>World Journal of Gastroenterology</em>. 2017;23(1):42-47.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.3748/wjg.v23.i1.42"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.3748/wjg.v23.i1.42
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      King A, Rampling A, Wight DG, et al. Neutropenic enterocolitis due to
+      Clostridium septicum infection.
+      <em>Journal of Clinical Pathology</em>. 1984;37(3):335-343.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1136/jcp.37.3.335"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1136/jcp.37.3.335
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Groudan K, Ready A, Sabir R. Neutropenic enterocolitis complicating
+      induction chemotherapy in an acute myeloid leukemia patient.
+      <em>Cureus</em>. 2021;13(1):e13029. [CT figure source — CC BY.]
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.7759/cureus.13029"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.7759/cureus.13029
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
