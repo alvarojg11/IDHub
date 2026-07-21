@@ -138,52 +138,56 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     title: "Community-acquired pneumonia",
     category: "Respiratory & mycobacterial",
     summary:
-      "One of the most common admission diagnoses in Internal Medicine. Mastering severity stratification, empiric therapy, and the admission decision is core to early residency.",
-    readMins: 12,
+      "One of the most common admission diagnoses in Internal Medicine. Mastering severity stratification (CURB-65, PSI), empiric therapy, the admission decision, and complication recognition is core to early residency.",
+    readMins: 18,
     difficulty: "core",
     lastReviewed: "2026-07-21",
     lastUpdated: "2026-07-21",
     atAGlance: [
-      "Use a validated severity score (PSI or CURB-65) plus clinical judgment to decide site of care — not the chest X-ray alone.",
+      "Use a validated severity score (PSI or CURB-65) PLUS clinical judgment to decide site of care — never the chest X-ray alone.",
       "Empiric therapy targets S. pneumoniae, H. influenzae, and the atypicals (Mycoplasma, Chlamydia, Legionella); atypical coverage is standard for inpatient CAP.",
-      "Add MRSA and Pseudomonas coverage only when risk factors are present — routine empiric coverage is not indicated.",
+      "Add MRSA and Pseudomonas coverage ONLY when validated risk factors are present (prior respiratory isolation, OR recent hospitalization with parenteral antibiotics) — routine empiric coverage is not indicated.",
       "Diagnostic yield of blood cultures is low in uncomplicated CAP; reserve for severe disease, hospitalization, or failure of therapy.",
-      "Short-course therapy (5–7 days) is appropriate for most patients who improve clinically.",
-      "Corticosteroids reduce mortality in severe CAP, but are not routine — avoid in influenza or undrained infection without a specific reason.",
+      "Short-course therapy (≥5 days) is appropriate once the patient is afebrile 48–72 h and clinically stable — longer is not better.",
+      "Corticosteroids reduce mortality in severe CAP with septic shock (e.g., hydrocortisone). Avoid in influenza or undrained infection. [VERIFY regimen and point estimate against CAPE COD II — JAMA Intern Med 2023]",
+      "Procalcitonin-guided therapy does NOT improve outcomes — do not use it to decide whether to start antibiotics in suspected CAP.",
+      "Give pneumococcal, influenza, COVID-19, and (age-eligible) RSV vaccination at discharge — prevention matters.",
     ],
     objectives: [
-      "Define CAP and distinguish it from hospital-acquired pneumonia.",
-      "Identify common and high-risk pathogens by host.",
-      "Apply a validated severity tool (PSI, CURB-65) to guide the admission decision.",
-      "Choose appropriate empiric therapy for outpatient, inpatient (non-severe), and severe CAP.",
-      "Recognize when to add MRSA or Pseudomonas coverage.",
-      "Determine duration of therapy and criteria for transition to oral therapy.",
+      "Define CAP and distinguish it from hospital-acquired and ventilator-associated pneumonia.",
+      "Identify common and high-risk pathogens by host, including the ATS/IDSA 2019 validated risk factors for MRSA and Pseudomonas.",
+      "Apply CURB-65 and the PSI (PORT) to guide the admission and ICU decision.",
+      "Choose appropriate empiric therapy for outpatient, inpatient (non-severe), and severe CAP, and know when to broaden for MRSA or Pseudomonas.",
+      "Determine duration of therapy and the criteria for IV-to-oral step-down.",
+      "Recognize and manage complications (empyema, lung abscess, ARDS, metastatic infection).",
+      "Counsel patients on vaccination and smoking cessation for prevention.",
     ],
     keyConcepts: [
       {
         heading: "Clinical problem & epidemiology",
         prose:
-          "CAP is an acute infection of the lung parenchyma in a patient who has not been hospitalized or exposed to healthcare in the prior 14 days. It is among the most frequent causes of hospitalization and infectious death in adults, with mortality driven by severity at presentation and timeliness of appropriate therapy.",
+          "CAP is an acute infection of the lung parenchyma in a patient who has not been hospitalized or exposed to healthcare in the prior 14 days. It is among the most frequent causes of hospitalization and infectious death in adults, with mortality driven by severity at presentation and the timeliness of appropriate therapy. Streptococcus pneumoniae remains the most common identifiable bacterial pathogen, but respiratory viruses (influenza, SARS-CoV-2, RSV) now account for a large and growing fraction of cases.",
         bullets: [
-          "Incidence is highest at the extremes of age and in patients with chronic cardiopulmonary disease or immunocompromise.",
-          "The 'HCAP' category was retired from the 2019 ATS/IDSA guidelines — broaden coverage based on individual risk, not the label.",
-          "Seasonal viruses (influenza, SARS-CoV-2, RSV) are common and change empiric considerations when prevalent.",
+          "Incidence is highest at the extremes of age and in patients with chronic cardiopulmonary disease, diabetes, or immunocompromise.",
+          "The 'HCAP' category was retired from the 2019 ATS/IDSA guidelines — broaden coverage based on validated individual risk factors, not the old label.",
+          "Smoking is the single biggest modifiable risk factor; address it at every encounter.",
         ],
       },
       {
-        heading: "Microbiology & host risk",
+        heading: "Microbiology & validated risk factors for resistant pathogens",
         prose:
-          "Pathogens cluster by host. Streptococcus pneumoniae remains the most common bacterial cause across all settings. Atypicals (Mycoplasma, Chlamydia, Legionella) are classically part of the differential and are covered when patients are sick enough to admit. Certain hosts mandate broader empiric coverage.",
+          "Pathogens cluster by host. S. pneumoniae, H. influenzae, and M. catarrhalis dominate typical CAP; the atypicals (Mycoplasma, Chlamydia, Legionella) are covered whenever a patient is sick enough to admit. The 2019 ATS/IDSA guideline replaced the retired 'HCAP' label with two validated, evidence-based sets of risk factors that actually predict MRSA or Pseudomonas — use these, not the old label, to decide when to broaden empiric coverage.",
         bullets: [
           "Typical: S. pneumoniae, H. influenzae, M. catarrhalis.",
           "Atypical: Mycoplasma pneumoniae, Chlamydia pneumoniae, Legionella pneumophila.",
-          "Risk factors for MRSA: prior MRSA respiratory infection/colonization, recent hospitalization, IV drug use (tricusval/endocarditis with septic emboli).",
-          "Risk factors for Pseudomonas: structurally damaged lung (bronchiectasis, repeated antibiotic exposure), recent hospitalization with parenteral antibiotics.",
+          "Validated risk factors for MRSA: prior respiratory isolation of MRSA, OR recent hospitalization + exposure to parenteral antibiotics.",
+          "Validated risk factors for Pseudomonas: prior respiratory isolation of Pseudomonas, OR recent hospitalization + parenteral antibiotics in a patient with structurally diseased lung (bronchiectasis, severe COPD with recurrent infection).",
+          "Injection drug use raises S. aureus risk (tricuspid valve seeding, septic emboli) — a separate clinical pattern, not captured by the two risk-factor sets above.",
         ],
         question: {
           pollId: "train-cap-microbiology-q1",
           prompt:
-            "A 68-year-old man with COPD on long-term inhaled corticosteroids, recently hospitalized for a COPD exacerbation and treated with IV ceftriaxone, is admitted with multilobar CAP. Which pathogen requires you to ADD specific coverage beyond standard empiric therapy?",
+            "A 68-year-old man with COPD on long-term inhaled corticosteroids, recently hospitalized for a COPD exacerbation and treated with IV ceftriaxone, is admitted with multilobar CAP. Per the ATS/IDSA 2019 validated risk factors, which pathogen requires you to ADD specific coverage beyond standard empiric therapy?",
           options: [
             {
               id: "A",
@@ -202,7 +206,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
               label: "Pseudomonas aeruginosa",
               correct: true,
               feedback:
-                "Correct. Recent hospitalization plus parenteral antibiotics and structurally diseased lung (COPD with frequent exacerbations) is a risk for Pseudomonas. Empiric therapy should include an antipseudomonal beta-lactam (e.g., piperacillin-tazobactam or cefepime) plus atypical coverage, with MRSA coverage added if indicated.",
+                "Correct. Recent hospitalization plus parenteral antibiotics in a patient with structurally diseased lung (severe COPD with frequent exacerbations) meets the ATS/IDSA 2019 validated risk factor for Pseudomonas. Switch to an antipseudomonal beta-lactam (e.g., piperacillin-tazobactam or cefepime) plus atypical coverage, and add MRSA coverage if risk factors are also present.",
             },
             {
               id: "D",
@@ -216,22 +220,22 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       {
         heading: "Clinical manifestations",
         prose:
-          "The classic presentation is fever, cough, productive sputum, dyspnea, and pleuritic chest pain, with focal exam findings (crackles, consolidation). Presentation is often subtler in the elderly or immunocompromised, who may present with confusion, falls, or functional decline alone.",
+          "The classic presentation is fever, cough, productive sputum, dyspnea, and pleuritic chest pain, with focal exam findings (crackles, consolidation). Presentation is often subtler in the elderly or immunocompromised, who may present with confusion, falls, or functional decline alone — in an older patient, CAP is a leading cause of non-specific functional decline.",
         bullets: [
-          "Tachypnea and tachycardia are the most sensitive physical-exam findings.",
-          "Hypothermia, hypotension, or confusion signal severe disease.",
-          "Extrapulmonary features (diarrhea, hyponatremia, hepatitis, neurologic change) suggest Legionella.",
+          "Tachypnea and tachycardia are the most sensitive physical-exam findings; their absence makes CAP less likely.",
+          "Hypothermia, hypotension, or confusion signal severe disease (and are CURB-65 components).",
+          "Extrapulmonary features — diarrhea, hyponatremia, hepatitis, neurologic change — suggest Legionella.",
         ],
       },
       {
-        heading: "Approach to diagnosis",
+        heading: "Approach to diagnosis: tiered testing",
         prose:
-          "Chest imaging is required to confirm the diagnosis. Additional testing is tiered by severity: the sicker or more complex the patient, the more diagnostics are justified. Over-testing in low-severity CAP adds cost and false positives without changing management.",
+          "Chest imaging is required to confirm the diagnosis. Additional testing is tiered by severity: the sicker or more complex the patient, the more diagnostics are justified. Over-testing in low-severity CAP adds cost and false positives without changing management. Procalcitonin does NOT improve clinically important outcomes when used to guide initiation or duration, and should not delay antibiotics in suspected CAP.",
         bullets: [
-          "First tier (all): chest X-ray (or chest CT if X-ray is negative but suspicion is high).",
-          "Second tier (hospitalized): blood cultures (before antibiotics if possible), sputum culture if a good sample can be obtained, respiratory viral testing including influenza and SARS-CoV-2.",
+          "First tier (all patients): chest X-ray (or chest CT if X-ray is negative but suspicion is high).",
+          "Second tier (hospitalized): blood cultures before antibiotics if possible, sputum culture if a good sample can be obtained, respiratory viral testing including influenza and SARS-CoV-2.",
           "Third tier (severe ICU): urinary antigens for S. pneumoniae and Legionella serogroup 1; consider bronchoscopy if atypical or opportunistic infection is suspected.",
-          "CURB-65/PSI guide severity, but blood cultures are reasonable in any hospitalized patient.",
+          "Do NOT use procalcitonin to decide whether to start antibiotics in suspected CAP (ProCAP and related trials showed no outcome benefit). [VERIFY exact ProCAP citation]",
         ],
         question: {
           pollId: "train-cap-diagnosis-q1",
@@ -269,22 +273,23 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       {
         heading: "Risk stratification & the admission decision",
         prose:
-          "Severity scores objectify the risk of death, but they do not replace clinical judgment — social factors, ability to take oral medications, and follow-up all affect the site of care. The PSI (Pneumonia Severity Index) is more sensitive but more complex; CURB-65 is simpler and bedside-friendly.",
+          "Severity scores objectify the risk of death, but they do not replace clinical judgment — social factors, the ability to take oral medications, and access to follow-up all affect the site of care. The PSI (Pneumonia Severity Index / PORT) is more sensitive (and more complex), weighting age and comorbidities heavily; CURB-65 is a simpler bedside score. The scoring-tools section below gives the full point tables and interpretation bands.",
         bullets: [
-          "CURB-65: Confusion, Urea >7 mmol/L, Respiratory rate ≥30, Blood pressure (SBP <90 or DBP ≤60), age ≥65. Score ≥2 generally warrants admission; ≥3 consider ICU.",
-          "PSI (PORT score) weights age and comorbidities heavily and is preferred for borderline decisions.",
+          "CURB-65: Confusion, Urea >7 mmol/L (BUN >19 mg/dL), Respiratory rate ≥30, Blood pressure (SBP <90 or DBP ≤60), age ≥65. Score 0–1 consider outpatient; 2 admit; ≥3 consider ICU.",
+          "PSI is preferred for borderline site-of-care decisions because it is more sensitive (fewer inappropriate outpatients).",
           "Clinical judgment overrides the score — a young parent unable to follow up or take oral medications may still need admission.",
+          "Use an early-warning score (NEWS2, MEWS) to detect deterioration on the floor.",
         ],
       },
       {
-        heading: "Treatment: empiric therapy",
+        heading: "Treatment: empiric therapy by site of care",
         prose:
-          "Empiric therapy follows the site of care and host risk. The principles: cover the core pathogens, add atypicals for inpatient therapy, and add MRSA/Pseudomonas coverage only for validated risk factors. The regimen table below summarizes the common scenarios.",
+          "Empiric therapy follows the site of care and host risk. The principles: cover the core pathogens, add atypicals for inpatient therapy, and add MRSA/Pseudomonas coverage only for the validated risk factors above. The regimen table below summarizes the common scenarios; de-escalate the moment cultures and susceptibilities return.",
         bullets: [
           "Outpatient (healthy): amoxicillin high-dose, doxycycline, or a respiratory fluoroquinolone.",
           "Outpatient (comorbidities): amoxicillin/clavulanate plus a macrolide or doxycycline; or a respiratory fluoroquinolone alone.",
-          "Inpatient (non-severe): an antipneumococcal beta-lactam (ceftriaxone, cefotaxime, ampicillin-sulbactam, or ertapenem) plus a macrolide; or a respiratory fluoroquinolone.",
-          "Severe (ICU): beta-lactam plus macrolide (or fluoroquinolone); add MRSA and antipseudomonal coverage when risk factors are present.",
+          "Inpatient (non-severe): an antipneumococcal beta-lactam (ceftriaxone, cefotaxime, ampicillin-sulbactam, or ertapenem) PLUS a macrolide; or a respiratory fluoroquinolone.",
+          "Severe (ICU): beta-lactam PLUS macrolide (azithromycin) — fluoroquinolone is an acceptable alternative; add vancomycin/linezolid AND an antipseudomonal beta-lactam when validated risk factors are present. Avoid fluoroquinolone monotherapy in ICU disease.",
         ],
         question: {
           pollId: "train-cap-treatment-q1",
@@ -302,7 +307,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
               label: "Amoxicillin 1 g three times daily for 5–7 days",
               correct: true,
               feedback:
-                "Correct. High-dose amoxicillin is first-line for healthy adults with outpatient CAP. A doxycycline or a respiratory fluoroquinolone is a reasonable alternative.",
+                "Correct. High-dose amoxicillin is first-line for healthy adults with outpatient CAP. Doxycycline or a respiratory fluoroquinolone is a reasonable alternative.",
             },
             {
               id: "C",
@@ -322,13 +327,73 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       {
         heading: "Duration, oral step-down & treatment failure",
         prose:
-          "Shorter is better. Patients who improve can complete therapy orally, and most courses last 5–7 days. Transition to oral therapy does not require repeat blood cultures in uncomplicated cases. Failure to improve by day 3 of therapy should prompt reassessment rather than reflexive broadening.",
+          "Shorter is better. Patients who improve can complete therapy orally, and most courses run ≥5 days. Transition to oral therapy does not require repeat blood cultures, a documented normal temperature, or a normal WBC — only clinical stability and the ability to absorb oral drugs. Failure to improve by day 3 should prompt structured reassessment rather than reflexive broadening. Corticosteroids reduce mortality in severe CAP with septic shock; they should be avoided in influenza or undrained infection.",
         bullets: [
           "Minimum 5 days of therapy, provided the patient is afebrile for 48–72 hours and clinically stable.",
-          "Switch from IV to oral when the patient is hemodynamically stable, improving, and able to take oral medications.",
+          "Switch IV→PO when the patient is hemodynamically stable, improving, and able to take oral medications — high-bioavailability oral agents (fluoroquinolones, linezolid, doxycycline, metronidazole, fluconazole) achieve serum levels close to IV.",
           "Causes of failure by day 3: wrong pathogen or resistant organism, complication (empyema, abscess, metastatic infection), wrong diagnosis (PE, heart failure, atypical presentation), or inadequate source control.",
-          "Steroids (e.g., hydrocortisone) are considered in severe CAP with high inflammatory burden; avoid in influenza or active undrained infection.",
+          "Corticosteroids (e.g., hydrocortisone) reduce mortality in severe CAP with septic shock; avoid in influenza or active undrained infection. [VERIFY regimen and point estimate — CAPE COD II, JAMA Intern Med 2023]",
         ],
+      },
+      {
+        heading: "Aspiration pneumonitis vs aspiration pneumonia",
+        prose:
+          "Not every infiltrate after a witnessed aspiration event is an infection. Aspiration pneumonitis is a chemical lung injury from sterile gastric contents (typically after a large-volume aspiration in an altered patient) and may not require antibiotics — supportive care plus observation is often sufficient. Aspiration pneumonia is a bacterial infection that develops subacutely, classically in the dependent lobes, with anaerobic and mixed flora. Distinguishing the two prevents unnecessary broad-spectrum antibiotics.",
+        bullets: [
+          "Aspiration pneumonitis: acute onset after a witnessed aspiration, chemical injury; consider supportive care first and add antibiotics only if the infiltrate persists or fever/purulence develops over 24–48 h.",
+          "Aspiration pneumonia: subacute presentation in a patient with aspiration risk (stroke, seizure, dysphagia, substance use), dependent-lobe infiltrate (RLL, RML, posterior LUL).",
+          "Routine anaerobic coverage is NOT needed for simple CAP; add anaerobic coverage (clindamycin or metronidazole, or a beta-lactam/beta-lactamase inhibitor) only for true aspiration pneumonia, lung abscess, or empyema.",
+        ],
+      },
+    ],
+    scoringTools: [
+      {
+        name: "CURB-65",
+        purpose: "Rapid bedside severity stratification and site-of-care decision.",
+        points: [
+          { factor: "Confusion (new disorientation in person, place, or time)", score: 1 },
+          { factor: "Uremia — BUN > 19 mg/dL (urea > 7 mmol/L)", score: 1 },
+          { factor: "Respiratory rate ≥ 30/min", score: 1 },
+          { factor: "Blood pressure: SBP < 90 OR DBP ≤ 60 mmHg", score: 1 },
+          { factor: "Age ≥ 65 years", score: 1 },
+        ],
+        interpretation: [
+          { range: "Score 0–1", meaning: "Low risk of mortality", action: "Consider outpatient therapy (with clinical judgment and social factors)." },
+          { range: "Score 2", meaning: "Moderate risk", action: "Inpatient admission (or brief inpatient/observation with close follow-up)." },
+          { range: "Score ≥ 3", meaning: "Severe / high mortality", action: "Inpatient admission; consider ICU for scores 3–4–5." },
+        ],
+        source: "Lim WS et al. Thorax 2003;58:377–382. [VERIFY mortality bands: 0 ~0.6%, 1 ~3.2%, 2 ~9%, 3 ~15%, 4 ~28%, 5 ~35%]",
+      },
+      {
+        name: "Pneumonia Severity Index (PSI / PORT)",
+        purpose: "Comorbidity-weighted score; more sensitive than CURB-65 and preferred for borderline site-of-care decisions.",
+        points: [
+          { factor: "Age (men = age in years; women = age − 10); nursing-home resident (+10)", score: "yrs" },
+          { factor: "Neoplastic disease", score: "+30" },
+          { factor: "Liver disease", score: "+20" },
+          { factor: "Congestive heart failure", score: "+10" },
+          { factor: "Cerebrovascular disease", score: "+10" },
+          { factor: "Renal disease", score: "+10" },
+          { factor: "Altered mental status", score: "+20" },
+          { factor: "Respiratory rate ≥ 30", score: "+20" },
+          { factor: "Systolic BP < 90", score: "+20" },
+          { factor: "Temperature < 35 °C or ≥ 40 °C", score: "+15" },
+          { factor: "Pulse ≥ 125", score: "+10" },
+          { factor: "Arterial pH < 7.35", score: "+30" },
+          { factor: "BUN ≥ 30 mg/dL (or urea ≥ 11 mmol/L)", score: "+20" },
+          { factor: "Sodium < 130", score: "+20" },
+          { factor: "Glucose ≥ 250", score: "+10" },
+          { factor: "Hematocrit < 30%", score: "+10" },
+          { factor: "PaO₂ < 60 or O₂ sat < 90%", score: "+10" },
+          { factor: "Pleural effusion on CXR", score: "+10" },
+        ],
+        interpretation: [
+          { range: "Class I–II (< 70 pts)", meaning: "Low mortality (~1%)", action: "Outpatient management." },
+          { range: "Class III (71–90 pts)", meaning: "Low–moderate mortality (~3%)", action: "Brief inpatient stay or observation." },
+          { range: "Class IV (91–130 pts)", meaning: "Moderate mortality (~8–9%)", action: "Inpatient admission." },
+          { range: "Class V (> 130 pts)", meaning: "High mortality (~27–29%)", action: "Inpatient admission; consider ICU." },
+        ],
+        source: "Fine MJ et al. N Engl J Med 1997;336:243–250. [VERIFY class-specific mortality]",
       },
     ],
     differentials: [
@@ -352,6 +417,14 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         diagnosis: "Lung abscess or empyema",
         distinguishing: "Cavitary lesion or pleural collection; often aspiration or anaerobic; requires drainage.",
       },
+      {
+        diagnosis: "Aspiration pneumonitis (sterile)",
+        distinguishing: "Acute infiltrate after a witnessed large-volume aspiration; chemical injury, often no fever or purulence initially.",
+      },
+      {
+        diagnosis: "Viral pneumonia (influenza, SARS-CoV-2, RSV)",
+        distinguishing: "Viral prodrome, bilateral infiltrates, lymphopenia; confirm with a respiratory viral panel.",
+      },
     ],
     regimenTables: [
       {
@@ -359,7 +432,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         rows: [
           {
             scenario: "Outpatient, healthy, no risk factors",
-            regimen: "Amoxicillin 1 g PO TID, or doxycycline 100 mg PO BID, or a respiratory fluoroquinolone",
+            regimen: "Amoxicillin 1 g PO TID; alternatives: doxycycline 100 mg PO BID, or a respiratory fluoroquinolone",
             duration: "5–7 days",
           },
           {
@@ -373,29 +446,142 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
             scenario: "Inpatient, non-severe",
             regimen:
               "Antipneumococcal beta-lactam (ceftriaxone, cefotaxime, ampicillin-sulbactam, ertapenem) PLUS a macrolide; or a respiratory fluoroquinolone",
-            duration: "5–7 days",
+            duration: "≥5 days (until afebrile 48–72 h and clinically stable)",
           },
           {
             scenario: "Inpatient, severe (ICU)",
             regimen:
-              "Beta-lactam PLUS macrolide (azithromycin); fluoroquinolone acceptable alternative. Add MRSA + antipseudomonal coverage if risk factors.",
+              "Beta-lactam PLUS macrolide (azithromycin); fluoroquinolone acceptable alternative. Add vancomycin or linezolid (MRSA) AND switch to an antipseudomonal beta-lactam when validated risk factors are present.",
             note: "Avoid fluoroquinolone monotherapy in ICU disease.",
           },
           {
-            scenario: "Aspiration concern",
+            scenario: "Aspiration pneumonia / lung abscess / empyema",
+            hostFactors: "Witnessed aspiration, dysphagia, substance use, poor dentition",
             regimen:
-              "Add anaerobic coverage (metronidazole or clindamycin) if a true lung abscess or empyema is present; routine anaerobic coverage is not needed for simple CAP.",
+              "Add anaerobic coverage (metronidazole or clindamycin, or use ampicillin-sulbactam/piperacillin-tazobactam). Routine anaerobic coverage is NOT needed for simple CAP.",
           },
         ],
       },
     ],
+    complications: [
+      {
+        name: "Parapneumonic effusion & empyema",
+        recognize: "Persistent fever or failure to improve; pleural fluid on imaging. Send fluid for pH, LDH, protein, cell count, Gram stain, and culture.",
+        manage: "Thoracentesis to characterize; if pH < 7.2 or loculated/infected → chest tube (tube thoracostomy) ± surgical or catheter drainage. Early involvement of pulmonology, interventional radiology, or thoracic surgery.",
+      },
+      {
+        name: "Lung abscess",
+        recognize: "Cavity with air-fluid level, often after aspiration or with S. aureus / anaerobes / Klebsiella; foul-smelling sputum suggests anaerobes.",
+        manage: "Prolonged anaerobic-covering antibiotics (weeks to months until cavity resolves on imaging); drainage if large or not responding. Bronchoscopy to exclude obstruction.",
+      },
+      {
+        name: "ARDS & septic shock",
+        recognize: "Refractory hypoxemia, bilateral opacities, vasopressor dependence; typically with severe or multilobar CAP.",
+        manage: "Lung-protective ventilation, conservative fluid strategy, vasopressors. Consider corticosteroids for septic-shock CAP (avoid in influenza). Source control for any drainable collection.",
+      },
+      {
+        name: "Metastatic infection (esp. S. aureus)",
+        recognize: "New murmur, embolic phenomena, back pain, septic arthritis — suggests endocarditis, vertebral osteomyelitis, or septic emboli.",
+        manage: "Repeat blood cultures, echocardiography (TEE if S. aureus or prosthetic valve), imaging for metastatic foci; prolong therapy and involve ID, cardiology, and surgery as indicated.",
+      },
+      {
+        name: "Non-resolving pneumonia",
+        recognize: "Infiltrate that fails to improve by 4–6 weeks despite appropriate therapy.",
+        manage: "Reconsider the diagnosis (malignancy, organizing pneumonia, TB/fungal, aspiration, immunodeficiency); chest CT and often bronchoscopy. Underlying lung cancer is a real concern in smokers.",
+      },
+    ],
+    prognosis: [
+      { metric: "Overall outpatient CAP mortality", value: "< 1–5%" },
+      { metric: "Overall hospitalized CAP mortality", value: "~10–12% [VERIFY]" },
+      { metric: "ICU CAP mortality", value: "~20–50% [VERIFY]" },
+      { metric: "CURB-65 score 0", value: "~0.6% mortality [VERIFY]" },
+      { metric: "CURB-65 score 2", value: "~9% mortality [VERIFY]" },
+      { metric: "CURB-65 score 4–5", value: "~28–35% mortality [VERIFY]" },
+      { metric: "Standard outcome endpoint", value: "30-day all-cause mortality" },
+    ],
+    specialPopulations: [
+      {
+        population: "Pregnancy",
+        considerations: "Favor beta-lactams (safe in pregnancy). Avoid fluoroquinolones and tetracyclines/doxycycline. Treat severe CAP aggressively — pregnancy is a high-risk host. Influenza vaccination is essential; treat suspected influenza with oseltamivir promptly.",
+      },
+      {
+        population: "ESKD / dialysis",
+        considerations: "Dose-adjust all renally cleared antibiotics. Higher risk for S. pneumoniae, S. aureus, and healthcare exposure. Consider extended-spectrum empiric coverage if recently hospitalized or catheter-associated bacteremia is a concern.",
+      },
+      {
+        population: "Neutropenia / hematologic malignancy / HSCT",
+        considerations: "Broaden empiric coverage to include Pseudomonas (antipseudomonal beta-lactam). Add MRSA coverage per risk. Consider Pneumocystis (PCP), respiratory viruses, and fungal pathogens (Aspergillus, Mucorales) — bronchoscopy and CT early. Involve ID and hematology/oncology.",
+      },
+      {
+        population: "COPD / bronchiectasis (structural lung disease)",
+        considerations: "Higher Pseudomonas risk — consider antipseudomonal beta-lactam empirically in severe CAP or recent antibiotic exposure. Treat exacerbation drivers in parallel.",
+      },
+      {
+        population: "Asplenia / hyposplenism",
+        considerations: "High risk for encapsulated organisms (S. pneumoniae, H. influenzae, N. meningitidis). Ensure vaccination (pneumococcal, Hib, meningococcal) and treat bacteremic CAP aggressively.",
+      },
+      {
+        population: "Injection drug use",
+        considerations: "S. aureus is a leading pathogen — evaluate for tricuspid valve endocarditis, septic emboli (cavitary lesions), and vertebral osteomyelitis. Add MRSA coverage (vancomycin) empirically in severe disease.",
+      },
+      {
+        population: "Alcohol use disorder",
+        considerations: "Aspiration risk, S. pneumoniae, and Klebsiella pneumoniae (classic upper-lobe). Assess for aspiration pneumonitis vs pneumonia; ensure thiamine and withdrawal prophylaxis as needed.",
+      },
+    ],
+    prevention: [
+      {
+        modality: "Pneumococcal vaccination (PCV20 or PCV15→PPSV23)",
+        target: "Adults ≥ 65, OR 19–64 with risk factors (chronic lung/heart/liver disease, diabetes, smoking, immunocompromise, asplenia, cochlear implant, CSF leak)",
+        detail: "Per current ACIP guidance: PCV20 alone is a complete series; alternatively PCV15 followed ≥1 year later by PPSV23 (≥8 weeks if immunocompromised). [VERIFY current ACIP schedule — MMWR 2023/2024]",
+      },
+      {
+        modality: "Influenza vaccination",
+        target: "Everyone ≥ 6 months, annually",
+        detail: "Inactivated vaccine in pregnancy and high-risk hosts; reduces CAP, hospitalization, and mortality.",
+      },
+      {
+        modality: "COVID-19 vaccination",
+        target: "All adults per current CDC schedule",
+        detail: "Reduces severe COVID-19 pneumonia and post-COVID complications.",
+      },
+      {
+        modality: "RSV vaccination",
+        target: "Adults ≥ 60 (shared clinical decision-making), pregnant persons, and infants via maternal or infant immunization",
+        detail: "Per current ACIP RSV recommendations. [VERIFY current schedule]",
+      },
+      {
+        modality: "Smoking cessation",
+        target: "All smokers",
+        detail: "The single biggest modifiable risk factor for CAP — counsel and offer pharmacotherapy at every encounter.",
+      },
+      {
+        modality: "Aspiration precautions",
+        target: "Patients with dysphagia, stroke, neuromuscular disease, or substance use",
+        detail: "Head-of-bed elevation, oral hygiene, swallow evaluation, and feeding modifications as indicated.",
+      },
+    ],
+    whenToRefer: [
+      "ICU transfer for septic shock requiring vasopressors, respiratory failure, or CURB-65 ≥ 3 with organ dysfunction.",
+      "ID consultation for confirmed MRSA or Pseudomonas, failure to improve by day 3, suspected endocarditis or metastatic infection, or an immunocompromised host with an atypical pathogen.",
+      "Pulmonology or cardiothoracic / interventional radiology for empyema or a complicated pleural effusion needing drainage, lung abscess, or bronchoscopy for a non-resolving or atypical infiltrate.",
+      "Speech therapy / ENT for aspiration risk and swallow evaluation.",
+      "Outpatient follow-up within 48–72 hours for any patient discharged on oral therapy.",
+    ],
+    followUp: [
+      "Outpatient: clinical reassessment at 48–72 hours (in person or by phone) with return precautions for worsening dyspnea, fever, or confusion.",
+      "Inpatient: assess response at 48–72 hours; switch IV→PO when the patient is hemodynamically stable, improving, and tolerating oral intake — do NOT require afebrile status or repeat blood cultures before step-down.",
+      "Repeat chest imaging at ~6 weeks ONLY if the patient is a smoker, age ≥ 50, or has persistent symptoms — to exclude an underlying malignancy.",
+      "Reinforce smoking cessation and ensure pneumococcal, influenza, COVID-19, and age-eligible RSV vaccination before discharge.",
+      "CAP can be the first presentation of underlying lung cancer — ensure age-appropriate cancer screening is arranged.",
+    ],
     evidence: [
       {
         title: "Diagnosis and Treatment of Adults with Community-Acquired Pneumonia (ATS/IDSA)",
-        source: "Am J Respir Crit Care Med. 2019;200(7):e45–e67",
+        source: "Metlay JP, et al. Am J Respir Crit Care Med. 2019;200(7):e45–e67",
         url: "https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST",
         kind: "guideline",
-        focus: "The current definitive guideline — severity, diagnostics, and empiric therapy.",
+        focus: "The current definitive US guideline — severity, diagnostics, empiric therapy, and the validated MRSA/Pseudomonas risk factors. [VERIFY no 2024–2025 replacement update]",
       },
       {
         title: "Community-Acquired Pneumonia",
@@ -405,10 +591,22 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         focus: "A concise NEJM clinical review of diagnosis and management.",
       },
       {
-        title: "Corticosteroid therapy for patients hospitalized with community-acquired pneumonia: a systematic review and meta-analysis",
-        source: "Siemieniuk RAC, et al. Ann Intern Med. 2015",
+        title: "CAPE COD II — Hydrocortisone in severe community-acquired pneumonia",
+        source: "JAMA Intern Med. 2023 [VERIFY exact authors, volume, and point estimate]",
         kind: "trial",
-        focus: "Foundation for the role of corticosteroids in severe CAP.",
+        focus: "Randomized trial of hydrocortisone in severe CAP with septic shock; mortality benefit. The current basis for steroid use in severe CAP.",
+      },
+      {
+        title: "Procalcitonin-guided antibiotic therapy in community-acquired pneumonia (ProCAP)",
+        source: "[VERIFY exact citation — ProCAP / procalcitonin CAP trial]",
+        kind: "trial",
+        focus: "Procalcitonin guidance did not improve clinically important outcomes in CAP — do not use to decide initiation.",
+      },
+      {
+        title: "Recommended Adult Immunization Schedule — United States (pneumococcal)",
+        source: "ACIP / CDC MMWR [VERIFY most recent schedule year]",
+        kind: "guideline",
+        focus: "Current PCV20 / PCV15→PPSV23 recommendations for adults.",
       },
       {
         title: "Principles and Practice of Infectious Diseases, 9e — Community-Acquired Pneumonia chapter",
@@ -418,24 +616,46 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
     pearls: [
-      "“HCAP” is retired — broaden empiric coverage based on validated risk factors, not the old label.",
-      "Always check a respiratory viral panel including influenza and SARS-CoV-2.",
-      "Legionella urinary antigen detects only serogroup 1 (the most common); culture on BCYE agar detects other serogroups.",
-      "Failure to improve by day 3 → reassess (resistant organism, complication, wrong diagnosis), don't just broaden.",
+      "“HCAP” is retired — broaden empiric coverage based on the two validated ATS/IDSA risk-factor sets, not the old label.",
+      "Always check a respiratory viral panel including influenza, SARS-CoV-2, and RSV.",
+      "Legionella urinary antigen detects only serogroup 1 (the most common) — culture on BCYE agar detects other serogroups.",
+      "Failure to improve by day 3 → reassess (resistant organism, complication, wrong diagnosis); don't just broaden.",
       "Sterile blood cultures do not rule out bacteremia.",
-      "Pneumococcal, influenza, and COVID-19 vaccination at discharge — prevention matters.",
+      "Procalcitonin does NOT improve outcomes in CAP — do not let it delay antibiotics.",
+      "Oral step-down does NOT require afebrile status or repeat blood cultures — only clinical stability and PO tolerance.",
+      "Add anaerobic coverage only for aspiration pneumonia, lung abscess, or empyema — not for simple CAP.",
+      "Corticosteroids reduce mortality in severe CAP with septic shock; avoid in influenza or undrained infection.",
+      "Repeat chest imaging at 6 weeks ONLY if smoker, age ≥ 50, or persistent symptoms — to exclude underlying lung cancer.",
     ],
-    syndromeTags: ["Pulmonary Infection", "Atypical Pneumonia", "Pulmonary"],
-    conceptTags: ["CAP", "CURB-65", "PSI", "Empiric therapy", "Lobar pneumonia"],
+    syndromeTags: ["Pulmonary Infection", "Atypical Pneumonia", "Pulmonary", "Community-Acquired Pneumonia", "Pneumococcal Infection"],
+    conceptTags: [
+      "CAP",
+      "CURB-65",
+      "PSI",
+      "PORT",
+      "Empiric therapy",
+      "Lobar pneumonia",
+      "MRSA risk factors",
+      "Pseudomonas risk factors",
+      "Aspiration pneumonitis",
+      "Procalcitonin",
+      "Pneumococcal vaccination",
+    ],
     tools: [
       { href: "/probid", label: "ProbID", why: "Syndrome probability and pretest framing." },
-      { href: "/tools/doseid", label: "DoseID", why: "Antimicrobial dosing for inpatient regimens." },
+      { href: "/tools/doseid", label: "DoseID", why: "Renal-adjusted antimicrobial dosing for inpatient regimens." },
       { href: "/tools/spectrum", label: "Spectrum", why: "Verify empiric coverage against suspected organisms." },
+      { href: "/mechid", label: "MechID", why: "Antimicrobial mechanisms and resistance relevant to empiric choices." },
     ],
     furtherReading: [
       {
         title: "Community-acquired pneumonia",
-        source: "File TM. Lancet. 2003",
+        source: "File TM. Lancet. 2003 [consider updating to a more recent Lancet review]",
+        kind: "review",
+      },
+      {
+        title: "Epidemiology, pathogenesis, and treatment of community-acquired pneumonia",
+        source: "[VERIFY — identify a current 2022–2025 comprehensive review]",
         kind: "review",
       },
     ],
