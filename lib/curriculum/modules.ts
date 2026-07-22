@@ -2426,6 +2426,620 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
   },
+  {
+    slug: "urinary-tract-infection",
+    title: "Urinary tract infection",
+    category: "Genitourinary & STI",
+    summary:
+      "Urinary tract infection is among the most common reasons IM residents prescribe antibiotics — and one of the most common places they are overprescribed. Mastering the distinctions between acute uncomplicated cystitis, pyelonephritis, complicated UTI, catheter-associated infection, and asymptomatic bacteriuria is essential to using antibiotics well and avoiding harm.",
+    readMins: 18,
+    difficulty: "core",
+    lastReviewed: "2026-07-21",
+    lastUpdated: "2026-07-21",
+    atAGlance: [
+      "Acute uncomplicated cystitis in women: nitrofurantoin × 5 d or TMP-SMX × 3 d (local E. coli susceptibility ≥ 80%) or single-dose fosfomycin — reserve fluoroquinolones for pyelonephritis and systemic illness.",
+      "Uncomplicated pyelonephritis: oral fluoroquinolone or TMP-SMX for 5–7 d (FQ) or 7–14 d (TMP-SMX); ceftriaxone IV if unable to take PO or unstable.",
+      "Do NOT treat asymptomatic bacteriuria — except pregnancy and before urologic procedures with mucosal bleeding (IDSA).",
+      "CAUTI: treat only with new symptoms (fever, rigors, suprapubic pain); bacteriuria alone is not infection. Replace or remove the catheter before treating.",
+      "Treat pregnancy cystitis and pyelonephritis aggressively — asymptomatic bacteriuria in pregnancy progresses to pyelonephritis in 20–30%.",
+      "ESBL risk (recent antibiotics, recent healthcare exposure, prior ESBL): use a carbapenem for pyelonephritis or bacteremia (MERINO).",
+      "Recurrent UTI in women (≥ 2 in 6 mo or ≥ 3 in 12 mo): non-antibiotic measures first (vaginal estrogen if postmenopausal); daily or post-coital prophylaxis for selected patients.",
+    ],
+    objectives: [
+      "Distinguish acute uncomplicated cystitis, pyelonephritis, complicated UTI, catheter-associated UTI, and asymptomatic bacteriuria.",
+      "Choose empiric therapy based on syndrome, local resistance patterns, and patient risk factors (pregnancy, ESBL, allergy).",
+      "Recognize when imaging, blood cultures, and urology or IR referral are needed.",
+      "Avoid treating asymptomatic bacteriuria and catheter-associated bacteriuria outside the defined exceptions.",
+      "Manage recurrent UTI with non-antibiotic measures and, when indicated, prophylactic antibiotics.",
+      "Identify complications of pyelonephritis (abscess, emphysematous pyelonephritis, sepsis) and know when to escalate.",
+    ],
+    keyConcepts: [
+      {
+        heading: "Why definitions matter: cystitis, pyelonephritis, complicated UTI, CAUTI, and asymptomatic bacteriuria",
+        prose:
+          "The single most important step in UTI management is naming what you are treating. Cystitis is lower-tract dysuria, frequency, urgency, and suprapubic pain without fever or systemic signs. Pyelonephritis adds fever, flank pain, nausea, or vomiting. A 'complicated UTI' is any UTI in a man, a pregnant patient, or a patient with structural/functional abnormality (obstruction, stones, catheter, immunocompromise, recent instrumentation). Catheter-associated UTI requires new symptoms attributable to the urinary tract plus bacteriuria. Asymptomatic bacteriuria is a positive urine culture without urinary or systemic symptoms — and is not an infection in almost all circumstances. Mislabeling drives unnecessary antibiotics, resistance, and C. difficile.",
+        bullets: [
+          "Acute uncomplicated cystitis = dysuria/frequency/urgency in a non-pregnant premenopausal woman.",
+          "Pyelonephritis = fever, flank pain, nausea/vomiting, or costovertebral angle tenderness.",
+          "Complicated UTI = male, pregnant, obstruction, stones, catheter, immunocompromise, recent instrumentation, or treatment failure.",
+          "Asymptomatic bacteriuria = positive culture without urinary/systemic symptoms; do NOT treat except pregnancy and pre-urologic procedures.",
+          "CAUTI = new symptoms (fever, rigors, suprapubic pain, new delirium in the absence of another source) PLUS bacteriuria.",
+        ],
+        question: {
+          pollId: "train-uti-def-q1",
+          prompt:
+            "A 68-year-old nursing home resident with a chronic Foley catheter has cloudy urine and a positive culture (E. coli >10⁵ CFU/mL) but is afebrile, comfortable, and has no new confusion or systemic symptoms. Best management?",
+          options: [
+            {
+              id: "A",
+              label: "Treat with a 7-day course of ciprofloxacin based on culture",
+              feedback:
+                "This is catheter-associated asymptomatic bacteriuria — treatment does not prevent symptomatic infection and increases resistance and C. difficile. Do not treat.",
+            },
+            {
+              id: "B",
+              label: "Do not treat; observe and evaluate for other sources if symptoms develop",
+              correct: true,
+              feedback:
+                "Correct. Catheter-associated asymptomatic bacteriuria should not be treated; re-evaluate only if new systemic or localizing symptoms develop.",
+            },
+            {
+              id: "C",
+              label: "Replace the catheter and start antibiotics",
+              feedback:
+                "Catheter replacement is reasonable for symptom relief or malfunction, but adding antibiotics for bacteriuria is unnecessary and harmful.",
+            },
+            {
+              id: "D",
+              label: "Daily suppressive antibiotics to prevent future infection",
+              feedback:
+                "Suppressive antibiotics for catheter bacteriuria are not recommended — they drive resistance without preventing symptomatic infection.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Acute uncomplicated cystitis in women",
+        prose:
+          "In a premenopausal, non-pregnant woman with classic dysuria, frequency, and urgency, the diagnosis can be made clinically without a urine culture. First-line therapy is nitrofurantoin for 5 days, TMP-SMX for 3 days (if local E. coli susceptibility is ≥ 80%), or single-dose fosfomycin. Beta-lactams (amoxicillin-clavulanate, cephalexin) are alternatives but less effective. Fluoroquinolones should be reserved for pyelonephritis or systemic illness given their toxicity profile. Pip-tazo and other broad agents have no role in uncomplicated cystitis.",
+        bullets: [
+          "Diagnose clinically when symptoms are classic; a urine culture is not required unless symptoms are atypical, recurrent, or treatment fails.",
+          "Nitrofurantoin 100 mg PO BID × 5 d — first-line; avoids much collateral resistance.",
+          "TMP-SMX DS BID × 3 d — first-line ONLY if local E. coli susceptibility ≥ 80%.",
+          "Fosfomycin 3 g × 1 — single-dose alternative; less effective in some trials but excellent adherence.",
+          "Avoid fluoroquinolones, and reserve broad agents (pip-tazo, cefepime, carbapenems) for complicated/systemic infection.",
+          "Pyuria is expected but does not require treatment in asymptomatic patients.",
+        ],
+        question: {
+          pollId: "train-uti-cystitis-q1",
+          prompt:
+            "A 26-year-old woman has 2 days of dysuria, frequency, and suprapubic pain; no vaginal discharge, fever, or flank pain. Local E. coli susceptibility to TMP-SMX is 78%. Best first-line therapy?",
+          options: [
+            {
+              id: "A",
+              label: "TMP-SMX DS BID × 3 days",
+              feedback:
+                "TMP-SMX is not first-line when local E. coli resistance exceeds 20% — empiric failure is too likely.",
+            },
+            {
+              id: "B",
+              label: "Nitrofurantoin 100 mg PO BID × 5 days",
+              correct: true,
+              feedback:
+                "Correct. Nitrofurantoin is first-line regardless of local TMP-SMX resistance; it preserves gut flora and avoids fluoroquinolones.",
+            },
+            {
+              id: "C",
+              label: "Ciprofloxacin 500 mg BID × 3 days",
+              feedback:
+                "Fluoroquinolones are reserved for pyelonephritis and systemic infection given QT, tendon, and CNS toxicities — overkill for uncomplicated cystitis.",
+            },
+            {
+              id: "D",
+              label: "Single-dose fosfomycin",
+              feedback:
+                "Fosfomycin is acceptable but slightly less effective than nitrofurantoin in some trials; with local TMP-SMX resistance above 20%, nitrofurantoin is the stronger first choice.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Acute pyelonephritis: when to admit, what to give",
+        prose:
+          "Pyelonephritis is an upper-tract infection with systemic signs (fever, flank pain, nausea/vomiting). Most young, otherwise healthy patients can be managed as outpatients with an oral fluoroquinolone or TMP-SMX (if susceptible) once cultures are drawn. Admit patients with severe sepsis, intractable vomiting, pregnancy, immunocompromise, suspected obstruction, failed outpatient therapy, or social barriers. Imaging is indicated for treatment failure, suspected obstruction or stones, diabetes (emphysematous pyelonephritis), and complicated UTI.",
+        bullets: [
+          "Outpatient oral: ciprofloxacin or levofloxacin × 5–7 d; TMP-SMX × 14 d if organism susceptible; always culture first.",
+          "Inpatient IV: ceftriaxone 1–2 g daily is a reasonable empiric choice; add ESBL coverage (ertapenem, meropenem) for known ESBL or severe risk.",
+          "Discharge on oral step-down once afebrile, improving, and tolerating PO; transition based on susceptibilities.",
+          "Blood cultures are reasonable for pyelonephritis (especially inpatient) but not required for every mild outpatient case.",
+          "Imaging (CT abdomen/pelvis without contrast preferred) for treatment failure at 48–72 h, suspected obstruction, diabetes, immunocompromise, recurrent disease, and severe sepsis.",
+        ],
+        question: {
+          pollId: "train-uti-pyelo-q1",
+          prompt:
+            "A 30-year-old non-pregnant woman has fever (39 °C), right flank pain, nausea, and vomiting. Vitals: HR 110, BP 96/60, normal mental status. She can tolerate small amounts of fluid by mouth. Local E. coli TMP-SMX susceptibility is 85%. Best initial management?",
+          options: [
+            {
+              id: "A",
+              label: "Outpatient TMP-SMX DS BID × 14 days, with return precautions",
+              feedback:
+                "Her hypotension and tachycardia suggest early sepsis — outpatient therapy is unsafe. She needs IV therapy, fluids, and observation.",
+            },
+            {
+              id: "B",
+              label: "Admit for IV ceftriaxone, IV fluids, blood and urine cultures, and reassessment",
+              correct: true,
+              feedback:
+                "Correct. Fever, vomiting, hypotension, and tachycardia warrant admission, IV antibiotics, fluids, and close monitoring; de-escalate once susceptibilities return.",
+            },
+            {
+              id: "C",
+              label: "Oral levofloxacin 750 mg daily × 5 days as outpatient",
+              feedback:
+                "Fluoroquinolone would be reasonable if she were stable and tolerating PO, but her vital signs argue for admission and IV therapy.",
+            },
+            {
+              id: "D",
+              label: "Admit for IV piperacillin-tazobactam plus vancomycin empirically",
+              feedback:
+                "Over-broad empiric coverage adds harm; ceftriaxone is appropriate first-line for uncomplicated pyelonephritis without MRSA or ESBL risk.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Asymptomatic bacteriuria & catheter-associated bacteriuria: the over-treatment problem",
+        prose:
+          "Asymptomatic bacteriuria is extraordinarily common — especially in elderly, catheterized, and diabetic patients — yet treatment provides no benefit and real harm (antibiotic toxicity, resistance selection, C. difficile, and cost). The IDSA guidance is explicit: do not screen or treat asymptomatic bacteriuria except in pregnancy and before urologic procedures involving mucosal bleeding. Pyuria does not change the decision. Treating catheter-associated bacteriuria is similarly ineffective; replace or remove the catheter and look for other causes if the patient is unwell.",
+        bullets: [
+          "Do NOT treat asymptomatic bacteriuria — except pregnancy and before urologic procedures with mucosal bleeding (e.g., TURP).",
+          "Pyuria accompanying asymptomatic bacteriuria does not require treatment.",
+          "Older adults with delirium but no fever or localizing signs usually have another source — do not assume UTI from a positive culture alone.",
+          "Catheter-associated bacteriuria: replace or remove the catheter; treat only with new symptoms (fever, rigors, suprapubic pain).",
+          "Avoid routine 'urine screening' before orthopedic or non-urologic procedures.",
+        ],
+      },
+      {
+        heading: "Pregnancy: treat the bacteriuria, choose the drug carefully",
+        prose:
+          "Pregnancy changes the rules. Asymptomatic bacteriuria in pregnancy progresses to pyelonephritis in 20–30% of untreated women and is associated with preterm birth and low birth weight — screen at the first prenatal visit and treat. Cystitis and pyelonephritis in pregnancy require prompt, appropriate therapy. Drug selection is constrained: fluoroquinolones and tetracyclines are avoided; TMP-SMX is avoided in the first trimester (folate antagonist) and near term (kernicterus); nitrofurantoin is generally safe except near term (theoretical hemolysis in G6PD deficiency).",
+        bullets: [
+          "Screening: urine culture at first prenatal visit; treat asymptomatic bacteriuria.",
+          "Preferred cystitis agents: amoxicillin-clavulanate, cephalexin, fosfomycin; nitrofurantoin is acceptable except near term.",
+          "Pyelonephritis in pregnancy: admit and treat with IV ceftriaxone; avoid fluoroquinolones, TMP-SMX (1st trimester/near term), and tetracyclines.",
+          "Repeat urine cultures after therapy (test of cure) and consider monthly screening for the remainder of pregnancy.",
+        ],
+      },
+      {
+        heading: "Recurrent UTI in women: a stewardship problem",
+        prose:
+          "Recurrent UTI (≥ 2 in 6 months or ≥ 3 in 12 months) is common and often over-treated with repeated courses of antibiotics. The first-line interventions are non-antibiotic: behavioral counseling, post-coital voiding, vaginal estrogen in postmenopausal women (highly effective), and cranberry products or D-mannose (modest, inconsistent evidence). When antibiotics are needed, daily or post-coital prophylaxis (nitrofurantoin, TMP-SMX, cephalexin) for 3–6 months reduces recurrence. Always rule out structural causes (stones, reflux) with imaging and urology referral when indicated.",
+        bullets: [
+          "Confirm recurrent UTI with cultures — not every dysuria episode is bacterial UTI (consider STIs, vaginitis, interstitial cystitis).",
+          "Postmenopausal women: topical vaginal estrogen is one of the most effective non-antibiotic interventions.",
+          "Behavioral: hydration, post-coital voiding, avoid spermicides.",
+          "Cranberry (products, juice) and D-mannose have modest evidence; offer as adjuncts, not substitutes.",
+          "When antibiotics needed: daily or post-coital prophylaxis × 3–6 months (e.g., nitrofurantoin 50–100 mg, TMP-SMX, cephalexin).",
+          "Self-start therapy with a standby prescription is an option for reliable patients.",
+        ],
+        question: {
+          pollId: "train-uti-recurrent-q1",
+          prompt:
+            "A 58-year-old postmenopausal woman has had four culture-confirmed E. coli cystitis episodes in the past year. She uses no vaginal estrogen. Best first step?",
+          options: [
+            {
+              id: "A",
+              label: "Start daily nitrofurantoin prophylaxis indefinitely",
+              feedback:
+                "Prophylaxis is reasonable for recurrent UTI but should be time-limited and combined with non-antibiotic measures; vaginal estrogen should be tried first in postmenopausal women.",
+            },
+            {
+              id: "B",
+              label: "Topical vaginal estrogen and behavioral counseling, with a structured follow-up plan",
+              correct: true,
+              feedback:
+                "Correct. Topical vaginal estrogen is among the most effective interventions for postmenopausal recurrent UTI and should precede or accompany antibiotic prophylaxis.",
+            },
+            {
+              id: "C",
+              label: "Daily cranberry tablets and reassurance",
+              feedback:
+                "Cranberry has modest, inconsistent evidence; it is an adjunct, not first-line therapy for documented recurrent UTI in a postmenopausal woman.",
+            },
+            {
+              id: "D",
+              label: "Lifetime fluoroquinolone prophylaxis",
+              feedback:
+                "Fluoroquinolone prophylaxis is not recommended — toxicity, resistance, and the availability of safer options make this inappropriate.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Resistant organisms & ESBL: when to reach for a carbapenem",
+        prose:
+          "Extended-spectrum beta-lactamase (ESBL)-producing E. coli and Klebsiella are increasingly common, particularly in patients with recent healthcare exposure, prior antibiotics, or indwelling devices. For cystitis, nitrofurantoin and fosfomycin remain active against many ESBL organisms. For pyelonephritis or bacteremia caused by ESBL Enterobacterales, piperacillin-tazobactam is inferior to a carbapenem (MERINO) — use ertapenem or meropenem. Enterococcus (treat with ampicillin or nitrofurantoin for cystitis) and Pseudomonas (need an antipseudomonal agent) require distinct empiric strategies. Always de-escalate once susceptibilities return.",
+        bullets: [
+          "ESBL cystitis: nitrofurantoin or fosfomycin often still work; TMP-SMX may be active if susceptible.",
+          "ESBL pyelonephritis or bacteremia: carbapenem (ertapenem or meropenem) per MERINO — NOT pip-tazo.",
+          "Enterococcus: ampicillin (IV) for systemic infection; nitrofurantoin or amoxicillin for cystitis; do NOT use cephalosporins.",
+          "Pseudomonas: piperacillin-tazobactam, cefepime, ceftazidime, or a carbapenem — extended infusion in severe infection.",
+          "AmpC-inducible organisms (Enterobacter, Citrobacter, Serratia): avoid third-generation cephalosporins for serious infection — use cefepime or a carbapenem.",
+        ],
+      },
+    ],
+    scoringTools: [
+      {
+        name: "When to treat asymptomatic bacteriuria",
+        purpose:
+          "Asymptomatic bacteriuria should NOT be treated except in two clearly defined situations. Pyuria accompanying asymptomatic bacteriuria does not change the decision.",
+        points: [
+          { factor: "Pregnancy (any trimester)", score: "treat" },
+          { factor: "Before urologic procedure with mucosal bleeding (e.g., TURP)", score: "treat" },
+          { factor: "Elderly / nursing home / diabetic / catheterized, no symptoms", score: "do not treat" },
+          { factor: "Pyuria without urinary symptoms", score: "do not treat" },
+          { factor: "Before joint replacement, cardiac or non-urologic surgery", score: "do not treat" },
+        ],
+        interpretation: [
+          {
+            range: "Pregnancy",
+            meaning: "Progression to pyelonephritis in 20–30% if untreated",
+            action: "Screen at first prenatal visit and treat; re-culture after therapy.",
+          },
+          {
+            range: "Pre-urologic procedure",
+            meaning: "Risk of procedure-related bacteremia",
+            action: "Treat shortly before the procedure per IDSA guidance. [VERIFY timing]",
+          },
+          {
+            range: "All others",
+            meaning: "No benefit, real harm (resistance, C. difficile, cost)",
+            action: "Do not screen or treat; look for other sources of symptoms.",
+          },
+        ],
+        source: "Nicolle LE, et al. IDSA Asymptomatic Bacteriuria Guideline. Clin Infect Dis. 2019 [VERIFY current version]",
+      },
+    ],
+    differentials: [
+      {
+        diagnosis: "Urethritis (STI: chlamydia, gonorrhea, trichomonas, mycoplasma)",
+        distinguishing:
+          "Sexually active patient with dysuria and discharge; send NAAT for chlamydia/gonorrhea/trichomonas; consider in young, sexually active patients and treat empirically if risk.",
+      },
+      {
+        diagnosis: "Vaginitis (candida, bacterial vaginosis, trichomonas)",
+        distinguishing:
+          "Vaginal discharge and irritation predominate; perform pelvic exam with KOH and saline wet mount.",
+      },
+      {
+        diagnosis: "Acute prostatitis",
+        distinguishing:
+          "Perineal/suprapubic pain, fever, tender prostate; consider in men; treat for 10–14 days (longer for chronic).",
+      },
+      {
+        diagnosis: "Pelvic inflammatory disease",
+        distinguishing:
+          "Cervical motion tenderness, adnexal pain, abnormal uterine bleeding; screen and treat for chlamydia/gonorrhea.",
+      },
+      {
+        diagnosis: "Urethral trauma or irritation (stones, catheter, instrumentation)",
+        distinguishing:
+          "History of trauma, catheterization, or instrumentation; hematuria may dominate; evaluate for stones and structural causes.",
+      },
+      {
+        diagnosis: "Interstitial cystitis / bladder pain syndrome",
+        distinguishing:
+          "Chronic dysuria and pain with negative cultures; diagnosis of exclusion after repeated evaluations.",
+      },
+      {
+        diagnosis: "Bladder or upper-tract malignancy",
+        distinguishing:
+          "Painless gross hematuria, weight loss, smoking history; cystoscopy and imaging are diagnostic.",
+      },
+    ],
+    regimenTables: [
+      {
+        title: "Acute uncomplicated cystitis in non-pregnant women (IDSA 2010, current practice)",
+        rows: [
+          {
+            scenario: "First-line (regardless of local TMP-SMX resistance)",
+            regimen: "Nitrofurantoin 100 mg BID",
+            duration: "5 d",
+          },
+          {
+            scenario: "First-line if local E. coli susceptibility ≥ 80%",
+            regimen: "TMP-SMX DS BID",
+            duration: "3 d",
+          },
+          {
+            scenario: "Single-dose alternative",
+            regimen: "Fosfomycin 3 g PO × 1",
+            duration: "1 d",
+          },
+          {
+            scenario: "Beta-lactam alternative (less effective)",
+            regimen: "Amoxicillin-clavulanate 875/125 BID or cephalexin 500 mg QID",
+            duration: "5–7 d",
+          },
+        ],
+      },
+      {
+        title: "Acute pyelonephritis (uncomplicated, outpatient)",
+        rows: [
+          {
+            scenario: "Empiric oral (no ESBL risk)",
+            regimen: "Ciprofloxacin 500 mg BID or levofloxacin 750 mg daily",
+            duration: "5–7 d",
+            note: "Always obtain urine culture first; de-escalate based on susceptibilities.",
+          },
+          {
+            scenario: "If TMP-SMX susceptibility confirmed",
+            regimen: "TMP-SMX DS BID",
+            duration: "14 d",
+          },
+          {
+            scenario: "Oral beta-lactam (less effective — reserve for alternatives)",
+            regimen: "Amoxicillin-clavulanate or cephalexin",
+            duration: "10–14 d",
+          },
+        ],
+      },
+      {
+        title: "Inpatient IV therapy for pyelonephritis / complicated UTI",
+        rows: [
+          {
+            scenario: "Empiric for uncomplicated pyelonephritis",
+            regimen: "Ceftriaxone 1–2 g IV daily",
+            duration: "Until afebrile and tolerating PO, then oral step-down",
+          },
+          {
+            scenario: "ESBL risk or known ESBL",
+            hostFactors: "Recent antibiotics, healthcare exposure, prior ESBL",
+            regimen: "Ertapenem 1 g IV daily (or meropenem if severely ill)",
+            duration: "Per syndrome; transition to oral once susceptibilities known",
+            note: "MERINO — pip-tazo inferior to carbapenem for ESBL bacteremia.",
+          },
+          {
+            scenario: "Pseudomonas risk",
+            hostFactors: "Catheter, healthcare exposure, recurrent, structural disease",
+            regimen: "Piperacillin-tazobactam, cefepime, or ceftazidime (extended infusion if severe)",
+            duration: "Per syndrome",
+          },
+          {
+            scenario: "Enterococcus suspected",
+            regimen: "Ampicillin IV (or ampicillin + gentamicin/ceftriaxone for HLAR)",
+            duration: "Per syndrome",
+            note: "Do NOT use cephalosporins for enterococcus.",
+          },
+        ],
+      },
+      {
+        title: "Pregnancy-specific therapy",
+        rows: [
+          {
+            scenario: "Asymptomatic bacteriuria or cystitis (1st–2nd trimester)",
+            regimen: "Cephalexin, amoxicillin-clavulanate, or fosfomycin; nitrofurantoin acceptable (avoid at term)",
+            duration: "5–7 d (or 1 d for fosfomycin)",
+          },
+          {
+            scenario: "Pyelonephritis",
+            regimen: "IV ceftriaxone",
+            duration: "Until afebrile, then oral beta-lactam",
+            note: "Avoid fluoroquinolones, TMP-SMX (1st trimester, near term), tetracyclines.",
+          },
+        ],
+      },
+    ],
+    complications: [
+      {
+        name: "Renal or perinephric abscess",
+        recognize:
+          "Persistent fever and flank pain despite 48–72 h of appropriate therapy; CT shows a rim-enhancing collection.",
+        manage:
+          "Continue IV antibiotics, image with contrast CT, and drain percutaneously (IR) collections > 3 cm or those failing antibiotics alone.",
+      },
+      {
+        name: "Emphysematous pyelonephritis (diabetic patients)",
+        recognize:
+          "Severe diabetic with sepsis and gas in the renal parenchyma on CT; high mortality.",
+        manage:
+          "Urgent urology and ID consult; broad-spectrum IV antibiotics; percutaneous drainage and often nephrectomy for extensive disease. [VERIFY current management]",
+      },
+      {
+        name: "Papillary necrosis",
+        recognize:
+          "Flank pain, hematuria, and (sometimes) passage of fragments; classically in diabetes, sickle cell, NSAID abuse, TB.",
+        manage:
+          "Supportive care, treat the precipitating UTI, address the underlying cause; imaging may show a 'ring sign' on CT.",
+      },
+      {
+        name: "Urosepsis",
+        recognize:
+          "Fever, hypotension, organ dysfunction from a urinary source; suspect with pyelo plus hemodynamic instability.",
+        manage:
+          "Resuscitation (lactate, fluids, vasopressors if needed), source control (obstruction, abscess, catheter), and broad empiric IV antibiotics narrowed as soon as possible.",
+      },
+      {
+        name: "Acute prostatitis",
+        recognize:
+          "Fever, perineal/suprapubic pain, tender prostate on exam, dysuria; more common in older men.",
+        manage:
+          "Urine and blood cultures, fluoroquinolone or TMP-SMX × 10–14 days (longer for chronic); exclude abscess by imaging if persistent.",
+      },
+    ],
+    prognosis: [
+      { metric: "Uncomplicated cystitis — clinical cure with first-line therapy", value: "~90–95% [VERIFY]" },
+      { metric: "Uncomplicated pyelonephritis — cure with appropriate therapy", value: "~90% [VERIFY]" },
+      { metric: "Pregnancy — untreated asymptomatic bacteriuria progression to pyelonephritis", value: "20–30% [VERIFY]" },
+      { metric: "Emphysematous pyelonephritis mortality", value: "~10–20% with prompt drainage/surgery [VERIFY]" },
+      { metric: "Urosepsis mortality (septic shock)", value: "~10–30% [VERIFY]" },
+    ],
+    specialPopulations: [
+      {
+        population: "Pregnancy",
+        considerations:
+          "Screen and treat asymptomatic bacteriuria; avoid fluoroquinolones, tetracyclines, and TMP-SMX (1st trimester and near term); admit pyelonephritis and treat with IV ceftriaxone.",
+      },
+      {
+        population: "Men",
+        considerations:
+          "Treat as complicated UTI; consider prostatitis (longer courses, 10–14 d; chronic prostatitis 4–6 weeks); evaluate for obstruction and structural disease.",
+      },
+      {
+        population: "Older adults",
+        considerations:
+          "Do not assume UTI from a positive culture in delirium — look for other sources; avoid fluoroquinolones; renal-dose-adjust; use the shortest effective duration.",
+      },
+      {
+        population: "Catheterized patients",
+        considerations:
+          "Replace or remove catheter before treating; treat only symptomatic CAUTI; do not treat asymptomatic bacteriuria; minimize catheter duration.",
+      },
+      {
+        population: "Diabetes",
+        considerations:
+          "Higher risk of emphysematous pyelonephritis, papillary necrosis, and fungal UTI; image if treatment fails or if severe infection; control glucose.",
+      },
+      {
+        population: "Renal transplant",
+        considerations:
+          "More aggressive management with antimicrobial prophylaxis; involve transplant/ID; consider unusual organisms (BK virus nephropathy not to be confused with UTI).",
+      },
+    ],
+    prevention: [
+      {
+        modality: "Behavioral counseling",
+        target: "Women with recurrent UTI",
+        detail:
+          "Hydration, post-coital voiding, avoid spermicides; limited evidence for specific behaviors but reasonable.",
+      },
+      {
+        modality: "Topical vaginal estrogen",
+        target: "Postmenopausal women with recurrent UTI",
+        detail:
+          "Among the most effective non-antibiotic interventions — restores vaginal lactobacilli and reduces recurrence.",
+      },
+      {
+        modality: "Cranberry products and D-mannose",
+        target: "Women with recurrent UTI",
+        detail:
+          "Modest and inconsistent evidence; offer as adjuncts but not as substitutes for proven therapy. [VERIFY current evidence]",
+      },
+      {
+        modality: "Daily or post-coital antibiotic prophylaxis",
+        target: "Selected women with recurrent UTI",
+        detail:
+          "Nitrofurantoin, TMP-SMX, or cephalexin × 3–6 months after full evaluation; reassess for ongoing need.",
+      },
+      {
+        modality: "Self-start therapy",
+        target: "Reliable patients with recurrent UTI",
+        detail:
+          "Standby prescription (e.g., nitrofurantoin or TMP-SMX) with instructions to self-initiate at symptom onset and drop a culture.",
+      },
+      {
+        modality: "Catheter stewardship",
+        target: "Hospitalized and catheterized patients",
+        detail:
+          "Minimize catheter duration; use closed systems and aseptic insertion; review daily necessity and remove promptly.",
+      },
+    ],
+    whenToRefer: [
+      "Recurrent UTI (≥ 2 in 6 mo or ≥ 3 in 12 mo) → urology for cystoscopy and upper-tract imaging to rule out structural causes.",
+      "Renal or perinephric abscess → interventional radiology for drainage.",
+      "Emphysematous pyelonephritis → urology and ID urgently; drainage ± nephrectomy.",
+      "Suspected obstruction (stones, BPH, tumor) → urology for source control.",
+      "Pregnancy with pyelonephritis → obstetrics ± ID co-management.",
+      "Renal transplant with UTI → transplant/ID.",
+      "Urosepsis with hemodynamic instability → ICU and ID.",
+      "Recurrent or complicated Candida urinary infection → ID (consider fluconazole, rarely echinocandin or amphotericin).",
+    ],
+    followUp: [
+      "Acute cystitis: no routine test of cure unless symptoms persist; advise return if symptoms recur within 4 weeks.",
+      "Pyelonephritis: repeat culture if symptoms persist at 48–72 h; image if no response by then.",
+      "Pregnancy: test-of-cure culture 1–2 weeks after therapy, then monthly screening for the remainder of pregnancy.",
+      "CAUTI: remove or replace catheter; reassess symptoms daily; do not repeat urine cultures to document cure.",
+      "Recurrent UTI: confirm with cultures; consider urology referral and discuss non-antibiotic and prophylactic options.",
+      "Drug-resistant organisms: ensure follow-up cultures and decolonization or stewardship input as appropriate.",
+    ],
+    evidence: [
+      {
+        title: "IDSA Guideline on the Management of Acute Uncomplicated Cystitis and Pyelonephritis",
+        source: "Gupta K, et al. Clin Infect Dis. 2011;52(5):e103–e120 [VERIFY current version — 2024 update pending]",
+        kind: "guideline",
+        focus: "The foundational US guideline for cystitis and pyelonephritis — regimens, durations, ESBL considerations.",
+      },
+      {
+        title: "IDSA Asymptomatic Bacteriuria Guideline",
+        source: "Nicolle LE, et al. Clin Infect Dis. 2019 [VERIFY]",
+        kind: "guideline",
+        focus: "Definitive guidance — do not treat except pregnancy and before urologic procedures with mucosal bleeding.",
+      },
+      {
+        title: "MERINO — Piperacillin-tazobactam vs ceftriaxone for ESBL E. coli / Klebsiella bacteremia",
+        source: "Harris PNA, et al. JAMA. 2018;320(10):984–994 [VERIFY]",
+        kind: "trial",
+        focus: "Pip-tazo inferior to carbapenem for ESBL bacteremia — use a carbapenem.",
+      },
+      {
+        title: "Duration of treatment for cystitis — systematic reviews of short courses",
+        source: "[VERIFY — identify a current meta-analysis]",
+        kind: "review",
+        focus: "Short courses (3–5 d) are as effective as longer courses for uncomplicated cystitis.",
+      },
+      {
+        title: "Vaginal estrogen for recurrent UTI in postmenopausal women — meta-analysis",
+        source: "[VERIFY — identify the most recent Cochrane / systematic review]",
+        kind: "review",
+        focus: "Vaginal estrogen significantly reduces recurrent UTI in postmenopausal women.",
+      },
+    ],
+    pearls: [
+      "Name the syndrome before you prescribe — cystitis, pyelo, complicated UTI, CAUTI, or asymptomatic bacteriuria.",
+      "Nitrofurantoin × 5 d or TMP-SMX × 3 d (if local E. coli susceptibility ≥ 80%) for acute uncomplicated cystitis; reserve fluoroquinolones.",
+      "Do NOT treat asymptomatic bacteriuria — except pregnancy and before urologic procedures with mucosal bleeding.",
+      "Cloudy urine in a catheterized patient is bacteriuria, not infection — look for symptoms.",
+      "Pregnancy: screen, treat ASB, use beta-lactams, avoid FQ/TMP-SMX/tetracyclines.",
+      "ESBL pyelonephritis or bacteremia → carbapenem (MERINO), NOT pip-tazo.",
+      "Enterococcus is not covered by cephalosporins — use ampicillin (or amoxicillin for cystitis).",
+      "Postmenopausal recurrent UTI → topical vaginal estrogen is highly effective and often overlooked.",
+      "Image pyelonephritis that fails therapy at 48–72 h or in diabetics/immunocompromised — look for abscess, emphysematous change, obstruction.",
+      "Delirium in an elderly patient with a positive urine culture: look for another source — over-diagnosing UTI is a major driver of antibiotic harm.",
+    ],
+    syndromeTags: ["Urinary Tract Infection", "Pyelonephritis", "Sepsis"],
+    conceptTags: [
+      "Urinary tract infection",
+      "Cystitis",
+      "Pyelonephritis",
+      "Asymptomatic bacteriuria",
+      "Catheter-associated UTI",
+      "Recurrent UTI",
+      "ESBL",
+      "Enterococcus",
+      "Pregnancy",
+      "Nitrofurantoin",
+      "MERINO",
+    ],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Antibiotic mechanisms relevant to empiric UTI therapy." },
+      { href: "/tools/spectrum", label: "Spectrum", why: "Confirm coverage for Enterococcus, ESBL, and Pseudomonas before de-escalation." },
+      { href: "/tools/doseid", label: "DoseID", why: "Renal-adjusted dosing for nitrofurantoin, TMP-SMX, beta-lactams." },
+    ],
+    furtherReading: [
+      {
+        title: "Acute Uncomplicated Cystitis and Pyelonephritis in Women — Current Clinical Management",
+        source: "[VERIFY — identify a current 2023–2025 review]",
+        kind: "review",
+        focus: "Modern empiric and targeted therapy, ESBL considerations, and oral step-down.",
+      },
+      {
+        title: "Catheter-Associated UTI (CAUTI) Prevention and Management",
+        source: "CDC / HICPAC [VERIFY current version]",
+        kind: "guideline",
+        focus: "Prevention bundles, indications for treatment, and catheter stewardship.",
+      },
+    ],
+  },
 ];
 
 export function getCurriculumModule(slug: string): CurriculumModule | undefined {
