@@ -3040,6 +3040,589 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
   },
+  {
+    slug: "skin-and-soft-tissue-infection",
+    title: "Skin and soft tissue infection",
+    category: "Skin, soft tissue & MSK",
+    summary:
+      "Skin and soft tissue infection is one of the most common infections IM residents manage. The first branch point is purulent vs non-purulent: abscesses are treated with incision and drainage (antibiotics add little for uncomplicated abscess), while non-purulent cellulitis is typically streptococcal and responds to a beta-lactam. Recognizing necrotizing infection is a surgical emergency that cannot wait.",
+    readMins: 17,
+    difficulty: "core",
+    lastReviewed: "2026-07-21",
+    lastUpdated: "2026-07-21",
+    atAGlance: [
+      "The first branch point is purulent vs non-purulent — drain the abscess, treat the cellulitis.",
+      "Non-purulent cellulitis is usually streptococcal; cephalexin or dicloxacillin is first-line. Add MRSA coverage (TMP-SMX or doxycycline) for purulence, IVDU, prior MRSA, severe infection, or treatment failure.",
+      "Incision and drainage is the treatment for abscess — antibiotics add little for uncomplicated drained abscess (NEJM 2017 trial confirms I&D alone is sufficient in many).",
+      "Default duration for uncomplicated SSTI is 5–6 days; longer is not better.",
+      "Necrotizing soft tissue infection: pain out of proportion, woody induration, bullae, crepitus, or sepsis — surgical exploration is diagnostic and therapeutic; do NOT delay for imaging.",
+      "Diabetic foot infection: probe-to-bone, deep tissue cultures, broader empiric coverage, and evaluate for osteomyelitis.",
+      "Consider bite wounds (Pasteurella, anaerobes — amoxicillin-clavulanate), seawater (Vibrio), and freshwater (Aeromonas) exposures.",
+    ],
+    objectives: [
+      "Distinguish purulent from non-purulent SSTI and apply the right initial management.",
+      "Identify MRSA risk factors and choose empiric therapy accordingly.",
+      "Recognize the clinical features of necrotizing soft tissue infection and escalate urgently to surgery.",
+      "Manage diabetic foot infection, including evaluation for osteomyelitis.",
+      "Apply the IDSA SSTI guideline on duration, de-escalation, and oral step-down.",
+      "Know when source control (incision and drainage, debridement) is the treatment and antibiotics are adjunctive.",
+    ],
+    keyConcepts: [
+      {
+        heading: "The first branch point: purulent vs non-purulent",
+        prose:
+          "The IDSA SSTI guideline organizes management around whether the lesion is purulent. Purulent infections (abscess, furuncle, carbuncle) are typically staphylococcal (mostly MRSA in many US communities) and are treated primarily with incision and drainage (I&D), with antibiotics reserved for severe disease, immunocompromise, or inadequate response. Non-purulent cellulitis and erysipelas are typically streptococcal and respond to a beta-lactam active against streptococci. Adding empiric MRSA coverage to non-purulent cellulitis does not improve outcomes in most trials, but is reasonable with systemic toxicity, IVDU, prior MRSA, or treatment failure.",
+        bullets: [
+          "Purulent (abscess, furuncle): I&D is the treatment; send culture if severe or for epidemiology.",
+          "Non-purulent cellulitis: beta-lactam (cephalexin, dicloxacillin); adding empiric MRSA cover is reasonable with risk factors.",
+          "Erysipelas: sharply demarcated raised lesion, streptococcal — beta-lactam.",
+          "MRSA risk factors: prior MRSA, IVDU, recent hospitalization, dialysis, household contacts, recurrent SSTI.",
+          "Bilateral 'cellulitis' is almost never cellulitis — look for stasis dermatitis, contact dermatitis, or vascular causes.",
+        ],
+        question: {
+          pollId: "train-ssti-branch-q1",
+          prompt:
+            "A 40-year-old presents with a 3 cm fluctuant, erythematous, tender nodule on the thigh with a central pustule. No fever; vitals normal. Best initial management?",
+          options: [
+            {
+              id: "A",
+              label: "Oral cephalexin 500 mg QID × 7 days",
+              feedback:
+                "Cephalexin does not cover MRSA, and antibiotics alone are inadequate for a fluctuant abscess — drainage is the treatment.",
+            },
+            {
+              id: "B",
+              label: "Incision and drainage; antibiotics only if severe or MRSA risk factors",
+              correct: true,
+              feedback:
+                "Correct. Incision and drainage is the primary therapy for an abscess; antibiotics add little for uncomplicated drained abscess in immunocompetent patients.",
+            },
+            {
+              id: "C",
+              label: "TMP-SMX DS BID × 10 days without drainage",
+              feedback:
+                "MRSA coverage is incomplete without source control; antibiotics alone for an undrained abscess often fail.",
+            },
+            {
+              id: "D",
+              label: "Warm compresses and observation",
+              feedback:
+                "A fluctuant abscess needs drainage; observation alone prolongs the infection and risks extension.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Non-purulent cellulitis: streptococcal, beta-lactam-first",
+        prose:
+          "Non-purulent cellulitis is an acute spreading infection of the dermis and subcutaneous tissue, usually caused by beta-hemolytic streptococci (Groups A, B, C, G), with Staphylococcus aureus (often MSSA) a less common cause. The classic presentation is unilateral, warm, erythematous, edematous skin with poorly defined margins, often on a lower extremity. Look for and treat the portal of entry (tinea pedis, fissures, ulceration, injection sites). First-line therapy is a beta-lactam active against streptococci — cephalexin or dicloxacillin PO for outpatients; cefazolin or ceftriaxone IV for inpatients. Adding empiric MRSA coverage does not improve outcomes in classic non-purulent cellulitis (three RCTs of TMP-SMX and placebo vs beta-lactam alone found no benefit).",
+        bullets: [
+          "First-line: cephalexin 500 mg QID or dicloxacillin 500 mg QID × 5–6 days (with clinical response).",
+          "Inpatient IV: cefazolin or ceftriaxone; switch to oral when afebrile and improving.",
+          "Add empiric MRSA cover (TMP-SMX, doxycycline, or clindamycin) if: IVDU, prior MRSA, severe/sepsis, purulence, bite wound, or failure of beta-lactam.",
+          "Mark the border, elevate the limb, treat tinea pedis and any portal of entry.",
+          "Reassess at 48–72 h — if not improving, reconsider diagnosis, antibiotic choice, and need for imaging or source control.",
+        ],
+        question: {
+          pollId: "train-ssti-cellulitis-q1",
+          prompt:
+            "A 55-year-old with type 2 diabetes and tinea pedis has 1 day of unilateral leg erythema, warmth, and tenderness, no pus, no fever, normal vitals. Best initial therapy?",
+          options: [
+            {
+              id: "A",
+              label: "Cephalexin 500 mg QID × 5–6 days, plus treat tinea pedis",
+              correct: true,
+              feedback:
+                "Correct. Non-purulent cellulitis is usually streptococcal; a beta-lactam is first-line, and treating the portal of entry (tinea) reduces recurrence.",
+            },
+            {
+              id: "B",
+              label: "TMP-SMX DS BID × 10 days",
+              feedback:
+                "TMP-SMX lacks streptococcal activity and is inferior for non-purulent cellulitis unless MRSA risk factors are present.",
+            },
+            {
+              id: "C",
+              label: "Vancomycin IV inpatient",
+              feedback:
+                "This presentation does not require inpatient IV therapy or MRSA coverage; oral beta-lactam is appropriate.",
+            },
+            {
+              id: "D",
+              label: "Prednisone 40 mg daily for 5 days",
+              feedback:
+                "There is limited evidence for steroids in non-purulent cellulitis (PRIME trial suggested some benefit but it is not first-line); antibiotics and source control are primary.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Purulent SSTI & MRSA: drain, then cover",
+        prose:
+          "Purulent SSTI (abscess, furuncle, carbuncle) is driven by Staphylococcus aureus — in much of the United States, community-associated MRSA is the dominant strain. Incision and drainage is the cornerstone of therapy; antibiotics are added for severe disease, extensive surrounding cellulitis, immunocompromise, fever, older age, failed I&D, or when source control is incomplete. Empiric oral MRSA coverage is TMP-SMX or doxycycline (plus a beta-lactam if streptococcal coverage is also needed). For inpatient or severe disease, vancomycin is first-line; linezolid or daptomycin are alternatives.",
+        bullets: [
+          "I&D is the treatment — always; pack the cavity, ensure complete drainage.",
+          "Add antibiotics for: sepsis, rapid progression, extensive cellulitis, immunocompromise, extremes of age, failed I&D, or inadequate source control.",
+          "Oral MRSA cover: TMP-SMX DS BID or doxycycline 100 mg BID (doxycycline lacks some streptococcal activity).",
+          "Clindamycin: active against many MRSA, but check local D-test (inducible resistance); avoid as monotherapy for severe disease.",
+          "Inpatient MRSA cover: vancomycin (AUC-guided), linezolid (avoid >2 weeks), daptomycin (never for pneumonia).",
+        ],
+      },
+      {
+        heading: "Necrotizing soft tissue infection: a surgical emergency",
+        prose:
+          "Necrotizing fasciitis is a rapidly progressive infection of the deep fascia and subcutaneous tissues that causes tissue necrosis and carries high mortality. The single most important principle is that surgical exploration is both diagnostic and therapeutic — and must not wait for definitive imaging or laboratory confirmation. Suspect necrotizing infection when pain is out of proportion to physical findings, when the skin is hard and woody with induration extending beyond visible erythema, when there are bullae, crepitus, or skin necrosis, or when sepsis coexists with a soft tissue complaint. The LRINEC score can support the diagnosis but is not sufficiently sensitive to exclude it.",
+        bullets: [
+          "Red flags: pain out of proportion, woody/hard induration, bullae, skin necrosis, crepitus, sepsis, rapid progression.",
+          "Surgical exploration is diagnostic — 'hard signs' of necrosis (dishwater fluid, thrombosed vessels, non-contractile muscle) mandate debridement.",
+          "Empiric broad coverage: piperacillin-tazobactam (or carbapenem) + vancomycin + clindamycin (clindamycin for toxin suppression in streptococcal and staphylococcal toxic shock). [VERIFY current empiric regimen]",
+          "Polymicrobial (Type I): post-surgical, diabetic, perineal (Fournier). Monomicrobial (Type II): GAS, often in healthy hosts. Vibrio/Aeromonas: saltwater/freshwater exposure.",
+          "Imaging (CT with contrast) is useful only if it does NOT delay surgery; subcutaneous gas and fascial fluid with enhancement support the diagnosis.",
+        ],
+        question: {
+          pollId: "train-ssti-necrotizing-q1",
+          prompt:
+            "A 50-year-old with diabetes presents with severe thigh pain out of proportion to exam, tachycardia, hypotension, and a rapidly enlarging area of indurated, dusky skin with a small bulla. Best immediate action?",
+          options: [
+            {
+              id: "A",
+              label: "Obtain CT scan to confirm necrotizing fasciitis before treatment",
+              feedback:
+                "Imaging must not delay surgical exploration in a patient with clinical signs of necrotizing infection and sepsis.",
+            },
+            {
+              id: "B",
+              label: "Start IV piperacillin-tazobactam + vancomycin + clindamycin and consult surgery emergently",
+              correct: true,
+              feedback:
+                "Correct. Immediate broad-spectrum antibiotics, resuscitation, and emergent surgical exploration with debridement are the standard of care.",
+            },
+            {
+              id: "C",
+              label: "Admit for IV cefazolin and reassess in the morning",
+              feedback:
+                "Cefazolin alone is inadequate for necrotizing infection (misses MRSA, anaerobes, toxin suppression), and delay risks mortality.",
+            },
+            {
+              id: "D",
+              label: "Outpatient management with TMP-SMX and follow-up in 48 h",
+              feedback:
+                "This presentation is a surgical emergency — outpatient therapy is unsafe.",
+            },
+          ],
+        },
+      },
+      {
+        heading: "Diabetic foot infection: probe, culture, cover broadly",
+        prose:
+          "Diabetic foot infection ranges from mild cellulitis to limb-threatening infection with osteomyelitis and deep space abscess. The most important early steps are: probe the ulcer to bone (probe-to-bone test), assess perfusion, evaluate for osteomyelitis (plain films, MRI), and obtain deep tissue cultures (preferably after debridement) before starting broad empiric therapy. Mild infection is often streptococcal or staphylococcal; moderate-to-severe infection is polymicrobial (aerobes and anaerobes) and requires broad coverage with a focus on source control (debridement, offloading, revascularization). Always involve podiatry, vascular surgery, and ID.",
+        bullets: [
+          "Probe-to-bone: a positive test predicts osteomyelitis in high-risk patients; correlate with imaging and cultures.",
+          "Mild infection: cephalexin or dicloxacillin (add MRSA cover if risk factors).",
+          "Moderate-to-severe: ampicillin-sulbactam, piperacillin-tazobactam, or a carbapenem; add MRSA and (sometimes) Pseudomonas coverage in severe or chronic infection.",
+          "Obtain deep tissue or bone cultures after debridement; avoid superficial swabs.",
+          "Image with plain radiographs first; MRI is most sensitive for osteomyelitis and deep abscess.",
+          "Multidisciplinary care: podiatry, vascular surgery (for revascularization), ID, and endocrinology.",
+        ],
+      },
+      {
+        heading: "Bite wounds and special exposures",
+        prose:
+          "Bite wounds and environmental exposures shape the empiric antibiotic choice. Cat and dog bites inoculate Pasteurella multocida, anaerobes, and oral streptococci; first-line is amoxicillin-clavulanate. Human bites add Eikenella corrodens and require the same. Seawater exposure raises concern for Vibrio vulnificus; freshwater for Aeromonas. Puncture wounds (through shoes) risk Pseudomonas osteomyelitis. Consider rabies for animal bites in endemic areas, and tetanus for all contaminated wounds. Surgical assessment is essential for bites involving joints, tendons, or deep structures of the hand.",
+        bullets: [
+          "Dog/cat/human bites: amoxicillin-clavulanate (Pasteurella, anaerobes, Eikenella); doxycycline or TMP-SMX + metronidazole in penicillin-allergic.",
+          "Seawater exposure: add coverage for Vibrio (doxycycline + ceftazidime for severe infection). [VERIFY]",
+          "Freshwater: add coverage for Aeromonas (fluoroquinolone or TMP-SMX).",
+          "Puncture through shoes: cover Pseudomonas (fluoroquinolone); assess for osteomyelitis.",
+          "Update tetanus and assess rabies risk for all animal bites.",
+        ],
+      },
+      {
+        heading: "Recurrent SSTI and decolonization",
+        prose:
+          "Recurrent SSTI (especially MRSA) is common in households and among close contacts. After treating the acute infection, address modifiable risk factors: nasal colonization, skin hygiene, fomites, and any underlying portal of entry (injection drug use, tinea, eczema). Decolonization regimens combine nasal mupirocin with chlorhexidine body washes, though evidence is mixed and benefit is often temporary. Educate households about personal hygiene, not sharing personal items, and cleaning high-touch surfaces.",
+        bullets: [
+          "Address modifiable risk factors: IVDU, tinea, eczema, obesity, diabetes, chronic wounds.",
+          "MRSA decolonization: nasal mupirocin × 5–10 days + chlorhexidine body washes; benefit is often temporary and evidence is mixed. [VERIFY current guideline]",
+          "Household hygiene: clean high-touch surfaces, do not share razors/towels, cover draining wounds.",
+          "Consider decolonization for: ≥ 2 documented MRSA infections in a year, or household outbreaks.",
+        ],
+      },
+    ],
+    scoringTools: [
+      {
+        name: "LRINEC — Laboratory Risk Indicator for Necrotizing Fasciitis",
+        purpose:
+          "A bedside score to support the diagnosis of necrotizing soft tissue infection. A low score does NOT exclude necrotizing infection; clinical suspicion and surgical exploration override a low score.",
+        points: [
+          { factor: "CRP ≥ 150 mg/L", score: 4 },
+          { factor: "CRP < 150 mg/L", score: 0 },
+          { factor: "WBC 15–25 × 10⁹/L", score: 1 },
+          { factor: "WBC > 25 × 10⁹/L", score: 2 },
+          { factor: "WBC < 15 × 10⁹/L", score: 0 },
+          { factor: "Hemoglobin 11–13.5 g/dL", score: 1 },
+          { factor: "Hemoglobin < 11 g/dL", score: 2 },
+          { factor: "Hemoglobin ≥ 13.5 g/dL", score: 0 },
+          { factor: "Sodium < 135 mmol/L", score: 2 },
+          { factor: "Sodium ≥ 135 mmol/L", score: 0 },
+          { factor: "Creatinine > 1.6 mg/dL (141 µmol/L)", score: 2 },
+          { factor: "Creatinine ≤ 1.6 mg/dL", score: 0 },
+          { factor: "Glucose > 180 mg/dL (10 mmol/L)", score: 1 },
+          { factor: "Glucose ≤ 180 mg/dL", score: 0 },
+        ],
+        interpretation: [
+          {
+            range: "0–4",
+            meaning: "Low risk (in the original derivation cohort)",
+            action:
+              "Continue routine management, but clinical signs override the score — if pain is out of proportion or there are hard signs, obtain surgical evaluation regardless.",
+          },
+          {
+            range: "≥ 6",
+            meaning: "Moderate-to-high probability of necrotizing fasciitis",
+            action:
+              "Urgent surgical consultation and empiric broad-spectrum antibiotics. Do NOT delay for imaging. [VERIFY performance in external validation — sensitivity is lower than in derivation]",
+          },
+        ],
+        source: "Wong CH, et al. Crit Care Med. 2004 [VERIFY; caution — external validation shows lower sensitivity].",
+      },
+    ],
+    differentials: [
+      {
+        diagnosis: "Stasis dermatitis (mimics cellulitis)",
+        distinguishing:
+          "Bilateral, chronic, often in the setting of venous insufficiency; lacks fever and ascending lymphangitis. Treat with compression, elevation, and skin care — not antibiotics.",
+      },
+      {
+        diagnosis: "Contact dermatitis",
+        distinguishing:
+          "Pruritic, linear or geometric pattern, exposure history; not painful or warm; responds to topical steroids and allergen avoidance.",
+      },
+      {
+        diagnosis: "Deep venous thrombosis / superficial thrombophlebitis",
+        distinguishing:
+          "Unilateral swelling without surface erythema that tracks a vein; suspect with immobility, malignancy, or recent surgery; confirm with venous Doppler.",
+      },
+      {
+        diagnosis: "Erythema migrans (Lyme disease)",
+        distinguishing:
+          "Expanding annular lesion with central clearing after tick exposure; treat with doxycycline (early localized Lyme).",
+      },
+      {
+        diagnosis: "Brown recluse spider envenomation",
+        distinguishing:
+          "Painless blister that becomes necrotic over hours to days in an endemic region; no systemic sepsis early.",
+      },
+      {
+        diagnosis: "Septic arthritis or osteomyelitis",
+        distinguishing:
+          "Joint pain with restricted motion, pain with passive motion (arthritis); chronic ulcer with exposed bone (osteomyelitis); image and aspirate as indicated.",
+      },
+      {
+        diagnosis: "Calciphylaxis (renal failure)",
+        distinguishing:
+          "Painful, purpuric, reticular lesions that progress to necrosis in ESRD; biopsy confirms — manage with phosphate binders, sodium thiosulfate, and wound care.",
+      },
+    ],
+    regimenTables: [
+      {
+        title: "Empiric therapy by SSTI type and severity",
+        rows: [
+          {
+            scenario: "Non-purulent cellulitis (outpatient, no MRSA risk)",
+            regimen: "Cephalexin 500 mg QID or dicloxacillin 500 mg QID",
+            duration: "5–6 d",
+          },
+          {
+            scenario: "Non-purulent cellulitis with MRSA risk (IVDU, prior MRSA, severe, bite)",
+            regimen: "Add TMP-SMX DS BID or doxycycline 100 mg BID to the beta-lactam",
+            duration: "5–7 d",
+          },
+          {
+            scenario: "Purulent SSTI / abscess (outpatient)",
+            regimen: "I&D (always); TMP-SMX DS BID or doxycycline if antibiotics needed",
+            duration: "5–7 d if antibiotics used",
+            note: "NEJM 2017 — I&D alone sufficient for many uncomplicated abscesses.",
+          },
+          {
+            scenario: "Inpatient SSTI (severe, sepsis)",
+            hostFactors: "MRSA risk: vancomycin required",
+            regimen: "Vancomycin + piperacillin-tazobactam (or ceftriaxone if no MRSA risk)",
+            duration: "Until improving, then oral step-down",
+          },
+          {
+            scenario: "Necrotizing soft tissue infection",
+            regimen: "Piperacillin-tazobactam + vancomycin + clindamycin",
+            duration: "Source control (debridement) is primary",
+            note: "Clindamycin for toxin suppression. [VERIFY current empiric regimen]",
+          },
+        ],
+      },
+      {
+        title: "Special exposure SSTI",
+        rows: [
+          {
+            scenario: "Dog or cat bite",
+            regimen: "Amoxicillin-clavulanate 875/125 BID (Pasteurella, anaerobes, oral streptococci)",
+            duration: "5–7 d (longer for infected bites)",
+          },
+          {
+            scenario: "Human bite",
+            regimen: "Amoxicillin-clavulanate (Eikenella, anaerobes)",
+            duration: "7–10 d",
+            note: "Surgical assessment for bites involving the hand, joint, or tendon.",
+          },
+          {
+            scenario: "Seawater exposure (Vibrio risk)",
+            regimen: "Doxycycline + ceftazidime for severe infection",
+            duration: "Per severity",
+          },
+          {
+            scenario: "Freshwater exposure (Aeromonas risk)",
+            regimen: "Fluoroquinolone or TMP-SMX",
+            duration: "Per severity",
+          },
+          {
+            scenario: "Puncture through shoes (Pseudomonas risk)",
+            regimen: "Fluoroquinolone (ciprofloxacin)",
+            duration: "10–14 d; evaluate for osteomyelitis",
+          },
+        ],
+      },
+      {
+        title: "Diabetic foot infection empiric therapy",
+        rows: [
+          {
+            scenario: "Mild infection (no systemic signs)",
+            regimen: "Cephalexin or dicloxacillin; add MRSA cover if risk factors",
+            duration: "7–14 d",
+          },
+          {
+            scenario: "Moderate infection",
+            regimen: "Ampicillin-sulbactam or piperacillin-tazobactam; add vancomycin if MRSA risk",
+            duration: "Until clinically improved",
+          },
+          {
+            scenario: "Severe infection / sepsis",
+            hostFactors: "Polymicrobial, MRSA, Pseudomonas possible",
+            regimen: "Piperacillin-tazobactam + vancomycin ± a carbapenem",
+            duration: "Until source control and improvement; osteomyelitis requires 4–6 wk",
+            note: "Deep tissue or bone cultures after debridement; multidisciplinary care.",
+          },
+        ],
+      },
+    ],
+    complications: [
+      {
+        name: "Necrotizing fasciitis",
+        recognize:
+          "Severe pain out of proportion to exam, hard woody induration, bullae, crepitus, skin necrosis, sepsis; rapidly progressive.",
+        manage:
+          "Emergent surgical debridement; broad-spectrum antibiotics (pip-tazo + vanco + clinda); resuscitation; ICU.",
+      },
+      {
+        name: "Streptococcal toxic shock syndrome",
+        recognize:
+          "Hypotension, multiorgan failure, soft tissue source, often GAS; rash and desquamation may follow.",
+        manage:
+          "IV penicillin + clindamycin (toxin suppression); IVIG for severe disease; surgical source control.",
+      },
+      {
+        name: "Staphylococcal toxic shock syndrome",
+        recognize:
+          "Fever, hypotension, diffuse macular rash with desquamation, mucosal hyperemia; TSST-1-producing S. aureus.",
+        manage:
+          "Source control (remove tampon or drain focus); anti-staphylococcal therapy + clindamycin; supportive care.",
+      },
+      {
+        name: "Clostridial myonecrosis (gas gangrene)",
+        recognize:
+          "Rapid onset after trauma or surgery; severe pain, bronze discoloration, crepitus, bullea with dishwater fluid.",
+        manage:
+          "Emergent surgical debridement; high-dose penicillin + clindamycin; hyperbaric oxygen considered. [VERIFY current role of hyperbaric]",
+      },
+      {
+        name: "Osteomyelitis (from contiguous spread, esp. diabetic foot)",
+        recognize:
+          "Probe-to-bone positive, chronic ulcer with exposed bone, elevated inflammatory markers; MRI confirms.",
+        manage:
+          "Deep cultures, surgical debridement if needed, prolonged targeted antibiotics (4–6 wk) and offloading.",
+      },
+    ],
+    prognosis: [
+      { metric: "Uncomplicated cellulitis — clinical cure with appropriate therapy", value: "~90% [VERIFY]" },
+      { metric: "Abscess cured by I&D alone (outpatient, uncomplicated)", value: "~90%+ [VERIFY]" },
+      { metric: "Necrotizing fasciitis mortality", value: "~20–30% (higher with delay) [VERIFY]" },
+      { metric: "Streptococcal toxic shock mortality", value: "~30–50% [VERIFY]" },
+      { metric: "Diabetic foot osteomyelitis recurrence", value: "high without surgical and vascular optimization [VERIFY]" },
+    ],
+    specialPopulations: [
+      {
+        population: "Diabetes",
+        considerations:
+          "Higher risk of polymicrobial, severe, and necrotizing infection; image aggressively; consider osteomyelitis; broad empiric coverage; multidisciplinary care.",
+      },
+      {
+        population: "People who inject drugs",
+        considerations:
+          "High MRSA prevalence; consider septic thrombophlebitis, bacteremia, endocarditis, and epidural abscess; screen for bloodborne viruses; engage harm reduction.",
+      },
+      {
+        population: "Neutropenia / immunocompromise",
+        considerations:
+          "Broader empiric coverage including Pseudomonas and (in prolonged neutropenia) mold; early ID consultation; consider ecthyma gangrenosum.",
+      },
+      {
+        population: "Chronic venous insufficiency / lymphedema",
+        considerations:
+          "Recurrent cellulitis is common; treat the portal of entry (tinea, fissures), compression for lymphedema, and consider prophylactic penicillin for frequent recurrences. [VERIFY regimen]",
+      },
+      {
+        population: "Pregnancy",
+        considerations:
+          "Prefer beta-lactams (cephalexin, cefazolin); TMP-SMX avoided in 1st trimester and near term; clindamycin acceptable; avoid tetracyclines and fluoroquinolones.",
+      },
+      {
+        population: "Burns",
+        considerations:
+          "Pseudomonas, MRSA, and (late) mold; topical antimicrobials and surgical debridement are primary; involve a burn center.",
+      },
+    ],
+    prevention: [
+      {
+        modality: "Treat the portal of entry",
+        target: "All patients with cellulitis",
+        detail:
+          "Look for and treat tinea pedis, fissures, eczema, ulcers, and injection sites; reduces recurrence.",
+      },
+      {
+        modality: "Compression and elevation",
+        target: "Patients with venous stasis or lymphedema",
+        detail:
+          "Compression stockings and limb elevation reduce edema and recurrent cellulitis; lymphedema therapy when needed.",
+      },
+      {
+        modality: "MRSA decolonization",
+        target: "Recurrent MRSA SSTI or household outbreaks",
+        detail:
+          "Nasal mupirocin × 5–10 days + chlorhexidine body washes; evidence is mixed and benefit temporary. [VERIFY current guideline]",
+      },
+      {
+        modality: "Antibiotic prophylaxis",
+        target: "Selected patients with very frequent recurrent cellulitis",
+        detail:
+          "Penicillin V or erythromycin for prophylaxis reduces recurrence in selected patients; weigh against resistance and harm.",
+      },
+      {
+        modality: "Diabetic foot care",
+        target: "Patients with diabetes",
+        detail:
+          "Daily foot inspection, well-fitting footwear, podiatry, glycemic control, and prompt treatment of ulcers reduce infection and amputation.",
+      },
+      {
+        modality: "Wound care and hygiene (bites)",
+        target: "Patients with bite wounds",
+        detail:
+          "Copious irrigation, debridement of devitalized tissue, elevate, and assess tetanus/rabies; antibiotic prophylaxis for high-risk bites.",
+      },
+    ],
+    whenToRefer: [
+      "Suspected necrotizing infection — emergent surgical consultation; do NOT delay for imaging.",
+      "Diabetic foot infection with deep ulcer, suspected osteomyelitis, or rapid progression — podiatry, vascular surgery, ID.",
+      "Abscess not amenable to bedside drainage (deep, large, complex) — IR or surgery.",
+      "Bite wounds involving joints, tendons, or deep structures of the hand — hand surgery.",
+      "Recurrent SSTI despite hygiene and decolonization — ID for evaluation.",
+      "Severe sepsis or toxic shock — ICU and ID.",
+      "Chronic ulcers with vascular insufficiency — vascular surgery for revascularization.",
+      "Suspected mold infection in neutropenia or burn — ID and (often) infectious diseases with mold expertise.",
+    ],
+    followUp: [
+      "Outpatient cellulitis: 48–72 h follow-up; if not improving, reconsider diagnosis, antibiotic choice, and source control.",
+      "Abscess post-I&D: warm soaks and dressing changes; re-evaluate in 48 h; antibiotics only if not improving.",
+      "Inpatient SSTI: oral step-down once afebrile and improving; 5–7 d total for uncomplicated cases.",
+      "Diabetic foot: weekly multidisciplinary follow-up until healed; offloading, wound care, and revascularization as indicated.",
+      "Bite wounds: recheck at 24–48 h for infection; check tetanus and rabies status.",
+      "Recurrent SSTI: address decolonization, household contacts, and portals of entry.",
+    ],
+    evidence: [
+      {
+        title: "IDSA Guideline on the Diagnosis and Management of Skin and Soft Tissue Infections",
+        source: "Stevens DL, et al. Clin Infect Dis. 2014;59(2):e10–e52 [VERIFY — 2024 update pending]",
+        kind: "guideline",
+        focus: "The foundational US SSTI guideline — purulent vs non-purulent, severity, empiric therapy.",
+      },
+      {
+        title: "Cephalexin plus TMP-SMX vs cephalexin alone for uncomplicated cellulitis",
+        source: "Brindle R, et al. (3 RCTs). [VERIFY — identify trials and citations]",
+        kind: "trial",
+        focus: "Adding empiric MRSA cover to a beta-lactam did not improve outcomes in non-purulent cellulitis.",
+      },
+      {
+        title: "Trimethoprim-sulfamethoxazole vs placebo for uncomplicated abscess (I&D)",
+        source: "Talan DA, et al. N Engl J Med. 2016;374:823–832 [VERIFY]",
+        kind: "trial",
+        focus: "TMP-SMX modestly improved outcomes after I&D in some patients (larger abscesses); I&D remains primary.",
+      },
+      {
+        title: "Placebo vs TMP-SMX after drainage of small abscesses",
+        source: "Chen AE, et al. (pediatric trial). [VERIFY]",
+        kind: "trial",
+        focus: "Small uncomplicated abscesses do well with I&D alone; antibiotics add little.",
+      },
+      {
+        title: "LRINEC — Laboratory Risk Indicator for Necrotizing Fasciitis",
+        source: "Wong CH, et al. Crit Care Med. 2004 [VERIFY; external validation shows lower sensitivity]",
+        kind: "review",
+        focus: "Bedside score to support necrotizing infection diagnosis — never overrides clinical judgment.",
+      },
+    ],
+    pearls: [
+      "Purulent vs non-purulent is the first branch point — drain the abscess, treat the cellulitis.",
+      "Non-purulent cellulitis is usually streptococcal — beta-lactam first; add MRSA cover only with risk factors.",
+      "Incision and drainage is the treatment for abscess — antibiotics add little for uncomplicated drained abscesses.",
+      "Mark the border, elevate the limb, treat the portal of entry (tinea, fissure, ulcer).",
+      "Bilateral 'cellulitis' is almost never cellulitis — look for stasis dermatitis or vascular causes.",
+      "Necrotizing infection: pain out of proportion, hard induration, bullae, crepitus, sepsis — surgery now, imaging later.",
+      "LRINEC supports but does not exclude necrotizing infection — clinical signs override a low score.",
+      "Diabetic foot: probe-to-bone, deep cultures, MRI for osteomyelitis, broad coverage, multidisciplinary care.",
+      "Dog/cat bites: amoxicillin-clavulanate (Pasteurella, anaerobes); human bites add Eikenella.",
+      "Recurrent cellulitis: treat tinea, use compression for lymphedema, consider MRSA decolonization.",
+    ],
+    syndromeTags: ["Skin and Soft Tissue Infection", "Cellulitis", "Abscess", "Necrotizing Fasciitis", "Diabetic Foot"],
+    conceptTags: [
+      "Skin and soft tissue infection",
+      "Cellulitis",
+      "Abscess",
+      "Erysipelas",
+      "MRSA",
+      "Necrotizing fasciitis",
+      "LRINEC",
+      "Diabetic foot infection",
+      "Osteomyelitis",
+      "Bite wounds",
+      "Incision and drainage",
+      "Source control",
+    ],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Mechanisms of beta-lactams, anti-MRSA agents, and toxin-suppressive clindamycin." },
+      { href: "/tools/spectrum", label: "Spectrum", why: "Confirm coverage for MRSA, streptococci, anaerobes, and Pseudomonas." },
+      { href: "/tools/doseid", label: "DoseID", why: "Renal-adjusted dosing for vancomycin, TMP-SMX, and beta-lactams." },
+    ],
+    furtherReading: [
+      {
+        title: "Current Concepts in the Diagnosis and Management of Skin and Soft Tissue Infections",
+        source: "[VERIFY — identify a 2023–2025 review]",
+        kind: "review",
+        focus: "Modern empiric therapy, MRSA coverage, short-course durations, and necrotizing infection recognition.",
+      },
+      {
+        title: "Diabetic Foot Infection — IWGDF/IDSA Guidance",
+        source: "International Working Group on the Diabetic Foot, current [VERIFY version]",
+        kind: "guideline",
+        focus: "Probe-to-bone, imaging, deep cultures, multidisciplinary care, and antibiotic duration for osteomyelitis.",
+      },
+    ],
+  },
 ];
 
 export function getCurriculumModule(slug: string): CurriculumModule | undefined {
