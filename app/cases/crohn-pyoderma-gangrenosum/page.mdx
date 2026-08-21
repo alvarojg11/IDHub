@@ -1,0 +1,311 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("crohn-pyoderma-gangrenosum");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  Cut Once, Worse Twice
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 34-year-old woman with ileocolonic Crohn disease presents with a rapidly enlarging ulcer on the right lower leg. Her Crohn disease has been difficult to control over the past year, with worsening diarrhea, abdominal cramping, weight loss, and a draining perirectal fistula. Fecal calprotectin measured two weeks before admission was greater than 3000 mcg/g. She had previously received adalimumab but stopped it eight months ago after losing insurance coverage. She is currently taking intermittent prednisone tapers and mesalamine. She has no diabetes, peripheral vascular disease, injection drug use, animal bites, freshwater exposure, or recent travel.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Three weeks before admission, she noticed a tender pustule on the anterior right shin that she attributed to minor trauma from bumping the leg against a coffee table. Over several days it opened into a painful ulcer with surrounding erythema. She was treated in urgent care with oral cephalexin, then trimethoprim-sulfamethoxazole, without improvement. She presented to the emergency department when the lesion doubled in size over 48 hours and developed a dark necrotic-appearing center. Initial concern was for a complicated skin and soft tissue infection. Vancomycin and piperacillin-tazobactam were started, and surgical debridement was performed.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The wound worsened after the procedure. The debrided margins became more violaceous and undermined, and new satellite pustules appeared along the incision line. Over the next week she underwent two additional debridements for presumed uncontrolled infection, each followed by further enlargement of the ulcer. Blood cultures remained negative. Operative Gram stain showed many neutrophils but no organisms, and tissue cultures grew only rare coagulase-negative staphylococci from enrichment broth. Fungal and acid-fast bacilli stains were negative. CT angiography of the leg showed soft tissue edema but no gas, drainable abscess, arterial occlusion, or osteomyelitis.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On infectious diseases consultation, she is afebrile with heart rate 94/min, blood pressure 124/76 mmHg, and oxygen saturation 99% on room air. The right anterior shin has a 9-cm ulcer with a purulent-appearing base, violaceous undermined borders, exquisite tenderness, and surrounding erythema that is most intense at the wound edge. There is no crepitus, bullous hemorrhage, anesthesia, lymphangitic streaking, or pain extending beyond the visible border. Laboratory studies show white blood cell count 12.4 x 10^3/uL, hemoglobin 10.1 g/dL, platelet count 520 x 10^3/uL, C-reactive protein 118 mg/L, erythrocyte sedimentation rate 88 mm/h, creatinine 0.7 mg/dL, and albumin 2.8 g/dL. Dermatology performs an incisional biopsy from the active ulcer edge. Histopathology shows a dense dermal neutrophilic infiltrate with sterile abscess formation and no vasculitis, granulomas, organisms, or malignancy. The lesion is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/crohn-pyoderma-gangrenosum/pyoderma-gangrenosum.jpg"
+        alt="Lower leg pyoderma gangrenosum ulcer with surrounding erythema in a patient with Crohn disease"
+        width={640}
+        height={480}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      Pyoderma gangrenosum of the lower leg in a patient with Crohn disease. Image: Crohnie, Wikimedia Commons, public domain.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-crohn-pyoderma-gangrenosum-q1"
+  title="Question 1"
+  prompt="What diagnosis best explains this patient's progressive right lower extremity lesion?"
+  options={[
+    {
+      id: "A",
+      label: "Necrotizing fasciitis requiring wider surgical debridement",
+      feedback:
+        "Incorrect. Necrotizing fasciitis is the emergency diagnosis that must be considered early in any rapidly progressive painful leg lesion. However, the later course argues strongly against it: she is hemodynamically stable, CT shows no gas or deep fascial collection, operative specimens repeatedly fail to show an invasive pathogen, and the wound worsens specifically after surgical trauma. The violaceous undermined border, satellite pustules along incision sites, Crohn flare, and neutrophilic biopsy point away from uncontrolled infection and toward pathergy-driven pyoderma gangrenosum. Wider debridement would likely worsen the lesion.",
+    },
+    {
+      id: "B",
+      label: "Pyoderma gangrenosum associated with active Crohn disease",
+      correct: true,
+      feedback:
+        "Correct. This is classic ulcerative pyoderma gangrenosum: a painful ulcer that began as a pustule, has violaceous undermined borders, occurs in the setting of active inflammatory bowel disease, shows sterile neutrophilic inflammation on biopsy, and worsens after debridement because of pathergy. The purulent-appearing base and surrounding erythema can mimic infection, and secondary colonization is common, but the repeated negative cultures and deterioration after tissue injury are the decisive clues. The perirectal fistula and very elevated fecal calprotectin indicate uncontrolled Crohn inflammation, a major associated systemic disease. For ID clinicians, the key move is recognizing when the SSTI model has failed and further antibiotics or debridement are causing harm.",
+    },
+    {
+      id: "C",
+      label: "Ecthyma gangrenosum from disseminated Pseudomonas aeruginosa",
+      feedback:
+        "Incorrect. Ecthyma gangrenosum can produce necrotic ulcers with surrounding erythema and is an important infectious mimic, especially in neutropenic or severely immunocompromised patients. This patient is not neutropenic, has negative blood cultures, and has no Pseudomonas recovered from tissue. Ecthyma gangrenosum typically reflects bacterial invasion of vessel walls with necrosis; this biopsy instead shows a sterile dense neutrophilic infiltrate without organisms or vasculitis. The pathergy after debridement and Crohn flare are much more consistent with pyoderma gangrenosum.",
+    },
+    {
+      id: "D",
+      label: "Cutaneous Crohn disease with granulomatous dermatitis",
+      feedback:
+        "Incorrect. Cutaneous or metastatic Crohn disease is a reasonable competing diagnosis in a patient with active fistulizing Crohn disease and skin lesions. It usually presents with plaques, nodules, fissures, edema, or ulceration, and histology classically shows noncaseating granulomatous inflammation. This biopsy does not show granulomas; it shows a dense neutrophilic infiltrate. The abrupt pustule-to-ulcer evolution, violaceous undermined border, extreme pain, and pathergy after debridement are more characteristic of pyoderma gangrenosum than metastatic Crohn disease.",
+    },
+    {
+      id: "E",
+      label: "Venous stasis ulcer with secondary bacterial colonization",
+      feedback:
+        "Incorrect. Venous ulcers are common on the lower extremities and can become colonized or secondarily infected, so they belong in the differential. However, venous ulcers typically occur near the medial malleolus in the setting of chronic edema, hyperpigmentation, varicosities, or lipodermatosclerosis, not as an explosive painful ulcer that began as a pustule on the shin. Venous ulcers do not characteristically worsen after debridement through pathergy, nor do they explain the sterile neutrophilic infiltrate and active Crohn association. Rare skin flora in broth is better interpreted as colonization than as the driver of this lesion.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-crohn-pyoderma-gangrenosum-q2"
+  title="Question 2"
+  prompt="Which diagnostic approach is most appropriate once pyoderma gangrenosum is suspected?"
+  options={[
+    {
+      id: "A",
+      label: "Rely on the violaceous border alone and start high-dose corticosteroids without microbiologic evaluation",
+      feedback:
+        "Incorrect. The morphology is highly suggestive, but pyoderma gangrenosum is not diagnosed by appearance alone, especially in a patient who may soon require immunosuppression. Infection, vasculitis, malignancy, vascular insufficiency, ecthyma gangrenosum, deep fungal infection, and mycobacterial disease can all mimic PG. Starting corticosteroids without tissue cultures or histopathology risks accelerating an occult infection. The correct approach is biopsy from the active edge with histopathology plus tissue cultures and stains to exclude mimics.",
+    },
+    {
+      id: "B",
+      label: "Perform biopsy from the active ulcer edge for histopathology and tissue cultures, recognizing that biopsy supports PG and excludes mimics rather than proving infection",
+      correct: true,
+      feedback:
+        "Correct. PG is a clinicopathologic diagnosis. Biopsy should sample the active ulcer edge and extend deep enough to evaluate for vasculitis, malignancy, granulomatous infection, and other mimics. Histology commonly shows a neutrophilic infiltrate, sometimes with sterile abscess formation, but this finding is supportive rather than pathognomonic. Tissue should also be sent for bacterial, fungal, and mycobacterial cultures and stains, because immunosuppression is often the treatment. In this case, dense neutrophilic inflammation, negative special stains, unrevealing cultures, compatible morphology, active Crohn disease, and pathergy together make the diagnosis.",
+    },
+    {
+      id: "C",
+      label: "Repeat wide excisional debridement until cultures become sterile and the wound base is clean",
+      feedback:
+        "Incorrect. This is the central management error in the case. Debridement is appropriate when necrotizing infection, abscess, or devitalized infected tissue is present, but repeated surgical trauma in active PG can provoke pathergy and enlarge the ulcer. A wound that worsens after each debridement should force reassessment of the diagnosis. Once PG is suspected and necrotizing infection has been reasonably excluded, additional traumatic debridement should stop. Gentle wound care and control of inflammation become the priorities.",
+    },
+    {
+      id: "D",
+      label: "Interpret rare coagulase-negative staphylococci in broth as proof of the primary etiology",
+      feedback:
+        "Incorrect. Chronic open ulcers are frequently colonized, and low-burden growth of skin flora from enrichment broth is not proof of invasive infection. The clinical trajectory must be interpreted alongside microbiology. Here, repeated operative specimens show neutrophils but no organisms on stains, blood cultures are negative, imaging shows no abscess or osteomyelitis, and the lesion worsens with trauma. Treating colonization as the primary diagnosis leads to unnecessary antibiotic escalation and delays immunosuppression.",
+    },
+    {
+      id: "E",
+      label: "Use fecal calprotectin as the confirmatory diagnostic test for pyoderma gangrenosum",
+      feedback:
+        "Incorrect. Fecal calprotectin is useful for assessing intestinal inflammation in Crohn disease, and the very elevated value in this case supports active IBD as a systemic driver. It does not diagnose the skin lesion. PG is diagnosed by the combination of compatible morphology, associated systemic disease, pathergy, supportive histopathology, and exclusion of mimics. The calprotectin matters because it pushes treatment toward a Crohn-directed systemic strategy, not because it confirms PG by itself.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-crohn-pyoderma-gangrenosum-q3"
+  title="Question 3"
+  prompt="What is the best management strategy now that biopsy supports pyoderma gangrenosum and necrotizing infection has been reasonably excluded?"
+  options={[
+    {
+      id: "A",
+      label: "Continue vancomycin and piperacillin-tazobactam for 6 weeks and schedule serial operative debridements",
+      feedback:
+        "Incorrect. This plan continues both errors that allowed the ulcer to progress. There is no microbiologic or radiographic evidence of an invasive bacterial process requiring six weeks of broad-spectrum therapy, and serial debridement is likely to trigger further pathergy. Antibiotics should be narrowed or stopped unless there is objective evidence of superinfection, bacteremia, abscess, osteomyelitis, or sepsis. The main treatment must target the neutrophilic inflammatory process and the uncontrolled Crohn disease.",
+    },
+    {
+      id: "B",
+      label: "Stop further traumatic debridement, provide atraumatic wound care, treat true superinfection only if present, and start systemic immunosuppression with Crohn-directed therapy such as corticosteroids plus infliximab",
+      correct: true,
+      feedback:
+        "Correct. Management of active ulcerative PG requires controlling inflammation and avoiding pathergy. Traumatic debridement should stop once necrotizing infection is excluded. Wound care should be gentle, with nonadherent dressings, pain control, and treatment of only proven superinfection. Systemic corticosteroids or cyclosporine are common rapid-acting options for severe PG. In this patient, the uncontrolled fistulizing Crohn disease, high fecal calprotectin, and extraintestinal manifestation make anti-TNF therapy, particularly infliximab, a strong steroid-sparing choice because it treats both the bowel disease and PG. ID involvement remains important to confirm that infection has been reasonably excluded before immunosuppression and to identify any true secondary infection that requires targeted therapy.",
+    },
+    {
+      id: "C",
+      label: "Start topical mupirocin and compression therapy alone",
+      feedback:
+        "Incorrect. Local wound care matters, and compression can help selected patients with edema or venous disease, but this lesion is severe, rapidly progressive, and linked to active systemic inflammation. Topical antibacterial therapy would not control a deep neutrophilic dermatosis. Limited topical or intralesional corticosteroids can help mild localized PG, but this case requires systemic therapy. Treating it as a superficial colonized wound would delay definitive management.",
+    },
+    {
+      id: "D",
+      label: "Restart mesalamine and avoid biologic therapy until the ulcer closes",
+      feedback:
+        "Incorrect. Mesalamine is not adequate therapy for severe fistulizing Crohn disease and will not reliably treat PG. Avoiding biologic therapy until the ulcer closes reverses the therapeutic logic: the ulcer is unlikely to heal until the inflammatory driver is controlled. Anti-TNF therapy has evidence for extraintestinal manifestations of IBD, including PG, and is particularly attractive when Crohn disease is active. Biologic therapy should be started after appropriate infection screening and after invasive infection at the wound has been reasonably excluded.",
+    },
+    {
+      id: "E",
+      label: "Perform split-thickness skin grafting immediately to close the ulcer",
+      feedback:
+        "Incorrect. Surgical reconstruction can be considered in selected PG cases after inflammation is controlled, often under systemic immunosuppression, but immediate grafting into active PG risks pathergy and graft failure. The current ulcer is expanding after trauma, which is the worst setting for additional surgery. The first step is to suppress the inflammatory process and stabilize the wound. Only then should reconstructive options be discussed with dermatology, surgery, and wound care teams.",
+    },
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseReveal pollId="case-crohn-pyoderma-gangrenosum-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Pyoderma gangrenosum is a neutrophilic dermatosis that sits directly in the diagnostic blind spot of infectious diseases practice. It looks infected: the ulcer can be erythematous, exquisitely painful, necrotic-appearing, draining, and surrounded by edema. Yet the primary process is not microbial invasion. It is dysregulated innate inflammation with neutrophilic tissue injury, often linked to systemic inflammatory disease. Inflammatory bowel disease is one of the classic associations, along with inflammatory arthritis, hematologic disorders, and autoinflammatory syndromes. This patient's active fistulizing Crohn disease, severe intestinal inflammatory burden, pustule-to-ulcer evolution, violaceous undermined border, and sterile neutrophilic biopsy create the diagnostic pattern.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The most important clue is pathergy, the paradoxical worsening of lesions after minor trauma. PG may begin after a bump, venipuncture, surgery, biopsy, or debridement. In this case, every attempt to surgically clean the wound made it larger and more inflamed. That trajectory is not typical of an inadequately debrided abscess or necrotizing infection. It is a warning that the host inflammatory response, not bacterial burden, is driving tissue destruction. Debridement is not absolutely forbidden in every PG case, especially if there is frank necrosis or a true superinfection, but aggressive operative debridement during active uncontrolled PG can be disastrous.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis is clinicopathologic. The 2018 Delphi consensus criteria for ulcerative PG emphasize biopsy of the ulcer edge showing neutrophilic infiltrate as a major criterion, supported by exclusion of infection, pathergy, history of inflammatory bowel disease or inflammatory arthritis, pustule or papule that rapidly ulcerates, peripheral erythema with undermined tender border, multiple ulcers or anterior lower leg involvement, cribriform scarring, and response to immunosuppression. No single feature is perfectly specific. Histology can be supportive, but it is not a magic stain for PG. The biopsy is equally valuable because it searches for mimics: vasculitis, malignancy, deep fungal infection, mycobacterial infection, ecthyma gangrenosum, vascular ulceration, and cutaneous Crohn disease.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The ID decision is not whether infection is ever possible. Superinfection and colonization can occur in PG ulcers. The decision is whether infection explains the entire syndrome and whether antibiotics or surgery are helping. In this patient, cultures were unrevealing, imaging showed no abscess, gas, osteomyelitis, or vascular occlusion, and the wound worsened after trauma. Rare coagulase-negative staphylococci in broth should not be allowed to anchor the team to a bacterial diagnosis. Antibiotics should be targeted to objective infection, not continued indefinitely because an inflammatory ulcer looks purulent.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Treatment requires stopping the cycle of trauma and suppressing inflammation. Severe ulcerative PG is commonly treated with systemic corticosteroids for rapid control or cyclosporine as an alternative. The STOP GAP randomized trial found no major difference in healing speed between prednisolone and cyclosporine overall, so the choice is often driven by comorbidities and toxicity. In Crohn-associated PG, anti-TNF therapy is especially attractive. Infliximab has trial and observational evidence in PG and treats fistulizing Crohn disease, making it a rational steroid-sparing therapy after infection screening and exclusion of uncontrolled wound infection. Wound care should be atraumatic, with nonadherent dressings, pain control, edema management when appropriate, and careful multidisciplinary follow-up.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-crohn-pyoderma-gangrenosum-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      Pyoderma gangrenosum is a noninfectious neutrophilic dermatosis that commonly mimics complicated SSTI. Classic clues are a painful ulcer, violaceous undermined borders, pustule-to-ulcer evolution, anterior lower leg involvement, associated inflammatory bowel disease, and pathergy.
+    </li>
+    <li>
+      Worsening after debridement is a major warning sign. Once necrotizing infection, abscess, and other surgical emergencies are reasonably excluded, repeated traumatic debridement can enlarge PG lesions and should stop.
+    </li>
+    <li>
+      Biopsy from the active ulcer edge supports the diagnosis when it shows neutrophilic infiltrates, but the diagnosis remains clinicopathologic. Tissue should also be evaluated with stains and cultures for bacteria, fungi, and mycobacteria because treatment often requires immunosuppression.
+    </li>
+    <li>
+      Positive superficial cultures or low-burden skin flora from chronic ulcers often represent colonization. Antibiotics should be reserved for objective superinfection, bacteremia, abscess, osteomyelitis, or sepsis rather than used as indefinite therapy for sterile inflammation.
+    </li>
+    <li>
+      Severe PG is treated with systemic immunosuppression and atraumatic wound care. In active Crohn disease, anti-TNF therapy such as infliximab can address both the intestinal disease and the skin manifestation, often with corticosteroids used for rapid initial control.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Maverakis E, Ma C, Shinkai K, et al. Diagnostic Criteria of Ulcerative Pyoderma Gangrenosum: A Delphi Consensus of International Experts. <em>JAMA Dermatology</em>. 2018;154(4):461-466.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1001/jamadermatol.2017.5980"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1001/jamadermatol.2017.5980
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Ormerod AD, Thomas KS, Craig FE, et al. Comparison of the two most commonly used treatments for pyoderma gangrenosum: results of the STOP GAP randomized controlled trial. <em>BMJ</em>. 2015;350:h2958.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1136/bmj.h2958"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1136/bmj.h2958
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Partridge ACR, Bai JW, Rosen CF, Walsh SR, Gulliver WP, Fleming P. Effectiveness of systemic treatments for pyoderma gangrenosum: a systematic review of observational studies and clinical trials. <em>British Journal of Dermatology</em>. 2018;179(2):290-295.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1111/bjd.16485"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1111/bjd.16485
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Peyrin-Biroulet L, Van Assche G, Gomez-Ulloa D, et al. Systematic Review of Tumor Necrosis Factor Antagonists in Extraintestinal Manifestations in Inflammatory Bowel Disease. <em>Clinical Gastroenterology and Hepatology</em>. 2017;15(1):25-36.e27.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.cgh.2016.06.025"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.cgh.2016.06.025
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />

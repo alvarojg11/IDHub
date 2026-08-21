@@ -456,6 +456,10 @@ export const CASE_DATES: Record<string, CaseDateEntry> = {
     publishedAt: "2026-07-20T08:00:00-07:00",
     modifiedAt: "2026-07-20T08:00:00-07:00",
   },
+  "crohn-pyoderma-gangrenosum": {
+    publishedAt: "2026-08-20T08:00:00-07:00",
+    modifiedAt: "2026-08-20T08:00:00-07:00",
+  },
 };
 
 export function getCaseDateEntry(slug: string) {

@@ -20,6 +20,15 @@ export type CaseMeta = {
 
 export const CASES: CaseMeta[] = [
   {
+    title: "Cut Once, Worse Twice",
+    slug: "crohn-pyoderma-gangrenosum",
+    description: "A Crohn-associated ulcer that worsens with every cut.",
+    enable: true,
+    ogImage: "/cases/crohn-pyoderma-gangrenosum/pyoderma-gangrenosum.jpg",
+    teaser: "A 34-year-old woman with active fistulizing Crohn disease and a fecal calprotectin above 3000 mcg/g develops a painful right shin ulcer. It is treated as infection with broad antibiotics and multiple debridements, but each procedure makes the lesion larger, violaceous, and more undermined. When the biopsy shows dense neutrophilic inflammation, what diagnosis should stop the knife?",
+    tags: { organisms: [], syndromes: ["Skin & Soft Tissue", "Dermatology", "GI & Diarrheal"], concepts: ["Pyoderma gangrenosum", "Crohn disease", "Pathergy", "Neutrophilic dermatosis", "Noninfectious mimics", "Anti-TNF therapy"] },
+  },
+  {
     title: "The Silent Swallow",
     slug: "pyogenic-brain-abscess",
     description: "When aspiration writes a prescription for the brain.",
