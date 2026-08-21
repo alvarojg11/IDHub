@@ -6,9 +6,9 @@ import SpectrumTool from "@/components/SpectrumTool";
 const BASE_URL = "https://infectiousdiseasehub.com";
 
 export const metadata: Metadata = {
-  title: "Antimicrobial Spectrum Reference",
+  title: "Antibacterial Spectrum Navigator",
   description:
-    "Searchable antimicrobial spectrum of activity chart for common bacteria. Compare expected susceptibility patterns across antibiotics for Gram-positive, Gram-negative, anaerobic, and atypical organisms.",
+    "Bug-drug antibacterial spectrum navigator for common bacteria, highlighting preferred therapy, expected activity, variable susceptibility, site-only use, and major caveats.",
   keywords: [
     "antibiotic spectrum of activity",
     "antimicrobial susceptibility chart",
@@ -25,25 +25,25 @@ export const metadata: Metadata = {
     type: "website",
     url: `${BASE_URL}/tools/spectrum`,
     siteName: "InfectiousDiseaseHub",
-    title: "Antimicrobial Spectrum Reference | IDHub",
+    title: "Antibacterial Spectrum Navigator | IDHub",
     description:
-      "Searchable antimicrobial spectrum of activity chart for common bacteria.",
+      "Bug-drug antibacterial spectrum navigator for common bacteria.",
   },
   twitter: {
     card: "summary",
-    title: "Antimicrobial Spectrum Reference | IDHub",
+    title: "Antibacterial Spectrum Navigator | IDHub",
     description:
-      "Searchable antimicrobial spectrum of activity chart for common bacteria.",
+      "Bug-drug antibacterial spectrum navigator for common bacteria.",
   },
 };
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Antimicrobial Spectrum Reference",
+  name: "Antibacterial Spectrum Navigator",
   url: `${BASE_URL}/tools/spectrum`,
   description:
-    "Searchable antimicrobial spectrum of activity chart comparing expected susceptibility patterns across common organisms and antibiotics.",
+    "Bug-drug antibacterial spectrum navigator comparing expected activity and clinical caveats across common organisms and antibiotics.",
   applicationCategory: "Medical Education",
   operatingSystem: "Web",
   author: {
@@ -71,12 +71,12 @@ export default function SpectrumPage() {
           <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
             <p className="idhub-kicker">Tool</p>
             <h1 className="mt-3 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">
-              Antimicrobial Spectrum
+              Antibacterial Spectrum
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-              A quick-reference chart of expected antimicrobial susceptibility
-              patterns for commonly encountered organisms. Search by organism
-              or filter by Gram stain category.
+              A bug-drug navigator for commonly encountered bacteria. Switch
+              between organism-first, antibiotic-first, and matrix views while
+              keeping preferred therapy separate from raw activity.
             </p>
           </div>
 
@@ -87,26 +87,27 @@ export default function SpectrumPage() {
             <div className="mt-4 space-y-2 text-sm leading-7 text-[var(--muted)]">
               <p>
                 <span className="inline-block w-7 rounded bg-emerald-100 text-center font-bold text-emerald-700">
-                  S
+                  P
                 </span>{" "}
-                Usually susceptible
+                Preferred when the syndrome fits
+              </p>
+              <p>
+                <span className="inline-block w-7 rounded bg-sky-100 text-center font-bold text-sky-700">
+                  A
+                </span>{" "}
+                Active but not necessarily preferred
               </p>
               <p>
                 <span className="inline-block w-7 rounded bg-amber-100 text-center font-bold text-amber-700">
-                  I
+                  V
                 </span>{" "}
-                Variable / intermediate
-              </p>
-              <p>
-                <span className="inline-block w-7 rounded bg-red-100 text-center font-bold text-red-700">
-                  R
-                </span>{" "}
-                Usually resistant
+                Variable; check susceptibility
               </p>
             </div>
             <p className="mt-4 text-xs leading-6 text-[var(--muted-soft)]">
-              Educational reference only. Real susceptibility depends on local
-              antibiograms and CLSI/EUCAST breakpoints.
+              Educational reference only. Real treatment depends on syndrome,
+              source control, severity, host factors, AST, breakpoints, and
+              local antibiograms.
             </p>
           </aside>
         </header>
