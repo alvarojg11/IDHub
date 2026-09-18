@@ -1552,6 +1552,51 @@ export const CASES: CaseMeta[] = [
       ],
     },
   },
+  {
+    slug: "cgd-serratia-pneumonia",
+
+    title: "The Scar That Never Healed",
+
+    description:
+      "A 19-year-old immigrant with infantile BCG lymphadenitis, a childhood Serratia lung abscess, a staphylococcal hepatic abscess, and now a cavitary pneumonia — the phagocyte defect behind a lifetime of catalase-positive infections.",
+
+    enable: true,
+
+    ogImage: "/cases/cgd-serratia-pneumonia/serratia-xld.jpg",
+
+    teaser:
+      "A 19-year-old man presents with fever, night sweats, and a cavitary right upper lobe infiltrate growing Serratia marcescens — his fourth serious infection after infantile BCG lymphadenitis, a childhood Serratia lung abscess, and a staphylococcal liver abscess. What inherited immune defect ties these organisms together, and which test confirms it?",
+
+    tags: {
+      organisms: [
+        "Serratia marcescens",
+        "Mycobacterium bovis BCG",
+        "Staphylococcus aureus",
+      ],
+
+      syndromes: [
+        "Transplant & Immunocompromised",
+        "Pulmonary Infection",
+        "Mycobacterial",
+        "Primary Immunodeficiency",
+      ],
+
+      concepts: [
+        "Chronic granulomatous disease",
+        "NADPH oxidase",
+        "Respiratory burst",
+        "Catalase-positive organisms",
+        "Dihydrorhodamine flow cytometry",
+        "BCG lymphadenitis",
+        "Lung abscess",
+        "IFN-gamma prophylaxis",
+        "TMP-SMX prophylaxis",
+        "Itraconazole prophylaxis",
+        "Hematopoietic stem cell transplantation",
+        "Gene therapy",
+      ],
+    },
+  },
 ].filter((c) => c.enable !== false);
 
 export function getCaseBySlug(slug: string) {

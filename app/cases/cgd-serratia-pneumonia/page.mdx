@@ -1,0 +1,520 @@
+import { buildCaseMetadata } from "@/lib/cases/seo";
+
+export const metadata = buildCaseMetadata("cgd-serratia-pneumonia");
+
+<h1 className="text-5xl font-extrabold tracking-tight text-gray-900 my-8">
+  The Scar That Never Healed
+</h1>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Clinical Vignette
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    A 19-year-old man born in Jalisco, Mexico, who moved to California three
+    years ago, is admitted with three weeks of fevers, night sweats,
+    productive cough, and a 5 kg weight loss. His past medical history is
+    startling for his age: at 10 months he developed suppurative left axillary
+    lymphadenitis following neonatal BCG vaccination, requiring surgical
+    drainage — pathology showed necrotizing granulomatous lymphadenitis and
+    culture grew <em>Mycobacterium bovis</em> BCG, treated with nine months of
+    antituberculous therapy. At age 6 he was hospitalized with a right middle
+    lobe pneumonia complicated by a 3 cm lung abscess; bronchoalveolar lavage
+    grew <em>Serratia marcescens</em>, and he received six weeks of intravenous
+    antibiotics. At age 11 he underwent percutaneous drainage of a hepatic
+    abscess that grew <em>Staphylococcus aureus</em>. He has also had recurrent
+    perianal abscesses. His mother recalls that her brother died in childhood
+    of "pneumonia" in rural Mexico. The patient has no history of HIV, diabetes,
+    or immunosuppressive medications, and he completed childhood immunizations
+    without other complications.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    His current illness began insidiously with low-grade fevers and a cough
+    that became productive of purulent sputum, occasionally blood-streaked,
+    associated with drenching night sweats and exertional dyspnea. A walk-in
+    clinic prescribed seven days of amoxicillin-clavulanate for community-acquired
+    pneumonia, but he continued to decline. On transfer he is thin and
+    chronically ill-appearing.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    On examination: temperature 38.7 °C, heart rate 108, blood pressure
+    102/64 mmHg, respiratory rate 22, oxygen saturation 93% on room air. There
+    is a healed BCG scar over the left deltoid and a surgical scar in the left
+    axilla. Crackles are audible over the right upper chest; the liver edge is
+    palpable 3 cm below the costal margin, non-tender. No active lymphadenopathy.
+    Laboratories: WBC 14.2 k/mcL with 82% neutrophils, hemoglobin 10.4 g/dL,
+    platelets 480 k/mcL, CRP 148 mg/L, ESR 92 mm/h; HIV serology negative.
+    Sputum Gram stain shows gram-negative rods, and cultures grow
+    <em> Serratia marcescens</em>. A contrast-enhanced CT of the chest shows
+    dense right upper lobe consolidation with a 4.2 cm cavitary lesion
+    containing an air-fluid level. The organism recovered from his respiratory
+    cultures is shown below.
+  </p>
+</div>
+
+<figure className="my-12">
+  <div className="mx-auto max-w-xl">
+    <div className="flex h-[380px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2">
+      <Image
+        src="/cases/cgd-serratia-pneumonia/serratia-xld.jpg"
+        alt="Serratia marcescens growing on XLD agar, showing characteristic red-pigmented colonies"
+        width={800}
+        height={600}
+        className="rounded-lg mx-auto h-full w-full object-contain"
+      />
+    </div>
+    <figcaption className="mt-3 text-center text-sm text-gray-600">
+      <em>Serratia marcescens</em> on xylose lysine deoxycholate (XLD) agar,
+      displaying the red pigmentation (prodigiosin) classically seen when
+      plates are held at room temperature. Many clinical isolates are
+      non-pigmented at 37 °C, so a pale plate does not exclude the organism.
+      Image: CDC Public Health Image Library (#6620), public domain.
+    </figcaption>
+  </div>
+</figure>
+
+<CaseQuestion
+  pollId="case-cgd-serratia-pneumonia-q1"
+  title="Question 1"
+  prompt="Which host defense defect best explains this patient's lifelong pattern of infections with these particular organisms?"
+  options={[
+{
+      id: "A",
+      label: "Defective IL-12/IFN-gamma axis (Mendelian susceptibility to mycobacterial disease)",
+      feedback:
+        "Incorrect, and this is the most tempting distractor because the BCG lymphadenitis fits so well. IL-12 receptor or IFN-gamma receptor defects produce severe disease specifically with intracellular pathogens — disseminated BCG, environmental mycobacteria, nontyphoidal Salmonella — because macrophage activation by T-cell-derived IFN-gamma is impaired. What that axis does not explain is the pattern of recurrent pyogenic abscesses with catalase-positive bacteria: Serratia lung abscess, staphylococcal hepatic abscess, and perianal abscesses are the fingerprint of a phagocyte killing defect, not a macrophage-activation defect. MSMD patients also do not form the necrotizing granulomas to pyogenic organisms seen here. The combination of BCG-itis plus pyogenic abscesses plus an X-linked family history points to CGD.",
+    },
+{
+      id: "B",
+      label: "STAT3 deficiency with defective TH17 responses (hyper-IgE syndrome)",
+      feedback:
+        "Incorrect. Hyper-IgE (Job) syndrome shares the recurrent staphylococcal abscesses and pneumonias, so it deserves consideration in any child with abscess-forming pneumonia. But the larger syndrome is absent: this patient lacks the eczematous dermatitis, cold staphylococcal skin abscesses, pneumatoceles, retained primary teeth, coarse facies, hyperextensibility, and skeletal abnormalities that define STAT3 disease. Serratia and complicated BCG infection are not part of the hyper-IgE organism spectrum, and the necrotizing granulomatous lymphadenitis is foreign to it. Inheritance also argues against it — STAT3 hyper-IgE is autosomal dominant, while this family history (affected maternal uncle) suggests X-linked inheritance.",
+    },
+{
+      id: "C",
+      label: "Impaired neutrophil oxidative burst due to NADPH oxidase deficiency",
+      correct: true,
+      feedback:
+        "Correct. This is chronic granulomatous disease (CGD), and the vignette is a catalog of its signature organisms — all catalase-positive. CGD results from mutations in any of the five components of the phagocyte NADPH oxidase (NOX2) complex. The most common form is X-linked, caused by mutations in CYBB encoding gp91phox, which fits the maternal uncle who died of childhood pneumonia. Neutrophils in CGD migrate normally and ingest microbes normally, but cannot generate the superoxide that fuels the hydrogen peroxide–myeloperoxidase–halide killing system. Catalase-positive organisms — S. aureus, Serratia, Burkholderia cepacia complex, Nocardia, mycobacteria including BCG, and Aspergillus — degrade their own hydrogen peroxide with catalase, denying the CGD phagocyte any substrate for oxidative killing, so they survive inside macrophages and drive persistent granulomatous inflammation. The necrotizing granulomas in his BCG-draining lymph node, the staphylococcal liver abscess, the recurrent perianal abscesses, and now a second Serratia lung abscess trace a single line back to a defective respiratory burst.",
+    },
+{
+      id: "D",
+      label: "Terminal complement (C5–C9) deficiency",
+      feedback:
+        "Incorrect. Terminal complement pathway defects produce recurrent, often devastating infections with Neisseria species (meningococcemia, gonococcemia) because the membrane attack complex cannot insert into gram-negative outer membranes. This patient's infections instead cluster around catalase-positive bacteria and mycobacteria forming abscesses and granulomas — organisms that complement-mediated lysis and opsonization handle well even in CGD. None of his episodes involved meningococcal disease, and his granulomatous pathology has no complement explanation.",
+    },
+{
+      id: "E",
+      label: "Cyclic neutropenia",
+      feedback:
+        "Incorrect. Cyclic neutropenia causes recurring fevers and infections roughly every 21 days, classically with oral ulcers, periodontitis, pharyngitis, and skin infections during neutropenic troughs — and the key laboratory signature is a periodically vanishing neutrophil count. This patient presented for every infection with a normal or elevated neutrophil count, and his organism spectrum (Serratia, staphylococcal deep abscesses, BCG) is wrong for neutropenia, which predisposes to enteric gram-negatives, Pseudomonas, and invasive candidiasis. CGD is a disorder of neutrophil quality, not quantity — a distinction this case is built to teach.",
+    }
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cgd-serratia-pneumonia-q2"
+  title="Question 2"
+  prompt="Which diagnostic study best confirms the suspected diagnosis and can simultaneously inform genetic counseling about inheritance?"
+  options={[
+{
+      id: "A",
+      label: "Nitroblue tetrazolium (NBT) slide test",
+      feedback:
+        "Incorrect — but historically important. In the NBT test, functioning phagocytes reduce the yellow tetrazolium dye to insoluble blue formazan crystals; CGD neutrophils fail to reduce it. For decades this was the standard CGD assay, and it can even identify X-linked carriers by manually counting a mosaic of positive and negative cells. However, it is subjective, semi-quantitative, labor-intensive, and unreliable with residual oxidative activity, so it has been superseded by DHR flow cytometry, which is objective, quantitative, and far better at detecting carriers and variant phenotypes. Choosing NBT here reflects the textbook of 1985 rather than current practice.",
+    },
+{
+      id: "B",
+      label: "Bone marrow aspiration with neutrophil morphology",
+      feedback:
+        "Incorrect. CGD neutrophils are cytologically normal — they are produced in normal numbers, morphologically unremarkable, and chemotax normally to sites of infection. The defect is functional (a missing electron transport step), not morphologic, which is precisely why routine hematology and bone marrow evaluation are unrevealing and why a dedicated functional assay is required. Bone marrow would be appropriate if a myelodysplastic or leukemic process with acquired NADPH oxidase dysfunction were suspected — not for confirming classic inherited CGD.",
+    },
+{
+      id: "C",
+      label: "Direct CYBB gene sequencing",
+      feedback:
+        "Incorrect as the next step, though important later. Genetic testing definitively establishes genotype, enables family screening and prenatal counseling, and occasionally identifies variant mutations with residual function. But as a first-line approach it is slower, costlier, and incomplete as a screen: roughly a quarter to a third of CGD is autosomal recessive (NCF1/p47phox, CYBA/p22phox, NCF2/p67phox), so sequencing CYBB alone in an unconfirmed patient risks missing the diagnosis entirely. The accepted sequence is functional screening first (DHR), then targeted or panel genetic testing to define the mutation once CGD is biochemically established.",
+    },
+{
+      id: "D",
+      label: "Dihydrorhodamine 123 (DHR) flow cytometry of neutrophils",
+      correct: true,
+      feedback:
+        "Correct. The DHR assay is the modern confirmatory test for CGD. Whole blood neutrophils are loaded with dihydrorhodamine 123, a non-fluorescent dye, then stimulated with phorbol myristate acetate (PMA). In normal neutrophils, the respiratory burst generates hydrogen peroxide, which oxidizes DHR to highly fluorescent rhodamine 123 — measured per cell by flow cytometry. X-linked CGD patients show no fluorescence shift; patients with autosomal recessive CGD often show residual, partially preserved bursts that correlate with milder phenotype. Most elegantly, X-linked carriers display two distinct cell populations (fluorescent and non-fluorescent) on the same histogram because of random X-chromosome inactivation (lyonization) — so a single tube confirms the diagnosis, suggests the inheritance pattern, and screens the mother. It is rapid, quantitative, multi-parametric, and requires only a small blood volume, which is why it has displaced the older nitroblue tetrazolium test in most reference laboratories.",
+    },
+{
+      id: "E",
+      label: "Quantitative serum immunoglobulins (IgG, IgA, IgM, IgE)",
+      feedback:
+        "Incorrect. Quantitative immunoglobulins screen for humoral immunodeficiency — CVID, IgA deficiency — and elevated IgE would support hyper-IgE syndrome. CGD patients, by contrast, generally have normal antibody production and normal lymphocyte function; indeed, they typically form robust antibodies to the very organisms they cannot kill. Humoral studies will be normal here and will not explain a phagocyte killing defect. They are reasonable as part of a broad immunodeficiency workup, but they will neither confirm nor stage CGD.",
+    }
+  ]}
+/>
+
+<div className="my-6" />
+<hr className="border-gray-200" />
+<div className="my-6" />
+
+<CaseQuestion
+  pollId="case-cgd-serratia-pneumonia-q3"
+  title="Question 3"
+  prompt="After directed therapy and drainage of the current abscess, which long-term management strategy is most appropriate?"
+  options={[
+{
+      id: "A",
+      label: "Monthly intravenous immunoglobulin (IVIG) infusions",
+      feedback:
+        "Incorrect. IVIG replaces missing antibodies in humoral immunodeficiencies such as CVID or X-linked agammaglobulinemia. CGD patients produce antibody normally — their humoral arm is intact — so passive immunoglobulin adds essentially nothing and exposes the patient to volume, cost, and infusion reactions without addressing the phagocyte oxidase defect. The one partial exception is the small subset of CGD patients who develop hypogammaglobulinemia or specific antibody deficiency, for whom immunoglobulin levels guide separate decisions. As a routine strategy for CGD, IVIG is not indicated.",
+    },
+{
+      id: "B",
+      label: "Lifelong TMP-SMX plus itraconazole prophylaxis, consideration of subcutaneous IFN-gamma, and referral for hematopoietic stem cell transplantation evaluation",
+      correct: true,
+      feedback:
+        "Correct. Modern CGD care rests on three pillars. First, antimicrobial prophylaxis: trimethoprim-sulfamethoxazole markedly reduces bacterial infections (Margolis et al., J Infect Dis 1990) without promoting fungal overgrowth, and itraconazole reduces serious fungal infections (Gallin et al., NEJM 2003) — crucial because invasive aspergillosis remains the leading cause of CGD mortality. Second, immunomodulation: the landmark randomized trial of the International CGD Cooperative Study Group (NEJM 1991) showed that subcutaneous IFN-gamma reduced the rate of serious infections by roughly 70%, and it is offered in many centers alongside the antibacterial-antifungal backbone. Third, definitive cure: HLA-matched hematopoietic stem cell transplantation with reduced-intensity conditioning achieves excellent long-term survival even in patients with active or recent infection (Gungor et al., Lancet 2014), and this 19-year-old with an X-linked phenotype and a documented phenotype burden should be referred for transplant evaluation, with sibling leukocyte typing. Lentiviral gene therapy has additionally shown early clinical success and is an emerging option (Kohn et al., Nat Med 2020). The standing principles of CGD care apply at every encounter: culture before treating, drain collections early, exclude active infection before starting corticosteroids for granulomatous complications, and continue prophylaxis for life.",
+    },
+{
+      id: "C",
+      label: "Chronic G-CSF therapy to boost neutrophil counts",
+      feedback:
+        "Incorrect. CGD is not a disease of neutrophil number. The neutrophil count is normal or elevated during infections — as in this admission (82% neutrophils) — and augmenting production with G-CSF does not repair a defective NADPH oxidase complex. Chronic G-CSF is occasionally used by specialists for refractory CGD-associated colitis or severe wound failures, but as a general strategy it adds bone pain, splenomegaly, and theoretical long-term risks without correcting the killing defect. The therapeutic leverage lies in prophylaxis, IFN-gamma, and transplantation — not in more, but still defective, neutrophils.",
+    },
+{
+      id: "D",
+      label: "TMP-SMX prophylaxis alone, withholding antifungal prophylaxis unless a fungal infection occurs",
+      feedback:
+        "Incorrect — and a dangerous half-measure. Bacterial prophylaxis with TMP-SMX is correct as far as it goes, but invasive mold disease — above all Aspergillus — is the leading cause of death in CGD, and aspergillosis in these patients can be fulminant, angioinvasive, and difficult to salvage once established. The randomized trial of itraconazole by Gallin and colleagues (NEJM 2003) reported only 1 serious fungal infection while receiving prophylaxis — in a patient who was nonadherent — versus 7 on placebo, with no superficial fungal infections at all on itraconazole; antifungal prophylaxis is therefore standard of care from diagnosis onward, not a reactive measure. Withholding itraconazole leaves the patient exposed to precisely the pathogen most likely to kill him. Monitor liver enzymes and drug interactions (notably with transplant immunosuppressants), but do not omit it.",
+    },
+{
+      id: "E",
+      label: "Observation with prompt, aggressive treatment of infections as they occur, but no chronic prophylaxis",
+      feedback:
+        "Incorrect. A treat-as-it-comes strategy condemns the patient to the pre-prophylaxis natural history of CGD, in which severe infections and granulomatous complications occurred at high rates each year and survival was sharply curtailed. Randomized and registry data transformed that trajectory: TMP-SMX cut bacterial infection rates dramatically, itraconazole reduced fungal disease, and IFN-gamma reduced serious infections by about 70% — with survival on conventional management now extending well into adulthood. Each prevented infection also prevents the cumulative organ injury (bronchiectasis, fibrosis, surgical scars) that later complicates transplantation. Prophylaxis is one of the highest-yield interventions in all of primary immunodeficiency medicine; there is no scenario in which withholding it is the preferred strategy for classic CGD.",
+    }
+  ]}
+/>
+
+<CaseReveal pollId="case-cgd-serratia-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Rationale
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Chronic granulomatous disease arises from loss-of-function mutations in
+    the five subunits of the phagocyte NADPH oxidase (NOX2) complex — most
+    often X-linked CYBB (gp91phox, roughly two-thirds of cases), followed by
+    autosomal recessive NCF1 (p47phox), the most common AR form in the United
+    States and Europe. The assembly of this complex at the phagolysosomal
+    membrane transfers electrons from NADPH to oxygen, generating the
+    superoxide that dismutates to hydrogen peroxide and feeds the
+    myeloperoxidase–halide system. Without this respiratory burst, neutrophils
+    still swarm and ingest organisms normally — but the microbes survive
+    inside them. Catalase is the trait that separates the organisms that
+    plague CGD patients from those that do not: catalase-positive organisms
+    (<em>S. aureus</em>, <em>Serratia</em>, <em>Burkholderia cepacia</em>{" "}
+    complex, <em>Nocardia</em>, mycobacteria including BCG,{" "}
+    <em>Aspergillus</em>) destroy their own hydrogen peroxide, leaving the
+    CGD phagocyte with no substrate for oxidative killing. Catalase-negative
+    organisms such as pneumococci and streptococci leak the hydrogen peroxide
+    they produce, which CGD neutrophils can borrow — which is why invasive
+    pneumococcal disease is strikingly rare in CGD. Surviving organisms then
+    drive a frustrated, exuberant macrophage response, producing the
+    necrotizing granulomas — suppurative and granulomatous inflammation
+    together — that characterized this patient's lymph node and now his lung.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    The clinical timeline of this case is the natural history of CGD told in
+    one patient. In BCG-vaccinating countries, suppurative regional
+    lymphadenitis after neonatal BCG is a recognized herald: in a Chinese
+    cohort of 169 BCG-exposed CGD patients, BCG complications were frequent
+    and often the first manifestation (Zhou et al., J Clin Immunol 2018).
+    Recurrent pneumonias with abscess formation — classically with{" "}
+    <em>Serratia</em>, as here, or     <em>Burkholderia</em>, which can cause
+    fulminant "Burkholderia cepacia syndrome" — hepatic and perianal
+    abscesses, osteomyelitis, and granulomatous complications (colitis,
+    obstructive bladder granulomas, GU tract disease) complete the syndrome.
+    The registry of Winkelstein and colleagues documented pneumonia in over
+    80% of patients and abscesses of lung, liver, and skin as the leading
+    manifestations, with X-linked cases presenting earlier and more severely.
+    The maternal uncle who died of "pneumonia" in childhood is the classic
+    X-linked pedigree clue. Invasive aspergillosis remains the principal
+    cause of mortality, which is why any new pulmonary infiltrate in CGD
+    warrants aggressive evaluation, and why avoiding soil, mulch, and
+    renovation dust (practical counseling for <em>Aspergillus</em> and{" "}
+    <em>Nocardia</em> exposure) is part of routine care.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Diagnosis rests on demonstrating absent or reduced oxidative function
+    per cell, and the dihydrorhodamine 123 flow cytometric assay is the
+    modern standard (Vowells et al., J Immunol Methods 1995). PMA-stimulated
+    normal neutrophils oxidize DHR to fluorescent rhodamine 123; X-linked
+    CGD shows no shift, autosomal recessive forms often show residual
+    activity, and X-linked carriers show the diagnostic bimodal histogram
+    produced by random X-inactivation — one blood draw that diagnoses,
+    stages, and determines inheritance. Genetic testing (CYBB first in this
+    pedigree, then an AR panel) confirms the genotype for counseling,
+    carrier detection, and eligibility for emerging gene therapy. Two
+    practical microbiology points complete the diagnostic picture: first,{" "}
+    <em>Serratia</em> is an AmpC beta-lactamase producer, so isolates
+    resistant to amoxicillin-clavulanate and third-generation cephalosporins
+    (as in this treatment failure) should be treated with cefepime, a
+    carbapenem, or a fluoroquinolone; second, prodigiosin, the red pigment
+    of <em>S. marcescens</em>, is temperature-regulated and often absent
+    from clinical plates incubated at 37 °C, so a non-red isolate is still{" "}
+    <em>Serratia</em>.
+  </p>
+
+  <p className="text-lg leading-6 text-gray-800 mb-6 text-justify">
+    Management proceeds in layers. Acutely: obtain cultures from every
+    accessible site of infection before starting antibiotics whenever
+    feasible, choose beta-lactamase-stable therapy active against AmpC
+    producers, and drain abscesses early — CGD abscesses respond poorly to
+    antibiotics alone and source control is essential. Chronically: the prophylaxis backbone is
+    TMP-SMX (Margolis et al., J Infect Dis 1990) plus itraconazole (Gallin
+    et al., NEJM 2003), with consideration of subcutaneous IFN-gamma, which
+    reduced serious infections by about 70% in the randomized trial of the
+    International CGD Cooperative Study Group (NEJM 1991). Definitively:
+    HLA-matched hematopoietic stem cell transplantation with
+    reduced-intensity conditioning has excellent long-term survival even in
+    patients with active or recent infection (Gungor et al., Lancet 2014),
+    and lentiviral gene therapy for X-linked CGD has shown early clinical
+    success (Kohn et al., Nat Med 2020). For this 19-year-old — two decades
+    of accumulated infection and a preserved pulmonary reserve — referral
+    for transplant evaluation, with sibling HLA typing, is the appropriate
+    next step alongside lifelong prophylaxis.
+  </p>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<CaseReveal pollId="case-cgd-serratia-pneumonia-q3">
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  Teaching Points
+</h2>
+
+<div className="mx-auto max-w-5xl">
+  <ul className="list-disc pl-6 text-lg leading-7 text-gray-800 space-y-2">
+    <li>
+      CGD is a disorder of neutrophil quality, not quantity — counts,
+      morphology, and chemotaxis are normal; the NADPH oxidase respiratory
+      burst is missing, so catalase-positive organisms are ingested but not
+      killed.
+    </li>
+    <li>
+      Catalase is the key virulence determinant: catalase-positive organisms
+      (<em>S. aureus</em>, <em>Serratia</em>, <em>Burkholderia</em>,{" "}
+      <em>Nocardia</em>, mycobacteria including BCG, <em>Aspergillus</em>)
+      dominate CGD infections, while catalase-negative pneumococci and
+      streptococci rarely cause disease because their own hydrogen peroxide
+      can be co-opted by CGD phagocytes.
+    </li>
+    <li>
+      Suppurative BCG lymphadenitis after neonatal vaccination can be the
+      first sign of CGD in BCG-vaccinating countries — and a maternal uncle
+      who died of childhood infection is the classic X-linked (CYBB) pedigree
+      clue.
+    </li>
+    <li>
+      Dihydrorhodamine 123 flow cytometry is the confirmatory test of choice:
+      absent burst in X-linked disease, residual activity in many autosomal
+      recessive forms, and a bimodal two-population histogram in X-linked
+      carriers due to lyonization.
+    </li>
+    <li>
+      Lifelong TMP-SMX plus itraconazole prophylaxis (with consideration of
+      IFN-gamma) is standard of care — invasive aspergillosis is the leading
+      cause of death — and HLA-matched HSCT with reduced-intensity
+      conditioning is curative, with excellent outcomes even during active
+      infection.
+    </li>
+  </ul>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
+</CaseReveal>
+
+<h2 className="text-2xl font-bold text-gray-900 mb-6">
+  References
+</h2>
+
+<div className="mx-auto max-w-5xl space-y-10">
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Winkelstein JA, Marino MC, Johnston RB Jr, et al. Chronic granulomatous
+      disease. Report on a national registry of 368 patients.{" "}
+      <em>Medicine (Baltimore)</em>. 2000;79(3):155–169.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1097/00005792-200005000-00003"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1097/00005792-200005000-00003
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Holland SM. Chronic granulomatous disease.{" "}
+      <em>Hematol Oncol Clin North Am</em>. 2013;27(1):89–99.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/j.hoc.2012.11.002"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/j.hoc.2012.11.002
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Zhou Q, Hui X, Ying W, et al. A cohort of 169 chronic granulomatous
+      disease patients exposed to BCG vaccination: a retrospective study.{" "}
+      <em>J Clin Immunol</em>. 2018;38(3):260–272.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1007/s10875-018-0486-y"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1007/s10875-018-0486-y
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Vowells SJ, Sekhsaria S, Malech HL, Shalit M, Fleisher TA. Flow
+      cytometric analysis of the granulocyte respiratory burst: a comparison
+      study of fluorescent probes. <em>J Immunol Methods</em>. 1995;178(1):89–97.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/0022-1759(94)00247-T"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/0022-1759(94)00247-T
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      The International Chronic Granulomatous Disease Cooperative Study Group.
+      A controlled trial of interferon gamma to prevent infection in chronic
+      granulomatous disease. <em>N Engl J Med</em>. 1991;324(8):509–516.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJM199102213240801"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJM199102213240801
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Margolis DM, Melnick DA, Alling DW, Gallin JI. Trimethoprim-sulfamethoxazole
+      prophylaxis in the management of chronic granulomatous disease.{" "}
+      <em>J Infect Dis</em>. 1990;162(3):723–726.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1093/infdis/162.3.723"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1093/infdis/162.3.723
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Gallin JI, Alling DW, Malech HL, et al. Itraconazole to prevent fungal
+      infections in chronic granulomatous disease.{" "}
+      <em>N Engl J Med</em>. 2003;348(24):2416–2422.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1056/NEJMoa021931"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1056/NEJMoa021931
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Güngör T, Teira P, Slatter M, et al. Reduced-intensity conditioning and
+      HLA-matched haemopoietic stem-cell transplantation in patients with
+      chronic granulomatous disease: a prospective multicentre study.{" "}
+      <em>Lancet</em>. 2014;383(9915):436–448.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1016/S0140-6736(13)62069-3"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1016/S0140-6736(13)62069-3
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <p className="text-lg leading-6 text-gray-800 text-justify">
+      Kohn DB, Booth C, Kang EM, et al. Lentiviral gene therapy for X-linked
+      chronic granulomatous disease. <em>Nat Med</em>. 2020;26(2):200–206.
+    </p>
+    <p className="mt-3">
+      <a
+        href="https://doi.org/10.1038/s41591-019-0735-5"
+        target="_blank"
+        rel="noreferrer"
+        className="text-sm font-semibold text-blue-600 hover:underline"
+      >
+        DOI: 10.1038/s41591-019-0735-5
+      </a>
+    </p>
+  </div>
+</div>
+
+<div className="my-12" />
+<hr className="border-gray-200" />
+<div className="my-12" />
