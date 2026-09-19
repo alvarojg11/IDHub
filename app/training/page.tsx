@@ -65,6 +65,12 @@ const moduleVisuals: Record<
     plate: "ASP",
     tone: "Stewardship",
   },
+  "basic-microbiology": {
+    src: "/cases/streptococcus-gallolyticus-endocarditis/blood-agar.png",
+    alt: "Blood agar plate from an IDHub microbiology case",
+    plate: "MICRO",
+    tone: "Taxonomy",
+  },
   hiv: {
     src: "/cases/hiv-ltbi/normal-xray.png",
     alt: "Chest radiograph from an IDHub HIV and latent tuberculosis case",

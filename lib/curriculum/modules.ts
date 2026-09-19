@@ -120,23 +120,25 @@ export type CurriculumModule = {
 };
 
 export const CURRICULUM_CATEGORIES = [
-  "Respiratory & mycobacterial",
-  "Cardiovascular",
-  "Skin, soft tissue & MSK",
-  "Gastrointestinal",
-  "Genitourinary & STI",
-  "Vector-borne",
-  "Bloodborne & viral",
-  "Opportunistic & fungal",
-  "Parasitology",
-  "Stewardship",
+  "Antimicrobial Therapy & Resistance",
+  "Antimicrobial & Diagnostic Stewardship",
+  "Basic Microbiology",
+  "Respiratory Infections",
+  "Cardiovascular Infections",
+  "Skin, Soft Tissue, Bone & Joint Infections",
+  "Genitourinary Infections",
+  "HIV & Sexually Transmitted Infections",
+  "Vector-Borne & Zoonotic Infections",
+  "Gastrointestinal & Intra-Abdominal Infections",
+  "Immunocompromised Host & Fungal Infections",
+  "Parasitic Infections",
 ] as const;
 
 export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "community-acquired-pneumonia",
     title: "Community-acquired pneumonia",
-    category: "Respiratory & mycobacterial",
+    category: "Respiratory Infections",
     summary:
       "One of the most common admission diagnoses in Internal Medicine. Mastering severity stratification (CURB-65, PSI), empiric therapy, the admission decision, and complication recognition is core to early residency.",
     readMins: 18,
@@ -662,43 +664,44 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   },
   {
     slug: "antibiotic-mechanisms-resistance",
-    title: "Antibiotic mechanisms and resistance",
-    category: "Stewardship",
+    title: "Antimicrobial therapy and resistance",
+    category: "Antimicrobial Therapy & Resistance",
     summary:
-      "A practical resident-level framework for connecting antibiotic class, target, spectrum, and resistance mechanism to bedside decisions.",
-    readMins: 24,
+      "A foundational resident chapter for connecting antibiotic targets, bacterial anatomy, resistance mechanisms, susceptibility reports, and bedside treatment decisions.",
+    readMins: 32,
     difficulty: "core",
     lastReviewed: "2026-09-19",
     lastUpdated: "2026-09-19",
     atAGlance: [
-      "Start with the target: cell wall, protein synthesis, DNA/RNA synthesis, folate metabolism, or cell membrane.",
-      "Resistance usually reflects drug destruction, target alteration, reduced entry, active efflux, bypass pathways, or biofilm/source-control failure.",
-      "Beta-lactam susceptibility is shaped by PBPs, beta-lactamases, porins, and inoculum/source-control issues.",
-      "The antibiogram is a phenotype, not a mechanism report; interpret it with organism identity and infection site.",
-      "A susceptible result does not rescue a drug that is mechanistically unreliable for the organism or syndrome.",
-      "Stewardship means narrowing by syndrome, culture data, source control, toxicity, oral bioavailability, and duration.",
+      "Antibiotic choice starts with the organism, syndrome, infection site, host, source control, and likely resistance mechanism.",
+      "Most resistance fits a small number of patterns: destroy the drug, alter or protect the target, bypass the pathway, reduce entry, pump the drug out, or persist in biofilm/undrained infection.",
+      "Gram-negative resistance is often combinatorial: beta-lactamase plus porin loss, efflux, or target changes.",
+      "A susceptibility report is a phenotype, not a full mechanism report; interpret it with organism identity and infection site.",
+      "Susceptible does not always mean clinically appropriate: urinary-only drugs, poor CNS penetration, intrinsic resistance, and source-control failure can still make therapy wrong.",
+      "Stewardship preserves antibiotic activity by narrowing therapy, optimizing exposure, avoiding colonization treatment, and using the shortest effective duration.",
     ],
     objectives: [
-      "Classify common antibiotics by mechanism of action and major spectrum gaps.",
-      "Explain the major bacterial resistance mechanisms relevant to clinical prescribing.",
-      "Interpret susceptibility results in the context of organism identity, site of infection, and resistance risk.",
-      "Recognize common misleading susceptibility patterns, including ESBL, AmpC, and intrinsic resistance.",
-      "Choose narrower, safer therapy when cultures and the clinical syndrome allow de-escalation.",
+      "Classify common antibacterial agents by their major cellular targets and clinically important limitations.",
+      "Explain how bacterial cell envelope anatomy, porins, efflux systems, and biofilm affect antibiotic activity.",
+      "Distinguish intrinsic resistance, mutational resistance, and horizontally acquired resistance.",
+      "Recognize high-yield resistance phenotypes including MRSA, VRE, ESBL-E, AmpC-E, CRE, DTR Pseudomonas, Acinetobacter, and Stenotrophomonas.",
+      "Use susceptibility reports safely by integrating MIC interpretation, organism identity, infection site, pharmacology, and source control.",
     ],
     keyConcepts: [
       {
-        heading: "Build every antibiotic decision from mechanism",
+        heading: "Start with the clinical frame, then apply mechanism",
         prose:
-          "Antibiotics are easier to remember when organized by target. Cell-wall agents include beta-lactams, glycopeptides, and related drugs. Protein synthesis inhibitors include aminoglycosides, tetracyclines, macrolides, clindamycin, oxazolidinones, and streptogramins. Fluoroquinolones inhibit DNA gyrase or topoisomerase; rifamycins inhibit RNA polymerase; TMP-SMX blocks folate metabolism; polymyxins and daptomycin disrupt membranes. Mechanism does not replace syndrome-based prescribing, but it explains many spectrum gaps, toxicities, and resistance patterns.",
+          "Mechanism is powerful only after the bedside question is framed correctly. First identify the syndrome, likely pathogens, infection site, host risks, illness severity, source-control needs, and prior antibiotic exposure. Then ask which drug target matters, whether the organism can reach or alter that target, and whether adequate drug exposure is achievable at the site. This prevents both errors: memorizing antibiotic spectra without understanding resistance, and treating a lab result without treating the patient.",
         bullets: [
-          "Cell wall: beta-lactams bind PBPs; vancomycin binds D-Ala-D-Ala precursors.",
-          "Protein synthesis: aminoglycosides and tetracyclines bind 30S; macrolides, clindamycin, linezolid bind 50S.",
-          "DNA/RNA: fluoroquinolones, metronidazole, and rifamycins work through nucleic-acid effects.",
+          "Organism: species identity often predicts intrinsic resistance before the susceptibility table returns.",
+          "Syndrome and site: pneumonia, meningitis, bacteremia, abscess, cystitis, and osteomyelitis require different pharmacologic assumptions.",
+          "Host and exposure: recent hospitalization, devices, prior antibiotics, travel, colonization, renal function, neutropenia, and immunosuppression change both risk and dosing.",
+          "Source control: no antibiotic reliably sterilizes an undrained abscess, obstructed urinary tract, infected catheter, or necrotic focus.",
         ],
         question: {
           pollId: "train-abx-mech-q1",
           prompt:
-            "A resident asks why cefazolin kills methicillin-susceptible Staphylococcus aureus but not MRSA. Which explanation is most accurate?",
+            "A resident asks why cefazolin treats MSSA bacteremia but not MRSA bacteremia. Which explanation is most accurate?",
           options: [
             { id: "A", label: "MRSA produces an altered penicillin-binding protein with low beta-lactam affinity", correct: true, feedback: "Correct. mecA encodes PBP2a, which has low affinity for most beta-lactams, making standard anti-staphylococcal beta-lactams unreliable despite otherwise favorable pharmacology." },
             { id: "B", label: "MRSA lacks a peptidoglycan cell wall", feedback: "Incorrect. S. aureus has a peptidoglycan cell wall; the problem is altered target binding, not absence of the target." },
@@ -708,52 +711,43 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         },
       },
       {
-        heading: "Beta-lactamases are not all the same",
+        heading: "Bacterial anatomy explains many spectrum gaps",
         prose:
-          "Beta-lactamases hydrolyze beta-lactam antibiotics, but the clinical consequence depends on enzyme type, organism, drug, inhibitor, inoculum, and site. ESBLs threaten third-generation cephalosporins; AmpC enzymes can emerge during therapy in organisms such as Enterobacter cloacae complex, Klebsiella aerogenes, and Citrobacter freundii; carbapenemases threaten carbapenems and often require newer beta-lactam/beta-lactamase inhibitor combinations. Do not memorize enzymes in isolation; connect them to predictable treatment traps.",
+          "Gram-positive bacteria expose a thick peptidoglycan cell wall; gram-negative bacteria add an outer membrane, porins, a periplasmic space, and periplasmic beta-lactamases. To work against a gram-negative rod, a beta-lactam often must pass through porins, avoid or outpace beta-lactamase hydrolysis, bind PBPs, and maintain enough time above the MIC. This is why gram-negative resistance can change quickly and why susceptibility may depend on several mechanisms at once.",
         bullets: [
-          "ESBL: ceftriaxone failure risk even when some reports appear favorable.",
-          "AmpC: avoid ceftriaxone for invasive infection with moderate-risk organisms.",
-          "Carbapenemase: identify mechanism when possible because therapy depends on KPC vs metallo-beta-lactamase vs OXA patterns.",
+          "Porin loss reduces drug entry, especially for hydrophilic beta-lactams and carbapenems.",
+          "Efflux pumps lower intracellular or periplasmic drug concentrations and can affect multiple drug classes.",
+          "Periplasmic beta-lactamases can destroy beta-lactams before they reach PBPs.",
+          "Biofilm adds a physical and metabolic barrier; cure often requires device removal or drainage.",
         ],
         question: {
           pollId: "train-abx-mech-q2",
           prompt:
-            "A patient has Klebsiella aerogenes bacteremia from cholangitis. The isolate reports ceftriaxone susceptible. What is the main stewardship concern with ceftriaxone?",
+            "A carbapenem-resistant Enterobacterales isolate lacks a carbapenemase but has porin loss plus an ESBL. What principle does this illustrate?",
           options: [
-            { id: "A", label: "K. aerogenes lacks a cell wall, so beta-lactams cannot work", feedback: "Incorrect. K. aerogenes has a gram-negative cell wall and can be treated with beta-lactams, but choice matters." },
-            { id: "B", label: "Inducible AmpC can select for derepressed mutants during therapy", correct: true, feedback: "Correct. K. aerogenes is a moderate-risk AmpC organism; invasive infection treated with ceftriaxone can select resistance during therapy." },
-            { id: "C", label: "Ceftriaxone never reaches bile", feedback: "Incorrect. Ceftriaxone has biliary excretion; the issue is resistance emergence, not lack of biliary penetration." },
-            { id: "D", label: "All Enterobacterales with bacteremia require vancomycin", feedback: "Incorrect. Vancomycin has no reliable gram-negative activity." },
+            { id: "A", label: "Resistance phenotypes can reflect combined permeability and enzymatic mechanisms", correct: true, feedback: "Correct. Porin loss decreases entry while beta-lactamase hydrolyzes drug that enters; together they can create high-level resistance without a carbapenemase." },
+            { id: "B", label: "All carbapenem resistance requires a metallo-beta-lactamase", feedback: "Incorrect. Carbapenem resistance can result from carbapenemases or from non-carbapenemase mechanisms such as porin loss plus ESBL or AmpC." },
+            { id: "C", label: "Gram-negative rods do not have PBPs", feedback: "Incorrect. Beta-lactams still target PBPs; the issue is whether the drug reaches and binds them." },
+            { id: "D", label: "Vancomycin should be added for porin loss", feedback: "Incorrect. Vancomycin does not treat Enterobacterales." },
           ],
         },
       },
       {
-        heading: "Porins and efflux explain many gram-negative surprises",
+        heading: "Antibiotic classes map to a small set of cellular targets",
         prose:
-          "Gram-negative bacteria add an outer membrane barrier. Drugs must enter through porins or cross the membrane, avoid beta-lactamases, and reach the target before being pumped out by efflux systems. Porin loss plus beta-lactamase activity can transform a borderline phenotype into high-level resistance. Efflux is especially important for Pseudomonas and can affect multiple classes at once.",
+          "Residents do not need to memorize every agent at once; start with targets. Beta-lactams bind PBPs and block peptidoglycan cross-linking. Vancomycin binds D-Ala-D-Ala cell-wall precursors. Aminoglycosides and tetracyclines act at the 30S ribosomal subunit; macrolides, clindamycin, chloramphenicol, linezolid, and streptogramins act at the 50S subunit. Fluoroquinolones inhibit DNA gyrase/topoisomerase IV, rifamycins inhibit RNA polymerase, TMP-SMX blocks sequential folate metabolism, metronidazole damages anaerobic DNA after reduction, and daptomycin or polymyxins disrupt membranes.",
+        bullets: [
+          "Cell wall: beta-lactams, vancomycin, fosfomycin, cycloserine, bacitracin.",
+          "Protein synthesis: aminoglycosides, tetracyclines, macrolides, clindamycin, linezolid, chloramphenicol, streptogramins.",
+          "Nucleic acid synthesis or injury: fluoroquinolones, rifamycins, metronidazole, nitrofurantoin.",
+          "Metabolism or membrane: TMP-SMX, daptomycin, polymyxins.",
+        ],
         question: {
           pollId: "train-abx-mech-q3",
           prompt:
-            "Which paired mechanism best explains why Pseudomonas aeruginosa may become resistant to multiple unrelated antibiotic classes during prolonged therapy?",
+            "A patient with suspected Rocky Mountain spotted fever is started on doxycycline. Which mechanism best describes doxycycline activity?",
           options: [
-            { id: "A", label: "Capsule loss and toxin suppression", feedback: "Incorrect. These are not the dominant drivers of multidrug resistance during therapy." },
-            { id: "B", label: "Porin changes and efflux pump upregulation", correct: true, feedback: "Correct. Pseudomonas commonly uses reduced permeability and active efflux, often combined with beta-lactamase activity, to resist multiple drugs." },
-            { id: "C", label: "Loss of ribosomes and absent DNA gyrase", feedback: "Incorrect. Bacteria cannot lose these essential targets and remain viable." },
-            { id: "D", label: "Conversion to a virus-like intracellular form", feedback: "Incorrect. This is not a bacterial resistance mechanism." },
-          ],
-        },
-      },
-      {
-        heading: "Protein synthesis inhibitors have different clinical personalities",
-        prose:
-          "Protein synthesis inhibitors share ribosomal targets but differ substantially. Aminoglycosides are concentration-dependent, nephrotoxic, and poor in anaerobic or acidic environments. Tetracyclines are useful for tick-borne disease, atypicals, and some MRSA. Macrolides and clindamycin have anti-toxin and respiratory/skin roles but resistance can be inducible. Linezolid is orally bioavailable and active against MRSA and VRE, but toxicity and serotonergic interactions matter.",
-        question: {
-          pollId: "train-abx-mech-q4",
-          prompt:
-            "A patient with suspected RMSF is started on doxycycline. Which mechanism best describes doxycycline activity?",
-          options: [
-            { id: "A", label: "Binds the 30S ribosomal subunit and inhibits protein synthesis", correct: true, feedback: "Correct. Doxycycline is a tetracycline-class agent that binds the 30S ribosomal subunit." },
+            { id: "A", label: "Binds the 30S ribosomal subunit and inhibits protein synthesis", correct: true, feedback: "Correct. Doxycycline is a tetracycline-class agent that binds the 30S ribosomal subunit and inhibits protein synthesis." },
             { id: "B", label: "Binds D-Ala-D-Ala cell-wall precursors", feedback: "Incorrect. That describes glycopeptides such as vancomycin." },
             { id: "C", label: "Inhibits DNA gyrase", feedback: "Incorrect. That describes fluoroquinolones." },
             { id: "D", label: "Disrupts anaerobic DNA after nitro-reduction", feedback: "Incorrect. That describes metronidazole." },
@@ -761,15 +755,65 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         },
       },
       {
-        heading: "Inducible resistance changes what clindamycin means",
+        heading: "Resistance is genetic, ecological, and selected by exposure",
         prose:
-          "Clindamycin can be useful for toxin suppression and selected skin infections, but inducible MLSB resistance can cause failure. The classic clue is erythromycin resistance with apparent clindamycin susceptibility in Staphylococcus aureus; a D-test detects inducible resistance. This is a good example of why susceptibility tables require clinical interpretation rather than blind acceptance.",
+          "Resistance may be intrinsic, acquired by mutation, or acquired by horizontal gene transfer. Mobile genetic elements such as plasmids, transposons, integrons, and resistance islands allow organisms to collect multiple resistance determinants and spread them across species. Antibiotics do not create resistance from nothing; they select organisms or subpopulations that already have survival advantages, especially when exposure is unnecessary, prolonged, subtherapeutic, or applied to high-burden infection without source control.",
+        bullets: [
+          "Intrinsic resistance: predictable biology, such as Enterococcus resistance to cephalosporins or anaerobe resistance to aminoglycosides.",
+          "Mutation: target changes such as fluoroquinolone resistance from gyrA/parC mutations or rifampin resistance from rpoB mutations.",
+          "Horizontal transfer: plasmid-mediated ESBLs, carbapenemases, aminoglycoside-modifying enzymes, qnr genes, or mcr-mediated colistin resistance.",
+          "Selection: treating colonization, using unnecessarily broad therapy, and delaying source control all increase selective pressure.",
+        ],
+        question: {
+          pollId: "train-abx-mech-q4",
+          prompt:
+            "Which statement best distinguishes intrinsic from acquired resistance?",
+          options: [
+            { id: "A", label: "Intrinsic resistance is predictable from species biology; acquired resistance develops by mutation or gene acquisition", correct: true, feedback: "Correct. Intrinsic resistance is built into the organism-drug pairing, while acquired resistance reflects new mutations or horizontally acquired genes." },
+            { id: "B", label: "Intrinsic resistance occurs only after prior antibiotic exposure", feedback: "Incorrect. Prior exposure selects resistant organisms, but intrinsic resistance exists independent of a patient's antibiotic history." },
+            { id: "C", label: "Acquired resistance cannot spread between species", feedback: "Incorrect. Plasmids, transposons, integrons, and other mobile elements can spread resistance genes across organisms." },
+            { id: "D", label: "Intrinsic resistance is always overcome by higher dosing", feedback: "Incorrect. Higher dosing does not reliably overcome fundamental organism-drug mismatch and may only add toxicity." },
+          ],
+        },
+      },
+      {
+        heading: "Beta-lactam resistance is more than one mechanism",
+        prose:
+          "Beta-lactams fail when the drug cannot reach PBPs, is destroyed before target binding, or binds poorly to the target. ESBLs hydrolyze many penicillins and cephalosporins and make ceftriaxone unreliable for invasive infection. AmpC enzymes may be inducible or derepressed in organisms such as Enterobacter cloacae complex, Klebsiella aerogenes, and Citrobacter freundii. Carbapenemases include serine enzymes such as KPC and OXA-48-like enzymes and metallo-beta-lactamases such as NDM, VIM, and IMP. MRSA is different: mecA-mediated PBP2a lowers beta-lactam affinity.",
+        bullets: [
+          "ESBL-E: ceftriaxone and cefotaxime are unreliable for serious infection; use guidance-directed therapy based on syndrome and susceptibility.",
+          "AmpC-risk Enterobacterales: ceftriaxone may test susceptible initially but can select derepressed mutants during invasive infection.",
+          "CRE: ask whether resistance is KPC, metallo-beta-lactamase, OXA-48-like, or non-carbapenemase because preferred therapy differs.",
+          "MRSA: the central issue is altered PBP binding, not an ESBL phenotype.",
+        ],
         question: {
           pollId: "train-abx-mech-q5",
           prompt:
+            "A patient has Klebsiella aerogenes bacteremia from cholangitis. The isolate reports ceftriaxone susceptible. What is the main concern with ceftriaxone?",
+          options: [
+            { id: "A", label: "Inducible AmpC can select for derepressed mutants during therapy", correct: true, feedback: "Correct. K. aerogenes is a moderate-risk AmpC organism; invasive infection treated with ceftriaxone can select resistance during therapy." },
+            { id: "B", label: "K. aerogenes lacks a cell wall", feedback: "Incorrect. K. aerogenes has a gram-negative cell wall and can be treated with beta-lactams, but beta-lactam selection matters." },
+            { id: "C", label: "Ceftriaxone never reaches bile", feedback: "Incorrect. Ceftriaxone has biliary excretion; the issue is resistance emergence, not lack of biliary penetration." },
+            { id: "D", label: "All Enterobacterales with bacteremia require vancomycin", feedback: "Incorrect. Vancomycin has no reliable gram-negative activity." },
+          ],
+        },
+      },
+      {
+        heading: "Protein synthesis resistance has recognizable bedside clues",
+        prose:
+          "Ribosomal drugs share the idea of blocking translation but have very different resistance mechanisms. Aminoglycoside resistance commonly reflects drug-modifying enzymes, reduced uptake, or 16S rRNA methylation; they are also intrinsically poor against anaerobes because uptake requires oxygen-dependent transport. Tetracycline resistance often reflects efflux pumps, ribosomal protection proteins, or enzymatic inactivation such as Tet(X). Macrolide and clindamycin resistance may reflect erm-mediated ribosomal methylation; the D-test detects inducible clindamycin resistance when erythromycin resistance is present. Linezolid resistance may involve 23S rRNA mutations or transferable genes such as cfr, optrA, and poxtA.",
+        bullets: [
+          "Aminoglycosides: concentration-dependent killing, nephrotoxicity/ototoxicity, poor anaerobic and acidic-environment activity.",
+          "Tetracyclines: useful for rickettsial illness, atypicals, some MRSA, and selected zoonoses; resistance often involves efflux or target protection.",
+          "Macrolide-clindamycin-lincosamide group: erm methylation can produce inducible or constitutive MLSB resistance.",
+          "Linezolid: excellent oral bioavailability and MRSA/VRE activity, but monitor cytopenias, neuropathy, and serotonergic interactions.",
+        ],
+        question: {
+          pollId: "train-abx-mech-q6",
+          prompt:
             "A community MRSA isolate is erythromycin resistant and clindamycin susceptible on the initial report. What additional result would make clindamycin unreliable?",
           options: [
-            { id: "A", label: "Positive D-test", correct: true, feedback: "Correct. A positive D-test indicates inducible clindamycin resistance and risk of clinical failure." },
+            { id: "A", label: "Positive D-test", correct: true, feedback: "Correct. A positive D-test indicates inducible clindamycin resistance and risk of clinical failure despite apparent clindamycin susceptibility." },
             { id: "B", label: "Negative beta-lactamase test", feedback: "Incorrect. Beta-lactamase testing does not assess inducible MLSB resistance." },
             { id: "C", label: "Low vancomycin MIC", feedback: "Incorrect. Vancomycin MIC does not determine inducible clindamycin resistance." },
             { id: "D", label: "Lactose fermentation", feedback: "Incorrect. Lactose fermentation is an Enterobacterales lab feature, not relevant to MRSA clindamycin reliability." },
@@ -777,87 +821,102 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         },
       },
       {
-        heading: "Intrinsic resistance should override tempting reports",
+        heading: "DNA, RNA, and folate pathway resistance often emerges through target or pathway changes",
         prose:
-          "Some organism-drug combinations are predictably unreliable because of intrinsic biology. Enterococcus is intrinsically resistant to cephalosporins. Listeria is not treated with cephalosporins. Stenotrophomonas has broad intrinsic beta-lactam resistance. Anaerobes are intrinsically resistant to aminoglycosides because uptake requires oxygen-dependent transport. These rules prevent common prescribing mistakes.",
-        question: {
-          pollId: "train-abx-mech-q6",
-          prompt:
-            "Which organism-drug pairing is intrinsically unreliable and should generally be avoided despite broad empiric habits?",
-          options: [
-            { id: "A", label: "Enterococcus faecalis and ceftriaxone", correct: true, feedback: "Correct. Enterococci are intrinsically resistant to cephalosporins because of low-affinity PBPs." },
-            { id: "B", label: "Streptococcus pyogenes and penicillin", feedback: "Incorrect. S. pyogenes remains reliably susceptible to penicillin." },
-            { id: "C", label: "MSSA and cefazolin", feedback: "Incorrect. Cefazolin is a preferred treatment for many MSSA infections." },
-            { id: "D", label: "Rickettsia rickettsii and doxycycline", feedback: "Incorrect. Doxycycline is the treatment of choice for RMSF." },
-          ],
-        },
-      },
-      {
-        heading: "Pharmacodynamics matters after you pick the right spectrum",
-        prose:
-          "Antibiotic success depends on exposure at the infection site. Beta-lactams are time-dependent, so time above MIC matters. Aminoglycosides are concentration-dependent, so peak-to-MIC and toxicity monitoring matter. Fluoroquinolones and vancomycin are commonly discussed with AUC-based exposure. Renal function, obesity, critical illness, augmented renal clearance, and source control can all change effective exposure.",
+          "Fluoroquinolones select mutations in DNA gyrase and topoisomerase IV, often with additional efflux or plasmid-mediated qnr protection. Rifampin resistance can emerge rapidly through rpoB mutations, which is why rifampin is rarely used alone for staphylococcal disease. TMP-SMX resistance may involve alternative dihydropteroate synthase or dihydrofolate reductase enzymes encoded by sul and dfr genes. Metronidazole requires intracellular reduction in anaerobic organisms; reduced activation or altered redox pathways can contribute to resistance.",
+        bullets: [
+          "Fluoroquinolone resistance: gyrA/parC target mutations, efflux, reduced permeability, and plasmid-mediated qnr genes.",
+          "Rifampin resistance: rpoB mutation; avoid monotherapy when bacterial burden is meaningful.",
+          "TMP-SMX resistance: sul and dfr genes or pathway bypass; susceptibility matters because resistance is common in some settings.",
+          "Nitrofurantoin and metronidazole: activity depends partly on intracellular activation and is syndrome-limited.",
+        ],
         question: {
           pollId: "train-abx-mech-q7",
           prompt:
-            "Which pharmacodynamic principle best supports extended-infusion piperacillin-tazobactam in selected severe gram-negative infections?",
+            "Which mechanism most directly explains common high-level fluoroquinolone resistance in Enterobacterales?",
           options: [
-            { id: "A", label: "Beta-lactams work best when free drug concentrations remain above the MIC for enough of the dosing interval", correct: true, feedback: "Correct. Beta-lactams are time-dependent; prolonged infusion can increase time above MIC." },
-            { id: "B", label: "Beta-lactams require a high peak concentration only", feedback: "Incorrect. That principle better fits concentration-dependent drugs such as aminoglycosides." },
-            { id: "C", label: "Piperacillin-tazobactam only works intracellularly", feedback: "Incorrect. The rationale is time-dependent extracellular beta-lactam activity, not intracellular accumulation." },
-            { id: "D", label: "Tazobactam converts Pseudomonas into a gram-positive organism", feedback: "Incorrect. Beta-lactamase inhibitors do not change gram stain biology." },
+            { id: "A", label: "Mutations in DNA gyrase and topoisomerase IV targets", correct: true, feedback: "Correct. gyrA and parC mutations are central mechanisms; efflux, permeability changes, and plasmid-mediated qnr genes may add to resistance." },
+            { id: "B", label: "Replacement of D-Ala-D-Ala with D-Ala-D-Lac", feedback: "Incorrect. That describes glycopeptide resistance in enterococci." },
+            { id: "C", label: "mecA-mediated PBP2a production", feedback: "Incorrect. That describes MRSA resistance to most beta-lactams." },
+            { id: "D", label: "Anaerobic nitro-reduction of the drug", feedback: "Incorrect. Nitro-reduction is relevant to metronidazole activation, not fluoroquinolone resistance." },
           ],
         },
       },
       {
-        heading: "Anaerobic coverage is syndrome-specific",
+        heading: "Membrane and newer-agent resistance should change the treatment conversation",
         prose:
-          "Anaerobic coverage is needed when the syndrome suggests mucosal disruption, abscess, aspiration with necrosis/empyema, diabetic foot with ischemic or necrotic tissue, intra-abdominal infection, pelvic infection, or human/animal bite wounds. It is not automatically needed for every pneumonia, cellulitis, or urine culture. Metronidazole covers anaerobes but not aerobes; clindamycin resistance among anaerobes varies by region.",
+          "Vancomycin resistance in enterococci usually reflects replacement of the D-Ala-D-Ala cell-wall precursor terminus with D-Ala-D-Lac, lowering glycopeptide binding; VanA typically confers vancomycin and teicoplanin resistance, while VanB affects vancomycin variably. VISA/VRSA in S. aureus involve different biology and are rare but important. Daptomycin resistance often involves altered membrane charge or homeostasis and can be selected during deep-seated infection. Polymyxin resistance can result from lipid A modification, including plasmid-mediated mcr genes. Fosfomycin resistance may reflect transporter changes, MurA changes, or Fos enzymes. Cefiderocol resistance may involve siderophore transport changes, beta-lactamases, or permeability changes.",
+        bullets: [
+          "VRE: altered peptidoglycan terminus reduces vancomycin binding; linezolid or daptomycin decisions depend on syndrome and susceptibility.",
+          "Daptomycin: not used for pneumonia because pulmonary surfactant inactivates it; resistance risk rises with uncontrolled high-burden infection.",
+          "Polymyxins: toxicity is substantial and resistance can emerge through lipid A modification.",
+          "Cefiderocol and newer beta-lactam/beta-lactamase inhibitors: ask the lab and ID team about mechanism because activity varies by carbapenemase and local testing.",
+        ],
         question: {
           pollId: "train-abx-mech-q8",
           prompt:
-            "Which scenario most clearly requires anaerobic coverage?",
+            "Vancomycin-resistant Enterococcus faecium most commonly avoids vancomycin activity through which mechanism?",
           options: [
-            { id: "A", label: "Simple non-purulent cellulitis after minor shin trauma", feedback: "Incorrect. Streptococci predominate; routine anaerobic coverage is usually unnecessary." },
-            { id: "B", label: "Community-acquired cystitis in a young woman", feedback: "Incorrect. Anaerobic coverage is not part of routine cystitis therapy." },
-            { id: "C", label: "Perforated appendicitis with abscess", correct: true, feedback: "Correct. Intra-abdominal abscess after bowel perforation requires gram-negative and anaerobic coverage plus source control." },
-            { id: "D", label: "Uncomplicated influenza without bacterial pneumonia", feedback: "Incorrect. Antibiotics are not indicated for uncomplicated influenza." },
+            { id: "A", label: "Replacement of D-Ala-D-Ala with D-Ala-D-Lac in the cell-wall precursor", correct: true, feedback: "Correct. Van genes remodel the peptidoglycan terminus and reduce vancomycin binding." },
+            { id: "B", label: "Production of PBP2a encoded by mecA", feedback: "Incorrect. PBP2a explains MRSA beta-lactam resistance, not VRE." },
+            { id: "C", label: "Anaerobic inactivation of vancomycin", feedback: "Incorrect. VRE resistance is not driven by anaerobic drug inactivation." },
+            { id: "D", label: "Loss of bacterial ribosomes", feedback: "Incorrect. Ribosomes are essential and are not the mechanism of glycopeptide resistance." },
           ],
         },
       },
       {
-        heading: "Oral bioavailability can be a stewardship tool",
+        heading: "Susceptibility reports require clinical interpretation",
         prose:
-          "Some oral antibiotics achieve exposures similar to IV therapy and are excellent step-down options when the patient is clinically stable, absorbing enterally, and the organism is susceptible. Examples include fluoroquinolones, TMP-SMX, doxycycline, linezolid, metronidazole, and fluconazole. Oral step-down still requires source control, appropriate syndrome selection, and attention to toxicity and interactions.",
+          "The susceptibility table is a measured phenotype under standardized conditions. It does not automatically tell you mechanism, source control, tissue penetration, biofilm activity, inoculum effect, toxicity, or whether the drug is appropriate for the syndrome. MICs are interpreted using breakpoints that may differ by organism, drug, dose, and infection site. Intermediate or susceptible-dose-dependent results may require higher exposure. Some reported drugs are useful only for urine. Others appear active in vitro but are unreliable because of intrinsic resistance or inducible resistance.",
+        bullets: [
+          "Read organism first, then susceptibilities; species identity can make some rows irrelevant.",
+          "Know the site: nitrofurantoin and fosfomycin may be reasonable for cystitis but not bacteremia, pyelonephritis, pneumonia, or deep infection.",
+          "Ask about mechanism for CRE, metallo-beta-lactamases, unusual Pseudomonas patterns, and discordant phenotypes.",
+          "Call the microbiology lab when the report conflicts with the syndrome or when additional testing would change therapy.",
+        ],
         question: {
           pollId: "train-abx-mech-q9",
           prompt:
-            "A clinically improving patient with susceptible MRSA pneumonia can take oral medications but needs ongoing MRSA therapy. Which oral agent has essentially complete bioavailability and MRSA activity?",
+            "Blood cultures grow E. coli in a patient with pyelonephritis. The urine isolate reports nitrofurantoin susceptible. Why is nitrofurantoin inappropriate definitive therapy for the bacteremia/pyelonephritis syndrome?",
           options: [
-            { id: "A", label: "Linezolid", correct: true, feedback: "Correct. Linezolid has excellent oral bioavailability and activity against MRSA; monitor for cytopenias, neuropathy with prolonged use, and interactions." },
-            { id: "B", label: "Cefazolin", feedback: "Incorrect. Cefazolin is IV and does not cover MRSA." },
-            { id: "C", label: "Vancomycin capsules", feedback: "Incorrect. Oral vancomycin is not systemically absorbed and is used for C. difficile, not pneumonia." },
-            { id: "D", label: "Nitrofurantoin", feedback: "Incorrect. Nitrofurantoin concentrates in urine and is not used for pneumonia." },
+            { id: "A", label: "It concentrates in urine but does not achieve reliable renal parenchymal or bloodstream levels", correct: true, feedback: "Correct. Nitrofurantoin can be useful for lower-tract cystitis but is not appropriate for pyelonephritis or bacteremia despite a susceptible urine result." },
+            { id: "B", label: "It has no activity against E. coli in the bladder", feedback: "Incorrect. Nitrofurantoin often has E. coli cystitis activity; the problem is the invasive syndrome and site." },
+            { id: "C", label: "It is only active against anaerobes", feedback: "Incorrect. Nitrofurantoin is used for selected aerobic urinary pathogens, not anaerobic coverage." },
+            { id: "D", label: "It is a glycopeptide blocked by D-Ala-D-Lac", feedback: "Incorrect. Nitrofurantoin is not a glycopeptide and VRE-type resistance is unrelated." },
           ],
         },
       },
       {
-        heading: "De-escalation is an active clinical decision",
+        heading: "Know the resistance phenotypes residents see on call",
         prose:
-          "De-escalation means integrating patient trajectory, microbiology, source control, and local epidemiology. It is not simply choosing the narrowest drug on the list. A patient with improving uncomplicated E. coli bacteremia from a urinary source may be a candidate for oral step-down and shorter duration. A patient with undrained abscess, endocarditis, CNS infection, neutropenia, or resistant organisms needs a different frame.",
+          "A small group of phenotypes accounts for much of bedside antimicrobial anxiety. MRSA usually means mecA/PBP2a. VRE usually means VanA or VanB-mediated target remodeling. ESBL-producing Enterobacterales threaten ceftriaxone and many penicillin/cephalosporin options. AmpC-risk organisms can become resistant during therapy with third-generation cephalosporins. CRE may be KPC, OXA-48-like, metallo-beta-lactamase, or non-carbapenemase. Difficult-to-treat Pseudomonas often combines low permeability, efflux, AmpC, and target mutations. Acinetobacter and Stenotrophomonas require organism-specific thinking rather than reflex carbapenem escalation.",
+        bullets: [
+          "MRSA: use anti-MRSA therapy for invasive disease; cefazolin/nafcillin remain preferred for MSSA when possible.",
+          "ESBL-E/AmpC-E/CRE: mechanism changes beta-lactam choice; IDSA AMR guidance is the practical reference.",
+          "DTR Pseudomonas: susceptibility may depend on newer agents and local testing; avoid assuming all anti-pseudomonal beta-lactams behave similarly.",
+          "Stenotrophomonas: intrinsic beta-lactam resistance is common; treatment usually uses TMP-SMX, minocycline, levofloxacin, cefiderocol, or combinations depending on severity and guidance.",
+          "Stewardship: narrow when cultures and syndrome allow, optimize PK/PD, avoid treating colonization, and document duration.",
+        ],
         question: {
           pollId: "train-abx-mech-q10",
           prompt:
-            "Blood cultures grow pan-susceptible E. coli in a stable patient with pyelonephritis who is improving after source-appropriate IV therapy and can take oral medications. What stewardship move is most appropriate?",
+            "A CRE isolate is reported to produce NDM, a metallo-beta-lactamase. Why does this mechanism matter clinically?",
           options: [
-            { id: "A", label: "Continue vancomycin because bacteremia is present", feedback: "Incorrect. Vancomycin does not treat E. coli and should be stopped if no gram-positive indication remains." },
-            { id: "B", label: "Assess for oral step-down with an active high-bioavailability agent and appropriate duration", correct: true, feedback: "Correct. Improving uncomplicated gram-negative bacteremia from a urinary source can often be narrowed and transitioned when criteria are met." },
-            { id: "C", label: "Add metronidazole for all bacteremias", feedback: "Incorrect. Anaerobic coverage is syndrome-specific and not routine for pyelonephritis." },
-            { id: "D", label: "Restart broad empiric therapy until all inflammatory markers normalize", feedback: "Incorrect. Clinical response and source control matter more than waiting for nonspecific markers to normalize." },
+            { id: "A", label: "It predicts that some KPC-active beta-lactamase inhibitor combinations may not work", correct: true, feedback: "Correct. Metallo-beta-lactamases are not inhibited by several serine beta-lactamase inhibitor combinations; therapy differs from KPC-producing CRE and often requires mechanism-specific guidance." },
+            { id: "B", label: "It proves vancomycin is the preferred drug", feedback: "Incorrect. Vancomycin has no reliable Enterobacterales activity." },
+            { id: "C", label: "It means ceftriaxone is preferred if the urine isolate appears susceptible", feedback: "Incorrect. NDM-producing CRE is a major resistance phenotype requiring careful mechanism-directed therapy." },
+            { id: "D", label: "It means resistance is due only to PBP2a", feedback: "Incorrect. PBP2a is the MRSA mechanism, not an NDM carbapenemase." },
           ],
         },
       },
     ],
     evidence: [
+      {
+        title: "Molecular Mechanisms of Antibiotic Resistance in Bacteria",
+        source: "Perez F, Stiefel U, Bonomo RA. In: Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases, Ch. 18.",
+        kind: "book",
+        focus: "Authoritative textbook chapter for the molecular framework: beta-lactamases, permeability, efflux, target alteration, mobile genetic elements, and clinically important resistance phenotypes.",
+      },
       {
         title: "Action and resistance mechanisms of antibiotics: a guide for clinicians",
         source: "Kapoor G, Saigal S, Elongavan A. J Anaesthesiol Clin Pharmacol. 2017;33(3):300-305. PMID: 29109626. DOI: 10.4103/joacp.JOACP_349_15.",
@@ -872,15 +931,30 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         kind: "guideline",
         focus: "Practical treatment guidance for ESBL-E, AmpC-E, CRE, and difficult-to-treat Pseudomonas.",
       },
+      {
+        title: "CLSI: Standards for Antimicrobial Susceptibility Testing",
+        source: "Clinical and Laboratory Standards Institute M100 performance standards, current edition.",
+        url: "https://clsi.org/standards/products/microbiology/documents/m100/",
+        kind: "guideline",
+        focus: "Breakpoint interpretation, susceptibility categories, and standardized antimicrobial susceptibility testing framework.",
+      },
+      {
+        title: "A primer on AmpC beta-lactamases: necessary knowledge for an increasingly multidrug-resistant world",
+        source: "Tamma PD, Doi Y, Bonomo RA, Johnson JK, Simner PJ. Clin Infect Dis. 2019;69(8):1446-1455.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/30776247/",
+        kind: "review",
+        focus: "Focused explanation of AmpC biology, inducible resistance, and clinical treatment traps.",
+      },
     ],
     pearls: [
-      "Mechanism explains why some apparently reasonable antibiotics are unreliable for specific organisms.",
-      "Do not treat the susceptibility table without knowing the organism, syndrome, source, and host.",
-      "Intrinsic resistance is a safety rule: Enterococcus plus cephalosporin is the classic trap.",
-      "Oral step-down is not inferior by definition; it depends on bioavailability, susceptibility, syndrome, and clinical stability.",
+      "Mechanism explains the classic treatment traps: MRSA and beta-lactams, Enterococcus and cephalosporins, AmpC organisms and ceftriaxone, nitrofurantoin and pyelonephritis.",
+      "Do not treat the susceptibility table without the organism, syndrome, source, host, and site of infection.",
+      "Gram-negative resistance is often layered; ask whether beta-lactamase, porin loss, efflux, and target changes are interacting.",
+      "A positive culture is not always infection. Treating colonization is one of the fastest ways to select resistance without helping the patient.",
+      "When CRE, DTR Pseudomonas, VRE bacteremia, or unusual resistance appears, call the microbiology lab early; mechanism testing can change therapy.",
     ],
     syndromeTags: ["Antimicrobial resistance", "Stewardship"],
-    conceptTags: ["Mechanism of action", "Beta-lactamase", "AmpC", "ESBL", "De-escalation"],
+    conceptTags: ["Mechanism of action", "Beta-lactamase", "AmpC", "ESBL", "CRE", "MRSA", "VRE", "Susceptibility interpretation"],
     tools: [
       { href: "/mechid", label: "MechID", why: "Connect mechanism of action, resistance mechanisms, and susceptibility interpretation." },
       { href: "/tools/spectrum", label: "Spectrum", why: "Check practical spectrum gaps before broadening or narrowing therapy." },
@@ -891,7 +965,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "infective-endocarditis",
     title: "Infective endocarditis",
-    category: "Cardiovascular",
+    category: "Cardiovascular Infections",
     summary:
       "A diagnostic and management challenge where early recognition, pre-antibiotic blood cultures, and timely echocardiography drive outcome. Use the 2023 ISCVID Duke criteria — endocarditis must be on every IM resident's differential for unexplained bacteremia.",
     readMins: 20,
@@ -1359,7 +1433,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "antimicrobial-stewardship",
     title: "Antimicrobial stewardship & spectrum",
-    category: "Stewardship",
+    category: "Antimicrobial & Diagnostic Stewardship",
     summary:
       "Stewardship is choosing the right drug, dose, route, and duration — and knowing when not to treat at all. It improves outcomes, limits resistance, reduces C. difficile, and is a core competency for every Internal Medicine resident.",
     readMins: 12,
@@ -2006,7 +2080,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "hiv",
     title: "HIV infection & opportunistic complications",
-    category: "Bloodborne & viral",
+    category: "HIV & Sexually Transmitted Infections",
     summary:
       "HIV is now a chronic, manageable disease, and every Internal Medicine resident must know how to diagnose acute and chronic infection, start or confirm first-line antiretroviral therapy (ART), recognize the opportunistic infections that still present late, and counsel on U=U and PrEP. ART is recommended for everyone living with HIV regardless of CD4 count.",
     readMins: 22,
@@ -2656,7 +2730,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "urinary-tract-infection",
     title: "Urinary tract infection",
-    category: "Genitourinary & STI",
+    category: "Genitourinary Infections",
     summary:
       "Urinary tract infection is among the most common reasons IM residents prescribe antibiotics — and one of the most common places they are overprescribed. Mastering the distinctions between acute uncomplicated cystitis, pyelonephritis, complicated UTI, catheter-associated infection, and asymptomatic bacteriuria is essential to using antibiotics well and avoiding harm.",
     readMins: 18,
@@ -3384,7 +3458,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "skin-and-soft-tissue-infection",
     title: "Skin and soft tissue infection",
-    category: "Skin, soft tissue & MSK",
+    category: "Skin, Soft Tissue, Bone & Joint Infections",
     summary:
       "Skin and soft tissue infection is one of the most common infections IM residents manage. The first branch point is purulent vs non-purulent: abscesses are treated with incision and drainage (antibiotics add little for uncomplicated abscess), while non-purulent cellulitis is typically streptococcal and responds to a beta-lactam. Recognizing necrotizing infection is a surgical emergency that cannot wait.",
     readMins: 17,
@@ -4065,7 +4139,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "tick-borne-diseases",
     title: "Tick-borne diseases",
-    category: "Vector-borne",
+    category: "Vector-Borne & Zoonotic Infections",
     summary:
       "A practical approach to Lyme disease, anaplasmosis, ehrlichiosis, RMSF, and babesiosis, with emphasis on early empiric treatment and diagnostic pitfalls.",
     readMins: 28,
@@ -4110,7 +4184,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "sti-syphilis-prep",
     title: "HIV PrEP, syphilis, and sexually transmitted infections",
-    category: "Genitourinary & STI",
+    category: "HIV & Sexually Transmitted Infections",
     summary: "A resident-focused approach to PrEP, syphilis staging and treatment, and common STI diagnostic and management decisions.",
     readMins: 26,
     difficulty: "core",
@@ -4143,7 +4217,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     slug: "diagnostic-stewardship",
     title: "Diagnostic stewardship",
-    category: "Stewardship",
+    category: "Antimicrobial & Diagnostic Stewardship",
     summary: "How to choose, interpret, and sometimes avoid infectious diseases tests so results improve care rather than create antibiotic momentum.",
     readMins: 24,
     difficulty: "core",
@@ -4172,19 +4246,268 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     conceptTags: ["Pretest probability", "Colonization", "Microbiology", "Stewardship"],
     tools: [{ href: "/probid", label: "ProbID", why: "Practice pretest probability and threshold-based diagnostic reasoning." }],
   },
+  {
+    slug: "basic-microbiology",
+    title: "Basic microbiology for ID consults",
+    category: "Basic Microbiology",
+    summary:
+      "A practical bridge between organism taxonomy and bedside interpretation: specimen quality, Gram stain patterns, culture results, colonization, blood cultures, and susceptibility reports.",
+    readMins: 26,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: [
+      "Microbiology starts with the specimen: a poor specimen can produce a precise but clinically misleading result.",
+      "Gram stain gives early taxonomy: gram reaction, shape, arrangement, and sometimes urgency.",
+      "Organism identity predicts likely source, virulence, resistance risk, and whether a result can be dismissed.",
+      "Colonization is common in urine, sputum, wounds, stool, skin, nares, and devices; treat the syndrome, not the isolate alone.",
+      "Blood culture interpretation depends on organism, number of positive sets, time to positivity, host, and hardware.",
+      "Susceptibility reports guide therapy but do not replace infection-site, source-control, and intrinsic-resistance reasoning.",
+    ],
+    objectives: [
+      "Interpret common Gram stain patterns and connect them to organism groups.",
+      "Recognize when specimen quality limits culture interpretation.",
+      "Distinguish infection, colonization, and contamination in common ID consult scenarios.",
+      "Use basic bacterial taxonomy to predict source, syndrome, and empiric therapy implications.",
+      "Interpret blood culture results using organism identity and clinical context.",
+      "Explain MIC, S/I/R, breakpoints, and why susceptibility must be interpreted by syndrome.",
+      "Know when routine culture is insufficient and when to call the microbiology laboratory.",
+    ],
+    keyConcepts: [
+      {
+        heading: "Microbiology starts with the specimen",
+        prose:
+          "Before interpreting an organism, ask where the specimen came from, how it was collected, and whether it represents the infected site. Expectorated sputum with many squamous epithelial cells, urine from a catheter bag, and superficial swabs of chronic wounds can all produce believable reports that mostly describe contamination or colonization. Good ID reasoning starts before the culture grows.",
+        bullets: [
+          "Blood: obtain separate venipuncture sets when bacteremia is suspected.",
+          "Sputum: assess epithelial cells and neutrophils; poor-quality sputum is often oral contamination.",
+          "Wounds: deep tissue or operative specimens usually beat superficial swabs.",
+          "Urine: collect from a fresh catheter or clean catch when clinically indicated; do not culture catheter bags.",
+        ],
+        question: {
+          pollId: "train-micro-specimen-q1",
+          prompt:
+            "A sputum culture from a patient with mild cough reports 'mixed respiratory flora.' The Gram stain shows many squamous epithelial cells and few neutrophils. Best interpretation?",
+          options: [
+            { id: "A", label: "Poor-quality specimen with oropharyngeal contamination", correct: true, feedback: "Correct. Many squamous epithelial cells and few neutrophils suggest saliva/oral contamination rather than a lower-respiratory specimen." },
+            { id: "B", label: "Definitive diagnosis of polymicrobial pneumonia", feedback: "Incorrect. Mixed flora in poor-quality sputum should not be treated as definitive pneumonia microbiology." },
+            { id: "C", label: "Proof that anaerobic pneumonia is present", feedback: "Incorrect. This specimen does not establish anaerobic pneumonia." },
+            { id: "D", label: "A reason to start vancomycin for all patients", feedback: "Incorrect. The result is not evidence of MRSA or another invasive pathogen." },
+          ],
+        },
+      },
+      {
+        heading: "Gram stain is the first taxonomy tool",
+        prose:
+          "The Gram stain is not just a preliminary lab result; it is the first taxonomy framework. Gram-positive cocci in clusters suggest Staphylococcus; gram-positive cocci in chains or pairs suggest Streptococcus or Enterococcus; gram-negative rods suggest Enterobacterales, Pseudomonas, or other gram-negative bacilli; yeast suggests Candida or other fungi depending on source. Shape and arrangement should immediately narrow empiric thinking.",
+        question: {
+          pollId: "train-micro-gram-q1",
+          prompt:
+            "Two blood culture bottles flag positive with gram-positive cocci in clusters. Which organism group is most likely?",
+          options: [
+            { id: "A", label: "Staphylococcus species", correct: true, feedback: "Correct. Gram-positive cocci in clusters classically suggest Staphylococcus." },
+            { id: "B", label: "Enterobacterales", feedback: "Incorrect. Enterobacterales are gram-negative rods." },
+            { id: "C", label: "Mycobacteria", feedback: "Incorrect. Mycobacteria are acid-fast organisms and are not described this way on routine Gram stain." },
+            { id: "D", label: "Molds", feedback: "Incorrect. Molds are fungi with hyphal forms, not gram-positive cocci in clusters." },
+          ],
+        },
+      },
+      {
+        heading: "Gram-positive cocci: Staph, Strep, Enterococcus",
+        prose:
+          "Staphylococci tend to form clusters and live on skin; S. aureus is virulent and should not be dismissed in blood. Coagulase-negative staphylococci can be contaminants but become real pathogens with prosthetic valves, central lines, and other hardware. Streptococci often form chains or pairs and point toward pneumonia, cellulitis, endocarditis, or oral/GI sources depending on species. Enterococcus often points toward GU, GI, biliary, intra-abdominal, or healthcare-associated disease and is intrinsically resistant to cephalosporins.",
+        question: {
+          pollId: "train-micro-gpc-q1",
+          prompt:
+            "A blood culture grows Staphylococcus aureus. The patient is afebrile the next day and feels better. What is the safest interpretation?",
+          options: [
+            { id: "A", label: "Treat as clinically significant bacteremia until proven otherwise", correct: true, feedback: "Correct. S. aureus in blood is rarely a contaminant and requires repeat cultures, source evaluation, and appropriate therapy." },
+            { id: "B", label: "Dismiss as skin contamination", feedback: "Incorrect. Unlike many coagulase-negative staphylococci, S. aureus bacteremia should not be dismissed." },
+            { id: "C", label: "No follow-up cultures are needed", feedback: "Incorrect. Follow-up blood cultures are essential in S. aureus bacteremia." },
+            { id: "D", label: "Treat with oral nitrofurantoin", feedback: "Incorrect. Nitrofurantoin is a bladder antibiotic and does not treat S. aureus bacteremia." },
+          ],
+        },
+      },
+      {
+        heading: "Gram-negative rods: Enterobacterales, Pseudomonas, and non-fermenters",
+        prose:
+          "Gram-negative rods are not one group clinically. Enterobacterales such as E. coli, Klebsiella, Proteus, Enterobacter, Citrobacter, and Serratia commonly come from urinary, biliary, intra-abdominal, and bloodstream sources. Pseudomonas suggests structural lung disease, healthcare exposure, water exposure, burns, neutropenia, devices, or prior antibiotics. Other non-fermenters such as Stenotrophomonas and Acinetobacter are often healthcare-associated and resistant; organism identity matters before choosing therapy.",
+        question: {
+          pollId: "train-micro-gnr-q1",
+          prompt:
+            "A patient with bronchiectasis and multiple prior antibiotic courses has pneumonia with gram-negative rods on sputum Gram stain. Which pathogen deserves specific empiric consideration?",
+          options: [
+            { id: "A", label: "Pseudomonas aeruginosa", correct: true, feedback: "Correct. Structural lung disease and repeated antibiotics increase Pseudomonas risk." },
+            { id: "B", label: "Treponema pallidum", feedback: "Incorrect. Syphilis is not a gram-negative rod pneumonia pathogen." },
+            { id: "C", label: "Candida albicans", feedback: "Incorrect. Candida in respiratory specimens usually reflects colonization and is not a gram-negative rod." },
+            { id: "D", label: "Enterobius vermicularis", feedback: "Incorrect. Pinworm does not cause this pneumonia pattern." },
+          ],
+        },
+      },
+      {
+        heading: "Anaerobes and polymicrobial infection follow anatomy",
+        prose:
+          "Anaerobes live where oxygen tension is low and mucosal surfaces are dense: mouth, GI tract, pelvis, necrotic tissue, devitalized wounds, and abscesses. Anaerobic infection is usually suggested by anatomy and syndrome rather than by a routine swab. Proper anaerobic culture requires correct collection and transport; superficial swabs exposed to air are usually poor anaerobic specimens.",
+        question: {
+          pollId: "train-micro-anaerobe-q1",
+          prompt:
+            "Which scenario most strongly suggests anaerobic and polymicrobial infection?",
+          options: [
+            { id: "A", label: "Perforated diverticulitis with intra-abdominal abscess", correct: true, feedback: "Correct. Bowel perforation with abscess is a classic polymicrobial infection requiring gram-negative, anaerobic coverage, and source control." },
+            { id: "B", label: "Uncomplicated cystitis in a young woman", feedback: "Incorrect. Routine cystitis is not an anaerobic syndrome." },
+            { id: "C", label: "Primary varicella", feedback: "Incorrect. Varicella is viral, not anaerobic bacterial infection." },
+            { id: "D", label: "Asymptomatic nasal MRSA colonization", feedback: "Incorrect. Colonization alone is not anaerobic infection." },
+          ],
+        },
+      },
+      {
+        heading: "Atypical and intracellular organisms explain beta-lactam failure",
+        prose:
+          "Some organisms are not well treated by beta-lactams because they lack a conventional cell wall target, are intracellular, or require special testing. Mycoplasma lacks a cell wall; Legionella is intracellular and requires macrolide or fluoroquinolone activity; Chlamydia species and rickettsial organisms are intracellular and often require doxycycline or other non-beta-lactam therapy. When pneumonia or systemic illness does not fit routine extracellular bacteria, taxonomy changes therapy.",
+        question: {
+          pollId: "train-micro-atypical-q1",
+          prompt:
+            "A patient with severe pneumonia, diarrhea, hyponatremia, and recent hotel water exposure is not improving on ceftriaxone alone. Which microbiologic principle explains the concern?",
+          options: [
+            { id: "A", label: "Legionella is intracellular and requires therapy with intracellular activity", correct: true, feedback: "Correct. Legionella is not reliably treated with beta-lactam monotherapy; azithromycin or a respiratory fluoroquinolone is used." },
+            { id: "B", label: "Legionella is always a strict anaerobe", feedback: "Incorrect. The issue is intracellular biology and diagnostic limitations, not strict anaerobiosis." },
+            { id: "C", label: "Ceftriaxone cannot treat any pneumonia", feedback: "Incorrect. Ceftriaxone treats many typical bacterial pneumonias but not Legionella." },
+            { id: "D", label: "Hyponatremia proves fungal pneumonia", feedback: "Incorrect. Hyponatremia is a clue but not proof; Legionella fits this syndrome." },
+          ],
+        },
+      },
+      {
+        heading: "Fungi, mycobacteria, parasites, and viruses need different tests",
+        prose:
+          "Routine bacterial culture is not enough for every organism. Mycobacteria require AFB smear and prolonged culture or molecular tests. Fungi may require fungal culture, histopathology, antigen testing, serology, or PCR depending on syndrome. Parasites may require smear, ova and parasite exam, serology, antigen, or PCR. Viruses are usually diagnosed with nucleic acid amplification, antigen tests, serology, or tissue pathology depending on timing and disease site.",
+        question: {
+          pollId: "train-micro-specialtests-q1",
+          prompt:
+            "A patient has chronic cough, weight loss, cavitary upper-lobe disease, and TB risk factors. Routine bacterial sputum culture is pending. What additional microbiology is most important?",
+          options: [
+            { id: "A", label: "AFB smear/culture and rapid molecular testing for Mycobacterium tuberculosis", correct: true, feedback: "Correct. Suspected pulmonary TB requires AFB testing and molecular testing, not routine bacterial culture alone." },
+            { id: "B", label: "Urine culture only", feedback: "Incorrect. Urine culture does not evaluate pulmonary TB." },
+            { id: "C", label: "Nasal MRSA PCR as the only test", feedback: "Incorrect. MRSA PCR does not diagnose TB." },
+            { id: "D", label: "No testing because chronic symptoms exclude infection", feedback: "Incorrect. Chronic symptoms can be infectious, including TB and endemic fungi." },
+          ],
+        },
+      },
+      {
+        heading: "Colonization is not infection",
+        prose:
+          "Many body sites are colonized. Candida in sputum, bacteria in chronic catheters, mixed flora in superficial wounds, positive nares MRSA PCR, and toxigenic C. difficile carriage can all mislead clinicians when the syndrome is absent. The clinical question is not 'what grew?' but 'does this organism explain this patient's syndrome from this specimen?'",
+        question: {
+          pollId: "train-micro-colonization-q1",
+          prompt:
+            "An intubated patient has Candida albicans reported from tracheal aspirate but no evidence of invasive fungal disease. Best interpretation?",
+          options: [
+            { id: "A", label: "Candida airway colonization is most likely", correct: true, feedback: "Correct. Candida in respiratory specimens almost always represents colonization rather than Candida pneumonia." },
+            { id: "B", label: "Start amphotericin for all Candida in sputum", feedback: "Incorrect. Treating colonization causes harm and is not indicated." },
+            { id: "C", label: "Candida is a common cause of lobar pneumonia in immunocompetent hosts", feedback: "Incorrect. Candida pneumonia is rare and usually requires tissue evidence." },
+            { id: "D", label: "The result proves bloodstream candidemia", feedback: "Incorrect. Respiratory isolation does not prove candidemia." },
+          ],
+        },
+      },
+      {
+        heading: "Blood cultures: contaminant or true bacteremia?",
+        prose:
+          "Blood culture interpretation combines organism identity, number of positive sets, time to positivity, host factors, and hardware. S. aureus, Enterobacterales, Pseudomonas, Candida, and beta-hemolytic streptococci in blood are usually significant. Coagulase-negative staphylococci, Corynebacterium, Bacillus other than anthracis, and Cutibacterium can be contaminants, but not always, especially with prosthetic material or multiple positive sets.",
+        question: {
+          pollId: "train-micro-bloodculture-q1",
+          prompt:
+            "A patient with a prosthetic valve has two separate blood culture sets positive for Staphylococcus epidermidis. Best interpretation?",
+          options: [
+            { id: "A", label: "Possible true bacteremia/endocarditis; do not dismiss as contaminant", correct: true, feedback: "Correct. Multiple positive sets plus prosthetic material makes coagulase-negative staphylococci clinically significant until evaluated." },
+            { id: "B", label: "Always contamination regardless of context", feedback: "Incorrect. Coagulase-negative staphylococci can cause prosthetic valve and device infection." },
+            { id: "C", label: "Treat with nitrofurantoin", feedback: "Incorrect. Nitrofurantoin is not a bacteremia or endocarditis drug." },
+            { id: "D", label: "No repeat cultures or echocardiography should be considered", feedback: "Incorrect. This context requires a careful bacteremia/endocarditis evaluation." },
+          ],
+        },
+      },
+      {
+        heading: "Susceptibility testing is a clinical tool, not an autopilot",
+        prose:
+          "MICs are interpreted against breakpoints to produce susceptible, intermediate or susceptible-dose dependent, and resistant categories. These categories assume specific dosing, organism, drug, and infection-site assumptions. A reported susceptible result can still be clinically wrong if the drug does not reach the site, if source control is absent, if the organism has intrinsic resistance concerns, or if the syndrome requires bactericidal/high-exposure therapy.",
+        question: {
+          pollId: "train-micro-susceptibility-q1",
+          prompt:
+            "A urine isolate causing simple cystitis is susceptible to nitrofurantoin. The same patient also has E. coli bacteremia from pyelonephritis. Why is nitrofurantoin not appropriate definitive therapy for the bacteremia?",
+          options: [
+            { id: "A", label: "It concentrates in urine but does not achieve adequate renal tissue or bloodstream levels", correct: true, feedback: "Correct. Susceptibility must be interpreted by syndrome and site; nitrofurantoin is for bladder infection, not pyelonephritis or bacteremia." },
+            { id: "B", label: "Nitrofurantoin has no urinary activity", feedback: "Incorrect. Nitrofurantoin is useful for bladder-limited cystitis." },
+            { id: "C", label: "All susceptible drugs are interchangeable", feedback: "Incorrect. Site of infection, exposure, and syndrome matter." },
+            { id: "D", label: "E. coli cannot cause pyelonephritis", feedback: "Incorrect. E. coli is the most common pyelonephritis pathogen." },
+          ],
+        },
+      },
+    ],
+    evidence: [
+      {
+        title: "ASM Clinical Microbiology Portal",
+        source: "American Society for Microbiology educational and clinical microbiology resources.",
+        url: "https://asm.org/clinical-microbiology",
+        kind: "book",
+        focus: "Practical reference hub for specimen collection, organism identification, diagnostic methods, and clinical microbiology interpretation.",
+      },
+      {
+        title: "CLSI AST News Update and breakpoint resources",
+        source: "Clinical and Laboratory Standards Institute antimicrobial susceptibility testing resources.",
+        url: "https://clsi.org/standards/products/microbiology/",
+        kind: "guideline",
+        focus: "Reference for susceptibility testing concepts, breakpoints, MIC interpretation, and reporting categories.",
+      },
+      {
+        title: "A Guide to Utilization of the Microbiology Laboratory for Diagnosis of Infectious Diseases",
+        source: "Miller JM, Binnicker MJ, Campbell S, et al. Clin Infect Dis. 2018;67(6):e1-e94. PMID: 29955859. DOI: 10.1093/cid/ciy381.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29955859/",
+        kind: "guideline",
+        focus: "Comprehensive IDSA/ASM guidance on specimen selection, collection, transport, and diagnostic test use by syndrome.",
+      },
+    ],
+    pearls: [
+      "The organism is only as useful as the specimen that produced it.",
+      "S. aureus in blood is clinically significant until proven otherwise.",
+      "Coagulase-negative staphylococci are context-dependent: contaminant in one patient, prosthetic infection in another.",
+      "Candida in sputum is usually colonization, not pneumonia.",
+      "Susceptible does not mean appropriate for every site of infection.",
+      "When the result does not fit the syndrome, call the microbiology lab before broadening antibiotics.",
+    ],
+    syndromeTags: ["Microbiology", "Bacteremia", "Colonization", "Specimen quality"],
+    conceptTags: ["Gram stain", "Taxonomy", "MIC", "Susceptibility", "Blood cultures", "Biofilm"],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Connect organism identity and resistance mechanisms to antibiotic decisions." },
+      { href: "/training/diagnostic-stewardship", label: "Diagnostic stewardship module", why: "Apply microbiology interpretation to smarter test ordering." },
+      { href: "/training/antibiotic-mechanisms-resistance", label: "Antibiotic mechanisms module", why: "Link taxonomy and susceptibility results to antimicrobial mechanism." },
+    ],
+  },
 ];
 
 export function getCurriculumModule(slug: string): CurriculumModule | undefined {
   return CURRICULUM_MODULES.find((m) => m.slug === slug);
 }
 
+export function getOrderedCurriculumModules(): CurriculumModule[] {
+  return [...CURRICULUM_MODULES].sort((a, b) => {
+    const aCategory = CURRICULUM_CATEGORIES.indexOf(
+      a.category as (typeof CURRICULUM_CATEGORIES)[number],
+    );
+    const bCategory = CURRICULUM_CATEGORIES.indexOf(
+      b.category as (typeof CURRICULUM_CATEGORIES)[number],
+    );
+    const categoryDelta = aCategory - bCategory;
+    if (categoryDelta !== 0) return categoryDelta;
+    return CURRICULUM_MODULES.indexOf(a) - CURRICULUM_MODULES.indexOf(b);
+  });
+}
+
 export function getCurriculumModuleNeighbors(
   slug: string,
 ): { prev?: CurriculumModule; next?: CurriculumModule } {
-  const index = CURRICULUM_MODULES.findIndex((m) => m.slug === slug);
+  const orderedModules = getOrderedCurriculumModules();
+  const index = orderedModules.findIndex((m) => m.slug === slug);
   if (index === -1) return {};
   return {
-    prev: CURRICULUM_MODULES[index - 1],
-    next: CURRICULUM_MODULES[index + 1],
+    prev: orderedModules[index - 1],
+    next: orderedModules[index + 1],
   };
 }
