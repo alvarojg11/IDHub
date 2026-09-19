@@ -660,6 +660,233 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
   },
+  {
+    slug: "antibiotic-mechanisms-resistance",
+    title: "Antibiotic mechanisms and resistance",
+    category: "Stewardship",
+    summary:
+      "A practical resident-level framework for connecting antibiotic class, target, spectrum, and resistance mechanism to bedside decisions.",
+    readMins: 24,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: [
+      "Start with the target: cell wall, protein synthesis, DNA/RNA synthesis, folate metabolism, or cell membrane.",
+      "Resistance usually reflects drug destruction, target alteration, reduced entry, active efflux, bypass pathways, or biofilm/source-control failure.",
+      "Beta-lactam susceptibility is shaped by PBPs, beta-lactamases, porins, and inoculum/source-control issues.",
+      "The antibiogram is a phenotype, not a mechanism report; interpret it with organism identity and infection site.",
+      "A susceptible result does not rescue a drug that is mechanistically unreliable for the organism or syndrome.",
+      "Stewardship means narrowing by syndrome, culture data, source control, toxicity, oral bioavailability, and duration.",
+    ],
+    objectives: [
+      "Classify common antibiotics by mechanism of action and major spectrum gaps.",
+      "Explain the major bacterial resistance mechanisms relevant to clinical prescribing.",
+      "Interpret susceptibility results in the context of organism identity, site of infection, and resistance risk.",
+      "Recognize common misleading susceptibility patterns, including ESBL, AmpC, and intrinsic resistance.",
+      "Choose narrower, safer therapy when cultures and the clinical syndrome allow de-escalation.",
+    ],
+    keyConcepts: [
+      {
+        heading: "Build every antibiotic decision from mechanism",
+        prose:
+          "Antibiotics are easier to remember when organized by target. Cell-wall agents include beta-lactams, glycopeptides, and related drugs. Protein synthesis inhibitors include aminoglycosides, tetracyclines, macrolides, clindamycin, oxazolidinones, and streptogramins. Fluoroquinolones inhibit DNA gyrase or topoisomerase; rifamycins inhibit RNA polymerase; TMP-SMX blocks folate metabolism; polymyxins and daptomycin disrupt membranes. Mechanism does not replace syndrome-based prescribing, but it explains many spectrum gaps, toxicities, and resistance patterns.",
+        bullets: [
+          "Cell wall: beta-lactams bind PBPs; vancomycin binds D-Ala-D-Ala precursors.",
+          "Protein synthesis: aminoglycosides and tetracyclines bind 30S; macrolides, clindamycin, linezolid bind 50S.",
+          "DNA/RNA: fluoroquinolones, metronidazole, and rifamycins work through nucleic-acid effects.",
+        ],
+        question: {
+          pollId: "train-abx-mech-q1",
+          prompt:
+            "A resident asks why cefazolin kills methicillin-susceptible Staphylococcus aureus but not MRSA. Which explanation is most accurate?",
+          options: [
+            { id: "A", label: "MRSA produces an altered penicillin-binding protein with low beta-lactam affinity", correct: true, feedback: "Correct. mecA encodes PBP2a, which has low affinity for most beta-lactams, making standard anti-staphylococcal beta-lactams unreliable despite otherwise favorable pharmacology." },
+            { id: "B", label: "MRSA lacks a peptidoglycan cell wall", feedback: "Incorrect. S. aureus has a peptidoglycan cell wall; the problem is altered target binding, not absence of the target." },
+            { id: "C", label: "MRSA is intrinsically resistant because cefazolin cannot enter gram-positive cells", feedback: "Incorrect. Cefazolin enters and is active against many gram-positive organisms, including MSSA." },
+            { id: "D", label: "MRSA inactivates cefazolin only through ESBL production", feedback: "Incorrect. ESBLs are mainly an Enterobacterales problem; MRSA resistance is driven by altered PBPs." },
+          ],
+        },
+      },
+      {
+        heading: "Beta-lactamases are not all the same",
+        prose:
+          "Beta-lactamases hydrolyze beta-lactam antibiotics, but the clinical consequence depends on enzyme type, organism, drug, inhibitor, inoculum, and site. ESBLs threaten third-generation cephalosporins; AmpC enzymes can emerge during therapy in organisms such as Enterobacter cloacae complex, Klebsiella aerogenes, and Citrobacter freundii; carbapenemases threaten carbapenems and often require newer beta-lactam/beta-lactamase inhibitor combinations. Do not memorize enzymes in isolation; connect them to predictable treatment traps.",
+        bullets: [
+          "ESBL: ceftriaxone failure risk even when some reports appear favorable.",
+          "AmpC: avoid ceftriaxone for invasive infection with moderate-risk organisms.",
+          "Carbapenemase: identify mechanism when possible because therapy depends on KPC vs metallo-beta-lactamase vs OXA patterns.",
+        ],
+        question: {
+          pollId: "train-abx-mech-q2",
+          prompt:
+            "A patient has Klebsiella aerogenes bacteremia from cholangitis. The isolate reports ceftriaxone susceptible. What is the main stewardship concern with ceftriaxone?",
+          options: [
+            { id: "A", label: "K. aerogenes lacks a cell wall, so beta-lactams cannot work", feedback: "Incorrect. K. aerogenes has a gram-negative cell wall and can be treated with beta-lactams, but choice matters." },
+            { id: "B", label: "Inducible AmpC can select for derepressed mutants during therapy", correct: true, feedback: "Correct. K. aerogenes is a moderate-risk AmpC organism; invasive infection treated with ceftriaxone can select resistance during therapy." },
+            { id: "C", label: "Ceftriaxone never reaches bile", feedback: "Incorrect. Ceftriaxone has biliary excretion; the issue is resistance emergence, not lack of biliary penetration." },
+            { id: "D", label: "All Enterobacterales with bacteremia require vancomycin", feedback: "Incorrect. Vancomycin has no reliable gram-negative activity." },
+          ],
+        },
+      },
+      {
+        heading: "Porins and efflux explain many gram-negative surprises",
+        prose:
+          "Gram-negative bacteria add an outer membrane barrier. Drugs must enter through porins or cross the membrane, avoid beta-lactamases, and reach the target before being pumped out by efflux systems. Porin loss plus beta-lactamase activity can transform a borderline phenotype into high-level resistance. Efflux is especially important for Pseudomonas and can affect multiple classes at once.",
+        question: {
+          pollId: "train-abx-mech-q3",
+          prompt:
+            "Which paired mechanism best explains why Pseudomonas aeruginosa may become resistant to multiple unrelated antibiotic classes during prolonged therapy?",
+          options: [
+            { id: "A", label: "Capsule loss and toxin suppression", feedback: "Incorrect. These are not the dominant drivers of multidrug resistance during therapy." },
+            { id: "B", label: "Porin changes and efflux pump upregulation", correct: true, feedback: "Correct. Pseudomonas commonly uses reduced permeability and active efflux, often combined with beta-lactamase activity, to resist multiple drugs." },
+            { id: "C", label: "Loss of ribosomes and absent DNA gyrase", feedback: "Incorrect. Bacteria cannot lose these essential targets and remain viable." },
+            { id: "D", label: "Conversion to a virus-like intracellular form", feedback: "Incorrect. This is not a bacterial resistance mechanism." },
+          ],
+        },
+      },
+      {
+        heading: "Protein synthesis inhibitors have different clinical personalities",
+        prose:
+          "Protein synthesis inhibitors share ribosomal targets but differ substantially. Aminoglycosides are concentration-dependent, nephrotoxic, and poor in anaerobic or acidic environments. Tetracyclines are useful for tick-borne disease, atypicals, and some MRSA. Macrolides and clindamycin have anti-toxin and respiratory/skin roles but resistance can be inducible. Linezolid is orally bioavailable and active against MRSA and VRE, but toxicity and serotonergic interactions matter.",
+        question: {
+          pollId: "train-abx-mech-q4",
+          prompt:
+            "A patient with suspected RMSF is started on doxycycline. Which mechanism best describes doxycycline activity?",
+          options: [
+            { id: "A", label: "Binds the 30S ribosomal subunit and inhibits protein synthesis", correct: true, feedback: "Correct. Doxycycline is a tetracycline-class agent that binds the 30S ribosomal subunit." },
+            { id: "B", label: "Binds D-Ala-D-Ala cell-wall precursors", feedback: "Incorrect. That describes glycopeptides such as vancomycin." },
+            { id: "C", label: "Inhibits DNA gyrase", feedback: "Incorrect. That describes fluoroquinolones." },
+            { id: "D", label: "Disrupts anaerobic DNA after nitro-reduction", feedback: "Incorrect. That describes metronidazole." },
+          ],
+        },
+      },
+      {
+        heading: "Inducible resistance changes what clindamycin means",
+        prose:
+          "Clindamycin can be useful for toxin suppression and selected skin infections, but inducible MLSB resistance can cause failure. The classic clue is erythromycin resistance with apparent clindamycin susceptibility in Staphylococcus aureus; a D-test detects inducible resistance. This is a good example of why susceptibility tables require clinical interpretation rather than blind acceptance.",
+        question: {
+          pollId: "train-abx-mech-q5",
+          prompt:
+            "A community MRSA isolate is erythromycin resistant and clindamycin susceptible on the initial report. What additional result would make clindamycin unreliable?",
+          options: [
+            { id: "A", label: "Positive D-test", correct: true, feedback: "Correct. A positive D-test indicates inducible clindamycin resistance and risk of clinical failure." },
+            { id: "B", label: "Negative beta-lactamase test", feedback: "Incorrect. Beta-lactamase testing does not assess inducible MLSB resistance." },
+            { id: "C", label: "Low vancomycin MIC", feedback: "Incorrect. Vancomycin MIC does not determine inducible clindamycin resistance." },
+            { id: "D", label: "Lactose fermentation", feedback: "Incorrect. Lactose fermentation is an Enterobacterales lab feature, not relevant to MRSA clindamycin reliability." },
+          ],
+        },
+      },
+      {
+        heading: "Intrinsic resistance should override tempting reports",
+        prose:
+          "Some organism-drug combinations are predictably unreliable because of intrinsic biology. Enterococcus is intrinsically resistant to cephalosporins. Listeria is not treated with cephalosporins. Stenotrophomonas has broad intrinsic beta-lactam resistance. Anaerobes are intrinsically resistant to aminoglycosides because uptake requires oxygen-dependent transport. These rules prevent common prescribing mistakes.",
+        question: {
+          pollId: "train-abx-mech-q6",
+          prompt:
+            "Which organism-drug pairing is intrinsically unreliable and should generally be avoided despite broad empiric habits?",
+          options: [
+            { id: "A", label: "Enterococcus faecalis and ceftriaxone", correct: true, feedback: "Correct. Enterococci are intrinsically resistant to cephalosporins because of low-affinity PBPs." },
+            { id: "B", label: "Streptococcus pyogenes and penicillin", feedback: "Incorrect. S. pyogenes remains reliably susceptible to penicillin." },
+            { id: "C", label: "MSSA and cefazolin", feedback: "Incorrect. Cefazolin is a preferred treatment for many MSSA infections." },
+            { id: "D", label: "Rickettsia rickettsii and doxycycline", feedback: "Incorrect. Doxycycline is the treatment of choice for RMSF." },
+          ],
+        },
+      },
+      {
+        heading: "Pharmacodynamics matters after you pick the right spectrum",
+        prose:
+          "Antibiotic success depends on exposure at the infection site. Beta-lactams are time-dependent, so time above MIC matters. Aminoglycosides are concentration-dependent, so peak-to-MIC and toxicity monitoring matter. Fluoroquinolones and vancomycin are commonly discussed with AUC-based exposure. Renal function, obesity, critical illness, augmented renal clearance, and source control can all change effective exposure.",
+        question: {
+          pollId: "train-abx-mech-q7",
+          prompt:
+            "Which pharmacodynamic principle best supports extended-infusion piperacillin-tazobactam in selected severe gram-negative infections?",
+          options: [
+            { id: "A", label: "Beta-lactams work best when free drug concentrations remain above the MIC for enough of the dosing interval", correct: true, feedback: "Correct. Beta-lactams are time-dependent; prolonged infusion can increase time above MIC." },
+            { id: "B", label: "Beta-lactams require a high peak concentration only", feedback: "Incorrect. That principle better fits concentration-dependent drugs such as aminoglycosides." },
+            { id: "C", label: "Piperacillin-tazobactam only works intracellularly", feedback: "Incorrect. The rationale is time-dependent extracellular beta-lactam activity, not intracellular accumulation." },
+            { id: "D", label: "Tazobactam converts Pseudomonas into a gram-positive organism", feedback: "Incorrect. Beta-lactamase inhibitors do not change gram stain biology." },
+          ],
+        },
+      },
+      {
+        heading: "Anaerobic coverage is syndrome-specific",
+        prose:
+          "Anaerobic coverage is needed when the syndrome suggests mucosal disruption, abscess, aspiration with necrosis/empyema, diabetic foot with ischemic or necrotic tissue, intra-abdominal infection, pelvic infection, or human/animal bite wounds. It is not automatically needed for every pneumonia, cellulitis, or urine culture. Metronidazole covers anaerobes but not aerobes; clindamycin resistance among anaerobes varies by region.",
+        question: {
+          pollId: "train-abx-mech-q8",
+          prompt:
+            "Which scenario most clearly requires anaerobic coverage?",
+          options: [
+            { id: "A", label: "Simple non-purulent cellulitis after minor shin trauma", feedback: "Incorrect. Streptococci predominate; routine anaerobic coverage is usually unnecessary." },
+            { id: "B", label: "Community-acquired cystitis in a young woman", feedback: "Incorrect. Anaerobic coverage is not part of routine cystitis therapy." },
+            { id: "C", label: "Perforated appendicitis with abscess", correct: true, feedback: "Correct. Intra-abdominal abscess after bowel perforation requires gram-negative and anaerobic coverage plus source control." },
+            { id: "D", label: "Uncomplicated influenza without bacterial pneumonia", feedback: "Incorrect. Antibiotics are not indicated for uncomplicated influenza." },
+          ],
+        },
+      },
+      {
+        heading: "Oral bioavailability can be a stewardship tool",
+        prose:
+          "Some oral antibiotics achieve exposures similar to IV therapy and are excellent step-down options when the patient is clinically stable, absorbing enterally, and the organism is susceptible. Examples include fluoroquinolones, TMP-SMX, doxycycline, linezolid, metronidazole, and fluconazole. Oral step-down still requires source control, appropriate syndrome selection, and attention to toxicity and interactions.",
+        question: {
+          pollId: "train-abx-mech-q9",
+          prompt:
+            "A clinically improving patient with susceptible MRSA pneumonia can take oral medications but needs ongoing MRSA therapy. Which oral agent has essentially complete bioavailability and MRSA activity?",
+          options: [
+            { id: "A", label: "Linezolid", correct: true, feedback: "Correct. Linezolid has excellent oral bioavailability and activity against MRSA; monitor for cytopenias, neuropathy with prolonged use, and interactions." },
+            { id: "B", label: "Cefazolin", feedback: "Incorrect. Cefazolin is IV and does not cover MRSA." },
+            { id: "C", label: "Vancomycin capsules", feedback: "Incorrect. Oral vancomycin is not systemically absorbed and is used for C. difficile, not pneumonia." },
+            { id: "D", label: "Nitrofurantoin", feedback: "Incorrect. Nitrofurantoin concentrates in urine and is not used for pneumonia." },
+          ],
+        },
+      },
+      {
+        heading: "De-escalation is an active clinical decision",
+        prose:
+          "De-escalation means integrating patient trajectory, microbiology, source control, and local epidemiology. It is not simply choosing the narrowest drug on the list. A patient with improving uncomplicated E. coli bacteremia from a urinary source may be a candidate for oral step-down and shorter duration. A patient with undrained abscess, endocarditis, CNS infection, neutropenia, or resistant organisms needs a different frame.",
+        question: {
+          pollId: "train-abx-mech-q10",
+          prompt:
+            "Blood cultures grow pan-susceptible E. coli in a stable patient with pyelonephritis who is improving after source-appropriate IV therapy and can take oral medications. What stewardship move is most appropriate?",
+          options: [
+            { id: "A", label: "Continue vancomycin because bacteremia is present", feedback: "Incorrect. Vancomycin does not treat E. coli and should be stopped if no gram-positive indication remains." },
+            { id: "B", label: "Assess for oral step-down with an active high-bioavailability agent and appropriate duration", correct: true, feedback: "Correct. Improving uncomplicated gram-negative bacteremia from a urinary source can often be narrowed and transitioned when criteria are met." },
+            { id: "C", label: "Add metronidazole for all bacteremias", feedback: "Incorrect. Anaerobic coverage is syndrome-specific and not routine for pyelonephritis." },
+            { id: "D", label: "Restart broad empiric therapy until all inflammatory markers normalize", feedback: "Incorrect. Clinical response and source control matter more than waiting for nonspecific markers to normalize." },
+          ],
+        },
+      },
+    ],
+    evidence: [
+      {
+        title: "Action and resistance mechanisms of antibiotics: a guide for clinicians",
+        source: "Kapoor G, Saigal S, Elongavan A. J Anaesthesiol Clin Pharmacol. 2017;33(3):300-305. PMID: 29109626. DOI: 10.4103/joacp.JOACP_349_15.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29109626/",
+        kind: "review",
+        focus: "Short, accessible foundation for antibiotic mechanisms of action and major resistance pathways.",
+      },
+      {
+        title: "IDSA Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
+        source: "Infectious Diseases Society of America, current online guidance.",
+        url: "https://www.idsociety.org/practice-guideline/amr-guidance/",
+        kind: "guideline",
+        focus: "Practical treatment guidance for ESBL-E, AmpC-E, CRE, and difficult-to-treat Pseudomonas.",
+      },
+    ],
+    pearls: [
+      "Mechanism explains why some apparently reasonable antibiotics are unreliable for specific organisms.",
+      "Do not treat the susceptibility table without knowing the organism, syndrome, source, and host.",
+      "Intrinsic resistance is a safety rule: Enterococcus plus cephalosporin is the classic trap.",
+      "Oral step-down is not inferior by definition; it depends on bioavailability, susceptibility, syndrome, and clinical stability.",
+    ],
+    syndromeTags: ["Antimicrobial resistance", "Stewardship"],
+    conceptTags: ["Mechanism of action", "Beta-lactamase", "AmpC", "ESBL", "De-escalation"],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Connect mechanism of action, resistance mechanisms, and susceptibility interpretation." },
+      { href: "/tools/spectrum", label: "Spectrum", why: "Check practical spectrum gaps before broadening or narrowing therapy." },
+      { href: "/tools/doseid", label: "DoseID", why: "Review dosing considerations after selecting an agent." },
+    ],
+  },
 
   {
     slug: "infective-endocarditis",
@@ -2598,6 +2825,17 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Catheter-associated bacteriuria: replace or remove the catheter; treat only with new symptoms (fever, rigors, suprapubic pain).",
           "Avoid routine 'urine screening' before orthopedic or non-urologic procedures.",
         ],
+        question: {
+          pollId: "train-uti-asb-q2",
+          prompt:
+            "An 82-year-old woman in a nursing facility has a positive urine culture found during evaluation for poor appetite. She has no fever, dysuria, flank pain, suprapubic pain, or hemodynamic instability. Best management?",
+          options: [
+            { id: "A", label: "Do not treat bacteriuria; evaluate other causes", correct: true, feedback: "Correct. Asymptomatic bacteriuria in older adults should not be treated without localizing or systemic signs of infection." },
+            { id: "B", label: "Treat with ciprofloxacin for 7 days", feedback: "Incorrect. Treating asymptomatic bacteriuria causes harm without benefit." },
+            { id: "C", label: "Treat because pyuria is present", feedback: "Incorrect. Pyuria does not distinguish ASB from UTI in this population." },
+            { id: "D", label: "Start chronic suppressive antibiotics", feedback: "Incorrect. Suppression promotes resistance and adverse events." },
+          ],
+        },
       },
       {
         heading: "Pregnancy: treat the bacteriuria, choose the drug carefully",
@@ -2609,6 +2847,17 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Pyelonephritis in pregnancy: admit and treat with IV ceftriaxone; avoid fluoroquinolones, TMP-SMX (1st trimester/near term), and tetracyclines.",
           "Repeat urine cultures after therapy (test of cure) and consider monthly screening for the remainder of pregnancy.",
         ],
+        question: {
+          pollId: "train-uti-pregnancy-q1",
+          prompt:
+            "A pregnant patient at 12 weeks has asymptomatic bacteriuria with E. coli on screening culture. What is the best management principle?",
+          options: [
+            { id: "A", label: "Treat because asymptomatic bacteriuria in pregnancy increases pyelonephritis risk", correct: true, feedback: "Correct. Pregnancy is one of the key exceptions where ASB should be screened for and treated." },
+            { id: "B", label: "Do not treat any asymptomatic bacteriuria", feedback: "Incorrect. Pregnancy is an exception." },
+            { id: "C", label: "Use doxycycline as first-line therapy", feedback: "Incorrect. Tetracyclines are generally avoided in pregnancy." },
+            { id: "D", label: "Use fluoroquinolone prophylaxis until delivery", feedback: "Incorrect. Fluoroquinolones are generally avoided in pregnancy and chronic prophylaxis is not the default." },
+          ],
+        },
       },
       {
         heading: "Recurrent UTI in women: a stewardship problem",
@@ -2666,6 +2915,81 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Pseudomonas: piperacillin-tazobactam, cefepime, ceftazidime, or a carbapenem — extended infusion in severe infection.",
           "AmpC-inducible organisms (Enterobacter, Citrobacter, Serratia): avoid third-generation cephalosporins for serious infection — use cefepime or a carbapenem.",
         ],
+        question: {
+          pollId: "train-uti-esbl-q1",
+          prompt:
+            "A patient has pyelonephritis with bacteremia due to ESBL-producing E. coli. Susceptibilities show piperacillin-tazobactam susceptible. Which definitive IV therapy is preferred?",
+          options: [
+            { id: "A", label: "Ertapenem or meropenem", correct: true, feedback: "Correct. For ESBL pyelonephritis with bacteremia, a carbapenem is preferred; MERINO raised concern for piperacillin-tazobactam in ESBL bacteremia." },
+            { id: "B", label: "Piperacillin-tazobactam because any susceptible result is enough", feedback: "Incorrect. ESBL bacteremia is a key scenario where piperacillin-tazobactam may be inferior despite reported susceptibility." },
+            { id: "C", label: "Nitrofurantoin", feedback: "Incorrect. Nitrofurantoin is for lower-tract cystitis, not bacteremic pyelonephritis." },
+            { id: "D", label: "Vancomycin", feedback: "Incorrect. Vancomycin does not treat E. coli." },
+          ],
+        },
+      },
+      {
+        heading: "Complicated UTI requires anatomy and source control thinking",
+        prose:
+          "Complicated UTI includes infection with structural or functional urinary tract abnormality, obstruction, stones, catheters, renal transplant, immunocompromise, male sex in many frameworks, or systemic illness. Antibiotics alone may fail when obstruction, infected stone, abscess, or catheter biofilm persists. Ask whether something needs to be drained, removed, exchanged, or imaged.",
+        question: {
+          pollId: "train-uti-complicated-q1",
+          prompt:
+            "A patient with pyelonephritis remains febrile 72 hours after active antibiotics and has severe flank pain. What is the best next diagnostic step?",
+          options: [
+            { id: "A", label: "Image for obstruction, abscess, or stone", correct: true, feedback: "Correct. Persistent fever despite active therapy should prompt imaging for a complication needing source control." },
+            { id: "B", label: "Continue the same plan for 2 more weeks without reassessment", feedback: "Incorrect. Lack of response requires reassessment for obstruction or abscess." },
+            { id: "C", label: "Stop antibiotics because fever proves viral illness", feedback: "Incorrect. Persistent fever does not exclude bacterial pyelonephritis; look for complications." },
+            { id: "D", label: "Treat Candida from oral thrush as the urinary pathogen", feedback: "Incorrect. This distracts from the need to image a nonresponding urinary infection." },
+          ],
+        },
+      },
+      {
+        heading: "Catheter-associated UTI starts with the catheter",
+        prose:
+          "Long-term urinary catheters become colonized. When symptomatic CAUTI is suspected, replace or remove the catheter if feasible and obtain urine culture from the newly placed catheter before antibiotics. Do not culture from the drainage bag, and do not treat bacteriuria in an asymptomatic catheterized patient.",
+        question: {
+          pollId: "train-uti-cauti-q1",
+          prompt:
+            "A patient with a Foley catheter develops fever and suprapubic pain. The catheter has been in place for 3 weeks. Best culture approach?",
+          options: [
+            { id: "A", label: "Replace the catheter and culture urine from the new catheter", correct: true, feedback: "Correct. For suspected CAUTI with an old catheter, exchange/removal improves culture accuracy and source control." },
+            { id: "B", label: "Culture urine from the drainage bag", feedback: "Incorrect. Drainage bag cultures are contaminated and misleading." },
+            { id: "C", label: "Do not culture symptomatic catheterized patients", feedback: "Incorrect. Symptomatic CAUTI should be cultured to guide therapy." },
+            { id: "D", label: "Treat without ever addressing the catheter", feedback: "Incorrect. Catheter exchange/removal is a key management step when feasible." },
+          ],
+        },
+      },
+      {
+        heading: "Oral step-down is reasonable when the syndrome allows it",
+        prose:
+          "For clinically improving UTI or bacteremic UTI with source control and susceptible isolates, oral step-down can be appropriate using agents with adequate bioavailability and urinary/systemic exposure. Nitrofurantoin and fosfomycin are useful for bladder-only infection but are not appropriate for pyelonephritis or bacteremia.",
+        question: {
+          pollId: "train-uti-stepdown-q1",
+          prompt:
+            "A patient with E. coli bacteremic pyelonephritis improves after IV ceftriaxone. The isolate is susceptible to TMP-SMX and ciprofloxacin. Which statement is most accurate?",
+          options: [
+            { id: "A", label: "Oral step-down can be considered with an active high-bioavailability agent", correct: true, feedback: "Correct. With clinical improvement and susceptible isolate, oral step-down with TMP-SMX or a fluoroquinolone can be appropriate." },
+            { id: "B", label: "Nitrofurantoin is ideal for bacteremia", feedback: "Incorrect. Nitrofurantoin is bladder-limited and not used for pyelonephritis or bacteremia." },
+            { id: "C", label: "All bacteremic UTIs require 6 weeks of IV therapy", feedback: "Incorrect. Many uncomplicated bacteremic UTIs can be treated with shorter courses and oral step-down when criteria are met." },
+            { id: "D", label: "Vancomycin should be added for all bacteremias", feedback: "Incorrect. Vancomycin does not treat E. coli." },
+          ],
+        },
+      },
+      {
+        heading: "Difficult-to-treat resistance requires mechanism-aware therapy",
+        prose:
+          "CRE and difficult-to-treat Pseudomonas should prompt review of the resistance mechanism, prior cultures, infection site, source control, renal dosing, and current IDSA AMR guidance. Newer beta-lactam/beta-lactamase inhibitor agents are not interchangeable; activity depends on the organism and enzyme, such as KPC versus metallo-beta-lactamase.",
+        question: {
+          pollId: "train-uti-cre-dtr-q1",
+          prompt:
+            "A urine and blood culture grows carbapenem-resistant Klebsiella pneumoniae. Why is identifying the carbapenemase mechanism clinically useful?",
+          options: [
+            { id: "A", label: "It helps select among newer agents because KPC, OXA, and metallo-beta-lactamases differ", correct: true, feedback: "Correct. Mechanism guides therapy; newer agents have different activity by carbapenemase type." },
+            { id: "B", label: "It proves antibiotics are never needed", feedback: "Incorrect. Invasive CRE infection requires active therapy and source control." },
+            { id: "C", label: "It replaces susceptibility testing entirely", feedback: "Incorrect. Mechanism and susceptibility data are complementary." },
+            { id: "D", label: "It only matters for gram-positive organisms", feedback: "Incorrect. Carbapenemases are central to resistant gram-negative management." },
+          ],
+        },
       },
     ],
     scoringTools: [
@@ -2965,19 +3289,36 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     evidence: [
       {
         title: "IDSA Guideline on the Management of Acute Uncomplicated Cystitis and Pyelonephritis",
-        source: "Gupta K, et al. Clin Infect Dis. 2011;52(5):e103–e120 [VERIFY current version — 2024 update pending]",
+        source: "Gupta K, Hooton TM, Naber KG, et al. Clin Infect Dis. 2011;52(5):e103-e120. PMID: 21292654. DOI: 10.1093/cid/ciq257.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/21292654/",
         kind: "guideline",
         focus: "The foundational US guideline for cystitis and pyelonephritis — regimens, durations, ESBL considerations.",
       },
       {
+        title: "IDSA Guidelines on the Management and Treatment of Complicated Urinary Tract Infections",
+        source: "Infectious Diseases Society of America, 2025 guideline.",
+        url: "https://www.idsociety.org/practice-guideline/complicated-uti/",
+        kind: "guideline",
+        focus: "Current framework for complicated UTI diagnosis, empiric therapy, definitive therapy, and duration.",
+      },
+      {
         title: "IDSA Asymptomatic Bacteriuria Guideline",
-        source: "Nicolle LE, et al. Clin Infect Dis. 2019 [VERIFY]",
+        source: "Nicolle LE, Gupta K, Bradley SF, et al. Clin Infect Dis. 2019;68(10):e83-e110. PMID: 30895288. DOI: 10.1093/cid/ciy1121.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/30895288/",
         kind: "guideline",
         focus: "Definitive guidance — do not treat except pregnancy and before urologic procedures with mucosal bleeding.",
       },
       {
+        title: "IDSA Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
+        source: "Tamma PD, Bonomo RA, Heil EL, Justo JA, Satlin MJ, Mathers AJ. Infectious Diseases Society of America. Published July 30, 2026.",
+        url: "https://www.idsociety.org/practice-guideline/amr-guidance/",
+        kind: "guideline",
+        focus: "Updated recommendations for ESBL-E uncomplicated cystitis and complicated UTI, AmpC-E, CRE, and difficult-to-treat Pseudomonas.",
+      },
+      {
         title: "MERINO — Piperacillin-tazobactam vs ceftriaxone for ESBL E. coli / Klebsiella bacteremia",
-        source: "Harris PNA, et al. JAMA. 2018;320(10):984–994 [VERIFY]",
+        source: "Harris PNA, Tambyah PA, Lye DC, et al. JAMA. 2018;320(10):984-994. PMID: 30208454. DOI: 10.1001/jama.2018.12163.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/30208454/",
         kind: "trial",
         focus: "Pip-tazo inferior to carbapenem for ESBL bacteremia — use a carbapenem.",
       },
@@ -3224,6 +3565,17 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Image with plain radiographs first; MRI is most sensitive for osteomyelitis and deep abscess.",
           "Multidisciplinary care: podiatry, vascular surgery (for revascularization), ID, and endocrinology.",
         ],
+        question: {
+          pollId: "train-ssti-diabetic-foot-q1",
+          prompt:
+            "A patient with diabetes has a chronic plantar ulcer with surrounding erythema. A superficial swab grows MRSA, Enterococcus, and Pseudomonas. What is the best culture strategy if deeper infection is suspected?",
+          options: [
+            { id: "A", label: "Base therapy only on the superficial swab", feedback: "Incorrect. Superficial swabs often recover colonizers and can lead to unnecessary broad therapy." },
+            { id: "B", label: "Obtain deep tissue or bone culture after cleaning/debridement", correct: true, feedback: "Correct. Deep tissue or bone specimens better reflect true pathogens in diabetic foot infection." },
+            { id: "C", label: "Avoid cultures in all diabetic foot infections", feedback: "Incorrect. Cultures are useful when obtained correctly and infection is present." },
+            { id: "D", label: "Use urine culture to identify foot pathogens", feedback: "Incorrect. Urine culture does not diagnose diabetic foot infection." },
+          ],
+        },
       },
       {
         heading: "Bite wounds and special exposures",
@@ -3236,6 +3588,17 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Puncture through shoes: cover Pseudomonas (fluoroquinolone); assess for osteomyelitis.",
           "Update tetanus and assess rabies risk for all animal bites.",
         ],
+        question: {
+          pollId: "train-ssti-bites-q1",
+          prompt:
+            "A patient presents with an infected cat bite to the hand. Which oral antibiotic best covers Pasteurella, oral streptococci, and anaerobes?",
+          options: [
+            { id: "A", label: "Amoxicillin-clavulanate", correct: true, feedback: "Correct. Amoxicillin-clavulanate is first-line for many dog and cat bite infections." },
+            { id: "B", label: "Cephalexin alone", feedback: "Incorrect. Cephalexin lacks reliable Pasteurella and anaerobic coverage for bite wounds." },
+            { id: "C", label: "Azithromycin alone", feedback: "Incorrect. This is not preferred empiric bite-wound coverage." },
+            { id: "D", label: "Nitrofurantoin", feedback: "Incorrect. Nitrofurantoin is a urinary antibiotic and is not used for bite wounds." },
+          ],
+        },
       },
       {
         heading: "Recurrent SSTI and decolonization",
@@ -3247,6 +3610,81 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Household hygiene: clean high-touch surfaces, do not share razors/towels, cover draining wounds.",
           "Consider decolonization for: ≥ 2 documented MRSA infections in a year, or household outbreaks.",
         ],
+        question: {
+          pollId: "train-ssti-recurrent-q1",
+          prompt:
+            "A patient has three culture-confirmed MRSA abscesses in 8 months and several household contacts with boils. After treating the current abscess, what prevention strategy is reasonable?",
+          options: [
+            { id: "A", label: "Discuss hygiene, household measures, and possible decolonization", correct: true, feedback: "Correct. Recurrent MRSA SSTI can justify hygiene interventions and selected decolonization strategies." },
+            { id: "B", label: "Give lifelong vancomycin", feedback: "Incorrect. Chronic systemic antibiotics are harmful and not standard prevention." },
+            { id: "C", label: "Ignore household contacts", feedback: "Incorrect. Household transmission can sustain recurrence." },
+            { id: "D", label: "Use ceftriaxone monthly", feedback: "Incorrect. Ceftriaxone is not a decolonization strategy and does not reliably cover MRSA." },
+          ],
+        },
+      },
+      {
+        heading: "Cellulitis mimics are common",
+        prose:
+          "Not every red leg is cellulitis. Venous stasis dermatitis, lymphedema, contact dermatitis, gout, DVT, drug reactions, and inflammatory dermatoses can look infectious. Bilateral chronic erythema without fever, leukocytosis, tenderness, or progression should make residents pause before prescribing antibiotics.",
+        question: {
+          pollId: "train-ssti-mimic-q1",
+          prompt:
+            "An afebrile patient has chronic bilateral lower-leg erythema, scaling, edema, and venous varicosities. No tenderness or leukocytosis. Best interpretation?",
+          options: [
+            { id: "A", label: "Venous stasis dermatitis is more likely than bilateral cellulitis", correct: true, feedback: "Correct. Bilateral chronic changes strongly suggest a mimic rather than acute bacterial cellulitis." },
+            { id: "B", label: "Bilateral cellulitis is the default diagnosis", feedback: "Incorrect. True bilateral cellulitis is uncommon; mimics are frequent." },
+            { id: "C", label: "Treat with broad IV antibiotics for 6 weeks", feedback: "Incorrect. This would expose the patient to avoidable harm." },
+            { id: "D", label: "Diagnose necrotizing fasciitis", feedback: "Incorrect. The chronic, bilateral, non-toxic presentation does not fit necrotizing infection." },
+          ],
+        },
+      },
+      {
+        heading: "Duration should shorten when the patient responds",
+        prose:
+          "Uncomplicated cellulitis often improves with short courses when the patient responds clinically. Slow fading of erythema does not always mean failure; edema and inflammation can persist after bacterial burden falls. Reassess for abscess, wrong diagnosis, resistant pathogen, adherence, or inadequate source control before simply extending therapy.",
+        question: {
+          pollId: "train-ssti-duration-q1",
+          prompt:
+            "A patient with uncomplicated non-purulent cellulitis is afebrile and clinically improved after 5 days of cephalexin, but faint erythema remains. Best next step?",
+          options: [
+            { id: "A", label: "Stop or complete the short planned course if improving", correct: true, feedback: "Correct. Residual inflammation can persist; prolonged therapy is not automatically needed when clinical response is good." },
+            { id: "B", label: "Add vancomycin for residual color", feedback: "Incorrect. Faint residual erythema alone does not prove MRSA or failure." },
+            { id: "C", label: "Treat until the skin looks completely normal", feedback: "Incorrect. This often leads to unnecessary prolonged antibiotics." },
+            { id: "D", label: "Send blood cultures now in all cases", feedback: "Incorrect. Blood cultures are low yield in uncomplicated improving cellulitis." },
+          ],
+        },
+      },
+      {
+        heading: "Water exposure changes empiric therapy",
+        prose:
+          "Severe SSTI after seawater exposure raises concern for Vibrio vulnificus, especially with liver disease or iron overload. Freshwater exposure raises concern for Aeromonas. These syndromes can progress quickly and require exposure-specific antibiotics plus urgent surgical evaluation when necrotizing infection is possible.",
+        question: {
+          pollId: "train-ssti-water-q1",
+          prompt:
+            "A man with cirrhosis develops rapidly progressive bullous cellulitis after handling oysters and exposure to seawater. Which pathogen is the key concern?",
+          options: [
+            { id: "A", label: "Vibrio vulnificus", correct: true, feedback: "Correct. Seawater/oyster exposure plus liver disease and bullous rapidly progressive SSTI is classic for V. vulnificus." },
+            { id: "B", label: "Bordetella pertussis", feedback: "Incorrect. Pertussis causes respiratory disease, not seawater-associated necrotizing SSTI." },
+            { id: "C", label: "Candida albicans", feedback: "Incorrect. Candida is not the classic cause of this syndrome." },
+            { id: "D", label: "Mycoplasma pneumoniae", feedback: "Incorrect. Mycoplasma is a respiratory pathogen." },
+          ],
+        },
+      },
+      {
+        heading: "Source control beats antibiotic escalation for abscesses",
+        prose:
+          "When an abscess is present, drainage is the key intervention. Antibiotics may be added for systemic illness, extensive disease, immunocompromise, difficult-to-drain areas, surrounding cellulitis, recurrent disease, or high-risk hosts, but antibiotics alone are usually inadequate for a drainable collection.",
+        question: {
+          pollId: "train-ssti-source-control-q1",
+          prompt:
+            "A patient has a 4-cm fluctuant abscess with surrounding erythema. What is the most important management step?",
+          options: [
+            { id: "A", label: "Incision and drainage", correct: true, feedback: "Correct. Drainage is the central intervention for a drainable abscess." },
+            { id: "B", label: "Topical steroid only", feedback: "Incorrect. A fluctuant abscess needs drainage." },
+            { id: "C", label: "Blood cultures before any local therapy", feedback: "Incorrect. Blood cultures are not the key first step in uncomplicated abscess." },
+            { id: "D", label: "Antibiotics alone are always sufficient", feedback: "Incorrect. Antibiotics alone often fail when source control is needed." },
+          ],
+        },
       },
     ],
     scoringTools: [
@@ -3547,9 +3985,10 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     evidence: [
       {
         title: "IDSA Guideline on the Diagnosis and Management of Skin and Soft Tissue Infections",
-        source: "Stevens DL, et al. Clin Infect Dis. 2014;59(2):e10–e52 [VERIFY — 2024 update pending]",
+        source: "Stevens DL, Bisno AL, Chambers HF, et al. Clin Infect Dis. 2014;59(2):e10-e52. PMID: 24973422. DOI: 10.1093/cid/ciu444.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/24973422/",
         kind: "guideline",
-        focus: "The foundational US SSTI guideline — purulent vs non-purulent, severity, empiric therapy.",
+        focus: "Older but still useful foundational US SSTI guideline: purulent vs non-purulent infection, severity, empiric therapy, necrotizing infection, bite wounds, and diabetic foot considerations.",
       },
       {
         title: "Cephalexin plus TMP-SMX vs cephalexin alone for uncomplicated cellulitis",
@@ -3622,6 +4061,116 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         focus: "Probe-to-bone, imaging, deep cultures, multidisciplinary care, and antibiotic duration for osteomyelitis.",
       },
     ],
+  },
+  {
+    slug: "tick-borne-diseases",
+    title: "Tick-borne diseases",
+    category: "Vector-borne",
+    summary:
+      "A practical approach to Lyme disease, anaplasmosis, ehrlichiosis, RMSF, and babesiosis, with emphasis on early empiric treatment and diagnostic pitfalls.",
+    readMins: 28,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: [
+      "Do not wait for confirmatory testing when RMSF, ehrlichiosis, or anaplasmosis is clinically plausible; early doxycycline saves lives.",
+      "Lyme serology can be falsely negative early; erythema migrans is a clinical diagnosis.",
+      "Babesiosis causes hemolytic anemia and thrombocytopenia; diagnose with smear or PCR, not Lyme serology.",
+      "Geography, season, outdoor exposure, cytopenias, transaminitis, rash pattern, and hemolysis are the key bedside clues.",
+      "Doxycycline is appropriate for suspected rickettsial disease in adults and children when disease is suspected.",
+    ],
+    objectives: [
+      "Distinguish Lyme disease, anaplasmosis, ehrlichiosis, RMSF, and babesiosis by syndrome and lab pattern.",
+      "Know when to treat empirically before diagnostic confirmation.",
+      "Interpret Lyme serology based on timing and pretest probability.",
+      "Choose initial therapy for common tick-borne syndromes.",
+      "Counsel patients about post-treatment symptoms without reflexively extending antibiotics.",
+    ],
+    keyConcepts: [
+      { heading: "Erythema migrans is a clinical diagnosis", prose: "Early localized Lyme disease classically presents with erythema migrans, often with fever, fatigue, headache, myalgias, or arthralgias. Serology is frequently negative early because antibodies have not developed. If the lesion is compatible and exposure risk is plausible, treat clinically rather than waiting for testing.", question: { pollId: "train-tick-q1", prompt: "A Connecticut resident develops an expanding annular erythematous rash 10 days after hiking. He has fatigue and headache. Lyme ELISA is negative. Best next step?", options: [{ id: "A", label: "Treat for early Lyme disease", correct: true, feedback: "Correct. Compatible erythema migrans is a clinical diagnosis; early serology may be negative." }, { id: "B", label: "Repeat ELISA daily until positive", feedback: "Incorrect. Treatment should not wait for seroconversion when erythema migrans is present." }, { id: "C", label: "Give ceftriaxone for 6 weeks", feedback: "Incorrect. Uncomplicated early localized Lyme is usually treated orally, not with prolonged IV therapy." }, { id: "D", label: "Reassure because the test excludes Lyme", feedback: "Incorrect. Negative early serology does not exclude early Lyme disease." }] } },
+      { heading: "Two-tier Lyme testing is for compatible syndromes", prose: "Lyme serology performs best when the clinical syndrome and epidemiology fit. Testing patients with nonspecific chronic symptoms and low pretest probability increases false positives. Use serology for disseminated manifestations such as facial palsy, carditis, meningitis, or arthritis when compatible.", question: { pollId: "train-tick-q2", prompt: "Which patient is the best candidate for Lyme serologic testing?", options: [{ id: "A", label: "Chronic fatigue alone for 5 years in a non-endemic area", feedback: "Incorrect. Very low pretest probability makes false positives more likely." }, { id: "B", label: "Acute facial palsy in summer after tick exposure in an endemic area", correct: true, feedback: "Correct. This is a compatible disseminated Lyme syndrome with plausible exposure." }, { id: "C", label: "Asymptomatic patient with a tick crawling on clothing", feedback: "Incorrect. Testing asymptomatic patients after exposure is not useful." }, { id: "D", label: "Simple cellulitis after shaving", feedback: "Incorrect. This is not a compatible Lyme syndrome." }] } },
+      { heading: "RMSF is a treat-now diagnosis", prose: "Rocky Mountain spotted fever can progress rapidly and early tests are often negative. Fever, severe headache, rash, thrombocytopenia, hyponatremia, and transaminitis should trigger empiric doxycycline when epidemiology fits. Do not withhold doxycycline from children or pregnant patients when RMSF is suspected without expert input.", question: { pollId: "train-tick-q3", prompt: "A child has fever, severe headache, thrombocytopenia, hyponatremia, and a petechial rash after camping. RMSF serology is pending. Best management?", options: [{ id: "A", label: "Start doxycycline now", correct: true, feedback: "Correct. RMSF treatment should start immediately; delayed doxycycline increases mortality." }, { id: "B", label: "Wait for paired serology", feedback: "Incorrect. Serology confirms retrospectively and should not delay therapy." }, { id: "C", label: "Use amoxicillin because doxycycline is contraindicated in children", feedback: "Incorrect. Doxycycline is recommended for suspected RMSF in children." }, { id: "D", label: "Use vancomycin monotherapy", feedback: "Incorrect. Vancomycin does not treat Rickettsia rickettsii." }] } },
+      { heading: "Anaplasmosis and ehrlichiosis often look like viral sepsis with cytopenias", prose: "Anaplasmosis and ehrlichiosis commonly cause fever, headache, malaise, leukopenia, thrombocytopenia, and mild transaminitis. Rash is more common in ehrlichiosis than anaplasmosis but is not required. PCR is useful early; serology may be negative initially. Treat with doxycycline when suspected.", question: { pollId: "train-tick-q4", prompt: "A patient from New England has fever, headache, leukopenia, thrombocytopenia, and AST/ALT elevation in July. No rash. Which treatment is most appropriate while PCR is pending?", options: [{ id: "A", label: "Doxycycline", correct: true, feedback: "Correct. This pattern strongly suggests anaplasmosis/ehrlichiosis; treat empirically." }, { id: "B", label: "Oseltamivir only", feedback: "Incorrect. Influenza can cause fever, but the seasonal exposure and cytopenia/transaminitis pattern support tick-borne disease." }, { id: "C", label: "Cephalexin", feedback: "Incorrect. Cephalexin does not treat anaplasmosis or ehrlichiosis." }, { id: "D", label: "No treatment until serology turns positive", feedback: "Incorrect. Early serology may be negative; do not delay doxycycline." }] } },
+      { heading: "Babesiosis is the tick-borne hemolysis syndrome", prose: "Babesia microti infection should be suspected with fever, fatigue, hemolytic anemia, thrombocytopenia, elevated bilirubin/LDH, and compatible geography. Asplenia and immunocompromise increase severity. Diagnosis is by blood smear or PCR. Treat symptomatic disease with atovaquone plus azithromycin; severe disease may require clindamycin plus quinine and exchange transfusion consideration.", question: { pollId: "train-tick-q5", prompt: "A splenectomized patient has fever after Nantucket travel, hemolytic anemia, thrombocytopenia, and intraerythrocytic parasites on smear. Best usual therapy for non-life-threatening babesiosis?", options: [{ id: "A", label: "Atovaquone plus azithromycin", correct: true, feedback: "Correct. This is standard therapy for most symptomatic babesiosis." }, { id: "B", label: "Doxycycline alone", feedback: "Incorrect. Doxycycline treats Lyme/anaplasmosis/ehrlichiosis/RMSF but not babesiosis reliably." }, { id: "C", label: "Amoxicillin", feedback: "Incorrect. Amoxicillin treats selected Lyme presentations, not babesiosis." }, { id: "D", label: "Valacyclovir", feedback: "Incorrect. Babesia is a protozoan parasite, not a herpesvirus." }] } },
+      { heading: "Coinfection changes the clinical pattern", prose: "Ixodes ticks can transmit Lyme, anaplasmosis, and babesiosis. Persistent high fever, cytopenias, transaminitis, or hemolysis should prompt evaluation for coinfection rather than attributing everything to uncomplicated Lyme disease.", question: { pollId: "train-tick-q6", prompt: "A patient treated for erythema migrans has persistent high fever, leukopenia, thrombocytopenia, and transaminitis. What is the best next consideration?", options: [{ id: "A", label: "Possible anaplasma coinfection", correct: true, feedback: "Correct. Cytopenias and transaminitis with high fever suggest anaplasmosis or ehrlichiosis coinfection." }, { id: "B", label: "Expected Jarisch-Herxheimer reaction for two weeks", feedback: "Incorrect. Brief worsening can occur, but persistent cytopenic febrile illness needs reassessment." }, { id: "C", label: "Lyme serology failure means no tick-borne disease", feedback: "Incorrect. Coinfections require different tests and may not be reflected by Lyme serology." }, { id: "D", label: "Immediate chronic IV ceftriaxone", feedback: "Incorrect. This pattern suggests coinfection, not an indication for prolonged empiric IV Lyme therapy." }] } },
+      { heading: "Post-treatment Lyme symptoms are not active infection by default", prose: "Some patients have fatigue, pain, or cognitive symptoms after appropriate Lyme therapy. Current guidelines do not support prolonged or repeated antibiotics in the absence of objective evidence of active infection. The clinical task is to validate symptoms, reassess for alternate diagnoses, and avoid harm from unnecessary antibiotics.", question: { pollId: "train-tick-q7", prompt: "A patient completed guideline-concordant Lyme therapy 4 months ago and has fatigue and diffuse pain but no objective arthritis, meningitis, neuropathy, or carditis. Best approach?", options: [{ id: "A", label: "Provide supportive evaluation and avoid prolonged antibiotics", correct: true, feedback: "Correct. Persistent nonspecific symptoms alone are not an indication for prolonged antibiotic therapy." }, { id: "B", label: "Place a PICC for 6 months of ceftriaxone", feedback: "Incorrect. Prolonged IV antibiotics add harm without proven benefit in this scenario." }, { id: "C", label: "Repeat Lyme serology until negative", feedback: "Incorrect. Antibodies can persist and should not be used as a test of cure." }, { id: "D", label: "Treat babesiosis without testing", feedback: "Incorrect. Babesiosis has a different syndrome and should be evaluated when clinically suggested." }] } },
+      { heading: "Prophylaxis after tick bite is selective", prose: "Single-dose doxycycline prophylaxis is reserved for high-risk Ixodes bites: endemic area, tick attached long enough, prophylaxis started within 72 hours of removal, and no contraindication. Otherwise observe and educate about symptoms.", question: { pollId: "train-tick-q8", prompt: "Which exposure best fits single-dose doxycycline prophylaxis for Lyme prevention?", options: [{ id: "A", label: "Engorged Ixodes tick removed after 48 hours in an endemic area, within 72 hours", correct: true, feedback: "Correct. This meets typical high-risk criteria for prophylaxis." }, { id: "B", label: "Mosquito bite with fever", feedback: "Incorrect. Lyme prophylaxis is for selected Ixodes tick bites, not mosquito bites." }, { id: "C", label: "Tick crawling on skin with no attachment", feedback: "Incorrect. No attachment means transmission risk is negligible." }, { id: "D", label: "Tick removed 10 days ago with no symptoms", feedback: "Incorrect. Prophylaxis is time-limited and should be given within 72 hours of removal when criteria are met." }] } },
+      { heading: "Testing strategy depends on timing", prose: "PCR is most useful early for anaplasmosis/ehrlichiosis and smear/PCR for babesiosis. RMSF and ehrlichial serologies often require paired acute and convalescent samples. Lyme serology becomes more sensitive after several weeks. A negative early test should not overrule a dangerous compatible syndrome.", question: { pollId: "train-tick-q9", prompt: "Which statement about tick-borne testing is most accurate?", options: [{ id: "A", label: "Early negative serology excludes RMSF", feedback: "Incorrect. Early RMSF serology is often negative." }, { id: "B", label: "Babesiosis is diagnosed with blood smear or PCR", correct: true, feedback: "Correct. Smear and PCR directly evaluate for Babesia; Lyme serology does not diagnose babesiosis." }, { id: "C", label: "Lyme antibodies always disappear after cure", feedback: "Incorrect. Antibodies can persist after treatment." }, { id: "D", label: "Anaplasmosis requires urine antigen testing", feedback: "Incorrect. PCR and serology are used; urine antigen testing is not standard." }] } },
+      { heading: "Doxycycline is the empiric anchor for many severe tick-borne syndromes", prose: "When fever plus epidemiology plus cytopenias, transaminitis, severe headache, or compatible rash suggests rickettsial disease, doxycycline is the empiric anchor. Amoxicillin may be appropriate for selected Lyme disease, but it does not cover RMSF, anaplasmosis, or ehrlichiosis.", question: { pollId: "train-tick-q10", prompt: "Why is amoxicillin a poor empiric choice for undifferentiated febrile tick-borne illness with thrombocytopenia?", options: [{ id: "A", label: "It does not reliably treat RMSF, anaplasmosis, or ehrlichiosis", correct: true, feedback: "Correct. Doxycycline is needed when these syndromes are plausible." }, { id: "B", label: "It has no activity against any Lyme manifestation", feedback: "Incorrect. Amoxicillin can treat selected Lyme disease but is too narrow for this syndrome." }, { id: "C", label: "It treats Babesia better than atovaquone", feedback: "Incorrect. Amoxicillin is not babesiosis therapy." }, { id: "D", label: "It is contraindicated in all adults", feedback: "Incorrect. Amoxicillin is commonly used in adults; the issue is spectrum." }] } },
+    ],
+    evidence: [
+      { title: "Diagnosis and management of tickborne rickettsial diseases", source: "Biggs HM, Behravesh CB, Bradley KK, et al. MMWR Recomm Rep. 2016;65(2):1-44. PMID: 27172113. DOI: 10.15585/mmwr.rr6502a1.", url: "https://pubmed.ncbi.nlm.nih.gov/27172113/", kind: "guideline", focus: "Essential guidance for RMSF, ehrlichiosis, and anaplasmosis; emphasizes empiric doxycycline without waiting for confirmation." },
+      { title: "2020 Guidelines for the prevention, diagnosis, and treatment of Lyme disease", source: "Lantos PM, Rumbaugh J, Bockenstedt LK, et al. Clin Infect Dis. 2021;72(1):e1-e48. PMID: 33417672. DOI: 10.1093/cid/ciaa1215.", url: "https://pubmed.ncbi.nlm.nih.gov/33417672/", kind: "guideline", focus: "Core Lyme disease reference: erythema migrans, testing strategy, neuroborreliosis, carditis, arthritis, prophylaxis, and post-treatment symptoms." },
+    ],
+    pearls: ["Treat suspected RMSF now; confirm later.", "Early negative Lyme serology does not exclude erythema migrans.", "Hemolysis after tick exposure should make you think Babesia.", "Cytopenias and transaminitis are clues to anaplasmosis/ehrlichiosis."],
+    syndromeTags: ["Lyme disease", "RMSF", "Anaplasmosis", "Ehrlichiosis", "Babesiosis"],
+    conceptTags: ["Tick-borne disease", "Doxycycline", "Serology", "Diagnostic stewardship"],
+    tools: [{ href: "/probid", label: "ProbID", why: "Use pretest probability to decide when tick-borne testing is meaningful." }],
+  },
+  {
+    slug: "sti-syphilis-prep",
+    title: "HIV PrEP, syphilis, and sexually transmitted infections",
+    category: "Genitourinary & STI",
+    summary: "A resident-focused approach to PrEP, syphilis staging and treatment, and common STI diagnostic and management decisions.",
+    readMins: 26,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: ["PrEP starts with confirming HIV-negative status and assessing renal function, HBV status, pregnancy potential, and STI risk.", "Syphilis treatment depends on stage; staging is often the hardest part.", "Do not diagnose neurosyphilis from serum RPR titer alone; neurologic, ocular, or otic symptoms drive evaluation.", "Test at anatomic sites of exposure for gonorrhea and chlamydia.", "Partner treatment, follow-up testing, and public health reporting are part of STI care."],
+    objectives: ["Identify PrEP candidates and baseline safety testing.", "Stage syphilis and select appropriate penicillin-based therapy.", "Interpret RPR trends after treatment.", "Manage common gonorrhea, chlamydia, and trichomonas scenarios.", "Recognize when HIV guidelines or specialist input are needed."],
+    keyConcepts: [
+      { heading: "PrEP is prevention plus longitudinal care", prose: "PrEP is indicated for patients with ongoing risk for HIV acquisition and requires baseline HIV testing, renal assessment for tenofovir-containing regimens, HBV evaluation, STI screening, and follow-up monitoring. The iPrEx trial established proof of concept for oral TDF/FTC PrEP in MSM, with efficacy strongly linked to adherence.", question: { pollId: "train-sti-q1", prompt: "Before starting oral tenofovir/emtricitabine PrEP, which baseline step is essential?", options: [{ id: "A", label: "Confirm the patient is HIV negative", correct: true, feedback: "Correct. Starting PrEP in undiagnosed HIV can select resistance and delays full ART." }, { id: "B", label: "Wait for an AIDS-defining illness", feedback: "Incorrect. PrEP prevents HIV and is used before infection." }, { id: "C", label: "Avoid STI testing", feedback: "Incorrect. STI screening is part of PrEP care." }, { id: "D", label: "Prescribe without follow-up", feedback: "Incorrect. PrEP requires monitoring for HIV, renal safety when applicable, and STIs." }] } },
+      { heading: "Acute HIV must be excluded when symptoms fit", prose: "A negative antibody-only test can miss acute HIV. If recent exposure and viral syndrome are present, use an antigen/antibody test and HIV RNA as appropriate before PrEP or when evaluating possible seroconversion.", question: { pollId: "train-sti-q2", prompt: "A patient requesting PrEP reports fever, sore throat, rash, and condomless sex 12 days ago. Rapid antibody test is negative. Best next step?", options: [{ id: "A", label: "Evaluate for acute HIV with HIV RNA/Ag-Ab testing before PrEP", correct: true, feedback: "Correct. Symptoms and timing raise concern for acute HIV; do not rely on antibody-only testing." }, { id: "B", label: "Start PrEP and ignore symptoms", feedback: "Incorrect. Acute HIV must be assessed first." }, { id: "C", label: "Give benzathine penicillin only", feedback: "Incorrect. Syphilis may be considered, but acute HIV evaluation is essential here." }, { id: "D", label: "No testing is needed if the antibody test is negative", feedback: "Incorrect. Early antibody tests can be negative in acute HIV." }] } },
+      { heading: "Syphilis stage determines duration", prose: "Primary syphilis presents with chancre, secondary with rash/mucous patches/condyloma lata/systemic symptoms, and latent disease has positive serology without symptoms. Early latent is infection acquired within the prior year; late latent or unknown duration generally needs three weekly benzathine penicillin doses.", question: { pollId: "train-sti-q3", prompt: "A patient has positive treponemal test and RPR 1:64 but no symptoms. Last negative syphilis test was 4 months ago. Stage?", options: [{ id: "A", label: "Early latent syphilis", correct: true, feedback: "Correct. Asymptomatic infection acquired within the prior year is early latent syphilis." }, { id: "B", label: "Late latent syphilis", feedback: "Incorrect. A documented negative test 4 months ago supports early latent disease." }, { id: "C", label: "Primary syphilis", feedback: "Incorrect. Primary syphilis requires a chancre or compatible lesion." }, { id: "D", label: "Neurosyphilis", feedback: "Incorrect. Neurosyphilis requires neurologic/ocular/otic findings and appropriate evaluation." }] } },
+      { heading: "Primary, secondary, and early latent syphilis use single-dose benzathine penicillin", prose: "For nonpregnant adults without neurosyphilis, ocular syphilis, or otosyphilis, primary, secondary, and early latent syphilis are treated with benzathine penicillin G 2.4 million units IM once. Late latent or unknown duration requires weekly dosing for three weeks.", question: { pollId: "train-sti-q4", prompt: "A nonpregnant adult has secondary syphilis with diffuse rash including palms and soles. No neurologic, ocular, or otic symptoms. Best treatment?", options: [{ id: "A", label: "Benzathine penicillin G 2.4 million units IM once", correct: true, feedback: "Correct. Secondary syphilis is treated with single-dose benzathine penicillin G." }, { id: "B", label: "Ceftriaxone for 6 weeks", feedback: "Incorrect. This is not standard treatment for uncomplicated secondary syphilis." }, { id: "C", label: "Acyclovir", feedback: "Incorrect. Syphilis is caused by Treponema pallidum, not herpesvirus." }, { id: "D", label: "No treatment until rash resolves", feedback: "Incorrect. Syphilis requires treatment and partner/public health management." }] } },
+      { heading: "RPR follow-up is about fourfold change", prose: "Nontreponemal titers are used to follow response. A fourfold change equals two dilutions, such as 1:32 to 1:8. Treponemal tests often stay positive and should not be used as test of cure.", question: { pollId: "train-sti-q5", prompt: "Which RPR change represents a fourfold decline after syphilis therapy?", options: [{ id: "A", label: "1:32 to 1:8", correct: true, feedback: "Correct. Two dilution steps is a fourfold decline." }, { id: "B", label: "1:32 to 1:16", feedback: "Incorrect. That is a twofold decline." }, { id: "C", label: "Positive treponemal test to negative", feedback: "Incorrect. Treponemal tests often remain positive and are not used for response monitoring." }, { id: "D", label: "1:8 to 1:10", feedback: "Incorrect. RPR titers are reported in serial dilutions, and this is not a meaningful fourfold decline." }] } },
+      { heading: "Neurosyphilis evaluation is symptom-driven", prose: "CSF evaluation is guided by neurologic findings, cranial nerve dysfunction, meningitis, stroke, altered mental status, ocular disease, or otic symptoms. High serum RPR alone is not an indication for lumbar puncture.", question: { pollId: "train-sti-q6", prompt: "Which patient most needs evaluation for neurosyphilis/ocular syphilis?", options: [{ id: "A", label: "Positive RPR with new vision loss", correct: true, feedback: "Correct. Ocular symptoms require urgent evaluation and treatment planning." }, { id: "B", label: "Asymptomatic early latent syphilis with RPR 1:64", feedback: "Incorrect. Titer alone does not mandate CSF evaluation." }, { id: "C", label: "Remote treated syphilis with stable low RPR", feedback: "Incorrect. Stable low titers without symptoms do not imply neurosyphilis." }, { id: "D", label: "Chlamydia exposure only", feedback: "Incorrect. This does not suggest neurosyphilis." }] } },
+      { heading: "Gonorrhea requires ceftriaxone and exposure-site testing", prose: "Nucleic acid amplification testing should be sent from sites of exposure: urine/urethral, vaginal/cervical, rectal, and pharyngeal as indicated. Current CDC guidance uses ceftriaxone-based therapy for uncomplicated gonorrhea, with chlamydia treatment added if chlamydia has not been excluded.", question: { pollId: "train-sti-q7", prompt: "A man has receptive oral and anal sex and urethral symptoms. What testing strategy is best?", options: [{ id: "A", label: "NAAT from exposed urogenital, rectal, and pharyngeal sites", correct: true, feedback: "Correct. Test anatomic sites of exposure; urine alone can miss extragenital infection." }, { id: "B", label: "Urine culture only", feedback: "Incorrect. NAAT and exposure-site testing are preferred for GC/CT diagnosis." }, { id: "C", label: "RPR only", feedback: "Incorrect. RPR screens for syphilis, not GC/CT at exposed sites." }, { id: "D", label: "No testing if symptoms improve", feedback: "Incorrect. Diagnosis, treatment, partner care, and reporting matter." }] } },
+      { heading: "Chlamydia treatment depends on site and pregnancy", prose: "Doxycycline is preferred for many nonpregnant adolescents and adults with chlamydia, especially rectal infection. Azithromycin remains important in pregnancy and selected situations. Partner management and abstinence until treatment completion are essential.", question: { pollId: "train-sti-q8", prompt: "A nonpregnant adult has rectal chlamydia. Preferred therapy?", options: [{ id: "A", label: "Doxycycline", correct: true, feedback: "Correct. Doxycycline is preferred for rectal chlamydia in nonpregnant adults." }, { id: "B", label: "Vancomycin", feedback: "Incorrect. Vancomycin has no role in chlamydia treatment." }, { id: "C", label: "Fluconazole", feedback: "Incorrect. Fluconazole treats fungal infections, not chlamydia." }, { id: "D", label: "No therapy if asymptomatic", feedback: "Incorrect. Chlamydia should be treated even when asymptomatic." }] } },
+      { heading: "Trichomonas is often missed if not considered", prose: "Trichomoniasis can cause vaginal discharge, irritation, dysuria, or be asymptomatic. Metronidazole-based therapy is used, and partners should be treated to prevent reinfection.", question: { pollId: "train-sti-q9", prompt: "A woman has NAAT-confirmed trichomoniasis. What additional management point is most important?", options: [{ id: "A", label: "Treat sex partners to prevent reinfection", correct: true, feedback: "Correct. Partner treatment is essential for trichomoniasis management." }, { id: "B", label: "Use cefazolin", feedback: "Incorrect. Cefazolin does not treat Trichomonas." }, { id: "C", label: "No treatment if symptoms are mild", feedback: "Incorrect. Confirmed infection should be treated." }, { id: "D", label: "Follow RPR titers", feedback: "Incorrect. RPR monitoring is for syphilis, not trichomoniasis." }] } },
+      { heading: "STI care includes prevention, vaccines, and partners", prose: "STI visits are opportunities for HIV testing, PrEP discussion, hepatitis B vaccination, HPV vaccination when eligible, pregnancy assessment, partner services, expedited partner therapy where allowed, and counseling without stigma.", question: { pollId: "train-sti-q10", prompt: "A patient is treated for gonorrhea. Which prevention step should routinely be considered at the same visit?", options: [{ id: "A", label: "HIV testing and PrEP assessment", correct: true, feedback: "Correct. Bacterial STI is a marker of HIV acquisition risk and should prompt prevention assessment." }, { id: "B", label: "Stop all vaccines", feedback: "Incorrect. Vaccination is part of sexual health prevention." }, { id: "C", label: "Avoid partner notification", feedback: "Incorrect. Partner services reduce reinfection and transmission." }, { id: "D", label: "Use treponemal tests as gonorrhea test of cure", feedback: "Incorrect. Treponemal tests are for syphilis, not gonorrhea." }] } },
+    ],
+    evidence: [
+      { title: "Preexposure chemoprophylaxis for HIV prevention in men who have sex with men", source: "Grant RM, Lama JR, Anderson PL, et al. N Engl J Med. 2010;363(27):2587-2599. PMID: 21091279. DOI: 10.1056/NEJMoa1011205.", url: "https://pubmed.ncbi.nlm.nih.gov/21091279/", kind: "trial", focus: "Landmark iPrEx trial showing oral TDF/FTC PrEP efficacy linked strongly to adherence." },
+      { title: "Sexually Transmitted Infections Treatment Guidelines, 2021", source: "CDC. MMWR Recomm Rep. 2021;70(4):1-187. PMID: 34292926. DOI: 10.15585/mmwr.rr7004a1.", url: "https://pubmed.ncbi.nlm.nih.gov/34292926/", kind: "guideline", focus: "Primary U.S. reference for syphilis, gonorrhea, chlamydia, trichomoniasis, partner management, and follow-up." },
+      { title: "HIV clinical guidelines", source: "ClinicalInfo.HIV.gov, current guideline portal.", url: "https://clinicalinfo.hiv.gov/en/guidelines", kind: "guideline", focus: "Current federal HIV guidance, including prevention, testing, ART, pregnancy, and opportunistic infection resources." },
+    ],
+    pearls: ["Confirm HIV-negative status before PrEP.", "Stage syphilis before choosing one dose versus three weekly doses.", "RPR follows response; treponemal tests usually do not become negative.", "Test GC/CT at sites of exposure."],
+    syndromeTags: ["HIV prevention", "Syphilis", "STI", "Gonorrhea", "Chlamydia"],
+    conceptTags: ["PrEP", "RPR", "Partner management", "Sexual health"],
+    tools: [{ href: "/training/hiv", label: "HIV module", why: "Review HIV diagnosis, ART basics, OI prevention, and U=U." }],
+  },
+  {
+    slug: "diagnostic-stewardship",
+    title: "Diagnostic stewardship",
+    category: "Stewardship",
+    summary: "How to choose, interpret, and sometimes avoid infectious diseases tests so results improve care rather than create antibiotic momentum.",
+    readMins: 24,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: ["A test should answer a management question.", "Do not culture urine without compatible symptoms except in pregnancy or before selected urologic procedures.", "C. difficile testing requires compatible diarrhea and no better explanation.", "Superficial wound cultures often identify colonizers rather than pathogens.", "Positive tests can cause harm when pretest probability is low."],
+    objectives: ["Explain how diagnostic stewardship supports antimicrobial stewardship.", "Choose when to send urine cultures, blood cultures, C. difficile tests, respiratory panels, and wound cultures.", "Interpret positive tests in the context of colonization versus infection.", "Recognize test-related cascades that lead to unnecessary antibiotics.", "Use pretest probability to decide whether testing is helpful."],
+    keyConcepts: [
+      { heading: "Testing should change management", prose: "Diagnostic stewardship means ordering the right test for the right patient at the right time and acting appropriately on the result. A test that will not change management can still create harm through false positives, incidental colonization, antibiotic exposure, isolation, cost, and delayed diagnosis of the real problem.", question: { pollId: "train-dxstew-q1", prompt: "Which is the best diagnostic stewardship reason not to send a test?", options: [{ id: "A", label: "The result will not change management and false positives may cause harm", correct: true, feedback: "Correct. Testing should answer a clinical question and improve decisions." }, { id: "B", label: "All tests are inaccurate", feedback: "Incorrect. Many tests are useful when applied to the right patient." }, { id: "C", label: "Cultures never guide antibiotics", feedback: "Incorrect. Cultures are essential when the syndrome warrants them." }, { id: "D", label: "Residents should avoid microbiology", feedback: "Incorrect. Residents should use microbiology thoughtfully." }] } },
+      { heading: "Urine cultures are overused", prose: "Cloudy urine, foul smell, pyuria, and bacteriuria do not diagnose UTI without compatible symptoms. Asymptomatic bacteriuria should not be treated except in pregnancy and before selected invasive urologic procedures. Testing low-probability patients creates antibiotic pressure and C. difficile risk.", question: { pollId: "train-dxstew-q2", prompt: "An afebrile nursing-home resident with a chronic Foley has cloudy urine but no new symptoms. Best approach?", options: [{ id: "A", label: "Do not culture or treat solely for cloudy urine", correct: true, feedback: "Correct. This is likely colonization/asymptomatic bacteriuria." }, { id: "B", label: "Send culture and treat any growth", feedback: "Incorrect. Chronic catheters are commonly colonized; culture drives overtreatment." }, { id: "C", label: "Start vancomycin", feedback: "Incorrect. Vancomycin does not treat typical gram-negative UTI and no infection is established." }, { id: "D", label: "Treat pyuria alone", feedback: "Incorrect. Pyuria is common with catheters and does not equal infection." }] } },
+      { heading: "C. difficile testing requires the right stool", prose: "Test patients with clinically significant unexplained diarrhea, usually at least three unformed stools in 24 hours, and avoid testing formed stool or laxative-associated diarrhea when another explanation is clear. NAAT detects toxigenic potential and can identify colonization; toxin testing improves specificity depending on local algorithms.", question: { pollId: "train-dxstew-q3", prompt: "Which patient is the best candidate for C. difficile testing?", options: [{ id: "A", label: "Four watery stools in 24 hours after antibiotics with no laxatives", correct: true, feedback: "Correct. This is compatible with CDI testing criteria." }, { id: "B", label: "One formed stool daily", feedback: "Incorrect. Formed stool should not be tested." }, { id: "C", label: "Diarrhea immediately after bowel prep", feedback: "Incorrect. Laxative/bowel prep explains diarrhea; testing risks false attribution." }, { id: "D", label: "Test of cure after symptoms resolve", feedback: "Incorrect. Test of cure is not recommended." }] } },
+      { heading: "Blood cultures should match bacteremia risk", prose: "Blood cultures are high value in sepsis, endocarditis concern, meningitis, vertebral osteomyelitis, severe pneumonia, complicated pyelonephritis, immunocompromise, intravascular catheter infection, or before antibiotics in serious infection. They are low yield in uncomplicated cellulitis or cystitis.", question: { pollId: "train-dxstew-q4", prompt: "Which scenario most clearly warrants blood cultures before antibiotics?", options: [{ id: "A", label: "Suspected infective endocarditis with fever and new murmur", correct: true, feedback: "Correct. Multiple blood cultures are central to endocarditis diagnosis." }, { id: "B", label: "Mild uncomplicated cystitis", feedback: "Incorrect. Blood cultures are low yield and not routine." }, { id: "C", label: "Small uncomplicated abscess already drained", feedback: "Incorrect. Blood cultures are not routine for uncomplicated abscess." }, { id: "D", label: "Tinea pedis", feedback: "Incorrect. This does not suggest bacteremia." }] } },
+      { heading: "Respiratory panels require actionability", prose: "Respiratory viral panels can support isolation, antiviral decisions, antibiotic de-escalation, and outbreak control, but broad testing in low-risk patients may not change care. A positive viral test also does not fully exclude bacterial coinfection when the clinical syndrome suggests it.", question: { pollId: "train-dxstew-q5", prompt: "A broad respiratory PCR is most useful when the result will affect isolation, antivirals, antibiotics, or disposition. Which case best fits?", options: [{ id: "A", label: "Immunocompromised patient admitted with pneumonia during respiratory virus season", correct: true, feedback: "Correct. Results can affect treatment, isolation, and antibiotic decisions." }, { id: "B", label: "Healthy adult with 1 day of mild rhinorrhea who will not change behavior", feedback: "Incorrect. Testing is less useful if it changes nothing." }, { id: "C", label: "Asymptomatic pre-employment screen", feedback: "Incorrect. This is not an ID diagnostic indication." }, { id: "D", label: "Chronic cough for 5 years without acute illness", feedback: "Incorrect. Broad acute viral testing is unlikely to help." }] } },
+      { heading: "Superficial wound swabs mislead", prose: "Open wounds are colonized. Superficial swabs often recover colonizers and can drive unnecessary broad antibiotics. When culture is needed, obtain deep tissue or operative specimens after cleaning/debridement, especially for diabetic foot infection or deep surgical infection.", question: { pollId: "train-dxstew-q6", prompt: "A chronic diabetic foot ulcer without systemic signs is superficially swabbed and grows MRSA, Enterococcus, and Pseudomonas. What is the main interpretation problem?", options: [{ id: "A", label: "Superficial swabs often reflect colonization rather than invasive pathogens", correct: true, feedback: "Correct. Deep tissue cultures are preferred when infection requires microbiology." }, { id: "B", label: "All organisms on swab must be treated for 6 weeks", feedback: "Incorrect. This is how swabs lead to overtreatment." }, { id: "C", label: "Pseudomonas always means osteomyelitis", feedback: "Incorrect. Pseudomonas on a superficial swab may be colonization." }, { id: "D", label: "Cultures are never useful in diabetic foot infection", feedback: "Incorrect. Proper deep cultures are useful when infection is present." }] } },
+      { heading: "Positive molecular tests can represent colonization", prose: "Highly sensitive NAATs can detect colonization, prolonged shedding, or nonviable organisms. Interpret results in context. Examples include C. difficile NAAT in colonized patients, respiratory viral PCR after recent infection, and multiplex wound panels from nonsterile sites.", question: { pollId: "train-dxstew-q7", prompt: "A hospitalized patient on laxatives has formed stool sent for C. difficile NAAT, which is positive. What is the best interpretation?", options: [{ id: "A", label: "Possible colonization or inappropriate testing; do not diagnose CDI from this alone", correct: true, feedback: "Correct. Testing formed/laxative-associated stool can identify colonization rather than disease." }, { id: "B", label: "Fulminant CDI is proven", feedback: "Incorrect. Clinical syndrome is not compatible." }, { id: "C", label: "Test everyone on the ward", feedback: "Incorrect. Screening asymptomatic patients is not standard CDI diagnosis." }, { id: "D", label: "Use NAAT as test of cure", feedback: "Incorrect. NAAT may remain positive and is not a test of cure." }] } },
+      { heading: "Pretest probability controls false positives", prose: "Even a good test performs poorly when used in patients with very low pretest probability. Low-value testing creates false positives that trigger antibiotic cascades. This principle is especially important for Lyme testing, urine cultures, fungal biomarkers, and broad multiplex panels.", question: { pollId: "train-dxstew-q8", prompt: "Why is Lyme serology discouraged for chronic nonspecific fatigue in a non-endemic area without exposure risk?", options: [{ id: "A", label: "Low pretest probability makes false positives more likely than true positives", correct: true, feedback: "Correct. Testing low-probability syndromes can mislabel patients and cause harm." }, { id: "B", label: "Lyme serology is never useful", feedback: "Incorrect. It is useful for compatible syndromes with plausible exposure." }, { id: "C", label: "Antibiotics are harmless", feedback: "Incorrect. Unnecessary antibiotics cause adverse effects and resistance." }, { id: "D", label: "Fatigue always means Lyme", feedback: "Incorrect. Nonspecific symptoms alone are not enough." }] } },
+      { heading: "Diagnostic stewardship includes stopping tests", prose: "Duplicate daily blood cultures, repeated C. difficile tests, repeated urine cultures after clinical improvement, and broad serologic panels can create noise. Stop testing once the clinical question is answered unless the result will change management.", question: { pollId: "train-dxstew-q9", prompt: "A patient with E. coli pyelonephritis improves rapidly on active therapy. Repeat urine culture is ordered to prove cure. Best response?", options: [{ id: "A", label: "Avoid routine test-of-cure culture if symptoms resolve", correct: true, feedback: "Correct. Routine repeat cultures are unnecessary in uncomplicated clinical response." }, { id: "B", label: "Repeat cultures daily until sterile", feedback: "Incorrect. This creates noise and unnecessary treatment." }, { id: "C", label: "Broaden antibiotics despite improvement", feedback: "Incorrect. Improvement supports narrowing, not broadening." }, { id: "D", label: "Add antifungal therapy", feedback: "Incorrect. No fungal syndrome is described." }] } },
+      { heading: "Good stewardship is collaborative", prose: "The best diagnostic stewardship uses clinicians, microbiology labs, pharmacists, infection prevention, and IT. Examples include urine culture reflex criteria, C. difficile testing algorithms, blood culture contamination reduction, antibiogram education, and comments that help clinicians interpret results.", question: { pollId: "train-dxstew-q10", prompt: "Which intervention best represents diagnostic stewardship at the system level?", options: [{ id: "A", label: "A urine culture reflex policy requiring pyuria plus symptoms documentation in selected settings", correct: true, feedback: "Correct. Reflex criteria can reduce low-value urine cultures and overtreatment." }, { id: "B", label: "Encouraging cultures on all admitted patients", feedback: "Incorrect. Universal low-value testing increases false positives." }, { id: "C", label: "Suppressing all microbiology results", feedback: "Incorrect. Useful results should be available and interpreted well." }, { id: "D", label: "Treating every colonizer to simplify decisions", feedback: "Incorrect. Treating colonization is a major harm diagnostic stewardship tries to prevent." }] } },
+    ],
+    evidence: [
+      { title: "Diagnostic stewardship: leveraging the laboratory to improve antimicrobial use", source: "Morgan DJ, Malani P, Diekema DJ. JAMA. 2017;318(7):607-608. PMID: 28719668. DOI: 10.1001/jama.2017.8531.", url: "https://pubmed.ncbi.nlm.nih.gov/28719668/", kind: "review", focus: "Concise foundational article connecting diagnostic ordering, lab systems, and antimicrobial use." },
+      { title: "IDSA Asymptomatic Bacteriuria Guideline", source: "Infectious Diseases Society of America, 2019.", url: "https://www.idsociety.org/practice-guideline/asymptomatic-bacteriuria/", kind: "guideline", focus: "Essential reference for when not to culture or treat bacteriuria." },
+    ],
+    pearls: ["A positive culture from the wrong patient is not helpful information.", "Do not let a test substitute for a syndrome.", "Colonization is common in urine, wounds, airways, and stool.", "The best test may be no test when pretest probability is low."],
+    syndromeTags: ["Diagnostic stewardship", "Asymptomatic bacteriuria", "C. difficile", "Blood cultures"],
+    conceptTags: ["Pretest probability", "Colonization", "Microbiology", "Stewardship"],
+    tools: [{ href: "/probid", label: "ProbID", why: "Practice pretest probability and threshold-based diagnostic reasoning." }],
   },
 ];
 
