@@ -47,11 +47,17 @@ const moduleVisuals: Record<
     plate: "CAP",
     tone: "Lung parenchyma",
   },
+  "antimicrobials-mechanisms-of-action": {
+    src: "/cases/antibiotic-mechanisms-polymicrobial/gram-stain.jpg",
+    alt: "Gram stain from an IDHub antimicrobial mechanisms case",
+    plate: "MOA",
+    tone: "Drug targets",
+  },
   "antibiotic-mechanisms-resistance": {
     src: "/cases/klebsiella-aerogenes-ampc-cholangitis/gram-stain.jpg",
     alt: "Gram stain from an IDHub resistant gram-negative infection case",
-    plate: "MOA",
-    tone: "Mechanism",
+    plate: "AMR",
+    tone: "Resistance",
   },
   "infective-endocarditis": {
     src: "/cases/staphylococcus-lugdunensis-endocarditis/echo.png",

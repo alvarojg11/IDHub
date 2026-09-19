@@ -663,249 +663,529 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     ],
   },
   {
-    slug: "antibiotic-mechanisms-resistance",
-    title: "Antimicrobial therapy and resistance",
+    slug: "antimicrobials-mechanisms-of-action",
+    title: "Antimicrobials: mechanisms of action",
     category: "Antimicrobial Therapy & Resistance",
     summary:
-      "A foundational resident chapter for connecting antibiotic targets, bacterial anatomy, resistance mechanisms, susceptibility reports, and bedside treatment decisions.",
+      "A class-based resident guide to how antibacterial drugs work: targets, spectrum anchors, site limitations, toxicities, and pharmacodynamic principles.",
+    readMins: 30,
+    difficulty: "core",
+    lastReviewed: "2026-09-19",
+    lastUpdated: "2026-09-19",
+    atAGlance: [
+      "First classify the drug by target: cell wall, ribosome, nucleic-acid synthesis, folate metabolism, or membrane.",
+      "Beta-lactams are cell-wall agents; their clinical differences come from spectrum, beta-lactamase stability, PBP affinity, and PK/PD.",
+      "Protein synthesis inhibitors share ribosomal targets but differ in spectrum, toxicity, oral bioavailability, and intracellular activity.",
+      "Fluoroquinolones, rifamycins, metronidazole, nitrofurantoin, and TMP-SMX are best remembered by target plus syndrome-specific limitations.",
+      "Drug selection is not spectrum alone: infection site, source control, host factors, toxicity, interactions, and oral bioavailability matter.",
+      "Mechanism-of-action knowledge is the foundation; resistance mechanisms are layered on in the next module.",
+    ],
+    objectives: [
+      "Organize common antibacterial agents by class and cellular target.",
+      "Explain how beta-lactam subclasses differ in spectrum and clinical use.",
+      "Compare 30S and 50S protein synthesis inhibitors by mechanism, clinical niche, and toxicity.",
+      "Recognize site-specific limitations such as nitrofurantoin for cystitis only and daptomycin inactivation in pneumonia.",
+      "Apply basic PK/PD principles to class selection and dosing conversations.",
+    ],
+    keyConcepts: [
+      {
+        heading: "Classify antimicrobials by target before memorizing spectrum",
+        prose:
+          "Antibacterial drugs are easier to understand when the first question is 'what bacterial process does this drug interrupt?' Cell-wall agents weaken peptidoglycan synthesis or assembly. Protein synthesis inhibitors bind ribosomal subunits. Fluoroquinolones and rifamycins interfere with DNA or RNA synthesis. TMP-SMX blocks sequential folate metabolism. Daptomycin and polymyxins disrupt membranes. This framework explains many spectrum gaps, toxicities, and treatment limitations before resistance is considered.",
+        bullets: [
+          "Cell wall: beta-lactams bind PBPs; vancomycin binds D-Ala-D-Ala; fosfomycin blocks an early peptidoglycan step.",
+          "Ribosome: aminoglycosides and tetracyclines act at 30S; macrolides, clindamycin, linezolid, chloramphenicol, and streptogramins act at 50S.",
+          "DNA/RNA: fluoroquinolones inhibit DNA gyrase/topoisomerase IV; rifamycins inhibit RNA polymerase; metronidazole causes anaerobe-specific DNA injury.",
+          "Metabolism/membrane: TMP-SMX blocks folate metabolism; daptomycin and polymyxins disrupt bacterial membranes.",
+        ],
+        question: {
+          pollId: "train-abx-action-q1",
+          prompt:
+            "Which pairing correctly matches an antibacterial class with its primary target?",
+          options: [
+            { id: "A", label: "TMP-SMX and bacterial cell membrane depolarization", feedback: "Incorrect. TMP-SMX blocks sequential folate metabolism." },
+            { id: "B", label: "Fluoroquinolones and DNA gyrase/topoisomerase IV", correct: true, feedback: "Correct. Fluoroquinolones inhibit bacterial DNA gyrase and topoisomerase IV." },
+            { id: "C", label: "Vancomycin and 30S ribosomal binding", feedback: "Incorrect. Vancomycin binds D-Ala-D-Ala cell-wall precursors." },
+            { id: "D", label: "Aminoglycosides and folate synthesis", feedback: "Incorrect. Aminoglycosides bind the 30S ribosomal subunit." },
+          ],
+        },
+      },
+      {
+        heading: "Beta-lactams all target PBPs, but subclasses behave differently",
+        prose:
+          "Penicillins, cephalosporins, carbapenems, and aztreonam all inhibit cell-wall synthesis by binding PBPs, but their clinical roles differ. Natural penicillins remain important for susceptible streptococci, syphilis, and selected anaerobes. Anti-staphylococcal penicillins and cefazolin are core MSSA drugs. Aminopenicillins add Enterococcus and selected gram-negative activity. Anti-pseudomonal penicillins, later-generation cephalosporins, cefepime, carbapenems, and aztreonam extend gram-negative coverage in different ways. Beta-lactams are generally time-dependent drugs: maintaining free drug above the MIC is the key exposure concept.",
+        bullets: [
+          "Cefazolin/nafcillin: preferred definitive therapy for many MSSA infections.",
+          "Ceftriaxone: useful for many community gram-negative and streptococcal infections but not Pseudomonas or Enterococcus.",
+          "Cefepime: broader gram-negative activity including Pseudomonas; neurotoxicity risk rises with renal dysfunction.",
+          "Carbapenems: broad gram-negative, anaerobic, and many ESBL roles; ertapenem does not cover Pseudomonas or Acinetobacter.",
+        ],
+        question: {
+          pollId: "train-abx-action-q2",
+          prompt:
+            "Which pharmacodynamic principle best supports extended-infusion cefepime or piperacillin-tazobactam in selected severe gram-negative infections?",
+          options: [
+            { id: "A", label: "Beta-lactams work best only by maximizing peak concentration", feedback: "Incorrect. Peak-to-MIC is more relevant to concentration-dependent drugs such as aminoglycosides." },
+            { id: "B", label: "Beta-lactams are inactivated by pulmonary surfactant", feedback: "Incorrect. That limitation applies to daptomycin, not beta-lactams." },
+            { id: "C", label: "Beta-lactams work best when free concentrations remain above the MIC for enough of the dosing interval", correct: true, feedback: "Correct. Beta-lactams are time-dependent; prolonged infusion can increase fT>MIC." },
+            { id: "D", label: "Beta-lactams require anaerobic nitro-reduction", feedback: "Incorrect. Nitro-reduction is relevant to metronidazole activation." },
+          ],
+        },
+      },
+      {
+        heading: "Beta-lactamase inhibitor combinations extend, but do not universalize, beta-lactams",
+        prose:
+          "Beta-lactamase inhibitors protect partner beta-lactams from some enzymes, but each inhibitor has a specific range. Clavulanate, sulbactam, and tazobactam improve activity against many common beta-lactamases but do not solve AmpC, ESBL, or carbapenemase problems reliably in all syndromes. Newer combinations such as ceftazidime-avibactam, meropenem-vaborbactam, imipenem-relebactam, ceftolozane-tazobactam, and aztreonam-avibactam have organism- and mechanism-specific roles. The key bedside habit is to ask what the likely enzyme is and whether the combination was designed for it.",
+        bullets: [
+          "Piperacillin-tazobactam: broad empiric gram-negative, anaerobic, and Enterococcus faecalis activity, but not a universal ESBL drug for invasive infection.",
+          "Ceftolozane-tazobactam: often useful for resistant Pseudomonas depending on susceptibility.",
+          "Ceftazidime-avibactam: activity against many KPC and OXA-48-like producers, not metallo-beta-lactamases alone.",
+          "Aztreonam-avibactam: conceptually important for metallo-beta-lactamase producers because aztreonam resists MBL hydrolysis while avibactam protects from co-produced serine beta-lactamases.",
+        ],
+        question: {
+          pollId: "train-abx-action-q3",
+          prompt:
+            "Why does adding a beta-lactamase inhibitor not automatically make a beta-lactam active against every resistant gram-negative organism?",
+          options: [
+            { id: "A", label: "All inhibitors bind PBPs instead of beta-lactamases", feedback: "Incorrect. The main role is beta-lactamase inhibition, although some agents have additional activity." },
+            { id: "B", label: "Inhibitors only work in urine", feedback: "Incorrect. They are used for many systemic infections depending on agent and syndrome." },
+            { id: "C", label: "Inhibitors convert gram-negative rods into gram-positive organisms", feedback: "Incorrect. They do not change cell envelope biology." },
+            { id: "D", label: "Each inhibitor covers only certain enzyme classes and may not overcome porin loss, efflux, or target changes", correct: true, feedback: "Correct. Activity depends on the beta-lactam, inhibitor, enzyme, organism, permeability, efflux, target, and syndrome." },
+          ],
+        },
+      },
+      {
+        heading: "Glycopeptides, lipopeptides, and other cell-wall agents have narrow but important roles",
+        prose:
+          "Vancomycin binds D-Ala-D-Ala precursors and remains central for empiric serious MRSA coverage, but it is not active against gram-negative rods and is poorly absorbed orally. Oral vancomycin is therefore an intestinal drug for C. difficile, not a systemic MRSA drug. Daptomycin depolarizes gram-positive membranes and can treat MRSA and VRE bacteremia or right-sided endocarditis, but pulmonary surfactant inactivates it, so it is not used for pneumonia. Fosfomycin blocks early cell-wall synthesis and is mainly used as an oral option for selected cystitis syndromes in the United States.",
+        bullets: [
+          "IV vancomycin: systemic gram-positive coverage; monitor exposure and kidney risk.",
+          "Oral vancomycin: not systemically absorbed; use is gastrointestinal, especially C. difficile.",
+          "Daptomycin: bactericidal gram-positive agent; avoid pneumonia; monitor CPK and myopathy risk.",
+          "Fosfomycin: urinary concentrations are the clinical advantage; do not use as bacteremia therapy.",
+        ],
+        question: {
+          pollId: "train-abx-action-q4",
+          prompt:
+            "A patient with MRSA bacteremia and septic pulmonary emboli is improving, but CT also shows parenchymal pneumonia. Why is daptomycin not appropriate for the pneumonia component?",
+          options: [
+            { id: "A", label: "Daptomycin has no gram-positive activity", feedback: "Incorrect. Daptomycin has important gram-positive activity, including MRSA and many VRE isolates." },
+            { id: "B", label: "Daptomycin requires anaerobic activation", feedback: "Incorrect. That concept applies to metronidazole, not daptomycin." },
+            { id: "C", label: "Daptomycin is inactivated by pulmonary surfactant", correct: true, feedback: "Correct. Daptomycin is not used for pneumonia because pulmonary surfactant inactivates it." },
+            { id: "D", label: "Daptomycin is only active in urine", feedback: "Incorrect. It is systemic, but pneumonia is the key limitation." },
+          ],
+        },
+      },
+      {
+        heading: "30S inhibitors: aminoglycosides and tetracyclines are not interchangeable",
+        prose:
+          "Aminoglycosides bind the 30S ribosomal subunit and cause misreading of mRNA. They are concentration-dependent, nephrotoxic, ototoxic, synergistic in selected gram-positive infections, and poor in anaerobic or acidic environments because uptake requires oxygen-dependent transport. Tetracyclines also act at 30S but are primarily bacteriostatic, orally available in many cases, and clinically useful for rickettsial illness, atypical pneumonia pathogens, some MRSA skin infections, zoonoses, and selected resistant gram-negative infections depending on agent and susceptibility.",
+        bullets: [
+          "Aminoglycosides: gentamicin, tobramycin, amikacin; peak-driven killing; kidney/ear toxicity; not anaerobic drugs.",
+          "Doxycycline: first-line for many tick-borne rickettsial illnesses and useful for atypical pathogens.",
+          "Minocycline/tigecycline/eravacycline: broader resistant-organism niches; understand bloodstream limitations and syndrome fit.",
+          "Tetracycline toxicities: GI intolerance, photosensitivity, esophagitis, tooth/bone considerations in selected populations.",
+        ],
+        question: {
+          pollId: "train-abx-action-q5",
+          prompt:
+            "Why are aminoglycosides intrinsically unreliable for anaerobic infections?",
+          options: [
+            { id: "A", label: "Anaerobes lack DNA", feedback: "Incorrect. Anaerobes have DNA; aminoglycoside failure is about drug uptake." },
+            { id: "B", label: "Aminoglycoside uptake requires oxygen-dependent transport", correct: true, feedback: "Correct. Anaerobic conditions impair aminoglycoside uptake, making these drugs unreliable for anaerobic infection." },
+            { id: "C", label: "Aminoglycosides bind only fungal ribosomes", feedback: "Incorrect. Aminoglycosides bind bacterial 30S ribosomal subunits." },
+            { id: "D", label: "Aminoglycosides are neutralized by pulmonary surfactant", feedback: "Incorrect. Daptomycin, not aminoglycosides, has that limitation." },
+          ],
+        },
+      },
+      {
+        heading: "50S inhibitors differ by syndrome, toxicity, and oral bioavailability",
+        prose:
+          "Macrolides are useful for atypical respiratory pathogens and selected streptococcal infections, but resistance can limit pneumococcal use. Clindamycin has anaerobic and gram-positive activity and is often discussed for toxin suppression, but inducible resistance matters. Linezolid has excellent oral bioavailability and activity against MRSA and VRE; monitor for cytopenias, neuropathy with prolonged use, and serotonergic interactions. Chloramphenicol and streptogramins are now niche agents but remain useful for understanding ribosomal pharmacology.",
+        bullets: [
+          "Azithromycin: atypical pneumonia coverage and selected STI/GI uses; QT and drug interaction issues matter.",
+          "Clindamycin: selected skin/soft tissue, anaerobic, and toxin-suppression roles; C. difficile risk and D-test matter.",
+          "Linezolid: oral equals IV exposure for practical purposes; useful step-down option when syndrome fits.",
+          "Tedizolid: related oxazolidinone with selected ABSSSI role; less residency-core than linezolid.",
+        ],
+        question: {
+          pollId: "train-abx-action-q6",
+          prompt:
+            "A clinically improving patient with susceptible MRSA pneumonia can take oral medications but needs ongoing MRSA therapy. Which oral agent has essentially complete bioavailability and MRSA activity?",
+          options: [
+            { id: "A", label: "Vancomycin capsules", feedback: "Incorrect. Oral vancomycin is not systemically absorbed and is used for C. difficile, not pneumonia." },
+            { id: "B", label: "Cefazolin", feedback: "Incorrect. Cefazolin is IV and does not cover MRSA." },
+            { id: "C", label: "Nitrofurantoin", feedback: "Incorrect. Nitrofurantoin concentrates in urine and is not used for pneumonia." },
+            { id: "D", label: "Linezolid", correct: true, feedback: "Correct. Linezolid has excellent oral bioavailability and activity against MRSA; monitor for cytopenias, neuropathy with prolonged use, and interactions." },
+          ],
+        },
+      },
+      {
+        heading: "DNA/RNA agents are powerful but syndrome-limited",
+        prose:
+          "Fluoroquinolones inhibit DNA gyrase and topoisomerase IV and have high oral bioavailability, but toxicity and resistance concerns mean they should not be reflexive convenience drugs. Rifamycins inhibit bacterial RNA polymerase and are central in tuberculosis regimens and selected hardware-associated staphylococcal infections, but resistance emerges rapidly with monotherapy. Metronidazole is reduced in anaerobic organisms and protozoa to reactive intermediates that damage DNA; it covers anaerobes but not aerobes. Nitrofurantoin damages bacterial macromolecules after intracellular activation and is a bladder drug, not a pyelonephritis or bacteremia drug.",
+        bullets: [
+          "Fluoroquinolones: oral step-down potential, atypical coverage for respiratory agents, and gram-negative activity; watch tendons, CNS, QT, aortic, dysglycemia, and C. difficile risks.",
+          "Rifampin: never use alone for active staphylococcal infection or TB because resistance emerges quickly.",
+          "Metronidazole: anaerobes below the diaphragm and selected protozoa; no aerobic gram-negative coverage.",
+          "Nitrofurantoin: lower UTI only when renal function and organism susceptibility support use.",
+        ],
+        question: {
+          pollId: "train-abx-action-q7",
+          prompt:
+            "A urine isolate causing simple cystitis is nitrofurantoin susceptible, but the patient has fever, flank pain, and E. coli bacteremia. Why is nitrofurantoin inappropriate?",
+          options: [
+            { id: "A", label: "It has no activity in the bladder", feedback: "Incorrect. Nitrofurantoin can be useful for bladder-limited cystitis." },
+            { id: "B", label: "It is only active against viruses", feedback: "Incorrect. Nitrofurantoin is antibacterial." },
+            { id: "C", label: "It concentrates in urine but does not achieve reliable renal parenchymal or bloodstream levels", correct: true, feedback: "Correct. Nitrofurantoin is not appropriate for pyelonephritis or bacteremia despite a susceptible cystitis isolate." },
+            { id: "D", label: "It is inactivated by pulmonary surfactant", feedback: "Incorrect. That limitation applies to daptomycin." },
+          ],
+        },
+      },
+      {
+        heading: "Folate pathway inhibition is sequential blockade",
+        prose:
+          "Trimethoprim-sulfamethoxazole combines two steps in bacterial folate metabolism: sulfamethoxazole inhibits dihydropteroate synthase, and trimethoprim inhibits dihydrofolate reductase. The combination can treat selected urinary, skin, Pneumocystis, Nocardia, Stenotrophomonas, and other infections when susceptibility and syndrome fit. Toxicities include rash, severe cutaneous reactions, hyperkalemia, renal effects, cytopenias, hepatitis, and drug interactions. Its broad usefulness makes it tempting, but local resistance and host contraindications matter.",
+        bullets: [
+          "TMP-SMX is not one target; it is sequential folate pathway blockade.",
+          "Hyperkalemia risk rises with kidney disease, ACE inhibitors/ARBs, spironolactone, and higher doses.",
+          "Pneumocystis therapy uses much higher dosing than routine cystitis regimens.",
+          "Always interpret through syndrome, susceptibility, allergy history, renal function, and interacting medications.",
+        ],
+        question: {
+          pollId: "train-abx-action-q8",
+          prompt:
+            "TMP-SMX works primarily through which mechanism?",
+          options: [
+            { id: "A", label: "Membrane depolarization of gram-positive bacteria", feedback: "Incorrect. That describes daptomycin." },
+            { id: "B", label: "Binding D-Ala-D-Ala cell-wall precursors", feedback: "Incorrect. That describes vancomycin." },
+            { id: "C", label: "Sequential inhibition of bacterial folate synthesis", correct: true, feedback: "Correct. Sulfamethoxazole and trimethoprim block sequential steps in folate metabolism." },
+            { id: "D", label: "Inhibition of RNA polymerase", feedback: "Incorrect. Rifamycins inhibit RNA polymerase." },
+          ],
+        },
+      },
+      {
+        heading: "Membrane-active agents are reserved tools, not routine broadening",
+        prose:
+          "Daptomycin and polymyxins are often grouped as membrane-active drugs, but their clinical use is very different. Daptomycin targets gram-positive membranes and is used for selected MRSA and VRE syndromes outside pneumonia. Polymyxins such as colistin and polymyxin B bind gram-negative outer membrane lipopolysaccharide and are now generally reserved for difficult resistant gram-negative infections because toxicity and outcome concerns are substantial. These drugs should trigger careful syndrome, susceptibility, and toxicity review rather than reflexive escalation.",
+        bullets: [
+          "Daptomycin: gram-positive; bactericidal; not pneumonia; monitor CPK.",
+          "Polymyxins: gram-negative outer membrane activity; nephrotoxicity and neurotoxicity matter.",
+          "Do not confuse membrane activity with universal activity; organism and site still decide usefulness.",
+          "When polymyxins are being considered, reassess source control and newer beta-lactam options.",
+        ],
+        question: {
+          pollId: "train-abx-action-q9",
+          prompt:
+            "Which toxicity concern is most classically associated with polymyxin therapy?",
+          options: [
+            { id: "A", label: "Optic neuritis after one dose", feedback: "Incorrect. Optic neuropathy is more associated with prolonged linezolid exposure." },
+            { id: "B", label: "Nephrotoxicity and neurotoxicity", correct: true, feedback: "Correct. Polymyxins are limited by nephrotoxicity and neurotoxicity concerns." },
+            { id: "C", label: "Pulmonary surfactant inactivation", feedback: "Incorrect. That is the key daptomycin limitation, not polymyxin toxicity." },
+            { id: "D", label: "Irreversible tooth staining in all adults", feedback: "Incorrect. Tooth/bone issues are classically discussed with tetracyclines in selected populations." },
+          ],
+        },
+      },
+      {
+        heading: "Class choice must include site, toxicity, and oral bioavailability",
+        prose:
+          "The final antimicrobial choice is a clinical decision, not a drug-class quiz. Ask whether the drug reaches the site, whether source control has occurred, whether oral therapy can achieve comparable exposure, whether the toxicity profile fits the host, and whether the drug's spectrum is unnecessarily broad. High-bioavailability oral agents such as fluoroquinolones, TMP-SMX, doxycycline, linezolid, metronidazole, and fluconazole can be excellent step-down drugs when the syndrome, isolate, and patient are appropriate. Conversely, a susceptible result does not rescue a drug with the wrong site profile.",
+        bullets: [
+          "Meningitis, endocarditis, bacteremia, pneumonia, cystitis, abscess, and osteomyelitis each impose different exposure requirements.",
+          "Oral step-down is about exposure and syndrome fit, not about whether IV therapy feels stronger.",
+          "Avoid treating colonization: no mechanism of action is helpful when there is no infection.",
+          "Dose and duration are part of the antimicrobial decision, not afterthoughts.",
+        ],
+        question: {
+          pollId: "train-abx-action-q10",
+          prompt:
+            "A stable patient with susceptible E. coli bacteremia from a urinary source improves after initial IV therapy and can absorb oral medications. Which stewardship move is most appropriate?",
+          options: [
+            { id: "A", label: "Continue vancomycin because any bacteremia needs gram-positive coverage", feedback: "Incorrect. Vancomycin does not treat E. coli and should be stopped if no gram-positive indication remains." },
+            { id: "B", label: "Add metronidazole for all bloodstream infections", feedback: "Incorrect. Anaerobic coverage is syndrome-specific and not routine for pyelonephritis-associated bacteremia." },
+            { id: "C", label: "Assess for oral step-down with an active high-bioavailability agent and appropriate duration", correct: true, feedback: "Correct. Improving uncomplicated gram-negative bacteremia from a urinary source can often be narrowed and transitioned when criteria are met." },
+            { id: "D", label: "Restart broad empiric therapy until all inflammatory markers normalize", feedback: "Incorrect. Clinical response, source control, and syndrome matter more than waiting for nonspecific markers to normalize." },
+          ],
+        },
+      },
+    ],
+    evidence: [
+      {
+        title: "Action and resistance mechanisms of antibiotics: a guide for clinicians",
+        source: "Kapoor G, Saigal S, Elongavan A. J Anaesthesiol Clin Pharmacol. 2017;33(3):300-305. PMID: 29109626. DOI: 10.4103/joacp.JOACP_349_15.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29109626/",
+        kind: "review",
+        focus: "Accessible clinician review of major antibiotic classes, mechanisms of action, and resistance concepts.",
+      },
+      {
+        title: "Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases",
+        source: "Antimicrobial therapy chapters, current edition.",
+        kind: "book",
+        focus: "Textbook reference for antimicrobial class pharmacology, spectrum, mechanisms, and syndrome-based use.",
+      },
+      {
+        title: "Sanford Guide to Antimicrobial Therapy",
+        source: "Antimicrobial class and syndrome treatment reference, current edition.",
+        kind: "guideline",
+        focus: "Practical bedside reference for class selection, dosing, and syndrome-specific therapy.",
+      },
+    ],
+    pearls: [
+      "Learn the target first, then add spectrum, toxicity, site penetration, and resistance.",
+      "Beta-lactams are time-dependent PBP-binding drugs; not all beta-lactams cover the same organisms.",
+      "Oral vancomycin is not systemic therapy; oral linezolid is effectively systemic therapy.",
+      "Nitrofurantoin and fosfomycin are urinary tools, not bacteremia or pyelonephritis drugs.",
+      "A broader drug is not automatically a better drug; the best drug fits the syndrome with the least unnecessary collateral damage.",
+    ],
+    syndromeTags: ["Antimicrobial therapy", "Stewardship"],
+    conceptTags: ["Mechanism of action", "Beta-lactams", "Protein synthesis", "PK/PD", "Oral step-down"],
+    tools: [
+      { href: "/mechid", label: "MechID", why: "Connect mechanism of action, resistance mechanisms, and susceptibility interpretation." },
+      { href: "/tools/spectrum", label: "Spectrum", why: "Check practical spectrum gaps before broadening or narrowing therapy." },
+      { href: "/tools/doseid", label: "DoseID", why: "Review dosing considerations after selecting an agent." },
+    ],
+  },
+
+  {
+    slug: "antibiotic-mechanisms-resistance",
+    title: "Antimicrobial resistance mechanisms",
+    category: "Antimicrobial Therapy & Resistance",
+    summary:
+      "A Mandell-style framework for how bacteria evade antimicrobial activity: genetic acquisition, drug inactivation, target changes, bypass, permeability, efflux, biofilm, and clinical resistance phenotypes.",
     readMins: 32,
     difficulty: "core",
     lastReviewed: "2026-09-19",
     lastUpdated: "2026-09-19",
     atAGlance: [
-      "Antibiotic choice starts with the organism, syndrome, infection site, host, source control, and likely resistance mechanism.",
-      "Most resistance fits a small number of patterns: destroy the drug, alter or protect the target, bypass the pathway, reduce entry, pump the drug out, or persist in biofilm/undrained infection.",
-      "Gram-negative resistance is often combinatorial: beta-lactamase plus porin loss, efflux, or target changes.",
-      "A susceptibility report is a phenotype, not a full mechanism report; interpret it with organism identity and infection site.",
-      "Susceptible does not always mean clinically appropriate: urinary-only drugs, poor CNS penetration, intrinsic resistance, and source-control failure can still make therapy wrong.",
-      "Stewardship preserves antibiotic activity by narrowing therapy, optimizing exposure, avoiding colonization treatment, and using the shortest effective duration.",
+      "Resistance can be intrinsic, mutational, or horizontally acquired through plasmids, transposons, integrons, and resistance islands.",
+      "Mandell's practical framework is mechanism-first: inactivate the drug, alter/protect the target, bypass the pathway, reduce entry, increase efflux, or persist in biofilm.",
+      "Beta-lactam resistance often combines enzyme activity with permeability, efflux, or altered PBPs.",
+      "A susceptibility report is a phenotype; it may not tell you the full mechanism or whether the drug fits the infection site.",
+      "High-yield phenotypes include MRSA, VRE, ESBL-E, AmpC-E, CRE, DTR Pseudomonas, Acinetobacter, and Stenotrophomonas.",
+      "Resistance prevention is clinical stewardship: avoid colonization treatment, narrow when possible, optimize exposure, and obtain source control.",
     ],
     objectives: [
-      "Classify common antibacterial agents by their major cellular targets and clinically important limitations.",
-      "Explain how bacterial cell envelope anatomy, porins, efflux systems, and biofilm affect antibiotic activity.",
       "Distinguish intrinsic resistance, mutational resistance, and horizontally acquired resistance.",
-      "Recognize high-yield resistance phenotypes including MRSA, VRE, ESBL-E, AmpC-E, CRE, DTR Pseudomonas, Acinetobacter, and Stenotrophomonas.",
-      "Use susceptibility reports safely by integrating MIC interpretation, organism identity, infection site, pharmacology, and source control.",
+      "Explain major molecular resistance mechanisms using Mandell's framework.",
+      "Recognize beta-lactamase phenotypes including ESBL, AmpC, KPC, OXA-48-like, and metallo-beta-lactamases.",
+      "Connect class-specific resistance mechanisms to bedside treatment traps.",
+      "Interpret susceptibility reports using organism identity, mechanism, infection site, and source-control status.",
     ],
     keyConcepts: [
       {
-        heading: "Start with the clinical frame, then apply mechanism",
+        heading: "Resistance is intrinsic, acquired, and selected by exposure",
         prose:
-          "Mechanism is powerful only after the bedside question is framed correctly. First identify the syndrome, likely pathogens, infection site, host risks, illness severity, source-control needs, and prior antibiotic exposure. Then ask which drug target matters, whether the organism can reach or alter that target, and whether adequate drug exposure is achievable at the site. This prevents both errors: memorizing antibiotic spectra without understanding resistance, and treating a lab result without treating the patient.",
+          "Intrinsic resistance is predictable from organism biology, such as Enterococcus resistance to cephalosporins or anaerobe resistance to aminoglycosides. Acquired resistance appears through mutation or horizontal gene transfer. Antibiotic exposure then selects organisms or subpopulations that can survive. The ecological lesson is practical: unnecessary antibiotics, prolonged courses, underdosing, high-burden infection, and delayed source control all increase selection pressure.",
         bullets: [
-          "Organism: species identity often predicts intrinsic resistance before the susceptibility table returns.",
-          "Syndrome and site: pneumonia, meningitis, bacteremia, abscess, cystitis, and osteomyelitis require different pharmacologic assumptions.",
-          "Host and exposure: recent hospitalization, devices, prior antibiotics, travel, colonization, renal function, neutropenia, and immunosuppression change both risk and dosing.",
-          "Source control: no antibiotic reliably sterilizes an undrained abscess, obstructed urinary tract, infected catheter, or necrotic focus.",
+          "Mutation: target changes such as gyrA/parC fluoroquinolone resistance or rpoB rifampin resistance.",
+          "Horizontal transfer: plasmid-mediated ESBLs, carbapenemases, aminoglycoside-modifying enzymes, qnr, and mcr.",
+          "Mobile elements: plasmids, transposons, integrons, and resistance islands can cluster multiple mechanisms.",
+          "Selection: treating colonization and leaving uncontrolled sources are resistance accelerants.",
         ],
         question: {
-          pollId: "train-abx-mech-q1",
+          pollId: "train-abx-resistance-q1",
+          prompt:
+            "Which statement best distinguishes intrinsic from acquired resistance?",
+          options: [
+            { id: "A", label: "Intrinsic resistance is predictable from species biology; acquired resistance develops by mutation or gene acquisition", correct: true, feedback: "Correct. Intrinsic resistance is built into the organism-drug pairing, while acquired resistance reflects new mutations or horizontally acquired genes." },
+            { id: "B", label: "Intrinsic resistance occurs only after prior antibiotic exposure", feedback: "Incorrect. Prior exposure selects resistant organisms, but intrinsic resistance exists independent of the patient's antibiotic history." },
+            { id: "C", label: "Acquired resistance cannot spread between species", feedback: "Incorrect. Mobile genetic elements can spread resistance genes across organisms." },
+            { id: "D", label: "Intrinsic resistance is always overcome by higher dosing", feedback: "Incorrect. Higher dosing usually does not overcome a fundamental organism-drug mismatch and may only add toxicity." },
+          ],
+        },
+      },
+      {
+        heading: "Drug inactivation is the classic enzymatic mechanism",
+        prose:
+          "Bacteria can destroy or modify antibiotics before the drug reaches its target. Beta-lactamases hydrolyze beta-lactams. Aminoglycoside-modifying enzymes acetylate, adenylate, or phosphorylate aminoglycosides. Chloramphenicol acetyltransferase inactivates chloramphenicol. The clinical mistake is treating all enzymes as equivalent. Enzyme class, organism, drug, inhibitor, inoculum, and infection site determine whether a drug is reliable.",
+        bullets: [
+          "Ambler A: serine beta-lactamases including many ESBLs and KPC.",
+          "Ambler B: metallo-beta-lactamases such as NDM, VIM, and IMP; not inhibited by avibactam, vaborbactam, or relebactam alone.",
+          "Ambler C: AmpC enzymes, inducible or derepressed in several Enterobacterales.",
+          "Ambler D: OXA enzymes, including OXA-48-like carbapenemases.",
+        ],
+        question: {
+          pollId: "train-abx-resistance-q2",
+          prompt:
+            "A CRE isolate is reported to produce NDM, a metallo-beta-lactamase. Why does this mechanism matter clinically?",
+          options: [
+            { id: "A", label: "It proves vancomycin is preferred", feedback: "Incorrect. Vancomycin has no reliable Enterobacterales activity." },
+            { id: "B", label: "It predicts that some KPC-active beta-lactamase inhibitor combinations may not work", correct: true, feedback: "Correct. Metallo-beta-lactamases are not inhibited by several serine beta-lactamase inhibitor combinations; therapy differs from KPC-producing CRE." },
+            { id: "C", label: "It means resistance is due only to PBP2a", feedback: "Incorrect. PBP2a is the MRSA mechanism, not an NDM carbapenemase." },
+            { id: "D", label: "It makes cefazolin preferred for bacteremia", feedback: "Incorrect. NDM-producing CRE requires mechanism-directed gram-negative therapy." },
+          ],
+        },
+      },
+      {
+        heading: "Target alteration lowers drug binding",
+        prose:
+          "If the target changes, an otherwise active drug may no longer bind. MRSA produces PBP2a encoded by mecA, lowering affinity for most beta-lactams. VRE remodels peptidoglycan termini from D-Ala-D-Ala to D-Ala-D-Lac, reducing vancomycin binding. Macrolide and clindamycin resistance can occur through erm-mediated ribosomal methylation. Fluoroquinolone resistance commonly involves DNA gyrase or topoisomerase IV mutations. Rifampin resistance can emerge through rpoB mutations.",
+        bullets: [
+          "MRSA: altered PBP, not an ESBL problem.",
+          "VRE: altered cell-wall precursor terminus, not vancomycin destruction.",
+          "MLSB resistance: ribosomal methylation can affect macrolides, lincosamides, and streptogramin B.",
+          "Fluoroquinolones/rifampin: target mutations can emerge quickly under selection pressure.",
+        ],
+        question: {
+          pollId: "train-abx-resistance-q3",
           prompt:
             "A resident asks why cefazolin treats MSSA bacteremia but not MRSA bacteremia. Which explanation is most accurate?",
           options: [
-            { id: "A", label: "MRSA produces an altered penicillin-binding protein with low beta-lactam affinity", correct: true, feedback: "Correct. mecA encodes PBP2a, which has low affinity for most beta-lactams, making standard anti-staphylococcal beta-lactams unreliable despite otherwise favorable pharmacology." },
-            { id: "B", label: "MRSA lacks a peptidoglycan cell wall", feedback: "Incorrect. S. aureus has a peptidoglycan cell wall; the problem is altered target binding, not absence of the target." },
-            { id: "C", label: "MRSA is intrinsically resistant because cefazolin cannot enter gram-positive cells", feedback: "Incorrect. Cefazolin enters and is active against many gram-positive organisms, including MSSA." },
+            { id: "A", label: "MRSA lacks a peptidoglycan cell wall", feedback: "Incorrect. S. aureus has a peptidoglycan cell wall." },
+            { id: "B", label: "MRSA is intrinsically resistant because cefazolin cannot enter gram-positive cells", feedback: "Incorrect. Cefazolin enters gram-positive bacteria and is active against MSSA." },
+            { id: "C", label: "MRSA produces an altered penicillin-binding protein with low beta-lactam affinity", correct: true, feedback: "Correct. mecA encodes PBP2a, which has low affinity for most beta-lactams." },
             { id: "D", label: "MRSA inactivates cefazolin only through ESBL production", feedback: "Incorrect. ESBLs are mainly an Enterobacterales problem; MRSA resistance is driven by altered PBPs." },
           ],
         },
       },
       {
-        heading: "Bacterial anatomy explains many spectrum gaps",
+        heading: "Target protection and target bypass preserve essential pathways",
         prose:
-          "Gram-positive bacteria expose a thick peptidoglycan cell wall; gram-negative bacteria add an outer membrane, porins, a periplasmic space, and periplasmic beta-lactamases. To work against a gram-negative rod, a beta-lactam often must pass through porins, avoid or outpace beta-lactamase hydrolysis, bind PBPs, and maintain enough time above the MIC. This is why gram-negative resistance can change quickly and why susceptibility may depend on several mechanisms at once.",
+          "Some resistance mechanisms protect the target without replacing it. Tet(M) and related ribosomal protection proteins dislodge tetracyclines from the ribosome. Qnr proteins protect DNA gyrase and topoisomerase IV from fluoroquinolones. Other organisms bypass the inhibited pathway by using alternative enzymes, such as sul and dfr genes that reduce TMP-SMX activity. These mechanisms may combine with efflux, permeability changes, and enzymatic resistance.",
         bullets: [
-          "Porin loss reduces drug entry, especially for hydrophilic beta-lactams and carbapenems.",
-          "Efflux pumps lower intracellular or periplasmic drug concentrations and can affect multiple drug classes.",
-          "Periplasmic beta-lactamases can destroy beta-lactams before they reach PBPs.",
-          "Biofilm adds a physical and metabolic barrier; cure often requires device removal or drainage.",
+          "Target protection: tetracycline ribosomal protection and Qnr-mediated fluoroquinolone protection.",
+          "Target bypass: alternative folate enzymes for sulfonamide or trimethoprim resistance.",
+          "Clinical implication: low-level protection mechanisms can become high-level resistance when layered with other mechanisms.",
         ],
         question: {
-          pollId: "train-abx-mech-q2",
+          pollId: "train-abx-resistance-q4",
+          prompt:
+            "Which mechanism is best described as target protection rather than drug destruction?",
+          options: [
+            { id: "A", label: "KPC hydrolysis of meropenem", feedback: "Incorrect. That is enzymatic drug inactivation." },
+            { id: "B", label: "Aminoglycoside acetylation", feedback: "Incorrect. That is drug modification/inactivation." },
+            { id: "C", label: "AmpC hydrolysis of ceftriaxone", feedback: "Incorrect. That is beta-lactamase-mediated drug inactivation." },
+            { id: "D", label: "Qnr protection of DNA gyrase from fluoroquinolones", correct: true, feedback: "Correct. Qnr proteins protect the target rather than destroying the fluoroquinolone." },
+          ],
+        },
+      },
+      {
+        heading: "Reduced permeability and efflux are central gram-negative defenses",
+        prose:
+          "Gram-negative organisms add an outer membrane barrier. Drugs must enter through porins or cross membranes, avoid periplasmic enzymes, and remain near the target. Porin loss can reduce entry of beta-lactams and carbapenems. Efflux pumps actively remove antibiotics and can affect tetracyclines, macrolides, fluoroquinolones, beta-lactams, and multiple unrelated classes. Pseudomonas is the classic organism where low permeability, efflux, AmpC, and target changes combine.",
+        bullets: [
+          "Porin loss plus ESBL or AmpC can cause carbapenem resistance without a carbapenemase.",
+          "Efflux can create multidrug resistance because one pump may export several classes.",
+          "DTR Pseudomonas often reflects layered mechanisms, not one simple mutation.",
+        ],
+        question: {
+          pollId: "train-abx-resistance-q5",
           prompt:
             "A carbapenem-resistant Enterobacterales isolate lacks a carbapenemase but has porin loss plus an ESBL. What principle does this illustrate?",
           options: [
-            { id: "A", label: "Resistance phenotypes can reflect combined permeability and enzymatic mechanisms", correct: true, feedback: "Correct. Porin loss decreases entry while beta-lactamase hydrolyzes drug that enters; together they can create high-level resistance without a carbapenemase." },
-            { id: "B", label: "All carbapenem resistance requires a metallo-beta-lactamase", feedback: "Incorrect. Carbapenem resistance can result from carbapenemases or from non-carbapenemase mechanisms such as porin loss plus ESBL or AmpC." },
-            { id: "C", label: "Gram-negative rods do not have PBPs", feedback: "Incorrect. Beta-lactams still target PBPs; the issue is whether the drug reaches and binds them." },
-            { id: "D", label: "Vancomycin should be added for porin loss", feedback: "Incorrect. Vancomycin does not treat Enterobacterales." },
+            { id: "A", label: "All carbapenem resistance requires a metallo-beta-lactamase", feedback: "Incorrect. Carbapenem resistance can arise without a carbapenemase." },
+            { id: "B", label: "Gram-negative rods do not have PBPs", feedback: "Incorrect. Beta-lactams still target PBPs." },
+            { id: "C", label: "Vancomycin should be added for porin loss", feedback: "Incorrect. Vancomycin does not treat Enterobacterales." },
+            { id: "D", label: "Resistance phenotypes can reflect combined permeability and enzymatic mechanisms", correct: true, feedback: "Correct. Porin loss decreases entry while beta-lactamase hydrolyzes drug that enters." },
           ],
         },
       },
       {
-        heading: "Antibiotic classes map to a small set of cellular targets",
+        heading: "ESBL, AmpC, and CRE are different beta-lactam resistance problems",
         prose:
-          "Residents do not need to memorize every agent at once; start with targets. Beta-lactams bind PBPs and block peptidoglycan cross-linking. Vancomycin binds D-Ala-D-Ala cell-wall precursors. Aminoglycosides and tetracyclines act at the 30S ribosomal subunit; macrolides, clindamycin, chloramphenicol, linezolid, and streptogramins act at the 50S subunit. Fluoroquinolones inhibit DNA gyrase/topoisomerase IV, rifamycins inhibit RNA polymerase, TMP-SMX blocks sequential folate metabolism, metronidazole damages anaerobic DNA after reduction, and daptomycin or polymyxins disrupt membranes.",
+          "ESBLs hydrolyze many penicillins and cephalosporins and make ceftriaxone unreliable for serious infection even when reports appear tempting. AmpC enzymes may be inducible or derepressed in organisms such as Enterobacter cloacae complex, Klebsiella aerogenes, and Citrobacter freundii; third-generation cephalosporin therapy can select resistance during invasive infection. CRE may reflect KPC, OXA-48-like, metallo-beta-lactamase, or non-carbapenemase mechanisms, and preferred therapy depends on the mechanism and susceptibility.",
         bullets: [
-          "Cell wall: beta-lactams, vancomycin, fosfomycin, cycloserine, bacitracin.",
-          "Protein synthesis: aminoglycosides, tetracyclines, macrolides, clindamycin, linezolid, chloramphenicol, streptogramins.",
-          "Nucleic acid synthesis or injury: fluoroquinolones, rifamycins, metronidazole, nitrofurantoin.",
-          "Metabolism or membrane: TMP-SMX, daptomycin, polymyxins.",
+          "ESBL-E: think ceftriaxone failure risk in invasive infection.",
+          "AmpC-E: avoid ceftriaxone for invasive disease with moderate-risk organisms even if initially susceptible.",
+          "CRE: request or review mechanism testing when available because therapy differs by enzyme.",
+          "Do not treat all beta-lactamases as one category.",
         ],
         question: {
-          pollId: "train-abx-mech-q3",
-          prompt:
-            "A patient with suspected Rocky Mountain spotted fever is started on doxycycline. Which mechanism best describes doxycycline activity?",
-          options: [
-            { id: "A", label: "Binds the 30S ribosomal subunit and inhibits protein synthesis", correct: true, feedback: "Correct. Doxycycline is a tetracycline-class agent that binds the 30S ribosomal subunit and inhibits protein synthesis." },
-            { id: "B", label: "Binds D-Ala-D-Ala cell-wall precursors", feedback: "Incorrect. That describes glycopeptides such as vancomycin." },
-            { id: "C", label: "Inhibits DNA gyrase", feedback: "Incorrect. That describes fluoroquinolones." },
-            { id: "D", label: "Disrupts anaerobic DNA after nitro-reduction", feedback: "Incorrect. That describes metronidazole." },
-          ],
-        },
-      },
-      {
-        heading: "Resistance is genetic, ecological, and selected by exposure",
-        prose:
-          "Resistance may be intrinsic, acquired by mutation, or acquired by horizontal gene transfer. Mobile genetic elements such as plasmids, transposons, integrons, and resistance islands allow organisms to collect multiple resistance determinants and spread them across species. Antibiotics do not create resistance from nothing; they select organisms or subpopulations that already have survival advantages, especially when exposure is unnecessary, prolonged, subtherapeutic, or applied to high-burden infection without source control.",
-        bullets: [
-          "Intrinsic resistance: predictable biology, such as Enterococcus resistance to cephalosporins or anaerobe resistance to aminoglycosides.",
-          "Mutation: target changes such as fluoroquinolone resistance from gyrA/parC mutations or rifampin resistance from rpoB mutations.",
-          "Horizontal transfer: plasmid-mediated ESBLs, carbapenemases, aminoglycoside-modifying enzymes, qnr genes, or mcr-mediated colistin resistance.",
-          "Selection: treating colonization, using unnecessarily broad therapy, and delaying source control all increase selective pressure.",
-        ],
-        question: {
-          pollId: "train-abx-mech-q4",
-          prompt:
-            "Which statement best distinguishes intrinsic from acquired resistance?",
-          options: [
-            { id: "A", label: "Intrinsic resistance is predictable from species biology; acquired resistance develops by mutation or gene acquisition", correct: true, feedback: "Correct. Intrinsic resistance is built into the organism-drug pairing, while acquired resistance reflects new mutations or horizontally acquired genes." },
-            { id: "B", label: "Intrinsic resistance occurs only after prior antibiotic exposure", feedback: "Incorrect. Prior exposure selects resistant organisms, but intrinsic resistance exists independent of a patient's antibiotic history." },
-            { id: "C", label: "Acquired resistance cannot spread between species", feedback: "Incorrect. Plasmids, transposons, integrons, and other mobile elements can spread resistance genes across organisms." },
-            { id: "D", label: "Intrinsic resistance is always overcome by higher dosing", feedback: "Incorrect. Higher dosing does not reliably overcome fundamental organism-drug mismatch and may only add toxicity." },
-          ],
-        },
-      },
-      {
-        heading: "Beta-lactam resistance is more than one mechanism",
-        prose:
-          "Beta-lactams fail when the drug cannot reach PBPs, is destroyed before target binding, or binds poorly to the target. ESBLs hydrolyze many penicillins and cephalosporins and make ceftriaxone unreliable for invasive infection. AmpC enzymes may be inducible or derepressed in organisms such as Enterobacter cloacae complex, Klebsiella aerogenes, and Citrobacter freundii. Carbapenemases include serine enzymes such as KPC and OXA-48-like enzymes and metallo-beta-lactamases such as NDM, VIM, and IMP. MRSA is different: mecA-mediated PBP2a lowers beta-lactam affinity.",
-        bullets: [
-          "ESBL-E: ceftriaxone and cefotaxime are unreliable for serious infection; use guidance-directed therapy based on syndrome and susceptibility.",
-          "AmpC-risk Enterobacterales: ceftriaxone may test susceptible initially but can select derepressed mutants during invasive infection.",
-          "CRE: ask whether resistance is KPC, metallo-beta-lactamase, OXA-48-like, or non-carbapenemase because preferred therapy differs.",
-          "MRSA: the central issue is altered PBP binding, not an ESBL phenotype.",
-        ],
-        question: {
-          pollId: "train-abx-mech-q5",
+          pollId: "train-abx-resistance-q6",
           prompt:
             "A patient has Klebsiella aerogenes bacteremia from cholangitis. The isolate reports ceftriaxone susceptible. What is the main concern with ceftriaxone?",
           options: [
-            { id: "A", label: "Inducible AmpC can select for derepressed mutants during therapy", correct: true, feedback: "Correct. K. aerogenes is a moderate-risk AmpC organism; invasive infection treated with ceftriaxone can select resistance during therapy." },
-            { id: "B", label: "K. aerogenes lacks a cell wall", feedback: "Incorrect. K. aerogenes has a gram-negative cell wall and can be treated with beta-lactams, but beta-lactam selection matters." },
-            { id: "C", label: "Ceftriaxone never reaches bile", feedback: "Incorrect. Ceftriaxone has biliary excretion; the issue is resistance emergence, not lack of biliary penetration." },
+            { id: "A", label: "K. aerogenes lacks a cell wall", feedback: "Incorrect. K. aerogenes has a gram-negative cell wall." },
+            { id: "B", label: "Ceftriaxone never reaches bile", feedback: "Incorrect. Ceftriaxone has biliary excretion; the issue is resistance emergence." },
+            { id: "C", label: "Inducible AmpC can select for derepressed mutants during therapy", correct: true, feedback: "Correct. K. aerogenes is a moderate-risk AmpC organism; invasive infection treated with ceftriaxone can select resistance during therapy." },
             { id: "D", label: "All Enterobacterales with bacteremia require vancomycin", feedback: "Incorrect. Vancomycin has no reliable gram-negative activity." },
           ],
         },
       },
       {
-        heading: "Protein synthesis resistance has recognizable bedside clues",
+        heading: "Ribosomal resistance includes drug modification, methylation, protection, and efflux",
         prose:
-          "Ribosomal drugs share the idea of blocking translation but have very different resistance mechanisms. Aminoglycoside resistance commonly reflects drug-modifying enzymes, reduced uptake, or 16S rRNA methylation; they are also intrinsically poor against anaerobes because uptake requires oxygen-dependent transport. Tetracycline resistance often reflects efflux pumps, ribosomal protection proteins, or enzymatic inactivation such as Tet(X). Macrolide and clindamycin resistance may reflect erm-mediated ribosomal methylation; the D-test detects inducible clindamycin resistance when erythromycin resistance is present. Linezolid resistance may involve 23S rRNA mutations or transferable genes such as cfr, optrA, and poxtA.",
+          "Aminoglycoside resistance commonly reflects aminoglycoside-modifying enzymes, reduced uptake, or 16S rRNA methylation. Tetracycline resistance often reflects efflux pumps, ribosomal protection proteins, or enzymatic inactivation such as Tet(X). Macrolide and clindamycin resistance may reflect erm-mediated ribosomal methylation; the D-test detects inducible clindamycin resistance when erythromycin resistance is present. Linezolid resistance may involve 23S rRNA mutations or transferable genes such as cfr, optrA, and poxtA.",
         bullets: [
-          "Aminoglycosides: concentration-dependent killing, nephrotoxicity/ototoxicity, poor anaerobic and acidic-environment activity.",
-          "Tetracyclines: useful for rickettsial illness, atypicals, some MRSA, and selected zoonoses; resistance often involves efflux or target protection.",
-          "Macrolide-clindamycin-lincosamide group: erm methylation can produce inducible or constitutive MLSB resistance.",
-          "Linezolid: excellent oral bioavailability and MRSA/VRE activity, but monitor cytopenias, neuropathy, and serotonergic interactions.",
+          "Aminoglycosides: modifying enzymes are common; 16S methylation can cause high-level resistance.",
+          "Tetracyclines: efflux and ribosomal protection are classic.",
+          "Macrolide/clindamycin: erm methylation can be inducible or constitutive.",
+          "Linezolid: watch for resistance with prolonged exposure and VRE pressure.",
         ],
         question: {
-          pollId: "train-abx-mech-q6",
+          pollId: "train-abx-resistance-q7",
           prompt:
             "A community MRSA isolate is erythromycin resistant and clindamycin susceptible on the initial report. What additional result would make clindamycin unreliable?",
           options: [
-            { id: "A", label: "Positive D-test", correct: true, feedback: "Correct. A positive D-test indicates inducible clindamycin resistance and risk of clinical failure despite apparent clindamycin susceptibility." },
-            { id: "B", label: "Negative beta-lactamase test", feedback: "Incorrect. Beta-lactamase testing does not assess inducible MLSB resistance." },
-            { id: "C", label: "Low vancomycin MIC", feedback: "Incorrect. Vancomycin MIC does not determine inducible clindamycin resistance." },
-            { id: "D", label: "Lactose fermentation", feedback: "Incorrect. Lactose fermentation is an Enterobacterales lab feature, not relevant to MRSA clindamycin reliability." },
+            { id: "A", label: "Negative beta-lactamase test", feedback: "Incorrect. Beta-lactamase testing does not assess inducible MLSB resistance." },
+            { id: "B", label: "Low vancomycin MIC", feedback: "Incorrect. Vancomycin MIC does not determine inducible clindamycin resistance." },
+            { id: "C", label: "Lactose fermentation", feedback: "Incorrect. Lactose fermentation is an Enterobacterales lab feature." },
+            { id: "D", label: "Positive D-test", correct: true, feedback: "Correct. A positive D-test indicates inducible clindamycin resistance and risk of clinical failure." },
           ],
         },
       },
       {
-        heading: "DNA, RNA, and folate pathway resistance often emerges through target or pathway changes",
+        heading: "Glycopeptide, daptomycin, polymyxin, fosfomycin, and cefiderocol resistance are mechanism-specific",
         prose:
-          "Fluoroquinolones select mutations in DNA gyrase and topoisomerase IV, often with additional efflux or plasmid-mediated qnr protection. Rifampin resistance can emerge rapidly through rpoB mutations, which is why rifampin is rarely used alone for staphylococcal disease. TMP-SMX resistance may involve alternative dihydropteroate synthase or dihydrofolate reductase enzymes encoded by sul and dfr genes. Metronidazole requires intracellular reduction in anaerobic organisms; reduced activation or altered redox pathways can contribute to resistance.",
+          "VRE usually resists vancomycin by replacing D-Ala-D-Ala with D-Ala-D-Lac, reducing glycopeptide binding. VISA/VRSA in S. aureus involve different biology and are rare but important. Daptomycin resistance often involves altered membrane charge or homeostasis. Polymyxin resistance can result from lipid A modification, including plasmid-mediated mcr genes. Fosfomycin resistance may reflect transporter changes, MurA changes, or Fos enzymes. Cefiderocol resistance may involve siderophore transport changes, beta-lactamases, or permeability changes.",
         bullets: [
-          "Fluoroquinolone resistance: gyrA/parC target mutations, efflux, reduced permeability, and plasmid-mediated qnr genes.",
-          "Rifampin resistance: rpoB mutation; avoid monotherapy when bacterial burden is meaningful.",
-          "TMP-SMX resistance: sul and dfr genes or pathway bypass; susceptibility matters because resistance is common in some settings.",
-          "Nitrofurantoin and metronidazole: activity depends partly on intracellular activation and is syndrome-limited.",
+          "VRE: target remodeling; linezolid or daptomycin decisions depend on syndrome and susceptibility.",
+          "Daptomycin: resistance risk rises with high-burden infection and poor source control.",
+          "Polymyxins: lipid A modification reduces binding.",
+          "Cefiderocol: iron-transport biology means resistance can involve siderophore pathway changes.",
         ],
         question: {
-          pollId: "train-abx-mech-q7",
-          prompt:
-            "Which mechanism most directly explains common high-level fluoroquinolone resistance in Enterobacterales?",
-          options: [
-            { id: "A", label: "Mutations in DNA gyrase and topoisomerase IV targets", correct: true, feedback: "Correct. gyrA and parC mutations are central mechanisms; efflux, permeability changes, and plasmid-mediated qnr genes may add to resistance." },
-            { id: "B", label: "Replacement of D-Ala-D-Ala with D-Ala-D-Lac", feedback: "Incorrect. That describes glycopeptide resistance in enterococci." },
-            { id: "C", label: "mecA-mediated PBP2a production", feedback: "Incorrect. That describes MRSA resistance to most beta-lactams." },
-            { id: "D", label: "Anaerobic nitro-reduction of the drug", feedback: "Incorrect. Nitro-reduction is relevant to metronidazole activation, not fluoroquinolone resistance." },
-          ],
-        },
-      },
-      {
-        heading: "Membrane and newer-agent resistance should change the treatment conversation",
-        prose:
-          "Vancomycin resistance in enterococci usually reflects replacement of the D-Ala-D-Ala cell-wall precursor terminus with D-Ala-D-Lac, lowering glycopeptide binding; VanA typically confers vancomycin and teicoplanin resistance, while VanB affects vancomycin variably. VISA/VRSA in S. aureus involve different biology and are rare but important. Daptomycin resistance often involves altered membrane charge or homeostasis and can be selected during deep-seated infection. Polymyxin resistance can result from lipid A modification, including plasmid-mediated mcr genes. Fosfomycin resistance may reflect transporter changes, MurA changes, or Fos enzymes. Cefiderocol resistance may involve siderophore transport changes, beta-lactamases, or permeability changes.",
-        bullets: [
-          "VRE: altered peptidoglycan terminus reduces vancomycin binding; linezolid or daptomycin decisions depend on syndrome and susceptibility.",
-          "Daptomycin: not used for pneumonia because pulmonary surfactant inactivates it; resistance risk rises with uncontrolled high-burden infection.",
-          "Polymyxins: toxicity is substantial and resistance can emerge through lipid A modification.",
-          "Cefiderocol and newer beta-lactam/beta-lactamase inhibitors: ask the lab and ID team about mechanism because activity varies by carbapenemase and local testing.",
-        ],
-        question: {
-          pollId: "train-abx-mech-q8",
+          pollId: "train-abx-resistance-q8",
           prompt:
             "Vancomycin-resistant Enterococcus faecium most commonly avoids vancomycin activity through which mechanism?",
           options: [
-            { id: "A", label: "Replacement of D-Ala-D-Ala with D-Ala-D-Lac in the cell-wall precursor", correct: true, feedback: "Correct. Van genes remodel the peptidoglycan terminus and reduce vancomycin binding." },
-            { id: "B", label: "Production of PBP2a encoded by mecA", feedback: "Incorrect. PBP2a explains MRSA beta-lactam resistance, not VRE." },
+            { id: "A", label: "Production of PBP2a encoded by mecA", feedback: "Incorrect. PBP2a explains MRSA beta-lactam resistance." },
+            { id: "B", label: "Replacement of D-Ala-D-Ala with D-Ala-D-Lac in the cell-wall precursor", correct: true, feedback: "Correct. Van genes remodel the peptidoglycan terminus and reduce vancomycin binding." },
             { id: "C", label: "Anaerobic inactivation of vancomycin", feedback: "Incorrect. VRE resistance is not driven by anaerobic drug inactivation." },
             { id: "D", label: "Loss of bacterial ribosomes", feedback: "Incorrect. Ribosomes are essential and are not the mechanism of glycopeptide resistance." },
           ],
         },
       },
       {
-        heading: "Susceptibility reports require clinical interpretation",
+        heading: "Biofilm and persistence are source-control problems as much as drug problems",
         prose:
-          "The susceptibility table is a measured phenotype under standardized conditions. It does not automatically tell you mechanism, source control, tissue penetration, biofilm activity, inoculum effect, toxicity, or whether the drug is appropriate for the syndrome. MICs are interpreted using breakpoints that may differ by organism, drug, dose, and infection site. Intermediate or susceptible-dose-dependent results may require higher exposure. Some reported drugs are useful only for urine. Others appear active in vitro but are unreliable because of intrinsic resistance or inducible resistance.",
+          "Biofilm on catheters, prosthetic joints, valves, cardiac devices, stones, and necrotic tissue creates a protected microbial community with altered metabolism and reduced antimicrobial susceptibility. Persister cells are phenotypically tolerant rather than genetically resistant, but the clinical effect can be relapse if the infected focus remains. Antibiotic escalation rarely solves an undrained abscess, obstructed urinary tract, infected catheter, or devitalized tissue by itself.",
         bullets: [
-          "Read organism first, then susceptibilities; species identity can make some rows irrelevant.",
-          "Know the site: nitrofurantoin and fosfomycin may be reasonable for cystitis but not bacteremia, pyelonephritis, pneumonia, or deep infection.",
-          "Ask about mechanism for CRE, metallo-beta-lactamases, unusual Pseudomonas patterns, and discordant phenotypes.",
-          "Call the microbiology lab when the report conflicts with the syndrome or when additional testing would change therapy.",
+          "Remove or exchange infected hardware when feasible and clinically indicated.",
+          "Drain abscesses and relieve obstruction early.",
+          "Do not confuse persistent positive cultures from poor source control with the need for endlessly broader antibiotics.",
         ],
         question: {
-          pollId: "train-abx-mech-q9",
+          pollId: "train-abx-resistance-q9",
           prompt:
-            "Blood cultures grow E. coli in a patient with pyelonephritis. The urine isolate reports nitrofurantoin susceptible. Why is nitrofurantoin inappropriate definitive therapy for the bacteremia/pyelonephritis syndrome?",
+            "A patient with persistent bacteremia has an infected central venous catheter that remains in place. What resistance-related principle is most relevant?",
           options: [
-            { id: "A", label: "It concentrates in urine but does not achieve reliable renal parenchymal or bloodstream levels", correct: true, feedback: "Correct. Nitrofurantoin can be useful for lower-tract cystitis but is not appropriate for pyelonephritis or bacteremia despite a susceptible urine result." },
-            { id: "B", label: "It has no activity against E. coli in the bladder", feedback: "Incorrect. Nitrofurantoin often has E. coli cystitis activity; the problem is the invasive syndrome and site." },
-            { id: "C", label: "It is only active against anaerobes", feedback: "Incorrect. Nitrofurantoin is used for selected aerobic urinary pathogens, not anaerobic coverage." },
-            { id: "D", label: "It is a glycopeptide blocked by D-Ala-D-Lac", feedback: "Incorrect. Nitrofurantoin is not a glycopeptide and VRE-type resistance is unrelated." },
+            { id: "A", label: "Biofilm and source-control failure can cause persistence despite in vitro susceptibility", correct: true, feedback: "Correct. Biofilm on infected hardware can sustain infection; source control is often essential." },
+            { id: "B", label: "All persistent bacteremia means the lab reported the wrong organism", feedback: "Incorrect. Lab error is possible but not the main principle; source control is central." },
+            { id: "C", label: "Antibiotics sterilize all retained foreign material if continued long enough", feedback: "Incorrect. Retained infected hardware may require removal or exchange." },
+            { id: "D", label: "Susceptibility testing is irrelevant", feedback: "Incorrect. Susceptibility matters, but it cannot replace source control." },
           ],
         },
       },
       {
-        heading: "Know the resistance phenotypes residents see on call",
+        heading: "Susceptibility reports are phenotypes, not complete mechanism reports",
         prose:
-          "A small group of phenotypes accounts for much of bedside antimicrobial anxiety. MRSA usually means mecA/PBP2a. VRE usually means VanA or VanB-mediated target remodeling. ESBL-producing Enterobacterales threaten ceftriaxone and many penicillin/cephalosporin options. AmpC-risk organisms can become resistant during therapy with third-generation cephalosporins. CRE may be KPC, OXA-48-like, metallo-beta-lactamase, or non-carbapenemase. Difficult-to-treat Pseudomonas often combines low permeability, efflux, AmpC, and target mutations. Acinetobacter and Stenotrophomonas require organism-specific thinking rather than reflex carbapenem escalation.",
+          "The susceptibility table reflects standardized testing and breakpoint interpretation. It does not automatically report mechanism, tissue penetration, inoculum effect, biofilm activity, source control, toxicity, or whether a drug is appropriate for the syndrome. Intermediate or susceptible-dose-dependent results may require higher exposure. Some drugs are reported because they are useful for cystitis but are wrong for pyelonephritis or bacteremia. When CRE, DTR Pseudomonas, VRE bacteremia, or discordant results appear, call the microbiology lab early.",
         bullets: [
-          "MRSA: use anti-MRSA therapy for invasive disease; cefazolin/nafcillin remain preferred for MSSA when possible.",
-          "ESBL-E/AmpC-E/CRE: mechanism changes beta-lactam choice; IDSA AMR guidance is the practical reference.",
-          "DTR Pseudomonas: susceptibility may depend on newer agents and local testing; avoid assuming all anti-pseudomonal beta-lactams behave similarly.",
-          "Stenotrophomonas: intrinsic beta-lactam resistance is common; treatment usually uses TMP-SMX, minocycline, levofloxacin, cefiderocol, or combinations depending on severity and guidance.",
-          "Stewardship: narrow when cultures and syndrome allow, optimize PK/PD, avoid treating colonization, and document duration.",
+          "Read organism identity before the drug rows.",
+          "Know the site: urine-only drugs are not bloodstream drugs.",
+          "Ask for mechanism testing when it will change therapy.",
+          "Treat infection, not colonization or culture positivity alone.",
         ],
         question: {
-          pollId: "train-abx-mech-q10",
+          pollId: "train-abx-resistance-q10",
           prompt:
-            "A CRE isolate is reported to produce NDM, a metallo-beta-lactamase. Why does this mechanism matter clinically?",
+            "Blood cultures grow E. coli in a patient with pyelonephritis. The urine isolate reports nitrofurantoin susceptible. Why is nitrofurantoin inappropriate definitive therapy for bacteremia/pyelonephritis?",
           options: [
-            { id: "A", label: "It predicts that some KPC-active beta-lactamase inhibitor combinations may not work", correct: true, feedback: "Correct. Metallo-beta-lactamases are not inhibited by several serine beta-lactamase inhibitor combinations; therapy differs from KPC-producing CRE and often requires mechanism-specific guidance." },
-            { id: "B", label: "It proves vancomycin is the preferred drug", feedback: "Incorrect. Vancomycin has no reliable Enterobacterales activity." },
-            { id: "C", label: "It means ceftriaxone is preferred if the urine isolate appears susceptible", feedback: "Incorrect. NDM-producing CRE is a major resistance phenotype requiring careful mechanism-directed therapy." },
-            { id: "D", label: "It means resistance is due only to PBP2a", feedback: "Incorrect. PBP2a is the MRSA mechanism, not an NDM carbapenemase." },
+            { id: "A", label: "It has no activity against E. coli in the bladder", feedback: "Incorrect. Nitrofurantoin often has E. coli cystitis activity; the problem is the invasive syndrome and site." },
+            { id: "B", label: "It is only active against anaerobes", feedback: "Incorrect. Nitrofurantoin is used for selected aerobic urinary pathogens." },
+            { id: "C", label: "It is a glycopeptide blocked by D-Ala-D-Lac", feedback: "Incorrect. Nitrofurantoin is not a glycopeptide." },
+            { id: "D", label: "It concentrates in urine but does not achieve reliable renal parenchymal or bloodstream levels", correct: true, feedback: "Correct. Nitrofurantoin can be useful for lower-tract cystitis but is not appropriate for pyelonephritis or bacteremia." },
           ],
         },
       },
@@ -915,14 +1195,14 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         title: "Molecular Mechanisms of Antibiotic Resistance in Bacteria",
         source: "Perez F, Stiefel U, Bonomo RA. In: Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases, Ch. 18.",
         kind: "book",
-        focus: "Authoritative textbook chapter for the molecular framework: beta-lactamases, permeability, efflux, target alteration, mobile genetic elements, and clinically important resistance phenotypes.",
+        focus: "Authoritative textbook chapter for beta-lactamases, permeability, efflux, target alteration, mobile genetic elements, and clinically important resistance phenotypes.",
       },
       {
         title: "Action and resistance mechanisms of antibiotics: a guide for clinicians",
         source: "Kapoor G, Saigal S, Elongavan A. J Anaesthesiol Clin Pharmacol. 2017;33(3):300-305. PMID: 29109626. DOI: 10.4103/joacp.JOACP_349_15.",
         url: "https://pubmed.ncbi.nlm.nih.gov/29109626/",
         kind: "review",
-        focus: "Short, accessible foundation for antibiotic mechanisms of action and major resistance pathways.",
+        focus: "Short clinician-friendly companion review for mechanisms of action and major resistance pathways.",
       },
       {
         title: "IDSA Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
@@ -947,7 +1227,7 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
       },
     ],
     pearls: [
-      "Mechanism explains the classic treatment traps: MRSA and beta-lactams, Enterococcus and cephalosporins, AmpC organisms and ceftriaxone, nitrofurantoin and pyelonephritis.",
+      "Resistance mechanisms explain the classic treatment traps: MRSA and beta-lactams, Enterococcus and cephalosporins, AmpC organisms and ceftriaxone, nitrofurantoin and pyelonephritis.",
       "Do not treat the susceptibility table without the organism, syndrome, source, host, and site of infection.",
       "Gram-negative resistance is often layered; ask whether beta-lactamase, porin loss, efflux, and target changes are interacting.",
       "A positive culture is not always infection. Treating colonization is one of the fastest ways to select resistance without helping the patient.",
