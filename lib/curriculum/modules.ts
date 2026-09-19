@@ -14,10 +14,18 @@ export type CurriculumQuestion = {
   options: CaseOption[];
 };
 
+export type TeachingTable = {
+  title: string;
+  columns: string[];
+  rows: string[][];
+  note?: string;
+};
+
 export type KeyConceptSection = {
   heading: string;
   prose: string;
   bullets?: string[];
+  tables?: TeachingTable[];
   question?: CurriculumQuestion;
 };
 
@@ -667,36 +675,50 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
     title: "Antimicrobials: mechanisms of action",
     category: "Antimicrobial Therapy & Resistance",
     summary:
-      "A class-based resident guide to how antibacterial drugs work: targets, spectrum anchors, site limitations, toxicities, and pharmacodynamic principles.",
-    readMins: 30,
+      "A class-by-class antibacterial mechanism atlas: drug targets, PBP concepts, pharmacodynamics, site limitations, toxicities, and bedside anchors.",
+    readMins: 42,
     difficulty: "core",
     lastReviewed: "2026-09-19",
     lastUpdated: "2026-09-19",
     atAGlance: [
-      "First classify the drug by target: cell wall, ribosome, nucleic-acid synthesis, folate metabolism, or membrane.",
-      "Beta-lactams are cell-wall agents; their clinical differences come from spectrum, beta-lactamase stability, PBP affinity, and PK/PD.",
-      "Protein synthesis inhibitors share ribosomal targets but differ in spectrum, toxicity, oral bioavailability, and intracellular activity.",
-      "Fluoroquinolones, rifamycins, metronidazole, nitrofurantoin, and TMP-SMX are best remembered by target plus syndrome-specific limitations.",
-      "Drug selection is not spectrum alone: infection site, source control, host factors, toxicity, interactions, and oral bioavailability matter.",
-      "Mechanism-of-action knowledge is the foundation; resistance mechanisms are layered on in the next module.",
+      "Beta-lactams bind penicillin-binding proteins (PBPs), inhibit peptidoglycan cross-linking, and kill best when free drug remains above the MIC.",
+      "Penicillins, cephalosporins, carbapenems, and aztreonam differ by PBP affinity, gram-negative entry, beta-lactamase stability, and spectrum gaps.",
+      "Vancomycin binds D-Ala-D-Ala cell-wall precursors; oral vancomycin is intestinal therapy, not systemic MRSA therapy.",
+      "Daptomycin causes calcium-dependent gram-positive membrane depolarization; pulmonary surfactant inactivates it, so it is not a pneumonia drug.",
+      "Aminoglycosides bind 30S, cause mRNA misreading, and kill concentration-dependently; tetracyclines bind 30S and block aminoacyl-tRNA entry.",
+      "Macrolides, clindamycin, linezolid, chloramphenicol, streptogramins, and lefamulin bind 50S but act at different functional sites.",
+      "Fluoroquinolones inhibit DNA gyrase/topoisomerase IV; rifamycins inhibit DNA-dependent RNA polymerase.",
+      "TMP-SMX blocks sequential folate synthesis; metronidazole and nitrofurantoin require intracellular activation and are strongly syndrome-limited.",
     ],
     objectives: [
       "Organize common antibacterial agents by class and cellular target.",
       "Explain how beta-lactam subclasses differ in spectrum and clinical use.",
       "Compare 30S and 50S protein synthesis inhibitors by mechanism, clinical niche, and toxicity.",
       "Recognize site-specific limitations such as nitrofurantoin for cystitis only and daptomycin inactivation in pneumonia.",
-      "Apply basic PK/PD principles to class selection and dosing conversations.",
+      "Explain which antibacterial classes are primarily time-dependent, concentration-dependent, or AUC/MIC-linked and how that affects clinical use.",
     ],
     keyConcepts: [
       {
         heading: "Classify antimicrobials by target before memorizing spectrum",
         prose:
           "Antibacterial drugs are easier to understand when the first question is 'what bacterial process does this drug interrupt?' Cell-wall agents weaken peptidoglycan synthesis or assembly. Protein synthesis inhibitors bind ribosomal subunits. Fluoroquinolones and rifamycins interfere with DNA or RNA synthesis. TMP-SMX blocks sequential folate metabolism. Daptomycin and polymyxins disrupt membranes. This framework explains many spectrum gaps, toxicities, and treatment limitations before resistance is considered.",
-        bullets: [
-          "Cell wall: beta-lactams bind PBPs; vancomycin binds D-Ala-D-Ala; fosfomycin blocks an early peptidoglycan step.",
-          "Ribosome: aminoglycosides and tetracyclines act at 30S; macrolides, clindamycin, linezolid, chloramphenicol, and streptogramins act at 50S.",
-          "DNA/RNA: fluoroquinolones inhibit DNA gyrase/topoisomerase IV; rifamycins inhibit RNA polymerase; metronidazole causes anaerobe-specific DNA injury.",
-          "Metabolism/membrane: TMP-SMX blocks folate metabolism; daptomycin and polymyxins disrupt bacterial membranes.",
+        tables: [
+          {
+            title: "Antibacterial class mechanism map",
+            columns: ["Class", "Primary target", "Exposure pattern", "Clinical anchor"],
+            rows: [
+              ["Beta-lactams", "PBPs/transpeptidases; peptidoglycan cross-linking", "Time-dependent bactericidal", "Spectrum depends on subclass, entry, PBP affinity, and beta-lactamase stability"],
+              ["Glycopeptides", "D-Ala-D-Ala cell-wall precursors", "Exposure-linked, slow bactericidal", "Serious gram-positive infections; oral vancomycin is intestinal only"],
+              ["Daptomycin", "Gram-positive membrane depolarization", "Concentration/AUC-linked bactericidal", "MRSA/VRE bacteremia outside pneumonia"],
+              ["Aminoglycosides", "30S ribosome; mRNA misreading", "Concentration-dependent bactericidal", "Selected severe gram-negative infection and synergy; not anaerobes"],
+              ["Tetracyclines", "30S ribosome; block aminoacyl-tRNA entry", "AUC-linked, usually bacteriostatic", "Rickettsial disease, atypicals, zoonoses, MRSA, selected resistant organisms"],
+              ["50S inhibitors", "50S ribosome at class-specific sites", "Usually time/AUC-linked", "Atypicals, toxin suppression, MRSA/VRE depending on agent"],
+              ["Fluoroquinolones", "DNA gyrase/topoisomerase IV", "AUC/MIC-linked bactericidal", "Respiratory, urinary, GI, bone/prostate uses when risks are justified"],
+              ["Rifamycins", "DNA-dependent RNA polymerase", "AUC-linked; resistance emerges quickly alone", "TB regimens and selected hardware-associated staphylococcal infection"],
+              ["TMP-SMX", "Sequential folate synthesis blockade", "Exposure-linked", "UTI, MRSA SSTI, Pneumocystis, Nocardia, Stenotrophomonas"],
+              ["Metronidazole/nitrofurantoin", "Intracellular activation to reactive intermediates", "Syndrome-limited", "Anaerobes/protozoa for metronidazole; cystitis for nitrofurantoin"],
+            ],
+          },
         ],
         question: {
           pollId: "train-abx-action-q1",
@@ -711,14 +733,57 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
         },
       },
       {
-        heading: "Beta-lactams all target PBPs, but subclasses behave differently",
+        heading: "Beta-lactams: PBPs first, then subclasses",
         prose:
-          "Penicillins, cephalosporins, carbapenems, and aztreonam all inhibit cell-wall synthesis by binding PBPs, but their clinical roles differ. Natural penicillins remain important for susceptible streptococci, syphilis, and selected anaerobes. Anti-staphylococcal penicillins and cefazolin are core MSSA drugs. Aminopenicillins add Enterococcus and selected gram-negative activity. Anti-pseudomonal penicillins, later-generation cephalosporins, cefepime, carbapenems, and aztreonam extend gram-negative coverage in different ways. Beta-lactams are generally time-dependent drugs: maintaining free drug above the MIC is the key exposure concept.",
-        bullets: [
-          "Cefazolin/nafcillin: preferred definitive therapy for many MSSA infections.",
-          "Ceftriaxone: useful for many community gram-negative and streptococcal infections but not Pseudomonas or Enterococcus.",
-          "Cefepime: broader gram-negative activity including Pseudomonas; neurotoxicity risk rises with renal dysfunction.",
-          "Carbapenems: broad gram-negative, anaerobic, and many ESBL roles; ertapenem does not cover Pseudomonas or Acinetobacter.",
+          "Penicillins, cephalosporins, carbapenems, and aztreonam all inhibit cell-wall synthesis by binding PBPs, but their clinical behavior differs by PBP affinity, gram-negative entry, beta-lactamase stability, protein binding, and pharmacodynamics. PBP specificity is useful as a teaching anchor, but it is never the whole spectrum story.",
+        tables: [
+          {
+            title: "High-yield PBP concepts",
+            columns: ["Concept", "Mechanism meaning", "Clinical implication"],
+            rows: [
+              ["PBP/transpeptidase inhibition", "Beta-lactams block peptidoglycan cross-linking", "Bactericidal activity depends on active cell-wall synthesis"],
+              ["PBP3 activity", "Important septation target in many gram-negative rods", "Aztreonam and many cephalosporins are often taught through PBP3 activity"],
+              ["Carbapenem multi-PBP binding", "Carbapenems bind several PBPs; imipenem has prominent PBP2 activity in many gram-negatives", "Broad cidal activity, but still limited by carbapenemases, porins, and organism gaps"],
+              ["PBP2a", "mecA-encoded low-affinity PBP in MRSA", "Most beta-lactams fail against MRSA"],
+              ["Ceftaroline-PBP2a", "Ceftaroline binds PBP2a with useful affinity", "Explains ceftaroline MRSA activity"],
+              ["Enterococcal PBPs", "Low-affinity PBPs reduce cephalosporin activity", "Cephalosporins are unreliable for Enterococcus"],
+            ],
+            note: "PBP behavior varies by organism; susceptibility, infection site, and beta-lactamase context still matter.",
+          },
+          {
+            title: "Penicillins and inhibitor combinations",
+            columns: ["Drug/subclass", "Mechanism detail", "Clinical anchor", "Major gap or caution"],
+            rows: [
+              ["Penicillin G/V", "Natural penicillin PBP binding", "Syphilis, susceptible streptococci, selected oral/anaerobic organisms", "Beta-lactamase vulnerable"],
+              ["Nafcillin/oxacillin/dicloxacillin", "Penicillinase-stable PBP inhibition", "MSSA and streptococci", "No MRSA, Enterococcus, Pseudomonas, or anaerobes"],
+              ["Ampicillin/amoxicillin", "Aminopenicillin PBP inhibition", "Enterococcus faecalis, Listeria, susceptible respiratory/urinary pathogens", "Beta-lactamase vulnerable without inhibitor"],
+              ["Piperacillin/ticarcillin", "Extended-spectrum anti-pseudomonal penicillin PBP inhibition", "Pseudomonas and broad gram-negative coverage when paired with inhibitor", "Beta-lactamase vulnerability; ticarcillin uncommon"],
+              ["Amoxicillin-clavulanate", "Aminopenicillin plus beta-lactamase inhibition", "Bites, oral flora, selected respiratory/anaerobic syndromes", "Not Pseudomonas or serious ESBL therapy"],
+              ["Ampicillin-sulbactam", "Aminopenicillin plus inhibitor; sulbactam has Acinetobacter PBP activity", "Mixed oral/GI flora; high-dose Acinetobacter role", "No Pseudomonas"],
+              ["Piperacillin-tazobactam", "Anti-pseudomonal penicillin plus inhibitor", "Broad empiric gram-negative, anaerobic, and E. faecalis coverage", "Not a universal ESBL drug for invasive infection"],
+            ],
+          },
+          {
+            title: "Cephalosporins, carbapenems, and monobactam",
+            columns: ["Drug/subclass", "Mechanism detail", "Clinical anchor", "Major gap or caution"],
+            rows: [
+              ["Cefazolin/cephalexin", "PBP inhibition with strong gram-positive role", "MSSA and streptococci", "No MRSA, Enterococcus, Pseudomonas, or reliable anaerobes"],
+              ["Cefuroxime", "PBP inhibition with more respiratory gram-negative activity than first generation", "Selected respiratory pathogens", "Not Pseudomonas"],
+              ["Cefoxitin/cefotetan", "Cephamycin PBP inhibition with anaerobic stability", "Selected intra-abdominal/pelvic contexts", "Not Pseudomonas"],
+              ["Ceftriaxone/cefotaxime", "PBP inhibition for many Enterobacterales and streptococci", "CAP, meningitis regimens, susceptible Enterobacterales", "No Pseudomonas or Enterococcus; avoid invasive AmpC-risk organisms"],
+              ["Ceftazidime", "Anti-pseudomonal cephalosporin PBP inhibition", "Pseudomonas when susceptible", "Weaker gram-positive activity"],
+              ["Cefepime", "PBP inhibition with enhanced gram-negative entry/stability", "Pseudomonas and many AmpC-risk infections when susceptible", "Neurotoxicity risk with renal dysfunction; no anaerobes"],
+              ["Ceftaroline", "PBP2a binding plus usual PBP inhibition", "MRSA and streptococci; selected pneumonia/SSTI roles", "No Pseudomonas"],
+              ["Ceftolozane-tazobactam", "Anti-pseudomonal cephalosporin plus inhibitor", "DTR Pseudomonas when susceptible", "Not a broad CRE/MBL drug"],
+              ["Ceftazidime-avibactam", "Ceftazidime plus inhibitor active against many KPC/OXA-48-like enzymes", "Selected CRE and resistant gram-negative infections", "Not metallo-beta-lactamases alone"],
+              ["Cefiderocol", "Siderophore cephalosporin enters by iron transport", "Selected carbapenem-resistant gram-negative infections", "Mechanism-specific susceptibility interpretation needed"],
+              ["Imipenem/meropenem/doripenem", "Carbapenem multi-PBP binding", "Broad gram-negative/anaerobic coverage; Pseudomonas when susceptible", "No MRSA/VRE/atypicals; doripenem VAP warning"],
+              ["Ertapenem", "Long-acting carbapenem PBP inhibition", "ESBL Enterobacterales when Pseudomonas not needed", "No Pseudomonas, Acinetobacter, or Enterococcus"],
+              ["Meropenem-vaborbactam", "Carbapenem plus KPC-active inhibitor", "KPC-producing CRE", "Not MBL or OXA-48-like solution"],
+              ["Imipenem-relebactam", "Carbapenem plus inhibitor active against many KPC and some Pseudomonas mechanisms", "Selected resistant gram-negative infections", "Not MBL"],
+              ["Aztreonam", "Monobactam; primarily gram-negative PBP3 activity", "Aerobic gram-negative rods; MBL logic with avibactam", "No gram-positive or anaerobic activity"],
+            ],
+          },
         ],
         question: {
           pollId: "train-abx-action-q2",
@@ -764,6 +829,22 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Daptomycin: bactericidal gram-positive agent; avoid pneumonia; monitor CPK and myopathy risk.",
           "Fosfomycin: urinary concentrations are the clinical advantage; do not use as bacteremia therapy.",
         ],
+        tables: [
+          {
+            title: "Glycopeptides, lipoglycopeptides, and other cell-wall agents",
+            columns: ["Drug", "Mechanism", "Clinical anchor", "Major limitation"],
+            rows: [
+              ["Vancomycin IV", "Binds D-Ala-D-Ala precursors", "MRSA and serious gram-positive empiric coverage", "No gram-negative activity; nephrotoxicity/exposure monitoring"],
+              ["Vancomycin PO", "Same target, but not systemically absorbed", "C. difficile intestinal therapy", "Does not treat bacteremia, pneumonia, cellulitis, or endocarditis"],
+              ["Dalbavancin", "Long-acting lipoglycopeptide cell-wall inhibitor", "Selected gram-positive SSTI and off-label long-course strategies", "Long half-life makes errors hard to reverse"],
+              ["Oritavancin", "Lipoglycopeptide with cell-wall and membrane effects", "Selected gram-positive SSTI", "Interferes with some coagulation tests"],
+              ["Telavancin", "Lipoglycopeptide with cell-wall and membrane effects", "Selected MRSA gram-positive infections", "Nephrotoxicity and pregnancy warnings"],
+              ["Fosfomycin", "MurA inhibition early in peptidoglycan synthesis", "Selected uncomplicated cystitis", "Not pyelonephritis or bacteremia therapy"],
+              ["Cycloserine", "Blocks alanine racemase and D-Ala-D-Ala ligase", "Second-line TB", "Neuropsychiatric toxicity"],
+              ["Bacitracin", "Blocks bactoprenol recycling", "Topical use", "Systemic nephrotoxicity"],
+            ],
+          },
+        ],
         question: {
           pollId: "train-abx-action-q4",
           prompt:
@@ -785,6 +866,25 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Doxycycline: first-line for many tick-borne rickettsial illnesses and useful for atypical pathogens.",
           "Minocycline/tigecycline/eravacycline: broader resistant-organism niches; understand bloodstream limitations and syndrome fit.",
           "Tetracycline toxicities: GI intolerance, photosensitivity, esophagitis, tooth/bone considerations in selected populations.",
+        ],
+        tables: [
+          {
+            title: "30S inhibitor atlas",
+            columns: ["Drug/class", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Gentamicin", "30S binding with mRNA misreading", "Synergy in selected gram-positive infections; gram-negative coverage", "Nephrotoxicity, ototoxicity; poor anaerobic activity"],
+              ["Tobramycin", "30S aminoglycoside", "Pseudomonas activity; inhaled use in selected airway disease", "Nephrotoxicity/ototoxicity"],
+              ["Amikacin", "30S aminoglycoside less affected by some modifying enzymes", "Resistant gram-negative infections when susceptible", "Nephrotoxicity/ototoxicity"],
+              ["Streptomycin", "30S aminoglycoside", "TB, plague, and tularemia historical/specialized roles", "Ototoxicity; specialized use"],
+              ["Plazomicin", "Newer aminoglycoside designed against some modifying enzymes", "Selected resistant Enterobacterales UTI", "Aminoglycoside toxicity; limited indications"],
+              ["Doxycycline", "30S tetracycline; blocks aminoacyl-tRNA entry", "Rickettsial disease, atypicals, MRSA SSTI, zoonoses", "Photosensitivity, esophagitis, GI intolerance"],
+              ["Minocycline", "30S tetracycline derivative", "MRSA and selected resistant gram-negative roles", "Vestibular effects, pigmentation, autoimmune reactions"],
+              ["Tetracycline", "30S tetracycline", "Acne and selected infections; less central now", "Food/cation interactions; GI effects"],
+              ["Tigecycline", "Glycylcycline 30S agent", "Complicated intra-abdominal/SSTI; broad tissue distribution", "Low serum levels; avoid as bacteremia monotherapy"],
+              ["Eravacycline", "Fluorocycline 30S agent", "Complicated intra-abdominal infection", "Not UTI; limited bacteremia role"],
+              ["Omadacycline", "Aminomethylcycline 30S agent", "CABP and ABSSSI", "Cation/food administration issues; nausea"],
+            ],
+          },
         ],
         question: {
           pollId: "train-abx-action-q5",
@@ -808,6 +908,24 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Linezolid: oral equals IV exposure for practical purposes; useful step-down option when syndrome fits.",
           "Tedizolid: related oxazolidinone with selected ABSSSI role; less residency-core than linezolid.",
         ],
+        tables: [
+          {
+            title: "50S inhibitor atlas",
+            columns: ["Drug/class", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Azithromycin", "50S macrolide; blocks translocation", "Atypical pneumonia pathogens, selected STI/GI uses", "QT, resistance; fewer CYP interactions than clarithro/erythro"],
+              ["Clarithromycin", "50S macrolide", "H. pylori and NTM regimens", "CYP interactions, QT, GI effects"],
+              ["Erythromycin", "50S macrolide", "Motilin effect; less common antibacterial use", "GI intolerance, CYP interactions, QT"],
+              ["Clindamycin", "50S lincosamide", "Anaerobes above diaphragm, selected SSTI, toxin suppression", "C. difficile risk; inducible resistance"],
+              ["Linezolid", "50S oxazolidinone; blocks initiation complex", "MRSA and VRE; excellent oral bioavailability", "Thrombocytopenia, neuropathy, serotonin interaction concerns"],
+              ["Tedizolid", "50S oxazolidinone", "ABSSSI gram-positive infections", "Less broad experience than linezolid"],
+              ["Chloramphenicol", "50S peptidyl transferase inhibition", "Rare meningitis/rickettsial alternatives globally", "Aplastic anemia, gray baby syndrome"],
+              ["Quinupristin-dalfopristin", "Streptogramin combination binding 50S", "VRE faecium historical/niche role", "Not E. faecalis; arthralgia/myalgia, infusion issues"],
+              ["Lefamulin", "Pleuromutilin binding peptidyl transferase center", "Community-acquired bacterial pneumonia", "QT, drug interactions, cost/access"],
+              ["Fidaxomicin", "Inhibits bacterial RNA polymerase sigma-dependent transcription", "C. difficile with minimal systemic absorption", "Intestinal/narrow C. difficile role"],
+            ],
+          },
+        ],
         question: {
           pollId: "train-abx-action-q6",
           prompt:
@@ -829,6 +947,23 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Rifampin: never use alone for active staphylococcal infection or TB because resistance emerges quickly.",
           "Metronidazole: anaerobes below the diaphragm and selected protozoa; no aerobic gram-negative coverage.",
           "Nitrofurantoin: lower UTI only when renal function and organism susceptibility support use.",
+        ],
+        tables: [
+          {
+            title: "DNA/RNA and activated intracellular agents",
+            columns: ["Drug/class", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Ciprofloxacin", "DNA gyrase/topoisomerase IV inhibition", "Gram-negative urinary/GI/prostate uses; Pseudomonas when susceptible", "Tendons, CNS, QT, dysglycemia, aortic warnings, C. difficile"],
+              ["Levofloxacin", "DNA gyrase/topoisomerase IV inhibition", "Respiratory and urinary uses; atypicals", "Fluoroquinolone class warnings"],
+              ["Moxifloxacin", "DNA gyrase/topoisomerase IV inhibition", "Respiratory pathogens and anaerobic activity", "Poor urine levels; QT; no Pseudomonas"],
+              ["Delafloxacin", "Fluoroquinolone with gram-positive/MRSA activity", "ABSSSI and selected CABP contexts", "Fluoroquinolone class cautions"],
+              ["Rifampin", "DNA-dependent RNA polymerase inhibition", "TB backbone; selected staphylococcal hardware biofilm regimens", "Never monotherapy for active infection; CYP induction, hepatotoxicity, orange secretions"],
+              ["Rifabutin", "RNA polymerase inhibition", "TB/NTM when drug interactions matter", "Uveitis, cytopenias, interactions"],
+              ["Rifapentine", "Long-acting rifamycin RNA polymerase inhibition", "Latent TB and selected TB regimens", "Same rifamycin interaction logic"],
+              ["Metronidazole", "Reduced in anaerobes/protozoa to DNA-damaging radicals", "Anaerobes and protozoa", "No aerobic coverage; neuropathy with prolonged use"],
+              ["Nitrofurantoin", "Reduced to reactive intermediates damaging DNA/ribosomal proteins", "Uncomplicated cystitis", "Not pyelonephritis, prostatitis, or bacteremia"],
+            ],
+          },
         ],
         question: {
           pollId: "train-abx-action-q7",
@@ -852,6 +987,18 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Pneumocystis therapy uses much higher dosing than routine cystitis regimens.",
           "Always interpret through syndrome, susceptibility, allergy history, renal function, and interacting medications.",
         ],
+        tables: [
+          {
+            title: "Folate pathway agents",
+            columns: ["Drug/class", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Sulfonamides", "Inhibit dihydropteroate synthase", "Part of TMP-SMX sequential blockade", "Rash, severe cutaneous reactions, cytopenias"],
+              ["Trimethoprim", "Inhibits bacterial dihydrofolate reductase", "UTI use in some settings; part of TMP-SMX", "Hyperkalemia, creatinine rise, cytopenias"],
+              ["TMP-SMX", "Sequential DHPS and DHFR inhibition", "UTI, MRSA SSTI, Pneumocystis, Nocardia, Stenotrophomonas", "Rash/SCAR, hyperkalemia, renal effects, cytopenias, drug interactions"],
+              ["Dapsone", "Folate pathway inhibition", "Pneumocystis prophylaxis alternative, leprosy regimens", "Hemolysis/methemoglobinemia; check G6PD"],
+            ],
+          },
+        ],
         question: {
           pollId: "train-abx-action-q8",
           prompt:
@@ -873,6 +1020,39 @@ export const CURRICULUM_MODULES: CurriculumModule[] = [
           "Polymyxins: gram-negative outer membrane activity; nephrotoxicity and neurotoxicity matter.",
           "Do not confuse membrane activity with universal activity; organism and site still decide usefulness.",
           "When polymyxins are being considered, reassess source control and newer beta-lactam options.",
+        ],
+        tables: [
+          {
+            title: "Membrane-active agents",
+            columns: ["Drug/class", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Daptomycin", "Calcium-dependent gram-positive membrane insertion and depolarization", "MRSA/VRE bacteremia and right-sided endocarditis contexts", "Not pneumonia; CPK/myopathy"],
+              ["Colistin", "Polymyxin binding to gram-negative LPS outer membrane", "Selected highly resistant gram-negative infections", "Nephrotoxicity, neurotoxicity, dosing complexity"],
+              ["Polymyxin B", "Polymyxin outer membrane disruption", "Selected resistant gram-negative infections", "Nephrotoxicity/neurotoxicity; avoid when safer active options exist"],
+            ],
+          },
+          {
+            title: "Core mycobacterial mechanism anchors",
+            columns: ["Drug", "Mechanism", "Clinical anchor", "Major toxicity/limitation"],
+            rows: [
+              ["Isoniazid", "Inhibits mycolic-acid synthesis after activation", "TB backbone", "Hepatotoxicity, neuropathy; pyridoxine when indicated"],
+              ["Ethambutol", "Inhibits arabinosyl transferase/cell-wall arabinogalactan synthesis", "TB companion drug while susceptibility pending", "Optic neuritis"],
+              ["Pyrazinamide", "Disrupts membrane energetics/trans-translation after activation", "TB sterilizing activity in acidic environments", "Hepatotoxicity, hyperuricemia"],
+              ["Bedaquiline", "Inhibits mycobacterial ATP synthase", "Drug-resistant TB regimens", "QT prolongation, interaction monitoring"],
+              ["Pretomanid/delamanid", "Nitroimidazoles impair mycolic-acid synthesis and release reactive nitrogen species", "Drug-resistant TB regimens", "QT and regimen-specific monitoring"],
+              ["Clofazimine", "Membrane and redox effects", "Leprosy and drug-resistant mycobacterial regimens", "Skin discoloration, GI effects, QT"],
+            ],
+          },
+          {
+            title: "Pharmacodynamic patterns by class",
+            columns: ["Pattern", "Classes", "Clinical implication", "Common trap"],
+            rows: [
+              ["Time-dependent", "Beta-lactams", "Optimize time above MIC; extended infusion may help selected severe gram-negative infections", "Thinking only peak concentration matters"],
+              ["Concentration-dependent", "Aminoglycosides, daptomycin", "Peak or exposure relative to MIC matters; toxicity monitoring matters", "Using low exposures in severe infection"],
+              ["AUC/MIC-linked", "Vancomycin, fluoroquinolones, tetracyclines, linezolid", "Total exposure over time matters", "Assuming susceptible means exposure is adequate at every site"],
+              ["Site-concentrated", "Nitrofurantoin, fosfomycin, oral vancomycin", "Excellent for the intended compartment", "Using compartment drugs for invasive infection"],
+            ],
+          },
         ],
         question: {
           pollId: "train-abx-action-q9",

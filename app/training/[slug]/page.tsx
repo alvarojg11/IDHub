@@ -13,6 +13,7 @@ import {
   getCurriculumModule,
   getCurriculumModuleNeighbors,
   type Reading,
+  type TeachingTable,
 } from "@/lib/curriculum/modules";
 
 const BASE_URL = "https://infectiousdiseasehub.com";
@@ -40,6 +41,59 @@ const kindLabel: Record<Reading["kind"], string> = {
   pdf: "PDFs",
   lecture: "Lectures",
 };
+
+function TeachingTableBlock({ table }: { table: TeachingTable }) {
+  return (
+    <figure className="my-5 overflow-hidden border border-[var(--border)] bg-white">
+      <figcaption className="border-b border-[var(--border)] bg-[var(--background-soft)] px-4 py-2.5 text-sm font-semibold text-[var(--foreground)]">
+        {table.title}
+      </figcaption>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-sm">
+          <thead>
+            <tr className="border-b border-[var(--border)]">
+              {table.columns.map((column) => (
+                <th
+                  key={column}
+                  scope="col"
+                  className="idhub-kicker px-3 py-2 text-left text-[0.62rem]"
+                >
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row, i) => (
+              <tr
+                key={i}
+                className="align-top border-b border-[var(--border)] last:border-b-0"
+              >
+                {row.map((cell, j) => (
+                  <td
+                    key={`${i}-${j}`}
+                    className={`px-3 py-3 leading-6 ${
+                      j === 0
+                        ? "font-medium text-[var(--foreground)]"
+                        : "text-[var(--ink-soft)]"
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {table.note ? (
+        <figcaption className="border-t border-[var(--border)] px-4 py-2 text-xs leading-5 text-[var(--muted)]">
+          {table.note}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
 
 export function generateStaticParams() {
   return CURRICULUM_MODULES.map((m) => ({ slug: m.slug }));
@@ -293,6 +347,13 @@ export default async function CurriculumModulePage({
                         </li>
                       ))}
                     </ul>
+                  ) : null}
+                  {section.tables?.length ? (
+                    <div className="mt-4 grid gap-4">
+                      {section.tables.map((table, j) => (
+                        <TeachingTableBlock key={j} table={table} />
+                      ))}
+                    </div>
                   ) : null}
                   {section.question ? (
                     <div className="mt-6">
