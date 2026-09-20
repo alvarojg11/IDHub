@@ -236,6 +236,8 @@ export default function CaseQuestion({
           const pct = percentFor(o.id);
           const count = poll[o.id] ?? 0;
           const isBestAnswer = !!selectedId && correctId === o.id;
+          const isSelectedCorrect = active && correctId === o.id;
+          const isSelectedIncorrect = active && !!correctId && correctId !== o.id;
 
           return (
             <button
@@ -244,19 +246,23 @@ export default function CaseQuestion({
               onClick={() => vote(o.id)}
               disabled={!!selectedId || submitting}
               className={`group w-full border-b border-[var(--border)] px-0 py-3.5 text-left transition ${
-                active
+                isSelectedCorrect || (!active && isBestAnswer)
                   ? "bg-[var(--primary-tint)]"
-                  : selectedId
-                    ? "bg-white"
-                    : "bg-white hover:bg-[var(--background-soft)]"
+                  : isSelectedIncorrect
+                    ? "bg-amber-50"
+                    : selectedId
+                      ? "bg-white"
+                      : "bg-white hover:bg-[var(--background-soft)]"
               }`}
             >
               <div className="flex items-start gap-3 px-3 sm:px-4">
                 <span
                   className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center border text-[0.8rem] font-semibold ${
-                    active || isBestAnswer
-                      ? "border-[var(--primary)] bg-white text-[var(--primary)]"
-                      : "border-[var(--border-strong)] text-[var(--foreground)] group-hover:border-[var(--primary)]"
+                    isSelectedIncorrect
+                      ? "border-amber-500 bg-white text-amber-800"
+                      : active || isBestAnswer
+                        ? "border-[var(--primary)] bg-white text-[var(--primary)]"
+                        : "border-[var(--border-strong)] text-[var(--foreground)] group-hover:border-[var(--primary)]"
                   }`}
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
@@ -286,8 +292,18 @@ export default function CaseQuestion({
                   )}
 
                   {selectedId && (active || isBestAnswer) ? (
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--primary)]">
-                      {active ? "Selected" : "Best answer"}
+                    <p
+                      className={`mt-2 text-xs font-semibold uppercase tracking-[0.12em] ${
+                        isSelectedIncorrect ? "text-amber-800" : "text-[var(--primary)]"
+                      }`}
+                    >
+                      {isSelectedCorrect
+                        ? "Selected · Correct"
+                        : isSelectedIncorrect
+                          ? "Selected · Incorrect"
+                          : active
+                            ? "Selected"
+                            : "Best answer"}
                     </p>
                   ) : null}
                 </div>
