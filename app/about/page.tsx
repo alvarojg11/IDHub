@@ -117,7 +117,7 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-start">
-        <div className="idhub-panel-strong rounded-[1.75rem] px-6 py-8 sm:px-8">
+        <div className="idhub-panel-strong px-6 py-8 sm:px-8">
           <p className="idhub-kicker">About IDHub</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             A shared home for Infectious Diseases learning
@@ -128,7 +128,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <aside className="idhub-panel rounded-[1.75rem] p-6">
+        <aside className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Guiding idea
           </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
       </header>
 
       <section className="mt-10 grid gap-5 lg:grid-cols-2">
-        <article className="idhub-panel rounded-[1.75rem] p-6 sm:p-7">
+        <article className="idhub-panel p-6 sm:p-7">
           <p className="idhub-kicker">Purpose</p>
           <p className="mt-4 text-sm leading-8 text-[var(--muted)] sm:text-base">
             The mission of IDHub is to provide educational tools that are accessible to everyone,
@@ -152,7 +152,7 @@ export default function AboutPage() {
           </p>
         </article>
 
-        <article className="idhub-panel rounded-[1.75rem] p-6 sm:p-7">
+        <article className="idhub-panel p-6 sm:p-7">
           <p className="idhub-kicker">Goal</p>
           <p className="mt-4 text-sm leading-8 text-[var(--muted)] sm:text-base">
             The broader aim is to support a more transparent approach to uncertainty. Clinical
@@ -172,9 +172,9 @@ export default function AboutPage() {
         </div>
 
         <div className="grid gap-6">
-          <article className="idhub-panel-strong rounded-[1.75rem] p-5 sm:p-6">
+          <article className="idhub-panel-strong p-5 sm:p-6">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-[240px_minmax(0,1fr)]">
-              <div className="relative min-h-[300px] overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-white">
+              <div className="relative min-h-[300px] overflow-hidden border border-[var(--border)] bg-white">
                 <Image
                   src="/images/alvaro.png"
                   alt="Alvaro Ayala, MD"
@@ -190,7 +190,7 @@ export default function AboutPage() {
                   <h3 className="text-3xl font-semibold text-[var(--foreground)]">
                     Alvaro Ayala, MD
                   </h3>
-                  <span className="rounded-full border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
+                  <span className="border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
                     Founder
                   </span>
                 </div>
@@ -218,9 +218,9 @@ export default function AboutPage() {
           </article>
 
           {collaborators.map((c) => (
-            <article key={c.name} className="idhub-panel rounded-[1.75rem] p-5 sm:p-6">
+            <article key={c.name} className="idhub-panel p-5 sm:p-6">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-[220px_minmax(0,1fr)]">
-                <div className="relative min-h-[280px] overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-white">
+                <div className="relative min-h-[280px] overflow-hidden border border-[var(--border)] bg-white">
                   <Image
                     src={c.imageSrc}
                     alt={c.imageAlt}
@@ -233,10 +233,10 @@ export default function AboutPage() {
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-2xl font-semibold text-[var(--foreground)]">{c.name}</h3>
-                    <span className="rounded-full border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
+                    <span className="border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
                       {c.role}
                     </span>
-                    <span className="rounded-full border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
+                    <span className="border border-[var(--border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
                       {c.contribution}
                     </span>
                   </div>
@@ -253,7 +253,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)]">
-        <article className="idhub-panel rounded-[1.75rem] p-6 sm:p-7">
+        <article className="idhub-panel p-6 sm:p-7">
           <p className="idhub-kicker">Why The Tools Exist</p>
           <div className="mt-4 space-y-4 text-sm leading-8 text-[var(--muted)] sm:text-base">
             <p>
@@ -283,7 +283,7 @@ export default function AboutPage() {
           </div>
         </article>
 
-        <aside className="idhub-panel rounded-[1.75rem] p-6">
+        <aside className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Research idea in mind?
           </p>
@@ -313,7 +313,7 @@ export default function AboutPage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group rounded-[1.75rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              className="group border border-[var(--border)] bg-white p-6 transition hover:border-[var(--border-strong)] hover:bg-[var(--background-soft)]"
             >
               <h3 className="text-3xl font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
                 {t.title}

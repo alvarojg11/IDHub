@@ -170,7 +170,7 @@ export function ProbidBuildPanel({
   const absentCount = activeSelected.filter((s) => s.state === "absent").length;
 
   return (
-    <section className="rounded-[1.4rem] border border-gray-200/90 bg-white/95 p-4 shadow-sm sm:p-6">
+    <section className="border border-gray-200/90 bg-white p-4 sm:p-6">
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Build the case</div>
@@ -275,7 +275,7 @@ export function ProbidBuildPanel({
       </div>
 
       {guidedSteps.length > 0 && (
-        <div className="mt-4 rounded-[1.2rem] border border-gray-200 bg-[linear-gradient(135deg,#fbfdff_0%,#f7f9fc_55%,#eef3f8_100%)] p-3">
+        <div className="mt-4 border border-gray-200 bg-white p-3">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Document in order</div>
@@ -328,7 +328,7 @@ export function ProbidBuildPanel({
 
             {activeStep ? (
               <div className="mt-3 lg:absolute lg:inset-x-3 lg:top-3 lg:mt-0 lg:z-20">
-                <div className="rounded-[1.45rem] border border-gray-900 bg-white shadow-2xl ring-1 ring-black/5">
+                <div className="border border-gray-900 bg-white ring-1 ring-black/5">
                   <div className="flex items-start justify-between gap-4 border-b border-gray-200 px-4 py-4 sm:px-5">
                     <div className="min-w-0">
                       <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400">

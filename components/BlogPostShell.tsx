@@ -42,24 +42,29 @@ export default function BlogPostShell({ title, description, slug, publishedAt, c
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       )}
-      <article className="mx-auto max-w-4xl">
-        <header className="idhub-reading-shell mb-8 rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)] sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]">
-            IDHub Blog
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">
+      <article className="mx-auto max-w-3xl">
+        <header className="border-b border-[var(--border-strong)] pb-7">
+          <p className="idhub-kicker">IDHub Blog</p>
+          <h1 className="mt-3 text-[clamp(2.15rem,1.55rem+2.4vw,3.7rem)] font-semibold leading-[1.05] text-[var(--foreground)]">
             {title}
           </h1>
+          {description ? (
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--ink-soft)]">
+              {description}
+            </p>
+          ) : null}
           {publishedLabel ? (
-            <p className="mt-3 text-sm text-[var(--muted)]">Published {publishedLabel}</p>
+            <p className="mt-5 text-xs uppercase tracking-[0.14em] text-[var(--muted-soft)]">
+              Published {publishedLabel} · Essay
+            </p>
           ) : null}
         </header>
 
-        <section className="idhub-blog-content rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,251,249,0.94))] p-5 shadow-[var(--shadow-soft)] sm:p-8">
+        <section className="idhub-blog-content mt-8">
           {children}
         </section>
 
-        <div className="mt-8">
+        <div className="mt-10 border-t border-[var(--border)] pt-8">
           <BlogComments />
         </div>
       </article>

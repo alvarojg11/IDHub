@@ -34,12 +34,12 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <article className="mx-auto max-w-5xl">
-        <header className="idhub-reading-shell rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)] sm:p-8">
+      <article className="mx-auto max-w-4xl">
+        <header className="border-b border-[var(--border-strong)] pb-7">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="idhub-kicker">HistorID</p>
-              <h1 className="mt-3 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">
+              <h1 className="mt-3 text-[clamp(2.15rem,1.55rem+2.4vw,3.7rem)] font-semibold leading-[1.05] text-[var(--foreground)]">
                 {fact.title}
               </h1>
             </div>
@@ -53,7 +53,7 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-[var(--muted)]">
-            <span className="rounded-full border border-[var(--border)] bg-white/85 px-3 py-1.5 font-medium text-[var(--foreground)]">
+            <span className="border border-[var(--border)] bg-white px-3 py-1.5 font-medium text-[var(--foreground)]">
               {fact.historicalDateLabel}
             </span>
             {publishedLabel ? <span>Published {publishedLabel}</span> : null}
@@ -63,20 +63,20 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
             {fact.categories.map((category) => (
               <span
                 key={category}
-                className="rounded-full bg-[var(--primary-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]"
+                className="border border-[var(--border)] bg-[var(--primary-tint)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--primary)]"
               >
                 {HISTORID_CATEGORY_LABELS[category]}
               </span>
             ))}
           </div>
 
-          <div className="mt-7 rounded-[1.5rem] border border-[var(--border)] bg-[var(--background-soft)] p-5 text-base leading-8 text-[var(--muted)]">
+          <div className="idhub-editorial-inset mt-7 px-5 py-4 text-base leading-8 text-[var(--muted)]">
             <p className="font-medium text-[var(--foreground)]">{fact.hook}</p>
             <p className="mt-3">{fact.takeaway}</p>
           </div>
         </header>
 
-        <figure className="mt-8 overflow-hidden rounded-[1.8rem] border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+        <figure className="mt-8 overflow-hidden border border-[var(--border)] bg-white">
           <div className="relative aspect-[16/9] w-full bg-[var(--background-soft)]">
             <Image
               src={fact.heroImage}
@@ -89,7 +89,7 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
           </div>
 
           {(fact.heroImageCredit || fact.heroImageLicense || fact.heroImageSourceUrl) ? (
-            <figcaption className="flex flex-wrap items-center gap-2 px-5 py-3 text-sm text-[var(--muted)]">
+            <figcaption className="flex flex-wrap items-center gap-2 border-t border-[var(--border)] px-5 py-3 text-sm text-[var(--muted)]">
               {fact.heroImageCredit ? <span>{fact.heroImageCredit}</span> : null}
               {fact.heroImageLicense ? <span>· {fact.heroImageLicense}</span> : null}
               {fact.heroImageSourceUrl ? (
@@ -101,7 +101,7 @@ export default function HistorIDShell({ fact, children }: HistorIDShellProps) {
           ) : null}
         </figure>
 
-        <section className="idhub-blog-content mt-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,251,249,0.94))] p-5 shadow-[var(--shadow-soft)] sm:p-8">
+        <section className="idhub-blog-content mt-8">
           {children}
         </section>
       </article>

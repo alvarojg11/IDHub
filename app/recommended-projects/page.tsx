@@ -41,7 +41,7 @@ export default function RecommendedProjectsPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
-        <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
+        <div className="idhub-panel-strong px-6 py-8 sm:px-8">
           <p className="idhub-kicker">Recommended Projects</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             Projects we think are worth following
@@ -59,7 +59,7 @@ export default function RecommendedProjectsPage() {
           </div>
         </div>
 
-        <aside className="idhub-panel rounded-[1.75rem] p-6">
+        <aside className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Why this page exists
           </p>
@@ -82,11 +82,11 @@ export default function RecommendedProjectsPage() {
           {projects.map((project) => (
             <article
               key={project.name}
-              className="rounded-[1.8rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)]"
+              className="border border-[var(--border)] bg-white p-6"
             >
               <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                  <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[var(--background-soft)] p-3">
+                  <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden border border-[var(--border)] bg-[var(--background-soft)] p-3">
                     <Image
                       src={project.logoSrc}
                       alt={project.logoAlt}
@@ -124,7 +124,7 @@ export default function RecommendedProjectsPage() {
               </p>
 
               {"podcastQuestion" in project ? (
-                <div className="mt-5 rounded-[1.35rem] border border-[var(--border)] bg-[var(--background-soft)] p-5">
+                <div className="idhub-editorial-inset mt-5 px-5 py-4">
                   <h4 className="text-xl font-semibold text-[var(--foreground)]">
                     {project.podcastQuestion}
                   </h4>
@@ -139,7 +139,7 @@ export default function RecommendedProjectsPage() {
       </section>
 
       <section className="mt-10">
-        <div className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
+        <div className="idhub-panel p-6 sm:p-7">
           <p className="idhub-kicker">Suggestions</p>
           <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
             Know a project to add?

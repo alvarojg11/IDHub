@@ -49,8 +49,11 @@ export default function CaseReveal({
   }
 
   return (
-    <div className="my-6 rounded-[1rem] border border-dashed border-[var(--border-strong)] bg-[var(--background-soft)] p-4 text-sm text-[var(--muted)]">
-      {lockedMessage}
+    <div className="my-6 border-l-2 border-[var(--primary)] bg-[var(--background-soft)] px-4 py-3.5">
+      <p className="idhub-kicker">Rationale locked</p>
+      <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+        {lockedMessage}
+      </p>
     </div>
   );
 }

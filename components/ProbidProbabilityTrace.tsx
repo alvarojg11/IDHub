@@ -71,7 +71,7 @@ export function ProbidProbabilityTrace({
   const observeP = observeThresholdP ?? treatThresholdP * 0.5;
   const polyline = points.map((point, index) => `${xForIndex(index)},${yForProbability(point.probability)}`).join(" ");
   return (
-    <section className="rounded-[1.4rem] border border-gray-200/90 bg-[linear-gradient(180deg,#fcfdff_0%,#f7fafc_100%)] p-4 shadow-sm sm:p-5">
+    <section className="border border-gray-200/90 bg-white p-4 sm:p-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="text-sm font-semibold text-gray-900">Live probability trace</div>
@@ -85,7 +85,7 @@ export function ProbidProbabilityTrace({
         </div>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-[1.2rem] border border-gray-200 bg-white">
+      <div className="mt-4 overflow-hidden border border-gray-200 bg-white">
         <svg
           viewBox={`0 0 ${width} ${height}`}
           width="100%"

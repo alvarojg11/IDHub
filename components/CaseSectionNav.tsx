@@ -216,13 +216,13 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
             <button
               type="button"
               onClick={() => setIsMobileOpen((open) => !open)}
-              className="ml-auto flex items-center justify-between gap-3 rounded-full border border-[var(--border)] bg-white/92 px-3.5 py-2 text-left shadow-[0_8px_22px_rgba(13,30,24,0.08)] backdrop-blur"
+              className="ml-auto flex items-center justify-between gap-3 border border-[var(--border-strong)] bg-white px-3.5 py-2 text-left"
               aria-expanded={isMobileOpen}
               aria-label="Open case section navigation"
             >
               <span
                 aria-hidden="true"
-                className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--primary-soft)] text-[var(--primary)]"
+                className="inline-flex h-7 w-7 items-center justify-center border border-[var(--border)] bg-[var(--background-soft)] text-[var(--primary)]"
               >
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="3" cy="4" r="1" fill="currentColor" />
@@ -242,15 +242,15 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
             </button>
 
             {isMobileOpen ? (
-              <div className="absolute bottom-full right-0 mb-2 w-full overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,245,0.97))] p-3 shadow-[var(--shadow-soft)] backdrop-blur">
-                <p className="px-1 pb-2 text-[11px] font-medium text-[var(--muted)]">
+              <div className="absolute bottom-full right-0 mb-2 w-full overflow-hidden border border-[var(--border-strong)] bg-white p-3">
+                <p className="idhub-kicker px-1 pb-2">
                   {sectionCount} jump points in this case
                 </p>
-                <div className="grid max-h-[60vh] gap-2 overflow-y-auto pr-1">
+                <div className="grid max-h-[60vh] overflow-y-auto border-t border-[var(--border)]">
                   <Link
                     href="/cases"
                     onClick={() => setIsMobileOpen(false)}
-                    className="rounded-2xl border border-[var(--border)] bg-white/85 px-4 py-3 text-sm font-semibold text-[var(--foreground)]"
+                    className="border-b border-[var(--border)] px-3 py-3 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--background-soft)]"
                   >
                     Back to all cases
                   </Link>
@@ -259,10 +259,10 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
                       key={section.id}
                       href={`#${section.id}`}
                       onClick={() => setIsMobileOpen(false)}
-                      className={`rounded-2xl border px-4 py-3 text-sm font-medium ${
+                      className={`border-b border-[var(--border)] px-3 py-3 text-sm font-medium ${
                         section.id === activeId
-                          ? "border-[var(--primary)] bg-[var(--primary-soft)] text-[var(--primary)]"
-                          : "border-[var(--border)] bg-white/85 text-[var(--muted)]"
+                          ? "bg-[var(--primary-tint)] text-[var(--primary)]"
+                          : "bg-white text-[var(--muted)] hover:bg-[var(--background-soft)] hover:text-[var(--foreground)]"
                       }`}
                     >
                       {section.label}
@@ -272,7 +272,7 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
                     <Link
                       href={`/cases/${nextCase.slug}`}
                       onClick={() => setIsMobileOpen(false)}
-                      className="rounded-2xl border border-[var(--primary)] bg-[var(--primary-soft)] px-4 py-3 text-sm font-semibold text-[var(--primary)]"
+                      className="border-b border-[var(--border)] bg-[var(--primary-tint)] px-3 py-3 text-sm font-semibold text-[var(--primary)] hover:bg-[var(--background-soft)]"
                     >
                       Next case: {nextCase.title}
                     </Link>
@@ -286,8 +286,8 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
 
       {showDesktop ? (
         <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-[1.5rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.95))] p-5 shadow-[var(--shadow-soft)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+          <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto border-y border-[var(--border-strong)] bg-white py-5">
+            <p className="idhub-kicker">
               Case navigation
             </p>
             <p className="mt-2 text-lg font-semibold text-[var(--foreground)]">Move through this case</p>
@@ -298,10 +298,10 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
               {sectionCount} sections available
             </p>
 
-            <div className="mt-5 grid gap-2">
+            <div className="mt-5 border-t border-[var(--border)]">
               <Link
                 href="/cases"
-                className="rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--foreground)] hover:border-[var(--border-strong)] hover:bg-white"
+                className="block border-b border-[var(--border)] px-3 py-3 text-sm font-semibold text-[var(--foreground)] hover:bg-[var(--background-soft)]"
               >
                 Back to all cases
               </Link>
@@ -309,10 +309,10 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className={`rounded-2xl border px-4 py-3 text-sm font-medium ${
+                  className={`block border-b border-[var(--border)] px-3 py-3 text-sm font-medium ${
                     section.id === activeId
-                      ? "border-[var(--primary)] bg-[var(--primary-soft)] text-[var(--primary)]"
-                      : "border-[var(--border)] bg-white/80 text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)]"
+                      ? "bg-[var(--primary-tint)] text-[var(--primary)]"
+                      : "bg-white text-[var(--muted)] hover:bg-[var(--background-soft)] hover:text-[var(--foreground)]"
                   }`}
                 >
                   {section.label}
@@ -326,7 +326,7 @@ export default function CaseSectionNav({ variant = "both" }: Props) {
                   </p>
                   <Link
                     href={`/cases/${nextCase.slug}`}
-                    className="block rounded-2xl border border-[var(--primary)] bg-[var(--primary-soft)] px-4 py-3 text-sm font-semibold text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
+                    className="block border border-[var(--primary)] bg-[var(--primary-tint)] px-3 py-3 text-sm font-semibold text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
                   >
                     Next case: {nextCase.title}
                   </Link>

@@ -53,7 +53,7 @@ export default function ProbIDPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="mb-6 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.94))] p-5 shadow-[var(--shadow-medium)] sm:p-6 lg:p-7">
+      <div className="mb-6 border-y border-[var(--border-strong)] bg-white py-6">
         <p className="idhub-kicker">Interactive Tool</p>
         <h1 className="mt-2 text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">ProbID</h1>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">

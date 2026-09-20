@@ -718,7 +718,7 @@ export function ProbIDTool({ modules, defaultModuleId }: Props) {
       {catalogOpen && (
         <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-black/30" onClick={() => setCatalogOpen(false)} />
-          <div className="relative z-10 flex h-[92dvh] max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[1.5rem] border bg-white shadow-lg sm:h-[min(720px,calc(100dvh-1rem))] sm:max-h-[calc(100dvh-1rem)] sm:w-[min(980px,calc(100vw-1rem))] sm:rounded-[1.5rem]">
+          <div className="relative z-10 flex h-[92dvh] max-h-[92dvh] w-full flex-col overflow-hidden border bg-white sm:h-[min(720px,calc(100dvh-1rem))] sm:max-h-[calc(100dvh-1rem)] sm:w-[min(980px,calc(100vw-1rem))]">
             <div className="flex items-start justify-between gap-4 border-b bg-white p-4">
               <div className="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-gray-200 sm:hidden" />
               <div className="min-w-0">

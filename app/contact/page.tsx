@@ -26,7 +26,7 @@ export default function ContactPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:items-start">
-        <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
+        <div className="idhub-panel-strong px-6 py-8 sm:px-8">
           <p className="idhub-kicker">Contact</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             Let&apos;s build something thoughtful
@@ -43,7 +43,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <aside className="idhub-panel rounded-[1.75rem] p-6">
+        <aside className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Good uses for this form
           </p>
@@ -56,7 +56,7 @@ export default function ContactPage() {
       </header>
 
       <section className="mt-10">
-        <div className="idhub-panel-strong rounded-[1.9rem] p-6 sm:p-7">
+        <div className="idhub-panel-strong p-6 sm:p-7">
           <p className="idhub-kicker">Reach Out</p>
           <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
             Send a message

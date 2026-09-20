@@ -48,14 +48,14 @@ function CaseLinkCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[1.6rem] border border-[var(--border)] bg-white p-5 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-medium)]"
+      className="group flex h-full flex-col border border-[var(--border)] bg-white p-5 transition hover:border-[var(--border-strong)] hover:bg-[var(--background-soft)]"
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+        <p className="idhub-kicker">
           {kicker}
         </p>
         {publishedLabel ? (
-          <p className="rounded-full bg-[var(--background-soft)] px-2.5 py-1 text-[11px] font-medium text-[var(--muted)]">
+          <p className="border border-[var(--border)] bg-white px-2.5 py-1 text-[11px] font-medium text-[var(--muted)]">
             {publishedLabel}
           </p>
         ) : null}
@@ -70,7 +70,7 @@ function CaseLinkCard({
           {syndromes.slice(0, 2).map((item) => (
             <span
               key={item}
-              className="rounded-full bg-[var(--primary-soft)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--primary)]"
+              className="border border-[var(--border)] bg-[var(--primary-tint)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--primary)]"
             >
               {item}
             </span>
@@ -105,7 +105,7 @@ export default function CaseNavAuto() {
 
   return (
     <section className="mt-24">
-      <div className="rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)] sm:p-7">
+      <div className="border-y border-[var(--border-strong)] bg-white py-7">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="idhub-kicker">Keep Exploring</p>
@@ -131,8 +131,8 @@ export default function CaseNavAuto() {
               syndromes={prev.tags?.syndromes}
             />
           ) : (
-            <div className="rounded-[1.6rem] border border-dashed border-[var(--border-strong)] bg-white/60 p-5 text-sm leading-7 text-[var(--muted)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            <div className="border border-[var(--border)] bg-[var(--background-soft)] p-5 text-sm leading-7 text-[var(--muted)]">
+              <p className="idhub-kicker">
                 Newer case
               </p>
               <p className="mt-3 font-semibold text-[var(--foreground)]">You are at the newest published case.</p>
@@ -140,8 +140,8 @@ export default function CaseNavAuto() {
             </div>
           )}
 
-          <div className="rounded-[1.6rem] border border-[var(--border)] bg-[var(--background-soft)] p-5 text-sm leading-7 text-[var(--muted)] shadow-[0_12px_28px_rgba(13,30,24,0.05)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+          <div className="border border-[var(--border)] bg-[var(--background-soft)] p-5 text-sm leading-7 text-[var(--muted)]">
+            <p className="idhub-kicker">
               Case index
             </p>
             <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">
@@ -166,8 +166,8 @@ export default function CaseNavAuto() {
               syndromes={next.tags?.syndromes}
             />
           ) : (
-            <div className="rounded-[1.6rem] border border-dashed border-[var(--border-strong)] bg-white/60 p-5 text-sm leading-7 text-[var(--muted)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
+            <div className="border border-[var(--border)] bg-[var(--background-soft)] p-5 text-sm leading-7 text-[var(--muted)]">
+              <p className="idhub-kicker">
                 Older case
               </p>
               <p className="mt-3 font-semibold text-[var(--foreground)]">You have reached the end of this sequence.</p>

@@ -108,11 +108,30 @@ body.idhub-assistant-route > main {
 .idhub-panel {
   border: 1px solid var(--border);
   background: var(--card);
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .idhub-panel-strong {
   border: 1px solid var(--border);
   background: var(--card);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.idhub-editorial-panel {
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--card);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.idhub-editorial-inset {
+  border-left: 2px solid var(--primary);
+  background: var(--background-soft);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .idhub-input,
@@ -186,33 +205,34 @@ body.idhub-assistant-route > main {
 .idhub-blog-content {
   line-height: 1.75;
   color: var(--ink-soft);
-  font-family: var(--font-sans);
-  font-size: 1.02rem;
+  font-family: var(--font-serif);
+  font-size: 1.07rem;
 }
 
 .idhub-blog-content > p,
 .idhub-blog-content > div > p {
   margin: 0 0 1.1rem;
-  font-size: 1.04rem;
+  font-size: 1.07rem;
   line-height: 1.78;
 }
 
 .idhub-blog-content > p:first-of-type,
 .idhub-blog-content > div > p:first-of-type {
   border-left: 3px solid var(--primary);
-  background: var(--primary-tint);
-  padding: 0.9rem 1.1rem;
+  background: transparent;
+  padding: 0.2rem 0 0.2rem 1rem;
   margin-bottom: 1.4rem;
   font-size: 1.12rem;
   line-height: 1.75;
   font-weight: 500;
   color: var(--foreground);
-  border-radius: 0 3px 3px 0;
 }
 
 .idhub-blog-content h2,
 .idhub-blog-content > div > h2 {
   margin: 2.6rem 0 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
   font-size: 1.5rem;
   line-height: 1.25;
   font-weight: 700;
@@ -313,10 +333,13 @@ body.idhub-assistant-route > main {
 }
 
 .idhub-blog-content .captioned-image-container figcaption {
-  margin-top: 0.7rem;
+  margin-top: 0;
+  border-top: 1px solid var(--border);
+  padding: 0.65rem 0.75rem;
   color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .idhub-reading-shell {

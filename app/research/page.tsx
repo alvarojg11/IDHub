@@ -41,7 +41,7 @@ export default function ResearchPage() {
   return (
     <section className="mx-auto max-w-6xl px-2 py-10 sm:px-4">
       <header className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-start">
-        <div className="idhub-panel-strong rounded-[2rem] px-6 py-8 sm:px-8">
+        <div className="idhub-panel-strong px-6 py-8 sm:px-8">
           <p className="idhub-kicker">Research</p>
           <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">
             Medical education ideas worth building
@@ -65,7 +65,7 @@ export default function ResearchPage() {
           </div>
         </div>
 
-        <aside className="idhub-panel rounded-[1.75rem] p-6">
+        <aside className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Current posture
           </p>
@@ -88,7 +88,7 @@ export default function ResearchPage() {
           {currentIdeas.map((idea) => (
             <article
               key={idea.title}
-              className="rounded-[1.6rem] border border-[var(--border)] bg-white p-6 shadow-[var(--shadow-soft)]"
+              className="border border-[var(--border)] bg-white p-6"
             >
               <h3 className="text-2xl font-semibold text-[var(--foreground)]">{idea.title}</h3>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{idea.desc}</p>
@@ -98,7 +98,7 @@ export default function ResearchPage() {
       </section>
 
       <section className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <article className="idhub-panel rounded-[1.8rem] p-6 sm:p-7">
+        <article className="idhub-panel p-6 sm:p-7">
           <p className="idhub-kicker">Project Support</p>
           <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
             Need help shaping a project?
@@ -110,7 +110,7 @@ export default function ResearchPage() {
           </p>
         </article>
 
-        <article className="idhub-panel-strong rounded-[1.8rem] p-6 sm:p-7">
+        <article className="idhub-panel-strong p-6 sm:p-7">
           <p className="idhub-kicker">Share An Idea</p>
           <h2 className="mt-3 text-3xl font-semibold text-[var(--foreground)]">
             Tell us what you want to study

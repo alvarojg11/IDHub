@@ -53,7 +53,7 @@ export default function ImmunoIDPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.85fr)]">
-        <div className="idhub-panel rounded-[1.8rem] p-6">
+        <div className="idhub-panel p-6">
           <p className="idhub-kicker">Tool Overview</p>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
             ImmunoID organizes immunosuppressive drugs around mechanisms and infection risk so the
@@ -61,7 +61,7 @@ export default function ImmunoIDPage() {
           </p>
         </div>
 
-        <div className="idhub-panel rounded-[1.8rem] p-6">
+        <div className="idhub-panel p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted-soft)]">
             Best for
           </p>

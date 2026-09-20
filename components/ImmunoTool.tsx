@@ -336,7 +336,7 @@ export default function ImmunoTool() {
 
   return (
     <div className="idhub-tool-shell mx-auto max-w-6xl">
-      <div className="mb-8 rounded-[1.9rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,245,0.95))] p-6 shadow-[var(--shadow-medium)]">
+      <div className="mb-8 border-y border-[var(--border-strong)] bg-white py-6">
         <p className="idhub-kicker">Interactive Tool</p>
         <h1 className="mt-3 text-5xl font-semibold text-[var(--foreground)] sm:text-6xl">ImmunoID</h1>
         <p className="mt-4 max-w-3xl text-[var(--muted)]">
@@ -560,7 +560,7 @@ export default function ImmunoTool() {
           />
 
           {/* Panel */}
-          <div className="relative z-10 w-[min(980px,calc(100vw-1rem))] max-h-[calc(100dvh-1rem)] overflow-hidden rounded-[1.25rem] border bg-white shadow-lg sm:rounded-[1.5rem]">
+          <div className="relative z-10 w-[min(980px,calc(100vw-1rem))] max-h-[calc(100dvh-1rem)] overflow-hidden border bg-white">
             <div className="flex items-start justify-between gap-4 border-b p-4">
               <div className="min-w-0">
                 <div className="text-lg font-semibold text-gray-900">Browse catalog</div>

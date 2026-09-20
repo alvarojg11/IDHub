@@ -105,7 +105,7 @@ export default function SpectrumTool() {
 
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-4">
-      <div className="mb-6 rounded-[2rem] border border-[var(--border)] bg-white/85 p-4 shadow-[var(--shadow-soft)] sm:p-5">
+      <div className="mb-6 border-y border-[var(--border-strong)] bg-white py-5">
         <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <input
             type="search"
@@ -161,7 +161,7 @@ export default function SpectrumTool() {
       </div>
 
       {filteredOrganisms.length === 0 ? (
-        <div className="rounded-[1.8rem] border border-[var(--border)] bg-white/80 p-8 text-center">
+        <div className="border border-[var(--border)] bg-white p-8 text-center">
           <p className="text-sm text-[var(--muted)]">No organisms match your search.</p>
         </div>
       ) : null}
@@ -191,7 +191,7 @@ function BugView({ organisms }: { organisms: OrganismSpectrum[] }) {
         const entries = sortCells(Object.entries(organism.antibiotics) as [AntibioticName, SpectrumCell][]);
 
         return (
-          <article key={organism.organism} className="rounded-[1.8rem] border border-[var(--border)] bg-white p-5 shadow-[var(--shadow-soft)]">
+          <article key={organism.organism} className="border border-[var(--border)] bg-white p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted-soft)]">{organism.category}</p>
@@ -235,7 +235,7 @@ function DrugView({
 }) {
   return (
     <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
-      <aside className="rounded-[1.8rem] border border-[var(--border)] bg-white p-4 shadow-[var(--shadow-soft)]">
+      <aside className="border border-[var(--border)] bg-white p-4">
         <label className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted-soft)]" htmlFor="drug-select">
           Antibiotic
         </label>
@@ -261,7 +261,7 @@ function DrugView({
         </div>
       </aside>
 
-      <div className="rounded-[1.8rem] border border-[var(--border)] bg-white p-4 shadow-[var(--shadow-soft)]">
+      <div className="border border-[var(--border)] bg-white p-4">
         <div className="grid gap-2">
           {rows.map(([organism, cell]) => (
             <div key={organism} className="grid gap-2 rounded-2xl border border-[var(--border)] px-3 py-2 text-sm sm:grid-cols-[220px_120px_minmax(0,1fr)] sm:items-center">
@@ -278,7 +278,7 @@ function DrugView({
 
 function MatrixView({ organisms }: { organisms: OrganismSpectrum[] }) {
   return (
-    <div className="overflow-x-auto rounded-[1.8rem] border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+    <div className="overflow-x-auto border border-[var(--border)] bg-white">
       <table className="w-full text-xs">
         <thead>
           <tr className="border-b border-[var(--border)] bg-[var(--background-soft)]">
